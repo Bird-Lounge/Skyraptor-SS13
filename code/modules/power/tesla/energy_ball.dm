@@ -1,5 +1,11 @@
-#define TESLA_DEFAULT_POWER 1738260
-#define TESLA_MINI_POWER 869130
+#define TESLA_ENGINE_DIVISOR 140 //used to bring tesla output in line with modern power.
+#define TESLA_DEFAULT_POWER 1738260 / TESLA_ENGINE_DIVISOR
+#define TESLA_MINI_POWER 869130 / TESLA_ENGINE_DIVISOR
+//Without the divisor, the baseline for a tesla engine hooked up to MetaStation's grid with no particle emitter use beyond startup, 10 T1 Tesla Coils, and 2 Grounding Rods, is about 140MW.
+//As such, with divisor 140, this brings power output inline with a standard unupgraded MetaStation SM running on a standard N2 mix with three T1 Emitters and the default 6 T1 Tesla Coils.
+//To surpass the Supermatter, you need T4 Coils, more of them, and a hacked PA (or other source of additional energy for the orb) - which should still cap around 2-3MW.
+//To surpass skilled atmos techs who know how to min-max the SM, the only way up is additional tesla balls - which bring with them risks to containment and attending engineering staff.
+
 //Zap constants, speeds up targeting
 #define BIKE (COIL + 1)
 #define COIL (ROD + 1)
@@ -351,11 +357,11 @@
 
 	if(prob(20))//I know I know
 		var/list/shocked_copy = shocked_targets.Copy()
-		tesla_zap(closest_atom, next_range, power * 0.5, zap_flags, shocked_copy)//Normally I'd copy here so grounding rods work properly, but it fucks with movement
-		tesla_zap(closest_atom, next_range, power * 0.5, zap_flags, shocked_targets)
+		tesla_zap(closest_atom, next_range, power * 0.5, zap_flags ^ ZAP_GENERATES_POWER, shocked_copy)//Normally I'd copy here so grounding rods work properly, but it fucks with movement
+		tesla_zap(closest_atom, next_range, power * 0.5, zap_flags ^ ZAP_GENERATES_POWER, shocked_targets)
 		shocked_targets += shocked_copy
 	else
-		tesla_zap(closest_atom, next_range, power, zap_flags, shocked_targets)
+		tesla_zap(closest_atom, next_range, power, zap_flags ^ ZAP_GENERATES_POWER, shocked_targets)
 
 #undef BIKE
 #undef COIL
