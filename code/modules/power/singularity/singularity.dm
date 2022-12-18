@@ -1,3 +1,17 @@
+#define RAD_DISTANCE_COEFFICIENT 1 //old balance code for determining the range of the scrungulo's radiation.
+#define RAD_ENERGY_MULTIPLIER 0.5 //used to determine the radiative power per pulse from the scrungulo.  a small value is necessary to keep it inline with modern power balance.
+#define RAD_ENERGY_EXPONENT 1.15 //used after multiplier to determine the final radiative power.
+#define RAD_ENERGY_BASELINE 50 //used to determine the baseline radiative power per pulse.  don't make this too big, otherwise a T1 scrungulo not even kept fed by PA could easily power an Icebox-tier station.
+
+//Radiative power formula: ((singulo_energy / RAD_ENERGY_MULTIPLIER) ^ RAD_ENERGY_EXPONENT) + RAD_ENERGY_BASELINE
+//for included settings, singulo tiers:
+//195, highest limit of T1 - 244 rad power, should translate to about 0.98MW on an array of 10 T4 rad collectors
+//495, highest limit of T2 - 616 rad power, should translate to about 2.46MW on an array of 10 T4 rad collectors
+//995, highest limit of T3 - 1313 rad power, should translate to about 5.25MW on an array of 10 T4 rad collectors
+//1995, highest limit of safe containment in T4 - 2810 rad power, should translate to about 11.24MW on an array of 10 T4 rad collectors
+//T1 rad collectors will be down about half the power output, meaning the array above is 0.49MW, 1.23MW, 2.63MW, and 5.62MW, respectively
+//this makes a high-grade singulo a risky, but rewarding proposition - power to compare to a juiced up Supermatter, but with a far greater risk should containment be breached
+
 /// The gravitational singularity
 /obj/singularity
 	name = "gravitational singularity"
@@ -152,6 +166,16 @@
 	if(time_since_act < 2)
 		return
 	time_since_act = 0
+	
+	//radiation_pulse(src, min(5000, (energy*4.5)+1000), RAD_DISTANCE_COEFFICIENT*0.5)
+	
+	radiation_pulse(
+		src,
+		max_range = 12,
+		threshold = ((energy * RAD_ENERGY_MULTIPLIER) + RAD_ENERGY_BASELINE) ** RAD_ENERGY_EXPONENT,
+		chance = 0.5 * 100,
+	)
+	
 	if(current_size >= STAGE_TWO)
 		if(prob(event_chance))
 			event()
@@ -454,3 +478,5 @@
 /obj/singularity/deadchat_controlled/Initialize(mapload, starting_energy)
 	. = ..()
 	deadchat_plays(mode = DEMOCRACY_MODE)
+
+#undef RAD_DISTANCE_COEFFICIENT

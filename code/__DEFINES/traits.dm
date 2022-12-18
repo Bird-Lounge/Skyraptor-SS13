@@ -946,6 +946,9 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Marks that this object is irradiated
 #define TRAIT_IRRADIATED "iraddiated"
 
+/// Used to indicate machines and other /mob/ or /obj/item objects that should still receive radiation procs.
+#define TRAIT_RADIATION_MACHINERY "rad_machinery"
+
 /// Harmful radiation effects, the toxin damage and the burns, will not occur while this trait is active
 #define TRAIT_HALT_RADIATION_EFFECTS "halt_radiation_effects"
 

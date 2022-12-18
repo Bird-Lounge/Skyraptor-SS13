@@ -1,0 +1,329 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/machinery/door/airlock/engineering/glass/critical{
+	heat_proof = 1;
+	name = "Tesla Chamber"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"b" = (
+/obj/machinery/power/emitter/welded{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/structure/fans/tiny/shield,
+/obj/structure/fans/tiny/shield,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"c" = (
+/turf/open/indestructible/dark,
+/area/misc/survivalpod/tesla_box)
+"d" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/airalarm/directional/east,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"e" = (
+/obj/machinery/power/smes/engineering,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"f" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"h" = (
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"i" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/directional/west,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"k" = (
+/obj/machinery/power/emitter/welded{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/structure/fans/tiny/shield,
+/obj/structure/fans/tiny/shield,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"l" = (
+/turf/closed/wall/r_wall,
+/area/misc/survivalpod/tesla_box)
+"n" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/light/directional/east,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"o" = (
+/obj/structure/fans/tiny/shield,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"p" = (
+/obj/machinery/door/airlock/engineering/glass/critical{
+	heat_proof = 1;
+	name = "Tesla Chamber"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"q" = (
+/obj/machinery/field/generator/anchored,
+/turf/open/indestructible/dark,
+/area/misc/survivalpod/tesla_box)
+"s" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"t" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"v" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"x" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"y" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/light_switch/directional/west,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"z" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"B" = (
+/obj/machinery/power/emitter/welded{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/structure/fans/tiny/shield,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"C" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"D" = (
+/obj/structure/cable,
+/turf/open/indestructible/dark,
+/area/misc/survivalpod/tesla_box)
+"E" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/directional/east,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"F" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/light/directional/west,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"G" = (
+/obj/structure/cable,
+/obj/machinery/power/energy_accumulator/tesla_coil,
+/turf/open/indestructible/dark,
+/area/misc/survivalpod/tesla_box)
+"I" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"L" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"M" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"O" = (
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"P" = (
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"Q" = (
+/obj/machinery/power/energy_accumulator/tesla_coil,
+/obj/structure/cable,
+/turf/open/indestructible/dark,
+/area/misc/survivalpod/tesla_box)
+"R" = (
+/obj/structure/cable,
+/obj/machinery/power/energy_accumulator/grounding_rod,
+/turf/open/indestructible/dark,
+/area/misc/survivalpod/tesla_box)
+"T" = (
+/obj/machinery/power/emitter/welded{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/structure/fans/tiny/shield,
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"V" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+"X" = (
+/turf/open/floor/plating,
+/area/misc/survivalpod/tesla_box)
+
+(1,1,1) = {"
+l
+l
+l
+l
+l
+p
+b
+l
+B
+l
+l
+"}
+(2,1,1) = {"
+l
+I
+s
+F
+y
+t
+M
+i
+M
+L
+l
+"}
+(3,1,1) = {"
+o
+O
+X
+X
+v
+G
+D
+R
+D
+Q
+l
+"}
+(4,1,1) = {"
+o
+e
+h
+X
+t
+G
+q
+c
+q
+Q
+o
+"}
+(5,1,1) = {"
+o
+h
+h
+h
+t
+G
+c
+c
+c
+Q
+o
+"}
+(6,1,1) = {"
+o
+e
+X
+X
+t
+G
+q
+c
+q
+Q
+o
+"}
+(7,1,1) = {"
+o
+P
+X
+X
+v
+G
+D
+R
+D
+Q
+l
+"}
+(8,1,1) = {"
+l
+x
+C
+E
+d
+z
+f
+n
+f
+V
+l
+"}
+(9,1,1) = {"
+l
+l
+l
+l
+l
+a
+k
+l
+T
+l
+l
+"}
