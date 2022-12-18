@@ -14,7 +14,7 @@
 
 
 // stored_energy += (pulse_strength-RAD_COLLECTOR_EFFICIENCY)*RAD_COLLECTOR_COEFFICIENT
-#define RAD_COLLECTOR_EFFICIENCY 80 	// radiation needs to be over this amount to get power
+#define RAD_COLLECTOR_EFFICIENCY 45 	// equivalent pulse strength needs to be a pinch below the baseline level for a T1 singulo to work right.
 #define RAD_COLLECTOR_COEFFICIENT 100
 #define RAD_COLLECTOR_STORED_OUT 0.04	// (this*100)% of stored power outputted per tick. Doesn't actualy change output total, lower numbers just means collectors output for longer in absence of a source
 
@@ -88,6 +88,12 @@
 		var/power_produced = get_power_output()
 		add_avail(power_produced)
 		stored_energy-=power_produced
+		
+		//if this gets irradiated, we consume the radiation as if it were a very light burst from a uranium wall et/al so normal operation continues
+		if(HAS_TRAIT(src, TRAIT_IRRADIATED))
+			qdel(src.GetComponent(/datum/component/irradiated))
+			stored_energy += (THRESHOLD_TO_RAD(RAD_LIGHT_INSULATION)-(RAD_COLLECTOR_EFFICIENCY/input_collector_multiplier))*RAD_COLLECTOR_COEFFICIENT*input_power_multiplier
+			flick("ca_irrzapped", src)
 
 //some of this code is based on tesla coils/similar energy condensers
 /obj/machinery/power/rad_collector/proc/get_power_output()
@@ -219,9 +225,15 @@
 /obj/machinery/power/rad_collector/proc/on_pre_potential_irradiation(datum/source, datum/radiation_pulse_information/pulse_information, insulation_to_target)
 	SIGNAL_HANDLER
 	
-	if(loaded_tank && active && pulse_information.threshold > (RAD_COLLECTOR_EFFICIENCY/input_collector_multiplier))
+	if(loaded_tank && active && THRESHOLD_TO_RAD(pulse_information.threshold) > (RAD_COLLECTOR_EFFICIENCY/input_collector_multiplier))
 		flick("ca_zapped", src)
-		stored_energy += (pulse_information.threshold-(RAD_COLLECTOR_EFFICIENCY/input_collector_multiplier))*RAD_COLLECTOR_COEFFICIENT*input_power_multiplier
+		stored_energy += (THRESHOLD_TO_RAD(pulse_information.threshold)-(RAD_COLLECTOR_EFFICIENCY/input_collector_multiplier))*RAD_COLLECTOR_COEFFICIENT*input_power_multiplier
+		//if this gets irradiated, we consume the radiation as if it were a very light burst from a uranium wall et/al so normal operation continues
+		//extra copy here because spess inconsistency
+		if(HAS_TRAIT(src, TRAIT_IRRADIATED))
+			qdel(src.GetComponent(/datum/component/irradiated))
+			stored_energy += (THRESHOLD_TO_RAD(RAD_LIGHT_INSULATION)-(RAD_COLLECTOR_EFFICIENCY/input_collector_multiplier))*RAD_COLLECTOR_COEFFICIENT*input_power_multiplier
+			flick("ca_irrzapped", src)
 
 /obj/machinery/power/rad_collector/update_overlays()
 	. = ..()

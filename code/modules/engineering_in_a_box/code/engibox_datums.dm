@@ -1,7 +1,7 @@
 /area/misc/survivalpod/atmosia_box
 	name = "\improper Atmosia in a Box"
 	icon_state = "away"
-	static_lighting = FALSE
+	static_lighting = TRUE
 	requires_power = FALSE
 	has_gravity = STANDARD_GRAVITY
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA | CULT_PERMITTED
@@ -10,7 +10,7 @@
 /area/misc/survivalpod/supermatter_box
 	name = "\improper Supermatter in a Box"
 	icon_state = "away"
-	static_lighting = FALSE
+	static_lighting = TRUE
 	requires_power = FALSE
 	has_gravity = STANDARD_GRAVITY
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA | CULT_PERMITTED
@@ -19,7 +19,7 @@
 /area/misc/survivalpod/tesla_box
 	name = "\improper Tesla in a Box"
 	icon_state = "away"
-	static_lighting = FALSE
+	static_lighting = TRUE
 	requires_power = TRUE
 	has_gravity = STANDARD_GRAVITY
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA | CULT_PERMITTED
@@ -28,7 +28,7 @@
 /area/misc/survivalpod/singulo_box
 	name = "\improper Singulo in a Box"
 	icon_state = "away"
-	static_lighting = FALSE
+	static_lighting = TRUE
 	requires_power = FALSE
 	has_gravity = STANDARD_GRAVITY
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA | CULT_PERMITTED
