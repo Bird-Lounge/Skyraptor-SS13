@@ -1,15 +1,15 @@
 @use '../colors.scss';
 
 $department_map: (
-  'Cargo': colors.$brown,
-  'Command': colors.$yellow,
-  'Security': colors.$red,
-  'Engineering': colors.$orange,
-  'Medical': colors.$teal,
+  'Cargo': colors.$deptspt,
+  'Command': colors.$deptcmd,
+  'Security': colors.$deptcmd,
+  'Engineering': colors.$deptspt,
+  'Medical': colors.$deptspc,
   'Misc': colors.$white,
-  'Science': colors.$purple,
-  'Service': colors.$green,
-  'Silicon': colors.$pink,
+  'Science': colors.$deptspc,
+  'Service': colors.$deptspt,
+  'Silicon': colors.$deptspc,
 );
 
 .CrewManifest {

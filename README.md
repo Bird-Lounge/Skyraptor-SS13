@@ -1,4 +1,4 @@
-## /tg/station codebase
+## NKStation006
 
 [![Build Status](https://github.com/tgstation/tgstation/workflows/CI%20Suite/badge.svg)](https://github.com/tgstation/tgstation/actions?query=workflow%3A%22CI+Suite%22)
 [![Percentage of issues still open](https://isitmaintained.com/badge/open/tgstation/tgstation.svg)](https://isitmaintained.com/project/tgstation/tgstation "Percentage of issues still open")
@@ -14,7 +14,10 @@
 * **/tg/station Discord:** https://tgstation13.org/phpBB/viewforum.php?f=60
 * **Coderbus Discord:** https://discord.gg/Vh8TJp9
 
-This is the codebase for the /tg/station flavoured fork of SpaceStation 13.
+This is the codebase for a customised fork based on /tg/station, itself a variant of SpaceStation 13.  It may (one day) contain content some users could find objectionable.
+NKStation #006 is a work-in-progress, furry-friendly variant of TG targeting low-to-mid population crews in a MRP environment with plenty of interesting mechanics to sink your time into learning.  With a focus on streamlined, but functional customisation options and plenty of character potential, make yourself an interesting critter and get to work surviving in the deep space of ~~Naakatrasen~~ NT's frontiers, be that on planetary factories, orbital stations, or exploratory craft venturing into new systems.*
+
+* Eventually.
 
 Space Station 13 is a paranoia-laden round-based roleplaying game set against the backdrop of a nonsensical, metal death trap masquerading as a space station, with charming spritework designed to represent the sci-fi setting and its dangerous undertones. Have fun, and survive!
 
@@ -44,6 +47,11 @@ On **2021-01-04** we have changed the way to compile the codebase.
 
 [Interested in some starting lore?](https://github.com/tgstation/common_core)
 
+## With Thanks To
+[Skyrat Station](https://github.com/Skyrat-SS13/Skyrat-tg)
+  - Some sprite reworks, a lot of inspiration, where I initially learned spess
+  - Specifics to follow when specifics exist.
+
 ## LICENSE
 
 All code after [commit 333c566b88108de218d882840e61928a9b759d8f on 2014/31/12 at 4:38 PM PST](https://github.com/tgstation/tgstation/commit/333c566b88108de218d882840e61928a9b759d8f) is licensed under [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html).
@@ -58,3 +66,4 @@ The TGS DMAPI API is licensed as a subproject under the MIT license.
 See the footer of [code/__DEFINES/tgs.dm](./code/__DEFINES/tgs.dm) and [code/modules/tgs/LICENSE](./code/modules/tgs/LICENSE) for the MIT license.
 
 All assets including icons and sound are under a [Creative Commons 3.0 BY-SA license](https://creativecommons.org/licenses/by-sa/3.0/) unless otherwise indicated.
+

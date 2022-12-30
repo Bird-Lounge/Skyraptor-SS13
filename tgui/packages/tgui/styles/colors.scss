@@ -10,25 +10,29 @@
 // Base colors
 $black: #000000 !default;
 $white: #ffffff !default;
-$red: #db2828 !default;
-$orange: #f2711c !default;
-$yellow: #fbd608 !default;
-$olive: #b5cc18 !default;
-$green: #20b142 !default;
-$teal: #00b5ad !default;
-$blue: #2185d0 !default;
-$violet: #6435c9 !default;
-$purple: #a333c8 !default;
-$pink: #e03997 !default;
-$brown: #a5673f !default;
-$grey: #767676 !default;
-$light-grey: #aaa !default;
+$red: #ff0000 !default;
+$orange: #ff7f00 !default;
+$yellow: #ffff00 !default;
+$olive: #7fff00 !default;
+$green: #00ff00 !default;
+$teal: #00ff7f !default;
+$blue: #0000ff !default;
+$violet: #7f00ff !default;
+$purple: #ff00ff !default;
+$pink: #ff3f7f !default;
+$brown: #af7f3f !default;
+$grey: #7f7f7f !default;
+$light-grey: #afafaf !default;
 
-$primary: #4972a1 !default;
-$good: #5baa27 !default;
-$average: #f08f11 !default;
-$bad: #db2828 !default;
-$label: #7e90a7 !default;
+$primary: #9fcf3f !default;
+$good: #aaff00 !default;
+$average: #ff6600 !default;
+$bad: #6600ff !default;
+$label: #9faf7f !default;
+
+$deptcmd: #6600ff !default;
+$deptspt: #ff6600 !default;
+$deptspc: #aaff00 !default;
 
 // Background and foreground color lightness ratios
 $bg-lightness: -15% !default;
@@ -64,6 +68,9 @@ $_gen_map: (
   'average': $average,
   'bad': $bad,
   'label': $label,
+  'deptcmd': $deptcmd,
+  'deptspt': $deptspt,
+  'deptspc': $deptspc,
 );
 
 // Foreground color names for which to generate a color map

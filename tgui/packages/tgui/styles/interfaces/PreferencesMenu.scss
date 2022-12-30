@@ -5,15 +5,15 @@
 
 $department_map: (
   'Assistant': colors.$grey,
-  'Captain': colors.fg(colors.$blue),
-  'Cargo': colors.$brown,
-  'Command': colors.$yellow,
-  'Security': colors.$red,
-  'Engineering': #f1a839,
-  'Medical': colors.$teal,
-  'Science': colors.fg(colors.$purple),
-  'Service': colors.$green,
-  'Silicon': colors.$pink,
+  'Captain': colors.$deptcmd,
+  'Cargo': colors.$deptspt,
+  'Command': colors.$deptcmd,
+  'Security': colors.$deptcmd,
+  'Engineering': colors.$deptspt,
+  'Medical': colors.$deptspc,
+  'Science': colors.$deptspc,
+  'Service': colors.$deptspt,
+  'Silicon': colors.$deptspc,
 );
 
 .PreferencesMenu {
