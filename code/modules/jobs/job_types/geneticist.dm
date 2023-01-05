@@ -42,7 +42,7 @@
 	suit = /obj/item/clothing/suit/toggle/labcoat/genetics
 	suit_store = /obj/item/flashlight/pen
 	belt = /obj/item/modular_computer/pda/geneticist
-	ears = /obj/item/radio/headset/headset_sci
+	ears = /obj/item/radio/headset/nk006/headset_med/alt
 	shoes = /obj/item/clothing/shoes/sneakers/white
 	l_pocket = /obj/item/sequence_scanner
 

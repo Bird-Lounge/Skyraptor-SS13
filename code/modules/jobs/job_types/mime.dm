@@ -58,7 +58,7 @@
 		/obj/item/stamp/mime = 1,
 		)
 	belt = /obj/item/modular_computer/pda/mime
-	ears = /obj/item/radio/headset/headset_srv
+	ears = /obj/item/radio/headset/nk006/headset_service
 	gloves = /obj/item/clothing/gloves/color/white
 	head = /obj/item/clothing/head/frenchberet
 	mask = /obj/item/clothing/mask/gas/mime

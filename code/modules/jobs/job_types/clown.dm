@@ -60,7 +60,7 @@
 		/obj/item/instrument/bikehorn = 1,
 		)
 	belt = /obj/item/modular_computer/pda/clown
-	ears = /obj/item/radio/headset/headset_srv
+	ears = /obj/item/radio/headset/nk006/headset_service
 	shoes = /obj/item/clothing/shoes/clown_shoes
 	mask = /obj/item/clothing/mask/gas/clown_hat
 	l_pocket = /obj/item/bikehorn

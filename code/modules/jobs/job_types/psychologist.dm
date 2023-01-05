@@ -50,7 +50,7 @@
 		/obj/item/storage/pill_bottle/psicodine,
 		)
 	belt = /obj/item/modular_computer/pda/medical
-	ears = /obj/item/radio/headset/headset_srvmed
+	ears = /obj/item/radio/headset/nk006/headset_psych
 	shoes = /obj/item/clothing/shoes/laceup
 	l_hand = /obj/item/clipboard
 	neck = /obj/item/clothing/neck/tie/black/tied

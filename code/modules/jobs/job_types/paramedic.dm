@@ -52,7 +52,7 @@
 		/obj/item/roller = 1,
 		)
 	belt = /obj/item/storage/belt/medical/paramedic
-	ears = /obj/item/radio/headset/headset_med
+	ears = /obj/item/radio/headset/nk006/headset_med/alt
 	head = /obj/item/clothing/head/soft/paramedic
 	gloves = /obj/item/clothing/gloves/color/latex/nitrile
 	shoes = /obj/item/clothing/shoes/sneakers/blue

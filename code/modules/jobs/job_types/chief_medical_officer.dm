@@ -63,7 +63,7 @@
 		/obj/item/melee/baton/telescopic = 1,
 		)
 	belt = /obj/item/modular_computer/pda/heads/cmo
-	ears = /obj/item/radio/headset/heads/cmo
+	ears = /obj/item/radio/headset/nk006/headset_cmo/alt
 	head = /obj/item/clothing/head/utility/surgerycap/cmo
 	shoes = /obj/item/clothing/shoes/sneakers/blue
 	l_pocket = /obj/item/laser_pointer/blue

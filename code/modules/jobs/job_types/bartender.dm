@@ -55,7 +55,7 @@
 		/obj/item/storage/box/beanbag = 1,
 		)
 	belt = /obj/item/modular_computer/pda/bar
-	ears = /obj/item/radio/headset/headset_srv
+	ears = /obj/item/radio/headset/nk006/headset_service
 	glasses = /obj/item/clothing/glasses/sunglasses/reagent
 	shoes = /obj/item/clothing/shoes/laceup
 

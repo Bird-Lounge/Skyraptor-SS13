@@ -66,7 +66,7 @@
 		/obj/item/station_charter = 1,
 		)
 	belt = /obj/item/modular_computer/pda/heads/captain
-	ears = /obj/item/radio/headset/heads/captain/alt
+	ears = /obj/item/radio/headset/nk006/headset_cap/alt
 	glasses = /obj/item/clothing/glasses/sunglasses
 	gloves = /obj/item/clothing/gloves/color/captain
 	head = /obj/item/clothing/head/hats/caphat

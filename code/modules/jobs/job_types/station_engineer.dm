@@ -46,7 +46,7 @@
 	id_trim = /datum/id_trim/job/station_engineer
 	uniform = /obj/item/clothing/under/rank/engineering/engineer
 	belt = /obj/item/storage/belt/utility/full/engi
-	ears = /obj/item/radio/headset/headset_eng
+	ears = /obj/item/radio/headset/nk006/headset_engineer
 	head = /obj/item/clothing/head/utility/hardhat
 	shoes = /obj/item/clothing/shoes/workboots
 	l_pocket = /obj/item/modular_computer/pda/engineering

@@ -60,7 +60,7 @@
 		/obj/item/storage/box/ids = 1,
 		)
 	belt = /obj/item/modular_computer/pda/heads/hop
-	ears = /obj/item/radio/headset/heads/hop
+	ears = /obj/item/radio/headset/nk006/headset_hop/alt
 	head = /obj/item/clothing/head/hats/hopcap
 	shoes = /obj/item/clothing/shoes/laceup
 	suit = /obj/item/clothing/suit/armor/vest/hop

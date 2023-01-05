@@ -57,7 +57,7 @@
 		/obj/item/evidencebag = 1,
 		)
 	belt = /obj/item/modular_computer/pda/heads/hos
-	ears = /obj/item/radio/headset/heads/hos/alt
+	ears = /obj/item/radio/headset/nk006/headset_hos/alt
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	gloves = /obj/item/clothing/gloves/color/black
 	head = /obj/item/clothing/head/hos/beret

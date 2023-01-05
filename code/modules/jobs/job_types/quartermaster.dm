@@ -47,7 +47,7 @@
 	id = /obj/item/card/id/advanced/silver
 	uniform = /obj/item/clothing/under/rank/cargo/qm
 	belt = /obj/item/modular_computer/pda/heads/quartermaster
-	ears = /obj/item/radio/headset/heads/qm
+	ears = /obj/item/radio/headset/nk006/headset_qm/alt
 	glasses = /obj/item/clothing/glasses/sunglasses
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 	l_hand = /obj/item/clipboard

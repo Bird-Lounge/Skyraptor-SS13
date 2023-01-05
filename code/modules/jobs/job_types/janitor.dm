@@ -41,7 +41,7 @@
 	id_trim = /datum/id_trim/job/janitor
 	uniform = /obj/item/clothing/under/rank/civilian/janitor
 	belt = /obj/item/modular_computer/pda/janitor
-	ears = /obj/item/radio/headset/headset_srv
+	ears = /obj/item/radio/headset/nk006/headset_service
 
 /datum/outfit/job/janitor/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()

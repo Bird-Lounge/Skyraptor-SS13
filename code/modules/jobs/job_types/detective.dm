@@ -59,7 +59,7 @@
 		/obj/item/storage/box/evidence = 1,
 		)
 	belt = /obj/item/modular_computer/pda/detective
-	ears = /obj/item/radio/headset/headset_sec/alt
+	ears = /obj/item/radio/headset/nk006/headset_sec/alt
 	gloves = /obj/item/clothing/gloves/color/black
 	head = /obj/item/clothing/head/fedora/det_hat
 	mask = /obj/item/clothing/mask/cigarette

@@ -124,7 +124,7 @@
 		/obj/item/stamp/chap = 1,
 		)
 	belt = /obj/item/modular_computer/pda/chaplain
-	ears = /obj/item/radio/headset/headset_srv
+	ears = /obj/item/radio/headset/nk006/headset_service
 
 	backpack = /obj/item/storage/backpack/cultpack
 	satchel = /obj/item/storage/backpack/cultpack

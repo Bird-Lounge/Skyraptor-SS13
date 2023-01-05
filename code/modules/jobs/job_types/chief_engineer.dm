@@ -64,7 +64,7 @@
 		/obj/item/melee/baton/telescopic = 1,
 		)
 	belt = /obj/item/storage/belt/utility/chief/full
-	ears = /obj/item/radio/headset/heads/ce
+	ears = /obj/item/radio/headset/nk006/headset_ce/alt
 	gloves = /obj/item/clothing/gloves/color/black
 	head = /obj/item/clothing/head/utility/hardhat/white
 	shoes = /obj/item/clothing/shoes/sneakers/brown

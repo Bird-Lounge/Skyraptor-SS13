@@ -116,12 +116,12 @@
 #define FREQ_NK6_COMMAND 1401 //command department.  violet
 #define FREQ_NK6_CMDSEC 1403 //command subdept, sec.  blue
 #define FREQ_NK6_SUPPORT 1405 //support department.  orange
-#define FREQ_NK6_SUPENG 1407 //support subdept, eng.  yellow
+#define FREQ_NK6_SUPENG 1407 //support subdept, eng.  white
 #define FREQ_NK6_SPECIALIST 1409 //specialist department.  chartreuse
 #define FREQ_NK6_SPCMED 1411 //specialist subdept, med.  red
 #define FREQ_NK6_ALLCRG 1413 //multidept subdept, cargo.  brown
 #define FREQ_NK6_ALLSRV 1415 //multidept subdept, service.  green
-#define FREQ_NK6_ALLHEADS 1425 //heads-of-staff
+#define FREQ_NK6_ALLHEADS 1425 //heads-of-staff.  gold
 
 #define FREQ_HOLOGRID_SOLUTION 1433
 #define FREQ_STATUS_DISPLAYS 1435

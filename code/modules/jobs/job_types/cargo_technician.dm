@@ -46,7 +46,7 @@
 	id_trim = /datum/id_trim/job/cargo_technician
 	uniform = /obj/item/clothing/under/rank/cargo/tech
 	belt = /obj/item/modular_computer/pda/cargo
-	ears = /obj/item/radio/headset/headset_cargo
+	ears = /obj/item/radio/headset/nk006/headset_cargo
 	l_hand = /obj/item/universal_scanner
 
 /datum/outfit/job/cargo_tech/mod
