@@ -2,36 +2,75 @@
 
 //say based modes like binary are in living/say.dm
 
+//NK006 channels
+#define RADIO_CHANNEL_NK6_COMMAND "Command"
+#define RADIO_KEY_NK6_COMMAND "c"
+#define RADIO_TOKEN_NK6_COMMAND ":c"
+
+#define RADIO_CHANNEL_NK6_SUPPORT "Support"
+#define RADIO_KEY_NK6_SUPPORT "u"
+#define RADIO_TOKEN_NK6_SUPPORT ":u"
+
+#define RADIO_CHANNEL_NK6_SPECIALIST "Specialist"
+#define RADIO_KEY_NK6_SPECIALIST "s"
+#define RADIO_TOKEN_NK6_SPECIALIST ":s"
+
+#define RADIO_CHANNEL_NK6_CMDSEC "Security"
+#define RADIO_KEY_NK6_CMDSEC "y"
+#define RADIO_TOKEN_NK6_CMDSEC ":y"
+
+#define RADIO_CHANNEL_NK6_SUPENG "Engineering"
+#define RADIO_KEY_NK6_SUPENG "e"
+#define RADIO_TOKEN_NK6_SUPENG ":e"
+
+#define RADIO_CHANNEL_NK6_SPCMED "Medical"
+#define RADIO_KEY_NK6_SPCMED "m"
+#define RADIO_TOKEN_NK6_SPCMED ":m"
+
+#define RADIO_CHANNEL_NK6_ALLCRG "Cargo"
+#define RADIO_KEY_NK6_ALLCRG "r"
+#define RADIO_TOKEN_NK6_ALLCRG ":r"
+
+#define RADIO_CHANNEL_NK6_ALLSRV "Service"
+#define RADIO_KEY_NK6_ALLSRV "v"
+#define RADIO_TOKEN_NK6_ALLSRV ":v"
+
+#define RADIO_CHANNEL_NK6_ALLHEADS "Heads Private"
+#define RADIO_KEY_NK6_ALLHEADS "h"
+#define RADIO_TOKEN_NK6_ALLHEADS ":h"
+
+//original TG channels
+
 #define RADIO_CHANNEL_COMMON "Common"
 #define RADIO_KEY_COMMON ";"
 
-#define RADIO_CHANNEL_SECURITY "Security"
-#define RADIO_KEY_SECURITY "s"
-#define RADIO_TOKEN_SECURITY ":s"
+#define RADIO_CHANNEL_SECURITY "TG Security"
+#define RADIO_KEY_SECURITY "t"
+#define RADIO_TOKEN_SECURITY ":t"
 
-#define RADIO_CHANNEL_ENGINEERING "Engineering"
-#define RADIO_KEY_ENGINEERING "e"
-#define RADIO_TOKEN_ENGINEERING ":e"
+#define RADIO_CHANNEL_ENGINEERING "TG Engineering"
+#define RADIO_KEY_ENGINEERING "g"
+#define RADIO_TOKEN_ENGINEERING ":g"
 
-#define RADIO_CHANNEL_COMMAND "Command"
-#define RADIO_KEY_COMMAND "c"
-#define RADIO_TOKEN_COMMAND ":c"
+#define RADIO_CHANNEL_COMMAND "TG Command"
+#define RADIO_KEY_COMMAND "d"
+#define RADIO_TOKEN_COMMAND ":d"
 
-#define RADIO_CHANNEL_SCIENCE "Science"
+#define RADIO_CHANNEL_SCIENCE "TG Science"
 #define RADIO_KEY_SCIENCE "n"
 #define RADIO_TOKEN_SCIENCE ":n"
 
-#define RADIO_CHANNEL_MEDICAL "Medical"
-#define RADIO_KEY_MEDICAL "m"
-#define RADIO_TOKEN_MEDICAL ":m"
+#define RADIO_CHANNEL_MEDICAL "TG Medical"
+#define RADIO_KEY_MEDICAL "a"
+#define RADIO_TOKEN_MEDICAL ":a"
 
-#define RADIO_CHANNEL_SUPPLY "Supply"
-#define RADIO_KEY_SUPPLY "u"
-#define RADIO_TOKEN_SUPPLY ":u"
+#define RADIO_CHANNEL_SUPPLY "TG Supply"
+#define RADIO_KEY_SUPPLY "l"
+#define RADIO_TOKEN_SUPPLY ":l"
 
-#define RADIO_CHANNEL_SERVICE "Service"
-#define RADIO_KEY_SERVICE "v"
-#define RADIO_TOKEN_SERVICE ":v"
+#define RADIO_CHANNEL_SERVICE "TG Service"
+#define RADIO_KEY_SERVICE "i"
+#define RADIO_TOKEN_SERVICE ":i"
 
 #define RADIO_CHANNEL_AI_PRIVATE "AI Private"
 #define RADIO_KEY_AI_PRIVATE "o"
@@ -72,7 +111,17 @@
 #define FREQ_COMMAND 1353  // Command comms frequency, gold
 #define FREQ_MEDICAL 1355  // Medical comms frequency, soft blue
 #define FREQ_ENGINEERING 1357  // Engineering comms frequency, orange
-#define FREQ_SECURITY 1359  // Security comms frequency, red
+#define FREQ_SECURITY 1359  // Security comms frequency, 
+
+#define FREQ_NK6_COMMAND 1401 //command department.  violet
+#define FREQ_NK6_CMDSEC 1403 //command subdept, sec.  blue
+#define FREQ_NK6_SUPPORT 1405 //support department.  orange
+#define FREQ_NK6_SUPENG 1407 //support subdept, eng.  yellow
+#define FREQ_NK6_SPECIALIST 1409 //specialist department.  chartreuse
+#define FREQ_NK6_SPCMED 1411 //specialist subdept, med.  red
+#define FREQ_NK6_ALLCRG 1413 //multidept subdept, cargo.  brown
+#define FREQ_NK6_ALLSRV 1415 //multidept subdept, service.  green
+#define FREQ_NK6_ALLHEADS 1425 //heads-of-staff
 
 #define FREQ_HOLOGRID_SOLUTION 1433
 #define FREQ_STATUS_DISPLAYS 1435

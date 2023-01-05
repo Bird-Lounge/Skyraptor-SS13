@@ -4912,6 +4912,8 @@
 #include "interface\skin.dmf"
 #include "modular_nk006\modules\aesthetics\abductor\abductor.dm"
 #include "modular_nk006\modules\aesthetics\airalarm\code\airalarm.dm"
+#include "modular_nk006\modules\aesthetics\airlock\code\airlock.dm"
+#include "modular_nk006\modules\aesthetics\airlock\code\nulock.dm"
 #include "modular_nk006\modules\aesthetics\airlock_machines\airlock_machines.dm"
 #include "modular_nk006\modules\aesthetics\apc\code\apc.dm"
 #include "modular_nk006\modules\aesthetics\blast_door\code\blast_door.dm"
@@ -4968,4 +4970,8 @@
 #include "modular_nk006\modules\aesthetics\walls\code\walls.dm"
 #include "modular_nk006\modules\aesthetics\washing_machine\code\washing_machine.dm"
 #include "modular_nk006\modules\aesthetics\windows\code\windows.dm"
+#include "modular_nk006\modules\threeprongs\code\threeprongs_access.dm"
+#include "modular_nk006\modules\threeprongs\code\threeprongs_areas.dm"
+#include "modular_nk006\modules\threeprongs\code\threeprongs_decals.dm"
+#include "modular_nk006\modules\threeprongs\code\threeprongs_pipecolors.dm"
 // END_INCLUDE

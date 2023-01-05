@@ -1,0 +1,198 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/item/radio/intercom/directional/west,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/arrival)
+"g" = (
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/arrival)
+"i" = (
+/obj/effect/spawner/random/entertainment/arcade,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/arrival)
+"j" = (
+/obj/structure/marker_beacon/olive,
+/turf/open/floor/plating/airless,
+/area/shuttle/arrival)
+"l" = (
+/turf/template_noop,
+/area/template_noop)
+"m" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/arrival)
+"r" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/open/floor/plating/airless,
+/area/shuttle/arrival)
+"t" = (
+/obj/docking_port/mobile/arrivals,
+/obj/structure/marker_beacon/yellow,
+/turf/open/floor/plating/airless,
+/area/shuttle/arrival)
+"x" = (
+/obj/structure/table,
+/obj/item/storage/medkit/regular,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/arrival)
+"y" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst/right{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/open/floor/plating/airless,
+/area/shuttle/arrival)
+"C" = (
+/obj/machinery/requests_console/directional/west{
+	department = "Arrival shuttle"
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/arrival)
+"D" = (
+/obj/structure/marker_beacon/burgundy,
+/turf/open/floor/plating/airless,
+/area/shuttle/arrival)
+"G" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst/left{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/open/floor/plating/airless,
+/area/shuttle/arrival)
+"I" = (
+/obj/machinery/door/airlock/titanium{
+	name = "Arrivals Shuttle Airlock"
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/arrival)
+"N" = (
+/obj/machinery/door/airlock/titanium{
+	name = "Arrivals Shuttle Airlock"
+	},
+/turf/open/floor/plating,
+/area/shuttle/arrival)
+"O" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/closet/wardrobe/mixed,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/arrival)
+"P" = (
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/turf/open/floor/plating/airless,
+/area/shuttle/arrival)
+"Q" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/closet/emcloset,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/arrival)
+"U" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/arrival)
+"X" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/arrival)
+"Y" = (
+/turf/open/floor/mineral/titanium,
+/area/shuttle/arrival)
+"Z" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/obj/machinery/light/directional/north,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/arrival)
+
+(1,1,1) = {"
+l
+P
+P
+P
+l
+"}
+(2,1,1) = {"
+P
+i
+U
+x
+P
+"}
+(3,1,1) = {"
+g
+g
+I
+g
+g
+"}
+(4,1,1) = {"
+N
+C
+Y
+a
+N
+"}
+(5,1,1) = {"
+g
+Z
+Y
+m
+g
+"}
+(6,1,1) = {"
+N
+Y
+Y
+Y
+N
+"}
+(7,1,1) = {"
+g
+Q
+X
+O
+g
+"}
+(8,1,1) = {"
+r
+l
+l
+l
+r
+"}
+(9,1,1) = {"
+y
+D
+t
+j
+G
+"}

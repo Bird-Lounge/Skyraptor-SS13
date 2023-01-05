@@ -56,6 +56,8 @@
 	..()
 	update_icon()
 
+//006 TODO: Engineering override doesn't exist on TGcode, we need to readd alert levels
+
 /obj/machinery/door/airlock/update_overlays()
 	. = ..()
 	var/pre_light_range = 0
@@ -76,10 +78,10 @@
 				light_state = AIRLOCK_LIGHT_EMERGENCY
 				lights_overlay = "lights_emergency"
 				pre_light_color = light_color_emergency
-			else if(engineering_override)
+			/*else if(engineering_override)
 				light_state = AIRLOCK_LIGHT_ENGINEERING
 				lights_overlay = "lights_engineering"
-				pre_light_color = light_color_engineering
+				pre_light_color = light_color_engineering*/
 			else
 				lights_overlay = "lights_poweron"
 				pre_light_color = light_color_poweron
@@ -127,8 +129,8 @@
 		pre_light_power = door_light_power
 		if(has_environment_lights)
 			set_light(pre_light_range, pre_light_power, pre_light_color, TRUE)
-			if(multi_tile)
-				filler.set_light(pre_light_range, pre_light_power, pre_light_color)
+			/*if(multi_tile)
+				filler.set_light(pre_light_range, pre_light_power, pre_light_color)*/
 	else
 		lights_overlay = ""
 
@@ -137,8 +139,8 @@
 	if(greyscale_lights_color && !light_state)
 		lights_appearance.color = greyscale_lights_color
 
-	if(multi_tile)
-		lights_appearance.dir = dir
+	/*if(multi_tile)
+		lights_appearance.dir = dir*/
 
 	. += lights_appearance
 
@@ -378,10 +380,11 @@
 	overlays_file = 'modular_nk006/modules/aesthetics/airlock/icons/airlocks/highsec/overlays.dmi'
 
 //GLASS
-/obj/machinery/door/airlock/glass_large
+//Multitile doors don't exist on TGcode here, we'll have to readd them
+/*/obj/machinery/door/airlock/glass_large
 	icon = 'modular_nk006/modules/aesthetics/airlock/icons/airlocks/multi_tile/multi_tile.dmi'
 	overlays_file = 'modular_nk006/modules/aesthetics/airlock/icons/airlocks/multi_tile/overlays.dmi'
-	multi_tile = TRUE
+	multi_tile = TRUE*/
 
 //ASSEMBLYS
 /obj/structure/door_assembly/door_assembly_public
