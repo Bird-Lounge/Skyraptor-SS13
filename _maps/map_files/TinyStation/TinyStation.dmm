@@ -300,7 +300,6 @@
 	})
 "dW" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /obj/effect/turf_decal/trimline/nk006/sub_red/filled/warning{
 	dir = 10
 	},
