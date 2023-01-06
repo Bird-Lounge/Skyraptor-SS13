@@ -35,7 +35,7 @@
 #define RADIO_KEY_NK6_ALLSRV "v"
 #define RADIO_TOKEN_NK6_ALLSRV ":v"
 
-#define RADIO_CHANNEL_NK6_ALLHEADS "Heads Private"
+#define RADIO_CHANNEL_NK6_ALLHEADS "Heads"
 #define RADIO_KEY_NK6_ALLHEADS "h"
 #define RADIO_TOKEN_NK6_ALLHEADS ":h"
 
@@ -81,9 +81,9 @@
 #define RADIO_KEY_SYNDICATE "t"
 #define RADIO_TOKEN_SYNDICATE ":t"
 
-#define RADIO_CHANNEL_CENTCOM "CentCom"
-#define RADIO_KEY_CENTCOM "y"
-#define RADIO_TOKEN_CENTCOM ":y"
+#define RADIO_CHANNEL_CENTCOM "CentCom"  //Centcom gets .o on our server because sec gets .y.  Fucking.  i spent 3 hours debugging why sec comms were broken and CC being .y was why all along
+#define RADIO_KEY_CENTCOM "o"
+#define RADIO_TOKEN_CENTCOM ":o"
 
 #define RADIO_CHANNEL_UPLINK "Uplink"
 #define RADIO_KEY_UPLINK "z"
@@ -113,6 +113,7 @@
 #define FREQ_ENGINEERING 1357  // Engineering comms frequency, orange
 #define FREQ_SECURITY 1359  // Security comms frequency, 
 
+#define FREQ_NK6_ALLHEADS 1399 //heads-of-staff.  gold
 #define FREQ_NK6_COMMAND 1401 //command department.  violet
 #define FREQ_NK6_CMDSEC 1403 //command subdept, sec.  blue
 #define FREQ_NK6_SUPPORT 1405 //support department.  orange
@@ -121,7 +122,6 @@
 #define FREQ_NK6_SPCMED 1411 //specialist subdept, med.  red
 #define FREQ_NK6_ALLCRG 1413 //multidept subdept, cargo.  brown
 #define FREQ_NK6_ALLSRV 1415 //multidept subdept, service.  green
-#define FREQ_NK6_ALLHEADS 1425 //heads-of-staff.  gold
 
 #define FREQ_HOLOGRID_SOLUTION 1433
 #define FREQ_STATUS_DISPLAYS 1435

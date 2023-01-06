@@ -323,8 +323,46 @@ em {
 /* IF YOU CHANGE THIS KEEP IT IN SYNC WITH TGUI CONSTANTS */
 
 .radio {
-  color: #1ecc43;
+  color: #afafaf;
 }
+
+/* NK006 RADIO COLORS */
+.nk6_commandradio {
+  color: #6600ff;
+}
+
+.nk6_cmdsecradio {
+  color: #007fff;
+}
+
+.nk6_supportradio {
+  color: #ff6600;
+}
+
+.nk6_supengradio {
+  color: #ffffff;
+}
+
+.nk6_specialistradio {
+  color: #aaff00;
+}
+
+.nk6_spcmedradio {
+  color: #ff0000;
+}
+
+.nk6_allcrgradio {
+  color: #af7f3f;
+}
+
+.nk6_allsrvradio {
+  color: #00ff00;
+}
+
+.nk6_allheadsradio {
+  color: #ffff00;
+}
+/* END NK006 */
 
 .sciradio {
   color: #c68cfa;

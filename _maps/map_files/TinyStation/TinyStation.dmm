@@ -101,7 +101,7 @@
 /turf/open/floor/engine,
 /area/station/nk006/support/atm/engine)
 "be" = (
-/obj/machinery/telecomms/hub/preset,
+/obj/machinery/telecomms/hub/nk006/preset,
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/station/nk006/support/eng/engine/teg)
 "bg" = (
@@ -228,6 +228,7 @@
 /area/station/nk006/support/atm/engine)
 "db" = (
 /obj/structure/cable,
+/obj/machinery/power/solar,
 /turf/open/floor/iron/solarpanel/airless,
 /area/station/solars/starboard/fore)
 "dc" = (
@@ -274,7 +275,7 @@
 /turf/closed/wall/r_wall,
 /area/station/nk006/support)
 "dB" = (
-/obj/machinery/telecomms/receiver/preset_right,
+/obj/machinery/telecomms/receiver/nk006/preset_right,
 /turf/open/floor/circuit/green/telecomms/mainframe,
 /area/station/nk006/support/eng/engine/teg)
 "dM" = (
@@ -422,7 +423,7 @@
 /turf/open/floor/iron/dark,
 /area/station/nk006/support/atm/mix)
 "fA" = (
-/obj/machinery/telecomms/bus/preset_four,
+/obj/machinery/telecomms/bus/nk006/preset_four,
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/station/nk006/support/eng/engine/teg)
 "fF" = (
@@ -548,7 +549,7 @@
 /turf/open/floor/iron/dark,
 /area/station/nk006/support/srv)
 "gw" = (
-/obj/machinery/telecomms/bus/preset_one,
+/obj/machinery/telecomms/bus/nk006/preset_one,
 /turf/open/floor/circuit/green/telecomms/mainframe,
 /area/station/nk006/support/eng/engine/teg)
 "gB" = (
@@ -953,7 +954,7 @@
 /turf/open/floor/iron/dark,
 /area/station/nk006/support/crg)
 "jH" = (
-/obj/machinery/telecomms/server/presets/science,
+/obj/machinery/telecomms/server/presets/nk006/universal,
 /turf/open/floor/iron/dark/airless,
 /area/station/nk006/support/eng/engine/teg)
 "jJ" = (
@@ -1056,7 +1057,7 @@
 /turf/open/floor/engine,
 /area/station/nk006/support/eng/engine/sm)
 "ku" = (
-/obj/machinery/telecomms/server/presets/security,
+/obj/machinery/telecomms/server/presets/nk006/specialist,
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/station/nk006/support/eng/engine/teg)
 "ky" = (
@@ -1472,6 +1473,7 @@
 /obj/machinery/door/airlock/nk006/support/eng{
 	name = "TComms Access"
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/nk006/support/eng/engine/teg)
 "on" = (
@@ -1626,7 +1628,7 @@
 /turf/open/floor/iron/dark,
 /area/station/nk006/support/eng)
 "pm" = (
-/obj/machinery/telecomms/receiver/preset_left,
+/obj/machinery/telecomms/receiver/nk006/preset_left,
 /turf/open/floor/circuit/green/telecomms/mainframe,
 /area/station/nk006/support/eng/engine/teg)
 "pn" = (
@@ -2423,6 +2425,7 @@
 	})
 "vn" = (
 /obj/machinery/power/tracker,
+/obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/station/solars/starboard/aft)
 "vr" = (
@@ -2563,6 +2566,7 @@
 /area/station/nk006/general/halls/central)
 "xe" = (
 /obj/structure/cable,
+/obj/machinery/power/solar,
 /turf/open/floor/iron/solarpanel/airless,
 /area/station/solars/starboard/aft)
 "xf" = (
@@ -2753,10 +2757,9 @@
 /turf/open/floor/iron/dark,
 /area/station/nk006/support/crg)
 "yr" = (
-/obj/machinery/telecomms/server/presets/medical,
 /obj/machinery/power/apc/sm_apc/directional/west,
 /obj/structure/cable,
-/turf/open/floor/circuit/telecomms/mainframe,
+/turf/open/floor/iron/dark/airless,
 /area/station/nk006/support/eng/engine/teg)
 "yx" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -2969,7 +2972,7 @@
 /turf/open/floor/engine,
 /area/station/nk006/support/eng/engine/sm)
 "AG" = (
-/obj/machinery/telecomms/server/presets/command,
+/obj/machinery/telecomms/server/presets/nk006/command,
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/station/nk006/support/eng/engine/teg)
 "AH" = (
@@ -3206,6 +3209,7 @@
 /area/station/nk006/support/atm/mix)
 "CR" = (
 /obj/machinery/power/tracker,
+/obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/station/solars/starboard/fore)
 "CS" = (
@@ -3227,7 +3231,7 @@
 /turf/open/floor/plating,
 /area/station/nk006/maints/sup)
 "CZ" = (
-/obj/machinery/telecomms/server/presets/engineering,
+/obj/machinery/telecomms/server/presets/nk006/common,
 /turf/open/floor/iron/dark/airless,
 /area/station/nk006/support/eng/engine/teg)
 "Da" = (
@@ -3424,7 +3428,7 @@
 /turf/open/floor/iron/dark,
 /area/station/nk006/support/atm/mix)
 "EX" = (
-/obj/machinery/telecomms/bus/preset_two,
+/obj/machinery/telecomms/bus/nk006/preset_two,
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/station/nk006/support/eng/engine/teg)
 "EZ" = (
@@ -4583,11 +4587,6 @@
 /obj/effect/spawner/random/entertainment/deck,
 /turf/open/floor/iron/white,
 /area/station/nk006/support/srv/kitchen)
-"PA" = (
-/obj/structure/cable,
-/obj/machinery/telecomms/server/presets/supply,
-/turf/open/floor/iron/dark/airless,
-/area/station/nk006/support/eng/engine/teg)
 "PB" = (
 /obj/effect/turf_decal/trimline/nk006/dep_specialist/filled/line{
 	dir = 8
@@ -4603,7 +4602,7 @@
 	},
 /area/station/ai_monitored/command/nuke_storage)
 "PF" = (
-/obj/machinery/telecomms/bus/preset_three,
+/obj/machinery/telecomms/bus/nk006/preset_three,
 /turf/open/floor/circuit/green/telecomms/mainframe,
 /area/station/nk006/support/eng/engine/teg)
 "PK" = (
@@ -4852,7 +4851,7 @@
 /turf/open/floor/iron/dark,
 /area/station/nk006/support/srv/janitorial)
 "Sh" = (
-/obj/machinery/telecomms/server/presets/common,
+/obj/machinery/telecomms/server/presets/nk006/support,
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/station/nk006/support/eng/engine/teg)
 "Si" = (
@@ -5171,10 +5170,6 @@
 /area/station/nk006/support/fab{
 	name = "Support Storage"
 	})
-"Vq" = (
-/obj/machinery/telecomms/server/presets/service,
-/turf/open/floor/circuit/telecomms/mainframe,
-/area/station/nk006/support/eng/engine/teg)
 "Vv" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -46159,7 +46154,7 @@ vk
 Ru
 CZ
 jH
-PA
+UT
 Sh
 oZ
 QL
@@ -46672,7 +46667,7 @@ PF
 dB
 fA
 Rt
-Vq
+tN
 UT
 KL
 oZ

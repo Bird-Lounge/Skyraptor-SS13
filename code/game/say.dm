@@ -18,7 +18,16 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	"[FREQ_CTF_RED]" = "redteamradio",
 	"[FREQ_CTF_BLUE]" = "blueteamradio",
 	"[FREQ_CTF_GREEN]" = "greenteamradio",
-	"[FREQ_CTF_YELLOW]" = "yellowteamradio"
+	"[FREQ_CTF_YELLOW]" = "yellowteamradio", //nk006 edit begin
+	"[FREQ_NK6_COMMAND]" = "nk6_commandradio",
+	"[FREQ_NK6_CMDSEC]" = "nk6_cmdsecradio",
+	"[FREQ_NK6_SUPPORT]" = "nk6_supportradio",
+	"[FREQ_NK6_SUPENG]" = "nk6_supengradio",
+	"[FREQ_NK6_SPECIALIST]" = "nk6_specialistradio",
+	"[FREQ_NK6_SPCMED]" = "nk6_spcmedradio",
+	"[FREQ_NK6_ALLCRG]" = "nk6_allcrgradio",
+	"[FREQ_NK6_ALLSRV]" = "nk6_allsrvradio",
+	"[FREQ_NK6_ALLHEADS]" = "nk6_allheadsradio"
 	))
 
 /atom/movable/proc/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null, filterproof = FALSE, message_range = 7, datum/saymode/saymode = null)

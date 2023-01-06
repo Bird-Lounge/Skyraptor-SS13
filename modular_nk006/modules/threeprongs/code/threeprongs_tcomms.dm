@@ -5,8 +5,8 @@
 
 /obj/machinery/telecomms/server/presets/nk006/support
 	id = "Support Server"
-	freq_listening = list(FREQ_NK6_SUPPORT, FREQ_NK6_SPTENG)
-	autolinkers = list("nk6_support", "nk6_spteng")
+	freq_listening = list(FREQ_NK6_SUPPORT, FREQ_NK6_SUPENG)
+	autolinkers = list("nk6_support", "nk6_supeng")
 
 /obj/machinery/telecomms/server/presets/nk006/specialist
 	id = "Specialist Server"
@@ -40,7 +40,7 @@
 	id = "Receiver B"
 	network = "tcommsat"
 	autolinkers = list("receiverB") // link to relay
-	freq_listening = list(FREQ_NK6_ALLHEADS, FREQ_NK6_CMDSEC, FREQ_NK6_SPTENG, FREQ_NK6_SPCMED, FREQ_NK6_ALLCRG)
+	freq_listening = list(FREQ_NK6_ALLHEADS, FREQ_NK6_CMDSEC, FREQ_NK6_SUPENG, FREQ_NK6_SPCMED, FREQ_NK6_ALLCRG)
 
 
 // == busses
@@ -55,8 +55,8 @@
 /obj/machinery/telecomms/bus/nk006/preset_two
 	id = "Bus 2"
 	network = "tcommsat"
-	freq_listening = list(FREQ_NK6_SUPPORT, FREQ_NK6_SPTENG)
-	autolinkers = list("processor2", "nk6_support", "nk6_spteng")
+	freq_listening = list(FREQ_NK6_SUPPORT, FREQ_NK6_SUPENG)
+	autolinkers = list("processor2", "nk6_support", "nk6_supeng")
 
 /obj/machinery/telecomms/bus/nk006/preset_three
 	id = "Bus 3"
@@ -74,3 +74,14 @@
 	. = ..()
 	for(var/i = MIN_FREQ, i <= MAX_FREQ, i += 2)
 		freq_listening |= i
+
+// == hub
+//Preset HUB
+
+/obj/machinery/telecomms/hub/nk006/preset
+	id = "Hub"
+	network = "tcommsat"
+	autolinkers = list("hub", "relay", "s_relay", "m_relay", "r_relay", "h_relay", "common", "nk6_allheads",
+	"nk6_command", "nk6_cmdsec", "nk6_support", "nk6_supeng", "nk6_specialist", "nk6_spcmed", "nk6_allcrg", "nk6_allsrv",
+	"receiverA", "receiverB", "broadcasterA", "broadcasterB", "autorelay", "messaging")
+

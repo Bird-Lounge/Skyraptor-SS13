@@ -1,4 +1,10 @@
 // == Encryption keys
+/obj/item/encryptionkey/nk006
+	name = "nk006-series encryption key"
+	icon_state = "cypherkey_cube"
+	channels = list(RADIO_CHANNEL_NK6_ALLHEADS = 1)
+	greyscale_config = /datum/greyscale_config/encryptionkey_cube
+	greyscale_colors = "#ffff00#afafaf"
 
 /obj/item/encryptionkey/nk006/headset_heads
 	name = "staff-head radio encryption key"
@@ -17,7 +23,7 @@
 /obj/item/encryptionkey/nk006/headset_captain
 	name = "captain radio encryption key"
 	icon_state = "cypherkey_cube"
-	channels = list(RADIO_CHANNEL_NK6_ALLHEADS = 1, RADIO_CHANNEL_NK6_COMMAND = 1, RADIO_CHANNEL_NK6_CMDSEC = 1, RADIO_CHANNEL_NK6_SUPPORT = 1, RADIO_CHANNEL_NK6_SPTENG = 1, RADIO_CHANNEL_NK6_SPECIALIST = 1, RADIO_CHANNEL_NK6_SPCMED = 1, RADIO_CHANNEL_NK6_ALLCRG = 1, RADIO_CHANNEL_NK6_ALLSRV = 1)
+	channels = list(RADIO_CHANNEL_NK6_ALLHEADS = 1, RADIO_CHANNEL_NK6_COMMAND = 1, RADIO_CHANNEL_NK6_CMDSEC = 1, RADIO_CHANNEL_NK6_SUPPORT = 1, RADIO_CHANNEL_NK6_SUPENG = 1, RADIO_CHANNEL_NK6_SPECIALIST = 1, RADIO_CHANNEL_NK6_SPCMED = 1, RADIO_CHANNEL_NK6_ALLCRG = 1, RADIO_CHANNEL_NK6_ALLSRV = 1)
 	greyscale_config = /datum/greyscale_config/encryptionkey_cube
 	greyscale_colors = "#6600ff#ffff00"
 
@@ -38,14 +44,14 @@
 /obj/item/encryptionkey/nk006/headset_min
 	name = "mining radio encryption key"
 	icon_state = "cypherkey_security"
-	channels = list(RADIO_CHANNEL_NK6_COMMAND = 1, RADIO_CHANNEL_NK6_ALLCRG)
+	channels = list(RADIO_CHANNEL_NK6_COMMAND = 1, RADIO_CHANNEL_NK6_ALLCRG = 1, RADIO_CHANNEL_NK6_SPCMED = 0)
 	greyscale_config = /datum/greyscale_config/encryptionkey_security
 	greyscale_colors = "#6600ff#af7f3f"
 
 /obj/item/encryptionkey/nk006/headset_dip
 	name = "diplomatic radio encryption key"
 	icon_state = "cypherkey_security"
-	channels = list(RADIO_CHANNEL_NK6_COMMAND = 1, RADIO_CHANNEL_NK6_ALLSRV)
+	channels = list(RADIO_CHANNEL_NK6_COMMAND = 1, RADIO_CHANNEL_NK6_ALLSRV = 1, RADIO_CHANNEL_NK6_SPECIALIST = 0)
 	greyscale_config = /datum/greyscale_config/encryptionkey_security
 	greyscale_colors = "#6600ff#00ff00"
 
@@ -56,17 +62,17 @@
 	greyscale_config = /datum/greyscale_config/encryptionkey_cube
 	greyscale_colors = "#ff6600#afafaf"
 
-/obj/item/encryptionkey/nk006/headset_spteng
+/obj/item/encryptionkey/nk006/headset_supeng
 	name = "engineering radio encryption key"
 	icon_state = "cypherkey_engineering"
-	channels = list(RADIO_CHANNEL_NK6_SUPPORT = 1, RADIO_CHANNEL_NK6_SPTENG = 1, RADIO_CHANNEL_NK6_SPCMED = 0)
+	channels = list(RADIO_CHANNEL_NK6_SUPPORT = 1, RADIO_CHANNEL_NK6_SUPENG = 1, RADIO_CHANNEL_NK6_SPCMED = 0)
 	greyscale_config = /datum/greyscale_config/encryptionkey_engineering
 	greyscale_colors = "#ff6600#ff0000"
 
 /obj/item/encryptionkey/nk006/headset_ce
 	name = "ce radio encryption key"
 	icon_state = "cypherkey_engineering"
-	channels = list(RADIO_CHANNEL_NK6_ALLHEADS = 1, RADIO_CHANNEL_NK6_SUPPORT = 1, RADIO_CHANNEL_NK6_SPTENG = 1, RADIO_CHANNEL_NK6_SPCMED = 0)
+	channels = list(RADIO_CHANNEL_NK6_ALLHEADS = 1, RADIO_CHANNEL_NK6_SUPPORT = 1, RADIO_CHANNEL_NK6_SUPENG = 1, RADIO_CHANNEL_NK6_SPCMED = 0)
 	greyscale_config = /datum/greyscale_config/encryptionkey_engineering
 	greyscale_colors = "#ff6600#ffff00"
 
@@ -94,7 +100,7 @@
 /obj/item/encryptionkey/nk006/headset_hop
 	name = "hop radio encryption key"
 	icon_state = "cypherkey_service"
-	channels = list(RADIO_CHANNEL_NK6_ALLHEADS = 1, RADIO_CHANNEL_NK6_COMMAND = 1, RADIO_CHANNEL_NK6_CMDSEC = 1, RADIO_CHANNEL_NK6_SUPPORT = 1, RADIO_CHANNEL_NK6_SPTENG = 1, RADIO_CHANNEL_NK6_SPECIALIST = 1, RADIO_CHANNEL_NK6_SPCMED = 1, RADIO_CHANNEL_NK6_ALLCRG = 1, RADIO_CHANNEL_NK6_ALLSRV = 1)
+	channels = list(RADIO_CHANNEL_NK6_ALLHEADS = 1, RADIO_CHANNEL_NK6_COMMAND = 1, RADIO_CHANNEL_NK6_CMDSEC = 1, RADIO_CHANNEL_NK6_SUPPORT = 1, RADIO_CHANNEL_NK6_SUPENG = 1, RADIO_CHANNEL_NK6_SPECIALIST = 1, RADIO_CHANNEL_NK6_SPCMED = 1, RADIO_CHANNEL_NK6_ALLCRG = 1, RADIO_CHANNEL_NK6_ALLSRV = 1)
 	greyscale_config = /datum/greyscale_config/encryptionkey_service
 	greyscale_colors = "#00ff00#ffff00"
 
@@ -175,7 +181,7 @@
 /obj/item/radio/headset/nk006/headset_cap/alt
 	name = "captain's bowman headset"
 	desc = "An improved headset for the Captain. Protects ears from flashbangs."
-	icon_state = "sec_headset_alt"
+	icon_state = "cap_headset_alt"
 
 /obj/item/radio/headset/nk006/headset_cap/alt/Initialize(mapload)
 	. = ..()
@@ -224,13 +230,13 @@
 /obj/item/radio/headset/nk006/headset_min
 	name = "pathfinder's radio headset"
 	desc = "A headset for Pathfinders."
-	icon_state = "min_headset"
+	icon_state = "mine_headset"
 	keyslot = /obj/item/encryptionkey/nk006/headset_min
 
 /obj/item/radio/headset/nk006/headset_min/alt
 	name = "pathfinder's bowman headset"
 	desc = "An improved headset for Pathfinders. Protects ears from flashbangs."
-	icon_state = "min_headset_alt"
+	icon_state = "mine_headset_alt"
 
 /obj/item/radio/headset/nk006/headset_min/alt/Initialize(mapload)
 	. = ..()
@@ -251,7 +257,7 @@
 	name = "engineering radio headset"
 	desc = "A generic headset for engineers.  Includes optional Medical comms for coordination."
 	icon_state = "engi_headset"
-	keyslot = /obj/item/encryptionkey/nk006/headset_support
+	keyslot = /obj/item/encryptionkey/nk006/headset_supeng
 
 
 /obj/item/radio/headset/nk006/headset_ce

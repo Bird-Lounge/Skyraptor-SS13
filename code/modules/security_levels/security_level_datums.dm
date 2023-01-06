@@ -36,7 +36,7 @@
 		elevating_to_announcemnt = global.config.Get(elevating_to_configuration_key)
 
 /**
- * GREEN
+ * GREEN ALERT
  *
  * No threats
  */
@@ -48,12 +48,12 @@
 	shuttle_call_time_mod = 2
 
 /**
- * BLUE
+ * YELLOW ALERT
  *
  * Caution advised
  */
 /datum/security_level/blue
-	name = "blue"
+	name = "yellow"
 	sound = 'sound/misc/notice1.ogg' // Angry alarm
 	number_level = SEC_LEVEL_BLUE
 	lowering_to_configuration_key = /datum/config_entry/string/alert_blue_downto
@@ -61,7 +61,7 @@
 	shuttle_call_time_mod = 1
 
 /**
- * RED
+ * RED ALERT
  *
  * Hostile threats
  */
@@ -74,7 +74,7 @@
 	shuttle_call_time_mod = 0.5
 
 /**
- * DELTA
+ * DELTA ALERT
  *
  * Station destruction is imminent
  */
