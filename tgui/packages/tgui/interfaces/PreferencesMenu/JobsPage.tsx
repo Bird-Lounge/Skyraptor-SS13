@@ -365,16 +365,16 @@ export const JobsPage = () => {
 
               <PriorityHeaders />
 
-              <Department department="Engineering">
+              <Department department="Heads">
                 <Gap amount={6} />
               </Department>
 
-              <Department department="Science">
+              <Department department="Command">
                 <Gap amount={6} />
               </Department>
 
-              <Department department="Silicon">
-                <Gap amount={12} />
+              <Department department="Security">
+                <Gap amount={6} />
               </Department>
 
               <Department department="Assistant" />
@@ -383,15 +383,19 @@ export const JobsPage = () => {
             <Stack.Item mr={1}>
               <PriorityHeaders />
 
-              <Department department="Captain">
+              <Department department="Support">
                 <Gap amount={6} />
               </Department>
 
-              <Department department="Service">
+              <Department department="Engineering">
+                <Gap amount={6} />
+              </Department>
+			  
+			  <Department department="Cargo">
                 <Gap amount={6} />
               </Department>
 
-              <Department department="Cargo" />
+              <Department department="Service" />
             </Stack.Item>
 
             <Stack.Item>
@@ -399,11 +403,19 @@ export const JobsPage = () => {
 
               <PriorityHeaders />
 
-              <Department department="Security">
+              <Department department="Specialist">
+                <Gap amount={6} />
+              </Department>
+			  
+			  <Department department="Science">
+                <Gap amount={6} />
+              </Department>
+			  
+			  <Department department="Medical">
                 <Gap amount={6} />
               </Department>
 
-              <Department department="Medical" />
+              <Department department="Silicon" />
             </Stack.Item>
           </Stack>
         </Stack.Item>

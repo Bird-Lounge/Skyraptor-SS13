@@ -494,6 +494,10 @@
 
 /// Setter for the assigned_role job datum.
 /datum/mind/proc/set_assigned_role(datum/job/new_role)
+	if(new_role)
+		stack_trace("NK006 logging: Mind [src] set to role [new_role]")
+	else
+		stack_trace("NK006 logging: Mind [src] set to a null role!")
 	if(assigned_role == new_role)
 		return
 	if(!is_job(new_role))

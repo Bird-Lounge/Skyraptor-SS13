@@ -4975,6 +4975,7 @@
 #include "modular_nk006\modules\threeprongs\code\threeprongs_decals.dm"
 #include "modular_nk006\modules\threeprongs\code\threeprongs_departments.dm"
 #include "modular_nk006\modules\threeprongs\code\threeprongs_headsets.dm"
+#include "modular_nk006\modules\threeprongs\code\threeprongs_landmarks.dm"
 #include "modular_nk006\modules\threeprongs\code\threeprongs_pdas.dm"
 #include "modular_nk006\modules\threeprongs\code\threeprongs_pipecolors.dm"
 #include "modular_nk006\modules\threeprongs\code\threeprongs_tcomms.dm"

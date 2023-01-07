@@ -4183,6 +4183,10 @@
 /area/station/nk006/support/fab{
 	name = "Support Storage"
 	})
+"LK" = (
+/obj/effect/landmark/start/nk006/cap,
+/turf/open/floor/iron/dark,
+/area/station/nk006/general/halls/central)
 "LO" = (
 /turf/open/space/basic,
 /area/space/nearstation)
@@ -41797,7 +41801,7 @@ nS
 nS
 nS
 ot
-Po
+LK
 iP
 Po
 ty

@@ -342,11 +342,17 @@ SUBSYSTEM_DEF(ticker)
 	for(var/i in GLOB.new_player_list)
 		var/mob/dead/new_player/player = i
 		if(player.ready == PLAYER_READY_TO_PLAY && player.mind)
-			GLOB.joined_player_list += player.ckey
-			var/atom/destination = player.mind.assigned_role.get_roundstart_spawn_point()
-			if(!destination) // Failed to fetch a proper roundstart location, won't be going anywhere.
-				continue
-			player.create_character(destination)
+			if(player.mind.assigned_role)
+				GLOB.joined_player_list += player.ckey
+				stack_trace("NK006 logging: Trying to get a spawnpoint for [player.ckey]")
+				stack_trace("NK006 logging: Their mind is [player.mind]")
+				stack_trace("NK006 logging: Their assigned role is [player.mind.assigned_role]")
+				var/atom/destination = player.mind.assigned_role.get_roundstart_spawn_point()
+				if(!destination) // Failed to fetch a proper roundstart location, won't be going anywhere.
+					continue
+				player.create_character(destination)
+			else
+				stack_trace("ERROR: Player [player.ckey] joined with a null role!")
 		CHECK_TICK
 
 /datum/controller/subsystem/ticker/proc/collect_minds()

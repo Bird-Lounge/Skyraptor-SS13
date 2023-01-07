@@ -30,8 +30,11 @@
 
 	var/list/departments = list()
 	var/list/jobs = list()
-
+	
+	stack_trace("NK006 logging: entering preferences middleware jobs listing!  This is probably where the magic happens!")
+	
 	for (var/datum/job/job as anything in SSjob.joinable_occupations)
+		stack_trace("NK006 logging.  Current job is [job].")
 		var/datum/job_department/department_type = job.department_for_prefs || job.departments_list?[1]
 		if (isnull(department_type))
 			stack_trace("[job] does not have a department set, yet is a joinable occupation!")

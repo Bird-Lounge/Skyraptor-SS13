@@ -1,5 +1,5 @@
 /datum/job/nk006/nucap
-	title = "Captain"
+	title = JOB_NK6_NUCAP
 	description = "Lead the crew.  Argue with your first officer.  Die horribly on a diplomatic mission."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD|DEADMIN_POSITION_SECURITY
 	department_head = list("CentCom")
@@ -19,7 +19,7 @@
 	outfit = /datum/outfit/job/nk006/nucap
 	plasmaman_outfit = /datum/outfit/plasmaman/captain
 	departments_list = list(
-		/datum/job_department/nk006/captain,
+		/datum/job_department/nk006/heads,
 		/datum/job_department/nk006/command,
 		)
 
@@ -29,10 +29,9 @@
 	liver_traits = list(TRAIT_ROYAL_METABOLISM)
 
 	display_order = JOB_DISPLAY_ORDER_CAPTAIN
-	department_for_prefs = /datum/job_department/captain
-	bounty_types = CIV_JOB_SCI
+	department_for_prefs = /datum/job_department/nk006/heads
 
-	family_heirlooms = list(/obj/item/reagent_containers/cup/glass/flask/gold, /obj/item/toy/captainsaid/collector)
+	family_heirlooms = list(/obj/item/reagent_containers/cup/glass/flask/gold)
 
 	mail_goodies = list(
 		/obj/item/clothing/mask/cigarette/cigar/havana = 20,
@@ -47,10 +46,11 @@
 	rpg_title = "Star Duke"
 
 	voice_of_god_power = 1.4 //Command staff has authority
+	
+	tgjob = 0
 
 /datum/job/nk006/nucap/get_captaincy_announcement(mob/living/captain)
 	return "Captain [captain.real_name] on deck!"
-
 
 /datum/outfit/job/nk006/nucap
 	name = "NK006 Captain"
@@ -58,7 +58,7 @@
 
 	id = /obj/item/card/id/advanced/gold
 	id_trim = /datum/id_trim/job/captain
-	uniform = /obj/item/clothing/under/rank/captain
+	uniform = /obj/item/clothing/under/trek/nk006_cmd
 	suit = /obj/item/clothing/under/trek/nk006_cmd
 	belt = /obj/item/modular_computer/pda/nk006/heads/captain
 	ears = /obj/item/radio/headset/nk006/headset_cap/alt
@@ -66,9 +66,10 @@
 	head = /obj/item/clothing/head/hats/caphat
 	shoes = /obj/item/clothing/shoes/laceup
 
-	backpack = /obj/item/storage/backpack/genetics
-	satchel = /obj/item/storage/backpack/satchel/gen
-	duffelbag = /obj/item/storage/backpack/duffelbag/genetics
+	backpack = /obj/item/storage/backpack/captain
+	satchel = /obj/item/storage/backpack/satchel/cap
+	duffelbag = /obj/item/storage/backpack/duffelbag/captain
+	
 	implants = list(/obj/item/implant/mindshield)
 	skillchips = list(/obj/item/skillchip/disk_verifier)
 

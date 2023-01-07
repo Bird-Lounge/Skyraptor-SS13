@@ -18,12 +18,16 @@
 	var/list/department_jobs = list()
 	/// For separatists, what independent name prefix does their nation get named?
 	var/list/nation_prefixes = list()
+	
+	/// NK006 edit: this is so we can phase out TG departments without causing massive edits and breaking everything
+	var/can_add_new_jobs = 1
 
 
 /// Handles adding jobs to the department and setting up the job bitflags.
 /datum/job_department/proc/add_job(datum/job/job)
-	department_jobs += job
-	job.departments_bitflags |= department_bitflags
+	if(can_add_new_jobs == 1)
+		department_jobs += job
+		job.departments_bitflags |= department_bitflags
 
 /// Returns a nation name for this department.
 /datum/job_department/proc/generate_nation_name()
@@ -136,4 +140,5 @@
 
 /// Catch-all department for undefined jobs.
 /datum/job_department/undefined
+	can_add_new_jobs = 1
 	display_order = 10
