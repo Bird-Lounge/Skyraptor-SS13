@@ -3523,6 +3523,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark,
 /area/station/nk006/support/ce)
+"FW" = (
+/obj/effect/landmark/start/nk006/cap{
+	name = "Commander"
+	},
+/turf/open/floor/iron/dark,
+/area/station/nk006/general/halls/central)
 "FX" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/nitrogen_output{
 	dir = 1
@@ -4183,10 +4189,6 @@
 /area/station/nk006/support/fab{
 	name = "Support Storage"
 	})
-"LK" = (
-/obj/effect/landmark/start/nk006/cap,
-/turf/open/floor/iron/dark,
-/area/station/nk006/general/halls/central)
 "LO" = (
 /turf/open/space/basic,
 /area/space/nearstation)
@@ -41801,7 +41803,7 @@ nS
 nS
 nS
 ot
-LK
+FW
 iP
 Po
 ty

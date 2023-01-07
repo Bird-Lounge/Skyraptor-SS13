@@ -8,3 +8,4 @@
 	title = "Unassigned Crewmember"
 	rpg_title = "Peasant"
 	paycheck = PAYCHECK_ZERO
+	tgjob = 0 //so byond won't eat my face, hopefully

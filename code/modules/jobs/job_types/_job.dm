@@ -131,7 +131,7 @@
 	var/job_tone
 	
 	/// used to quietly sweep TG jobs under the rug
-	var/tgjob = 0
+	var/tgjob = 1
 
 
 /datum/job/New()
