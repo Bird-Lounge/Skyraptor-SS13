@@ -6,7 +6,7 @@
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "Nanotrasen officials and Space Law"
+	supervisors = "NanoTrasen officials and Space Law"
 	selection_color = "#6600ff"
 	req_admin_notify = 1
 	minimal_player_age = 14
@@ -14,7 +14,7 @@
 	exp_required_type = EXP_TYPE_CREW
 	exp_required_type_department = EXP_TYPE_COMMAND
 	exp_granted_type = EXP_TYPE_CREW
-	config_tag = "CAPTAIN"
+	config_tag = "NK006_CAPTAIN"
 
 	outfit = /datum/outfit/job/nk006/nucap
 	plasmaman_outfit = /datum/outfit/plasmaman/captain
@@ -80,7 +80,7 @@
 	var/list/job_changes = SSmapping.config.job_changes
 	if(!length(job_changes))
 		return
-	var/list/captain_changes = job_changes[JOB_CAPTAIN]
+	var/list/captain_changes = job_changes[JOB_NK6_NUCAP]
 	if(!length(captain_changes))
 		return
 	special_charter = captain_changes["special_charter"]

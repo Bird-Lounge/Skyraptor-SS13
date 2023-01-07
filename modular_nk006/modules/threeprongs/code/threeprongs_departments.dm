@@ -1,4 +1,4 @@
-#define JOB_NK6_NUCAP "Captain"
+#define JOB_NK6_NUCAP "Commander" //making it completely distinct for reasons of SPESS IS EATING MY FACE GUYS PLEASE SEND HELP
 
 /datum/job_department/nk006/heads
 	department_name = "Heads"

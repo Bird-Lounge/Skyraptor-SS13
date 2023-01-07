@@ -361,8 +361,6 @@ export const JobsPage = () => {
         <Stack.Item>
           <Stack fill className="PreferencesMenu__Jobs">
             <Stack.Item mr={1}>
-              <Gap amount={36} />
-
               <PriorityHeaders />
 
               <Department department="Heads">
@@ -399,8 +397,6 @@ export const JobsPage = () => {
             </Stack.Item>
 
             <Stack.Item>
-              <Gap amount={36} />
-
               <PriorityHeaders />
 
               <Department department="Specialist">

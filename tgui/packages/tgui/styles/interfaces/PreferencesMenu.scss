@@ -10,6 +10,11 @@ $department_map: (
   'Support': colors.$deptspt,
   'Specialist': colors.$deptspc,
   'Silicon': colors.$white,
+  'Engineering': colors.$orange,
+  'Medical': colors.$red,
+  'Security': colors.$blue,
+  'Cargo': colors.$brown,
+  'Service': colors.$green,
 );
 
 .PreferencesMenu {
@@ -204,9 +209,9 @@ $department_map: (
         transition: background-color 0.1s ease-in;
 
         $quality_map: (
-          'positive': colors.$green,
+          'positive': colors.$good,
           'neutral': colors.$white,
-          'negative': colors.$red,
+          'negative': colors.$bad,
         );
 
         @each $quality, $color-value in $quality_map {
