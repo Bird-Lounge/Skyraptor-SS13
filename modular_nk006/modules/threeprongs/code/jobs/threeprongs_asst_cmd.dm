@@ -1,3 +1,24 @@
+/datum/id_trim/job/nk006/asst_cmd
+	assignment = "Command Crew"
+	intern_alt_name = "Command Cadet"
+	trim_state = "trim_assistant"
+	orbit_icon = "toolbox"
+	sechud_icon_state = SECHUD_ASSISTANT
+	minimal_access = list()
+	extra_access = list(
+		ACCESS_MAINT_TUNNELS,
+		)
+	template_access = list(
+		ACCESS_CAPTAIN,
+		ACCESS_CHANGE_IDS,
+		ACCESS_HOP,
+		)
+	department_color = COLOR_NK006_COMMAND
+	subdepartment_color = COLOR_NK006_COMMAND
+	job = /datum/job/nk006/asst_cmd
+
+
+
 /datum/job/nk006/asst_cmd
 	title = JOB_NK6_ASST_CMD
 	description = "Work with Command staff.  Go on away missions.  Argue with Security."
@@ -34,10 +55,11 @@
 	name = JOB_NK6_ASST_CMD
 	jobtype = /datum/job/nk006/asst_cmd
 
-	//id = /obj/item/card/id/advanced/gold
-	id_trim = /datum/id_trim/job/assistant
+	id = /obj/item/card/id/advanced/silver
+	id_trim = /datum/id_trim/job/nk006/asst_cmd
 	uniform = /obj/item/clothing/under/trek/nk006_cmd
 	belt = /obj/item/storage/belt/nk006/command
+	head = /obj/item/clothing/head/soft/purple
 	ears = /obj/item/radio/headset/nk006/headset_command
 	l_pocket = /obj/item/modular_computer/pda/nk006/command
 

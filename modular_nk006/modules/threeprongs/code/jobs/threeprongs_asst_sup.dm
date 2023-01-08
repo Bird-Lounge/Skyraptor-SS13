@@ -1,3 +1,24 @@
+/datum/id_trim/job/nk006/asst_sup
+	assignment = "Support Crew"
+	intern_alt_name = "Support Cadet"
+	trim_state = "trim_assistant"
+	orbit_icon = "toolbox"
+	sechud_icon_state = SECHUD_ASSISTANT
+	minimal_access = list()
+	extra_access = list(
+		ACCESS_MAINT_TUNNELS,
+		)
+	template_access = list(
+		ACCESS_CAPTAIN,
+		ACCESS_CHANGE_IDS,
+		ACCESS_HOP,
+		)
+	department_color = COLOR_NK006_SUPPORT
+	subdepartment_color = COLOR_NK006_SUPPORT
+	job = /datum/job/nk006/asst_sup
+
+
+
 /datum/job/nk006/asst_sup
 	title = JOB_NK6_ASST_SUP
 	description = "Work with Support staff.  Break into maints and find secrets.  Steal the Culinary techs' booze."
@@ -34,10 +55,11 @@
 	name = JOB_NK6_ASST_SUP
 	jobtype = /datum/job/nk006/asst_sup
 
-	//id = /obj/item/card/id/advanced/gold
-	id_trim = /datum/id_trim/job/assistant
+	id = /obj/item/card/id/advanced/silver
+	id_trim = /datum/id_trim/job/nk006/asst_sup
 	uniform = /obj/item/clothing/under/trek/nk006_sup
 	belt = /obj/item/storage/belt/nk006/support
+	head = /obj/item/clothing/head/soft/orange
 	ears = /obj/item/radio/headset/nk006/headset_support
 	l_pocket = /obj/item/modular_computer/pda/nk006/support
 

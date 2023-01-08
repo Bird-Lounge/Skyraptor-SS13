@@ -1,3 +1,20 @@
+/datum/id_trim/job/nk006/nucap
+	assignment = "Commander"
+	intern_alt_name = "Commander-in-Training"
+	trim_state = "trim_captain"
+	orbit_icon = "crown"
+	department_color = COLOR_NK006_COMMAND
+	subdepartment_color = COLOR_NK006_COMMAND
+	department_state = "departmenthead"
+	sechud_icon_state = SECHUD_CAPTAIN
+	template_access = list(
+		ACCESS_CAPTAIN,
+		ACCESS_CHANGE_IDS,
+		)
+	job = /datum/job/nk006/nucap
+
+
+
 /datum/job/nk006/nucap
 	title = JOB_NK6_NUCAP
 	description = "Lead the crew.  Argue with your first officer.  Die horribly on a diplomatic mission."
@@ -57,13 +74,13 @@
 	jobtype = /datum/job/nk006/nucap
 
 	id = /obj/item/card/id/advanced/gold
-	id_trim = /datum/id_trim/job/captain
+	id_trim = /datum/id_trim/job/nk006/nucap
 	uniform = /obj/item/clothing/under/trek/nk006_cmd
 	//suit = /obj/item/clothing/under/trek/nk006_cmd
 	belt = /obj/item/storage/belt/nk006/command/captain
+	head = /obj/item/clothing/head/hats/nk006/captain
 	ears = /obj/item/radio/headset/nk006/headset_cap/alt
 	//gloves = /obj/item/clothing/gloves/color/captain
-	//head = /obj/item/clothing/head/hats/caphat
 	//shoes = /obj/item/clothing/shoes/laceup
 	l_pocket = /obj/item/modular_computer/pda/nk006/heads/captain
 

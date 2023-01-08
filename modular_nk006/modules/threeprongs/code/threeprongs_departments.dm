@@ -33,6 +33,19 @@
 #define JOB_NK6_BIO "Biologist"
 #define JOB_NK6_BOTANY "Hydroponics Technician"
 
+//color defines for jobs, etc
+#define COLOR_NK006_HEADS "#ffff00"
+#define COLOR_NK006_COMMAND "#6600ff"
+#define COLOR_NK006_SUPPORT "#FF6600"
+#define COLOR_NK006_SPECIALIST "#AAFF00"
+#define COLOR_NK006_SECURITY "#007FFF"
+#define COLOR_NK006_CARGO "#AF7F3F"
+#define COLOR_NK006_SERVICE "#FF0000"
+#define COLOR_NK006_MEDICAL "#FF0000"
+#define COLOR_NK006_ENGALT "#FF7F00"
+#define COLOR_NK006_SCIALT "#7FFF00"
+#define COLOR_NK006_ASSIST "#FFFFFF"
+
 /datum/job_department/nk006/heads
 	department_name = "Heads"
 	department_bitflags = DEPARTMENT_BITFLAG_CAPTAIN

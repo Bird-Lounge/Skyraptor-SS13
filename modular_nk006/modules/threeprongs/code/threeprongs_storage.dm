@@ -474,7 +474,7 @@
 
 /obj/item/storage/belt/nk006/support
 	name = "support belt"
-	desc = "Holds a few big items, and resists fire."
+	desc = "Holds large items, and resists fire."
 	icon_state = "belt_support"
 	worn_icon_state = "belt_support"
 	resistance_flags = FIRE_PROOF
@@ -483,7 +483,7 @@
 	. = ..()
 	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
 	atom_storage.max_total_storage = 21
-	atom_storage.max_slots = 4
+	atom_storage.max_slots = 7
 
 /obj/item/storage/belt/nk006/specialist
 	name = "specialist belt"
@@ -524,3 +524,175 @@
 	SSwardrobe.provide_type(/obj/item/healthanalyzer/advanced, src)
 	SSwardrobe.provide_type(/obj/item/stack/medical/suture, src)
 	SSwardrobe.provide_type(/obj/item/stack/medical/mesh, src)
+
+// == CHIEF ENGINEER BELT, basically unchanged
+/obj/item/storage/belt/nk006/support/ce
+	name = "chief engineer's belt"
+	desc = "An orange belt with a shiny badge.  Comes with all the powertools a CE can need, and space for sub-storages to really maximize potential."
+	icon_state = "belt_ce"
+	worn_icon_state = "belt_ce"
+	preload = TRUE
+
+/obj/item/storage/belt/nk006/support/ce/get_types_to_preload()
+	var/list/to_preload = list() //Yes this is a pain. Yes this is the point
+	to_preload += /obj/item/screwdriver/power
+	to_preload += /obj/item/crowbar/power
+	to_preload += /obj/item/weldingtool/experimental
+	to_preload += /obj/item/multitool
+	to_preload += /obj/item/stack/cable_coil
+	to_preload += /obj/item/extinguisher/mini
+	to_preload += /obj/item/analyzer
+	return to_preload
+
+/obj/item/storage/belt/nk006/support/ce/PopulateContents()
+	SSwardrobe.provide_type(/obj/item/screwdriver/power, src)
+	SSwardrobe.provide_type(/obj/item/crowbar/power, src)
+	SSwardrobe.provide_type(/obj/item/weldingtool/experimental, src) //TODO: arc welder?
+	SSwardrobe.provide_type(/obj/item/multitool, src)
+	SSwardrobe.provide_type(/obj/item/stack/cable_coil, src)
+	SSwardrobe.provide_type(/obj/item/extinguisher/mini, src)
+	SSwardrobe.provide_type(/obj/item/analyzer, src)
+
+// == HOS BELT, same as captain for now
+/obj/item/storage/belt/nk006/command/hos
+	name = "chief of security's belt"
+	desc = "A blue belt with a shiny badge.  Comes with general goods useful for saving your subordinates' butts."
+	icon_state = "belt_hos"
+	worn_icon_state = "belt_hos"
+	preload = TRUE
+
+/obj/item/storage/belt/nk006/command/hos/get_types_to_preload()
+	var/list/to_preload = list() //This horrorshow ported from belt.dm.  The amazing things encountered by suffering coders be like
+	to_preload += /obj/item/gun/energy/e_gun/mini
+	to_preload += /obj/item/crowbar/power
+	to_preload += /obj/item/weldingtool/experimental
+	to_preload += /obj/item/extinguisher/mini
+	to_preload += /obj/item/healthanalyzer/advanced
+	to_preload += /obj/item/stack/medical/suture
+	to_preload += /obj/item/stack/medical/mesh
+	return to_preload
+
+/obj/item/storage/belt/nk006/command/hos/PopulateContents()
+	SSwardrobe.provide_type(/obj/item/gun/energy/e_gun/mini, src)
+	SSwardrobe.provide_type(/obj/item/crowbar/power, src)
+	SSwardrobe.provide_type(/obj/item/weldingtool/experimental, src)
+	SSwardrobe.provide_type(/obj/item/extinguisher/mini, src)
+	SSwardrobe.provide_type(/obj/item/healthanalyzer/advanced, src)
+	SSwardrobe.provide_type(/obj/item/stack/medical/suture, src)
+	SSwardrobe.provide_type(/obj/item/stack/medical/mesh, src)
+
+// == HOP BELT, same as captain but trades the gun for a drill
+/obj/item/storage/belt/nk006/support/hop
+	name = "first officer's belt"
+	desc = "A green belt with a shiny badge.  Comes with general goods, and mounts for additional storage capacity."
+	icon_state = "belt_hop"
+	worn_icon_state = "belt_hop"
+	preload = TRUE
+
+/obj/item/storage/belt/nk006/support/hop/get_types_to_preload()
+	var/list/to_preload = list() //This horrorshow ported from belt.dm.  The amazing things encountered by suffering coders be like
+	to_preload += /obj/item/screwdriver/power
+	to_preload += /obj/item/crowbar/power
+	to_preload += /obj/item/weldingtool/experimental
+	to_preload += /obj/item/extinguisher/mini
+	to_preload += /obj/item/healthanalyzer/advanced
+	to_preload += /obj/item/stack/medical/suture
+	to_preload += /obj/item/stack/medical/mesh
+	return to_preload
+
+/obj/item/storage/belt/nk006/support/hop/PopulateContents()
+	SSwardrobe.provide_type(/obj/item/screwdriver/power, src)
+	SSwardrobe.provide_type(/obj/item/crowbar/power, src)
+	SSwardrobe.provide_type(/obj/item/weldingtool/experimental, src)
+	SSwardrobe.provide_type(/obj/item/extinguisher/mini, src)
+	SSwardrobe.provide_type(/obj/item/healthanalyzer/advanced, src)
+	SSwardrobe.provide_type(/obj/item/stack/medical/suture, src)
+	SSwardrobe.provide_type(/obj/item/stack/medical/mesh, src)
+
+// == QM BELT, same as captain but trades the gun for a drill
+/obj/item/storage/belt/nk006/support/qm
+	name = "chief of resources' belt"
+	desc = "A green belt with a shiny badge.  Comes with general goods, and mounts for additional storage capacity."
+	icon_state = "belt_hop"
+	worn_icon_state = "belt_hop"
+	preload = TRUE
+
+/obj/item/storage/belt/nk006/support/qm/get_types_to_preload()
+	var/list/to_preload = list() //This horrorshow ported from belt.dm.  The amazing things encountered by suffering coders be like
+	to_preload += /obj/item/screwdriver/power
+	to_preload += /obj/item/crowbar/power
+	to_preload += /obj/item/weldingtool/experimental
+	to_preload += /obj/item/extinguisher/mini
+	to_preload += /obj/item/healthanalyzer/advanced
+	to_preload += /obj/item/stack/medical/suture
+	to_preload += /obj/item/stack/medical/mesh
+	return to_preload
+
+/obj/item/storage/belt/nk006/support/qm/PopulateContents()
+	SSwardrobe.provide_type(/obj/item/screwdriver/power, src)
+	SSwardrobe.provide_type(/obj/item/crowbar/power, src)
+	SSwardrobe.provide_type(/obj/item/weldingtool/experimental, src)
+	SSwardrobe.provide_type(/obj/item/extinguisher/mini, src)
+	SSwardrobe.provide_type(/obj/item/healthanalyzer/advanced, src)
+	SSwardrobe.provide_type(/obj/item/stack/medical/suture, src)
+	SSwardrobe.provide_type(/obj/item/stack/medical/mesh, src)
+
+// == CMO belt, comes preloaded with basicmeds and advanced surgery tools
+/obj/item/storage/belt/nk006/specialist/cmo
+	name = "chief medical officer's belt"
+	desc = "A red belt with a shiny badge.  Comes with a full suite of advanced surgical tools, basic meds, jaws of life for rescue, and a crew monitor."
+	icon_state = "belt_cmo"
+	worn_icon_state = "belt_cmo"
+	preload = TRUE
+
+/obj/item/storage/belt/nk006/specialist/cmo/get_types_to_preload()
+	var/list/to_preload = list() //This horrorshow ported from belt.dm.  The amazing things encountered by suffering coders be like
+	to_preload += /obj/item/healthanalyzer/advanced
+	to_preload += /obj/item/stack/medical/suture
+	to_preload += /obj/item/stack/medical/suture
+	to_preload += /obj/item/stack/medical/mesh
+	to_preload += /obj/item/stack/medical/mesh
+	to_preload += /obj/item/surgical_drapes
+	to_preload += /obj/item/scalpel/advanced
+	to_preload += /obj/item/retractor/advanced
+	to_preload += /obj/item/cautery/advanced
+	to_preload += /obj/item/crowbar/power
+	to_preload += /obj/item/sensor_device
+	return to_preload
+
+/obj/item/storage/belt/nk006/specialist/cmo/PopulateContents()
+	SSwardrobe.provide_type(/obj/item/healthanalyzer/advanced, src)
+	SSwardrobe.provide_type(/obj/item/stack/medical/suture, src)
+	SSwardrobe.provide_type(/obj/item/stack/medical/suture, src)
+	SSwardrobe.provide_type(/obj/item/stack/medical/mesh, src)
+	SSwardrobe.provide_type(/obj/item/stack/medical/mesh, src)
+	SSwardrobe.provide_type(/obj/item/surgical_drapes, src)
+	SSwardrobe.provide_type(/obj/item/scalpel/advanced, src)
+	SSwardrobe.provide_type(/obj/item/retractor/advanced, src)
+	SSwardrobe.provide_type(/obj/item/cautery/advanced, src)
+	SSwardrobe.provide_type(/obj/item/crowbar/power, src)
+	SSwardrobe.provide_type(/obj/item/sensor_device, src)
+
+// == RD belt, comes preloaded with basicmeds and advanced surgery tools
+/obj/item/storage/belt/nk006/specialist/rd
+	name = "chief of science's belt"
+	desc = "A lime belt with a shiny badge.  Comes with a full suite of advanced surgical tools, and jaws of life for when the going gets tough."
+	icon_state = "belt_rd"
+	worn_icon_state = "belt_rd"
+	preload = TRUE
+
+/obj/item/storage/belt/nk006/specialist/rd/get_types_to_preload()
+	var/list/to_preload = list() //This horrorshow ported from belt.dm.  The amazing things encountered by suffering coders be like
+	to_preload += /obj/item/surgical_drapes
+	to_preload += /obj/item/scalpel/advanced
+	to_preload += /obj/item/retractor/advanced
+	to_preload += /obj/item/cautery/advanced
+	to_preload += /obj/item/crowbar/power
+	return to_preload
+
+/obj/item/storage/belt/nk006/specialist/rd/PopulateContents()
+	SSwardrobe.provide_type(/obj/item/surgical_drapes, src)
+	SSwardrobe.provide_type(/obj/item/scalpel/advanced, src)
+	SSwardrobe.provide_type(/obj/item/retractor/advanced, src)
+	SSwardrobe.provide_type(/obj/item/cautery/advanced, src)
+	SSwardrobe.provide_type(/obj/item/crowbar/power, src)

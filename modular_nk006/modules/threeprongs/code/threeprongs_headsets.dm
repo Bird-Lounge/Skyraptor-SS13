@@ -326,10 +326,10 @@
 
 
 /obj/item/radio/headset/nk006/headset_specialist
-	name = "support radio headset"
-	desc = "A generic headset for the support department."
-	icon_state = "support_headset"
-	keyslot = /obj/item/encryptionkey/nk006/headset_support
+	name = "specialist radio headset"
+	desc = "A generic headset for the specialist department."
+	icon_state = "specialist_headset"
+	keyslot = /obj/item/encryptionkey/nk006/headset_specialist
 
 
 /obj/item/radio/headset/nk006/headset_med

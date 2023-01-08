@@ -1,3 +1,24 @@
+/datum/id_trim/job/nk006/asst_spc
+	assignment = "Specialist Crew"
+	intern_alt_name = "Specialist Cadet"
+	trim_state = "trim_assistant"
+	orbit_icon = "toolbox"
+	sechud_icon_state = SECHUD_ASSISTANT
+	minimal_access = list()
+	extra_access = list(
+		ACCESS_MAINT_TUNNELS,
+		)
+	template_access = list(
+		ACCESS_CAPTAIN,
+		ACCESS_CHANGE_IDS,
+		ACCESS_HOP,
+		)
+	department_color = COLOR_NK006_SPECIALIST
+	subdepartment_color = COLOR_NK006_SPECIALIST
+	job = /datum/job/nk006/asst_spc
+
+
+
 /datum/job/nk006/asst_spc
 	title = JOB_NK6_ASST_SPC
 	description = "Work with Specialists.  Make loads of drugs.  Enslave some cyborgs."
@@ -34,10 +55,11 @@
 	name = JOB_NK6_ASST_SPC
 	jobtype = /datum/job/nk006/asst_spc
 
-	//id = /obj/item/card/id/advanced/gold
-	id_trim = /datum/id_trim/job/assistant
+	id = /obj/item/card/id/advanced/silver
+	id_trim = /datum/id_trim/job/nk006/asst_spc
 	uniform = /obj/item/clothing/under/trek/nk006_spc
 	belt = /obj/item/storage/belt/nk006/specialist
+	head = /obj/item/clothing/head/soft/green
 	ears = /obj/item/radio/headset/nk006/headset_specialist
 	l_pocket = /obj/item/modular_computer/pda/nk006/specialist
 
