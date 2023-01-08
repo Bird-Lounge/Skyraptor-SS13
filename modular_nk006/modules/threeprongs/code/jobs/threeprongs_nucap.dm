@@ -59,16 +59,17 @@
 	id = /obj/item/card/id/advanced/gold
 	id_trim = /datum/id_trim/job/captain
 	uniform = /obj/item/clothing/under/trek/nk006_cmd
-	suit = /obj/item/clothing/under/trek/nk006_cmd
-	belt = /obj/item/modular_computer/pda/nk006/heads/captain
+	//suit = /obj/item/clothing/under/trek/nk006_cmd
+	belt = /obj/item/storage/belt/nk006/command/captain
 	ears = /obj/item/radio/headset/nk006/headset_cap/alt
-	gloves = /obj/item/clothing/gloves/color/captain
-	head = /obj/item/clothing/head/hats/caphat
-	shoes = /obj/item/clothing/shoes/laceup
+	//gloves = /obj/item/clothing/gloves/color/captain
+	//head = /obj/item/clothing/head/hats/caphat
+	//shoes = /obj/item/clothing/shoes/laceup
+	l_pocket = /obj/item/modular_computer/pda/nk006/heads/captain
 
-	backpack = /obj/item/storage/backpack/captain
-	satchel = /obj/item/storage/backpack/satchel/cap
-	duffelbag = /obj/item/storage/backpack/duffelbag/captain
+	backpack = /obj/item/storage/backpack/nk006/captain
+	satchel = /obj/item/storage/backpack/satchel/nk006/captain
+	duffelbag = /obj/item/storage/backpack/duffelbag/nk006/captain
 	
 	implants = list(/obj/item/implant/mindshield)
 	skillchips = list(/obj/item/skillchip/disk_verifier)

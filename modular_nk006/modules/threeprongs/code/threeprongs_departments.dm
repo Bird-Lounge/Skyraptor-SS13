@@ -1,4 +1,37 @@
 #define JOB_NK6_NUCAP "Commander" //making it completely distinct for reasons of SPESS IS EATING MY FACE GUYS PLEASE SEND HELP
+#define JOB_NK6_HOP "First Officer"
+#define JOB_NK6_HOS "Chief of Security"
+#define JOB_NK6_CE "Chief of Engineering"
+#define JOB_NK6_QM "Chief of Resources"
+#define JOB_NK6_RD "Chief of Science"
+#define JOB_NK6_CMO "Chief of Medicine"
+//departmental assistants
+#define JOB_NK6_ASST_CMD "Command Crew"
+#define JOB_NK6_ASST_SUP "Support Crew"
+#define JOB_NK6_ASST_SPC "Specialist Crew"
+//sec crew
+#define JOB_NK6_SECOFF "Security"
+#define JOB_NK6_LAWYER "Attorney"
+//engineering crew
+#define JOB_NK6_DAMCON "Damage Control Technician"
+#define JOB_NK6_ENGITECH "Engineering Technician"
+//cargo crew
+#define JOB_NK6_CARGO "Delivery Technician"
+#define JOB_NK6_MINE "Pathfinder"
+//service crew
+#define JOB_NK6_CULINARY "Culinary Artist"
+#define JOB_NK6_JANITOR "Sanitation Officer"
+//TODO: clowns?
+//medical crew
+#define JOB_NK6_SURGEON "Surgeon"
+#define JOB_NK6_EMT "Emergency Medical Technician"
+#define JOB_NK6_PSYCH "Therapist"
+#define JOB_NK6_CHEM "Chemistry Technician"
+//science crew
+#define JOB_NK6_SCI "Science Officer"
+#define JOB_NK6_ROBO "Robotics Technician"
+#define JOB_NK6_BIO "Biologist"
+#define JOB_NK6_BOTANY "Hydroponics Technician"
 
 /datum/job_department/nk006/heads
 	department_name = "Heads"

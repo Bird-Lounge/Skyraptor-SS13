@@ -12,7 +12,7 @@
 /obj/item/modular_computer/pda/nk006
 	name = "generic PDA"
 	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
-	greyscale_colors = "#FFFFFF#AAFF00#FF6600#7f7f00"
+	greyscale_colors = "#FFFFFF#AAFF00#FF6600#7f7f7f"
 	starting_programs = list(
 		/datum/computer_file/program/crew_manifest,
 	)
@@ -130,3 +130,171 @@
 		/datum/computer_file/program/phys_scanner/chemistry,
 		/datum/computer_file/program/signal_commander,
 	)
+
+
+// generic assistant-type PDAs
+/obj/item/modular_computer/pda/nk006/command
+	name = "command PDA"
+	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
+	greyscale_colors = "#FFFFFF#6600FF#FFFFFF#7f7f7f"
+	starting_programs = list(
+		/datum/computer_file/program/crew_manifest,
+	)
+
+/obj/item/modular_computer/pda/nk006/support
+	name = "support PDA"
+	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
+	greyscale_colors = "#FFFFFF#FF6600#FFFFFF#7f7f7f"
+	starting_programs = list(
+		/datum/computer_file/program/crew_manifest,
+	)
+
+/obj/item/modular_computer/pda/nk006/specialist
+	name = "specialist PDA"
+	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
+	greyscale_colors = "#FFFFFF#AAFF00#FFFFFF#7f7f7f"
+	starting_programs = list(
+		/datum/computer_file/program/crew_manifest,
+	)
+
+//sec PDAs
+/obj/item/modular_computer/pda/nk006/security
+	name = "security PDA"
+	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
+	greyscale_colors = "#FFFFFF#007FFF#6600FF#7f7f7f"
+	starting_programs = list(
+		/datum/computer_file/program/records/security,
+		/datum/computer_file/program/crew_manifest,
+		/datum/computer_file/program/robocontrol,
+	)
+
+/obj/item/modular_computer/pda/nk006/security/lawyer
+	name = "lawyer PDA"
+	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
+	greyscale_colors = "#FFFFFF#007FFF#00FF00#7f7f7f"
+	inserted_item = /obj/item/pen/fountain
+	starting_programs = list(
+		/datum/computer_file/program/records/security,
+	)
+
+/obj/item/modular_computer/pda/nk006/security/lawyer/Initialize(mapload)
+	. = ..()
+	for(var/datum/computer_file/program/messenger/messenger_app in stored_files)
+		messenger_app.spam_mode = TRUE
+
+//engi PDAs
+/obj/item/modular_computer/pda/nk006/engineering
+	name = "engineering PDA"
+	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
+	greyscale_colors = "#FFFFFF#FF6600#FF7F00#7f7f7f"
+	starting_programs = list(
+		/datum/computer_file/program/supermatter_monitor,
+		/datum/computer_file/program/atmosscan,
+		/datum/computer_file/program/alarm_monitor,
+	)
+
+/obj/item/modular_computer/pda/nk006/engineering/damcon
+	name = "damage control PDA"
+	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
+	greyscale_colors = "#FFFFFF#FF6600#FF0000#7f7f7f"
+	starting_programs = list(
+		/datum/computer_file/program/atmosscan,
+		/datum/computer_file/program/alarm_monitor,
+		/datum/computer_file/program/phys_scanner/medical,
+		/datum/computer_file/program/radar/lifeline,
+	)
+
+//cargo PDAs
+/obj/item/modular_computer/pda/nk006/cargo
+	name = "cargo PDA"
+	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
+	greyscale_colors = "#FFFFFF#AF7F3F#FF6600#7f7f7f"
+	stored_paper = 20
+	starting_programs = list(
+		/datum/computer_file/program/shipping,
+		/datum/computer_file/program/budgetorders,
+		/datum/computer_file/program/robocontrol,
+	)
+
+/obj/item/modular_computer/pda/nk006/cargo/mine
+	name = "pathfinders' PDA"
+	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
+	greyscale_colors = "#FFFFFF#AF7F3F#6600FF#7f7f7f"
+	starting_programs = list(
+		/datum/computer_file/program/shipping,
+		/datum/computer_file/program/skill_tracker,
+		/datum/computer_file/program/phys_scanner/medical,
+		/datum/computer_file/program/radar/lifeline,
+	)
+
+//service PDAs
+/obj/item/modular_computer/pda/nk006/service
+	name = "service PDA"
+	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
+	greyscale_colors = "#FFFFFF#00FF00#FF6600#7f7f7f"
+
+/obj/item/modular_computer/pda/nk006/service/janitor
+	name = "janitorial PDA"
+	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
+	greyscale_colors = "#FFFFFF#00FF00#FF7F00#7f7f7f"
+	starting_programs = list(
+		/datum/computer_file/program/skill_tracker,
+		/datum/computer_file/program/radar/custodial_locator,
+	)
+
+//medical PDAs
+/obj/item/modular_computer/pda/nk006/medical
+	name = "medical PDA"
+	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
+	greyscale_colors = "#FFFFFF#FF0000#AAFF00#7f7f7f"
+	starting_programs = list(
+		/datum/computer_file/program/phys_scanner/medical,
+		/datum/computer_file/program/phys_scanner/chemistry,
+		/datum/computer_file/program/records/medical,
+		/datum/computer_file/program/robocontrol,
+	)
+
+/obj/item/modular_computer/pda/nk006/medical/emt
+	name = "emergency medtechs' PDA"
+	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
+	greyscale_colors = "#FFFFFF#FF0000#FF6600#7f7f7f"
+	starting_programs = list(
+		/datum/computer_file/program/phys_scanner/medical,
+		/datum/computer_file/program/phys_scanner/chemistry,
+		/datum/computer_file/program/records/medical,
+		/datum/computer_file/program/radar/lifeline,
+	)
+
+//science PDAs
+/obj/item/modular_computer/pda/nk006/science
+	name = "science PDA"
+	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
+	greyscale_colors = "#FFFFFF#AAFF00#007FFF#7f7f7f"
+	starting_programs = list(
+		/datum/computer_file/program/atmosscan,
+		/datum/computer_file/program/signal_commander,
+		/datum/computer_file/program/robocontrol,
+	)
+
+/obj/item/modular_computer/pda/nk006/science/bio
+	name = "biologist PDA"
+	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
+	greyscale_colors = "#FFFFFF#AAFF00#FF0000#7f7f7f"
+	starting_programs = list(
+		/datum/computer_file/program/phys_scanner/medical,
+		/datum/computer_file/program/phys_scanner/chemistry,
+		/datum/computer_file/program/records/medical,
+		/datum/computer_file/program/atmosscan,
+		/datum/computer_file/program/robocontrol,
+	)
+
+//specialist service PDAs
+/obj/item/modular_computer/pda/nk006/medical/psych
+	name = "therapists' PDA"
+	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
+	greyscale_colors = "#FFFFFF#FF0000#00FF00#7f7f7f"
+
+/obj/item/modular_computer/pda/nk006/science/botany
+	name = "botanists' PDA"
+	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
+	greyscale_colors = "#FFFFFF#AAFF00#00FF00#7f7f7f"

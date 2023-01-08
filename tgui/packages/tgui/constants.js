@@ -14,26 +14,29 @@ export const UI_CLOSE = -1;
 export const COLORS = {
   // Department colors
   department: {
-    captain: '#c06616',
-    security: '#e74c3c',
-    medbay: '#3498db',
-    science: '#9b59b6',
-    engineering: '#f1c40f',
-    cargo: '#f39c12',
-    centcom: '#00c100',
-    other: '#c38312',
+    captain: '#ffff00',
+    security: '#007fff',
+    medbay: '#ff0000',
+    science: '#7fff00',
+    engineering: '#ff7f00',
+    cargo: '#af7f3f',
+    centcom: '#ffffff',
+    other: '#3f3f3f',
+	command: '#6600ff',
+	support: '#ff6600',
+	specialist: '#aaff00',
   },
   // Damage type colors
   damageType: {
-    oxy: '#3498db',
-    toxin: '#2ecc71',
-    burn: '#e67e22',
-    brute: '#e74c3c',
+    oxy: '#0066ff',
+    toxin: '#aaff00',
+    burn: '#ff6600',
+    brute: '#6600ff',
   },
   // reagent / chemistry related colours
   reagent: {
-    acidicbuffer: '#fbc314',
-    basicbuffer: '#3853a4',
+    acidicbuffer: '#aaff00',
+    basicbuffer: '#ff6600',
   },
 };
 
