@@ -1,5 +1,5 @@
 /datum/id_trim/job/nk006/ce
-	assignment = "Chief Engineer"
+	assignment = JOB_NK6_CE
 	intern_alt_name = "Assistant Chief Engineer"
 	trim_state = "trim_stationengineer"
 	orbit_icon = "user-astronaut"
@@ -90,8 +90,12 @@
 
 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_BOLD_SELECT_TEXT | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
 	rpg_title = "Lightning Wizard"
+	voice_of_god_power = 1.4 //Command staff has authority
 	
 	tgjob = 0
+
+/datum/job/nk006/ce/get_captaincy_announcement(mob/living/captain)
+	return "Due to staffing shortages, newly promoted Acting Captain [captain.real_name] on deck!"
 
 /datum/outfit/job/nk006/ce
 	name = JOB_NK6_CE
@@ -104,6 +108,8 @@
 	head = /obj/item/clothing/head/hats/nk006/ce
 	ears = /obj/item/radio/headset/nk006/headset_ce/alt
 	l_pocket = /obj/item/modular_computer/pda/nk006/heads/ce
+	pda_slot = ITEM_SLOT_LPOCKET
+	r_pocket = /obj/item/clothing/gloves/color/yellow
 
 	backpack = /obj/item/storage/backpack/nk006/ce
 	satchel = /obj/item/storage/backpack/satchel/nk006/ce

@@ -1,5 +1,5 @@
 /datum/id_trim/job/nk006/asst_spc
-	assignment = "Specialist Crew"
+	assignment = JOB_NK6_ASST_SPC
 	intern_alt_name = "Specialist Cadet"
 	trim_state = "trim_assistant"
 	orbit_icon = "toolbox"
@@ -62,6 +62,7 @@
 	head = /obj/item/clothing/head/soft/green
 	ears = /obj/item/radio/headset/nk006/headset_specialist
 	l_pocket = /obj/item/modular_computer/pda/nk006/specialist
+	pda_slot = ITEM_SLOT_LPOCKET
 
 	backpack = /obj/item/storage/backpack/nk006/specialist
 	satchel = /obj/item/storage/backpack/satchel/nk006/specialist

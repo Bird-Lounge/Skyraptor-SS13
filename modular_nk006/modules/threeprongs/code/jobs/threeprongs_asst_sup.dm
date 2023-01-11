@@ -1,5 +1,5 @@
 /datum/id_trim/job/nk006/asst_sup
-	assignment = "Support Crew"
+	assignment = JOB_NK6_ASST_SUP
 	intern_alt_name = "Support Cadet"
 	trim_state = "trim_assistant"
 	orbit_icon = "toolbox"
@@ -62,7 +62,11 @@
 	head = /obj/item/clothing/head/soft/orange
 	ears = /obj/item/radio/headset/nk006/headset_support
 	l_pocket = /obj/item/modular_computer/pda/nk006/support
+	pda_slot = ITEM_SLOT_LPOCKET
+	r_pocket = /obj/item/clothing/gloves/color/yellow
 
 	backpack = /obj/item/storage/backpack/nk006/support
 	satchel = /obj/item/storage/backpack/satchel/nk006/support
 	duffelbag = /obj/item/storage/backpack/duffelbag/nk006/support
+	
+	box = /obj/item/storage/box/survival/engineer

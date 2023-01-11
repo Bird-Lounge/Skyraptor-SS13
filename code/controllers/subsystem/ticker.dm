@@ -362,7 +362,7 @@ SUBSYSTEM_DEF(ticker)
 			SSticker.minds += P.new_character.mind
 		CHECK_TICK
 
-
+#define JOB_NK6_NUCAP "Commander" //bodging things in a bit of an ugly way because ticker is compiled before modular stuff
 /datum/controller/subsystem/ticker/proc/equip_characters()
 	GLOB.security_officer_distribution = decide_security_officer_departments(
 		shuffle(GLOB.new_player_list),
@@ -377,7 +377,7 @@ SUBSYSTEM_DEF(ticker)
 
 	// Find a suitable player to hold captaincy.
 	for(var/mob/dead/new_player/new_player_mob as anything in GLOB.new_player_list)
-		if(is_banned_from(new_player_mob.ckey, list(JOB_CAPTAIN)))
+		if(is_banned_from(new_player_mob.ckey, list(JOB_CAPTAIN, JOB_NK6_NUCAP))) //nk006 edit, we have to bodge it to be equal to NK6_NUCAP
 			CHECK_TICK
 			continue
 		if(!ishuman(new_player_mob.new_character))
@@ -428,8 +428,9 @@ SUBSYSTEM_DEF(ticker)
 		for(var/mob/dead/new_player/new_player_mob as anything in GLOB.new_player_list)
 			var/mob/living/carbon/human/new_player_human = new_player_mob.new_character
 			if(new_player_human)
-				to_chat(new_player_mob, span_notice("Captainship not forced on anyone."))
+				to_chat(new_player_mob, span_notice("Captainship not forced on anyone.  [ishuman(new_player_mob)]"))
 			CHECK_TICK
+#undef JOB_NK6_NUCAP
 
 
 /datum/controller/subsystem/ticker/proc/decide_security_officer_departments(

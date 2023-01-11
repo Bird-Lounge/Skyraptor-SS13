@@ -1,5 +1,5 @@
 /datum/id_trim/job/nk006/nucap
-	assignment = "Commander"
+	assignment = JOB_NK6_NUCAP
 	intern_alt_name = "Commander-in-Training"
 	trim_state = "trim_captain"
 	orbit_icon = "crown"
@@ -83,6 +83,7 @@
 	//gloves = /obj/item/clothing/gloves/color/captain
 	//shoes = /obj/item/clothing/shoes/laceup
 	l_pocket = /obj/item/modular_computer/pda/nk006/heads/captain
+	pda_slot = ITEM_SLOT_LPOCKET
 
 	backpack = /obj/item/storage/backpack/nk006/captain
 	satchel = /obj/item/storage/backpack/satchel/nk006/captain

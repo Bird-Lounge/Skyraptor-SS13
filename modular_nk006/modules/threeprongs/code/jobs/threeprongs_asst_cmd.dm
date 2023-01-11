@@ -1,5 +1,5 @@
 /datum/id_trim/job/nk006/asst_cmd
-	assignment = "Command Crew"
+	assignment = JOB_NK6_ASST_CMD
 	intern_alt_name = "Command Cadet"
 	trim_state = "trim_assistant"
 	orbit_icon = "toolbox"
@@ -62,6 +62,7 @@
 	head = /obj/item/clothing/head/soft/purple
 	ears = /obj/item/radio/headset/nk006/headset_command
 	l_pocket = /obj/item/modular_computer/pda/nk006/command
+	pda_slot = ITEM_SLOT_LPOCKET
 
 	backpack = /obj/item/storage/backpack/nk006/command
 	satchel = /obj/item/storage/backpack/satchel/nk006/command

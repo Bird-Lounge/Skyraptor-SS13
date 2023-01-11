@@ -33,6 +33,7 @@ SUBSYSTEM_DEF(job)
 	/// Lazylist of mob:occupation_string pairs.
 	var/list/dynamic_forced_occupations
 
+	//NK006 edits here- byebye old chain of command!
 	/**
 	 * Keys should be assigned job roles. Values should be >= 1.
 	 * Represents the chain of command on the station. Lower numbers mean higher priority.
@@ -41,13 +42,20 @@ SUBSYSTEM_DEF(job)
 	 * See [/datum/controller/subsystem/ticker/proc/equip_characters]
 	 */
 	var/list/chain_of_command = list(
-		JOB_CAPTAIN = 1,
-		JOB_HEAD_OF_PERSONNEL = 2,
-		JOB_RESEARCH_DIRECTOR = 3,
-		JOB_CHIEF_ENGINEER = 4,
-		JOB_CHIEF_MEDICAL_OFFICER = 5,
-		JOB_HEAD_OF_SECURITY = 6,
-		JOB_QUARTERMASTER = 7,
+		JOB_NK6_NUCAP = 1,
+		JOB_NK6_HOP = 2,
+		JOB_NK6_CMO = 3,
+		JOB_NK6_CE = 4,
+		JOB_NK6_HOS = 5,
+		JOB_NK6_QM = 6,
+		JOB_NK6_RD = 7, //sorry sci
+		JOB_CAPTAIN = 100,
+		JOB_HEAD_OF_PERSONNEL = 102,
+		JOB_RESEARCH_DIRECTOR = 103,
+		JOB_CHIEF_ENGINEER = 104,
+		JOB_CHIEF_MEDICAL_OFFICER = 105,
+		JOB_HEAD_OF_SECURITY = 106,
+		JOB_QUARTERMASTER = 107,
 	)
 
 	/// If TRUE, some player has been assigned Captaincy or Acting Captaincy at some point during the shift and has been given the spare ID safe code.
