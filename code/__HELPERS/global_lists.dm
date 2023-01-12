@@ -32,6 +32,15 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_antennae, GLOB.moth_antennae_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_markings, GLOB.moth_markings_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list)
+	
+	//NK006 EDIT BEGIN
+	
+	//Custom sprite accessory subtype categorization
+	for(var/spath in subtypesof(/datum/mutant_spritecat))
+		var/datum/mutant_spritecat/S = new spath()
+		GLOB.mutant_spritecat_list[S.id] = spath
+		S.init_jank()
+	//NK006 EDIT END
 
 	//Species
 	for(var/spath in subtypesof(/datum/species))

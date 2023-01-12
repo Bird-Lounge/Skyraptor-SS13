@@ -6,7 +6,7 @@
 	var/mob/living/carbon/human/lizard = allocate(/mob/living/carbon/human/dummy/consistent)
 	lizard.dna.features["mcolor"] = "#099"
 	lizard.dna.features["tail_lizard"] = "Light Tiger"
-	lizard.dna.features["snout"] = "Sharp + Light"
+	lizard.dna.features["snout_lizard"] = "Sharp + Light"
 	lizard.dna.features["horns"] = "Simple"
 	lizard.dna.features["frills"] = "Aquatic"
 	lizard.dna.features["legs"] = "Normal Legs"

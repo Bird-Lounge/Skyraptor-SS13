@@ -110,10 +110,10 @@
 	should_generate_icons = TRUE
 
 /datum/preference/choiced/lizard_snout/init_possible_values()
-	return generate_lizard_side_shots(GLOB.snouts_list, "snout", include_snout = FALSE)
+	return generate_lizard_side_shots(GLOB.snouts_list_lizard, "snout", include_snout = FALSE)
 
 /datum/preference/choiced/lizard_snout/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["snout"] = value
+	target.dna.features["snout_liazard"] = value
 
 /datum/preference/choiced/lizard_spines
 	savefile_key = "feature_lizard_spines"

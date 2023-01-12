@@ -65,6 +65,8 @@
 	var/color_src = MUTCOLORS
 	/// Decides if this sprite has an "inner" part, such as the fleshy parts on ears.
 	var/hasinner = FALSE
+	/// NK006 EDIT: can be used to draw separate colors for the "inner" portion
+	var/innercolor_src
 	/// Is this part locked from roundstart selection? Used for parts that apply effects.
 	var/locked = FALSE
 	/// Should we center the sprite?

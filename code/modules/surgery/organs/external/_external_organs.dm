@@ -39,8 +39,12 @@
 
 	///The color this organ draws with. Updated by bodypart/inherit_color()
 	var/draw_color
+	///NK006 EDIT: A secondary color used for hasinner
+	var/draw_color2
 	///Where does this organ inherit it's color from?
 	var/color_source = ORGAN_COLOR_INHERIT
+	///NK006 EDIT: Source for the secondary color used for hasinner; if not present in sprite params nothing happens.
+	var/innercolor_source
 
 	///Does this organ have any bodytypes to pass to it's ownerlimb?
 	var/external_bodytypes = NONE
@@ -160,6 +164,30 @@
 		center_image(appearance, sprite_datum.dimension_x, sprite_datum.dimension_y)
 
 	overlay_list += appearance
+	
+	if(sprite_datum.hasinner)
+		icon_state_builder = list()
+		icon_state_builder += sprite_datum.gender_specific ? gender : "m" //Male is default because sprite accessories are so ancient they predate the concept of not hardcoding gender
+		icon_state_builder += "inner[render_key ? render_key : feature_key]"
+		icon_state_builder += sprite_datum.icon_state
+		icon_state_builder += mutant_bodyparts_layertext(image_layer)
+
+		finished_icon_state = icon_state_builder.Join("_")
+
+		appearance = mutable_appearance(sprite_datum.icon, finished_icon_state, layer = -image_layer)
+		appearance.dir = image_dir
+
+		///Also give the icon to the obj
+		if(use_mob_sprite_as_obj_sprite)
+			icon = icon(sprite_datum.icon, finished_icon_state, SOUTH)
+
+		if(sprite_datum.innercolor_src)
+			appearance.color = draw_color2
+
+		if(sprite_datum.center)
+			center_image(appearance, sprite_datum.dimension_x, sprite_datum.dimension_y)
+
+		overlay_list += appearance
 
 ///If you need to change an external_organ for simple one-offs, use this. Pass the accessory type : /datum/accessory/something
 /obj/item/organ/external/proc/simple_change_sprite(accessory_type)
@@ -251,6 +279,16 @@
 			var/mob/living/carbon/human/human_owner = ownerlimb.owner
 			draw_color = human_owner.hair_color
 	color = draw_color
+	switch(innercolor_source)
+		if(ORGAN_COLOR_OVERRIDE)
+			draw_color2 = override_color(ownerlimb.draw_color)
+		if(ORGAN_COLOR_INHERIT)
+			draw_color2 = ownerlimb.draw_color
+		if(ORGAN_COLOR_HAIR)
+			if(!ishuman(ownerlimb.owner))
+				return
+			var/mob/living/carbon/human/human_owner = ownerlimb.owner
+			draw_color2 = human_owner.hair_color
 	return TRUE
 
 ///Colorizes the limb it's inserted to, if required.
@@ -316,6 +354,7 @@
 	slot = ORGAN_SLOT_EXTERNAL_SNOUT
 	layers = EXTERNAL_ADJACENT
 
+	render_key = "snout"
 	feature_key = "snout"
 	preference = "feature_lizard_snout"
 	external_bodytypes = BODYTYPE_SNOUTED
@@ -329,7 +368,7 @@
 	return FALSE
 
 /obj/item/organ/external/snout/get_global_feature_list()
-	return GLOB.snouts_list
+	return GLOB.snouts_list_lizard
 
 ///A moth's antennae
 /obj/item/organ/external/antennae
