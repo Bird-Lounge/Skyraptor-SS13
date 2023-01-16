@@ -16,13 +16,13 @@
 	//this is the proc that should call anything necessary for setting up the category while getting around BYOND jank
 	//yes i am naming it init_jank, this is the spess experience at its finest
 	proc/gen_unique_features(var/features, var/L)
-		world.log << "Feature [name] is generating"
+		//world.log << "Feature [name] is generating"
 		//will be in form of:
 		//if(features["feature_id"])
 		//	L[APPLICABLE_DNA_BLOCK] = construct_block(GLOB.applicable_list.Find(features["feature_id"]), GLOB.applicable_list.len)
 
 	proc/update_appear(var/datum/dna/dna, var/features)
-		world.log << "Feature [name] is updating appearance"
+		//world.log << "Feature [name] is updating appearance"
 		//will be in the form of:
 		//if(dna.features["feature_id"])
 		//	dna.features["feature_id"] = GLOB.applicable_list[deconstruct_block(get_uni_feature_block(features, APPLICABLE_DNA_BLOCK), GLOB.applicable_list.len)]

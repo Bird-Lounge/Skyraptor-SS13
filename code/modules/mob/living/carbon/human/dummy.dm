@@ -84,7 +84,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 
 /proc/create_consistent_human_dna(mob/living/carbon/human/target)
 	target.dna.initialize_dna(skip_index = TRUE)
-	target.dna.features["body_markings"] = "None"
+	target.dna.features["bodymarks_lizard"] = "None"
 	target.dna.features["ears"] = "None"
 	target.dna.features["ethcolor"] = COLOR_WHITE
 	target.dna.features["frills"] = "None"

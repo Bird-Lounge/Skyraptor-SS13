@@ -20,4 +20,4 @@ GLOBAL_LIST_EMPTY(mutant_spritecat_list)
 	//this is the proc that should call anything necessary for setting up the category while getting around BYOND jank
 	//yes i am naming it init_jank, this is the spess experience at its finest
 	proc/init_jank()
-		world.log << "Initializing sprite category [name]"
+		//world.log << "Initializing sprite category [name]"

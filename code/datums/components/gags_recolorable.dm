@@ -31,7 +31,11 @@
 	allowed_configs += "[config]"
 	if(ispath(atom_parent, /obj/item))
 		var/obj/item/item = atom_parent
-		if(initial(item.greyscale_config_worn))
+		if(initial(item.greyscale_config_worn_bodytypes)) //NK006 EDIT BEGIN: track alt-bodytype greyscales
+			var/bconfig
+			for(bconfig in item.greyscale_config_worn_bodytypes)
+				allowed_configs += "[initial(item.greyscale_config_worn_bodytypes[bconfig])]"
+		else if(initial(item.greyscale_config_worn)) //and if they're not present, add the standard one.  this avoids errors if AS EXPECTED people add greyscale_config_worn = bodytypes[BODYTYPE_HUMANOID].  NK006 EDIT END
 			allowed_configs += "[initial(item.greyscale_config_worn)]"
 		if(initial(item.greyscale_config_inhand_left))
 			allowed_configs += "[initial(item.greyscale_config_inhand_left)]"

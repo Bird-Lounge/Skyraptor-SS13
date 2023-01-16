@@ -57,8 +57,9 @@
 	if(!json_config)
 		stack_trace("Greyscale config object [DebugName()] is missing a json configuration, make sure `json_config` has been assigned a value.")
 	string_json_config = "[json_config]"
-	if(findtext(string_json_config, "code/datums/greyscale/json_configs/") != 1)
-		stack_trace("All greyscale json configuration files should be located within 'code/datums/greyscale/json_configs/'")
+	//NK006 EDIT: This is depreciated for reasons of modularizing things.
+	/*if(findtext(string_json_config, "code/datums/greyscale/json_configs/") != 1)
+		stack_trace("All greyscale json configuration files should be located within 'code/datums/greyscale/json_configs/'")*/
 	if(!icon_file)
 		stack_trace("Greyscale config object [DebugName()] is missing an icon file, make sure `icon_file` has been assigned a value.")
 	string_icon_file = "[icon_file]"
@@ -234,9 +235,12 @@
 
 /// Actually create the icon and color it in, handles caching
 /datum/greyscale_config/proc/Generate(color_string, icon/last_external_icon)
-	var/key = color_string
+	var/key = "[color_string]_[name]"
 	var/icon/new_icon = icon_cache[key]
+	//to_chat(world, "Generated got called for [name] from json [json_config] w/ icon file [icon_file].  Key for cache is [key]")
+	//this is a bad idea but it's important to debug these things
 	if(new_icon)
+		//to_chat(world, "Found a cached value for [key].")
 		return icon(new_icon)
 
 	var/icon/icon_bundle = GenerateBundle(color_string, last_external_icon=last_external_icon)

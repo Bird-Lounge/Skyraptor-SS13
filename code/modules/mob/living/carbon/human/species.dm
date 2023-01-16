@@ -704,20 +704,41 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 		for(var/bodypart in bodyparts_to_add)
 			var/datum/sprite_accessory/accessory
+			var/datum/sprite_accessory/accessory_tmp
+			var/source_id = "none"
 			switch(bodypart)
 				if("ears")
 					accessory = GLOB.ears_list[source.dna.features["ears"]]
+					source_id = "standard ears: [bodypart]"
 				if("body_markings")
 					accessory = GLOB.body_markings_list[source.dna.features["body_markings"]]
+					source_id = "standard bodymarks: [bodypart]"
 				if("legs")
 					accessory = GLOB.legs_list[source.dna.features["legs"]]
+					source_id = "standard legs: [bodypart]"
 				if("caps")
 					accessory = GLOB.caps_list[source.dna.features["caps"]]
+					source_id = "standard caps: [bodypart]"
+			
+			//NK006 EDIT BEGIN
+			//Custom mutant bodyparts go brrr
+			for(var/spath in subtypesof(/datum/mutant_newmutantpart))
+				var/datum/mutant_newmutantpart/S = new spath()
+				//world.log << "NK006_SPECIES: Trying to generate accessory for [S.name] on [bodypart]"
+				accessory_tmp = S.get_accessory(bodypart, source.dna.features)
+				if(accessory_tmp != FALSE)
+					//world.log << "NK006_SPECIES_SUCCESS: Found [accessory_tmp]!  Setting accessory."
+					accessory = accessory_tmp
+					source_id = "modularized: [bodypart]"
+			//world.log << "NK006_SPECIES: final accessory is [accessory], source [source_id]"
+			//NK006 EDIT END
 
 			if(!accessory || accessory.icon_state == "none")
 				continue
 
 			var/mutable_appearance/accessory_overlay = mutable_appearance(accessory.icon, layer = -layer)
+			
+			//world.log << "NK006_SPECIES: icon is [accessory.icon]"
 
 			if(accessory.gender_specific)
 				accessory_overlay.icon_state = "[g]_[bodypart]_[accessory.icon_state]_[layertext]"
@@ -752,6 +773,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				else
 					accessory_overlay.color = forced_colour
 			standing += accessory_overlay
+			
+			//world.log << "NK006_SPECIES: standing contains [accessory_overlay.icon_state] now"
 
 			if(accessory.hasinner)
 				var/mutable_appearance/inner_accessory_overlay = mutable_appearance(accessory.icon, layer = -layer)

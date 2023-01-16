@@ -45,7 +45,7 @@
 
 //== SNOUT
 /datum/preference/choiced/akula_snout
-	savefile_key = "feature_lizard_snout"
+	savefile_key = "feature_akula_snout"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_FEATURES
 	main_feature_name = "Snout"
@@ -66,7 +66,7 @@
 
 //== TAIL
 /datum/preference/choiced/akula_tail
-	savefile_key = "feature_lizard_tail"
+	savefile_key = "feature_lizard_tail" //avoid fuckery
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	relevant_external_organ = /obj/item/organ/external/tail/akula
@@ -107,12 +107,12 @@
 
 //== BODY MARKINGS
 /datum/preference/choiced/akula_body_markings
-	savefile_key = "feature_lizard_body_markings"
+	savefile_key = "feature_akula_body_markings"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_FEATURES
-	main_feature_name = "Body markings"
+	main_feature_name = "Akula body markings"
 	should_generate_icons = TRUE
-	relevant_mutant_bodypart = "body_markings"
+	relevant_mutant_bodypart = "bodymarks_akula"
 
 /datum/preference/choiced/akula_body_markings/init_possible_values()
 	var/list/values = list()
@@ -142,4 +142,4 @@
 	return values
 
 /datum/preference/choiced/akula_body_markings/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["body_markings"] = value
+	target.dna.features[NK006_AKULA_BODYMARK_ID] = value

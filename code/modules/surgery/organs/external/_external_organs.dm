@@ -355,7 +355,7 @@
 	layers = EXTERNAL_ADJACENT
 
 	render_key = "snout"
-	feature_key = "snout"
+	feature_key = "snout_lizard"
 	preference = "feature_lizard_snout"
 	external_bodytypes = BODYTYPE_SNOUTED
 

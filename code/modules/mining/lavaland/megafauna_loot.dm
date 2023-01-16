@@ -720,7 +720,7 @@
 				"wings" = "None",
 				"frills" = "None",
 				"spines" = "Long",
-				"body_markings" = "Dark Tiger Body",
+				"bodymarks_lizard" = "Dark Tiger Body",
 				"legs" = DIGITIGRADE_LEGS,
 			)
 			consumer.eye_color_left = "#FEE5A3"

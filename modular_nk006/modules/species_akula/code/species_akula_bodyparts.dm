@@ -6,7 +6,7 @@
 	icon_state = "snout"
 
 	feature_key = NK006_AKULA_SNOUT_ID
-	preference = "feature_lizard_snout"
+	preference = "feature_akula_snout"
 	
 	dna_block = DNA_SNOUT_BLOCK
 	restyle_flags = EXTERNAL_RESTYLE_FLESH

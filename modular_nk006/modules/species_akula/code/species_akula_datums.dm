@@ -122,7 +122,21 @@ GLOBAL_LIST_EMPTY(akula_body_markings_list)
 /datum/mutant_newdnafeature/akula_bodymark/update_appear(var/datum/dna/dna, var/features)
 	if(dna.features[id])
 		dna.features[id] = GLOB.akula_body_markings_list[deconstruct_block(get_uni_feature_block(features, DNA_LIZARD_MARKINGS_BLOCK), GLOB.akula_body_markings_list.len)]
+		dna.features["body_markings"] = GLOB.akula_body_markings_list[deconstruct_block(get_uni_feature_block(features, DNA_LIZARD_MARKINGS_BLOCK), GLOB.akula_body_markings_list.len)]
 	return ..()
+
+/datum/mutant_newmutantpart/bodymarks_akula
+	name = "Akula body markings"
+	id = "bodymarks_akula"
+
+/datum/mutant_newmutantpart/bodymarks_akula/get_accessory(var/bodypart, var/features)
+	..()
+	if(bodypart == "bodymarks_akula")
+		return GLOB.akula_body_markings_list[features["bodymarks_akula"]]
+	else
+		return FALSE
+
+
 
 
 GLOBAL_LIST_EMPTY(akula_ears_list)

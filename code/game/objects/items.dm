@@ -39,6 +39,19 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/greyscale_config_inhand_right
 	///The config type to use for greyscaled belt overlays. Both this and greyscale_colors must be assigned to work.
 	var/greyscale_config_belt
+	
+	///NK006 Edit: A list to take the place of GREYSCALE_CONFIG_WORN used for alternate bodytypes (e.g, Digitigrade)
+	//Use bodytype IDs as the keys to a greyscale config for the alternate version.
+	//For instance, greyscale_config_worn_bodytypes[BODYTYPE_DIGITIGRADE] = /datum/greyscale_config/trek/worn_digi
+	//If you include multiple variants, make sure to include the default value of the worn config as BODYTYPE_HUMANOID.
+	//This helps avoid Fuckery(tm) with dyes, changelings, chameleons, etc.
+	var/list/greyscale_config_worn_bodytypes
+	//NK006 Edit: Used with the above to help switch between greyscale configs cleanly and avoid Fuckery(tm).
+	var/greyscale_config_last_bodtype
+	
+	//NK006 Edit: used with both greyscales and eventually icon_state variants to allow MOAR BODYTYPES
+	//this needs to contain a list of supported numerical IDs and be ordered in TOP PRIORITY to BOTTOM PRIORITY (e.g, DigiFemme > Digi > Femme > Normal)
+	var/list/supported_bodytypes
 
 	/* !!!!!!!!!!!!!!! IMPORTANT !!!!!!!!!!!!!!
 
@@ -355,7 +368,18 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	. = ..()
 	if(!greyscale_colors)
 		return
-	if(greyscale_config_worn)
+	//to_chat(world, "Updating greyscale for [src]")
+	if(greyscale_config_worn_bodytypes && greyscale_config_last_bodtype)
+		to_chat(world, "Trying to apply bodytype-specific setup [greyscale_config_last_bodtype]")
+		if(greyscale_config_worn_bodytypes[greyscale_config_last_bodtype])
+			//worn_icon = SSgreyscale.GetColoredIconByType(greyscale_config_worn_bodytypes[greyscale_config_last_bodtype], greyscale_colors)
+			greyscale_config_worn = greyscale_config_worn_bodytypes[greyscale_config_last_bodtype]
+			worn_icon = SSgreyscale.GetColoredIconByType(greyscale_config_worn, greyscale_colors) //hacky but we roll with it
+			to_chat(world, "Found a match [greyscale_config_worn_bodytypes[greyscale_config_last_bodtype]]")
+		else
+			to_chat(world, "Failed to find matching bodytype-specific greyscale!")
+			worn_icon = SSgreyscale.GetColoredIconByType(greyscale_config_worn, greyscale_colors)
+	else if(greyscale_config_worn)
 		worn_icon = SSgreyscale.GetColoredIconByType(greyscale_config_worn, greyscale_colors)
 	if(greyscale_config_inhand_left)
 		lefthand_file = SSgreyscale.GetColoredIconByType(greyscale_config_inhand_left, greyscale_colors)
@@ -672,6 +696,13 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
  * polling ghosts while it's just being equipped as a visual preview for a dummy.
  */
 /obj/item/proc/visual_equipped(mob/user, slot, initial = FALSE)
+	if(ishuman(user))
+		var/mob/living/carbon/human/userH = user
+		var/N
+		for(N in supported_bodytypes)
+			if(userH.dna.species.bodytype & N)
+				greyscale_config_last_bodtype = "[N]"
+		update_greyscale() //NK006 update
 	return
 
 /**

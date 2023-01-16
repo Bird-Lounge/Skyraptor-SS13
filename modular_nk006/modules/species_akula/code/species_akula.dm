@@ -5,10 +5,10 @@
 //- Language
 
 #define SPECIES_AKULA "akula"
-#define NK006_AKULA_SNOUT_ID "NK006_SNOUT_AKULA"
-#define NK006_AKULA_TAIL_ID "NK006_TAIL_AKULA"
-#define NK006_AKULA_BODYMARK_ID "NK006_BODYMARK_AKULA"
-#define NK006_AKULA_EARS_ID "NK006_EARS_AKULA"
+#define NK006_AKULA_SNOUT_ID "snout_akula"
+#define NK006_AKULA_TAIL_ID "tail_akula"
+#define NK006_AKULA_BODYMARK_ID "bodymarks_akula"
+#define NK006_AKULA_EARS_ID "ears_akula"
 
 /mob/living/carbon/human/species/akula
 	race = /datum/species/akula
@@ -24,7 +24,7 @@
 		TRAIT_TACKLING_TAILED_DEFENDER,
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_REPTILE
-	mutant_bodyparts = list("body_markings" = "None", "legs" = "Normal Legs")
+	mutant_bodyparts = list("bodymarks_akula" = "None", "legs" = "Normal Legs")
 	mutantears = /obj/item/organ/internal/ears/akula
 	external_organs = list(
 		/obj/item/organ/external/snout/akula = "FullsnoutTmp",
@@ -74,12 +74,11 @@
 
 
 /datum/species/akula/randomize_features(mob/living/carbon/human/human_mob)
-	//human_mob.dna.features["body_markings"] = pick(GLOB.body_markings_list)
 	human_mob.hairstyle = "Business Hair"
 	human_mob.hair_color = "#bb9966" // brown
 	human_mob.dna.features[NK006_AKULA_SNOUT_ID] = pick(GLOB.snouts_list_akula)
 	human_mob.dna.features[NK006_AKULA_TAIL_ID] = pick(GLOB.tails_list_akula)
-	human_mob.dna.features["body_markings"] = pick(GLOB.body_markings_list)
+	human_mob.dna.features[NK006_AKULA_BODYMARK_ID] = pick(GLOB.akula_body_markings_list)
 	randomize_external_organs(human_mob)
 
 /datum/species/akula/get_scream_sound(mob/living/carbon/human/akula)
