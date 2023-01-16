@@ -28,9 +28,9 @@
 #define JOB_NK6_PSYCH "Therapist"					//UNIMPLEMENTED, LOW PRIORITY
 #define JOB_NK6_CHEM "Chemistry Technician"			//UNIMPLEMENTED
 //science crew
-#define JOB_NK6_SCI "Science Officer"				//UNIMPLEMENTED
-#define JOB_NK6_ROBO "Robotics Technician"			//UNIMPLEMENTED, LOW PRIORITY
-#define JOB_NK6_BIO "Biologist"						//UNIMPLEMENTED
+#define JOB_NK6_SCI "Science Officer"				//IMPLEMENTED
+#define JOB_NK6_MATSCI "Material Scientist"			//IMPLEMENTED-ISH, lOW PRIORITY
+#define JOB_NK6_BIO "Biologist"						//IMPLEMENTED
 #define JOB_NK6_BOTANY "Hydroponics Technician"		//UNIMPLEMENTED
 
 //color defines for jobs, etc

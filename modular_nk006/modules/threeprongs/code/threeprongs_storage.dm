@@ -863,3 +863,35 @@
 
 /obj/item/storage/belt/nk006/support/mine/PopulateContents()
 	//SSwardrobe.provide_type(/obj/item/crowbar, src)
+
+// == generic support belt, comes empty but it is support-type
+/obj/item/storage/belt/nk006/support/service
+	name = "service belt"
+	desc = "A green belt with an amber badge.  Plentiful storage for goodies."
+	icon_state = "belt_service"
+	worn_icon_state = "belt_service"
+	preload = TRUE
+
+/obj/item/storage/belt/nk006/support/service/get_types_to_preload()
+	var/list/to_preload = list() //Yes this is a pain. Yes this is the point
+	//to_preload += /obj/item/crowbar
+	return to_preload
+
+/obj/item/storage/belt/nk006/support/service/PopulateContents()
+	//SSwardrobe.provide_type(/obj/item/crowbar, src)
+
+// == generic support belt, comes empty but it is support-type
+/obj/item/storage/belt/nk006/specialist/botany
+	name = "botanist's belt"
+	desc = "A lime belt with an emerald badge.  Comes with basic plant tools & plentiful storage."
+	icon_state = "belt_botany"
+	worn_icon_state = "belt_botany"
+	preload = TRUE
+
+/obj/item/storage/belt/nk006/specialist/botany/get_types_to_preload()
+	var/list/to_preload = list() //Yes this is a pain. Yes this is the point
+	//to_preload += /obj/item/crowbar
+	return to_preload
+
+/obj/item/storage/belt/nk006/specialist/botany/PopulateContents()
+	//SSwardrobe.provide_type(/obj/item/crowbar, src)

@@ -265,6 +265,14 @@
 		/datum/computer_file/program/radar/lifeline,
 	)
 
+/obj/item/modular_computer/pda/nk006/medical/chemist
+	name = "chemist's PDA"
+	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
+	greyscale_colors = "#FFFFFF#FF0000#7FFF00#7f7f7f"
+	starting_programs = list(
+		/datum/computer_file/program/phys_scanner/chemistry, //todo: chem dispenser recipe list accessible from PDA
+	)
+
 //science PDAs
 /obj/item/modular_computer/pda/nk006/science
 	name = "science PDA"
@@ -285,6 +293,16 @@
 		/datum/computer_file/program/phys_scanner/chemistry,
 		/datum/computer_file/program/records/medical,
 		/datum/computer_file/program/atmosscan,
+		/datum/computer_file/program/robocontrol,
+	)
+
+/obj/item/modular_computer/pda/nk006/science/matsci
+	name = "materials science PDA"
+	greyscale_config = /datum/greyscale_config/tablet/nk006_pda
+	greyscale_colors = "#FFFFFF#AAFF00#FF6600#7f7f7f"
+	starting_programs = list(
+		/datum/computer_file/program/atmosscan,
+		/datum/computer_file/program/signal_commander,
 		/datum/computer_file/program/robocontrol,
 	)
 

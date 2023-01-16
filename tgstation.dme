@@ -5014,8 +5014,10 @@
 #include "modular_nk006\modules\threeprongs\code\jobs\threeprongs_lawyer.dm"
 #include "modular_nk006\modules\threeprongs\code\jobs\threeprongs_nucap.dm"
 #include "modular_nk006\modules\threeprongs\code\jobs\threeprongs_pathfinder.dm"
+#include "modular_nk006\modules\threeprongs\code\jobs\threeprongs_physci.dm"
 #include "modular_nk006\modules\threeprongs\code\jobs\threeprongs_qm.dm"
 #include "modular_nk006\modules\threeprongs\code\jobs\threeprongs_rd.dm"
+#include "modular_nk006\modules\threeprongs\code\jobs\threeprongs_scientist.dm"
 #include "modular_nk006\modules\threeprongs\code\jobs\threeprongs_secoff.dm"
 #include "modular_nk006\modules\threeprongs\code\jobs\threeprongs_surgeon.dm"
 // END_INCLUDE

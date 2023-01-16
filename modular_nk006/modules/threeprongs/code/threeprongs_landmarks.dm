@@ -99,7 +99,7 @@
 	icon_state = "Sci"
 
 /obj/effect/landmark/start/nk006/robo
-	name = JOB_NK6_ROBO
+	name = JOB_NK6_MATSCI
 	icon_state = "Robo"
 
 /obj/effect/landmark/start/nk006/bio

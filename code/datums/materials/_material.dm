@@ -122,7 +122,7 @@ Simple datum which is instanced once per type and is used for every object of sa
 		return
 	var/obj/item/item = o
 
-	if(material_flags & MATERIAL_GREYSCALE)
+	if(material_flags & MATERIAL_GREYSCALE) //NK006 EDIT: TODO, do we need to update this for bodytypes
 		var/worn_path = get_greyscale_config_for(item.greyscale_config_worn)
 		var/lefthand_path = get_greyscale_config_for(item.greyscale_config_inhand_left)
 		var/righthand_path = get_greyscale_config_for(item.greyscale_config_inhand_right)
@@ -194,7 +194,7 @@ Simple datum which is instanced once per type and is used for every object of sa
 		o.force = initial(o.force)
 		o.throwforce = initial(o.throwforce)
 
-	if(isitem(o) && (material_flags & MATERIAL_GREYSCALE))
+	if(isitem(o) && (material_flags & MATERIAL_GREYSCALE)) //NK006 EDIT: TODO, do we need to update this for greyscale bodytypes
 		var/obj/item/item = o
 		item.set_greyscale(
 			new_worn_config = initial(item.greyscale_config_worn),

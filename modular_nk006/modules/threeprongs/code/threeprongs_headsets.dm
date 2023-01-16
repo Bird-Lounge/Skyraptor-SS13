@@ -132,6 +132,13 @@
 	greyscale_config = /datum/greyscale_config/encryptionkey_medical
 	greyscale_colors = "#aaff00#ff0000"
 
+/obj/item/encryptionkey/nk006/headset_bio
+	name = "bology radio encryption key"
+	icon_state = "cypherkey_medical"
+	channels = list(RADIO_CHANNEL_NK6_SPECIALIST = 1, RADIO_CHANNEL_NK6_SPCMED = 1, RADIO_CHANNEL_NK6_COMMAND = 1, RADIO_CHANNEL_NK6_SUPPORT = 1, RADIO_CHANNEL_NK6_SUPPORT = 1, RADIO_CHANNEL_NK6_COMMAND = 1, RADIO_CHANNEL_NK6_ALLSRV = 1)
+	greyscale_config = /datum/greyscale_config/encryptionkey_medical
+	greyscale_colors = "#aaff00#00ff00"
+
 /obj/item/encryptionkey/nk006/headset_cmo
 	name = "cmo radio encryption key"
 	icon_state = "cypherkey_medical"
@@ -372,7 +379,23 @@
 
 /obj/item/radio/headset/nk006/headset_sci/alt
 	name = "science bowman headset"
-	desc = "An improved headset for the head of research and development.  Has basic access to other department comms & Cargo for upgrades. Protects ears from flashbangs."
+	desc = "An improved headset for science crew.  Has basic access to other department comms & Cargo for upgrades. Protects ears from flashbangs."
+	icon_state = "sci_headset_alt"
+
+/obj/item/radio/headset/nk006/headset_sci/alt/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+
+
+/obj/item/radio/headset/nk006/headset_bio
+	name = "biology radio headset"
+	desc = "A headset for biologists.  A combination of sci + med headsets."
+	icon_state = "sci_headset"
+	keyslot = /obj/item/encryptionkey/nk006/headset_bio
+
+/obj/item/radio/headset/nk006/headset_bio/alt
+	name = "biology bowman headset"
+	desc = "An improved headset for chemists.  A combination of sci + med headsets. Protects ears from flashbangs- and exploding Inacusiate."
 	icon_state = "sci_headset_alt"
 
 /obj/item/radio/headset/nk006/headset_sci/alt/Initialize(mapload)

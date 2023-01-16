@@ -236,7 +236,7 @@ GLOBAL_LIST_INIT(dye_registry, list(
 	var/obj/item/target_type = GLOB.dye_registry[dye_key_selector][dye_color]
 	if(!target_type)
 		return FALSE
-	if(initial(target_type.greyscale_config) && initial(target_type.greyscale_colors))
+	if(initial(target_type.greyscale_config) && initial(target_type.greyscale_colors)) //NK006 EDIT: Todo, dyes might not play nice with this whole setup
 		set_greyscale(
 			colors=initial(target_type.greyscale_colors),
 			new_config=initial(target_type.greyscale_config),
