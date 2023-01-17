@@ -26,7 +26,7 @@
 	total_positions = 5
 	spawn_positions = 5
 	supervisors = "The Captain, Heads of Staff"
-	selection_color = "#ff6600"
+	//selection_color = "#ff6600"
 	minimal_player_age = 0
 	exp_requirements = 0
 	exp_required_type = EXP_TYPE_CREW

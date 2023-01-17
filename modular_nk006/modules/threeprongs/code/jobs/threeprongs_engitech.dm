@@ -38,7 +38,7 @@
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "The Captain, The Chief Engineer"
-	selection_color = "#ff7f00"
+	//selection_color = "#ff7f00"
 	exp_requirements = 60
 	exp_required_type = EXP_TYPE_CREW
 	exp_granted_type = EXP_TYPE_CREW

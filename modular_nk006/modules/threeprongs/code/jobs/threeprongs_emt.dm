@@ -39,7 +39,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Captain, the CMO"
-	selection_color = "#ff0000"
+	//selection_color = "#ff0000"
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "NK006_EMT"
 

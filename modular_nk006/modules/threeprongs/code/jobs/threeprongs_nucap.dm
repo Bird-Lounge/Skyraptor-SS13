@@ -24,7 +24,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "NanoTrasen officials and Space Law"
-	selection_color = "#6600ff"
+	//selection_color = "#6600ff"
 	req_admin_notify = 1
 	minimal_player_age = 14
 	exp_requirements = 180

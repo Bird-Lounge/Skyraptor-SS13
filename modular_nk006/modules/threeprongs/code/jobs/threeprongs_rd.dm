@@ -56,7 +56,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "The Captain"
-	selection_color = "#aaff00"
+	//selection_color = "#aaff00"
 	req_admin_notify = 1
 	minimal_player_age = 7
 	exp_required_type_department = EXP_TYPE_SCIENCE

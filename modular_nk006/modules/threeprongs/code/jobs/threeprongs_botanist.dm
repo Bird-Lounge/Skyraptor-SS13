@@ -32,7 +32,7 @@
 	total_positions = 2
 	spawn_positions = 3
 	supervisors = "The Captain, The RD, the HOP."
-	selection_color = "#00ff00"
+	//selection_color = "#00ff00"
 	config_tag = "NK006_BOTANY"
 
 	outfit = /datum/outfit/job/nk006/botanist

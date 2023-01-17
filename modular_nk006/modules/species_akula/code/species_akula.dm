@@ -18,7 +18,7 @@
 	name = "\improper akula"
 	plural_form = "akula"
 	id = SPECIES_AKULA
-	species_traits = list(MUTCOLORS, EYECOLOR, HAIR, LIPS, HAS_FLESH, HAS_BONE)
+	species_traits = list(MUTCOLORS, EYECOLOR, HAIR, LIPS)
 	inherent_traits = list(
 		TRAIT_CAN_USE_FLIGHT_POTION,
 		TRAIT_TACKLING_TAILED_DEFENDER,

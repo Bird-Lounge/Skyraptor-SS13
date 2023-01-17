@@ -34,13 +34,13 @@
 	total_positions = 5
 	spawn_positions = 3
 	supervisors = "the Captain, the CMO"
-	selection_color = "#ff0000"
+	//selection_color = "#ff0000"
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "NK006_SURGEON"
 
 	outfit = /datum/outfit/job/nk006/surgeon
 	plasmaman_outfit = /datum/outfit/plasmaman/chief_medical_officer
-	
+
 	departments_list = list(
 		/datum/job_department/nk006/specialist,
 		/datum/job_department/nk006/specialist/medical,
@@ -69,7 +69,7 @@
 
 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
 	rpg_title = "Cleric"
-	
+
 	tgjob = 0
 
 /datum/outfit/job/nk006/surgeon
@@ -88,6 +88,6 @@
 	backpack = /obj/item/storage/backpack/nk006/medical
 	satchel = /obj/item/storage/backpack/satchel/nk006/medical
 	duffelbag = /obj/item/storage/backpack/duffelbag/nk006/medical
-	
+
 	box = /obj/item/storage/box/survival/medical
 	skillchips = list(/obj/item/skillchip/entrails_reader)
