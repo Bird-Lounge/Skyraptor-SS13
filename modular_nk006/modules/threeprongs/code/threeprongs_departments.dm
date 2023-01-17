@@ -26,12 +26,12 @@
 #define JOB_NK6_SURGEON "Surgeon"					//IMPLEMENTED
 #define JOB_NK6_EMT "Emergency Medical Technician"	//IMPLEMENTED
 #define JOB_NK6_PSYCH "Therapist"					//UNIMPLEMENTED, LOW PRIORITY
-#define JOB_NK6_CHEM "Chemistry Technician"			//UNIMPLEMENTED
+#define JOB_NK6_CHEMIST "Chemistry Technician"		//MPLEMENTED
 //science crew
 #define JOB_NK6_SCI "Science Officer"				//IMPLEMENTED
-#define JOB_NK6_MATSCI "Material Scientist"			//IMPLEMENTED-ISH, lOW PRIORITY
+#define JOB_NK6_MATSCI "Material Scientist"			//IMPLEMENTED-ISH, LOW PRIORITY
 #define JOB_NK6_BIO "Biologist"						//IMPLEMENTED
-#define JOB_NK6_BOTANY "Hydroponics Technician"		//UNIMPLEMENTED
+#define JOB_NK6_BOTANY "Hydroponics Technician"		//IMPLEMENTED-ISH, LOW PRIORITY
 
 //color defines for jobs, etc
 #define COLOR_NK006_HEADS "#ffff00"

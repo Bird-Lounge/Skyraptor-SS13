@@ -3,7 +3,7 @@
 	intern_alt_name = "Asst. Materials Scientist"
 	trim_state = "trim_roboticist"
 	orbit_icon = "battery-half"
-	sechud_icon_state = SECHUD_GENETICIST
+	sechud_icon_state = SECHUD_ROBOTICIST
 	minimal_access = list(
 		ACCESS_AUX_BASE,
 		ACCESS_MECH_SCIENCE,

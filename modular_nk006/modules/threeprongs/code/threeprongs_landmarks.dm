@@ -111,7 +111,7 @@
 	icon_state = "Botany"
 
 /obj/effect/landmark/start/nk006/chem
-	name = JOB_NK6_CHEM
+	name = JOB_NK6_CHEMIST
 	icon_state = "Chem"
 
 

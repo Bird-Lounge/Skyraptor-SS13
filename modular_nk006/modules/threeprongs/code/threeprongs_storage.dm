@@ -895,3 +895,37 @@
 
 /obj/item/storage/belt/nk006/specialist/botany/PopulateContents()
 	//SSwardrobe.provide_type(/obj/item/crowbar, src)
+
+
+// == generic support belt, comes empty but it is support-type
+/obj/item/storage/belt/nk006/specialist/bio_chem
+	name = "biologist's belt"
+	desc = "A lime belt with a ruby badge.  Comes with more beakers than you can shake a stick at."
+	icon_state = "belt_bio"
+	worn_icon_state = "belt_bio"
+	preload = TRUE
+
+/obj/item/storage/belt/nk006/specialist/bio_chem/get_types_to_preload()
+	var/list/to_preload = list() //Yes this is a pain. Yes this is the point
+	//to_preload += /obj/item/crowbar
+	return to_preload
+
+/obj/item/storage/belt/nk006/specialist/bio_chem/PopulateContents()
+	//SSwardrobe.provide_type(/obj/item/crowbar, src)
+
+
+// == generic support belt, comes empty but it is support-type
+/obj/item/storage/belt/nk006/specialist/bio
+	name = "biologist's belt"
+	desc = "A lime belt with a ruby badge.  Free for activities."
+	icon_state = "belt_bio"
+	worn_icon_state = "belt_bio"
+	preload = TRUE
+
+/obj/item/storage/belt/nk006/specialist/bio/get_types_to_preload()
+	var/list/to_preload = list() //Yes this is a pain. Yes this is the point
+	//to_preload += /obj/item/crowbar
+	return to_preload
+
+/obj/item/storage/belt/nk006/specialist/bio/PopulateContents()
+	//SSwardrobe.provide_type(/obj/item/crowbar, src)

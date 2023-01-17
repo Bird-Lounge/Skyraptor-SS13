@@ -79,7 +79,7 @@
 	id = /obj/item/card/id/advanced/silver
 	id_trim = /datum/id_trim/job/nk006/chemist
 	uniform = /obj/item/clothing/under/trek/nk006_spc
-	belt = /obj/item/storage/belt/nk006/specialist/chemist
+	belt = /obj/item/storage/belt/nk006/specialist/bio_chem
 	//head = /obj/item/clothing/head/beret/nk006/chemist
 	ears = /obj/item/radio/headset/nk006/headset_bio/alt
 	l_pocket = /obj/item/modular_computer/pda/nk006/medical/chemist
