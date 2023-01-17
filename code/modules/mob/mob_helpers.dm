@@ -206,11 +206,6 @@
 		return " \[[real_name]\]"
 	return ""
 
-///Checks if the mob is able to see or not. eye_blind is temporary blindness, the trait is if they're permanently blind.
-/mob/proc/is_blind()
-	SHOULD_BE_PURE(TRUE)
-	return eye_blind ? TRUE : HAS_TRAIT(src, TRAIT_BLIND)
-
 // moved out of admins.dm because things other than admin procs were calling this.
 /// Returns TRUE if the game has started and we're either an AI with a 0th law, or we're someone with a special role/antag datum
 /proc/is_special_character(mob/M)
@@ -471,3 +466,11 @@
 	if(!istype(player, /client))
 		return
 	return player
+
+/proc/health_percentage(mob/living/mob)
+	var/divided_health = mob.health / mob.maxHealth
+	if(iscyborg(mob) || islarva(mob))
+		divided_health = (mob.health + mob.maxHealth) / (mob.maxHealth * 2)
+	else if(iscarbon(mob) || isAI(mob) || isbrain(mob))
+		divided_health = abs(HEALTH_THRESHOLD_DEAD - mob.health) / abs(HEALTH_THRESHOLD_DEAD - mob.maxHealth)
+	return divided_health * 100

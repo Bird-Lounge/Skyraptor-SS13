@@ -201,7 +201,7 @@
 	if(!do_after(user, 5 SECONDS, target = victim, extra_checks = CALLBACK(src, PROC_REF(eyeballs_exist), eyeballies, head, victim)))
 		return
 
-	if(!HAS_TRAIT(victim, TRAIT_BLIND))
+	if(!victim.is_blind())
 		to_chat(victim, span_userdanger("You suddenly go blind!"))
 	if(prob(1))
 		to_chat(victim, span_notice("At least you got a new pirate-y look out of it..."))
@@ -217,8 +217,12 @@
 	if(prob(20))
 		victim.emote("cry")
 	used = TRUE
-	desc += " It has been used up."
 	update_appearance(UPDATE_ICON)
+
+/obj/item/eyesnatcher/examine(mob/user)
+	. = ..()
+	if(used)
+		. += span_notice("It has been used up.")
 
 /obj/item/eyesnatcher/proc/eyeballs_exist(obj/item/organ/internal/eyes/eyeballies, obj/item/bodypart/head/head, mob/living/carbon/human/victim)
 	if(!eyeballies || QDELETED(eyeballies))
