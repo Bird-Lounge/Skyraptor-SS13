@@ -1,0 +1,15 @@
+{
+	"version": 1,
+	"map_name": "N.T.C. Test Ship: Plz Ignore",
+	"map_path": "map_files/NTCTestShipPlzIgnore",
+	"map_file": "NTCTestShipPlzIgnore.dmm",
+	"shuttles": {
+		"cargo": "cargo_box",
+		"ferry": "ferry_fancy",
+		"whiteship": "whiteship_meta",
+		"emergency": "emergency_meta"
+	},
+	"orbit_shift_replacement": "Attention crew, it appears that someone has shifted your ship into more dangerous territory.",
+	"job_changes": {
+	}
+}

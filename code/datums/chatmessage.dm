@@ -11,9 +11,9 @@
 /// Approximate height in pixels of an 'average' line, used for height decay
 #define CHAT_MESSAGE_APPROX_LHEIGHT 11
 /// Max width of chat message in pixels
-#define CHAT_MESSAGE_WIDTH 96
+#define CHAT_MESSAGE_WIDTH 120 //NK006 EDIT: upgraded from 96 to 120
 /// Max length of chat message in characters
-#define CHAT_MESSAGE_MAX_LENGTH 110
+#define CHAT_MESSAGE_MAX_LENGTH 240 //NK006 EDIT: upgraded from 110 to 240
 /// The dimensions of the chat message icons
 #define CHAT_MESSAGE_ICON_SIZE 9
 
@@ -122,10 +122,12 @@
 		text = copytext_char(text, 1, maxlen + 1) + "..." // BYOND index moment
 
 	// Calculate target color if not already present
-	if (!target.chat_color || target.chat_color_name != target.name)
+	if (!target.chat_color || (target.chat_color_name != target.name && target.chat_color_name != "__PREFS__"))
 		target.chat_color = colorize_string(target.name)
 		target.chat_color_darkened = colorize_string(target.name, 0.85, 0.85)
 		target.chat_color_name = target.name
+	if(target.chat_color_name != target.name)
+		target.chat_color_name = target.name //minor fix just in case byond decides to do a fuckery
 
 	// Get rid of any URL schemes that might cause BYOND to automatically wrap something in an anchor tag
 	var/static/regex/url_scheme = new(@"[A-Za-z][A-Za-z0-9+-\.]*:\/\/", "g")

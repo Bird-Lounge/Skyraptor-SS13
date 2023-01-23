@@ -90,9 +90,6 @@
 /turf/open/floor/plating,
 /area/shuttle/arrival)
 "O" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/closet/wardrobe/mixed,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/arrival)
@@ -101,9 +98,6 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/arrival)
 "Q" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/closet/emcloset,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/arrival)
@@ -114,13 +108,10 @@
 /turf/open/floor/mineral/titanium,
 /area/shuttle/arrival)
 "X" = (
-/obj/structure/chair/comfy/shuttle{
+/obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/mineral/titanium,
+/turf/template_noop,
 /area/shuttle/arrival)
 "Y" = (
 /turf/open/floor/mineral/titanium,
@@ -178,15 +169,15 @@ N
 (7,1,1) = {"
 g
 Q
-X
+U
 O
 g
 "}
 (8,1,1) = {"
 r
-l
-l
-l
+X
+X
+X
 r
 "}
 (9,1,1) = {"

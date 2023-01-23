@@ -130,3 +130,166 @@
 	icon_state = "SpecialistAsst"
 
 
+
+/// ACCESS HELPERS
+/obj/effect/mapping_helpers/airlock/access/any/nk006/
+	icon = 'modular_nk006/modules/threeprongs/icons/threeprongs_etc.dmi'
+	icon_state = "access_helper_any"
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/get_access()
+	var/list/access_list = ..()
+	//access_list += ACCESS_NK006_COMMON
+	return access_list
+
+
+
+//COMMAND ACCESSES
+/obj/effect/mapping_helpers/airlock/access/any/nk006/command
+	icon_state = "access_helper_cmd"
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/command/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_NK006_CMD
+	return access_list
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/command/security
+	icon_state = "access_helper_sec"
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/command/security/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_NK006_SECURITY
+	return access_list
+
+
+
+//SUPPORT ACCESSES
+/obj/effect/mapping_helpers/airlock/access/any/nk006/support
+	icon_state = "access_helper_sup"
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/support/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_NK006_SUP
+	return access_list
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/support/engine
+	icon_state = "access_helper_sup"
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/support/engine/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_NK006_ENGINE
+	return access_list
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/support/atmos
+	icon_state = "access_helper_tox"
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/support/atmos/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_NK006_ATMOS
+	return access_list
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/support/botany
+	icon_state = "access_helper_tox"
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/support/botany/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_NK006_SPC
+	return access_list
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/support/cargo
+	icon_state = "access_helper_cargo"
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/support/cargo/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_NK006_CARGO
+	return access_list
+
+
+
+//SPECIALIST ACCESSES
+/obj/effect/mapping_helpers/airlock/access/any/nk006/specialist
+	icon_state = "access_helper_spc"
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/specialist/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_NK006_SPC
+	return access_list
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/specialist/medical
+	icon_state = "access_helper_spc"
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/specialist/medical/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_NK006_MEDICAL
+	return access_list
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/specialist/bio
+	icon_state = "access_helper_bio"
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/specialist/bio/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_NK006_BIOLOGY
+	return access_list
+
+//HEADS OF STAFF ACCESS CATEGORIES
+/obj/effect/mapping_helpers/airlock/access/any/nk006/heads
+	icon_state = "access_helper_any"
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/heads/get_access()
+	var/list/access_list = ..()
+	return access_list
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/heads/captain
+	icon_state = "access_helper_head_cap"
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/heads/captain/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_NK006_HEAD_CAP
+	return access_list
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/heads/hop
+	icon_state = "access_helper_head_hop"
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/heads/hop/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_NK006_HEAD_HOP
+	return access_list
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/heads/cmo
+	icon_state = "access_helper_head_cmo"
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/heads/cmo/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_NK006_HEAD_CMO
+	return access_list
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/heads/ce
+	icon_state = "access_helper_head_ce"
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/heads/ce/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_NK006_HEAD_CE
+	return access_list
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/heads/hos
+	icon_state = "access_helper_head_hos"
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/heads/hos/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_NK006_HEAD_HOS
+	return access_list
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/heads/rd
+	icon_state = "access_helper_head_rd"
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/heads/rd/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_NK006_HEAD_RD
+	return access_list
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/heads/qm
+	icon_state = "access_helper_head_qm"
+
+/obj/effect/mapping_helpers/airlock/access/any/nk006/heads/qm/get_access()
+	var/list/access_list = ..()
+	access_list += ACCESS_NK006_HEAD_QM
+	return access_list

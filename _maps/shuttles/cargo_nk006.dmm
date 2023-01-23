@@ -1,0 +1,178 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/machinery/light/directional/south,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/supply)
+"e" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst/right{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/open/floor/plating/airless,
+/area/shuttle/supply)
+"h" = (
+/obj/structure/marker_beacon/burgundy,
+/turf/open/floor/plating/airless,
+/area/shuttle/supply)
+"i" = (
+/obj/structure/marker_beacon/yellow,
+/obj/docking_port/mobile/supply,
+/turf/open/floor/plating/airless,
+/area/shuttle/supply)
+"j" = (
+/obj/machinery/door/airlock/titanium{
+	name = "Supply Shuttle Airlock"
+	},
+/turf/open/floor/plating,
+/area/shuttle/supply)
+"m" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst/left{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/open/floor/plating/airless,
+/area/shuttle/supply)
+"z" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "QMLoad"
+	},
+/obj/machinery/door/poddoor{
+	id = "QMLoaddoor";
+	name = "Supply Dock Loading Door"
+	},
+/turf/open/floor/plating,
+/area/shuttle/supply)
+"C" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "QMLoad2"
+	},
+/obj/machinery/door/poddoor{
+	id = "QMLoaddoor2";
+	name = "Supply Dock Loading Door"
+	},
+/turf/open/floor/plating,
+/area/shuttle/supply)
+"D" = (
+/turf/template_noop,
+/area/template_noop)
+"E" = (
+/obj/structure/marker_beacon/olive,
+/turf/open/floor/plating/airless,
+/area/shuttle/supply)
+"G" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/template_noop,
+/area/shuttle/supply)
+"H" = (
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/turf/open/floor/plating,
+/area/shuttle/supply)
+"I" = (
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/supply)
+"K" = (
+/obj/machinery/button/door/directional/north{
+	id = "QMLoaddoor2";
+	name = "Loading Doors;
+	req_access = list("kitchen");
+	pixel_x = -8
+	},
+/obj/machinery/button/door/directional/north{
+	id = "QMLoaddoor";
+	name = "Loading Doors;
+	req_access = list("kitchen");
+	pixel_x = 8
+	},
+/obj/machinery/light/directional/north,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/supply)
+"Q" = (
+/turf/open/floor/mineral/titanium,
+/area/shuttle/supply)
+"X" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/open/floor/plating/airless,
+/area/shuttle/supply)
+
+(1,1,1) = {"
+D
+H
+H
+H
+D
+"}
+(2,1,1) = {"
+I
+Q
+Q
+Q
+I
+"}
+(3,1,1) = {"
+C
+Q
+Q
+Q
+I
+"}
+(4,1,1) = {"
+j
+Q
+Q
+Q
+j
+"}
+(5,1,1) = {"
+I
+K
+Q
+a
+I
+"}
+(6,1,1) = {"
+j
+Q
+Q
+Q
+j
+"}
+(7,1,1) = {"
+z
+Q
+Q
+Q
+I
+"}
+(8,1,1) = {"
+X
+G
+G
+G
+X
+"}
+(9,1,1) = {"
+e
+h
+i
+E
+m
+"}

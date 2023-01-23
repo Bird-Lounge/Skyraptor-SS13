@@ -129,28 +129,8 @@ SUBSYSTEM_DEF(id_access)
 	for(var/trim in typesof(/datum/id_trim))
 		trim_singletons_by_path[trim] = new trim()
 
-/// Creates various data structures that primarily get fed to tgui interfaces, although these lists are used in other places.
-/datum/controller/subsystem/id_access/proc/setup_tgui_lists()
-	for(var/region in accesses_by_region)
-		var/list/region_access = accesses_by_region[region]
-
-		var/parsed_accesses = list()
-
-		for(var/access in region_access)
-			var/access_desc = get_access_desc(access)
-			if(!access_desc)
-				continue
-
-			parsed_accesses += list(list(
-				"desc" = replacetext(access_desc, "&nbsp", " "),
-				"ref" = access,
-			))
-
-		all_region_access_tgui[region] = list(list(
-			"name" = region,
-			"accesses" = parsed_accesses,
-		))
-
+/// Sets up sub_department_managers_tgui.  Allows for it to be changed for new heads & job classifications.
+/datum/controller/subsystem/id_access/proc/initialize_head_categories()
 	sub_department_managers_tgui = list(
 		"[ACCESS_CAPTAIN]" = list(
 			"regions" = list(REGION_COMMAND),
@@ -195,6 +175,30 @@ SUBSYSTEM_DEF(id_access)
 			"pdas" = list(),
 		),
 	)
+
+/// Creates various data structures that primarily get fed to tgui interfaces, although these lists are used in other places.
+/datum/controller/subsystem/id_access/proc/setup_tgui_lists()
+	for(var/region in accesses_by_region)
+		var/list/region_access = accesses_by_region[region]
+
+		var/parsed_accesses = list()
+
+		for(var/access in region_access)
+			var/access_desc = get_access_desc(access)
+			if(!access_desc)
+				continue
+
+			parsed_accesses += list(list(
+				"desc" = replacetext(access_desc, "&nbsp", " "),
+				"ref" = access,
+			))
+
+		all_region_access_tgui[region] = list(list(
+			"name" = region,
+			"accesses" = parsed_accesses,
+		))
+
+	initialize_head_categories() //NK006 EDIT: this moves the initialization of the sub_department_managers_tgui list to a proc so we can add to it modularly
 
 	var/list/station_job_trims = subtypesof(/datum/id_trim/job)
 	for(var/trim_path in station_job_trims)

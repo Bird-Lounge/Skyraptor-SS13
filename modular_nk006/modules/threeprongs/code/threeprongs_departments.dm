@@ -1,38 +1,3 @@
-#define JOB_NK6_NUCAP "Commander"					//making it completely distinct for reasons of SPESS IS EATING MY FACE GUYS PLEASE SEND HELP.  IMPLEMENTED, albiet with temporary gear
-#define JOB_NK6_HOP "First Officer"					//IMPLEMENTED, temporary gear
-#define JOB_NK6_HOS "Chief of Security"				//IMPLEMENTED, temporary gear
-#define JOB_NK6_CE "Chief of Engineering"			//IMPLEMENTED, temporary gear
-#define JOB_NK6_QM "Chief of Resources"				//IMPLEMENTED, temporary gear
-#define JOB_NK6_RD "Chief of Science"				//UNIMPLEMENTED
-#define JOB_NK6_CMO "Chief of Medicine"				//IMPLEMENTED, temporary gear
-//departmental assistants
-#define JOB_NK6_ASST_CMD "Command Crew"				//IMPLEMENTED
-#define JOB_NK6_ASST_SUP "Support Crew"				//IMPLEMENTED
-#define JOB_NK6_ASST_SPC "Specialist Crew"			//IMPLEMENTED
-//sec crew
-#define JOB_NK6_SECOFF "Security"					//UNIMPLEMENTED
-#define JOB_NK6_LAWYER "Attorney"					//UNIMPLEMENTED, LOW PRIORITY
-//engineering crew
-#define JOB_NK6_DAMCON "Damage Control Technician"	//IMPLEMENTED
-#define JOB_NK6_ENGITECH "Engineering Technician"	//IMPLEMENTED
-//cargo crew
-#define JOB_NK6_CARGO "Delivery Technician"			//IMPLEMENTED
-#define JOB_NK6_MINE "Pathfinder"					//UNIMPLEMENTED
-//service crew
-#define JOB_NK6_CULINARY "Culinary Artist"			//UNIMPLEMENTED
-#define JOB_NK6_JANITOR "Sanitation Officer"		//UNIMPLEMENTED
-//TODO: clowns?
-//medical crew
-#define JOB_NK6_SURGEON "Surgeon"					//IMPLEMENTED
-#define JOB_NK6_EMT "Emergency Medical Technician"	//IMPLEMENTED
-#define JOB_NK6_PSYCH "Therapist"					//UNIMPLEMENTED, LOW PRIORITY
-#define JOB_NK6_CHEMIST "Chemistry Technician"		//MPLEMENTED
-//science crew
-#define JOB_NK6_SCI "Science Officer"				//IMPLEMENTED
-#define JOB_NK6_MATSCI "Material Scientist"			//IMPLEMENTED-ISH, LOW PRIORITY
-#define JOB_NK6_BIO "Biologist"						//IMPLEMENTED
-#define JOB_NK6_BOTANY "Hydroponics Technician"		//IMPLEMENTED-ISH, LOW PRIORITY
-
 //color defines for jobs, etc
 #define COLOR_NK006_HEADS "#ffff00"
 #define COLOR_NK006_COMMAND "#6600ff"
