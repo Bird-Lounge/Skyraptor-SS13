@@ -91,13 +91,14 @@
 /obj/item/storage/box/silver_sulf
 	icon_state = "medbox"
 
-
 /obj/item/storage/box/cyber_implants
 	illustration = null //Included in the sprite
 
-//Unchanged from TG:
 /obj/item/storage/box/monkeycubes
-	icon = 'icons/obj/storage/storage.dmi'
+	icon = 'modular_nk006/modules/aesthetics/storage/storage.dmi'
+	icon_state = "monkeycubebox"
+
+//Unchanged from TG:
 
 /obj/item/storage/box/gum
 	icon = 'icons/obj/storage/storage.dmi'

@@ -9,6 +9,7 @@
 	extra_wildcard_access = list()
 	minimal_access = list(
 		ACCESS_NK006_HEAD_HOS,
+		ACCESS_NK006_HEAD_ANY,
 		ACCESS_NK006_COMMON,
 		ACCESS_NK006_CMD,
 		ACCESS_NK006_SECURITY,

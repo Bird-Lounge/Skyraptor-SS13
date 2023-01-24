@@ -7,9 +7,10 @@
 	sechud_icon_state = SECHUD_CHIEF_MEDICAL_OFFICER
 	extra_wildcard_access = list()
 	minimal_access = list(
+		ACCESS_NK006_HEAD_CMO,
+		ACCESS_NK006_HEAD_ANY,
 		ACCESS_NK006_COMMON,
 		ACCESS_NK006_SPC,
-		ACCESS_NK006_HEAD_CMO,
 		ACCESS_NK006_MEDICAL,
 		ACCESS_NK006_BIOLOGY,
 		)

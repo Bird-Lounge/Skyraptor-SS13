@@ -48,6 +48,7 @@
 #define ACCESS_NK006_CARGO "nk006_cargo"
 #define ACCESS_NK006_SECURITY "nk006_security"
 
+#define ACCESS_NK006_HEAD_ANY "nk006_head_any"
 #define ACCESS_NK006_HEAD_CAP "nk006_head_cap"
 #define ACCESS_NK006_HEAD_HOP "nk006_head_hop"
 #define ACCESS_NK006_HEAD_CMO "nk006_head_cmo"
@@ -76,6 +77,7 @@
 
 //END INITIAL ACCESS IDENTIFIERS, BEGIN ACCESS LISTS BY FLAG
 #define NK006_AXLIST_HEADS list( \
+	ACCESS_NK006_HEAD_ANY, \
 	ACCESS_NK006_HEAD_CAP, \
 	ACCESS_NK006_HEAD_CE, \
 	ACCESS_NK006_HEAD_CMO, \
@@ -133,6 +135,7 @@
 	ACCESS_NK006_ATMOS, \
 	ACCESS_NK006_CARGO, \
 	ACCESS_NK006_SECURITY, \
+	ACCESS_NK006_HEAD_ANY, \
 	ACCESS_NK006_HEAD_CAP, \
 	ACCESS_NK006_HEAD_CE, \
 	ACCESS_NK006_HEAD_CMO, \
@@ -157,6 +160,7 @@
 	ACCESS_NK006_ATMOS, \
 	ACCESS_NK006_CARGO, \
 	ACCESS_NK006_SECURITY, \
+	ACCESS_NK006_HEAD_ANY, \
 	ACCESS_NK006_HEAD_CAP, \
 	ACCESS_NK006_HEAD_CE, \
 	ACCESS_NK006_HEAD_CMO, \
@@ -219,6 +223,7 @@
 #define REGION_NK006_HEADSPECIAL "Heads of Staff"
 /// Used to seed the accesses_by_region list in SSid_access. Specialty region for PDA/trim painting purposes.
 #define REGION_ACCESS_NK006_HEADSPECIAL list( \
+	ACCESS_NK006_HEAD_ANY, \
 	ACCESS_NK006_HEAD_CAP, \
 	ACCESS_NK006_HEAD_HOP, \
 	ACCESS_NK006_HEAD_CMO, \
@@ -247,6 +252,7 @@
 	desc_by_access["[ACCESS_NK006_CARGO]"] = "Cargonia"
 	desc_by_access["[ACCESS_NK006_SECURITY]"] = "Security"
 	//heads of staff offices
+	desc_by_access["[ACCESS_NK006_HEAD_ANY]"] = "Heads' Meeting Room"
 	desc_by_access["[ACCESS_NK006_HEAD_CAP]"] = "Captain's Office"
 	desc_by_access["[ACCESS_NK006_HEAD_HOP]"] = "HOP's Office"
 	desc_by_access["[ACCESS_NK006_HEAD_CMO]"] = "CMO's Office"

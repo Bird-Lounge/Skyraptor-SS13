@@ -42,6 +42,20 @@
 /obj/effect/turf_decal/trimline/nk006/sub_brown/filled/warning,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/supply)
+"y" = (
+/obj/machinery/door/poddoor{
+	id = "QMLoaddoor2";
+	name = "Supply Dock Loading Door"
+	},
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "QMLoad2"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/supply)
 "z" = (
 /obj/effect/turf_decal/trimline/nk006/sub_brown/filled/warning{
 	dir = 1
@@ -49,15 +63,18 @@
 /turf/open/floor/mineral/titanium,
 /area/shuttle/supply)
 "C" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "QMLoad2"
-	},
 /obj/machinery/door/poddoor{
-	id = "QMLoaddoor2";
+	id = "QMLoaddoor";
 	name = "Supply Dock Loading Door"
 	},
-/turf/open/floor/plating,
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "QMLoad"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/mineral/titanium,
 /area/shuttle/supply)
 "D" = (
 /turf/template_noop,
@@ -146,11 +163,11 @@ Q
 I
 "}
 (3,1,1) = {"
-C
+y
 z
 Q
 x
-C
+y
 "}
 (4,1,1) = {"
 j

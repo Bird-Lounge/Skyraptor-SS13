@@ -11,6 +11,6 @@
 /datum/id_trim/admin/bst
 	assignment = "Bluespace Technician"
 	trim_state = "trim_stationengineer"
-	department_color = COLOR_WHITE
+	department_color = COLOR_BLACK
 	subdepartment_color = COLOR_BLACK
 	sechud_icon_state = "hudcentcom"

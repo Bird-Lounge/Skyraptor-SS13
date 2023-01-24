@@ -158,6 +158,7 @@
 /obj/effect/mapping_helpers/airlock/access/any/nk006/command/security/get_access()
 	var/list/access_list = ..()
 	access_list += ACCESS_NK006_SECURITY
+	access_list -= ACCESS_NK006_CMD
 	return access_list
 
 
@@ -177,6 +178,7 @@
 /obj/effect/mapping_helpers/airlock/access/any/nk006/support/engine/get_access()
 	var/list/access_list = ..()
 	access_list += ACCESS_NK006_ENGINE
+	access_list -= ACCESS_NK006_SUP
 	return access_list
 
 /obj/effect/mapping_helpers/airlock/access/any/nk006/support/atmos
@@ -185,6 +187,7 @@
 /obj/effect/mapping_helpers/airlock/access/any/nk006/support/atmos/get_access()
 	var/list/access_list = ..()
 	access_list += ACCESS_NK006_ATMOS
+	access_list -= ACCESS_NK006_SUP
 	return access_list
 
 /obj/effect/mapping_helpers/airlock/access/any/nk006/support/botany
@@ -201,6 +204,7 @@
 /obj/effect/mapping_helpers/airlock/access/any/nk006/support/cargo/get_access()
 	var/list/access_list = ..()
 	access_list += ACCESS_NK006_CARGO
+	access_list -= ACCESS_NK006_SUP
 	return access_list
 
 
@@ -220,6 +224,7 @@
 /obj/effect/mapping_helpers/airlock/access/any/nk006/specialist/medical/get_access()
 	var/list/access_list = ..()
 	access_list += ACCESS_NK006_MEDICAL
+	access_list -= ACCESS_NK006_SPC
 	return access_list
 
 /obj/effect/mapping_helpers/airlock/access/any/nk006/specialist/bio
@@ -228,14 +233,16 @@
 /obj/effect/mapping_helpers/airlock/access/any/nk006/specialist/bio/get_access()
 	var/list/access_list = ..()
 	access_list += ACCESS_NK006_BIOLOGY
+	access_list -= ACCESS_NK006_SPC
 	return access_list
 
 //HEADS OF STAFF ACCESS CATEGORIES
 /obj/effect/mapping_helpers/airlock/access/any/nk006/heads
-	icon_state = "access_helper_any"
+	icon_state = "access_helper_head"
 
 /obj/effect/mapping_helpers/airlock/access/any/nk006/heads/get_access()
 	var/list/access_list = ..()
+	access_list += ACCESS_NK006_HEAD_ANY
 	return access_list
 
 /obj/effect/mapping_helpers/airlock/access/any/nk006/heads/captain
@@ -244,6 +251,7 @@
 /obj/effect/mapping_helpers/airlock/access/any/nk006/heads/captain/get_access()
 	var/list/access_list = ..()
 	access_list += ACCESS_NK006_HEAD_CAP
+	access_list -= ACCESS_NK006_HEAD_ANY
 	return access_list
 
 /obj/effect/mapping_helpers/airlock/access/any/nk006/heads/hop
@@ -252,6 +260,7 @@
 /obj/effect/mapping_helpers/airlock/access/any/nk006/heads/hop/get_access()
 	var/list/access_list = ..()
 	access_list += ACCESS_NK006_HEAD_HOP
+	access_list -= ACCESS_NK006_HEAD_ANY
 	return access_list
 
 /obj/effect/mapping_helpers/airlock/access/any/nk006/heads/cmo
@@ -260,6 +269,7 @@
 /obj/effect/mapping_helpers/airlock/access/any/nk006/heads/cmo/get_access()
 	var/list/access_list = ..()
 	access_list += ACCESS_NK006_HEAD_CMO
+	access_list -= ACCESS_NK006_HEAD_ANY
 	return access_list
 
 /obj/effect/mapping_helpers/airlock/access/any/nk006/heads/ce
@@ -268,6 +278,7 @@
 /obj/effect/mapping_helpers/airlock/access/any/nk006/heads/ce/get_access()
 	var/list/access_list = ..()
 	access_list += ACCESS_NK006_HEAD_CE
+	access_list -= ACCESS_NK006_HEAD_ANY
 	return access_list
 
 /obj/effect/mapping_helpers/airlock/access/any/nk006/heads/hos
@@ -276,6 +287,7 @@
 /obj/effect/mapping_helpers/airlock/access/any/nk006/heads/hos/get_access()
 	var/list/access_list = ..()
 	access_list += ACCESS_NK006_HEAD_HOS
+	access_list -= ACCESS_NK006_HEAD_ANY
 	return access_list
 
 /obj/effect/mapping_helpers/airlock/access/any/nk006/heads/rd
@@ -284,6 +296,7 @@
 /obj/effect/mapping_helpers/airlock/access/any/nk006/heads/rd/get_access()
 	var/list/access_list = ..()
 	access_list += ACCESS_NK006_HEAD_RD
+	access_list -= ACCESS_NK006_HEAD_ANY
 	return access_list
 
 /obj/effect/mapping_helpers/airlock/access/any/nk006/heads/qm
@@ -292,4 +305,5 @@
 /obj/effect/mapping_helpers/airlock/access/any/nk006/heads/qm/get_access()
 	var/list/access_list = ..()
 	access_list += ACCESS_NK006_HEAD_QM
+	access_list -= ACCESS_NK006_HEAD_ANY
 	return access_list

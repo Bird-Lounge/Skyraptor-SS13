@@ -8,6 +8,7 @@
 	extra_wildcard_access = list()
 	minimal_access = list(
 		ACCESS_NK006_HEAD_CE,
+		ACCESS_NK006_HEAD_ANY,
 		ACCESS_NK006_SUP,
 		ACCESS_NK006_ENGINE,
 		ACCESS_NK006_ATMOS,
