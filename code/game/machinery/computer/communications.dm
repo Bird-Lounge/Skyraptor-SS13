@@ -14,6 +14,7 @@
 	icon_screen = "comm"
 	icon_keyboard = "tech_key"
 	req_access = list(ACCESS_COMMAND)
+	var/capt_access = ACCESS_CAPTAIN
 	circuit = /obj/item/circuitboard/computer/communications
 	light_color = LIGHT_COLOR_BLUE
 
@@ -95,13 +96,13 @@
 /obj/machinery/computer/communications/proc/authenticated_as_non_silicon_captain(mob/user)
 	if (issilicon(user))
 		return FALSE
-	return ACCESS_CAPTAIN in authorize_access
+	return capt_access in authorize_access
 
 /// Are we a silicon, OR we're logged in as the captain?
 /obj/machinery/computer/communications/proc/authenticated_as_silicon_or_captain(mob/user)
 	if (issilicon(user))
 		return TRUE
-	return ACCESS_CAPTAIN in authorize_access
+	return capt_access in authorize_access
 
 /// Are we a silicon, OR logged in?
 /obj/machinery/computer/communications/proc/authenticated(mob/user)
@@ -190,7 +191,7 @@
 					to_chat(usr, span_warning("You need to swipe your ID!"))
 					playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, FALSE)
 					return
-				if (!(ACCESS_CAPTAIN in id_card.access))
+				if (!(capt_access in id_card.access))
 					to_chat(usr, span_warning("You are not authorized to do this!"))
 					playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, FALSE)
 					return

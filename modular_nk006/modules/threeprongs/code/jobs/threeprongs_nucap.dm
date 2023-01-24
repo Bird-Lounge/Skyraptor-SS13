@@ -7,6 +7,8 @@
 	subdepartment_color = COLOR_NK006_COMMAND
 	department_state = "departmenthead"
 	sechud_icon_state = SECHUD_CAPTAIN
+	minimal_access = REGION_ACCESS_NK006_CAPTAIN
+	extra_wildcard_access = list()
 	template_access = list(
 		ACCESS_CAPTAIN,
 		ACCESS_CHANGE_IDS,
@@ -42,7 +44,7 @@
 
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_SEC
-	
+
 	liver_traits = list(TRAIT_ROYAL_METABOLISM)
 
 	display_order = JOB_DISPLAY_ORDER_CAPTAIN
@@ -63,7 +65,7 @@
 	rpg_title = "Star Duke"
 
 	voice_of_god_power = 1.4 //Command staff has authority
-	
+
 	tgjob = 0
 
 /datum/job/nk006/nucap/get_captaincy_announcement(mob/living/captain)
@@ -88,7 +90,7 @@
 	backpack = /obj/item/storage/backpack/nk006/captain
 	satchel = /obj/item/storage/backpack/satchel/nk006/captain
 	duffelbag = /obj/item/storage/backpack/duffelbag/nk006/captain
-	
+
 	implants = list(/obj/item/implant/mindshield)
 	skillchips = list(/obj/item/skillchip/disk_verifier)
 

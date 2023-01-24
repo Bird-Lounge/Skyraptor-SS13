@@ -5,6 +5,7 @@
 	orbit_icon = "dog"
 	department_state = "departmenthead"
 	sechud_icon_state = SECHUD_HEAD_OF_PERSONNEL
+	minimal_access = REGION_ACCESS_NK006_HOP
 	template_access = list(
 		ACCESS_NK006_HEAD_CAP,
 		ACCESS_NK006_CHANGEIDS,

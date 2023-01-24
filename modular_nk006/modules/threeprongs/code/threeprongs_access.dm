@@ -312,7 +312,7 @@
 /datum/controller/subsystem/id_access/initialize_head_categories()
 	. = ..()
 	sub_department_managers_tgui["[ACCESS_NK006_HEAD_CAP]"] = list(
-			"regions" = list(REGION_NK006_CAPTAIN),
+			"regions" = list(REGION_NK006_HEADSPECIAL, REGION_NK006_CAPTAIN, REGION_NK006_HOP, REGION_NK006_HOS, REGION_NK006_CMO, REGION_NK006_CE, REGION_NK006_RD, REGION_NK006_QM),
 			"head" = JOB_NK6_NUCAP,
 			"templates" = list(),
 			"pdas" = list(),
@@ -357,3 +357,59 @@
 /datum/controller/subsystem/id_access/setup_wildcard_dict()
 	. = ..()
 	wildcard_flags_by_wildcard[WILDCARD_NAME_NK006] = WILDCARD_FLAG_NK006
+
+/datum/computer_file/program/card_mod
+	changeids = ACCESS_NK006_CHANGEIDS
+	transfer_access = list(ACCESS_NK006_HEAD_ANY)
+
+/datum/computer_file/program/ai_restorer
+	transfer_access = list(ACCESS_NK006_HEAD_RD)
+
+/datum/computer_file/program/borg_monitor
+	transfer_access = list(ACCESS_NK006_SPC)
+
+/datum/computer_file/program/crew_manifest
+	transfer_access = list(ACCESS_NK006_HEAD_ANY)
+
+/datum/computer_file/program/scipaper_program
+	transfer_access = list(ACCESS_NK006_SPC, ACCESS_NK006_SUP)
+
+/datum/computer_file/program/job_management
+	transfer_access = list(ACCESS_NK006_CHANGEIDS) //TODO: stop the HOP from being able to make infinite captains
+	/*blacklisted += JOB_NK6_NUCAP
+	blacklisted += JOB_NK6_HOP
+	blacklisted += JOB_NK6_CMO
+	blacklisted += JOB_NK6_CE
+	blacklisted += JOB_NK6_RD
+	blacklisted += JOB_NK6_QM
+	blacklisted += JOB_NK6_HOS*/
+
+/datum/computer_file/program/portrait_printer
+	transfer_access = list(ACCESS_NK006_SUP)
+
+/datum/computer_file/program/power_monitor
+	transfer_access = list(ACCESS_NK006_SUP)
+
+/datum/computer_file/program/radar/lifeline
+	transfer_access = list(ACCESS_NK006_COMMON)
+
+/datum/computer_file/program/radar/custodial_locator
+	transfer_access = list(ACCESS_NK006_SUP)
+
+/datum/computer_file/program/records/medical
+	transfer_access = list(ACCESS_NK006_SPC, ACCESS_NK006_HEAD_ANY)
+
+/datum/computer_file/program/records/security
+	transfer_access = list(ACCESS_NK006_CMD, ACCESS_NK006_HEAD_ANY)
+
+/datum/computer_file/program/secureye
+	transfer_access = list(ACCESS_NK006_CMD)
+
+/datum/computer_file/program/supermatter_monitor
+	transfer_access = list(ACCESS_NK006_ENGINE)
+
+/datum/computer_file/program/science
+	transfer_access = list(ACCESS_NK006_SPC)
+
+
+

@@ -25,6 +25,7 @@
 /obj/item/scalpel/advanced
 	icon = 'modular_nk006/modules/aesthetics/oldnewsurgery/oldnewsurgery.dmi'
 	light_color = "#FF0000"
+	light_range = 2
 	lefthand_file = 'modular_nk006/modules/aesthetics/oldnewsurgery/oldnewsurgery_inhand_l.dmi'
 	righthand_file = 'modular_nk006/modules/aesthetics/oldnewsurgery/oldnewsurgery_inhand_r.dmi'
 
