@@ -17,7 +17,7 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_BLACK
 
 /obj/structure/table/wood/fancy/nk006_any_lime
-	icon_state = "fancy_table_black_0"
+	icon_state = "fancy_table_black-0"
 	base_icon_state = "fancy_table_black"
 	buildstack = /obj/item/stack/tile/carpet/nk006_any_lime
 	smooth_icon = 'modular_nk006/modules/threeprongs/icons/smoothstructs/fancytable_any_lime.dmi'
@@ -43,7 +43,7 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_BLACK
 
 /obj/structure/table/wood/fancy/nk006_any_orange
-	icon_state = "fancy_table_black_0"
+	icon_state = "fancy_table_black-0"
 	base_icon_state = "fancy_table_black"
 	buildstack = /obj/item/stack/tile/carpet/nk006_any_orange
 	smooth_icon = 'modular_nk006/modules/threeprongs/icons/smoothstructs/fancytable_any_orange.dmi'
@@ -69,7 +69,7 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_BLACK
 
 /obj/structure/table/wood/fancy/nk006_any_violet
-	icon_state = "fancy_table_black_0"
+	icon_state = "fancy_table_black-0"
 	base_icon_state = "fancy_table_black"
 	buildstack = /obj/item/stack/tile/carpet/nk006_any_violet
 	smooth_icon = 'modular_nk006/modules/threeprongs/icons/smoothstructs/fancytable_any_violet.dmi'
@@ -95,7 +95,7 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_BLACK
 
 /obj/structure/table/wood/fancy/nk006_any_blue
-	icon_state = "fancy_table_black_0"
+	icon_state = "fancy_table_black-0"
 	base_icon_state = "fancy_table_black"
 	buildstack = /obj/item/stack/tile/carpet/nk006_any_blue
 	smooth_icon = 'modular_nk006/modules/threeprongs/icons/smoothstructs/fancytable_any_blue.dmi'
@@ -121,7 +121,7 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_BLACK
 
 /obj/structure/table/wood/fancy/nk006_captain
-	icon_state = "fancy_table_black_0"
+	icon_state = "fancy_table_black-0"
 	base_icon_state = "fancy_table_black"
 	buildstack = /obj/item/stack/tile/carpet/nk006_captain
 	smooth_icon = 'modular_nk006/modules/threeprongs/icons/smoothstructs/fancytable_captain.dmi'
@@ -147,7 +147,7 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_BLACK
 
 /obj/structure/table/wood/fancy/nk006_hop
-	icon_state = "fancy_table_black_0"
+	icon_state = "fancy_table_black-0"
 	base_icon_state = "fancy_table_black"
 	buildstack = /obj/item/stack/tile/carpet/nk006_hop
 	smooth_icon = 'modular_nk006/modules/threeprongs/icons/smoothstructs/fancytable_hop.dmi'
@@ -173,7 +173,7 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_BLACK
 
 /obj/structure/table/wood/fancy/nk006_cmo
-	icon_state = "fancy_table_black_0"
+	icon_state = "fancy_table_black-0"
 	base_icon_state = "fancy_table_black"
 	buildstack = /obj/item/stack/tile/carpet/nk006_cmo
 	smooth_icon = 'modular_nk006/modules/threeprongs/icons/smoothstructs/fancytable_cmo.dmi'
@@ -199,7 +199,7 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_BLACK
 
 /obj/structure/table/wood/fancy/nk006_ce
-	icon_state = "fancy_table_black_0"
+	icon_state = "fancy_table_black-0"
 	base_icon_state = "fancy_table_black"
 	buildstack = /obj/item/stack/tile/carpet/nk006_ce
 	smooth_icon = 'modular_nk006/modules/threeprongs/icons/smoothstructs/fancytable_ce.dmi'
@@ -225,7 +225,7 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_BLACK
 
 /obj/structure/table/wood/fancy/nk006_hos
-	icon_state = "fancy_table_black_0"
+	icon_state = "fancy_table_black-0"
 	base_icon_state = "fancy_table_black"
 	buildstack = /obj/item/stack/tile/carpet/nk006_hos
 	smooth_icon = 'modular_nk006/modules/threeprongs/icons/smoothstructs/fancytable_hos.dmi'
@@ -251,7 +251,7 @@
 	canSmoothWith = SMOOTH_GROUP_CARPET_BLACK
 
 /obj/structure/table/wood/fancy/nk006_rd
-	icon_state = "fancy_table_black_0"
+	icon_state = "fancy_table_black-0"
 	base_icon_state = "fancy_table_black"
 	buildstack = /obj/item/stack/tile/carpet/nk006_rd
 	smooth_icon = 'modular_nk006/modules/threeprongs/icons/smoothstructs/fancytable_rd.dmi'

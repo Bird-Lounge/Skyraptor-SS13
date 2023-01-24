@@ -5,26 +5,20 @@
 	orbit_icon = "battery-half"
 	sechud_icon_state = SECHUD_ROBOTICIST
 	minimal_access = list(
-		ACCESS_AUX_BASE,
-		ACCESS_MECH_SCIENCE,
-		ACCESS_MINERAL_STOREROOM,
-		ACCESS_MORGUE,
-		ACCESS_RESEARCH,
-		ACCESS_ROBOTICS,
-		ACCESS_SCIENCE,
-		ACCESS_TECH_STORAGE,
-		ACCESS_ORDNANCE,
-		ACCESS_ORDNANCE_STORAGE,
+		ACCESS_NK006_COMMON,
+		ACCESS_NK006_SPC,
+		ACCESS_NK006_SUP,
+		ACCESS_NK006_ATMOS,
 		)
 	extra_access = list(
-		ACCESS_GENETICS,
-		ACCESS_XENOBIOLOGY,
+		ACCESS_NK006_ENGINE,
+		ACCESS_NK006_BIOLOGY,
 		)
 	template_access = list(
-		ACCESS_CAPTAIN,
-		ACCESS_CHANGE_IDS,
-		ACCESS_RD,
-		ACCESS_CE,
+		ACCESS_NK006_HEAD_CAP,
+		ACCESS_NK006_CHANGEIDS,
+		ACCESS_NK006_HEAD_RD,
+		ACCESS_NK006_HEAD_CE,
 		)
 	department_color = COLOR_NK006_SPECIALIST
 	subdepartment_color = COLOR_NK006_SUPPORT
@@ -79,7 +73,7 @@
 	name = JOB_NK6_MATSCI
 	jobtype = /datum/job/nk006/matsci
 
-	id = /obj/item/card/id/advanced/silver
+	id = /obj/item/card/id/advanced/silver/nk006
 	id_trim = /datum/id_trim/job/nk006/matsci
 	uniform = /obj/item/clothing/under/trek/nk006_spc
 	belt = /obj/item/storage/belt/nk006/support/engineer

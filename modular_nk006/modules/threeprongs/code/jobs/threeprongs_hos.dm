@@ -8,39 +8,17 @@
 	extra_access = list(ACCESS_TELEPORTER)
 	extra_wildcard_access = list()
 	minimal_access = list(
-		ACCESS_ALL_PERSONAL_LOCKERS,
-		ACCESS_ARMORY,
-		ACCESS_AUX_BASE,
-		ACCESS_BRIG,
-		ACCESS_BRIG_ENTRANCE,
-		ACCESS_CARGO,
-		ACCESS_COMMAND,
-		ACCESS_CONSTRUCTION,
-		ACCESS_COURT,
-		ACCESS_DETECTIVE,
-		ACCESS_ENGINEERING,
-		ACCESS_EVA,
-		ACCESS_GATEWAY,
-		ACCESS_KEYCARD_AUTH,
-		ACCESS_MAINT_TUNNELS,
-		ACCESS_MECH_SECURITY,
-		ACCESS_MEDICAL,
-		ACCESS_MINERAL_STOREROOM,
-		ACCESS_MINING,
-		ACCESS_MORGUE,
-		ACCESS_RC_ANNOUNCE,
-		ACCESS_SCIENCE,
-		ACCESS_SECURITY,
-		ACCESS_SERVICE,
-		ACCESS_SHIPPING,
-		ACCESS_WEAPONS,
+		ACCESS_NK006_HEAD_HOS,
+		ACCESS_NK006_COMMON,
+		ACCESS_NK006_CMD,
+		ACCESS_NK006_SECURITY,
 		)
 	minimal_wildcard_access = list(
-		ACCESS_HOS,
+		ACCESS_NK006_HEAD_HOS,
 		)
 	template_access = list(
-		ACCESS_CAPTAIN,
-		ACCESS_CHANGE_IDS,
+		ACCESS_NK006_HEAD_CAP,
+		ACCESS_NK006_CHANGEIDS,
 		)
 	department_color = COLOR_NK006_SECURITY
 	subdepartment_color = COLOR_NK006_SECURITY
@@ -66,7 +44,7 @@
 
 	outfit = /datum/outfit/job/nk006/hos
 	plasmaman_outfit = /datum/outfit/plasmaman/head_of_security
-	
+
 	departments_list = list(
 		/datum/job_department/nk006/heads,
 		/datum/job_department/nk006/command,
@@ -88,7 +66,7 @@
 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_BOLD_SELECT_TEXT | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
 	rpg_title = "High Guard"
 	voice_of_god_power = 1.4 //Command staff has authority
-	
+
 	tgjob = 0
 
 /datum/job/nk006/hos/get_captaincy_announcement(mob/living/captain)
@@ -98,7 +76,7 @@
 	name = JOB_NK6_HOS
 	jobtype = /datum/job/nk006/hos
 
-	id = /obj/item/card/id/advanced/gold
+	id = /obj/item/card/id/advanced/gold/nk006
 	id_trim = /datum/id_trim/job/nk006/hos
 	uniform = /obj/item/clothing/under/trek/nk006_cmd
 	belt = /obj/item/storage/belt/nk006/command/hos
@@ -110,6 +88,6 @@
 	backpack = /obj/item/storage/backpack/nk006/hos
 	satchel = /obj/item/storage/backpack/satchel/nk006/hos
 	duffelbag = /obj/item/storage/backpack/duffelbag/nk006/hos
-	
+
 	box = /obj/item/storage/box/survival/security
 	implants = list(/obj/item/implant/mindshield)

@@ -4,14 +4,19 @@
 	trim_state = "trim_assistant"
 	orbit_icon = "toolbox"
 	sechud_icon_state = SECHUD_ASSISTANT
-	minimal_access = list()
+	minimal_access = list(
+		ACCESS_NK006_COMMON,
+		ACCESS_NK006_SPC,
+	)
 	extra_access = list(
 		ACCESS_MAINT_TUNNELS,
 		)
 	template_access = list(
-		ACCESS_CAPTAIN,
-		ACCESS_CHANGE_IDS,
-		ACCESS_HOP,
+		ACCESS_NK006_HEAD_CAP,
+		ACCESS_NK006_CHANGEIDS,
+		ACCESS_NK006_HEAD_HOP,
+		ACCESS_NK006_HEAD_CMO,
+		ACCESS_NK006_HEAD_RD,
 		)
 	department_color = COLOR_NK006_SPECIALIST
 	subdepartment_color = COLOR_NK006_SPECIALIST
@@ -35,7 +40,7 @@
 
 	outfit = /datum/outfit/job/nk006/asst_spc
 	plasmaman_outfit = /datum/outfit/plasmaman
-	
+
 	departments_list = list(
 		/datum/job_department/nk006/specialist,
 		)
@@ -48,14 +53,14 @@
 
 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
 	rpg_title = "Roving Diplomat"
-	
+
 	tgjob = 0
 
 /datum/outfit/job/nk006/asst_spc
 	name = JOB_NK6_ASST_SPC
 	jobtype = /datum/job/nk006/asst_spc
 
-	id = /obj/item/card/id/advanced/silver
+	id = /obj/item/card/id/advanced/silver/nk006
 	id_trim = /datum/id_trim/job/nk006/asst_spc
 	uniform = /obj/item/clothing/under/trek/nk006_spc
 	belt = /obj/item/storage/belt/nk006/specialist

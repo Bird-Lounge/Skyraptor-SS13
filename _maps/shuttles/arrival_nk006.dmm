@@ -67,6 +67,15 @@
 /obj/structure/marker_beacon/burgundy,
 /turf/open/floor/plating/airless,
 /area/shuttle/arrival)
+"E" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/arrival)
 "G" = (
 /obj/machinery/power/shuttle_engine/propulsion/burst/left{
 	dir = 4
@@ -91,6 +100,9 @@
 /area/shuttle/arrival)
 "O" = (
 /obj/structure/closet/wardrobe/mixed,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/arrival)
 "P" = (
@@ -99,6 +111,9 @@
 /area/shuttle/arrival)
 "Q" = (
 /obj/structure/closet/emcloset,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/arrival)
 "U" = (
@@ -108,9 +123,6 @@
 /turf/open/floor/mineral/titanium,
 /area/shuttle/arrival)
 "X" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /turf/template_noop,
 /area/shuttle/arrival)
 "Y" = (
@@ -169,7 +181,7 @@ N
 (7,1,1) = {"
 g
 Q
-U
+E
 O
 g
 "}

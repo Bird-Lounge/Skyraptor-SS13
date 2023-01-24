@@ -5,20 +5,19 @@
 	orbit_icon = "box"
 	sechud_icon_state = SECHUD_CARGO_TECHNICIAN
 	minimal_access = list(
-		ACCESS_CARGO,
-		ACCESS_MAINT_TUNNELS,
-		ACCESS_MECH_MINING,
-		ACCESS_MINERAL_STOREROOM,
-		ACCESS_SHIPPING,
+		ACCESS_NK006_COMMON,
+		ACCESS_NK006_CMD,
+		ACCESS_NK006_SPC,
+		ACCESS_NK006_SUP,
+		ACCESS_NK006_CARGO,
 		)
-	extra_access = list(
-		ACCESS_MINING,
-		ACCESS_MINING_STATION,
-		)
+	/*extra_access = list(
+		ACCESS_NK006_BIOLOGY,
+		)*/
 	template_access = list(
-		ACCESS_CAPTAIN,
-		ACCESS_CHANGE_IDS,
-		ACCESS_QM,
+		ACCESS_NK006_HEAD_CAP,
+		ACCESS_NK006_CHANGEIDS,
+		ACCESS_NK006_HEAD_QM,
 		)
 	department_color = COLOR_NK006_CARGO
 	subdepartment_color = COLOR_NK006_SUPPORT
@@ -39,7 +38,7 @@
 
 	outfit = /datum/outfit/job/nk006/cargo
 	plasmaman_outfit = /datum/outfit/plasmaman/head_of_personnel
-	
+
 	departments_list = list(
 		/datum/job_department/nk006/support,
 		/datum/job_department/nk006/support/cargo,
@@ -65,14 +64,14 @@
 
 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN | JOB_CAN_BE_INTERN
 	rpg_title = "Merchant"
-	
+
 	tgjob = 0
 
 /datum/outfit/job/nk006/cargo
 	name = JOB_NK6_CARGO
 	jobtype = /datum/job/nk006/cargo
 
-	id = /obj/item/card/id/advanced/silver
+	id = /obj/item/card/id/advanced/silver/nk006
 	id_trim = /datum/id_trim/job/nk006/cargo
 	uniform = /obj/item/clothing/under/trek/nk006_sup
 	belt = /obj/item/storage/belt/nk006/support/cargo

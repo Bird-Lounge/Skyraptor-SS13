@@ -7,31 +7,21 @@
 	sechud_icon_state = SECHUD_CHIEF_MEDICAL_OFFICER
 	extra_wildcard_access = list()
 	minimal_access = list(
-		ACCESS_BRIG_ENTRANCE,
-		ACCESS_COMMAND,
-		ACCESS_KEYCARD_AUTH,
-		ACCESS_PLUMBING,
-		ACCESS_EVA,
-		ACCESS_MAINT_TUNNELS,
-		ACCESS_MECH_MEDICAL,
-		ACCESS_MEDICAL,
-		ACCESS_MINERAL_STOREROOM,
-		ACCESS_MORGUE,
-		ACCESS_PHARMACY,
-		ACCESS_PSYCHOLOGY,
-		ACCESS_RC_ANNOUNCE,
-		ACCESS_SURGERY,
-		ACCESS_VIROLOGY,
+		ACCESS_NK006_COMMON,
+		ACCESS_NK006_SPC,
+		ACCESS_NK006_HEAD_CMO,
+		ACCESS_NK006_MEDICAL,
+		ACCESS_NK006_BIOLOGY,
 		)
 	minimal_wildcard_access = list(
-		ACCESS_CMO,
+		ACCESS_NK006_HEAD_CMO,
 		)
 	extra_access = list(
 		ACCESS_TELEPORTER,
 		)
 	template_access = list(
-		ACCESS_CAPTAIN,
-		ACCESS_CHANGE_IDS,
+		ACCESS_NK006_HEAD_CAP,
+		ACCESS_NK006_CHANGEIDS,
 		)
 	department_color = COLOR_NK006_MEDICAL
 	subdepartment_color = COLOR_NK006_MEDICAL
@@ -57,7 +47,7 @@
 
 	outfit = /datum/outfit/job/nk006/cmo
 	plasmaman_outfit = /datum/outfit/plasmaman/chief_medical_officer
-	
+
 	departments_list = list(
 		/datum/job_department/nk006/heads,
 		/datum/job_department/nk006/specialist,
@@ -85,7 +75,7 @@
 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_BOLD_SELECT_TEXT | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
 	rpg_title = "High Cleric"
 	voice_of_god_power = 1.4 //Command staff has authority
-	
+
 	tgjob = 0
 
 /datum/job/nk006/cmo/get_captaincy_announcement(mob/living/captain)
@@ -95,7 +85,7 @@
 	name = JOB_NK6_CMO
 	jobtype = /datum/job/nk006/cmo
 
-	id = /obj/item/card/id/advanced/gold
+	id = /obj/item/card/id/advanced/gold/nk006
 	id_trim = /datum/id_trim/job/nk006/cmo
 	uniform = /obj/item/clothing/under/trek/nk006_spc
 	belt = /obj/item/storage/belt/nk006/specialist/cmo
@@ -107,6 +97,6 @@
 	backpack = /obj/item/storage/backpack/nk006/cmo
 	satchel = /obj/item/storage/backpack/satchel/nk006/cmo
 	duffelbag = /obj/item/storage/backpack/duffelbag/nk006/cmo
-	
+
 	box = /obj/item/storage/box/survival/medical
 	skillchips = list(/obj/item/skillchip/entrails_reader)

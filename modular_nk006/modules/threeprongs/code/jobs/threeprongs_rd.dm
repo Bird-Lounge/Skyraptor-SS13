@@ -6,42 +6,23 @@
 	department_state = "departmenthead"
 	sechud_icon_state = SECHUD_RESEARCH_DIRECTOR
 	minimal_access = list(
-		ACCESS_AI_UPLOAD,
-		ACCESS_AUX_BASE,
-		ACCESS_BRIG_ENTRANCE,
-		ACCESS_COMMAND,
-		ACCESS_CONSTRUCTION,
-		ACCESS_EVA,
-		ACCESS_GATEWAY,
-		ACCESS_GENETICS,
-		ACCESS_KEYCARD_AUTH,
-		ACCESS_NETWORK,
-		ACCESS_MAINT_TUNNELS,
-		ACCESS_MECH_ENGINE,
-		ACCESS_MECH_MINING,
-		ACCESS_MECH_SECURITY,
-		ACCESS_MECH_SCIENCE,
-		ACCESS_MINERAL_STOREROOM,
-		ACCESS_MINISAT,
-		ACCESS_MORGUE,
-		ACCESS_ORDNANCE,
-		ACCESS_ORDNANCE_STORAGE,
-		ACCESS_RC_ANNOUNCE,
-		ACCESS_RESEARCH,
-		ACCESS_ROBOTICS,
-		ACCESS_SCIENCE,
-		ACCESS_TECH_STORAGE,
-		ACCESS_TELEPORTER,
-		ACCESS_XENOBIOLOGY,
+		ACCESS_NK006_HEAD_RD,
+		ACCESS_NK006_COMMON,
+		ACCESS_NK006_SPC,
+		ACCESS_NK006_MEDICAL,
+		ACCESS_NK006_BIOLOGY,
+		ACCESS_NK006_ATMOS,
 		)
 	minimal_wildcard_access = list(
-		ACCESS_RD,
+		ACCESS_NK006_HEAD_RD,
 		)
-	extra_access = list()
+	extra_access = list(
+		ACCESS_NK006_ENGINE,
+	)
 	extra_wildcard_access = list()
 	template_access = list(
-		ACCESS_CAPTAIN,
-		ACCESS_CHANGE_IDS,
+		ACCESS_NK006_HEAD_CAP,
+		ACCESS_NK006_CHANGEIDS,
 		)
 	department_color = COLOR_NK006_SPECIALIST
 	subdepartment_color = COLOR_NK006_SPECIALIST
@@ -104,7 +85,7 @@
 	name = JOB_NK6_RD
 	jobtype = /datum/job/nk006/rd
 
-	id = /obj/item/card/id/advanced/gold
+	id = /obj/item/card/id/advanced/gold/nk006
 	id_trim = /datum/id_trim/job/nk006/rd
 	uniform = /obj/item/clothing/under/trek/nk006_spc
 	belt = /obj/item/storage/belt/nk006/specialist/rd

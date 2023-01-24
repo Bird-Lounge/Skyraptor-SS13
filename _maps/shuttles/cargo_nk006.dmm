@@ -38,16 +38,15 @@
 /obj/structure/window/reinforced,
 /turf/open/floor/plating/airless,
 /area/shuttle/supply)
+"x" = (
+/obj/effect/turf_decal/trimline/nk006/sub_brown/filled/warning,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/supply)
 "z" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "QMLoad"
+/obj/effect/turf_decal/trimline/nk006/sub_brown/filled/warning{
+	dir = 1
 	},
-/obj/machinery/door/poddoor{
-	id = "QMLoaddoor";
-	name = "Supply Dock Loading Door"
-	},
-/turf/open/floor/plating,
+/turf/open/floor/mineral/titanium,
 /area/shuttle/supply)
 "C" = (
 /obj/machinery/conveyor{
@@ -68,9 +67,6 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/supply)
 "G" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /turf/template_noop,
 /area/shuttle/supply)
 "H" = (
@@ -81,22 +77,44 @@
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/supply)
 "K" = (
-/obj/machinery/button/door/directional/north{
-	id = "QMLoaddoor2";
-	name = "Loading Doors;
-	req_access = list("kitchen");
-	pixel_x = -8
-	},
-/obj/machinery/button/door/directional/north{
-	id = "QMLoaddoor";
-	name = "Loading Doors;
-	req_access = list("kitchen");
-	pixel_x = 8
-	},
 /obj/machinery/light/directional/north,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/supply)
+"M" = (
+/obj/machinery/button/door/directional/east{
+	id = "QMLoaddoor2";
+	name = "Loading Doors";
+	pixel_y = 8;
+	pixel_x = 10
+	},
+/obj/machinery/button/door/directional/east{
+	id = "QMLoaddoor";
+	name = "Loading Doors";
+	pixel_y = -8;
+	pixel_x = 10
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/supply)
 "Q" = (
+/turf/open/floor/mineral/titanium,
+/area/shuttle/supply)
+"V" = (
+/obj/effect/turf_decal/trimline/nk006/sub_brown/filled/warning{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/supply)
+"W" = (
+/obj/effect/turf_decal/trimline/nk006/sub_brown/filled/warning,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/supply)
 "X" = (
@@ -129,10 +147,10 @@ I
 "}
 (3,1,1) = {"
 C
+z
 Q
-Q
-Q
-I
+x
+C
 "}
 (4,1,1) = {"
 j
@@ -156,11 +174,11 @@ Q
 j
 "}
 (7,1,1) = {"
-z
-Q
-Q
-Q
-I
+C
+V
+M
+W
+C
 "}
 (8,1,1) = {"
 X

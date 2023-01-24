@@ -60,6 +60,20 @@
 
 
 
+//END JOB DEFINES, BEGIN BITFLAGS FOR OUR STUFF
+/// Bitflag for our custom accesses.
+#define ACCESS_FLAG_NK006 (1 << 8)
+
+
+
+//END BITFLAGS, BEGIN OH GOD IT [[BURNS]]
+#define WILDCARD_FLAG_NK006 ACCESS_FLAG_NK006
+#define WILDCARD_NAME_NK006 "All-Access"
+#define WILDCARD_LIMIT_NK006_GENERAL list(WILDCARD_NAME_NK006 = list(limit = 3, usage = list()))
+#define WILDCARD_LIMIT_NK006_HEADS list(WILDCARD_NAME_NK006 = list(limit = -1, usage = list()))
+
+
+
 //END INITIAL ACCESS IDENTIFIERS, BEGIN ACCESS LISTS BY FLAG
 #define NK006_AXLIST_HEADS list( \
 	ACCESS_NK006_HEAD_CAP, \
@@ -327,3 +341,13 @@
 			"templates" = list(),
 			"pdas" = list(),
 		)
+
+/datum/controller/subsystem/id_access/setup_access_flags()
+	. = ..()
+	accesses_by_flag["[ACCESS_FLAG_NK006]"] = REGION_ACCESS_NK006_CAPTAIN
+	for(var/access in accesses_by_flag["[ACCESS_FLAG_NK006]"])
+		flags_by_access |= list("[access]" = ACCESS_FLAG_NK006)
+
+/datum/controller/subsystem/id_access/setup_wildcard_dict()
+	. = ..()
+	wildcard_flags_by_wildcard[WILDCARD_NAME_NK006] = WILDCARD_FLAG_NK006

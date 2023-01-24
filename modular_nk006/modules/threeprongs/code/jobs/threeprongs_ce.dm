@@ -7,34 +7,20 @@
 	sechud_icon_state = SECHUD_CHIEF_ENGINEER
 	extra_wildcard_access = list()
 	minimal_access = list(
-		ACCESS_ATMOSPHERICS,
-		ACCESS_AUX_BASE,
-		ACCESS_BRIG_ENTRANCE,
-		ACCESS_CE,
-		ACCESS_COMMAND,
-		ACCESS_CONSTRUCTION,
-		ACCESS_ENGINEERING,
-		ACCESS_ENGINE_EQUIP,
-		ACCESS_EVA,
-		ACCESS_EXTERNAL_AIRLOCKS,
-		ACCESS_KEYCARD_AUTH,
-		ACCESS_MAINT_TUNNELS,
-		ACCESS_MECH_ENGINE,
-		ACCESS_MINERAL_STOREROOM,
-		ACCESS_MINISAT,
-		ACCESS_RC_ANNOUNCE,
-		ACCESS_TCOMMS,
-		ACCESS_TECH_STORAGE,
+		ACCESS_NK006_HEAD_CE,
+		ACCESS_NK006_SUP,
+		ACCESS_NK006_ENGINE,
+		ACCESS_NK006_ATMOS,
 		)
 	minimal_wildcard_access = list(
-		ACCESS_CE,
+		ACCESS_NK006_HEAD_CE,
 		)
 	extra_access = list(
 		ACCESS_TELEPORTER,
 		)
 	template_access = list(
-		ACCESS_CAPTAIN,
-		ACCESS_CHANGE_IDS,
+		ACCESS_NK006_HEAD_CAP,
+		ACCESS_NK006_CHANGEIDS,
 		)
 	department_color = COLOR_NK006_SUPPORT
 	subdepartment_color = COLOR_NK006_SUPPORT
@@ -60,7 +46,7 @@
 
 	outfit = /datum/outfit/job/nk006/ce
 	plasmaman_outfit = /datum/outfit/plasmaman
-	
+
 	departments_list = list(
 		/datum/job_department/nk006/heads,
 		/datum/job_department/nk006/support,
@@ -91,7 +77,7 @@
 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_BOLD_SELECT_TEXT | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
 	rpg_title = "Lightning Wizard"
 	voice_of_god_power = 1.4 //Command staff has authority
-	
+
 	tgjob = 0
 
 /datum/job/nk006/ce/get_captaincy_announcement(mob/living/captain)
@@ -101,7 +87,7 @@
 	name = JOB_NK6_CE
 	jobtype = /datum/job/nk006/ce
 
-	id = /obj/item/card/id/advanced/gold
+	id = /obj/item/card/id/advanced/gold/nk006
 	id_trim = /datum/id_trim/job/nk006/ce
 	uniform = /obj/item/clothing/under/trek/nk006_sup
 	belt = /obj/item/storage/belt/nk006/support/ce
@@ -114,6 +100,6 @@
 	backpack = /obj/item/storage/backpack/nk006/ce
 	satchel = /obj/item/storage/backpack/satchel/nk006/ce
 	duffelbag = /obj/item/storage/backpack/duffelbag/nk006/ce
-	
+
 	box = /obj/item/storage/box/survival/engineer
 	skillchips = list(/obj/item/skillchip/job/engineer)

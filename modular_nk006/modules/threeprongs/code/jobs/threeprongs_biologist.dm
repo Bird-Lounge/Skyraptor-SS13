@@ -5,29 +5,19 @@
 	orbit_icon = "dna"
 	sechud_icon_state = SECHUD_GENETICIST
 	minimal_access = list(
-		ACCESS_MECH_MEDICAL,
-		ACCESS_MEDICAL,
-		ACCESS_MINERAL_STOREROOM,
-		ACCESS_VIROLOGY,
-		ACCESS_GENETICS,
-		ACCESS_MECH_SCIENCE,
-		ACCESS_MORGUE,
-		ACCESS_RESEARCH,
-		ACCESS_SCIENCE,
+		ACCESS_NK006_COMMON,
+		ACCESS_NK006_SPC,
+		ACCESS_NK006_MEDICAL,
+		ACCESS_NK006_BIOLOGY,
 		)
 	extra_access = list(
-		ACCESS_PLUMBING,
-		ACCESS_MORGUE,
-		ACCESS_SURGERY,
-		ACCESS_ROBOTICS,
-		ACCESS_TECH_STORAGE,
-		ACCESS_XENOBIOLOGY,
+		ACCESS_NK006_SUP,
 		)
 	template_access = list(
-		ACCESS_CAPTAIN,
-		ACCESS_CHANGE_IDS,
-		ACCESS_CMO,
-		ACCESS_RD,
+		ACCESS_NK006_HEAD_CAP,
+		ACCESS_NK006_CHANGEIDS,
+		ACCESS_NK006_HEAD_CMO,
+		ACCESS_NK006_HEAD_RD,
 		)
 	department_color = COLOR_NK006_SPECIALIST
 	subdepartment_color = COLOR_NK006_MEDICAL
@@ -84,7 +74,7 @@
 	name = JOB_NK6_BIO
 	jobtype = /datum/job/nk006/biologist
 
-	id = /obj/item/card/id/advanced/silver
+	id = /obj/item/card/id/advanced/silver/nk006
 	id_trim = /datum/id_trim/job/nk006/biologist
 	uniform = /obj/item/clothing/under/trek/nk006_spc
 	belt = /obj/item/storage/belt/nk006/specialist

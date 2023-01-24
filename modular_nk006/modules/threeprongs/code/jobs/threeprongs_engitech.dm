@@ -5,25 +5,19 @@
 	orbit_icon = "gears"
 	sechud_icon_state = SECHUD_STATION_ENGINEER
 	minimal_access = list(
-		ACCESS_AUX_BASE,
-		ACCESS_CONSTRUCTION,
-		ACCESS_ENGINEERING,
-		ACCESS_ENGINE_EQUIP,
-		ACCESS_EXTERNAL_AIRLOCKS,
-		ACCESS_MAINT_TUNNELS,
-		ACCESS_MECH_ENGINE,
-		ACCESS_MINERAL_STOREROOM,
-		ACCESS_MINISAT,
-		ACCESS_TCOMMS,
-		ACCESS_TECH_STORAGE,
+		ACCESS_NK006_COMMON,
+		ACCESS_NK006_SUP,
+		ACCESS_NK006_ENGINE,
+		ACCESS_NK006_ATMOS,
 		)
 	extra_access = list(
-		ACCESS_ATMOSPHERICS,
+		ACCESS_NK006_CMD,
+		ACCESS_NK006_SPC,
 		)
 	template_access = list(
-		ACCESS_CAPTAIN,
-		ACCESS_CHANGE_IDS,
-		ACCESS_CE,
+		ACCESS_NK006_HEAD_CAP,
+		ACCESS_NK006_CHANGEIDS,
+		ACCESS_NK006_HEAD_CE,
 		)
 	department_color = COLOR_NK006_SUPPORT
 	subdepartment_color = COLOR_NK006_ENGALT
@@ -46,7 +40,7 @@
 
 	outfit = /datum/outfit/job/nk006/engineer
 	plasmaman_outfit = /datum/outfit/plasmaman
-	
+
 	departments_list = list(
 		/datum/job_department/nk006/support,
 		/datum/job_department/nk006/support/engineering,
@@ -73,14 +67,14 @@
 
 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
 	rpg_title = "Lightning Apprentice"
-	
+
 	tgjob = 0
 
 /datum/outfit/job/nk006/engineer
 	name = JOB_NK6_ENGITECH
 	jobtype = /datum/job/nk006/engineer
 
-	id = /obj/item/card/id/advanced/silver
+	id = /obj/item/card/id/advanced/silver/nk006
 	id_trim = /datum/id_trim/job/nk006/engineer
 	uniform = /obj/item/clothing/under/trek/nk006_sup
 	belt = /obj/item/storage/belt/nk006/support/engineer
@@ -93,6 +87,6 @@
 	backpack = /obj/item/storage/backpack/nk006/engineer
 	satchel = /obj/item/storage/backpack/satchel/nk006/engineer
 	duffelbag = /obj/item/storage/backpack/duffelbag/nk006/engineer
-	
+
 	box = /obj/item/storage/box/survival/engineer
 	skillchips = list(/obj/item/skillchip/job/engineer)

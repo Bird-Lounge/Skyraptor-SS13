@@ -172,7 +172,7 @@
 	return access_list
 
 /obj/effect/mapping_helpers/airlock/access/any/nk006/support/engine
-	icon_state = "access_helper_sup"
+	icon_state = "access_helper_eng"
 
 /obj/effect/mapping_helpers/airlock/access/any/nk006/support/engine/get_access()
 	var/list/access_list = ..()
@@ -188,7 +188,7 @@
 	return access_list
 
 /obj/effect/mapping_helpers/airlock/access/any/nk006/support/botany
-	icon_state = "access_helper_tox"
+	icon_state = "access_helper_botany"
 
 /obj/effect/mapping_helpers/airlock/access/any/nk006/support/botany/get_access()
 	var/list/access_list = ..()
@@ -215,7 +215,7 @@
 	return access_list
 
 /obj/effect/mapping_helpers/airlock/access/any/nk006/specialist/medical
-	icon_state = "access_helper_spc"
+	icon_state = "access_helper_med"
 
 /obj/effect/mapping_helpers/airlock/access/any/nk006/specialist/medical/get_access()
 	var/list/access_list = ..()

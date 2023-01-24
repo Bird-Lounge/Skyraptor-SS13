@@ -73,7 +73,7 @@
 	name = "NK006 Captain"
 	jobtype = /datum/job/nk006/nucap
 
-	id = /obj/item/card/id/advanced/gold
+	id = /obj/item/card/id/advanced/gold/nk006
 	id_trim = /datum/id_trim/job/nk006/nucap
 	uniform = /obj/item/clothing/under/trek/nk006_cmd
 	//suit = /obj/item/clothing/under/trek/nk006_cmd

@@ -6,29 +6,20 @@
 	department_state = "departmenthead"
 	sechud_icon_state = SECHUD_QUARTERMASTER
 	minimal_access = list(
-		ACCESS_AUX_BASE,
-		ACCESS_CARGO,
-		ACCESS_MAINT_TUNNELS,
-		ACCESS_MECH_MINING,
-		ACCESS_MINING_STATION,
-		ACCESS_MINERAL_STOREROOM,
-		ACCESS_MINING,
-		ACCESS_QM,
-		ACCESS_RC_ANNOUNCE,
-		ACCESS_SHIPPING,
-		ACCESS_VAULT,
-		ACCESS_KEYCARD_AUTH,
-		ACCESS_COMMAND,
-		ACCESS_EVA,
-		ACCESS_BRIG_ENTRANCE,
+		ACCESS_NK006_HEAD_QM,
+		ACCESS_NK006_COMMON,
+		ACCESS_NK006_CMD,
+		ACCESS_NK006_SUP,
+		ACCESS_NK006_SPC,
+		ACCESS_NK006_CARGO,
 		)
 	extra_access = list()
 	minimal_wildcard_access = list(
-		ACCESS_QM,
+		ACCESS_NK006_HEAD_QM,
 	)
 	template_access = list(
-		ACCESS_CAPTAIN,
-		ACCESS_CHANGE_IDS,
+		ACCESS_NK006_HEAD_CAP,
+		ACCESS_NK006_CHANGEIDS,
 	)
 	department_color = COLOR_NK006_CARGO
 	subdepartment_color = COLOR_NK006_CARGO
@@ -52,7 +43,7 @@
 
 	outfit = /datum/outfit/job/nk006/qm
 	plasmaman_outfit = /datum/outfit/plasmaman/head_of_personnel
-	
+
 	departments_list = list(
 		/datum/job_department/nk006/heads,
 		/datum/job_department/nk006/support,
@@ -78,7 +69,7 @@
 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_BOLD_SELECT_TEXT | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
 	rpg_title = "Steward"
 	voice_of_god_power = 1.4 //Command staff has authority, and QM _is_ command staff.
-	
+
 	tgjob = 0
 
 /datum/job/nk006/qm/get_captaincy_announcement(mob/living/captain)
@@ -88,7 +79,7 @@
 	name = JOB_NK6_QM
 	jobtype = /datum/job/nk006/qm
 
-	id = /obj/item/card/id/advanced/gold
+	id = /obj/item/card/id/advanced/gold/nk006
 	id_trim = /datum/id_trim/job/nk006/qm
 	uniform = /obj/item/clothing/under/trek/nk006_sup
 	belt = /obj/item/storage/belt/nk006/support/qm

@@ -602,6 +602,10 @@
 	suffix = "box"
 	name = "cargo ferry (Box)"
 
+/datum/map_template/shuttle/cargo/nk006
+	suffix = "nk006"
+	name = "cargo ferry (nk006)"
+
 /datum/map_template/shuttle/mining/box
 	suffix = "box"
 	name = "mining shuttle (Box)"

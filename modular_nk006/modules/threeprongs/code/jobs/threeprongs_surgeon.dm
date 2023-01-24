@@ -5,21 +5,17 @@
 	orbit_icon = "staff-snake"
 	sechud_icon_state = SECHUD_MEDICAL_DOCTOR
 	extra_access = list(
-		ACCESS_PLUMBING,
-		ACCESS_VIROLOGY,
+		ACCESS_NK006_COMMON,
+		ACCESS_NK006_SPC,
+		ACCESS_NK006_MEDICAL,
 		)
 	minimal_access = list(
-		ACCESS_MECH_MEDICAL,
-		ACCESS_MEDICAL,
-		ACCESS_MINERAL_STOREROOM,
-		ACCESS_MORGUE,
-		ACCESS_PHARMACY,
-		ACCESS_SURGERY,
+		ACCESS_NK006_BIOLOGY,
 		)
 	template_access = list(
-		ACCESS_CAPTAIN,
-		ACCESS_CHANGE_IDS,
-		ACCESS_CMO,
+		ACCESS_NK006_HEAD_CAP,
+		ACCESS_NK006_CHANGEIDS,
+		ACCESS_NK006_HEAD_CMO,
 		)
 	department_color = COLOR_NK006_MEDICAL
 	subdepartment_color = COLOR_NK006_SPECIALIST
@@ -76,7 +72,7 @@
 	name = JOB_NK6_SURGEON
 	jobtype = /datum/job/nk006/surgeon
 
-	id = /obj/item/card/id/advanced/silver
+	id = /obj/item/card/id/advanced/silver/nk006
 	id_trim = /datum/id_trim/job/nk006/surgeon
 	uniform = /obj/item/clothing/under/trek/nk006_spc
 	belt = /obj/item/storage/belt/nk006/specialist/surgeon

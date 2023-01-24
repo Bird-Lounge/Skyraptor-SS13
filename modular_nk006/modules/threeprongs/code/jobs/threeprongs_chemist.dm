@@ -5,21 +5,21 @@
 	orbit_icon = "prescription-bottle"
 	sechud_icon_state = SECHUD_CHEMIST
 	minimal_access = list(
-		ACCESS_MECH_MEDICAL,
-		ACCESS_MEDICAL,
-		ACCESS_MINERAL_STOREROOM,
-		ACCESS_PHARMACY,
-		ACCESS_PLUMBING,
+		ACCESS_NK006_COMMON,
+		ACCESS_NK006_SPC,
+		ACCESS_NK006_MEDICAL,
+		ACCESS_NK006_BIOLOGY,
 		)
-	extra_access = list(
+	/*extra_access = list(
 		ACCESS_MORGUE,
 		ACCESS_SURGERY,
 		ACCESS_VIROLOGY,
-		)
+		)*/
 	template_access = list(
-		ACCESS_CAPTAIN,
-		ACCESS_CHANGE_IDS,
-		ACCESS_CMO,
+		ACCESS_NK006_HEAD_CAP,
+		ACCESS_NK006_CHANGEIDS,
+		ACCESS_NK006_HEAD_CMO,
+		ACCESS_NK006_HEAD_RD,
 		)
 	department_color = COLOR_NK006_MEDICAL
 	subdepartment_color = COLOR_NK006_SCIALT
@@ -76,7 +76,7 @@
 	name = JOB_NK6_CHEMIST
 	jobtype = /datum/job/nk006/chemist
 
-	id = /obj/item/card/id/advanced/silver
+	id = /obj/item/card/id/advanced/silver/nk006
 	id_trim = /datum/id_trim/job/nk006/chemist
 	uniform = /obj/item/clothing/under/trek/nk006_spc
 	belt = /obj/item/storage/belt/nk006/specialist/bio_chem

@@ -5,19 +5,18 @@
 	orbit_icon = "seedling"
 	sechud_icon_state = SECHUD_BOTANIST
 	minimal_access = list(
-		ACCESS_HYDROPONICS,
-		ACCESS_MINERAL_STOREROOM,
-		ACCESS_SERVICE,
+		ACCESS_NK006_COMMON,
+		ACCESS_NK006_SUP,
+		ACCESS_NK006_SPC,
 		)
 	extra_access = list(
-		ACCESS_BAR,
-		ACCESS_KITCHEN,
-		ACCESS_MORGUE,
+		ACCESS_NK006_BIOLOGY,
 		)
 	template_access = list(
-		ACCESS_CAPTAIN,
-		ACCESS_CHANGE_IDS,
-		ACCESS_HOP,
+		ACCESS_NK006_HEAD_CAP,
+		ACCESS_NK006_CHANGEIDS,
+		ACCESS_NK006_HEAD_HOP,
+		ACCESS_NK006_HEAD_RD,
 		)
 	department_color = COLOR_NK006_SPECIALIST
 	subdepartment_color = COLOR_NK006_SERVICE
@@ -73,7 +72,7 @@
 	name = JOB_NK6_BOTANY
 	jobtype = /datum/job/nk006/botanist
 
-	id = /obj/item/card/id/advanced/silver
+	id = /obj/item/card/id/advanced/silver/nk006
 	id_trim = /datum/id_trim/job/nk006/botanist
 	uniform = /obj/item/clothing/under/trek/nk006_spc
 	belt = /obj/item/storage/belt/nk006/specialist/botany

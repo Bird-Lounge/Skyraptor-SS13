@@ -109,3 +109,22 @@
 	label_class = "science"
 	ui_color = "#7fff00"
 	can_add_new_jobs = 1
+
+
+
+/// Custom ID cards to get around access category fuckery
+/obj/item/card/id/advanced/silver/nk006
+	name = "silver identification card"
+	desc = "A standard shiny silver ID."
+	icon_state = "card_silver"
+	inhand_icon_state = "silver_id"
+	assigned_icon_state = "assigned_silver"
+	wildcard_slots = WILDCARD_LIMIT_NK006_GENERAL
+
+/obj/item/card/id/advanced/gold/nk006
+	name = "gold identification card"
+	desc = "An extra-shiny golden ID without limits."
+	icon_state = "card_gold"
+	inhand_icon_state = "gold_id"
+	assigned_icon_state = "assigned_gold"
+	wildcard_slots = WILDCARD_LIMIT_NK006_HEADS

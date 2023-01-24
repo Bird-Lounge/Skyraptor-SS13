@@ -6,8 +6,8 @@
 	department_state = "departmenthead"
 	sechud_icon_state = SECHUD_HEAD_OF_PERSONNEL
 	template_access = list(
-		ACCESS_CAPTAIN,
-		ACCESS_CHANGE_IDS,
+		ACCESS_NK006_HEAD_CAP,
+		ACCESS_NK006_CHANGEIDS,
 		)
 	department_color = COLOR_NK006_SERVICE
 	subdepartment_color = COLOR_NK006_SERVICE
@@ -33,7 +33,7 @@
 
 	outfit = /datum/outfit/job/nk006/hop
 	plasmaman_outfit = /datum/outfit/plasmaman/head_of_personnel
-	
+
 	departments_list = list(
 		/datum/job_department/nk006/heads,
 		/datum/job_department/nk006/support,
@@ -49,7 +49,7 @@
 	bounty_types = CIV_JOB_RANDOM
 
 	mail_goodies = list(
-		/obj/item/card/id/advanced/silver = 10,
+		/obj/item/card/id/advanced/silver/nk006 = 10,
 		/obj/item/stack/sheet/bone = 5
 	)
 
@@ -60,7 +60,7 @@
 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_BOLD_SELECT_TEXT | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
 	rpg_title = "Commander-in-Chief"
 	voice_of_god_power = 1.4 //Command staff has authority
-	
+
 	tgjob = 0
 
 /datum/job/nk006/hop/get_captaincy_announcement(mob/living/captain)
@@ -78,7 +78,7 @@
 	name = JOB_NK6_HOP
 	jobtype = /datum/job/nk006/hop
 
-	id = /obj/item/card/id/advanced/gold
+	id = /obj/item/card/id/advanced/gold/nk006
 	id_trim = /datum/id_trim/job/nk006/hop
 	uniform = /obj/item/clothing/under/trek/nk006_sup
 	belt = /obj/item/storage/belt/nk006/support/hop

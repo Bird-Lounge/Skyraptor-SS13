@@ -168,12 +168,21 @@
 	var/list/new_wildcard_limits = list()
 
 	for(var/flag_name in wildcard_slots)
+		for(var/tempdebug in flag_name)
+			to_chat(world, span_bolddanger("Adding wildcard slots for [tempdebug]/[flag_name[tempdebug]]"))
+		to_chat(world, span_bolddanger("Adding wildcard slots for [flag_name]"))
 		if(try_wildcard && !(flag_name == try_wildcard))
+			to_chat(world, span_bolddanger("Try_wildcard was checked, match not found"))
 			continue
 		var/list/wildcard_info = wildcard_slots[flag_name]
+		to_chat(world, span_bolddanger("Checking info on [wildcard_info]"))
+		for(var/tempdebug in wildcard_info)
+			to_chat(world, span_bolddanger("Checking info on [tempdebug]/[wildcard_info[tempdebug]]"))
 		new_wildcard_limits[flag_name] = wildcard_info["limit"] - length(wildcard_info["usage"])
+		to_chat(world, span_bolddanger("[flag_name] is now limited to [new_wildcard_limits[flag_name]]"))
 
 	if(!length(new_wildcard_limits))
+		to_chat(world, span_bolddanger("There are no valid wildcard slots on card [src] with list [wildcard_slots]"))
 		return FALSE
 
 	var/wildcard_allocated
@@ -182,15 +191,19 @@
 		wildcard_allocated = FALSE
 		for(var/flag_name in new_wildcard_limits)
 			var/limit_flags = SSid_access.wildcard_flags_by_wildcard[flag_name]
+			to_chat(world, span_bolddanger("Trying flag [flag_name] for [wildcard]"))
 			if(!(wildcard_flag & limit_flags))
+				to_chat(world, span_bolddanger("Failed; wildcard flag not in limit_flags ([limit_flags])"))
 				continue
 			// Negative limits mean infinite slots. Positive limits mean limited slots still available. 0 slots means no slots.
 			if(new_wildcard_limits[flag_name] == 0)
+				to_chat(world, span_bolddanger("Failed; not enough of this wildcard type left"))
 				continue
 			new_wildcard_limits[flag_name]--
 			wildcard_allocated = TRUE
 			break
 		if(!wildcard_allocated)
+			to_chat(world, span_bolddanger("Failed to allocate [wildcard] on card [src] with list [wildcard_list] and flag [wildcard_flag]"))
 			return FALSE
 
 	return TRUE

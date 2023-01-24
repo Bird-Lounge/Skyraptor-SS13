@@ -5,26 +5,19 @@
 	orbit_icon = "truck-medical"
 	sechud_icon_state = SECHUD_PARAMEDIC
 	minimal_access = list(
-		ACCESS_CARGO,
-		ACCESS_CONSTRUCTION,
-		ACCESS_HYDROPONICS,
-		ACCESS_MAINT_TUNNELS,
-		ACCESS_MECH_MEDICAL,
-		ACCESS_MEDICAL,
-		ACCESS_MINERAL_STOREROOM,
-		ACCESS_MINING,
-		ACCESS_MINING_STATION,
-		ACCESS_MORGUE,
-		ACCESS_SCIENCE,
-		ACCESS_SERVICE,
+		ACCESS_NK006_COMMON,
+		ACCESS_NK006_CMD,
+		ACCESS_NK006_SUP,
+		ACCESS_NK006_SPC,
+		ACCESS_NK006_MEDICAL,
 		)
 	extra_access = list(
-		ACCESS_SURGERY,
+		ACCESS_NK006_BIOLOGY,
 		)
 	template_access = list(
-		ACCESS_CAPTAIN,
-		ACCESS_CHANGE_IDS,
-		ACCESS_CMO,
+		ACCESS_NK006_HEAD_CAP,
+		ACCESS_NK006_CHANGEIDS,
+		ACCESS_NK006_HEAD_CMO,
 		)
 	department_color = COLOR_NK006_MEDICAL
 	subdepartment_color = COLOR_NK006_MEDICAL
@@ -45,7 +38,7 @@
 
 	outfit = /datum/outfit/job/nk006/emt
 	plasmaman_outfit = /datum/outfit/plasmaman/chief_medical_officer
-	
+
 	departments_list = list(
 		/datum/job_department/nk006/specialist,
 		/datum/job_department/nk006/specialist/medical,
@@ -73,14 +66,14 @@
 
 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
 	rpg_title = "Scouting Cleric"
-	
+
 	tgjob = 0
 
 /datum/outfit/job/nk006/emt
 	name = JOB_NK6_EMT
 	jobtype = /datum/job/nk006/emt
 
-	id = /obj/item/card/id/advanced/silver
+	id = /obj/item/card/id/advanced/silver/nk006
 	id_trim = /datum/id_trim/job/nk006/emt
 	uniform = /obj/item/clothing/under/trek/nk006_spc
 	belt = /obj/item/storage/belt/nk006/specialist/emt
@@ -92,6 +85,6 @@
 	backpack = /obj/item/storage/backpack/nk006/medical
 	satchel = /obj/item/storage/backpack/satchel/nk006/medical
 	duffelbag = /obj/item/storage/backpack/duffelbag/nk006/medical
-	
+
 	box = /obj/item/storage/box/survival/medical
 	skillchips = list(/obj/item/skillchip/entrails_reader)
