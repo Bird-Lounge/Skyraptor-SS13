@@ -1,7 +1,7 @@
 /obj/machinery/particle_accelerator/control_box
 	name = "particle accelerator control console"
 	desc = "This controls the density of the particles."
-	icon = 'icons/obj/machines/particle_accelerator.dmi'
+	icon = 'icons/obj/machines/particle_accelerator_controlbox.dmi'
 	icon_state = "control_box"
 	anchored = FALSE
 	density = TRUE
