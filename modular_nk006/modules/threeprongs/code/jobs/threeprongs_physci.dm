@@ -76,12 +76,12 @@
 	id = /obj/item/card/id/advanced/silver/nk006
 	id_trim = /datum/id_trim/job/nk006/matsci
 	uniform = /obj/item/clothing/under/trek/nk006_spc
-	belt = /obj/item/storage/belt/nk006/support/engineer
+	belt = /obj/item/storage/belt/nk006/support/matsci
 	//head = /obj/item/clothing/head/soft/green
-	ears = /obj/item/radio/headset/nk006/headset_specialist
+	ears = /obj/item/radio/headset/nk006/headset_robo
 	l_pocket = /obj/item/modular_computer/pda/nk006/science/matsci
 	pda_slot = ITEM_SLOT_LPOCKET
 
-	backpack = /obj/item/storage/backpack/nk006/sci
-	satchel = /obj/item/storage/backpack/satchel/nk006/sci
-	duffelbag = /obj/item/storage/backpack/duffelbag/nk006/sci
+	backpack = /obj/item/storage/backpack/nk006/robo
+	satchel = /obj/item/storage/backpack/satchel/nk006/robo
+	duffelbag = /obj/item/storage/backpack/duffelbag/nk006/robo

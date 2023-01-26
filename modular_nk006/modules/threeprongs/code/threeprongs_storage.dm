@@ -364,6 +364,26 @@
 	inhand_icon_state = "duffel_bio"
 
 
+// == robotics generics
+/obj/item/storage/backpack/nk006/robo
+	name = "material sciences backpack"
+	desc = "You wear this on your back and put items into it."
+	icon_state = "backpack_robo"
+	inhand_icon_state = "backpack_robo"
+
+/obj/item/storage/backpack/satchel/nk006/robo
+	name = "material sciences satchel"
+	desc = "A trendy looking satchel."
+	icon_state = "satchel_robo"
+	inhand_icon_state = "satchel_robo"
+
+/obj/item/storage/backpack/duffelbag/nk006/robo
+	name = "material sciences duffel bag"
+	desc = "A large duffel bag for holding extra things."
+	icon_state = "duffel_robo"
+	inhand_icon_state = "duffel_robo"
+
+
 // == medical generics
 /obj/item/storage/backpack/nk006/medical
 	name = "medical backpack"
@@ -929,3 +949,33 @@
 
 /obj/item/storage/belt/nk006/specialist/bio/PopulateContents()
 	//SSwardrobe.provide_type(/obj/item/crowbar, src)
+
+
+
+// == ENGINE TECH BELT, basic tools including electrical
+/obj/item/storage/belt/nk006/support/matsci
+	name = "material sciences belt"
+	desc = "A lime belt with an amber badge.  Comes with basic tools & plentiful storage."
+	icon_state = "belt_robo"
+	worn_icon_state = "belt_robo"
+	preload = TRUE
+
+/obj/item/storage/belt/nk006/support/matsci/get_types_to_preload()
+	var/list/to_preload = list() //Yes this is a pain. Yes this is the point
+	to_preload += /obj/item/crowbar
+	to_preload += /obj/item/screwdriver
+	to_preload += /obj/item/wrench
+	to_preload += /obj/item/weldingtool
+	to_preload += /obj/item/multitool
+	to_preload += /obj/item/wirecutters
+	to_preload += /obj/item/stack/cable_coil
+	return to_preload
+
+/obj/item/storage/belt/nk006/support/matsci/PopulateContents()
+	SSwardrobe.provide_type(/obj/item/crowbar, src)
+	SSwardrobe.provide_type(/obj/item/screwdriver, src)
+	SSwardrobe.provide_type(/obj/item/wrench, src)
+	SSwardrobe.provide_type(/obj/item/weldingtool, src)
+	SSwardrobe.provide_type(/obj/item/multitool, src)
+	SSwardrobe.provide_type(/obj/item/wirecutters, src)
+	SSwardrobe.provide_type(/obj/item/stack/cable_coil, src)

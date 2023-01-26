@@ -7,10 +7,10 @@
 	"space_empty_levels": 0,
 	"minetype": "none",
 	"shuttles": {
-		"cargo": "cargo_box",
+		"cargo": "cargo_nk006",
 		"ferry": "ferry_fancy",
 		"whiteship": "whiteship_meta",
-		"emergency": "emergency_meta"
+		"emergency": "emergency_nk006"
 	},
 	"job_changes": {
 		"Cook": {

@@ -590,6 +590,13 @@
 /datum/map_template/shuttle/emergency/zeta/prerequisites_met()
 	return SSshuttle.shuttle_purchase_requirements_met[SHUTTLE_UNLOCK_ALIENTECH]
 
+/datum/map_template/shuttle/emergency/nk006
+	suffix = "nk006"
+	name = "Standard Micro Emergency Shuttle"
+	description = "A "
+	admin_notes = "This is the default for NK006 shuttles.  Don't let it get changed unless you know what you're doing."
+	credit_cost = CARGO_CRATE_VALUE * 5
+
 /datum/map_template/shuttle/arrival/nk006
 	suffix = "nk006"
 	name = "arrival shuttle (NK006)"
@@ -609,6 +616,10 @@
 /datum/map_template/shuttle/mining/box
 	suffix = "box"
 	name = "mining shuttle (Box)"
+
+/datum/map_template/shuttle/mining/nk006
+	suffix = "nk006"
+	name = "mining shuttle (nk006)"
 
 /datum/map_template/shuttle/labour/box
 	suffix = "box"

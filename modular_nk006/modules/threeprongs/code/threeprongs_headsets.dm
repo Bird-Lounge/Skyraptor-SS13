@@ -139,6 +139,13 @@
 	greyscale_config = /datum/greyscale_config/encryptionkey_medical
 	greyscale_colors = "#aaff00#00ff00"
 
+/obj/item/encryptionkey/nk006/headset_robo
+	name = "material sciences radio encryption key"
+	icon_state = "cypherkey_engineering"
+	channels = list(RADIO_CHANNEL_NK6_SPECIALIST = 1, RADIO_CHANNEL_NK6_SUPENG = 1, RADIO_CHANNEL_NK6_SUPPORT = 1)
+	greyscale_config = /datum/greyscale_config/encryptionkey_engineering
+	greyscale_colors = "#aaff00#ff6600"
+
 /obj/item/encryptionkey/nk006/headset_cmo
 	name = "cmo radio encryption key"
 	icon_state = "cypherkey_medical"
@@ -398,7 +405,23 @@
 	desc = "An improved headset for chemists.  A combination of sci + med headsets. Protects ears from flashbangs- and exploding Inacusiate."
 	icon_state = "sci_headset_alt"
 
-/obj/item/radio/headset/nk006/headset_sci/alt/Initialize(mapload)
+/obj/item/radio/headset/nk006/headset_bio/alt/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+
+
+/obj/item/radio/headset/nk006/headset_robo
+	name = "material sciences radio headset"
+	desc = "A headset for material sciences experts.  A combination of sci + eng headsets."
+	icon_state = "robo_headset"
+	keyslot = /obj/item/encryptionkey/nk006/headset_bio
+
+/obj/item/radio/headset/nk006/headset_robo/alt
+	name = "material sciences bowman headset"
+	desc = "An improved headset for materials scientists.  A combination of sci + eng headsets. Protects ears from flashbangs- and Atmosia as it goes up in a boom."
+	icon_state = "robo_headset_alt"
+
+/obj/item/radio/headset/nk006/headset_robo/alt/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
 

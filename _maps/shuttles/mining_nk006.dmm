@@ -1,0 +1,197 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/mineral/titanium,
+/area/shuttle/mining)
+"c" = (
+/obj/structure/marker_beacon/olive,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/mining)
+"e" = (
+/obj/machinery/light/directional/south,
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/mining)
+"h" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst/right{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/open/floor/plating/airless,
+/area/shuttle/mining)
+"k" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/open/floor/plating/airless,
+/area/shuttle/mining)
+"r" = (
+/obj/structure/ore_box,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/mining)
+"w" = (
+/turf/template_noop,
+/area/template_noop)
+"y" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/mining)
+"z" = (
+/obj/machinery/light/directional/north,
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/mining)
+"B" = (
+/obj/machinery/computer/shuttle/mining{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/mining)
+"F" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst/left{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/open/floor/plating/airless,
+/area/shuttle/mining)
+"G" = (
+/turf/open/floor/plating/airless,
+/area/shuttle/mining)
+"H" = (
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/mining)
+"J" = (
+/obj/structure/marker_beacon/yellow,
+/obj/docking_port/mobile{
+	dir = 8;
+	shuttle_id = "mining";
+	name = "mining shuttle";
+	port_direction = 2
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window/brigdoor/right/directional/east,
+/turf/open/floor/plating/airless,
+/area/shuttle/mining)
+"M" = (
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/turf/open/floor/plating,
+/area/shuttle/mining)
+"O" = (
+/obj/machinery/door/airlock/titanium{
+	name = "Supply Shuttle Airlock"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/shuttle/mining)
+"P" = (
+/obj/structure/closet/crate,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/mining)
+"S" = (
+/obj/structure/marker_beacon/burgundy,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/mining)
+"V" = (
+/obj/structure/table,
+/obj/item/storage/medkit/fire{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/storage/medkit/regular,
+/obj/item/storage/medkit/brute{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/mining)
+
+(1,1,1) = {"
+w
+M
+M
+M
+w
+"}
+(2,1,1) = {"
+H
+V
+B
+V
+H
+"}
+(3,1,1) = {"
+H
+a
+y
+a
+H
+"}
+(4,1,1) = {"
+O
+a
+a
+a
+O
+"}
+(5,1,1) = {"
+H
+z
+a
+e
+H
+"}
+(6,1,1) = {"
+O
+a
+a
+a
+O
+"}
+(7,1,1) = {"
+H
+P
+r
+P
+H
+"}
+(8,1,1) = {"
+k
+S
+G
+c
+k
+"}
+(9,1,1) = {"
+h
+w
+J
+w
+F
+"}

@@ -5086,6 +5086,7 @@
 #include "modular_nk006\modules\threeprongs\code\threeprongs_storage.dm"
 #include "modular_nk006\modules\threeprongs\code\threeprongs_tcomms.dm"
 #include "modular_nk006\modules\threeprongs\code\threeprongs_uniforms.dm"
+#include "modular_nk006\modules\threeprongs\code\threeprongs_utilities.dm"
 #include "modular_nk006\modules\threeprongs\code\jobs\threeprongs_asst_cmd.dm"
 #include "modular_nk006\modules\threeprongs\code\jobs\threeprongs_asst_spc.dm"
 #include "modular_nk006\modules\threeprongs\code\jobs\threeprongs_asst_sup.dm"

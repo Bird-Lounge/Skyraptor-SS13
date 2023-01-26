@@ -96,6 +96,7 @@
 /obj/machinery/door/airlock/titanium{
 	name = "Arrivals Shuttle Airlock"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/arrival)
 "O" = (
@@ -121,9 +122,6 @@
 	dir = 8
 	},
 /turf/open/floor/mineral/titanium,
-/area/shuttle/arrival)
-"X" = (
-/turf/template_noop,
 /area/shuttle/arrival)
 "Y" = (
 /turf/open/floor/mineral/titanium,
@@ -187,9 +185,9 @@ g
 "}
 (8,1,1) = {"
 r
-X
-X
-X
+l
+l
+l
 r
 "}
 (9,1,1) = {"

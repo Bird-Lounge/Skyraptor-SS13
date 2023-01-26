@@ -3947,9 +3947,11 @@
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/evacuation)
 "sV" = (
-/obj/machinery/door/poddoor/shuttledock,
-/obj/effect/turf_decal/delivery,
-/turf/open/floor/iron,
+/obj/structure/fans/tiny,
+/obj/machinery/door/airlock/centcom{
+	name = "CentCom Customs"
+	},
+/turf/open/floor/plating,
 /area/centcom/central_command_areas/evacuation)
 "sY" = (
 /obj/machinery/door/airlock/centcom{
@@ -4296,15 +4298,14 @@
 /area/centcom/central_command_areas/control)
 "uz" = (
 /obj/docking_port/stationary{
-	dir = 4;
-	dwidth = 25;
-	height = 50;
-	json_key = "emergency";
-	name = "CentCom Emergency Shuttle Dock";
-	shuttle_id = "emergency_away";
-	width = 50
+	dwidth = 3;
+	height = 11;
+	json_key = "cargo";
+	name = "CentCom";
+	shuttle_id = "cargo_away";
+	width = 7
 	},
-/turf/open/space,
+/turf/open/space/basic,
 /area/space)
 "uA" = (
 /obj/structure/chair{
@@ -5242,15 +5243,14 @@
 /area/centcom/central_command_areas/control)
 "yV" = (
 /obj/docking_port/stationary{
-	dir = 8;
-	dwidth = 8;
-	height = 7;
-	json_key = "cargo";
-	name = "CentCom";
-	shuttle_id = "cargo_away";
-	width = 20
+	dwidth = 3;
+	height = 11;
+	json_key = "emergency";
+	name = "CentCom Emergency Shuttle Dock";
+	shuttle_id = "emergency_away";
+	width = 7
 	},
-/turf/open/space,
+/turf/open/space/basic,
 /area/space)
 "yY" = (
 /obj/structure/chair,
@@ -48190,7 +48190,7 @@ aa
 aa
 aa
 aa
-aa
+uz
 aa
 aa
 aa
@@ -48957,7 +48957,7 @@ aa
 aa
 aa
 aa
-yV
+ad
 aa
 aa
 aa
@@ -62598,19 +62598,19 @@ Hv
 cg
 cg
 cg
+cg
+cg
+cg
+cg
 sV
+cg
 sV
-sV
-sV
-sV
-sV
-sV
-sV
-sV
-sV
-sV
-sV
-sV
+cg
+cg
+cg
+cg
+cg
+cg
 cg
 cg
 cg
@@ -62858,7 +62858,7 @@ aa
 aa
 aa
 aa
-uz
+ad
 aa
 aa
 aa
@@ -63636,7 +63636,7 @@ aa
 aa
 aa
 aa
-aa
+yV
 aa
 aa
 aa

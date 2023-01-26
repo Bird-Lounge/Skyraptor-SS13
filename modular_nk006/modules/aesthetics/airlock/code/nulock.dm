@@ -14,6 +14,14 @@
 	glass = TRUE
 	normal_integrity = 400
 
+/obj/machinery/door/airlock/nk006/dark
+	icon = 'modular_nk006/modules/aesthetics/airlock/icons/nktlocks/general/general_dark.dmi'
+
+/obj/machinery/door/airlock/nk006/dark/glass
+	opacity = FALSE
+	glass = TRUE
+	normal_integrity = 400
+
 // == COMMAND
 
 /obj/machinery/door/airlock/nk006/command
@@ -52,10 +60,10 @@
 	normal_integrity = 400
 
 
-/obj/machinery/door/airlock/nk006/command/sec
-	icon = 'modular_nk006/modules/aesthetics/airlock/icons/nktlocks/command/sec.dmi'
+/obj/machinery/door/airlock/nk006/command/sec/full
+	icon = 'modular_nk006/modules/aesthetics/airlock/icons/nktlocks/command/secfull.dmi'
 
-/obj/machinery/door/airlock/nk006/command/sec/glass
+/obj/machinery/door/airlock/nk006/command/sec/full/glass
 	opacity = FALSE
 	glass = TRUE
 	normal_integrity = 400
@@ -301,6 +309,15 @@
 	icon = 'modular_nk006/modules/aesthetics/airlock/icons/nktlocks/specialist/med_gene.dmi'
 
 /obj/machinery/door/airlock/nk006/specialist/genetics/glass
+	opacity = FALSE
+	glass = TRUE
+	normal_integrity = 400
+
+
+/obj/machinery/door/airlock/nk006/specialist/robotics
+	icon = 'modular_nk006/modules/aesthetics/airlock/icons/nktlocks/specialist/robo.dmi'
+
+/obj/machinery/door/airlock/nk006/specialist/robotics/glass
 	opacity = FALSE
 	glass = TRUE
 	normal_integrity = 400

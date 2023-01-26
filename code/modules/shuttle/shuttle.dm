@@ -258,6 +258,7 @@
 /obj/docking_port/stationary/proc/load_roundstart()
 	if(json_key)
 		var/sid = SSmapping.config.shuttles[json_key]
+		world.log << "NK006_SHUTTLES: Shuttle [json_key] is loading [sid]"
 		roundstart_template = SSmapping.shuttle_templates[sid]
 		if(!roundstart_template)
 			CRASH("json_key:[json_key] value \[[sid]\] resulted in a null shuttle template for [src]")
@@ -604,6 +605,7 @@
 
 //this is to check if this shuttle can physically dock at dock S
 /obj/docking_port/mobile/proc/canDock(obj/docking_port/stationary/S)
+	to_chat(world, span_bolddanger("Trying to dock shuttle port [S] on mobile port [src].  Widths: [dwidth] vs [S.dwidth], [width] vs [S.width].  Heights: [dheight] vs [S.dheight], [height] vs [S.height]"))
 	if(!istype(S))
 		return SHUTTLE_NOT_A_DOCKING_PORT
 
@@ -611,16 +613,16 @@
 		return SHUTTLE_CAN_DOCK
 
 	if(dwidth > S.dwidth)
-		return SHUTTLE_DWIDTH_TOO_LARGE
+		return "[SHUTTLE_DWIDTH_TOO_LARGE]: : [dwidth] above shuttle value of [S.dwidth]"
 
 	if(width-dwidth > S.width-S.dwidth)
-		return SHUTTLE_WIDTH_TOO_LARGE
+		return "[SHUTTLE_WIDTH_TOO_LARGE]: [width] - [dwidth] above shuttle values of [S.width] - [S.dwidth]"
 
 	if(dheight > S.dheight)
-		return SHUTTLE_DHEIGHT_TOO_LARGE
+		return "[SHUTTLE_DHEIGHT_TOO_LARGE]: [height] above shuttle values of [S.height]"
 
 	if(height-dheight > S.height-S.dheight)
-		return SHUTTLE_HEIGHT_TOO_LARGE
+		return "[SHUTTLE_HEIGHT_TOO_LARGE]: [height] - [dheight] above shuttle values of [S.height] - [S.dheight]"
 
 	//check the dock isn't occupied
 	var/currently_docked = S.get_docked()
