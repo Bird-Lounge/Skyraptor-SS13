@@ -53,6 +53,11 @@
 /obj/structure/window/reinforced/plasma/spawner/west,
 /turf/open/floor/engine,
 /area/station/nk006/specialist/xnb)
+"ay" = (
+/obj/effect/turf_decal/tile/nk006/department_sub_orange/fourcorners,
+/obj/structure/particle_accelerator/particle_emitter/center,
+/turf/open/floor/iron/dark,
+/area/station/nk006/support/eng/engine)
 "az" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north,
@@ -780,6 +785,11 @@
 	},
 /turf/open/space/basic,
 /area/space)
+"fL" = (
+/obj/effect/turf_decal/tile/nk006/department_sub_orange/fourcorners,
+/obj/machinery/particle_accelerator/control_box,
+/turf/open/floor/iron/dark,
+/area/station/nk006/support/eng/engine)
 "fN" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -830,7 +840,8 @@
 /turf/open/floor/iron,
 /area/station/nk006/support)
 "gi" = (
-/obj/singularity,
+/obj/machinery/the_singularitygen,
+/obj/structure/lattice,
 /turf/open/space/basic,
 /area/station/nk006/support/eng/engine/sng)
 "gj" = (
@@ -1484,6 +1495,11 @@
 	},
 /turf/open/floor/iron,
 /area/station/nk006/support)
+"lg" = (
+/obj/item/storage/belt/nk006/support/engineer,
+/obj/structure/table/wood/fancy/nk006_any_orange,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/nk006/support/eng)
 "lh" = (
 /obj/item/storage/medkit/regular{
 	pixel_x = -3;
@@ -3072,6 +3088,11 @@
 /obj/effect/turf_decal/tile/nk006/department_sub_green/opposingcorners,
 /turf/open/floor/iron/dark,
 /area/station/nk006/support/srv/bar)
+"wg" = (
+/obj/effect/turf_decal/tile/nk006/department_sub_orange/fourcorners,
+/obj/structure/particle_accelerator/particle_emitter/right,
+/turf/open/floor/iron/dark,
+/area/station/nk006/support/eng/engine)
 "wi" = (
 /obj/effect/turf_decal/tile/nk006/department_sub_green/fourcorners,
 /obj/machinery/modular_computer/console/preset/id,
@@ -3936,6 +3957,11 @@
 	},
 /turf/open/floor/iron,
 /area/station/nk006/support/srv/quarters)
+"Ci" = (
+/obj/effect/turf_decal/tile/nk006/department_sub_orange/fourcorners,
+/obj/structure/particle_accelerator/power_box,
+/turf/open/floor/iron/dark,
+/area/station/nk006/support/eng/engine)
 "Ck" = (
 /obj/structure/sink/directional/east,
 /obj/item/reagent_containers/cup/bucket,
@@ -4403,6 +4429,11 @@
 /obj/machinery/power/shuttle_engine/huge,
 /turf/open/space/openspace,
 /area/station/nk006/support/crg/sort)
+"EO" = (
+/obj/effect/turf_decal/tile/nk006/department_sub_orange/fourcorners,
+/obj/structure/particle_accelerator/particle_emitter/left,
+/turf/open/floor/iron/dark,
+/area/station/nk006/support/eng/engine)
 "ER" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/iron/dark/smooth_large,
@@ -4527,6 +4558,10 @@
 	},
 /turf/open/floor/iron/large,
 /area/station/nk006/general/halls/north)
+"FF" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/station/nk006/support/eng/engine/sng)
 "FL" = (
 /obj/structure/table/glass,
 /obj/item/reagent_containers/cup/beaker/large{
@@ -4639,6 +4674,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/tile/nk006/department_sub_orange/fourcorners,
+/obj/structure/particle_accelerator/end_cap,
 /turf/open/floor/iron/dark,
 /area/station/nk006/support/eng/engine)
 "GD" = (
@@ -5705,6 +5741,8 @@
 /area/station/nk006/command)
 "Nr" = (
 /obj/effect/landmark/start/nk006/asst_sup,
+/obj/item/storage/belt/nk006/support/engineer,
+/obj/structure/table/wood/fancy/nk006_any_orange,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/nk006/support/eng)
 "Nu" = (
@@ -6015,6 +6053,11 @@
 /obj/machinery/door/window/left/directional/south,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/nk006/specialist/xnb/vro)
+"Pl" = (
+/obj/effect/turf_decal/tile/nk006/department_sub_orange/fourcorners,
+/obj/structure/particle_accelerator/fuel_chamber,
+/turf/open/floor/iron/dark,
+/area/station/nk006/support/eng/engine)
 "Po" = (
 /obj/structure/sign/warning,
 /turf/closed/wall/r_wall,
@@ -34902,7 +34945,7 @@ SY
 YJ
 YJ
 YJ
-YJ
+FF
 YJ
 YJ
 YJ
@@ -35159,7 +35202,7 @@ SY
 YJ
 YJ
 YJ
-YJ
+FF
 YJ
 YJ
 YJ
@@ -35405,9 +35448,9 @@ WA
 OJ
 RI
 kI
-Tl
+fL
 RI
-Tl
+EO
 Sy
 SY
 uz
@@ -35416,7 +35459,7 @@ SY
 YJ
 YJ
 YJ
-YJ
+FF
 YJ
 YJ
 YJ
@@ -35662,9 +35705,9 @@ uw
 db
 rL
 Gz
-Tl
-Tl
-Tl
+Pl
+Ci
+ay
 Sy
 SY
 uz
@@ -35921,7 +35964,7 @@ RI
 Qi
 RI
 RI
-Tl
+wg
 Sy
 SY
 uz
@@ -35930,7 +35973,7 @@ SY
 YJ
 YJ
 YJ
-YJ
+FF
 YJ
 YJ
 YJ
@@ -36187,7 +36230,7 @@ SY
 YJ
 YJ
 YJ
-YJ
+FF
 YJ
 YJ
 YJ
@@ -36444,7 +36487,7 @@ SY
 YJ
 YJ
 YJ
-YJ
+FF
 YJ
 YJ
 YJ
@@ -42088,10 +42131,10 @@ jl
 xw
 BC
 BF
-Va
+lg
 Nr
-Va
-Va
+lg
+lg
 GL
 sk
 BC

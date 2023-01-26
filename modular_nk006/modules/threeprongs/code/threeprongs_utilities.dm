@@ -38,7 +38,7 @@
 	oxygentanks = 0
 
 /obj/structure/tank_dispenser/engitanks/ui_act(action, params)
-	. = ..()
+	//. = ..() //THIS IS PROBABLY NOT A GOOD IDEA, BUT
 	if(.)
 		return
 	switch(action)

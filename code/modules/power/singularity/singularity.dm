@@ -11,7 +11,7 @@
 /obj/singularity
 	name = "gravitational singularity"
 	desc = "A gravitational singularity."
-	icon = 'icons/obj/engine/singularity.dmi'
+	icon = 'modular_nk006/modules/aesthetics/singularity/singularity_s1.dmi' //NK006 EDIT: new sprite
 	icon_state = "singularity_s1"
 	anchored = TRUE
 	density = TRUE
@@ -161,15 +161,15 @@
 	if(time_since_act < 2)
 		return
 	time_since_act = 0
-	
+
 	//radiation_pulse(src, min(5000, (energy*4.5)+1000), RAD_DISTANCE_COEFFICIENT*0.5)
-	
+
 	radiation_pulse(
 		src,
 		max_range = 12,
 		threshold = RAD_TO_THRESHOLD(((energy * RAD_ENERGY_MULTIPLIER) + RAD_ENERGY_BASELINE) ** RAD_ENERGY_EXPONENT)
 	)
-	
+
 	if(current_size >= STAGE_TWO)
 		if(prob(event_chance))
 			event()
@@ -202,7 +202,7 @@
 	switch(temp_allowed_size)
 		if(STAGE_ONE)
 			current_size = STAGE_ONE
-			icon = 'icons/obj/engine/singularity.dmi'
+			icon = 'modular_nk006/modules/aesthetics/singularity/singularity_s1.dmi' //NK006 EDIT: new sprite
 			icon_state = "singularity_s1"
 			pixel_x = 0
 			pixel_y = 0
@@ -214,7 +214,7 @@
 		if(STAGE_TWO)
 			if(check_cardinals_range(1, TRUE))
 				current_size = STAGE_TWO
-				icon = 'icons/effects/96x96.dmi'
+				icon = 'modular_nk006/modules/aesthetics/singularity/singularity_s3.dmi' //NK006 EDIT: new sprite
 				icon_state = "singularity_s3"
 				pixel_x = -32
 				pixel_y = -32
@@ -226,7 +226,7 @@
 		if(STAGE_THREE)
 			if(check_cardinals_range(2, TRUE))
 				current_size = STAGE_THREE
-				icon = 'icons/effects/160x160.dmi'
+				icon = 'modular_nk006/modules/aesthetics/singularity/singularity_s5.dmi' //NK006 EDIT: new sprite
 				icon_state = "singularity_s5"
 				pixel_x = -64
 				pixel_y = -64
@@ -238,7 +238,7 @@
 		if(STAGE_FOUR)
 			if(check_cardinals_range(3, TRUE))
 				current_size = STAGE_FOUR
-				icon = 'icons/effects/224x224.dmi'
+				icon = 'modular_nk006/modules/aesthetics/singularity/singularity_s7.dmi' //NK006 EDIT: new sprite
 				icon_state = "singularity_s7"
 				pixel_x = -96
 				pixel_y = -96
@@ -249,7 +249,7 @@
 				dissipate_strength = 10
 		if(STAGE_FIVE)//this one also lacks a check for gens because it eats everything
 			current_size = STAGE_FIVE
-			icon = 'icons/effects/288x288.dmi'
+			icon = 'modular_nk006/modules/aesthetics/singularity/singularity_s9.dmi' //NK006 EDIT: new sprite
 			icon_state = "singularity_s9"
 			pixel_x = -128
 			pixel_y = -128
@@ -258,7 +258,7 @@
 			dissipate = FALSE //It cant go smaller due to e loss
 		if(STAGE_SIX) //This only happens if a stage 5 singulo consumes a supermatter shard.
 			current_size = STAGE_SIX
-			icon = 'icons/effects/352x352.dmi'
+			icon = 'icons/effects/352x352.dmi' //NK006 EDIT (OR LACK THEREOF): sprite unchanged!
 			icon_state = "singularity_s11"
 			pixel_x = -160
 			pixel_y = -160
