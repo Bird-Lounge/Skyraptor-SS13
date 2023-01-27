@@ -1,7 +1,27 @@
+//UTILITY EDIT: We need rad storms to not melt people's faces off on our stations, so vanilla protected_areas goes out the window
+/datum/weather/rad_storm
+	protected_areas = list(/area/station/nk006/maints, /area/station/nk006/support/eng,
+	/area/station/ai_monitored/, /area/shuttle, /area/station/nk006/command/sec/prison/restrooms,
+	/area/station/holodeck, /area/station/nk006/support/srv/quarters, /area/station/nk006/support/srv/vip,
+	/area/icemoon/underground)
+
+/datum/round_event/radiation_storm/announce(fake)
+	priority_announce("High levels of radiation detected near the station. Seek shelter in maintenance, Engineering, shielded crew quarters, or a shuttle!", "Anomaly Alert", ANNOUNCER_RADIATION)
+
+
+
 /area/station/nk006/
 	icon = 'modular_nk006/modules/threeprongs/icons/threeprongs_areas.dmi'
 	icon_state = "unknown"
-	name = "Generic NK006 Maints"
+	name = "Generic NK006"
+	sound_environment = SOUND_AREA_STANDARD_STATION
+	area_flags = BLOBS_ALLOWED | UNIQUE_AREA | CULT_PERMITTED
+
+//// == NONDEPARTMENTAL ==
+
+/area/station/nk006/maints
+	name = "Maints"
+	icon_state = "general_maints"
 	ambience_index = AMBIENCE_MAINT
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA | CULT_PERMITTED | PERSISTENT_ENGRAVINGS
 	airlock_wires = /datum/wires/airlock/maint
@@ -9,12 +29,6 @@
 	forced_ambience = TRUE
 	ambient_buzz = 'sound/ambience/source_corridor2.ogg'
 	ambient_buzz_vol = 20
-
-//// == NONDEPARTMENTAL ==
-
-/area/station/nk006/maints
-	name = "Maints"
-	icon_state = "general_maints"
 /area/station/nk006/maints/cmd
 	name = "Command Maints"
 	icon_state = "general_maints"
@@ -28,8 +42,6 @@
 /area/station/nk006/general
 	name = "General"
 	icon_state = "general_maints"
-	sound_environment = SOUND_AREA_STANDARD_STATION
-	area_flags = BLOBS_ALLOWED | UNIQUE_AREA | CULT_PERMITTED
 
 /area/station/nk006/general/fab
 	name = "General Fab"
@@ -75,14 +87,17 @@
 /area/station/nk006/command/cap
 	name = "Captain's Quarters"
 	icon_state = "command_cap"
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 
 /area/station/nk006/command/sec
 	name = "Security"
 	icon_state = "command_sec"
+	ambience_index = AMBIENCE_DANGER
 
 /area/station/nk006/command/sec/prison
 	name = "Prison"
 	icon_state = "security_prison"
+	area_flags = VALID_TERRITORY | BLOBS_ALLOWED | UNIQUE_AREA | CULT_PERMITTED | PERSISTENT_ENGRAVINGS
 
 /area/station/nk006/command/sec/prison/botany
 	name = "Prison Farm"
@@ -91,6 +106,7 @@
 /area/station/nk006/command/sec/prison/restrooms
 	name = "Prison Restrooms"
 	icon_state = "security_prison"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/station/nk006/command/sec/armory
 	name = "Security Armory"
@@ -99,10 +115,12 @@
 /area/station/nk006/command/hos
 	name = "HOS Quarters"
 	icon_state = "command_hos"
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 
 /area/station/nk006/command/dip
 	name = "Diplomatic Corps."
 	icon_state = "command_dip"
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 
 /area/station/nk006/command/min
 	name = "Pathfinders' Quarters"
@@ -114,7 +132,6 @@
 	icon_state = "support"
 	ambience_index = AMBIENCE_ENGI
 	airlock_wires = /datum/wires/airlock/engineering
-	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/station/nk006/support/fab
 	name = "Support Fab"
@@ -127,6 +144,7 @@
 /area/station/nk006/support/eng/engine
 	name = "Engine Room"
 	icon_state = "engine_general"
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/station/nk006/support/eng/engine/sm
 	name = "Supermatter Room"
@@ -135,6 +153,7 @@
 /area/station/nk006/support/eng/engine/sm/chamber
 	name = "Supermatter Chamber"
 	icon_state = "engine_sm"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/station/nk006/support/eng/engine/sng
 	name = "Singularity Engine"
@@ -147,22 +166,27 @@
 /area/station/nk006/support/atm
 	name = "Atmosia"
 	icon_state = "support_atm"
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/station/nk006/support/atm/mix
 	name = "Atmosia Mix Chamber"
 	icon_state = "atmosia_mix"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/station/nk006/support/atm/engine
 	name = "Atmosia Engine"
 	icon_state = "atmosia_engine"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/station/nk006/support/atm/turbine
 	name = "Atmosia Turbine"
 	icon_state = "atmosia_engine"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/station/nk006/support/ce
 	name = "CE's Quarters"
 	icon_state = "support_ce"
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 
 /area/station/nk006/support/crg
 	name = "Cargo Bay"
@@ -179,6 +203,7 @@
 /area/station/nk006/support/qm
 	name = "QM's Quarters"
 	icon_state = "support_qm"
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 
 /area/station/nk006/support/srv
 	name = "Service Hall"
@@ -195,18 +220,22 @@
 /area/station/nk006/support/srv/quarters
 	name = "Crew Quarters"
 	icon_state = "crew_quarters"
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/station/nk006/support/srv/quarters/restroom
 	name = "Unisex Restrooms"
 	icon_state = "crew_quarters"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/station/nk006/support/srv/vip
 	name = "VIP Quarters"
 	icon_state = "crew_vip"
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/station/nk006/support/srv/vip/restroom
 	name = "VIP Restrooms"
 	icon_state = "crew_vip"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/station/nk006/support/srv/janitorial
 	name = "Janitorial Storage"
@@ -215,6 +244,7 @@
 /area/station/nk006/support/hop
 	name = "HOP's Quarters"
 	icon_state = "support_hop"
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 
 //// == SPECIALISTS ==
 /area/station/nk006/specialist
@@ -261,6 +291,7 @@
 /area/station/nk006/specialist/cmo
 	name = "CMO's Quarters"
 	icon_state = "specialist_cmo"
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 
 /area/station/nk006/specialist/gen
 	name = "Genetics"
@@ -281,6 +312,7 @@
 /area/station/nk006/specialist/xnb
 	name = "Xenobiology"
 	icon_state = "specialist_xnb"
+	area_flags = VALID_TERRITORY | BLOBS_ALLOWED | UNIQUE_AREA | XENOBIOLOGY_COMPATIBLE | CULT_PERMITTED
 
 /area/station/nk006/specialist/xnb/vro
 	name = "Virology"
@@ -293,6 +325,7 @@
 /area/station/nk006/specialist/rd
 	name = "RD's Quarters"
 	icon_state = "specialist_rd"
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 
 /area/station/nk006/specialist/bot
 	name = "Botany"

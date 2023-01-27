@@ -85,3 +85,19 @@
 	update_appearance()
 
 #undef TANK_DISPENSER_CAPACITY //you know, I wonder why we bother standardising these with defines when they get undef'd at the end of the file
+
+
+
+/obj/machinery/power/apc/New(turf/loc, ndir, building=0)
+	if(!req_access)
+		req_access = list(ACCESS_NK006_SUP) //overrides normal APC access
+	. = ..()
+
+/obj/machinery/airalarm
+	req_access = list(ACCESS_NK006_SUP)
+
+/obj/machinery/airalarm/engine
+	req_one_access = list(ACCESS_NK006_ATMOS, ACCESS_NK006_SUP)
+
+/obj/machinery/airalarm/mixingchamber
+	req_one_access = list(ACCESS_NK006_ATMOS, ACCESS_NK006_SUP, ACCESS_NK006_SPC)

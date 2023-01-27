@@ -335,7 +335,7 @@ const PageMain = (props, context) => {
               />
 
               <AlertButton
-                alertLevel="blue"
+                alertLevel="yellow"
                 showAlertLevelConfirm={showAlertLevelConfirm}
                 setShowAlertLevelConfirm={setShowAlertLevelConfirm}
               />
