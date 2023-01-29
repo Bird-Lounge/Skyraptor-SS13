@@ -101,3 +101,12 @@
 
 /obj/machinery/airalarm/mixingchamber
 	req_one_access = list(ACCESS_NK006_ATMOS, ACCESS_NK006_SUP, ACCESS_NK006_SPC)
+
+
+
+//default AI and borgs because reworking them would be actual hell
+/datum/job/ai
+	tgjob = 0
+
+/datum/job/cyborg
+	tgjob = 0

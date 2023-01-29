@@ -47,6 +47,7 @@
 	id = "QMLoaddoor2";
 	name = "Supply Dock Loading Door"
 	},
+/obj/structure/fans/tiny/shield,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/supply)
 "v" = (
@@ -74,6 +75,7 @@
 	id = "QMLoaddoor";
 	name = "Supply Dock Loading Door"
 	},
+/obj/structure/fans/tiny/shield,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/supply)
 "G" = (

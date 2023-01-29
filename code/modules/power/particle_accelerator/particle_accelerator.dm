@@ -94,23 +94,27 @@
 			else if(istype(W, /obj/item/stack/cable_coil))
 				var/obj/item/stack/cable_coil/CC = W
 				if(CC.use(1))
+					//W.play_tool_sound(src, 75)
 					user.visible_message(span_notice("[user.name] adds wires to the [name]."), \
 						span_notice("You add some wires."))
 					construction_state = PA_CONSTRUCTION_PANEL_OPEN
 					did_something = TRUE
 		if(PA_CONSTRUCTION_PANEL_OPEN)
 			if(W.tool_behaviour == TOOL_WIRECUTTER)//TODO:Shock user if its on?
+				//W.play_tool_sound(src, 75)
 				user.visible_message(span_notice("[user.name] removes some wires from the [name]."), \
 					span_notice("You remove some wires."))
 				construction_state = PA_CONSTRUCTION_UNWIRED
 				did_something = TRUE
 			else if(W.tool_behaviour == TOOL_SCREWDRIVER)
+				//W.play_tool_sound(src, 75)
 				user.visible_message(span_notice("[user.name] closes the [name]'s access panel."), \
 					span_notice("You close the access panel."))
 				construction_state = PA_CONSTRUCTION_COMPLETE
 				did_something = TRUE
 		if(PA_CONSTRUCTION_COMPLETE)
 			if(W.tool_behaviour == TOOL_SCREWDRIVER)
+				//W.play_tool_sound(src, 75)
 				user.visible_message(span_notice("[user.name] opens the [name]'s access panel."), \
 					span_notice("You open the access panel."))
 				construction_state = PA_CONSTRUCTION_PANEL_OPEN

@@ -165,7 +165,7 @@
 
 /atom/movable/screen/pai/radio
 	name = "radio"
-	icon = 'icons/hud/screen_cyborg.dmi'
+	icon = 'modular_nk006/master_files/icons/hud/screen_cyborg.dmi' //NK006 edit: diff. cyborg file
 	icon_state = "radio"
 
 /atom/movable/screen/pai/radio/Click()

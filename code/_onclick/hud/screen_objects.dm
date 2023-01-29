@@ -303,7 +303,7 @@
 	. += flashy
 
 /atom/movable/screen/combattoggle/robot
-	icon = 'icons/hud/screen_cyborg.dmi'
+	icon = 'modular_nk006/master_files/icons/hud/screen_cyborg.dmi' //NK006 edit: diff. cyborg file
 	screen_loc = ui_borg_intents
 
 /atom/movable/screen/spacesuit
@@ -534,7 +534,7 @@
 	overlay_icon = 'icons/hud/screen_alien.dmi'
 
 /atom/movable/screen/zone_sel/robot
-	icon = 'icons/hud/screen_cyborg.dmi'
+	icon = 'modular_nk006/master_files/icons/hud/screen_cyborg.dmi' //NK006 edit: diff. cyborg file
 
 /atom/movable/screen/flash
 	name = "flash"
@@ -564,7 +564,7 @@
 	screen_loc = ui_alien_health
 
 /atom/movable/screen/healths/robot
-	icon = 'icons/hud/screen_cyborg.dmi'
+	icon = 'modular_nk006/master_files/icons/hud/screen_cyborg.dmi' //NK006 edit: diff. cyborg file
 	screen_loc = ui_borg_health
 
 /atom/movable/screen/healths/blob

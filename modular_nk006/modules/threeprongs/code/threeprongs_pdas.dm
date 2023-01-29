@@ -118,7 +118,7 @@
 	)
 
 /obj/item/modular_computer/pda/nk006/heads/rd
-	name = "chief medical officer PDA"
+	name = "chief of science PDA"
 	greyscale_colors = "#FFFFFF#AAFF00#FFFF00#7f7f00"
 	inserted_item = /obj/item/pen/fountain
 	starting_programs = list(

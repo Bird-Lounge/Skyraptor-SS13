@@ -162,8 +162,8 @@
 /obj/item/clothing/head/hats/nk006/rd
 	name = "chief of science's cap"
 	desc = "A parade-worthy armored cap.  It's good to be the king's court wizard."
-	icon_state = "cap_cmo"
-	worn_icon_state = "cap_cmo_worn"
+	icon_state = "cap_rd"
+	worn_icon_state = "cap_rd_worn"
 
 
 

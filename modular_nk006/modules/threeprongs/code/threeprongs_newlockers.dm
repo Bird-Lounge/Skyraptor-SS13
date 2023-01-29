@@ -1,3 +1,9 @@
+/obj/structure/closet/secure_closet/personal
+	icon = 'modular_nk006/modules/threeprongs/icons/threeprongs_newlockers.dmi'
+	req_access = list(ACCESS_NK006_COMMON)
+
+
+
 // MEDBAY LOCKERS
 /obj/structure/closet/secure_closet/medical1
 	icon = 'modular_nk006/modules/threeprongs/icons/threeprongs_newlockers.dmi'
@@ -113,3 +119,28 @@
 /obj/structure/closet/secure_closet/quartermaster
 	icon = 'modular_nk006/modules/threeprongs/icons/threeprongs_newlockers.dmi'
 	req_access = list(ACCESS_NK006_HEAD_QM)
+
+
+
+// SERVICE LOCKERS
+/obj/structure/closet/secure_closet/freezer
+	icon = 'modular_nk006/modules/threeprongs/icons/threeprongs_newlockers.dmi'
+
+/obj/structure/closet/secure_closet/freezer/kitchen
+	req_access = list(ACCESS_NK006_SUP)
+
+/obj/structure/closet/secure_closet/freezer/meat
+	req_access = list(ACCESS_NK006_SUP)
+
+/obj/structure/closet/secure_closet/freezer/fridge
+	req_access = list(ACCESS_NK006_SUP)
+
+/obj/structure/closet/secure_closet/freezer/money
+	req_access = list(ACCESS_NK006_HEAD_QM)
+
+/obj/structure/closet/secure_closet/freezer/cream_pie
+	req_access = list()
+
+/obj/structure/closet/secure_closet/bar
+	icon = 'modular_nk006/modules/threeprongs/icons/threeprongs_newlockers.dmi'
+	req_access = list(ACCESS_NK006_SUP)

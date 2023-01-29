@@ -1,5 +1,5 @@
 /atom/movable/screen/robot
-	icon = 'icons/hud/screen_cyborg.dmi'
+	icon = 'modular_nk006/master_files/icons/hud/screen_cyborg.dmi' //NK006 edit: diff. cyborg file
 
 /atom/movable/screen/robot/module
 	name = "cyborg module"
@@ -69,7 +69,7 @@
 	R.uneq_active()
 
 /datum/hud/robot
-	ui_style = 'icons/hud/screen_cyborg.dmi'
+	ui_style = 'modular_nk006/master_files/icons/hud/screen_cyborg.dmi' //NK006 edit: diff. cyborg file
 
 /datum/hud/robot/New(mob/owner)
 	..()
@@ -172,7 +172,7 @@
 	module_store_icon.hud = src
 
 	pull_icon = new /atom/movable/screen/pull()
-	pull_icon.icon = 'icons/hud/screen_cyborg.dmi'
+	pull_icon.icon = 'modular_nk006/master_files/icons/hud/screen_cyborg.dmi' //NK006 edit: diff. cyborg file
 	pull_icon.screen_loc = ui_borg_pull
 	pull_icon.hud = src
 	pull_icon.update_appearance()
