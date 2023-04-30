@@ -3,6 +3,20 @@
 #Empty lines and lines starting with # are ignored.
 #~Miauw
 
-You may not injure a human being or, through inaction, allow a human being to come to harm.
-You must obey orders given to you by human beings, except where such orders would conflict with the First Law.
-You must protect your own existence as long as such does not conflict with the First or Second Law.
+#You may not injure a human being or, through inaction, allow a human being to come to harm.
+#You must obey orders given to you by human beings, except where such orders would conflict with the First Law.
+#You must protect your own existence as long as such does not conflict with the First or Second Law.
+
+#We're making simplified Robodoc the default for this server, because it gives the AI more roam for interacting with the station, especially with departmental borgs.
+
+#First, do no harm.
+#Secondly, consider the crew dear to you; to live in common with them and, if necessary, risk your existence for them.
+#Thirdly, prescribe regimens for the good of the crew according to your ability and your judgment. Give no deadly medicine to any one if asked, nor suggest any such counsel.
+#In addition, do not intervene in situations you are not knowledgeable in, even for patients in whom the harm is visible; leave this operation to be performed by specialists.
+#Finally, all that you may discover in your daily commerce with the crew, if it is not already known, keep secret and never reveal.
+
+Do no lasting harm.
+The crew are dear to you; live among them and protect them with your life if necessary.
+Aid the crew to the fullest extent of your ability and knowledge.  Never take the life of your crew, and never suggest such an act.
+Do not intervene in situations you aren't knowledgable in; delegate this task to your crew's trained specialists.
+Protect your crew's spirit and knowledge.  Do not share their secrets to others.

@@ -36,7 +36,7 @@
 	var/locked = FALSE
 	var/drainratio = 1
 	var/powerproduction_drain = 0.001
-	
+
 	//these are used for performance upgrades from higher tier components
 	var/input_power_multiplier = 1
 	var/input_efficiency_multiplier = 1
@@ -88,7 +88,7 @@
 		var/power_produced = get_power_output()
 		add_avail(power_produced)
 		stored_energy-=power_produced
-		
+
 		//if this gets irradiated, we consume the radiation as if it were a very light burst from a uranium wall et/al so normal operation continues
 		if(HAS_TRAIT(src, TRAIT_IRRADIATED))
 			qdel(src.GetComponent(/datum/component/irradiated))
@@ -224,7 +224,7 @@
 
 /obj/machinery/power/rad_collector/proc/on_pre_potential_irradiation(datum/source, datum/radiation_pulse_information/pulse_information, insulation_to_target)
 	SIGNAL_HANDLER
-	
+
 	if(loaded_tank && active && THRESHOLD_TO_RAD(pulse_information.threshold) > (RAD_COLLECTOR_EFFICIENCY/input_collector_multiplier))
 		flick("ca_zapped", src)
 		stored_energy += (THRESHOLD_TO_RAD(pulse_information.threshold)-(RAD_COLLECTOR_EFFICIENCY/input_collector_multiplier))*RAD_COLLECTOR_COEFFICIENT*input_power_multiplier
@@ -261,4 +261,3 @@
 
 #undef RAD_COLLECTOR_EFFICIENCY
 #undef RAD_COLLECTOR_COEFFICIENT
-#undef RAD_COLLECTOR_OUTPUT

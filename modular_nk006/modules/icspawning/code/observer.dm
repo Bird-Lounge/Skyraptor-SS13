@@ -112,11 +112,13 @@
 		var/list/job_paths = subtypesof(/datum/outfit/job)
 		var/list/job_outfits = list()
 		for(var/path in job_paths)
-			var/datum/outfit/job/O = path
+			var/datum/outfit/job/O = new path()
 			if(O)
-				var/datum/job/J = O.jobtype
-				if(J.tgjob == 0)
-					job_outfits[initial(O.name)] = path
+				if(O.jobtype)
+					var/datum/job/J = O.jobtype
+					if(J)
+						if(J.tgjob == 0)
+							job_outfits[initial(O.name)] = path
 
 		dresscode = input("Select job equipment", "Robust quick dress shop") as null|anything in sort_list(job_outfits)
 		dresscode = job_outfits[dresscode]

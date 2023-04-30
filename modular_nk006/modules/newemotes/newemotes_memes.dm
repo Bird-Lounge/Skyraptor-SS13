@@ -21,6 +21,13 @@
 /datum/emote/living/carbon/snake_scream/get_sound(mob/living/user)
 	return pick('modular_nk006/modules/newemotes/sounds/snake_fucking_died.ogg')
 
+/datum/emote/living/carbon/snake_scream/jc
+	key = "jcagony"
+	key_third_person = "agonizes like jc"
+
+/datum/emote/living/carbon/snake_scream/jc/get_sound(mob/living/user)
+	return pick('modular_nk006/modules/newemotes/sounds/jc_fucking_died.ogg')
+
 /datum/emote/living/carbon/meme_screem
 	key = "oldscream"
 	key_third_person = "oldscreams"

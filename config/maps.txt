@@ -13,6 +13,19 @@ Format:
 	votable (is this map votable)
 endmap
 
+map ntctestshipplzignore
+	default
+	minplayers 0
+	maxplayers 20
+	votable
+endmap
+
+map tinystation
+	minplayers 0
+	maxplayers 20
+	votable
+endmap
+
 map metastation
 	#default
 	minplayers 25
@@ -20,27 +33,27 @@ map metastation
 	votable
 endmap
 
-map deltastation
-	minplayers 50
-	votable
-endmap
+#map deltastation
+#	minplayers 50
+#	votable
+#endmap
 
-map kilostation
-	votable
-endmap
+#map kilostation
+#	votable
+#endmap
 
 map icebox
 	minplayers 25
 	votable
 endmap
 
-map tramstation
-	minplayers 35
-	votable
-endmap
+#map tramstation
+#	minplayers 35
+#	votable
+#endmap
 
-map runtimestation
-endmap
+#map runtimestation
+#endmap
 
-map multiz_debug
-endmap
+#map multiz_debug
+#endmap
