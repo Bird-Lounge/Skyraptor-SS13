@@ -157,7 +157,12 @@ SUBSYSTEM_DEF(ticker)
 				window_flash(C, ignorepref = TRUE) //let them know lobby has opened up.
 			to_chat(world, span_notice("<b>Welcome to [station_name()]!</b>"))
 			timeLeft = max(0,start_at - world.time)
-			send2chat(new /datum/tgs_message_content("Round **[GLOB.round_id]** starting on [SSmapping.config.map_name]: [station_name()] - round begins in [timeLeft/10]s."), CONFIG_GET(string/channel_announce_new_game))
+			var/pingaddition = CONFIG_GET(string/role_ping_new_game)
+			if(pingaddition)
+				pingaddition = "[pingaddition]: "
+			else
+				pingaddition = ""
+			send2chat(new /datum/tgs_message_content("[pingaddition]Round **[GLOB.round_id]** starting on [SSmapping.config.map_name]: [station_name()] - round begins in [timeLeft/10]s."), CONFIG_GET(string/channel_announce_new_game))
 			current_state = GAME_STATE_PREGAME
 			SEND_SIGNAL(src, COMSIG_TICKER_ENTER_PREGAME)
 
