@@ -159,7 +159,7 @@ SUBSYSTEM_DEF(ticker)
 			timeLeft = max(0,start_at - world.time)
 			var/pingaddition = CONFIG_GET(string/role_ping_new_game)
 			if(pingaddition)
-				pingaddition = "[pingaddition]: "
+				pingaddition = "<@&[pingaddition]>: "
 			else
 				pingaddition = ""
 			send2chat(new /datum/tgs_message_content("[pingaddition]Round **[GLOB.round_id]** starting on [SSmapping.config.map_name]: [station_name()] - round begins in [timeLeft/10]s."), CONFIG_GET(string/channel_announce_new_game))
