@@ -240,8 +240,8 @@
 	send2chat(new /datum/tgs_message_content("[GLOB.round_id ? "Round [GLOB.round_id]" : "The round has"] just ended."), CONFIG_GET(string/channel_announce_end_game))
 	send2adminchat("Server", "Round just ended.")
 
-	if(length(CONFIG_GET(keyed_list/cross_server)))
-		send_news_report()
+	//if(length(CONFIG_GET(keyed_list/cross_server)))
+	send_news_report()
 
 	CHECK_TICK
 

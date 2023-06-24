@@ -564,6 +564,7 @@ SUBSYSTEM_DEF(ticker)
 				Master.SetRunLevel(RUNLEVEL_POSTGAME)
 
 /datum/controller/subsystem/ticker/proc/send_news_report()
+	/// SKYRAPTOR MAJOR EDITS
 	var/news_message
 	var/news_source = "SolFed News Network"
 	var/decoded_station_name = html_decode(station_name()) //decode station_name to avoid minor_announce double encode
@@ -636,7 +637,7 @@ SUBSYSTEM_DEF(ticker)
 			news_message = "An engineering catastrophe has occurred aboard [decoded_station_name], resulting in a Supermatter Cascade.  Scientists are observing the newly-formed crystal structures for study and harvest once the cascade has stabilized."
 
 	if(news_message)
-		send2otherserver(news_source, news_message, "News_Report")
+		//send2otherserver(news_source, news_message, "News_Report")
 		send2chat(new /datum/tgs_message_content("Round **[GLOB.round_id]** ended!  A news report from [SSmapping.config.map_name]: [station_name()] has been received, and follows:\n\n[news_message]"), CONFIG_GET(string/channel_announce_new_game))
 
 /datum/controller/subsystem/ticker/proc/GetTimeLeft()
