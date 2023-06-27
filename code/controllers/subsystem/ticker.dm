@@ -638,7 +638,7 @@ SUBSYSTEM_DEF(ticker)
 
 	if(news_message)
 		//send2otherserver(news_source, news_message, "News_Report")
-		send2chat(new /datum/tgs_message_content("Round **[GLOB.round_id]** ended!  A news report from [SSmapping.config.map_name]: [station_name()] has been received, and follows:\n\n[news_message]"), CONFIG_GET(string/channel_announce_new_game))
+		send2chat(new /datum/tgs_message_content("Round **[GLOB.round_id]** ended!  A news report about [SSmapping.config.map_name]: [station_name()] from the [news_source] has been received, and follows:\n\n[news_message]"), CONFIG_GET(string/channel_announce_new_game))
 
 /datum/controller/subsystem/ticker/proc/GetTimeLeft()
 	if(isnull(SSticker.timeLeft))
