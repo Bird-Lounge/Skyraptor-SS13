@@ -227,9 +227,7 @@
 	SIGNAL_HANDLER
 
 	if(check_signables_state() == SIGN_ONE_HAND)
-		message_args[TREAT_MESSAGE_ARG] = stars(message_args[TREAT_MESSAGE_ARG])
-
-	message_args[TREAT_TTS_MESSAGE_ARG] = ""
+		message_args[TREAT_MESSAGE_MESSAGE] = stars(message_args[TREAT_MESSAGE_MESSAGE])
 
 /// Signal proc for [COMSIG_MOVABLE_SAY_QUOTE]
 /// Removes exclamation/question marks.
