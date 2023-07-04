@@ -1,0 +1,34 @@
+{
+	"version": 1,
+	"map_name": "Prairie Outpost",
+	"map_path": "map_files/PrairieOutpost",
+	"map_file": "PrairieOutpost.dmm",
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
+	"planetary": 1,
+	"shuttles": {
+		"cargo": "cargo_box",
+		"ferry": "ferry_fancy",
+		"whiteship": "whiteship_box",
+		"emergency": "emergency_box"
+	},
+	"traits": [
+		{
+			"Mining": true,
+			"Linkage": null,
+			"Gravity": true,
+			"Ice Ruins": true,
+			"Ice Ruins Underground": true,
+			"Weather_Ashstorm": true,
+			"Baseturf": "/turf/open/misc/sandy_dirt/prairie",
+			"No Parallax": true
+		}
+	],
+	"minetype": "none",
+	"blacklist_file": "iceruinblacklist.txt",
+	"job_changes": {
+		"Captain": {
+			"special_charter": "moon"
+		}
+	}
+}
