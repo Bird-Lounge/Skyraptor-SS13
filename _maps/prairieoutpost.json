@@ -20,7 +20,7 @@
 			"Ice Ruins": true,
 			"Ice Ruins Underground": true,
 			"Weather_Ashstorm": true,
-			"Baseturf": "/turf/open/misc/sandy_dirt/prairie",
+			
 			"No Parallax": true
 		}
 	],
