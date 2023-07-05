@@ -19,9 +19,9 @@
 			"Gravity": true,
 			"Ice Ruins": true,
 			"Ice Ruins Underground": true,
-			"Weather_Ashstorm": true,
-			
-			"No Parallax": true
+			"Weather_PlasmaStorm": true,
+			"No Parallax": true,
+			"Baseturf": "/turf/open/misc/sandy_dirt/prairie"
 		}
 	],
 	"minetype": "none",

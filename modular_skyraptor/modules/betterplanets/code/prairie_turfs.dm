@@ -1,4 +1,4 @@
-/// Grass
+/// Dirt
 /turf/open/misc/sandy_dirt/prairie
 	name = "prairie dirt"
 	desc = "Dry, cracked dirt that crunches beneath your feet."
@@ -9,6 +9,19 @@
 	. = ..()
 	set_light(2, 0.6, LIGHT_COLOR_PRAIRIEWORLD)
 
+/// Plating
+/turf/open/floor/plating/prairie_world
+	icon_state = "plating"
+	initial_gas_mix = PRAIRIE_GASMIX
+
+/turf/open/floor/plating/prairie_world/planetary
+	planetary_atmos = TRUE
+
+/turf/open/floor/plating/prairie_world/planetary/Initialize(mapload)
+	. = ..()
+	set_light(2, 0.6, LIGHT_COLOR_PRAIRIEWORLD)
+
+/// Grass
 /turf/open/misc/asteroid/prairie_grass
 	gender = PLURAL
 	name = "prairie grass"

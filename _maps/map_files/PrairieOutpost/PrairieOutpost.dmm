@@ -362,7 +362,7 @@
 /area/station/hallway/primary/fore)
 "ce" = (
 /obj/structure/marker_beacon/olive,
-/turf/open/misc/sandy_dirt/prairie,
+/turf/open/floor/plating/prairie_world/planetary,
 /area/station/hallway/secondary/exit/departure_lounge)
 "cg" = (
 /obj/effect/turf_decal/stripes/line{
@@ -1052,7 +1052,7 @@
 /area/station/command/heads_quarters/hop)
 "fY" = (
 /obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/turf/open/floor/plating/prairie_world/planetary,
 /area/prairie_world/surface)
 "fZ" = (
 /obj/structure/bed/double,
@@ -2800,7 +2800,7 @@
 	shuttle_id = "emergency_home";
 	width = 32
 	},
-/turf/open/misc/sandy_dirt/prairie,
+/turf/open/floor/plating/prairie_world/planetary,
 /area/station/hallway/secondary/exit/departure_lounge)
 "pd" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -4033,7 +4033,7 @@
 /area/station/engineering/atmos)
 "wa" = (
 /obj/structure/marker_beacon/burgundy,
-/turf/open/misc/sandy_dirt/prairie,
+/turf/open/floor/plating/prairie_world/planetary,
 /area/station/hallway/secondary/exit/departure_lounge)
 "wc" = (
 /obj/structure/flora/tree/jungle/small/style_random,
@@ -4336,13 +4336,12 @@
 /turf/open/misc/asteroid/prairie_grass/planetary,
 /area/prairie_world/surface)
 "xC" = (
-/obj/structure/lattice/catwalk,
 /obj/machinery/power/solar{
 	id = "starboardsolar";
 	name = "Starboard Solar Array"
 	},
 /obj/structure/cable,
-/turf/open/misc/sandy_dirt/prairie,
+/turf/open/floor/plating/prairie_world/planetary,
 /area/prairie_world/surface)
 "xD" = (
 /obj/structure/sign/painting/library{
@@ -4763,10 +4762,10 @@
 /turf/open/floor/iron/dark,
 /area/station/service/chapel)
 "zT" = (
-/turf/open/floor/plating,
+/turf/open/floor/plating/prairie_world/planetary,
 /area/prairie_world/surface)
 "zU" = (
-/turf/open/misc/sandy_dirt/prairie,
+/turf/open/floor/plating/prairie_world/planetary,
 /area/station/hallway/secondary/exit/departure_lounge)
 "zV" = (
 /obj/machinery/vending/wardrobe/det_wardrobe,
@@ -5122,10 +5121,6 @@
 /obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit/departure_lounge)
-"BA" = (
-/obj/structure/lattice/catwalk,
-/turf/open/misc/sandy_dirt/prairie,
-/area/prairie_world/surface)
 "BB" = (
 /obj/structure/table/reinforced,
 /obj/item/stack/sheet/plasteel{
@@ -5718,10 +5713,9 @@
 /turf/open/floor/iron,
 /area/station/command/bridge)
 "EX" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable,
 /obj/machinery/power/tracker,
-/turf/open/misc/sandy_dirt/prairie,
+/turf/open/floor/plating/prairie_world/planetary,
 /area/prairie_world/surface)
 "Fb" = (
 /obj/structure/cable,
@@ -6226,7 +6220,7 @@
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
 "HW" = (
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/prairie_world/surface)
 "HZ" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -7765,9 +7759,8 @@
 /turf/open/floor/plating,
 /area/station/engineering/atmos)
 "QC" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/misc/sandy_dirt/prairie,
+/turf/open/floor/plating/prairie_world/planetary,
 /area/prairie_world/surface)
 "QD" = (
 /obj/structure/bed/roller,
@@ -53133,7 +53126,7 @@ eS
 ra
 ra
 eS
-BA
+zT
 ra
 ra
 eS
@@ -53647,7 +53640,7 @@ xC
 xC
 xC
 xC
-BA
+zT
 xC
 xC
 xC
@@ -53904,7 +53897,7 @@ xC
 xC
 xC
 xC
-BA
+zT
 xC
 xC
 xC
@@ -54161,7 +54154,7 @@ QC
 QC
 QC
 QC
-BA
+zT
 QC
 QC
 QC
@@ -54418,7 +54411,7 @@ xC
 xC
 xC
 xC
-BA
+zT
 xC
 xC
 xC
@@ -54675,7 +54668,7 @@ xC
 xC
 xC
 xC
-BA
+zT
 xC
 xC
 xC
@@ -55189,7 +55182,7 @@ xC
 xC
 xC
 xC
-BA
+zT
 xC
 xC
 xC
@@ -55446,7 +55439,7 @@ xC
 xC
 xC
 xC
-BA
+zT
 xC
 xC
 xC
@@ -55703,7 +55696,7 @@ QC
 QC
 QC
 QC
-BA
+zT
 QC
 QC
 QC
@@ -55960,7 +55953,7 @@ xC
 xC
 xC
 xC
-BA
+zT
 xC
 xC
 xC
@@ -56217,7 +56210,7 @@ xC
 xC
 xC
 xC
-BA
+zT
 xC
 xC
 xC
@@ -56988,7 +56981,7 @@ xC
 xC
 xC
 xC
-BA
+zT
 xC
 xC
 xC
@@ -57245,7 +57238,7 @@ QC
 QC
 QC
 QC
-BA
+zT
 QC
 QC
 QC
@@ -57502,7 +57495,7 @@ xC
 xC
 xC
 xC
-BA
+zT
 xC
 xC
 xC
@@ -58272,9 +58265,9 @@ yQ
 yQ
 yQ
 Dg
-BA
+zT
 EX
-BA
+zT
 ra
 yQ
 yQ
@@ -58530,7 +58523,7 @@ yQ
 yQ
 ra
 ra
-BA
+zT
 ra
 ra
 yQ

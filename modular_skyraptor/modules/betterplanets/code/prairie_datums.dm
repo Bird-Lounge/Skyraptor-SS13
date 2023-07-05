@@ -60,3 +60,121 @@
 		/mob/living/simple_animal/hostile/asteroid/brimdemon = 3,
 		/mob/living/basic/mining/bileworm = 5,
 	)
+
+
+
+/// PRAIRIE WEATHER DATUMS
+//Plasma storms occur when the subterranean pockets of plasma erupt, causing hot gaseous plasma to seep out through the cracks in the earth.
+//They are largely harmless if you have good protection from the heat and internals to avoid breathing in the toxins, but can cause heatstroke and extreme toxin buildup in the unprotected.
+/datum/weather/prairie_plasma_storm
+	name = "plasma storm"
+	desc = "Subterranean pockets of plasma erupt, causing scalding gaseous plasma to seep out from the cracks in the earth, causing heatstroke and toxin buildup in the unprotected."
+
+	overlay_icon = 'modular_skyraptor/modules/betterplanets/icons/turf_prairie.dmi'
+	overlay_icon_glow = 'modular_skyraptor/modules/betterplanets/icons/extra_prairie.dmi'
+
+	telegraph_message = "<span class='boldwarning'>A low rumble, terrible smell, and wisps of scorching pink fog emerge from the cracked earth below you.  Seek a source of safe air!</span>"
+	telegraph_duration = 200
+	telegraph_overlay = "plasma_warn"
+
+	weather_message = "<span class='userdanger'><i>The ground below you erupts in billowing clouds of burning-hot plasma!  Get inside or use your protective gear!</i></span>"
+	weather_duration_lower = 400
+	weather_duration_upper = 1000
+	weather_overlay = "plasma_storm"
+
+	end_message = "<span class='boldannounce'>The rumble from the planet subsides as the plasma storm begins to gutter out.  It should be safe to go outside now.</span>"
+	end_duration = 100
+	end_overlay = "plasma_warn"
+
+	area_type = /area
+	protect_indoors = TRUE
+	target_trait = ZTRAIT_PRAIRIE_PLASMASTORM
+
+	probability = 100
+
+	barometer_predictable = TRUE
+	var/list/weak_sounds = list()
+	var/list/strong_sounds = list()
+
+/datum/weather/prairie_plasma_storm/telegraph()
+	var/list/eligible_areas = list()
+	for (var/z in impacted_z_levels)
+		eligible_areas += SSmapping.areas_in_z["[z]"]
+	for(var/i in 1 to eligible_areas.len)
+		var/area/place = eligible_areas[i]
+		if(place.outdoors)
+			weak_sounds[place] = /datum/looping_sound/weak_outside_ashstorm
+			strong_sounds[place] = /datum/looping_sound/active_outside_ashstorm
+		else
+			weak_sounds[place] = /datum/looping_sound/weak_inside_ashstorm
+			strong_sounds[place] = /datum/looping_sound/active_inside_ashstorm
+		CHECK_TICK
+
+	//We modify this list instead of setting it to weak/stron sounds in order to preserve things that hold a reference to it
+	//It's essentially a playlist for a bunch of components that chose what sound to loop based on the area a player is in
+	GLOB.ash_storm_sounds += weak_sounds
+	return ..()
+
+/datum/weather/prairie_plasma_storm/start()
+	var/rval = ..()
+
+	/// An extra bit here to force LINDA to initialize the other planetary gasmix types
+	if(!SSair.planetary[PRAIRIE_GASMIX_STORM])
+		var/datum/gas_mixture/immutable/planetary/mix = new
+		mix.parse_string_immutable(PRAIRIE_GASMIX_STORM)
+		SSair.planetary[PRAIRIE_GASMIX_STORM] = mix
+	if(!SSair.planetary[PRAIRIE_GASMIX_NIGHT_STORM])
+		var/datum/gas_mixture/immutable/planetary/mix = new
+		mix.parse_string_immutable(PRAIRIE_GASMIX_NIGHT_STORM)
+		SSair.planetary[PRAIRIE_GASMIX_NIGHT_STORM] = mix
+	/// End extra bit
+
+	GLOB.ash_storm_sounds -= weak_sounds
+	GLOB.ash_storm_sounds += strong_sounds
+
+	for(var/area/affected_area in impacted_areas)
+		for(var/turf/open/spess in affected_area.get_contained_turfs())
+			if(spess.light_color == LIGHT_COLOR_PRAIRIEWORLD)
+				spess.set_light(3, 0.75, LIGHT_COLOR_PRAIRIEWORLD_STORM)
+			if(spess.light_color == NIGHT_COLOR_PRAIRIEWORLD)
+				spess.set_light(3, 0.75, NIGHT_COLOR_PRAIRIEWORLD_STORM)
+			if(spess.planetary_atmos)
+				if(spess.initial_gas_mix == PRAIRIE_GASMIX)
+					spess.initial_gas_mix = PRAIRIE_GASMIX_STORM
+					spess.air.copy_from(SSair.planetary[PRAIRIE_GASMIX_STORM])
+				if(spess.initial_gas_mix == PRAIRIE_GASMIX_NIGHT)
+					spess.initial_gas_mix = PRAIRIE_GASMIX_NIGHT_STORM
+					spess.air.copy_from(SSair.planetary[PRAIRIE_GASMIX_NIGHT_STORM])
+
+	return rval
+
+/datum/weather/prairie_plasma_storm/wind_down()
+	GLOB.ash_storm_sounds -= strong_sounds
+	GLOB.ash_storm_sounds += weak_sounds
+	return ..()
+
+/datum/weather/prairie_plasma_storm/end()
+	GLOB.ash_storm_sounds -= weak_sounds
+	return ..()
+
+/datum/weather/prairie_plasma_storm/can_weather_act(mob/living/mob_to_check)
+	. = ..()
+	if(!. || !ishuman(mob_to_check))
+		return
+	var/mob/living/carbon/human/human_to_check = mob_to_check
+	if(human_to_check.get_thermal_protection() >= FIRE_IMMUNITY_MAX_TEMP_PROTECT)
+		return FALSE
+
+/datum/weather/prairie_plasma_storm/weather_act(mob/living/victim)
+	//victim.adjustFireLoss(4)
+
+/datum/weather/prairie_plasma_storm/end()
+	. = ..()
+	for(var/turf/open/misc/asteroid/basalt/basalt as anything in GLOB.dug_up_basalt)
+		if(!(basalt.loc in impacted_areas) || !(basalt.z in impacted_z_levels))
+			continue
+		GLOB.dug_up_basalt -= basalt
+		basalt.dug = FALSE
+		basalt.icon_state = "[basalt.base_icon_state]"
+		if(prob(basalt.floor_variance))
+			basalt.icon_state += "[rand(0,12)]"
