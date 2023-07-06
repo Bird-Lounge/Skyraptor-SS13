@@ -5372,9 +5372,10 @@
 	json_key = "cargo";
 	name = "CentCom";
 	shuttle_id = "cargo_away";
-	width = 20
+	width = 20;
+	override_can_dock_checks = 1
 	},
-/turf/open/space,
+/turf/open/space/basic,
 /area/space)
 "yX" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -49578,8 +49579,8 @@ aa
 aa
 aa
 aa
-aa
 yV
+ad
 aa
 aa
 aa

@@ -7,7 +7,7 @@
 	"space_empty_levels": 0,
 	"planetary": 1,
 	"shuttles": {
-		"cargo": "cargo_box",
+		"cargo": "cargo_prairie",
 		"ferry": "ferry_fancy",
 		"whiteship": "whiteship_box",
 		"emergency": "emergency_box"
@@ -17,8 +17,6 @@
 			"Mining": true,
 			"Linkage": null,
 			"Gravity": true,
-			"Ice Ruins": true,
-			"Ice Ruins Underground": true,
 			"Weather_PlasmaStorm": true,
 			"No Parallax": true,
 			"Baseturf": "/turf/open/misc/sandy_dirt/prairie"

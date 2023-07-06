@@ -1,3 +1,15 @@
+/// PrairieOutpost bespoke shuttles
+/datum/map_template/shuttle/arrival/prairie
+	suffix = "prairie"
+	name = "arrival shuttle (PrairieOutpost)"
+
+/datum/map_template/shuttle/cargo/prairie
+	suffix = "prairie"
+	name = "cargo ferry (PrairieOutpost)"
+
+
+
+/// Mapgen datums
 /datum/map_generator/cave_generator/prairie_world
 	weighted_open_turf_types = list(/turf/open/misc/asteroid/prairie_grass/planetary = 1)
 	weighted_closed_turf_types = list(/turf/closed/mineral/random/prairie_dirt = 1)
@@ -149,9 +161,26 @@
 	return rval
 
 /datum/weather/prairie_plasma_storm/wind_down()
+	var/rval = ..()
+
 	GLOB.ash_storm_sounds -= strong_sounds
 	GLOB.ash_storm_sounds += weak_sounds
-	return ..()
+
+	for(var/area/affected_area in impacted_areas)
+		for(var/turf/open/spess in affected_area.get_contained_turfs())
+			if(spess.light_color == LIGHT_COLOR_PRAIRIEWORLD_STORM)
+				spess.set_light(3, 0.75, LIGHT_COLOR_PRAIRIEWORLD)
+			if(spess.light_color == NIGHT_COLOR_PRAIRIEWORLD_STORM)
+				spess.set_light(3, 0.75, NIGHT_COLOR_PRAIRIEWORLD)
+			if(spess.planetary_atmos)
+				if(spess.initial_gas_mix == PRAIRIE_GASMIX_STORM)
+					spess.initial_gas_mix = PRAIRIE_GASMIX
+					spess.air.copy_from(SSair.planetary[PRAIRIE_GASMIX])
+				if(spess.initial_gas_mix == PRAIRIE_GASMIX_NIGHT_STORM)
+					spess.initial_gas_mix = PRAIRIE_GASMIX_NIGHT
+					spess.air.copy_from(SSair.planetary[PRAIRIE_GASMIX_NIGHT])
+
+	return rval
 
 /datum/weather/prairie_plasma_storm/end()
 	GLOB.ash_storm_sounds -= weak_sounds
@@ -178,3 +207,27 @@
 		basalt.icon_state = "[basalt.base_icon_state]"
 		if(prob(basalt.floor_variance))
 			basalt.icon_state += "[rand(0,12)]"
+
+// since this is usually on a station z level, add extra checks to not annoy everyone
+/datum/weather/sprairie_plasma_storm/can_get_alert(mob/player)
+	if(!..())
+		return FALSE
+
+	// allows for prairie mining levels to still be fine
+	/*if(!is_station_level(player.z))
+		return TRUE*/  // bypass checks
+
+	if(isobserver(player))
+		return TRUE
+
+	if(HAS_TRAIT(player, TRAIT_DETECT_STORM) || HAS_TRAIT(player.mind, TRAIT_DETECT_STORM))
+		return TRUE
+
+	if(istype(get_area(player), /area/mine))
+		return TRUE
+
+	for(var/area/stormy_area in impacted_areas)
+		if(locate(stormy_area) in view(player))
+			return TRUE
+
+	return FALSE
