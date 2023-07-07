@@ -28,7 +28,7 @@
 	desc = "Thick swathes of dry, resilient grass.  It crunches under your steps like fallen leaves."
 	icon = 'modular_skyraptor/modules/betterplanets/icons/turf_prairie.dmi'
 	icon_state = "prairie_grass"
-	base_icon_state = "grass"
+	base_icon_state = "prairie_grass"
 	//damaged_dmi = 'icons/turf/snow.dmi' N/A
 
 	footstep = FOOTSTEP_GRASS
