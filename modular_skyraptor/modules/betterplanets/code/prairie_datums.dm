@@ -7,6 +7,12 @@
 	suffix = "prairie"
 	name = "cargo ferry (PrairieOutpost)"
 
+/datum/map_template/shuttle/emergency/prairie
+	suffix = "prairie"
+	name = "Prairie Outpost Emergency Shuttle"
+	description = "Though a little on the small side, this is a feature-complete shuttle with a small medbay, suits, and emergency recovery port for the dumbass engineer who was trying to hitch a ride on the outside & drifted into deep space."
+	credit_cost = CARGO_CRATE_VALUE * 3
+
 
 
 /// Mapgen datums

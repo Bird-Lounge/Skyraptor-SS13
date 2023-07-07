@@ -10,7 +10,7 @@
 		"cargo": "cargo_prairie",
 		"ferry": "ferry_fancy",
 		"whiteship": "whiteship_box",
-		"emergency": "emergency_box"
+		"emergency": "emergency_prairie"
 	},
 	"traits": [
 		{
