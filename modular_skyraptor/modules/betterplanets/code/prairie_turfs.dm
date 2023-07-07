@@ -62,6 +62,8 @@
 		translation.Translate(-9, -9)
 		transform = translation
 		icon = smooth_icon*/
+	if(has_floor_variance && prob(floor_variance))
+		icon_state = "[base_icon_state][rand(0,4)]"
 	set_light(3, 0.75, LIGHT_COLOR_PRAIRIEWORLD)
 
 /turf/open/misc/asteroid/prairie_grass/planetary
