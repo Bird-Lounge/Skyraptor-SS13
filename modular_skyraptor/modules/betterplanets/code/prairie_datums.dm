@@ -20,6 +20,10 @@
 	weighted_open_turf_types = list(/turf/open/misc/asteroid/prairie_grass/planetary = 1)
 	weighted_closed_turf_types = list(/turf/closed/mineral/random/prairie_dirt = 1)
 
+	mob_spawn_chance = 3
+	flora_spawn_chance = 3
+	feature_spawn_chance = 0.1
+
 	weighted_mob_spawn_list = list(
 		/mob/living/simple_animal/hostile/asteroid/goliath/beast/random = 34,
 		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random = 13,
@@ -47,8 +51,8 @@
 		/obj/structure/flora/bush/pale/style_random = 8,
 		/obj/structure/flora/grass/jungle/a/style_random = 7,
 		/obj/structure/flora/grass/jungle/b/style_random = 7,
-		/obj/structure/flora/rock/style_random = 5,
-		/obj/structure/flora/rock/pile/style_random = 5,
+		/obj/structure/flora/rock/style_random = 10,
+		/obj/structure/flora/rock/pile/style_random = 10,
 	)
 
 	///Note that this spawn list is also in the icemoon generator
@@ -72,6 +76,9 @@
 /datum/map_generator/cave_generator/prairie_world/rich //danger zone: megafauna allowed to spawn!  but you do get some nice minerals
 	weighted_open_turf_types = list(/turf/open/misc/asteroid/prairie_grass = 1)
 	weighted_closed_turf_types = list(/turf/closed/mineral/random/prairie_dirt/rich = 1)
+
+	mob_spawn_chance = 4
+	feature_spawn_chance = 0.15
 
 	weighted_mob_spawn_list = list(
 		/mob/living/simple_animal/hostile/asteroid/goliath/beast/random = 32,
@@ -157,6 +164,7 @@
 
 	GLOB.ash_storm_sounds -= weak_sounds
 	GLOB.ash_storm_sounds += strong_sounds
+	var/overlay_val = null
 
 	for(var/area/affected_area in impacted_areas)
 		for(var/turf/open/spess in affected_area.get_contained_turfs())
