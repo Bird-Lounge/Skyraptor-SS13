@@ -26,9 +26,12 @@
 		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/random = 13,
 		//SPAWN_MEGAFAUNA = 0,
 		/mob/living/simple_animal/hostile/asteroid/goldgrub = 3,
-		/mob/living/simple_animal/hostile/asteroid/lobstrosity = 5,
+		/mob/living/simple_animal/hostile/asteroid/lobstrosity/lava = 5,
 		/mob/living/simple_animal/hostile/asteroid/brimdemon = 3,
 		/mob/living/basic/mining/bileworm = 5,
+		/obj/structure/spawner/lavaland/legion = 2,
+		/obj/structure/spawner/lavaland/goliath = 2,
+		/obj/structure/spawner/lavaland = 1,
 	)
 
 	weighted_flora_spawn_list = list(
@@ -44,6 +47,8 @@
 		/obj/structure/flora/bush/pale/style_random = 8,
 		/obj/structure/flora/grass/jungle/a/style_random = 7,
 		/obj/structure/flora/grass/jungle/b/style_random = 7,
+		/obj/structure/flora/rock/style_random = 5,
+		/obj/structure/flora/rock/pile/style_random = 5,
 	)
 
 	///Note that this spawn list is also in the icemoon generator
@@ -55,8 +60,8 @@
 		/obj/structure/geyser/hollowwater = 10,
 	)
 
-	initial_closed_chance = 30
-	smoothing_iterations = 40
+	initial_closed_chance = 35
+	smoothing_iterations = 50
 	birth_limit = 4
 	death_limit = 3
 
@@ -69,14 +74,17 @@
 	weighted_closed_turf_types = list(/turf/closed/mineral/random/prairie_dirt/rich = 1)
 
 	weighted_mob_spawn_list = list(
-		/mob/living/simple_animal/hostile/asteroid/goliath/beast/random = 34,
+		/mob/living/simple_animal/hostile/asteroid/goliath/beast/random = 32,
 		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random = 12,
 		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/random = 13,
 		SPAWN_MEGAFAUNA = 1,
-		/mob/living/simple_animal/hostile/asteroid/goldgrub = 3,
-		/mob/living/simple_animal/hostile/asteroid/lobstrosity = 5,
+		/mob/living/simple_animal/hostile/asteroid/goldgrub = 2,
+		/mob/living/simple_animal/hostile/asteroid/lobstrosity/lava = 2,
 		/mob/living/simple_animal/hostile/asteroid/brimdemon = 3,
 		/mob/living/basic/mining/bileworm = 5,
+		/obj/structure/spawner/lavaland/legion = 4,
+		/obj/structure/spawner/lavaland/goliath = 4,
+		/obj/structure/spawner/lavaland = 2,
 	)
 
 

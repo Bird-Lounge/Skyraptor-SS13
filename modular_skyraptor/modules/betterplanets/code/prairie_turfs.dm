@@ -36,11 +36,11 @@
 	clawfootstep = FOOTSTEP_GRASS
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
-	var/smooth_icon = 'modular_skyraptor/modules/betterplanets/icons/turf_prairie_grass.dmi'
+	/*var/smooth_icon = 'modular_skyraptor/modules/betterplanets/icons/turf_prairie_grass.dmi'
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_FLOOR_GRASS
 	canSmoothWith = SMOOTH_GROUP_FLOOR_GRASS + SMOOTH_GROUP_CLOSED_TURFS
-	layer = HIGH_TURF_LAYER
+	layer = HIGH_TURF_LAYER*/
 
 	baseturfs = /turf/open/misc/sandy_dirt/prairie
 	initial_gas_mix = PRAIRIE_GASMIX
@@ -57,11 +57,11 @@
 
 /turf/open/misc/asteroid/prairie_grass/Initialize(mapload)
 	. = ..()
-	if(smoothing_flags)
+	/*if(smoothing_flags)
 		var/matrix/translation = new
 		translation.Translate(-9, -9)
 		transform = translation
-		icon = smooth_icon
+		icon = smooth_icon*/
 	set_light(3, 0.75, LIGHT_COLOR_PRAIRIEWORLD)
 
 /turf/open/misc/asteroid/prairie_grass/planetary
