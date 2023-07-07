@@ -168,9 +168,11 @@
 				if(spess.initial_gas_mix == PRAIRIE_GASMIX)
 					spess.initial_gas_mix = PRAIRIE_GASMIX_STORM
 					spess.air.copy_from(SSair.planetary[PRAIRIE_GASMIX_STORM])
+					spess.update_visuals()
 				if(spess.initial_gas_mix == PRAIRIE_GASMIX_NIGHT)
 					spess.initial_gas_mix = PRAIRIE_GASMIX_NIGHT_STORM
 					spess.air.copy_from(SSair.planetary[PRAIRIE_GASMIX_NIGHT_STORM])
+					spess.update_visuals()
 
 	return rval
 
