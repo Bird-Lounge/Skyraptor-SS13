@@ -4,6 +4,7 @@
 	desc = "Dry, cracked dirt that crunches beneath your feet."
 	initial_gas_mix = PRAIRIE_GASMIX
 	planetary_atmos = TRUE
+	baseturfs = /turf/open/lava/plasma/prairie
 
 /turf/open/misc/sandy_dirt/prairie/Initialize(mapload)
 	. = ..()
@@ -13,6 +14,7 @@
 /turf/open/floor/plating/prairie_world
 	icon_state = "plating"
 	initial_gas_mix = PRAIRIE_GASMIX
+	baseturfs = /turf/open/misc/asteroid/prairie_grass
 
 /turf/open/floor/plating/prairie_world/planetary
 	planetary_atmos = TRUE
@@ -112,6 +114,14 @@
 	drill_below = FALSE
 
 
+
+/// Plasma lava
+/turf/open/lava/plasma/prairie
+	initial_gas_mix = PRAIRIE_GASMIX
+	baseturfs = /turf/open/lava/plasma/prairie
+	planetary_atmos = TRUE
+
+
 /// Walls
 /turf/closed/mineral/random/prairie_dirt
 	name = "packed dirt"
@@ -124,7 +134,7 @@
 	defer_change = TRUE
 	turf_type = /turf/open/misc/asteroid/prairie_grass/planetary
 	baseturfs = /turf/open/misc/asteroid/prairie_grass/planetary
-	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
+	initial_gas_mix = PRAIRIE_GASMIX
 	weak_turf = TRUE
 
 /turf/closed/mineral/random/prairie_dirt/Change_Ore(ore_type, random = 0)
@@ -139,13 +149,13 @@
 	return list(
 		/obj/item/stack/ore/bluespace_crystal = 3,
 		/obj/item/stack/ore/diamond = 5,
-		/obj/item/stack/ore/gold = 10,
+		/obj/item/stack/ore/gold = 7,
 		/obj/item/stack/ore/iron = 40,
-		/obj/item/stack/ore/plasma = 15,
-		/obj/item/stack/ore/silver = 10,
+		/obj/item/stack/ore/plasma = 18,
+		/obj/item/stack/ore/silver = 8,
 		/obj/item/stack/ore/titanium = 10,
-		/obj/item/stack/ore/uranium = 5,
-		/turf/open/openspace/prairie/keep_below = 2, //gibtonite has been replaced with chasms.  watch your step...
+		/obj/item/stack/ore/uranium = 7,
+		/turf/closed/mineral/random/prairie_dirt/trapped = 2, //gibtonite has been replaced with indistinguishable ore veins that contain molten-hot liquid plasma below them!  watch your step...
 	)
 
 /// Near exact same subtype as parent, just used in ruins to prevent other ruins/chasms from spawning on top of it.
@@ -160,3 +170,19 @@
 	baseturfs = /turf/open/misc/asteroid/prairie_grass/planetary
 	// abundant ore
 	mineralChance = 25
+
+/turf/closed/mineral/random/prairie_dirt/trapped
+	baseturfs = /turf/open/lava/plasma/prairie
+	mineralChance = 100
+
+/turf/closed/mineral/random/prairie_dirt/trapped/mineral_chances()
+	return list(
+		/obj/item/stack/ore/bluespace_crystal = 5,
+		/obj/item/stack/ore/diamond = 5,
+		/obj/item/stack/ore/gold = 10,
+		/obj/item/stack/ore/iron = 40,
+		/obj/item/stack/ore/plasma = 15,
+		/obj/item/stack/ore/silver = 10,
+		/obj/item/stack/ore/titanium = 10,
+		/obj/item/stack/ore/uranium = 5,
+	)

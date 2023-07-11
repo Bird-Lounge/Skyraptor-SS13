@@ -138,9 +138,6 @@
 /obj/structure/disposalpipe/junction{
 	dir = 1
 	},
-/obj/machinery/camera/directional/west{
-	c_tag = "Starboard Central Hallway"
-	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "au" = (
@@ -263,6 +260,18 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
+"aQ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/camera/directional/south{
+	c_tag = "Departures Hallway"
+	},
+/turf/open/floor/iron,
+/area/station/hallway/primary/starboard)
 "aR" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -1030,6 +1039,9 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/landmark/event_spawn,
+/obj/machinery/camera/directional/north{
+	c_tag = "Aft Primary Hallway"
+	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/aft)
 "dk" = (
@@ -2121,6 +2133,12 @@
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
+"gS" = (
+/obj/structure/table_frame,
+/obj/item/stack/sheet/plastic/fifty,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/plating,
+/area/station/maintenance/fore)
 "gT" = (
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
@@ -2804,6 +2822,12 @@
 "jd" = (
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
+"je" = (
+/obj/machinery/camera/directional/south{
+	c_tag = "Central Primary Hall East"
+	},
+/turf/open/floor/iron,
+/area/station/hallway/primary/central)
 "jg" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -4013,6 +4037,7 @@
 /obj/item/stack/license_plates/empty/fifty,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/airalarm/directional/north,
+/obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/security/prison/safe)
 "ng" = (
@@ -5163,7 +5188,7 @@
 /area/station/engineering/lobby)
 "qH" = (
 /obj/machinery/camera/directional/north{
-	c_tag = "Port Northern Hallway"
+	c_tag = "Arrivals Hallway"
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
@@ -5173,11 +5198,11 @@
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry)
 "qJ" = (
-/obj/machinery/camera/directional/north{
-	c_tag = "North Primary Hallway"
+/obj/structure/chair/plastic{
+	dir = 4
 	},
-/turf/open/floor/iron,
-/area/station/hallway/primary/fore)
+/turf/open/floor/plating,
+/area/station/maintenance/fore)
 "qL" = (
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
@@ -6610,6 +6635,12 @@
 /obj/machinery/suit_storage_unit/mining,
 /turf/open/floor/iron,
 /area/station/cargo/miningdock)
+"vH" = (
+/obj/machinery/camera/directional/west{
+	c_tag = "Port Central Hallway"
+	},
+/turf/open/floor/iron,
+/area/station/hallway/primary/central)
 "vJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -7465,6 +7496,9 @@
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/captain)
 "yJ" = (
+/obj/structure/chair/plastic{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
 "yK" = (
@@ -7641,6 +7675,12 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
+"zk" = (
+/obj/machinery/camera/directional/south{
+	c_tag = "Central Primary Hall West"
+	},
+/turf/open/floor/iron,
+/area/station/hallway/primary/central)
 "zl" = (
 /obj/structure/table/glass,
 /obj/structure/table/glass,
@@ -7747,6 +7787,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/prison)
+"zA" = (
+/obj/machinery/camera/directional/north{
+	c_tag = "Northwest Primary Hallway"
+	},
+/turf/open/floor/iron,
+/area/station/hallway/primary/fore)
 "zB" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple/layer2{
 	dir = 8
@@ -8125,11 +8171,8 @@
 /turf/open/floor/iron,
 /area/station/cargo/office)
 "AF" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/camera/directional/east{
-	c_tag = "Port Central Hallway"
+	c_tag = "Starboard Central Hallway"
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
@@ -9728,7 +9771,7 @@
 /area/station/command/bridge)
 "FG" = (
 /obj/machinery/camera/directional/north{
-	c_tag = "Starboard Northern Hallway"
+	c_tag = "Service Hallway"
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
@@ -10251,6 +10294,9 @@
 /obj/item/lightreplacer{
 	pixel_y = 7
 	},
+/obj/item/mod/module/signlang_radio,
+/obj/item/mod/module/plasma_stabilizer,
+/obj/item/mod/module/thermal_regulator,
 /turf/open/floor/iron,
 /area/station/engineering/lobby)
 "HA" = (
@@ -13324,6 +13370,12 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
+"RH" = (
+/obj/machinery/camera/directional/north{
+	c_tag = "Northeast Primary Hallway"
+	},
+/turf/open/floor/iron,
+/area/station/hallway/primary/fore)
 "RI" = (
 /obj/machinery/modular_computer/console/preset/civilian{
 	dir = 4
@@ -14166,6 +14218,7 @@
 /area/station/service/bar)
 "UA" = (
 /obj/machinery/plate_press,
+/obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/security/prison/safe)
 "UC" = (
@@ -45742,8 +45795,8 @@ UD
 UD
 UD
 UD
-UD
 gI
+vH
 UD
 UD
 be
@@ -46002,7 +46055,7 @@ Nd
 Nd
 Nd
 Nd
-AF
+Nd
 Nd
 Nd
 Xc
@@ -46492,7 +46545,7 @@ uB
 uB
 uB
 Wn
-ML
+zA
 nB
 vT
 nt
@@ -46518,7 +46571,7 @@ OT
 VA
 dt
 Nd
-UD
+zk
 ef
 Lg
 wO
@@ -47520,7 +47573,7 @@ hG
 hy
 iC
 Wn
-qJ
+ML
 nB
 vT
 nt
@@ -50090,7 +50143,7 @@ BF
 GR
 GR
 Wn
-ML
+RH
 nB
 vT
 nt
@@ -50116,7 +50169,7 @@ OT
 pO
 dt
 Nd
-UD
+je
 SP
 Kq
 hb
@@ -50883,7 +50936,7 @@ UD
 UD
 UD
 pQ
-UD
+AF
 UD
 gy
 da
@@ -57030,7 +57083,7 @@ ra
 Dg
 nk
 aV
-sC
+aQ
 GT
 TU
 VF
@@ -57809,7 +57862,7 @@ Ef
 Ef
 xZ
 xw
-yJ
+qJ
 kX
 Lk
 ec
@@ -58066,7 +58119,7 @@ AT
 nE
 DW
 xw
-Gl
+gS
 Gl
 Lk
 ec
@@ -58324,7 +58377,7 @@ jy
 LW
 ec
 yJ
-yJ
+Gl
 Lk
 ec
 YV
