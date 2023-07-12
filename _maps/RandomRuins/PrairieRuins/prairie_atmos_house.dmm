@@ -1,201 +1,5 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/closed/wall,
-/area/ruin/powered)
-"b" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on/layer4{
-	dir = 4
-	},
-/turf/open/floor/engine/airless,
-/area/ruin/powered)
-"e" = (
-/obj/structure/window/reinforced/plasma/spawner/directional/west,
-/obj/machinery/atmospherics/components/binary/pump/on/layer4{
-	dir = 4
-	},
-/turf/open/floor/iron/dark/small,
-/area/ruin/powered)
-"f" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_deepviolet/visible,
-/turf/closed/wall,
-/area/ruin/powered)
-"g" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_deepviolet/visible,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_chartreuse/visible/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_navy/hidden/layer2,
-/obj/machinery/light/directional/west,
-/turf/open/floor/iron/dark/small,
-/area/ruin/powered)
-"h" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_chartreuse/visible/layer4,
-/turf/open/floor/iron/dark/small,
-/area/ruin/powered)
-"i" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/heater/on{
-	dir = 8;
-	piping_layer = 2
-	},
-/obj/structure/window/reinforced/spawner/directional/north,
-/turf/open/floor/iron/dark/small,
-/area/ruin/powered)
-"j" = (
-/obj/effect/turf_decal/trimline/purple/filled/end,
-/obj/machinery/atmospherics/components/unary/outlet_injector/on{
-	dir = 4
-	},
-/turf/open/floor/engine/airless,
-/area/ruin/powered)
-"k" = (
-/obj/machinery/atmospherics/components/binary/pump/on/layer4{
-	dir = 8
-	},
-/turf/open/floor/iron/dark/small,
-/area/ruin/powered)
-"l" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_deepviolet/visible,
-/obj/machinery/atmospherics/components/binary/pump/on/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
-/turf/open/floor/iron/dark/small,
-/area/ruin/powered)
-"m" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_bldorng/visible/layer2,
-/obj/machinery/atmospherics/components/trinary/filter/atmos/n2{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
-/turf/open/floor/iron/dark/small,
-/area/ruin/powered)
-"o" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_navy/hidden/layer2,
-/turf/closed/wall,
-/area/ruin/powered)
-"p" = (
-/obj/structure/window/reinforced/plasma/spawner/directional/west,
-/obj/machinery/atmospherics/components/binary/pump/on/layer4{
-	dir = 8
-	},
-/turf/open/floor/iron/dark/small,
-/area/ruin/powered)
-"q" = (
-/obj/effect/spawner/structure/window/reinforced/plasma,
-/obj/machinery/atmospherics/components/binary/pump/on{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/ruin/powered)
-"r" = (
-/obj/effect/turf_decal/trimline/purple/filled/end{
-	dir = 1
-	},
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on/layer4{
-	dir = 4
-	},
-/turf/open/floor/engine/airless,
-/area/ruin/powered)
-"s" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer4,
-/obj/effect/spawner/structure/window/reinforced/plasma,
-/turf/open/floor/plating,
-/area/ruin/powered)
-"t" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
-/obj/effect/spawner/structure/window/reinforced/plasma,
-/turf/open/floor/plating,
-/area/ruin/powered)
-"u" = (
-/obj/machinery/atmospherics/pipe/layer_manifold/r_bldorng/visible{
-	dir = 4
-	},
-/obj/machinery/atmospherics/components/binary/pump/on/layer4{
-	dir = 8
-	},
-/obj/machinery/airalarm/directional/north,
-/obj/machinery/light/directional/north,
-/turf/open/floor/iron/dark/small,
-/area/ruin/powered)
-"v" = (
-/obj/machinery/atmospherics/components/trinary/filter/atmos/plasma,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_chartreuse/visible/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_navy/hidden/layer2,
-/turf/open/floor/iron/dark/small,
-/area/ruin/powered)
-"w" = (
-/obj/effect/turf_decal/trimline/red/filled/end{
-	dir = 1
-	},
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on/layer4{
-	dir = 8
-	},
-/turf/open/floor/engine/airless,
-/area/ruin/powered)
-"x" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_bldorng/visible/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
-/obj/machinery/atmospherics/pipe/bridge_pipe/scrubbers/visible/layer4,
-/turf/open/floor/iron/dark/small,
-/area/ruin/powered)
-"y" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_bldorng/visible/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer4,
-/turf/open/floor/iron/dark/small,
-/area/ruin/powered)
-"z" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_deepviolet/visible,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_bldorng/visible/layer2,
-/turf/open/floor/iron/dark/small,
-/area/ruin/powered)
-"A" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4{
-	dir = 4
-	},
-/turf/open/floor/engine/airless,
-/area/ruin/powered)
-"B" = (
-/obj/structure/window/reinforced/plasma/spawner/directional/south,
-/obj/machinery/atmospherics/components/binary/pump/on/layer4{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/canister,
-/turf/open/floor/iron/dark/small,
-/area/ruin/powered)
-"C" = (
-/obj/machinery/atmospherics/components/unary/outlet_injector/on{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/red/filled/end,
-/turf/open/floor/engine/airless,
-/area/ruin/powered)
-"D" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_deepviolet/visible,
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on/layer2{
-	dir = 1
-	},
-/obj/machinery/light/directional/east,
-/turf/open/floor/plating/prairie_world/planetary,
-/area/ruin/powered)
-"G" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer4,
-/obj/structure/window/reinforced/plasma/spawner/directional/south,
-/obj/machinery/portable_atmospherics/canister,
-/turf/open/floor/iron/dark/small,
-/area/ruin/powered)
-"H" = (
-/obj/effect/turf_decal/trimline/white/filled/end,
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on/layer2{
-	dir = 8
-	},
-/turf/open/floor/engine/airless,
-/area/ruin/powered)
-"I" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_deepviolet/visible,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_chartreuse/visible/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_navy/hidden/layer2,
-/turf/open/floor/iron/dark/small,
-/area/ruin/powered)
-"J" = (
 /obj/effect/turf_decal/trimline/white/filled/end{
 	dir = 1
 	},
@@ -204,55 +8,14 @@
 	},
 /turf/open/floor/engine/airless,
 /area/ruin/powered)
-"K" = (
-/obj/machinery/atmospherics/components/binary/pump/on{
-	dir = 4
-	},
-/obj/effect/spawner/structure/window/reinforced/plasma,
-/turf/open/floor/plating,
-/area/ruin/powered)
-"L" = (
-/obj/effect/turf_decal/trimline/blue/filled/end,
-/obj/machinery/atmospherics/components/unary/outlet_injector/on{
-	dir = 8
-	},
-/turf/open/floor/engine/airless,
-/area/ruin/powered)
-"N" = (
-/obj/machinery/atmospherics/components/binary/pump/on{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer4,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/iron/dark/small,
-/area/ruin/powered)
-"O" = (
-/obj/effect/spawner/structure/window/reinforced/plasma,
-/turf/open/floor/plating,
-/area/ruin/powered)
-"P" = (
-/obj/machinery/atmospherics/components/binary/pump/on{
-	dir = 8
-	},
-/obj/effect/spawner/structure/window/reinforced/plasma,
-/turf/open/floor/plating,
-/area/ruin/powered)
-"Q" = (
-/obj/machinery/atmospherics/components/trinary/mixer/airmix/inverse{
-	dir = 8;
-	piping_layer = 4
-	},
-/obj/effect/spawner/structure/window/reinforced/plasma,
-/turf/open/floor/plating,
-/area/ruin/powered)
-"S" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_bldorng/visible/layer2,
+"b" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/r_deepviolet/visible,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
-/obj/machinery/light/directional/east,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/r_chartreuse/visible/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/r_navy/hidden/layer2,
+/obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark/small,
 /area/ruin/powered)
-"T" = (
+"c" = (
 /obj/effect/turf_decal/trimline/blue/filled/end{
 	dir = 1
 	},
@@ -261,19 +24,81 @@
 	},
 /turf/open/floor/engine/airless,
 /area/ruin/powered)
-"U" = (
-/obj/structure/window/reinforced/spawner/directional/east,
-/obj/structure/window/reinforced/spawner/directional/south,
-/obj/structure/window/reinforced/spawner/directional/west,
-/obj/machinery/atmospherics/components/unary/passive_vent,
-/turf/open/floor/plating/prairie_world/planetary,
+"d" = (
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
+/obj/machinery/portable_atmospherics/canister,
+/obj/machinery/atmospherics/components/unary/portables_connector/visible/layer4{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/small,
 /area/ruin/powered)
-"W" = (
-/obj/effect/spawner/structure/window/reinforced/plasma,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/pink/visible/layer4,
-/turf/open/floor/plating,
+"e" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/r_bldorng/visible/layer2,
+/obj/machinery/atmospherics/components/trinary/filter/atmos/n2{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
+/turf/open/floor/iron/dark/small,
 /area/ruin/powered)
-"X" = (
+"f" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer4,
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"g" = (
+/obj/machinery/atmospherics/components/trinary/mixer/airmix/inverse{
+	dir = 8;
+	piping_layer = 4
+	},
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"h" = (
+/obj/machinery/atmospherics/components/binary/pump/layer4{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"k" = (
+/obj/machinery/atmospherics/components/binary/pump/on{
+	dir = 4;
+	target_pressure = 4500
+	},
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"m" = (
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/obj/machinery/atmospherics/components/binary/pump/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"n" = (
+/obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/engine/airless,
+/area/ruin/powered)
+"o" = (
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
+/obj/machinery/atmospherics/components/binary/pump/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"p" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"q" = (
+/obj/effect/turf_decal/trimline/white/filled/end,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/engine/airless,
+/area/ruin/powered)
+"r" = (
 /obj/machinery/atmospherics/components/binary/temperature_gate{
 	dir = 8;
 	max_temperature = 295;
@@ -284,15 +109,171 @@
 /obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/dark/small,
 /area/ruin/powered)
-"Y" = (
-/obj/structure/window/reinforced/plasma/spawner/directional/south,
-/obj/machinery/atmospherics/components/unary/portables_connector/layer4{
+"s" = (
+/obj/machinery/atmospherics/pipe/layer_manifold/r_bldorng/visible{
+	dir = 4
+	},
+/obj/machinery/airalarm/directional/north,
+/obj/machinery/light/directional/north,
+/obj/machinery/atmospherics/components/binary/pump/layer4{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister,
 /turf/open/floor/iron/dark/small,
 /area/ruin/powered)
-"Z" = (
+"t" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/r_navy/hidden/layer2,
+/turf/closed/wall,
+/area/ruin/powered)
+"u" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer4,
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"v" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/r_deepviolet/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/r_bldorng/visible/layer2,
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"w" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/pink/visible/layer4,
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"y" = (
+/obj/machinery/atmospherics/components/binary/pump/on{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer4,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"z" = (
+/obj/machinery/atmospherics/components/unary/outlet_injector/on{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/red/filled/end,
+/turf/open/floor/engine/airless,
+/area/ruin/powered)
+"A" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/machinery/atmospherics/components/unary/passive_vent,
+/turf/open/floor/plating/prairie_world/planetary,
+/area/ruin/powered)
+"B" = (
+/obj/machinery/atmospherics/components/trinary/filter/atmos/plasma,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/r_chartreuse/visible/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/r_navy/hidden/layer2,
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"C" = (
+/obj/effect/turf_decal/trimline/blue/filled/end,
+/obj/machinery/atmospherics/components/unary/outlet_injector/on{
+	dir = 8
+	},
+/turf/open/floor/engine/airless,
+/area/ruin/powered)
+"D" = (
+/obj/effect/turf_decal/trimline/purple/filled/end{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/engine/airless,
+/area/ruin/powered)
+"E" = (
+/turf/closed/wall,
+/area/ruin/powered)
+"F" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/r_deepviolet/visible,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on/layer2{
+	dir = 1
+	},
+/obj/machinery/light/directional/east,
+/turf/open/floor/plating/prairie_world/planetary,
+/area/ruin/powered)
+"G" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/r_bldorng/visible/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
+/obj/machinery/atmospherics/pipe/bridge_pipe/scrubbers/visible/layer4,
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"H" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/engine/airless,
+/area/ruin/powered)
+"I" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/heater/on{
+	piping_layer = 2
+	},
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"K" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/r_bldorng/visible/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/r_deepviolet/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
+/obj/machinery/light/directional/east,
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"M" = (
+/obj/machinery/atmospherics/components/binary/pump/on{
+	dir = 4;
+	target_pressure = 4500
+	},
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"N" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/r_deepviolet/visible,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
+/obj/machinery/atmospherics/components/binary/pump/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"O" = (
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"P" = (
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/obj/machinery/atmospherics/components/binary/pump/layer4{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"Q" = (
+/obj/effect/turf_decal/trimline/red/filled/end{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/engine/airless,
+/area/ruin/powered)
+"R" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/r_chartreuse/visible/layer4,
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"S" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/r_deepviolet/visible,
+/turf/closed/wall,
+/area/ruin/powered)
+"T" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/r_deepviolet/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/r_chartreuse/visible/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/r_navy/hidden/layer2,
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"U" = (
 /obj/machinery/door/window/brigdoor{
 	dir = 1
 	},
@@ -304,103 +285,123 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/r_bldorng/visible/layer2,
 /turf/open/floor/iron/dark/small,
 /area/ruin/powered)
+"W" = (
+/obj/machinery/atmospherics/components/binary/pump/on{
+	dir = 8;
+	target_pressure = 4500
+	},
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
+"Y" = (
+/obj/effect/turf_decal/trimline/purple/filled/end,
+/obj/machinery/atmospherics/components/unary/outlet_injector/on{
+	dir = 4
+	},
+/turf/open/floor/engine/airless,
+/area/ruin/powered)
+"Z" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/r_bldorng/visible/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer4,
+/turf/open/floor/iron/dark/small,
+/area/ruin/powered)
 
 (1,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
+E
+E
+E
+E
+E
+E
+E
 "}
 (2,1,1) = {"
-a
-r
-j
-a
-A
-b
-a
+E
+D
+Y
+E
+n
+H
+E
 "}
 (3,1,1) = {"
-a
+E
+w
 W
+E
 P
-a
-p
-e
-a
+m
+E
 "}
 (4,1,1) = {"
-a
-l
-v
-g
-I
-I
-f
+E
+N
+B
+b
+T
+T
+S
 "}
 (5,1,1) = {"
-a
-X
-h
-B
-a
+E
+r
+R
 o
-f
+E
+t
+S
 "}
 (6,1,1) = {"
+E
+s
+h
+d
 a
-u
-k
-Y
-J
-H
-f
+q
+S
 "}
 (7,1,1) = {"
-i
-y
-x
+I
+Z
 G
-Q
-O
 f
+g
+O
+S
 "}
 (8,1,1) = {"
+A
+y
+e
+K
+v
 U
-N
-m
-S
-z
-Z
-D
+F
 "}
 (9,1,1) = {"
-a
-s
-q
-a
-t
-K
-a
+E
+u
+k
+E
+p
+M
+E
 "}
 (10,1,1) = {"
-a
-w
+E
+Q
+z
+E
+c
 C
-a
-T
-L
-a
+E
 "}
 (11,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
+E
+E
+E
+E
+E
+E
+E
 "}
