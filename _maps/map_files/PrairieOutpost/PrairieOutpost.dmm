@@ -7565,7 +7565,7 @@
 /area/station/service/chapel)
 "yQ" = (
 /turf/open/genturf,
-/area/prairie_world/surface/outdoors/safe)
+/area/prairie_world/surface/outdoors/noruins/safe)
 "yR" = (
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
@@ -10090,7 +10090,7 @@
 /area/station/maintenance/fore/upper)
 "GM" = (
 /turf/closed/wall/r_wall,
-/area/prairie_world/surface/outdoors/safe)
+/area/prairie_world/surface/outdoors/noruins/safe)
 "GN" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,

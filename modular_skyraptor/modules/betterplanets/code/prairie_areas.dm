@@ -31,6 +31,10 @@
 	icon_state = "noruins"
 	map_generator =  /datum/map_generator/cave_generator/prairie_world/noruins
 
+/area/prairie_world/surface/outdoors/noruins/safe
+	icon_state = "safe"
+	area_flags = UNIQUE_AREA | FLORA_ALLOWED | CAVES_ALLOWED
+
 /area/prairie_world/surface/outdoors/rich //standard random, but it's mineral rich and more baddies are present
 	icon_state = "danger"
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | CAVES_ALLOWED | MEGAFAUNA_SPAWN_ALLOWED

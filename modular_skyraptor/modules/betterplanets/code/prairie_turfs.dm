@@ -149,12 +149,12 @@
 	return list(
 		/obj/item/stack/ore/bluespace_crystal = 3,
 		/obj/item/stack/ore/diamond = 5,
-		/obj/item/stack/ore/gold = 7,
+		/obj/item/stack/ore/gold = 8,
 		/obj/item/stack/ore/iron = 40,
 		/obj/item/stack/ore/plasma = 18,
 		/obj/item/stack/ore/silver = 8,
-		/obj/item/stack/ore/titanium = 10,
-		/obj/item/stack/ore/uranium = 7,
+		/obj/item/stack/ore/titanium = 8,
+		/obj/item/stack/ore/uranium = 8,
 		/turf/closed/mineral/random/prairie_dirt/trapped = 2, //gibtonite has been replaced with indistinguishable ore veins that contain molten-hot liquid plasma below them!  watch your step...
 	)
 
@@ -165,13 +165,13 @@
 	turf_flags = NO_RUINS
 
 /turf/closed/mineral/random/prairie_dirt/rich
-	name = "rich packed dirt"
-	desc = "Hard, dry, packed dirt that's tougher than rock, yet brittle beyond belief.  This is darker and richer looking, as if moulded around a past mineral seam."
 	baseturfs = /turf/open/misc/asteroid/prairie_grass/planetary
 	// abundant ore
 	mineralChance = 25
 
 /turf/closed/mineral/random/prairie_dirt/trapped
+	name = "hot packed dirt"
+	desc = "Hard, dry, packed dirt that's tough as rock, yet brittle beyond belief.  This seems to emanate with rich warmth."
 	baseturfs = /turf/open/lava/plasma/prairie
 	mineralChance = 100
 
