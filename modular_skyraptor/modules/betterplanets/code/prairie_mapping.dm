@@ -21,8 +21,8 @@ GLOBAL_LIST_EMPTY(prairie_plasma_storm_sounds)
 	name = "Plasma Storm (Prairie)"
 	id = "prairie_plasmastorm"
 
-	proc/add_weathertype(var/obj/the_creature)
-		the_creature.AddElement(/datum/element/weather_listener, /datum/weather/prairie_plasma_storm, ZTRAIT_PRAIRIE_PLASMASTORM, GLOB.prairie_plasma_storm_sounds)
+/datum/mapping_weather_handler/prairie_plasmastorm/add_weathertype(var/obj/the_creature)
+	the_creature.AddElement(/datum/element/weather_listener, /datum/weather/prairie_plasma_storm, ZTRAIT_PRAIRIE_PLASMASTORM, GLOB.prairie_plasma_storm_sounds)
 
-	proc/del_weathertype(var/obj/the_creature)
-		the_creature.RemoveElement(/datum/element/weather_listener, /datum/weather/prairie_plasma_storm, ZTRAIT_PRAIRIE_PLASMASTORM, GLOB.prairie_plasma_storm_sounds)
+/datum/mapping_weather_handler/prairie_plasmastorm/del_weathertype(var/obj/the_creature)
+	the_creature.RemoveElement(/datum/element/weather_listener, /datum/weather/prairie_plasma_storm, ZTRAIT_PRAIRIE_PLASMASTORM, GLOB.prairie_plasma_storm_sounds)
