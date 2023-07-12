@@ -3851,6 +3851,7 @@
 #include "code\modules\mapping\datum_mining_z.dm"
 #include "code\modules\mapping\datum_newrivers.dm"
 #include "code\modules\mapping\datum_newruins.dm"
+#include "code\modules\mapping\datum_weatherhandler.dm"
 #include "code\modules\mapping\mail_sorting_helpers.dm"
 #include "code\modules\mapping\map_template.dm"
 #include "code\modules\mapping\mapping_helpers.dm"
