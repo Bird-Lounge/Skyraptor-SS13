@@ -1,5 +1,5 @@
 /datum/config_entry/number/prairie_budget
-	default = 30
+	default = 40
 	integer = FALSE
 	min_val = 0
 

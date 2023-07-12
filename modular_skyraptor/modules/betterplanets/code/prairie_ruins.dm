@@ -47,7 +47,7 @@
 	id = "prairie_ashies"
 	description = "An outpost built by an emerging tribe of Ashwalkers, guarding their nest."
 	suffix = "prairie_ashies.dmm"
-	cost = 20
+	cost = 15
 	allow_duplicates = FALSE
 
 /// GREENTEXT GAMING.  Can you manage the 1x1 teleport of RNJesus, or will you get trapped in a wall to suffocate for all eternity?
@@ -56,3 +56,28 @@
 	id = "prairie_greentext"
 	description = "A lusty tribute to the almighty greentext.  One lucky crewmember could randomly teleport in...but they better have an escape plan, lest hey be trapped forever!"
 	suffix = "prairie_lust.dmm"
+
+/// Mk I of Interdyne-equivalent, we need to rework to be less shite
+/datum/map_template/ruin/prairie/syndicate_base
+	name = "Syndicate Prairie Base"
+	id = "prairie_syndies"
+	description = "A secret base researching illegal bioweapons, it is closely guarded by an elite team of syndicate agents."
+	suffix = "prairie_syndicate_base1.dmm"
+	cost = 20
+	allow_duplicates = FALSE
+
+/// Funny little phonebooth to hide in when a plasma storm is about to hit.
+/datum/map_template/ruin/prairie/phonebooth
+	name = "Phonebooth"
+	id = "prairie_phonebooth"
+	description = "A forgotten phonebooth left to sell holo communications.  Why did one get dropped here?"
+	suffix = "prairie_phonebooth.dmm"
+
+/// Elite Tumour
+/datum/map_template/ruin/prairie/elite_tumour
+	name = "Pulsating Tumor"
+	id = "tumor"
+	description = "A strange tumor which houses a powerful beast..."
+	suffix = "prairie_elite_tumour.dmm"
+	always_place = TRUE
+	allow_duplicates = TRUE
