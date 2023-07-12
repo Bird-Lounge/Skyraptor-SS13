@@ -1,0 +1,120 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/mineral/bananium{
+	color = "#de1d1d"
+	},
+/area/prairie_world/surface)
+"n" = (
+/mob/living/simple_animal/hostile/retaliate/clown/clownhulk/destroyer,
+/turf/open/floor/mineral/bananium,
+/area/prairie_world/surface)
+"p" = (
+/turf/template_noop,
+/area/template_noop)
+"H" = (
+/obj/item/seeds/banana/bluespace,
+/turf/open/floor/mineral/bananium,
+/area/prairie_world/surface)
+"I" = (
+/turf/open/floor/mineral/bananium,
+/area/prairie_world/surface)
+
+(1,1,1) = {"
+p
+p
+a
+a
+a
+p
+p
+p
+p
+"}
+(2,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+p
+p
+"}
+(3,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+H
+p
+"}
+(4,1,1) = {"
+a
+a
+a
+I
+I
+I
+a
+a
+a
+"}
+(5,1,1) = {"
+p
+p
+a
+I
+n
+I
+a
+a
+a
+"}
+(6,1,1) = {"
+p
+a
+a
+I
+I
+I
+a
+a
+a
+"}
+(7,1,1) = {"
+p
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(8,1,1) = {"
+p
+a
+H
+a
+a
+a
+H
+a
+p
+"}
+(9,1,1) = {"
+p
+p
+a
+a
+a
+a
+a
+p
+p
+"}

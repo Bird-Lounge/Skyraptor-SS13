@@ -19,11 +19,12 @@
 			"Gravity": true,
 			"Weather_PlasmaStorm": true,
 			"No Parallax": true,
+			"Prairie Ruins": true,
 			"Baseturf": "/turf/open/misc/sandy_dirt/prairie"
 		}
 	],
 	"minetype": "none",
-	"blacklist_file": "iceruinblacklist.txt",
+	"blacklist_file": "prairieblacklist.txt",
 	"job_changes": {
 		"Captain": {
 			"special_charter": "moon"

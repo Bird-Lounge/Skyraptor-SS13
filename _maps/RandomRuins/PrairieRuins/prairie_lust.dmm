@@ -1,0 +1,58 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/mineral/random/prairie_dirt/trapped,
+/area/prairie_world/surface)
+"l" = (
+/turf/closed/mineral/random/prairie_dirt/rich,
+/area/prairie_world/surface)
+"z" = (
+/obj/structure/sign/poster/contraband/lusty_xenomorph,
+/turf/closed/indestructible/syndicate,
+/area/prairie_world/surface)
+"A" = (
+/obj/item/greentext{
+	light_color = "#64C864";
+	light_range = 1
+	},
+/obj/item/reagent_containers/cup/glass/trophy/gold_cup,
+/turf/open/floor/mineral/diamond,
+/area/prairie_world/surface)
+"R" = (
+/turf/closed/indestructible/syndicate,
+/area/prairie_world/surface)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+l
+R
+z
+R
+a
+"}
+(3,1,1) = {"
+a
+z
+A
+z
+a
+"}
+(4,1,1) = {"
+a
+R
+z
+R
+l
+"}
+(5,1,1) = {"
+a
+a
+a
+a
+a
+"}

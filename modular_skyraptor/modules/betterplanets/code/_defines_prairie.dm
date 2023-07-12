@@ -18,3 +18,4 @@
 
 
 #define ZTRAIT_PRAIRIE_PLASMASTORM "Weather_PlasmaStorm"
+#define ZTRAIT_PRAIRIE_RUINS "Prairie Ruins"
