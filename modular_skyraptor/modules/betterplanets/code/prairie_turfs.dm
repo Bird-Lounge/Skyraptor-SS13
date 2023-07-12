@@ -4,7 +4,7 @@
 	desc = "Dry, cracked dirt that crunches beneath your feet."
 	initial_gas_mix = PRAIRIE_GASMIX
 	planetary_atmos = TRUE
-	baseturfs = /turf/open/lava/plasma/prairie
+	baseturfs = /turf/open/misc/sandy_dirt/prairie //stops prairie dirt from getting any more fucked up
 
 /turf/open/misc/sandy_dirt/prairie/Initialize(mapload)
 	. = ..()

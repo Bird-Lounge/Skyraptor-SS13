@@ -143,9 +143,16 @@
 			strong_sounds[place] = /datum/looping_sound/active_inside_ashstorm
 		CHECK_TICK
 
+	for(var/area/affected_area in impacted_areas)
+		for(var/turf/open/spess in affected_area.get_contained_turfs())
+			if(spess.light_color == LIGHT_COLOR_PRAIRIEWORLD)
+				spess.set_light(3, 0.75, LIGHT_COLOR_PRAIRIEWORLD_STORM)
+			if(spess.light_color == NIGHT_COLOR_PRAIRIEWORLD)
+				spess.set_light(3, 0.75, NIGHT_COLOR_PRAIRIEWORLD_STORM)
+
 	//We modify this list instead of setting it to weak/stron sounds in order to preserve things that hold a reference to it
 	//It's essentially a playlist for a bunch of components that chose what sound to loop based on the area a player is in
-	GLOB.ash_storm_sounds += weak_sounds
+	GLOB.prairie_plasma_storm_sounds += weak_sounds
 	return ..()
 
 /datum/weather/prairie_plasma_storm/start()
@@ -162,16 +169,12 @@
 		SSair.planetary[PRAIRIE_GASMIX_NIGHT_STORM] = mix
 	/// End extra bit
 
-	GLOB.ash_storm_sounds -= weak_sounds
-	GLOB.ash_storm_sounds += strong_sounds
+	GLOB.prairie_plasma_storm_sounds -= weak_sounds
+	GLOB.prairie_plasma_storm_sounds += strong_sounds
 	var/overlay_val = null
 
 	for(var/area/affected_area in impacted_areas)
 		for(var/turf/open/spess in affected_area.get_contained_turfs())
-			if(spess.light_color == LIGHT_COLOR_PRAIRIEWORLD)
-				spess.set_light(3, 0.75, LIGHT_COLOR_PRAIRIEWORLD_STORM)
-			if(spess.light_color == NIGHT_COLOR_PRAIRIEWORLD)
-				spess.set_light(3, 0.75, NIGHT_COLOR_PRAIRIEWORLD_STORM)
 			if(spess.planetary_atmos)
 				if(spess.initial_gas_mix == PRAIRIE_GASMIX)
 					spess.initial_gas_mix = PRAIRIE_GASMIX_STORM
@@ -187,8 +190,8 @@
 /datum/weather/prairie_plasma_storm/wind_down()
 	var/rval = ..()
 
-	GLOB.ash_storm_sounds -= strong_sounds
-	GLOB.ash_storm_sounds += weak_sounds
+	GLOB.prairie_plasma_storm_sounds -= strong_sounds
+	GLOB.prairie_plasma_storm_sounds += weak_sounds
 
 	for(var/area/affected_area in impacted_areas)
 		for(var/turf/open/spess in affected_area.get_contained_turfs())
@@ -209,7 +212,7 @@
 	return rval
 
 /datum/weather/prairie_plasma_storm/end()
-	GLOB.ash_storm_sounds -= weak_sounds
+	GLOB.prairie_plasma_storm_sounds -= weak_sounds
 	return ..()
 
 /datum/weather/prairie_plasma_storm/can_weather_act(mob/living/mob_to_check)

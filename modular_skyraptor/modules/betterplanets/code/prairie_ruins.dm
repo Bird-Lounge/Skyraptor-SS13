@@ -1,7 +1,7 @@
 /datum/map_template/ruin/prairie
 	prefix = "_maps/RandomRuins/PrairieRuins/"
 	allow_duplicates = FALSE
-	cost = 5
+	cost = 4
 	ruin_type = ZTRAIT_PRAIRIE_RUINS
 	default_area = /area/prairie_world/surface/outdoors
 	has_ceiling = TRUE
@@ -40,6 +40,7 @@
 	id = "clownsteroid"
 	description = "A crashed bananium asteroid with an unexpected guest hiding within.  Honk!"
 	suffix = "prairie_clownsteroid.dmm"
+	allow_duplicates = TRUE
 
 /// Ashwalker nest ghostrole, because ashies are based.
 /datum/map_template/ruin/prairie/ashies
@@ -79,5 +80,11 @@
 	id = "tumor"
 	description = "A strange tumor which houses a powerful beast..."
 	suffix = "prairie_elite_tumour.dmm"
-	always_place = TRUE
 	allow_duplicates = TRUE
+
+/// A scrungled atmospherics setup to harvest tasty atmos.
+/datum/map_template/ruin/prairie/atmos_house
+	name = "Atmospherics Outpost"
+	id = "prairie_atmos_house"
+	description = "A forward-base for atmospherics, featuring a gas mining system and tiny mix chamber.  If you built a turbine outside it could make some power."
+	suffix = "prairie_atmos_house.dmm"
