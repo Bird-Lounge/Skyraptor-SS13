@@ -49,7 +49,10 @@
 	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/cells/cell.dmi'
 
 /obj/machinery/cell_charger/update_overlays()
+	var/ctemp = charging
+	charging = null
 	. = ..()
+	charging = ctemp
 
 	if(!charging)
 		return
