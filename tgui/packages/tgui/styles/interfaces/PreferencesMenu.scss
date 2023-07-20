@@ -59,7 +59,7 @@ $department_map: (
           @include animate-hover;
 
           .antagonist-icon-parent {
-            border-color: colors.$red;
+            border-color: colors.$bad;
 
             .antagonist-icon {
               opacity: 0.5;
@@ -75,7 +75,7 @@ $department_map: (
           @include animate-hover;
 
           .antagonist-icon-parent {
-            border-color: colors.$green;
+            border-color: colors.$good;
           }
         }
 
@@ -208,9 +208,9 @@ $department_map: (
         transition: background-color 0.1s ease-in;
 
         $quality_map: (
-          'positive': colors.$green,
+          'positive': colors.$good,
           'neutral': colors.$white,
-          'negative': colors.$red,
+          'negative': colors.$bad,
         );
 
         @each $quality, $color-value in $quality_map {

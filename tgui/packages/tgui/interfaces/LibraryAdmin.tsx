@@ -478,9 +478,9 @@ const ModifyPage = (props, context) => {
 const get_action_color = (reason: string) => {
   switch (reason) {
     case 'deleted':
-      return 'rgba(255, 0, 0, 0.4)';
+      return 'rgba(255, 102, 0, 0.4)';
     case 'undeleted':
-      return 'rgba(0, 120, 70, 0.4)';
+      return 'rgba(170, 255, 0, 0.4)';
     default:
       return 'rgba(0, 0, 0, 0.4)';
   }

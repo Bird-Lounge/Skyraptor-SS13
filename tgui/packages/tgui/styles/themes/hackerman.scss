@@ -61,10 +61,10 @@
     border-width: base.em(2px);
     border-style: outset;
     border-color: #00aa00;
-    outline: base.em(1px) solid rgb(0, 122, 0);
+    outline: base.em(1px) solid rgb(81, 122, 0);
   }
 
   .candystripe:nth-child(odd) {
-    background-color: rgba(0, 100, 0, 0.5);
+    background-color: rgba(66, 100, 0, 0.5);
   }
 }

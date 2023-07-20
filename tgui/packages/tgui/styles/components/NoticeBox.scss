@@ -49,17 +49,17 @@ $bg-map: colors.$bg-map !default;
 }
 
 .NoticeBox--type--info {
-  @include box-color(colors.$blue);
+  @include box-color(colors.$primary);
 }
 
 .NoticeBox--type--success {
-  @include box-color(colors.$green);
+  @include box-color(colors.$good);
 }
 
 .NoticeBox--type--warning {
-  @include box-color(colors.$orange);
+  @include box-color(colors.$average);
 }
 
 .NoticeBox--type--danger {
-  @include box-color(colors.$red);
+  @include box-color(colors.$bad);
 }

@@ -25,10 +25,10 @@
 
 // Highlight an active row
 .hypertorus-recipes__activerow:nth-child(odd) {
-  background-color: rgba(20, 50, 81, 0.37);
+  background-color: rgba(57, 76, 19, 0.37);
 }
 .hypertorus-recipes__activerow:nth-child(even) {
-  background-color: rgba(29, 61, 98, 0.37);
+  background-color: rgba(81, 102, 61, 0.37);
 }
 
 // Headers shouldn't get stripes, but should take the label text color.
@@ -49,7 +49,7 @@
 .hypertorus-recipes__icon {
   text-align: center;
   position: relative;
-  color: colors.fg(colors.$red);
+  color: colors.fg(colors.$good);
   width: 10px;
 }
 .hypertorus-recipes__row.Table__row--header * .hypertorus-recipes__icon {

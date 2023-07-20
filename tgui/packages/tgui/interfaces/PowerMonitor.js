@@ -97,16 +97,16 @@ export const PowerMonitorContent = (props, context) => {
               data={supplyData}
               rangeX={[0, supplyData.length - 1]}
               rangeY={[0, maxValue]}
-              strokeColor="rgba(0, 181, 173, 1)"
-              fillColor="rgba(0, 181, 173, 0.25)"
+              strokeColor="rgba(170, 255, 0, 1)"
+              fillColor="rgba(170, 255, 0.25)"
             />
             <Chart.Line
               fillPositionedParent
               data={demandData}
               rangeX={[0, demandData.length - 1]}
               rangeY={[0, maxValue]}
-              strokeColor="rgba(224, 57, 151, 1)"
-              fillColor="rgba(224, 57, 151, 0.25)"
+              strokeColor="rgba(255, 102, 0, 1)"
+              fillColor="rgba(255, 102, 0, 0.25)"
             />
           </Section>
         </Flex.Item>
