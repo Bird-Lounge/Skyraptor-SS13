@@ -136,11 +136,11 @@
 	for(var/i in 1 to eligible_areas.len)
 		var/area/place = eligible_areas[i]
 		if(place.outdoors)
-			weak_sounds[place] = /datum/looping_sound/weak_outside_ashstorm
-			strong_sounds[place] = /datum/looping_sound/active_outside_ashstorm
+			weak_sounds[place] = /datum/looping_sound/weak_outside_prairie_plasmastorm
+			strong_sounds[place] = /datum/looping_sound/active_outside_prairie_plasmastorm
 		else
-			weak_sounds[place] = /datum/looping_sound/weak_inside_ashstorm
-			strong_sounds[place] = /datum/looping_sound/active_inside_ashstorm
+			weak_sounds[place] = /datum/looping_sound/weak_inside_prairie_plasmastorm
+			strong_sounds[place] = /datum/looping_sound/active_inside_prairie_plasmastorm
 		CHECK_TICK
 
 	for(var/area/affected_area in impacted_areas)
@@ -195,10 +195,6 @@
 
 	for(var/area/affected_area in impacted_areas)
 		for(var/turf/open/spess in affected_area.get_contained_turfs())
-			if(spess.light_color == LIGHT_COLOR_PRAIRIEWORLD_STORM)
-				spess.set_light(3, 0.75, LIGHT_COLOR_PRAIRIEWORLD)
-			if(spess.light_color == NIGHT_COLOR_PRAIRIEWORLD_STORM)
-				spess.set_light(3, 0.75, NIGHT_COLOR_PRAIRIEWORLD)
 			if(spess.planetary_atmos)
 				if(spess.initial_gas_mix == PRAIRIE_GASMIX_STORM)
 					spess.initial_gas_mix = PRAIRIE_GASMIX
@@ -213,6 +209,12 @@
 
 /datum/weather/prairie_plasma_storm/end()
 	GLOB.prairie_plasma_storm_sounds -= weak_sounds
+	for(var/area/affected_area in impacted_areas)
+		for(var/turf/open/spess in affected_area.get_contained_turfs())
+			if(spess.light_color == LIGHT_COLOR_PRAIRIEWORLD_STORM)
+				spess.set_light(3, 0.75, LIGHT_COLOR_PRAIRIEWORLD)
+			if(spess.light_color == NIGHT_COLOR_PRAIRIEWORLD_STORM)
+				spess.set_light(3, 0.75, NIGHT_COLOR_PRAIRIEWORLD)
 	return ..()
 
 /datum/weather/prairie_plasma_storm/can_weather_act(mob/living/mob_to_check)
@@ -238,7 +240,7 @@
 			basalt.icon_state += "[rand(0,12)]"
 
 // since this is usually on a station z level, add extra checks to not annoy everyone
-/datum/weather/sprairie_plasma_storm/can_get_alert(mob/player)
+/datum/weather/prairie_plasma_storm/can_get_alert(mob/player)
 	if(!..())
 		return FALSE
 
@@ -260,3 +262,55 @@
 			return TRUE
 
 	return FALSE
+
+
+
+
+/// Mildly tweaked prairie plasmastorm sounds
+/datum/looping_sound/active_outside_prairie_plasmastorm
+	mid_sounds = list(
+		'sound/weather/ashstorm/outside/active_mid1.ogg'=1,
+		'sound/weather/ashstorm/outside/active_mid2.ogg'=1,
+		'sound/weather/ashstorm/outside/active_mid3.ogg'=1
+		)
+	mid_length = 80
+	start_sound = 'sound/weather/ashstorm/outside/active_start.ogg'
+	start_length = 130
+	end_sound = 'sound/weather/ashstorm/outside/active_end.ogg'
+	volume = 50
+
+/datum/looping_sound/active_inside_prairie_plasmastorm
+	mid_sounds = list(
+		'sound/weather/ashstorm/inside/active_mid1.ogg'=1,
+		'sound/weather/ashstorm/inside/active_mid2.ogg'=1,
+		'sound/weather/ashstorm/inside/active_mid3.ogg'=1
+		)
+	mid_length = 80
+	start_sound = 'sound/weather/ashstorm/inside/active_start.ogg'
+	start_length = 130
+	end_sound = 'sound/weather/ashstorm/inside/active_end.ogg'
+	volume = 30
+
+/datum/looping_sound/weak_outside_prairie_plasmastorm
+	mid_sounds = list(
+		'sound/weather/ashstorm/outside/weak_mid1.ogg'=1,
+		'sound/weather/ashstorm/outside/weak_mid2.ogg'=1,
+		'sound/weather/ashstorm/outside/weak_mid3.ogg'=1
+		)
+	mid_length = 80
+	start_sound = 'sound/weather/ashstorm/outside/weak_start.ogg'
+	start_length = 130
+	end_sound = 'sound/weather/ashstorm/outside/weak_end.ogg'
+	volume = 30
+
+/datum/looping_sound/weak_inside_prairie_plasmastorm
+	mid_sounds = list(
+		'sound/weather/ashstorm/inside/weak_mid1.ogg'=1,
+		'sound/weather/ashstorm/inside/weak_mid2.ogg'=1,
+		'sound/weather/ashstorm/inside/weak_mid3.ogg'=1
+		)
+	mid_length = 80
+	start_sound = 'sound/weather/ashstorm/inside/weak_start.ogg'
+	start_length = 130
+	end_sound = 'sound/weather/ashstorm/inside/weak_end.ogg'
+	volume = 10

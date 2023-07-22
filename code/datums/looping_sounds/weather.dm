@@ -1,8 +1,8 @@
 /datum/looping_sound/active_outside_ashstorm
 	mid_sounds = list(
 		'sound/weather/ashstorm/outside/active_mid1.ogg'=1,
-		'sound/weather/ashstorm/outside/active_mid1.ogg'=1,
-		'sound/weather/ashstorm/outside/active_mid1.ogg'=1
+		'sound/weather/ashstorm/outside/active_mid2.ogg'=1,
+		'sound/weather/ashstorm/outside/active_mid3.ogg'=1
 		)
 	mid_length = 80
 	start_sound = 'sound/weather/ashstorm/outside/active_start.ogg'

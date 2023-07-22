@@ -8,10 +8,15 @@
 //plasma storms are particularly disastrous at night, pushing the oxygen and nitrogen out of the way for more plasma, and still hot enough (100F) to be uncomfy
 #define PRAIRIE_GASMIX_NIGHT_STORM GAS_PLASMA + "=27;" + GAS_O2 + "=18;" + GAS_N2 + "=45;TEMP=310"
 
+//a unique type for prairie lava- you don't want to stand near this stuff, it stinks AND burns!
+#define PRAIRIE_GASMIX_LAVA GAS_PLASMA + "=27;" + GAS_O2 + "=9;" + GAS_N2 + "=54;TEMP=400"
+
 
 
 #define LIGHT_COLOR_PRAIRIEWORLD "#eef2da"
 #define LIGHT_COLOR_PRAIRIEWORLD_STORM "#e6cab8"
+#define LIGHT_COLOR_PRAIRIEWORLD_LAVA "#f29da6"
+
 #define NIGHT_COLOR_PRAIRIEWORLD "#76806c"
 #define NIGHT_COLOR_PRAIRIEWORLD_STORM "#66524d"
 
