@@ -4,7 +4,11 @@
 	has_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED
-	sound_environment = SOUND_ENVIRONMENT_MOUNTAINS
+	sound_environment = SOUND_AREA_LAVALAND //just in case
+	// just in case
+	ambience_index = AMBIENCE_MINING
+	min_ambience_cooldown = 70 SECONDS
+	max_ambience_cooldown = 220 SECONDS
 	ambient_buzz = 'sound/ambience/magma.ogg'
 
 /area/prairie_world/surface
