@@ -143,16 +143,18 @@
 			strong_sounds[place] = /datum/looping_sound/active_inside_prairie_plasmastorm
 		CHECK_TICK
 
-	for(var/area/affected_area in impacted_areas)
-		for(var/turf/open/spess in affected_area.get_contained_turfs())
-			if(spess.light_color == LIGHT_COLOR_PRAIRIEWORLD)
-				spess.set_light(3, 0.75, LIGHT_COLOR_PRAIRIEWORLD_STORM)
-			if(spess.light_color == NIGHT_COLOR_PRAIRIEWORLD)
-				spess.set_light(3, 0.75, NIGHT_COLOR_PRAIRIEWORLD_STORM)
+	GLOB.prairie_plasma_storm_sounds += weak_sounds
+
+	spawn(10)
+		for(var/area/affected_area in impacted_areas)
+			for(var/turf/open/spess in affected_area.get_contained_turfs())
+				if(spess.light_color == LIGHT_COLOR_PRAIRIEWORLD)
+					spess.set_light(3, 0.75, LIGHT_COLOR_PRAIRIEWORLD_STORM)
+				if(spess.light_color == NIGHT_COLOR_PRAIRIEWORLD)
+					spess.set_light(3, 0.75, NIGHT_COLOR_PRAIRIEWORLD_STORM)
 
 	//We modify this list instead of setting it to weak/stron sounds in order to preserve things that hold a reference to it
 	//It's essentially a playlist for a bunch of components that chose what sound to loop based on the area a player is in
-	GLOB.prairie_plasma_storm_sounds += weak_sounds
 	return ..()
 
 /datum/weather/prairie_plasma_storm/start()
@@ -171,19 +173,19 @@
 
 	GLOB.prairie_plasma_storm_sounds -= weak_sounds
 	GLOB.prairie_plasma_storm_sounds += strong_sounds
-	var/overlay_val = null
 
-	for(var/area/affected_area in impacted_areas)
-		for(var/turf/open/spess in affected_area.get_contained_turfs())
-			if(spess.planetary_atmos)
-				if(spess.initial_gas_mix == PRAIRIE_GASMIX)
-					spess.initial_gas_mix = PRAIRIE_GASMIX_STORM
-					spess.air.copy_from(SSair.planetary[PRAIRIE_GASMIX_STORM])
-					spess.update_visuals()
-				if(spess.initial_gas_mix == PRAIRIE_GASMIX_NIGHT)
-					spess.initial_gas_mix = PRAIRIE_GASMIX_NIGHT_STORM
-					spess.air.copy_from(SSair.planetary[PRAIRIE_GASMIX_NIGHT_STORM])
-					spess.update_visuals()
+	spawn(10)
+		for(var/area/affected_area in impacted_areas)
+			for(var/turf/open/spess in affected_area.get_contained_turfs())
+				if(spess.planetary_atmos)
+					if(spess.initial_gas_mix == PRAIRIE_GASMIX)
+						spess.initial_gas_mix = PRAIRIE_GASMIX_STORM
+						spess.air.copy_from(SSair.planetary[PRAIRIE_GASMIX_STORM])
+						spess.update_visuals()
+					if(spess.initial_gas_mix == PRAIRIE_GASMIX_NIGHT)
+						spess.initial_gas_mix = PRAIRIE_GASMIX_NIGHT_STORM
+						spess.air.copy_from(SSair.planetary[PRAIRIE_GASMIX_NIGHT_STORM])
+						spess.update_visuals()
 
 	return rval
 
@@ -193,17 +195,18 @@
 	GLOB.prairie_plasma_storm_sounds -= strong_sounds
 	GLOB.prairie_plasma_storm_sounds += weak_sounds
 
-	for(var/area/affected_area in impacted_areas)
-		for(var/turf/open/spess in affected_area.get_contained_turfs())
-			if(spess.planetary_atmos)
-				if(spess.initial_gas_mix == PRAIRIE_GASMIX_STORM)
-					spess.initial_gas_mix = PRAIRIE_GASMIX
-					spess.air.copy_from(SSair.planetary[PRAIRIE_GASMIX])
-					spess.update_visuals()
-				if(spess.initial_gas_mix == PRAIRIE_GASMIX_NIGHT_STORM)
-					spess.initial_gas_mix = PRAIRIE_GASMIX_NIGHT
-					spess.air.copy_from(SSair.planetary[PRAIRIE_GASMIX_NIGHT])
-					spess.update_visuals()
+	spawn(10)
+		for(var/area/affected_area in impacted_areas)
+			for(var/turf/open/spess in affected_area.get_contained_turfs())
+				if(spess.planetary_atmos)
+					if(spess.initial_gas_mix == PRAIRIE_GASMIX_STORM)
+						spess.initial_gas_mix = PRAIRIE_GASMIX
+						spess.air.copy_from(SSair.planetary[PRAIRIE_GASMIX])
+						spess.update_visuals()
+					if(spess.initial_gas_mix == PRAIRIE_GASMIX_NIGHT_STORM)
+						spess.initial_gas_mix = PRAIRIE_GASMIX_NIGHT
+						spess.air.copy_from(SSair.planetary[PRAIRIE_GASMIX_NIGHT])
+						spess.update_visuals()
 
 	return rval
 
@@ -217,27 +220,18 @@
 				spess.set_light(3, 0.75, NIGHT_COLOR_PRAIRIEWORLD)
 	return ..()
 
+// plasma storm doesn't have any active effects on mobs, it only messes with atmos
 /datum/weather/prairie_plasma_storm/can_weather_act(mob/living/mob_to_check)
-	. = ..()
-	if(!. || !ishuman(mob_to_check))
+	return FALSE
+	//. = ..()
+	/*if(!. || !ishuman(mob_to_check))
 		return
 	var/mob/living/carbon/human/human_to_check = mob_to_check
 	if(human_to_check.get_thermal_protection() >= FIRE_IMMUNITY_MAX_TEMP_PROTECT)
-		return FALSE
+		return FALSE*/
 
 /datum/weather/prairie_plasma_storm/weather_act(mob/living/victim)
 	//victim.adjustFireLoss(4)
-
-/datum/weather/prairie_plasma_storm/end()
-	. = ..()
-	for(var/turf/open/misc/asteroid/basalt/basalt as anything in GLOB.dug_up_basalt)
-		if(!(basalt.loc in impacted_areas) || !(basalt.z in impacted_z_levels))
-			continue
-		GLOB.dug_up_basalt -= basalt
-		basalt.dug = FALSE
-		basalt.icon_state = "[basalt.base_icon_state]"
-		if(prob(basalt.floor_variance))
-			basalt.icon_state += "[rand(0,12)]"
 
 // since this is usually on a station z level, add extra checks to not annoy everyone
 /datum/weather/prairie_plasma_storm/can_get_alert(mob/player)

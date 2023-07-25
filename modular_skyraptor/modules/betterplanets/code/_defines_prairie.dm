@@ -9,7 +9,7 @@
 #define PRAIRIE_GASMIX_NIGHT_STORM GAS_PLASMA + "=27;" + GAS_O2 + "=18;" + GAS_N2 + "=45;TEMP=310"
 
 //a unique type for prairie lava- you don't want to stand near this stuff, it stinks AND burns!
-#define PRAIRIE_GASMIX_LAVA GAS_PLASMA + "=27;" + GAS_O2 + "=9;" + GAS_N2 + "=54;TEMP=400"
+#define PRAIRIE_GASMIX_LAVA GAS_PLASMA + "=36;" + GAS_O2 + "=6;" + GAS_N2 + "=54;TEMP=350"
 
 
 
