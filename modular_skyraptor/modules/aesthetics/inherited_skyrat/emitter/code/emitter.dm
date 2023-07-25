@@ -12,15 +12,19 @@
 
 /obj/effect/projectile/tracer/laser/emitter
 	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/emitter/icons/emitter.dmi'
-	icon_state = "tracer_emitter"
+	icon_state = "beam_emitter"
 
 /obj/effect/projectile/impact/laser/emitter
 	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/emitter/icons/emitter.dmi'
 	icon_state = "impact_emitter"
 
+/obj/effect/projectile/muzzle/laser/emitter
+	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/emitter/icons/emitter.dmi'
+	icon_state = "muzzle_emitter"
+
 /obj/projectile/beam/emitter/hitscan
 	hitscan_light_color_override = "#AAFF00"
-	muzzle_flash_color_override = "#AAFF00"
+	muzzle_flash_color_override = "#FFFF00"
 	impact_light_color_override = "#FF6600"
 
 
