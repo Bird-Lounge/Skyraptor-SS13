@@ -236,13 +236,13 @@
 		if(STYLE_DULL)
 			return "#aaaaaa"
 		if(STYLE_COOL)
-			return "#aaaaff"
+			return "#0066FF"
 		if(STYLE_BRUTAL)
-			return "#aaffff"
+			return "#FF6600"
 		if(STYLE_ABSOLUTE)
-			return "#66ffff"
+			return "#6600FF"
 		if(STYLE_SPACED)
-			return "#ffaa00"
+			return "#AAFF00"
 
 /datum/component/style/proc/point_to_rank()
 	switch(style_points)
@@ -261,13 +261,13 @@
 /datum/component/style/proc/rank_to_string(new_rank)
 	switch(new_rank)
 		if(STYLE_DULL)
-			return "DULL"
+			return "DIM"
 		if(STYLE_COOL)
-			return "COOL"
+			return "COSMIC"
 		if(STYLE_BRUTAL)
-			return "BRUTAL"
+			return "BINARY"
 		if(STYLE_ABSOLUTE)
-			return "ABSOLUTE"
+			return "AURORA"
 		if(STYLE_SPACED)
 			return "SPACED!"
 
