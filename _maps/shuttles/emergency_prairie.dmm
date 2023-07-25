@@ -322,7 +322,9 @@
 	dir = 8;
 	piping_layer = 4
 	},
-/obj/machinery/airalarm/directional/east,
+/obj/machinery/airalarm/directional/east{
+	use_power = 0
+	},
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/escape)
 "UR" = (
@@ -356,6 +358,9 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/escape)
+"YB" = (
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/escape)
 "Zc" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/r_chartreuse/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/r_bldorng/hidden/layer2,
@@ -387,7 +392,7 @@ PB
 (2,1,1) = {"
 ML
 PB
-PB
+YB
 HA
 CO
 BZ
@@ -403,7 +408,7 @@ PB
 "}
 (3,1,1) = {"
 PB
-PB
+YB
 XE
 cK
 XG
@@ -414,7 +419,7 @@ Dr
 Dr
 kt
 Ir
-PB
+YB
 it
 vc
 "}
@@ -471,7 +476,7 @@ vc
 "}
 (7,1,1) = {"
 PB
-PB
+YB
 ru
 vp
 Ju
@@ -482,14 +487,14 @@ qH
 qH
 kt
 Ir
-PB
+YB
 Hs
 OU
 "}
 (8,1,1) = {"
 ML
 PB
-PB
+YB
 FF
 rf
 LC

@@ -39,6 +39,9 @@
 /obj/structure/marker_beacon/burgundy,
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/supply)
+"w" = (
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/supply)
 "x" = (
 /obj/machinery/door/airlock/titanium{
 	name = "Arrivals Shuttle Airlock"
@@ -101,6 +104,10 @@
 	},
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/supply)
+"J" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/mineral/titanium/white,
+/area/shuttle/supply)
 "K" = (
 /obj/machinery/power/shuttle_engine/propulsion/burst/right{
 	dir = 4
@@ -129,9 +136,9 @@ q
 (2,1,1) = {"
 r
 r
-p
+J
 P
-S
+J
 r
 r
 "}
@@ -182,20 +189,20 @@ D
 "}
 (8,1,1) = {"
 r
+p
 P
 P
 P
-P
-P
+S
 r
 "}
 (9,1,1) = {"
 r
-p
-r
+P
+w
 e
-r
-S
+w
+P
 r
 "}
 (10,1,1) = {"
