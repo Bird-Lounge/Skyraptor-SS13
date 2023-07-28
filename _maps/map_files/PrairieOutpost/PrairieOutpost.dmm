@@ -443,10 +443,10 @@
 /turf/open/floor/iron,
 /area/station/engineering/supermatter/room)
 "bm" = (
-/obj/machinery/modular_computer/console/preset/id{
-	dir = 1
-	},
 /obj/machinery/keycard_auth/directional/east,
+/obj/machinery/modular_computer/preset/id{
+	dir = 8
+	},
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/hop)
 "bn" = (
@@ -1791,8 +1791,8 @@
 /turf/open/floor/iron/freezer,
 /area/station/commons/dorms)
 "fE" = (
-/obj/machinery/modular_computer/console/preset/id,
 /obj/machinery/airalarm/directional/north,
+/obj/machinery/modular_computer/preset/id,
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/ce)
 "fF" = (
@@ -2010,6 +2010,7 @@
 "go" = (
 /mob/living/simple_animal/parrot/poly,
 /obj/machinery/airalarm/directional/south,
+/obj/structure/table/reinforced,
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/ce)
 "gr" = (
@@ -3537,9 +3538,6 @@
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
 "ll" = (
-/obj/machinery/modular_computer/console/preset/research{
-	dir = 8
-	},
 /obj/machinery/requests_console/directional/east{
 	department = "Research Director's Desk";
 	name = "Research Director's Requests Console"
@@ -3547,6 +3545,9 @@
 /obj/effect/mapping_helpers/requests_console/assistance,
 /obj/effect/mapping_helpers/requests_console/announcement,
 /obj/effect/mapping_helpers/requests_console/information,
+/obj/machinery/modular_computer/preset/research{
+	dir = 8
+	},
 /turf/open/floor/iron/white,
 /area/station/command/heads_quarters/rd)
 "lm" = (
@@ -5528,8 +5529,8 @@
 /turf/open/floor/engine/cult,
 /area/station/service/library)
 "rD" = (
-/obj/machinery/modular_computer/console/preset/id,
 /obj/effect/turf_decal/tile/dark_blue/fourcorners,
+/obj/machinery/modular_computer/preset/id,
 /turf/open/floor/iron,
 /area/station/command/bridge)
 "rF" = (
@@ -6308,10 +6309,10 @@
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry)
 "tX" = (
-/obj/machinery/modular_computer/console/preset/id{
+/obj/machinery/firealarm/directional/south,
+/obj/machinery/modular_computer/preset/id{
 	dir = 1
 	},
-/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/white,
 /area/station/command/heads_quarters/cmo)
 "tY" = (
@@ -7233,11 +7234,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/r_chartreuse/visible,
 /turf/open/floor/plating,
 /area/station/engineering/atmos)
-"xk" = (
-/obj/structure/sign/delamination_counter/directional/north,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/r_navy/visible,
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "xl" = (
 /obj/structure/closet/emcloset,
 /obj/machinery/light/directional/south,
@@ -7658,7 +7654,7 @@
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/machinery/light_switch/directional/east,
 /obj/structure/bed/dogbed/renault,
-/mob/living/simple_animal/pet/fox/renault,
+/mob/living/basic/pet/fox/renault,
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/captain)
 "yJ" = (
@@ -8040,7 +8036,7 @@
 /area/station/engineering/atmos/hfr_room)
 "zK" = (
 /obj/machinery/light_switch/directional/south,
-/obj/machinery/modular_computer/console/preset/engineering{
+/obj/machinery/modular_computer/preset/cargochat/engineering{
 	dir = 8
 	},
 /turf/open/floor/engine,
@@ -8249,9 +8245,6 @@
 /turf/open/floor/plating,
 /area/station/cargo/office)
 "As" = (
-/obj/machinery/modular_computer/console/preset/id{
-	dir = 4
-	},
 /obj/machinery/requests_console/directional/east{
 	department = "Captain's Desk";
 	name = "Captain's Requests Console";
@@ -9470,10 +9463,10 @@
 /turf/open/floor/circuit/telecomms,
 /area/station/tcommsat/server)
 "Ed" = (
-/obj/machinery/modular_computer/console/preset/id{
+/obj/machinery/light/directional/west,
+/obj/machinery/modular_computer/preset/id{
 	dir = 4
 	},
-/obj/machinery/light/directional/west,
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/qm)
 "Ee" = (
@@ -9727,11 +9720,11 @@
 /turf/open/floor/wood/tile,
 /area/station/medical/psychology)
 "EV" = (
-/obj/machinery/modular_computer/console/preset/engineering{
-	dir = 8
-	},
 /obj/effect/turf_decal/tile/yellow/fourcorners,
 /obj/machinery/light/directional/east,
+/obj/machinery/modular_computer/preset/cargochat/engineering{
+	dir = 8
+	},
 /turf/open/floor/iron,
 /area/station/command/bridge)
 "EW" = (
@@ -11150,6 +11143,7 @@
 /area/station/command/heads_quarters/cmo)
 "Jy" = (
 /obj/machinery/vending/tool,
+/obj/machinery/incident_display/delam/directional/north,
 /turf/open/floor/iron,
 /area/station/engineering/lobby)
 "Jz" = (
@@ -11605,7 +11599,6 @@
 /turf/open/floor/iron/dark,
 /area/station/security/prison/mess)
 "KZ" = (
-/obj/machinery/modular_computer/console/preset/civilian,
 /obj/machinery/camera/directional/north{
 	c_tag = "Robotics Lab";
 	network = list("ss13","rd")
@@ -12143,6 +12136,7 @@
 	c_tag = "Engineering - Engine East";
 	network = list("ss13", "engine")
 	},
+/obj/machinery/incident_display/delam/directional/north,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "Mz" = (
@@ -13667,9 +13661,6 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/fore)
 "RI" = (
-/obj/machinery/modular_computer/console/preset/civilian{
-	dir = 4
-	},
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron,
 /area/station/engineering/lobby)
@@ -14560,6 +14551,9 @@
 /area/station/hallway/primary/central)
 "UE" = (
 /obj/machinery/light/directional/south,
+/obj/machinery/modular_computer/preset/cargochat/engineering{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/ce)
 "UF" = (
@@ -15020,15 +15014,15 @@
 /turf/open/floor/carpet/purple,
 /area/station/commons/dorms)
 "Wd" = (
-/obj/machinery/modular_computer/console/preset/id{
-	dir = 1
-	},
 /obj/machinery/firealarm/directional/south,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
+/obj/machinery/modular_computer/preset/id{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/hos)
 "We" = (
@@ -15222,10 +15216,10 @@
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
 "WM" = (
-/obj/machinery/modular_computer/console/preset/id{
+/obj/machinery/keycard_auth/directional/east,
+/obj/machinery/modular_computer/preset/id{
 	dir = 8
 	},
-/obj/machinery/keycard_auth/directional/east,
 /turf/open/floor/iron/white,
 /area/station/command/heads_quarters/rd)
 "WN" = (
@@ -15452,10 +15446,10 @@
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/ce)
 "Xw" = (
-/obj/machinery/modular_computer/console/preset/curator{
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/machinery/modular_computer/preset/curator{
 	dir = 8
 	},
-/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/wood/large,
 /area/station/service/library)
 "Xy" = (
@@ -40817,7 +40811,7 @@ OM
 OM
 OM
 OM
-xk
+Gv
 lG
 Rt
 jI

@@ -31057,6 +31057,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/extinguisher_cabinet/directional/west,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
 "lmv" = (
@@ -38674,6 +38675,16 @@
 "nZx" = (
 /turf/closed/mineral/random/stationside,
 /area/station/ai_monitored/turret_protected/ai)
+"nZI" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/cryopod,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/hallway/primary/starboard)
 "nZM" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -39965,6 +39976,10 @@
 	},
 /turf/open/floor/glass,
 /area/station/hallway/secondary/spacebridge)
+"ozi" = (
+/obj/structure/lattice,
+/turf/closed/wall,
+/area/station/hallway/primary/starboard)
 "ozn" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
@@ -43128,6 +43143,22 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/wood/parquet,
 /area/station/service/library)
+"pEF" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/airalarm/directional/west,
+/obj/machinery/computer/cryopod{
+	dir = 1;
+	pixel_y = -24
+	},
+/obj/machinery/door/window/right/directional/south{
+	name = "Cryogenics Cabin";
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/hallway/primary/starboard)
 "pEL" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/tile/blue{
@@ -59175,10 +59206,10 @@
 /turf/open/floor/iron/dark,
 /area/station/security/prison/workout)
 "uPs" = (
-/obj/machinery/airalarm/directional/west,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/spacebridge)
 "uPt" = (
@@ -59966,6 +59997,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
 "vcW" = (
@@ -98310,7 +98342,7 @@ tMi
 xli
 urv
 yeh
-blb
+ozi
 kev
 fUj
 uPO
@@ -98566,8 +98598,8 @@ gXD
 tMj
 yeh
 uyp
-yeh
-urv
+nZI
+pEF
 mVY
 sDT
 wHX

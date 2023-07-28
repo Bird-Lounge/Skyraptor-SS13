@@ -7772,6 +7772,12 @@
 	},
 /turf/open/floor/wood,
 /area/station/service/lawoffice)
+"bFg" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/commons/dorms)
 "bFl" = (
 /obj/structure/showcase/cyborg/old{
 	dir = 4;
@@ -10096,7 +10102,7 @@
 /obj/machinery/elevator_control_panel{
 	linked_elevator_id = "tram_xeno_lift";
 	pixel_y = 2;
-	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck");
+	preset_destination_names = list("2"="Lower                Deck","3"="Upper                Deck");
 	layer = 3.1
 	},
 /turf/closed/wall,
@@ -13391,6 +13397,16 @@
 /obj/effect/turf_decal/stripes/white/line,
 /turf/open/floor/plating,
 /area/station/maintenance/tram/right)
+"dBQ" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/machinery/cryopod{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/commons/dorms)
 "dBR" = (
 /obj/effect/turf_decal/trimline/neutral/filled/corner{
 	dir = 8
@@ -19646,7 +19662,7 @@
 /area/station/security/processing)
 "fWK" = (
 /obj/machinery/computer/atmos_control/oxygen_tank{
-	atmos_chambers = list("o2ordance"="Oxygen        Supply")
+	atmos_chambers = list("o2ordance"="Oxygen                Supply")
 	},
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/airalarm/directional/north,
@@ -20215,7 +20231,7 @@
 	},
 /obj/machinery/elevator_control_panel/directional/west{
 	linked_elevator_id = "tram_sci_lift";
-	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
+	preset_destination_names = list("2"="Lower                Deck","3"="Upper                Deck")
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/station/science/lower)
@@ -29048,7 +29064,7 @@
 /obj/structure/industrial_lift/public,
 /obj/machinery/elevator_control_panel/directional/west{
 	linked_elevator_id = "tram_cargo_lift";
-	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck");
+	preset_destination_names = list("2"="Lower                Deck","3"="Upper                Deck");
 	req_access = list("mining")
 	},
 /obj/effect/abstract/elevator_music_zone{
@@ -34897,7 +34913,7 @@
 	},
 /obj/machinery/elevator_control_panel/directional/west{
 	linked_elevator_id = "tram_perma_lift";
-	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
+	preset_destination_names = list("2"="Lower                Deck","3"="Upper                Deck")
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/station/security/execution/transfer)
@@ -38965,7 +38981,7 @@
 	},
 /obj/machinery/elevator_control_panel/directional/north{
 	linked_elevator_id = "tram_upper_center_lift";
-	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
+	preset_destination_names = list("2"="Lower                Deck","3"="Upper                Deck")
 	},
 /obj/effect/turf_decal/trimline/dark_red/warning{
 	dir = 1
@@ -43871,7 +43887,7 @@
 /obj/machinery/elevator_control_panel{
 	linked_elevator_id = "tram_xeno_lift";
 	pixel_y = 2;
-	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck");
+	preset_destination_names = list("2"="Lower                Deck","3"="Upper                Deck");
 	layer = 3.1
 	},
 /turf/closed/wall/r_wall,
@@ -48605,6 +48621,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
+"quw" = (
+/obj/machinery/cryopod{
+	dir = 8
+	},
+/obj/machinery/light/directional/east,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/commons/dorms)
 "quB" = (
 /obj/machinery/telecomms/server/presets/medical,
 /turf/open/floor/iron/dark/telecomms,
@@ -51430,6 +51453,17 @@
 "rtp" = (
 /turf/open/floor/iron/dark,
 /area/station/commons/fitness/recreation/entertainment)
+"rtO" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/machinery/door/window/right/directional/south{
+	name = "Cryogenics Cabin";
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/commons/dorms)
 "run" = (
 /turf/closed/wall/r_wall,
 /area/station/security/medical)
@@ -56587,6 +56621,15 @@
 	},
 /turf/open/floor/engine/co2,
 /area/station/engineering/atmos)
+"tns" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/computer/cryopod{
+	pixel_y = -24;
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/commons/dorms)
 "tnu" = (
 /obj/machinery/camera/directional/north{
 	c_tag = "Civilian - Holodeck North";
@@ -59988,7 +60031,7 @@
 /obj/structure/industrial_lift/public,
 /obj/machinery/elevator_control_panel/directional/east{
 	linked_elevator_id = "tram_lower_center_lift";
-	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
+	preset_destination_names = list("2"="Lower                Deck","3"="Upper                Deck")
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/station/maintenance/tram/mid)
@@ -61520,7 +61563,7 @@
 /obj/structure/industrial_lift/public,
 /obj/machinery/elevator_control_panel/directional/south{
 	linked_elevator_id = "tram_dorm_lift";
-	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
+	preset_destination_names = list("2"="Lower                Deck","3"="Upper                Deck")
 	},
 /obj/structure/railing,
 /turf/open/floor/plating/elevatorshaft,
@@ -61997,7 +62040,14 @@
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "vay" = (
-/turf/open/floor/plating,
+/obj/structure/table/glass,
+/obj/item/storage/medkit/fire{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/storage/medkit/o2,
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/iron/white/smooth_large,
 /area/station/commons/dorms)
 "vaK" = (
 /obj/effect/turf_decal/trimline/neutral/filled/corner{
@@ -91477,7 +91527,7 @@ ncF
 wLT
 xnI
 lho
-elr
+rtO
 vay
 elr
 elr
@@ -91734,8 +91784,8 @@ ncF
 nJr
 qTg
 nJr
-elr
-vay
+bFg
+tns
 elr
 wSm
 vjo
@@ -91991,8 +92041,8 @@ ncF
 prD
 iJi
 pOJ
-elr
-vay
+dBQ
+quw
 elr
 jnR
 pKZ

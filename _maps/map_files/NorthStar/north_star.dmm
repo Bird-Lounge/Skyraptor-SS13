@@ -1322,6 +1322,15 @@
 /obj/item/storage/box/syringes,
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
+"aqJ" = (
+/obj/machinery/door/airlock{
+	id_tag = "Cabin7";
+	name = "Cryogenics Cabin"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/commons/fitness)
 "aqO" = (
 /obj/machinery/door/airlock/security/glass{
 	name = "Brig Fore Entrance"
@@ -3688,6 +3697,7 @@
 /obj/effect/turf_decal/trimline/red/filled/corner{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/textured,
 /area/station/commons/fitness)
 "aWe" = (
@@ -5662,6 +5672,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/textured,
 /area/station/commons/fitness)
 "bsz" = (
@@ -11195,6 +11206,11 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
+"cPv" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/commons/fitness)
 "cPQ" = (
 /obj/structure/railing{
 	dir = 5
@@ -16398,7 +16414,7 @@
 /obj/machinery/elevator_control_panel/directional/west{
 	linked_elevator_id = "fore_vator";
 	pixel_x = -24;
-	preset_destination_names = list("2"="Supply-Engi Floor","3"="Med-Sci Floor","4"="Service Floor")
+	preset_destination_names = list("2"="Supply-Engi  Floor","3"="Med-Sci  Floor","4"="Service  Floor")
 	},
 /obj/machinery/lift_indicator/directional/west{
 	linked_elevator_id = "fore_vator";
@@ -36160,6 +36176,12 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
+"jzm" = (
+/obj/machinery/light/directional/north,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/commons/fitness)
 "jzp" = (
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
@@ -45809,6 +45831,7 @@
 /obj/structure/sign/gym/mirrored{
 	pixel_y = 32
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/textured,
 /area/station/commons/fitness)
 "lXj" = (
@@ -48425,6 +48448,12 @@
 /obj/machinery/light_switch/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics/garden)
+"mDv" = (
+/obj/machinery/cryopod{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/commons/fitness)
 "mDD" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector/monitored/ordnance_burn_chamber_input,
 /turf/open/floor/engine/vacuum,
@@ -49023,6 +49052,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/textured,
 /area/station/commons/fitness)
 "mLp" = (
@@ -53867,7 +53897,7 @@
 /obj/machinery/elevator_control_panel/directional/east{
 	linked_elevator_id = "aft_vator";
 	pixel_x = 24;
-	preset_destination_names = list("2"="Supply-Engi Floor","3"="Med-Sci Floor","4"="Service Floor")
+	preset_destination_names = list("2"="Supply-Engi  Floor","3"="Med-Sci  Floor","4"="Service  Floor")
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/station/hallway/floor1/aft)
@@ -54626,8 +54656,13 @@
 /turf/open/floor/plating,
 /area/station/maintenance/floor1/port/fore)
 "oeQ" = (
-/obj/machinery/shower/directional/east,
-/turf/open/floor/noslip,
+/obj/machinery/computer/cryopod{
+	pixel_y = 24
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_large,
 /area/station/commons/fitness)
 "ofa" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -54649,6 +54684,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/textured,
 /area/station/commons/fitness)
 "ofi" = (
@@ -69677,6 +69713,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
+"slL" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/duct,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark/textured,
+/area/station/commons/fitness)
 "slP" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -72536,6 +72578,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/pod/light,
 /area/station/maintenance/floor1/port/fore)
+"sYW" = (
+/obj/structure/table/glass,
+/obj/item/storage/medkit/fire{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/storage/medkit/o2,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/commons/fitness)
 "sYX" = (
 /obj/structure/toilet{
 	dir = 4
@@ -88693,11 +88747,10 @@
 /turf/open/floor/plating,
 /area/station/maintenance/floor1/port)
 "xgb" = (
-/obj/structure/chair{
+/obj/machinery/cryopod{
 	dir = 4
 	},
-/obj/effect/landmark/start/assistant,
-/turf/open/floor/iron/showroomfloor,
+/turf/open/floor/iron/white/smooth_large,
 /area/station/commons/fitness)
 "xgd" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -257597,10 +257650,10 @@ qrd
 sSB
 qxW
 qrd
-wsG
-oiA
-hdz
-mkl
+jzm
+cPv
+aqJ
+slL
 hwr
 kub
 fVA
@@ -257854,8 +257907,8 @@ qrd
 sSB
 sSB
 qrd
-xCX
-mcU
+sYW
+mDv
 nWe
 lXb
 aWd

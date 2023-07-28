@@ -25,7 +25,7 @@
 	feature_spawn_chance = 0.1
 
 	weighted_mob_spawn_list = list(
-		/mob/living/simple_animal/hostile/asteroid/goliath/beast/random = 34,
+		/mob/living/basic/mining/goliath/random = 34,
 		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random = 13,
 		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/random = 13,
 		//SPAWN_MEGAFAUNA = 0,
@@ -81,7 +81,7 @@
 	feature_spawn_chance = 0.15
 
 	weighted_mob_spawn_list = list(
-		/mob/living/simple_animal/hostile/asteroid/goliath/beast/random = 32,
+		/mob/living/basic/mining/goliath/random = 32,
 		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random = 12,
 		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/random = 13,
 		SPAWN_MEGAFAUNA = 1,
