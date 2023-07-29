@@ -2,7 +2,7 @@
 MODULE ID: AESTHETICS
 
 ### Description:
-This is the central hub for aesthetic tweaks to the station - new light colors, alternate sprites, you name it, it goes here.  For now it's just the return of some old medbay sprites & a funky new batong.
+This is the central hub for aesthetic tweaks to the station - new light colors, alternate sprites, you name it, it goes here.  REALISTICALLY we should be using master_files for this, but...whatever!
 
 ### TG Proc Changes:
 - N/A
@@ -19,3 +19,6 @@ This is the central hub for aesthetic tweaks to the station - new light colors, 
 ### Credits:
 - TGStation
 - CliffracerX
+- Skyrat Station
+- TauCeti station
+- Shiptest
