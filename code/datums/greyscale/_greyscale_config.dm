@@ -154,7 +154,7 @@
 /// Gets the name used for debug purposes
 /datum/greyscale_config/proc/DebugName()
 	var/display_name = name || "MISSING_NAME"
-	return "[display_name] ([icon_file]|[json_config])"
+	return "[display_name] ([icon_file]|[json_config], type [type])" /// SKYRAPTOR ADDITION: displays the type for when something gets really fucked up
 
 /// Takes the json icon state configuration and puts it into a more processed format.
 /datum/greyscale_config/proc/ReadIconStateConfiguration(list/data)
@@ -238,6 +238,12 @@
 	var/key = color_string
 	if(key in icon_cache) /// SKYRAPTOR EDIT: this somehow breaks horribly now and i do not know why
 		return icon(icon_cache[key])
+	if(icon_cache == null) /// SKYRAPTOR SANITY CHECK ADDITION.
+		//to_chat(world, span_bolddanger("OH GOD OH FUCK SOMEONE *REALLY* SCREWED UP THE GREYSCALE SUBSYS, [name]'S ICON CACHE WAS FUCKING NULL"))
+		icon_cache = list()
+	if(key == null) /// SKYRAPTOR SANITY CHECK ADDITION, DITTO.
+		to_chat(world, span_bolddanger("OH GOD OH FUCK SOMEONE SCREWED UP THE GREYSCALE SUBSYS, IT JUST SPAWNED A NULL KEY FOR [name]/[type]"))
+		return last_external_icon
 
 	var/icon/icon_bundle = GenerateBundle(color_string, last_external_icon=last_external_icon)
 	icon_bundle = fcopy_rsc(icon_bundle)
@@ -249,6 +255,9 @@
 /datum/greyscale_config/proc/GenerateBundle(list/colors, list/render_steps, icon/last_external_icon)
 	if(!istype(colors))
 		colors = SSgreyscale.ParseColorString(colors)
+	if(expected_colors == 0 || json_config == null) /// SKYRAPTOR ADDITION: A sanity check because god, these things are fucking haunted
+		world.log << "SKYRAPTOR DEBUG WARNING: Greyscale [type] is fucked and asked to generate with no json config specified!"
+		return last_external_icon
 	if(length(colors) != expected_colors)
 		CRASH("[DebugName()] expected [expected_colors] color arguments but only received [length(colors)]")
 

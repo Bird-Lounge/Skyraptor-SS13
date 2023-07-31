@@ -1,5 +1,5 @@
 {
-	"generic": [
+	"generic_tank": [
 		{
 			"type": "icon_state",
 			"icon_state": "greyscale_body",
@@ -18,7 +18,7 @@
 			"blend_mode": "overlay"
 		}
 	],
-	"plasma": [
+	"plasma_tank": [
 		{
 			"type": "icon_state",
 			"icon_state": "box_greyscale_body",
@@ -37,7 +37,7 @@
 			"blend_mode": "overlay"
 		}
 	],
-	"emergency": [
+	"emergency_tank": [
 		{
 			"type": "icon_state",
 			"icon_state": "em_greyscale_body",
@@ -56,7 +56,7 @@
 			"blend_mode": "overlay"
 		}
 	],
-	"emergency_engi": [
+	"emergency_engi_tank": [
 		{
 			"type": "icon_state",
 			"icon_state": "eng_greyscale_body",
@@ -72,25 +72,6 @@
 		{
 			"type": "icon_state",
 			"icon_state": "eng_greyscale_gubbins",
-			"blend_mode": "overlay"
-		}
-	],
-	"emergency_double": [
-		{
-			"type": "icon_state",
-			"icon_state": "dub_greyscale_body",
-			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "dub_greyscale_stripe",
-			"blend_mode": "overlay",
-			"color_ids": [ 2 ]
-		},
-		{
-			"type": "icon_state",
-			"icon_state": "dub_greyscale_gubbins",
 			"blend_mode": "overlay"
 		}
 	]

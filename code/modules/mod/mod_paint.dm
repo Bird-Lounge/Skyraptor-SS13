@@ -136,7 +136,8 @@
 			else if(total_color_value < MODPAINT_MIN_OVERALL_COLORS)
 				balloon_alert(usr, "total colors too low! ([total_color_value*100]%/[MODPAINT_MIN_OVERALL_COLORS*100]%)")
 				return
-			editing_mod.set_mod_color(current_color)
+			if(editing_mod) //sanity check: SKYRAPTOR EDIT
+				editing_mod.set_mod_color(current_color)
 			SStgui.close_uis(src)
 
 /obj/item/mod/paint/proc/paint_skin(obj/item/mod/control/mod, mob/user)

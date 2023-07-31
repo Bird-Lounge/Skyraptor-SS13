@@ -43,66 +43,51 @@
 	name = "generic gas tank"
 	desc = "A generic gas tank supporting standard station paintjobs.  Good for demarkating special gas in bombs."
 
-	icon_state = "generic"
-	worn_icon_state = "generic"
-
 	greyscale_colors = "#0066FF#FFAA00"
 	greyscale_config = /datum/greyscale_config/handheld_atmos_tank
 	greyscale_config_worn = /datum/greyscale_config/handheld_atmos_tank/worn
-	greyscale_config_inhand_left = /datum/greyscale_config/handheld_atmos_tank/held_l
-	greyscale_config_inhand_right = /datum/greyscale_config/handheld_atmos_tank/held_r
+	greyscale_config_inhand_left = /datum/greyscale_config/handheld_atmos_tank/worn/held_l
+	greyscale_config_inhand_right = /datum/greyscale_config/handheld_atmos_tank/worn/held_r
 
 /obj/item/tank/internals/plasma/greyscale
 	name = "generic gas canister"
 	desc = "A generic gas canister supporting standard station paintjobs.  Good for demarkating special gas in bombs.  This one's conductive, like plasma canisters."
 
-	icon_state = "plasma"
-	worn_icon_state = "plasma"
-
 	greyscale_colors = "#FF0066#FF6600"
 	greyscale_config = /datum/greyscale_config/handheld_atmos_tank
 	greyscale_config_worn = /datum/greyscale_config/handheld_atmos_tank/worn
-	greyscale_config_inhand_left = /datum/greyscale_config/handheld_atmos_tank/held_l
-	greyscale_config_inhand_right = /datum/greyscale_config/handheld_atmos_tank/held_r
+	greyscale_config_inhand_left = /datum/greyscale_config/handheld_atmos_tank/worn/held_l
+	greyscale_config_inhand_right = /datum/greyscale_config/handheld_atmos_tank/worn/held_r
 
 /obj/item/tank/internals/emergency_oxygen/greyscale
 	name = "generic emergency tank"
 	desc = "A generic gas canister supporting standard station paintjobs.  This one's tiny, like emergency oxytanks- why would you use this over an extended-capacity one??"
 
-	icon_state = "emergency"
-	worn_icon_state = "emergency"
-
 	greyscale_colors = "#0066FF#AAFF00"
 	greyscale_config = /datum/greyscale_config/handheld_atmos_tank
 	greyscale_config_worn = /datum/greyscale_config/handheld_atmos_tank/worn
-	greyscale_config_inhand_left = /datum/greyscale_config/handheld_atmos_tank/held_l
-	greyscale_config_inhand_right = /datum/greyscale_config/handheld_atmos_tank/held_r
+	greyscale_config_inhand_left = /datum/greyscale_config/handheld_atmos_tank/worn/held_l
+	greyscale_config_inhand_right = /datum/greyscale_config/handheld_atmos_tank/worn/held_r
 
 /obj/item/tank/internals/emergency_oxygen/engi/greyscale
 	name = "generic x-cap emergency tank"
 	desc = "A generic gas canister supporting standard station paintjobs.  This one's tiny, like engineering's oxytanks- good for demarkating your Chadmosians' Pluoxium tanks of infinite breath."
 
-	icon_state = "emergency_engi"
-	worn_icon_state = "emergency_engi"
-
 	greyscale_colors = "#FF6600#66FF00"
 	greyscale_config = /datum/greyscale_config/handheld_atmos_tank
 	greyscale_config_worn = /datum/greyscale_config/handheld_atmos_tank/worn
-	greyscale_config_inhand_left = /datum/greyscale_config/handheld_atmos_tank/held_l
-	greyscale_config_inhand_right = /datum/greyscale_config/handheld_atmos_tank/held_r
+	greyscale_config_inhand_left = /datum/greyscale_config/handheld_atmos_tank/worn/held_l
+	greyscale_config_inhand_right = /datum/greyscale_config/handheld_atmos_tank/worn/held_r
 
 /obj/item/tank/internals/emergency_oxygen/double/greyscale
 	name = "generic 2x-cap emergency tank"
 	desc = "A generic gas canister supporting standard station paintjobs.  This one's made of two tiny ones, like engineering's oxytanks- filled with pluox you could last a whole dang shift off this thing!"
 
-	icon_state = "emergency_double"
-	worn_icon_state = "emergency_double"
-
 	greyscale_colors = "#FF6600#66FF00"
 	greyscale_config = /datum/greyscale_config/handheld_atmos_tank
 	greyscale_config_worn = /datum/greyscale_config/handheld_atmos_tank/worn
-	greyscale_config_inhand_left = /datum/greyscale_config/handheld_atmos_tank/held_l
-	greyscale_config_inhand_right = /datum/greyscale_config/handheld_atmos_tank/held_r
+	greyscale_config_inhand_left = /datum/greyscale_config/handheld_atmos_tank/worn/held_l
+	greyscale_config_inhand_right = /datum/greyscale_config/handheld_atmos_tank/worn/held_r
 
 // we dont need to touch these (Yet)
 /obj/item/tank/internals/plasmaman
@@ -120,17 +105,20 @@
 	icon_file = 'modular_skyraptor/modules/aesthetics/moremospherics/icons/atmosia_items.dmi'
 	json_config = 'modular_skyraptor/modules/aesthetics/moremospherics/greyscales/tank_inventory.json'
 
-/datum/greyscale_config/handheld_atmos_tank/held_l
-	name = "Left Held Atmos Tank"
-	icon_file = 'modular_skyraptor/modules/aesthetics/moremospherics/icons/atmosia_items_lh.dmi'
-
-/datum/greyscale_config/handheld_atmos_tank/held_r
-	name = "Right Held Atmos Tank"
-	icon_file = 'modular_skyraptor/modules/aesthetics/moremospherics/icons/atmosia_items_rh.dmi'
-
 /datum/greyscale_config/handheld_atmos_tank/worn
 	name = "Worn Atmos Tank"
 	icon_file = 'modular_skyraptor/modules/aesthetics/moremospherics/icons/atmosia_items_suit.dmi'
+	json_config = 'modular_skyraptor/modules/aesthetics/moremospherics/greyscales/tank_mob.json'
+
+/datum/greyscale_config/handheld_atmos_tank/worn/held_l
+	name = "Left Held Atmos Tank"
+	icon_file = 'modular_skyraptor/modules/aesthetics/moremospherics/icons/atmosia_items_lh.dmi'
+	json_config = 'modular_skyraptor/modules/aesthetics/moremospherics/greyscales/tank_held.json'
+
+/datum/greyscale_config/handheld_atmos_tank/worn/held_r
+	name = "Right Held Atmos Tank"
+	icon_file = 'modular_skyraptor/modules/aesthetics/moremospherics/icons/atmosia_items_rh.dmi'
+	json_config = 'modular_skyraptor/modules/aesthetics/moremospherics/greyscales/tank_held.json'
 
 
 
@@ -185,7 +173,7 @@
 
 
 /// THE BIGGEST QOL FEATURE: re-greyscale ANY greyscalable item with the paintkit, or color matrix stuff at will
-/obj/item/mod/paint
+/*/obj/item/mod/paint
 	var/obj/item/repainting_item = null
 	var/obj/item/regreyscale_item = null
 
@@ -248,7 +236,7 @@
 	else if(repainting_item)
 		return repainting_item
 	else
-		to_chat(loc, span_userdanger("Tried to use the paintkit's UI when there was no MOD or regular item targeted!"))
+		to_chat(world, span_userdanger("SKYRAPTOR DEBUG WARNING: Tried to use a paintkit's UI when there was no MOD or regular item targeted!"))
 		return null
 
 /obj/item/mod/paint/ui_close(mob/user)
@@ -278,7 +266,7 @@
 	return data
 
 /obj/item/mod/paint/ui_act(action, list/params)
-	//. = ..()
+	. = ..()
 	if(.)
 		return
 	switch(action)
@@ -334,7 +322,7 @@
 				editing_mod.set_mod_color(current_color)
 			if(repainting_item)
 				repainting_item.color = current_color
-			SStgui.close_uis(src)
+			SStgui.close_uis(src)*/
 
 #undef AIRTANK_MAX_SAFE_PRESSURE
 #undef MODPAINT_MAX_COLOR_VALUE
