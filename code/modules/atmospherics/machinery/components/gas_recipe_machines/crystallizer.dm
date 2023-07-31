@@ -4,7 +4,7 @@
 #define HIGH_CONDUCTIVITY_RATIO 0.95
 
 /obj/machinery/atmospherics/components/binary/crystallizer
-	icon = 'icons/obj/atmospherics/components/machines.dmi'
+	icon = 'icons/obj/machines/atmospherics/machines.dmi'
 	icon_state = "crystallizer-off"
 	base_icon_state = "crystallizer"
 	name = "crystallizer"
@@ -101,7 +101,7 @@
 	cut_overlays()
 	var/mutable_appearance/pipe_appearance1 = mutable_appearance(underlay_icon, "intact_[dir]_[piping_layer]", layer = GAS_SCRUBBER_LAYER) //SKR EDIT
 	pipe_appearance1.color = COLOR_LIME
-	var/mutable_appearance/pipe_appearance2 = mutable_appearance(underlay_icon, "intact_[turn(dir, 180)]_[piping_layer]", layer = GAS_SCRUBBER_LAYER) //SKR EDIT
+	var/mutable_appearance/pipe_appearance2 = mutable_appearance(underlay_icon, "intact_[REVERSE_DIR(dir)]_[piping_layer]", layer = GAS_SCRUBBER_LAYER)
 	pipe_appearance2.color = COLOR_MOSTLY_PURE_RED
 	. += pipe_appearance1
 	. += pipe_appearance2
