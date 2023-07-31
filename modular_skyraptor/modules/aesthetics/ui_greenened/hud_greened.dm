@@ -23,3 +23,12 @@
 	icon = 'modular_skyraptor/modules/aesthetics/ui_greenened/hud/screen_cyborg.dmi'
 
 // MOB.DM holds STANDARD HUD.DMI REF, so we had to MODIFY IT THERE
+
+
+
+/// Style meter fixening HUGHNGH
+/atom/movable/screen/style_meter_background
+	icon = 'modular_skyraptor/modules/aesthetics/ui_greenened/hud/style_meter.dmi'
+
+/atom/movable/screen/style_meter
+	icon = 'modular_skyraptor/modules/aesthetics/ui_greenened/hud/style_meter.dmi'

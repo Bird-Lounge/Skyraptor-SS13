@@ -81,7 +81,7 @@
 	meter = new()
 	meter_image = new()
 	meter.vis_contents += meter_image
-	meter_image.add_filter("meter_mask", 1, list(type = "alpha", icon = icon('icons/hud/style_meter.dmi', "style_meter"), flags = MASK_INVERSE))
+	meter_image.add_filter("meter_mask", 1, list(type = "alpha", icon = icon('modular_skyraptor/modules/aesthetics/ui_greenened/hud/style_meter.dmi', "style_meter"), flags = MASK_INVERSE)) /// SKYRAPTOR EDIT: style meter *Weh
 	meter.update_appearance()
 	meter_image.update_appearance()
 
@@ -274,12 +274,12 @@
 /datum/component/style/proc/format_rank_string(new_rank)
 	var/rank_string = rank_to_string(new_rank)
 	var/final_string = ""
-	final_string += "<span class='maptext' style='font-size: 8px'><font color='[rank_to_color(new_rank)]'><b>[rank_string[1]]</b>"
+	final_string += "<span style='font-size: 8px'><font color='[rank_to_color(new_rank)]'><b>[rank_string[1]]</b>" /// SKYRAPTOR EDIT: begone maptext, the new font is ugly on this
 	final_string += "<span style='font-size: 7px'>[copytext(rank_string, 2)]</span></font></span>"
 	return final_string
 
 /datum/component/style/proc/generate_multiplier()
-	return "<br><span class='maptext' style='font-size: 7px'>MULTIPLIER: [point_multiplier]X</span>"
+	return "<br><span style='font-size: 7px'>MULTIPLIER: [point_multiplier]X</span>" /// SKYRAPTOR EDIT: begone maptext, the new font is ugly on this
 
 /datum/component/style/proc/generate_actions()
 	var/action_string = ""
