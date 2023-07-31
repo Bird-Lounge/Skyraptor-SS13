@@ -248,7 +248,7 @@
 		allowed_configs += "[config]"
 
 		var/datum/greyscale_modify_menu/menu = new(
-			smacked_item, user, allowed_configs, CALLBACK(src, PROC_REF(recolor)),
+			smacked_item, user, allowed_configs, CALLBACK(src, PROC_REF(recolor_gags)),
 			starting_icon_state=initial(fake_atom.icon_state),
 			starting_config=initial(fake_atom.greyscale_config),
 			starting_colors=initial(fake_atom.greyscale_colors)
