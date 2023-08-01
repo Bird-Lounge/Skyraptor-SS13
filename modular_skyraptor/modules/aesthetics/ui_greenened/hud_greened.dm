@@ -29,10 +29,10 @@
 /// Style meter fixening HUGHNGH
 /atom/movable/screen/style_meter_background
 	icon = 'modular_skyraptor/modules/aesthetics/ui_greenened/hud/style_meter.dmi'
-	maptext_height = 108
+	maptext_height = 109
 	maptext_width = 102
 	maptext_x = 7
-	maptext_y = 116
+	maptext_y = 7
 
 /atom/movable/screen/style_meter
 	icon = 'modular_skyraptor/modules/aesthetics/ui_greenened/hud/style_meter.dmi'

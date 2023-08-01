@@ -221,7 +221,7 @@
 
 			rank = rank_changed
 	meter.maptext = "[format_rank_string(rank)][generate_multiplier()][generate_actions()]"
-	meter.maptext_y = 116 - 9 * length(actions)
+	//meter.maptext_y = 80 - 10 * length(actions) /// SKYRAPTOR EDIT: adjusting for new fonts
 	update_meter(point_to_rank(), go_back)
 
 /datum/component/style/proc/update_meter(new_rank, go_back)
@@ -274,17 +274,17 @@
 /datum/component/style/proc/format_rank_string(new_rank)
 	var/rank_string = rank_to_string(new_rank)
 	var/final_string = ""
-	final_string += "<span class='context'><font color='[rank_to_color(new_rank)]'><b>[rank_string[1]]</b>" /// SKYRAPTOR EDIT: using context instead of maptext on these because the end result is bad otherwise
-	final_string += "<span class='context'>[copytext(rank_string, 2)]</span></font></span>" /// SKYRAPTOR EDIT: using context instead of maptext on these because the end result is bad otherwise
+	final_string += "<span class='context' valign='top'><font color='[rank_to_color(new_rank)]'><b>[rank_string[1]]</b>" /// SKYRAPTOR EDIT: using context instead of maptext on these because the end result is bad otherwise
+	final_string += "<span class='context' valign='top'>[copytext(rank_string, 2)]</span></font></span>" /// SKYRAPTOR EDIT: using context instead of maptext on these because the end result is bad otherwise
 	return final_string
 
 /datum/component/style/proc/generate_multiplier()
-	return "<br><span class='subcontext'>MULTIPLIER: [point_multiplier]X</span>" /// SKYRAPTOR EDIT: removes the font size from maptext style to stop it aliasing
+	return "<span class='maptext' valign='top'>, [point_multiplier]X PM, [(1 + ((rank * 0.1) - 0.3))]x ORE</span>" /// SKYRAPTOR EDIT: shifted to be part of the main style meter
 
 /datum/component/style/proc/generate_actions()
 	var/action_string = ""
 	for(var/action in actions)
-		action_string += "<br><span class='maptext'>+ <font color='[action_to_color(actions[action])]'>[actions[action]]</font></span>"
+		action_string += "<br><span class='maptext' valign='top'>+ <font color='[action_to_color(actions[action])]'>[actions[action]]</font></span>"
 	return action_string
 
 /datum/component/style/proc/action_to_color(action)
