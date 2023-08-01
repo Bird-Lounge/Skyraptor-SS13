@@ -161,7 +161,7 @@
 
 
 /datum/component/style/proc/add_action(action, amount)
-	if(length(actions) > 9)
+	if(length(actions) > 8) /// SKYRAPTOR EDIT: 9 actions is too much, it'll clip off-screen
 		actions.Cut(1, 2)
 	if(length(actions))
 		var/last_action = actions[length(actions)]
@@ -221,7 +221,7 @@
 
 			rank = rank_changed
 	meter.maptext = "[format_rank_string(rank)][generate_multiplier()][generate_actions()]"
-	meter.maptext_y = 100 - 9 * length(actions)
+	meter.maptext_y = 116 - 9 * length(actions)
 	update_meter(point_to_rank(), go_back)
 
 /datum/component/style/proc/update_meter(new_rank, go_back)
@@ -274,12 +274,12 @@
 /datum/component/style/proc/format_rank_string(new_rank)
 	var/rank_string = rank_to_string(new_rank)
 	var/final_string = ""
-	final_string += "<span style='font-size: 8px'><font color='[rank_to_color(new_rank)]'><b>[rank_string[1]]</b>" /// SKYRAPTOR EDIT: begone maptext, the new font is ugly on this
-	final_string += "<span style='font-size: 7px'>[copytext(rank_string, 2)]</span></font></span>"
+	final_string += "<span class='context'><font color='[rank_to_color(new_rank)]'><b>[rank_string[1]]</b>" /// SKYRAPTOR EDIT: using context instead of maptext on these because the end result is bad otherwise
+	final_string += "<span class='context'>[copytext(rank_string, 2)]</span></font></span>" /// SKYRAPTOR EDIT: using context instead of maptext on these because the end result is bad otherwise
 	return final_string
 
 /datum/component/style/proc/generate_multiplier()
-	return "<br><span style='font-size: 7px'>MULTIPLIER: [point_multiplier]X</span>" /// SKYRAPTOR EDIT: begone maptext, the new font is ugly on this
+	return "<br><span class='subcontext'>MULTIPLIER: [point_multiplier]X</span>" /// SKYRAPTOR EDIT: removes the font size from maptext style to stop it aliasing
 
 /datum/component/style/proc/generate_actions()
 	var/action_string = ""
