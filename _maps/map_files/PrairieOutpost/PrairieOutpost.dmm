@@ -3828,6 +3828,10 @@
 "mf" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/light/floor,
+/obj/machinery/door/poddoor/preopen{
+	id = "bridge blast";
+	name = "Bridge Blast Door"
+	},
 /turf/open/floor/plating,
 /area/station/command/bridge)
 "mg" = (
@@ -8036,7 +8040,7 @@
 /area/station/engineering/atmos/hfr_room)
 "zK" = (
 /obj/machinery/light_switch/directional/south,
-/obj/machinery/modular_computer/preset/cargochat/engineering{
+/obj/machinery/modular_computer/preset/engineering{
 	dir = 8
 	},
 /turf/open/floor/engine,
@@ -9722,7 +9726,7 @@
 "EV" = (
 /obj/effect/turf_decal/tile/yellow/fourcorners,
 /obj/machinery/light/directional/east,
-/obj/machinery/modular_computer/preset/cargochat/engineering{
+/obj/machinery/modular_computer/preset/engineering{
 	dir = 8
 	},
 /turf/open/floor/iron,
@@ -10794,8 +10798,7 @@
 "Io" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/computer/order_console/mining{
-	express_cost_multiplier = 0.65;
-	forced_express = 1;
+	cooldown_time = 0.65;
 	cargo_cost_multiplier = 0.5
 	},
 /turf/open/floor/iron,
@@ -11885,6 +11888,13 @@
 /obj/machinery/light/no_nightlight/directional/west,
 /turf/open/floor/wood/parquet,
 /area/station/service/theater)
+"LN" = (
+/obj/structure/table/reinforced,
+/obj/item/card/mining_point_card{
+	points = 1000
+	},
+/turf/open/floor/iron,
+/area/station/command/bridge)
 "LO" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron,
@@ -14005,6 +14015,10 @@
 /area/station/maintenance/fore/upper)
 "SX" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/preopen{
+	id = "bridge blast";
+	name = "Bridge Blast Door"
+	},
 /turf/open/floor/plating,
 /area/station/command/bridge)
 "SY" = (
@@ -15236,6 +15250,17 @@
 /obj/structure/chair{
 	dir = 1;
 	name = "Command Station"
+	},
+/obj/machinery/button/door{
+	id = "bridge blast";
+	name = "Bridge Blast Door Control";
+	pixel_x = -28;
+	pixel_y = 6;
+	req_access = list("command")
+	},
+/obj/machinery/keycard_auth/directional/west{
+	pixel_y = -2;
+	pixel_x = -27
 	},
 /turf/open/floor/iron,
 /area/station/command/bridge)
@@ -49019,7 +49044,7 @@ VA
 OT
 SX
 Di
-jO
+LN
 hR
 hR
 gl
