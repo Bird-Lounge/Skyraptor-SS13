@@ -170,11 +170,11 @@
 	if(styleloss_cooldown > 0) /// SKYRAPTOR ADDITION: styleloss cooldown system
 		styleloss_cooldown -= seconds_per_tick
 	else
-		change_points(-5 * seconds_per_tick * ROUND_UP((style_points + 1) / 200), use_multiplier = FALSE) /// SKYRAPTOR ADDITION END
+		change_points(-4 * seconds_per_tick * ROUND_UP((style_points + 1) / 200), use_multiplier = FALSE)
 	if(style_gained_this_tick > 120) // equivalent to 3 ores simultaneously, or about 5 rocks, at lowest rank.
 		if(styleloss_cooldown < 0)
 			styleloss_cooldown = 0
-		styleloss_cooldown = style_gained_this_tick / 240 //3 ores would grant 1/2 a second of cooldown immunity at lowest rank.
+		styleloss_cooldown += style_gained_this_tick / 240 //3 ores would grant 1/2 a second of cooldown immunity at lowest rank.
 	style_gained_this_tick = 0 /// SKYRAPTOR ADDITION END
 	update_screen()
 
@@ -204,7 +204,7 @@
 
 	var/modified_amount = amount * (amount > 0 ? 1 - 0.1 * rank : 1) * (use_multiplier ? point_multiplier : 1)
 	if(modified_amount > 0)
-		style_gained_this_tick += modified_amount
+		style_gained_this_tick += modified_amount + (amount / 2) //reduces the loss of scaling due to higher ranks/point mults
 	style_points = max(style_points + modified_amount, -1)
 	update_screen()
 
@@ -283,17 +283,17 @@
 			return STYLE_ECLIPSED
 		if(200 to 299)
 			return STYLE_DIM
-		if(300 to 399)
+		if(300 to 449)
 			return STYLE_COSMIC
-		if(400 to 499)
+		if(450 to 599)
 			return STYLE_BINARY
-		if(500 to 599)
+		if(600 to 799)
 			return STYLE_AURORA
-		if(600 to 699)
+		if(800 to 999)
 			return STYLE_SPACED
-		if(700 to 799)
+		if(1000 to 1249)
 			return STYLE_SPACEDPLUS
-		if(800 to INFINITY)
+		if(1500 to INFINITY)
 			return STYLE_SPACEDPLUSPLUS
 
 /datum/component/style/proc/rank_to_oremult(new_rank)
@@ -540,15 +540,15 @@
 		styleloss_cooldown = 0
 	if(ismegafauna(died))
 		add_action(ACTION_MAJOR_KILL, 350)
-		styleloss_cooldown += 7
+		styleloss_cooldown += 15
 
 	else if(died.maxHealth >= 75) //at least legions
 		add_action(ACTION_KILL, 125)
-		styleloss_cooldown += 3
+		styleloss_cooldown += 7
 
 	else if(died.maxHealth >= 30) //at least goliath children, dont count legion skulls
 		add_action(ACTION_MINOR_KILL, 75)
-		styleloss_cooldown += 1
+		styleloss_cooldown += 3
 
 #undef STYLE_FADED
 #undef STYLE_ECLIPSED
