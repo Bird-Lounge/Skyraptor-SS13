@@ -38,7 +38,7 @@
 	var/style_gained_this_tick
 	
 	/// The current rank we have.
-	var/rank = STYLE_DULL
+	var/rank = STYLE_FADED
 	/// The last point affecting actions we've done
 	var/list/actions = list()
 	/// The style meter shown on screen.
@@ -52,7 +52,7 @@
 	/// Weakref to the added projectile parry component
 	var/datum/weakref/projectile_parry
 	/// What rank, minimum, the user needs to be to hotswap items
-	var/hotswap_rank = STYLE_BRUTAL
+	var/hotswap_rank = STYLE_COSMIC
 	/// If this is multitooled, making it make funny noises on the user's rank going up
 	var/multitooled = FALSE
 	/// A static list of lists of all the possible sounds to play when multitooled, in numerical order
