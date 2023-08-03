@@ -280,7 +280,7 @@
 /datum/action/innate/bci_charge_action/update_button_status(atom/movable/screen/movable/action_button/button, force = FALSE)
 	. = ..()
 	var/obj/item/stock_parts/cell/cell = circuit_component.parent.cell
-	button.maptext = cell ? MAPTEXT("[cell.percent()]%") : ""
+	button.maptext = cell ? MAPTEXT_MNC("[cell.percent()]%") : "" /// SKYRAPTOR EDIT: MNC maptext subtype
 
 /obj/machinery/bci_implanter
 	name = "brain-computer interface manipulation chamber"

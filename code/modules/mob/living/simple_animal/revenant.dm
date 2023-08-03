@@ -163,7 +163,7 @@
 			essencecolor = "#9A5ACB" //oh boy you've got a lot of essence
 		else if(!essence)
 			essencecolor = "#1D2953" //oh jeez you're dying
-		hud_used.healths.maptext = MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='[essencecolor]'>[essence]E</font></div>")
+		hud_used.healths.maptext = MAPTEXT_MNC("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='[essencecolor]'>[essence]E</font></div>") /// SKYRAPTOR EDIT: MNC maptext subtype
 
 /mob/living/simple_animal/revenant/med_hud_set_health()
 	return //we use no hud

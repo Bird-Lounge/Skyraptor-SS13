@@ -9,6 +9,9 @@
 	anchored = TRUE
 	plane = GHOST_PLANE
 	color = "#ff0000" // text color
+	
+	maptext_width = 120 /// SKYRAPTOR ADDITION: helps with larger fonts
+	
 	var/text_size = 3 // larger values clip when the displayed text is larger than 2 digits.
 	var/started = FALSE
 	var/displayed_text
@@ -64,7 +67,7 @@
 	displayed_text = new_val
 
 	if(displayed_text)
-		maptext = MAPTEXT("[displayed_text]")
+		maptext = MAPTEXT_MNC_BIG("[displayed_text]") /// SKYRAPTOR EDIT: MNC maptext variant
 	else
 		maptext = null
 

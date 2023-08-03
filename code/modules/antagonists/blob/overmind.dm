@@ -256,14 +256,14 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	if(!blob_core)
 		return FALSE
 	var/current_health = round((blob_core.get_integrity() / blob_core.max_integrity) * 100)
-	hud_used.healths.maptext = MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#82ed00'>[current_health]%</font></div>")
+	hud_used.healths.maptext = MAPTEXT_MNC("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#82ed00'>[current_health]%</font></div>") /// SKYRAPTOR EDIT: MNC maptext subtype
 	for(var/mob/living/simple_animal/hostile/blob/blobbernaut/blobbernaut in blob_mobs)
 		if(blobbernaut.hud_used && blobbernaut.hud_used.blobpwrdisplay)
-			blobbernaut.hud_used.blobpwrdisplay.maptext = MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#82ed00'>[current_health]%</font></div>")
+			blobbernaut.hud_used.blobpwrdisplay.maptext = MAPTEXT_MNC("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#82ed00'>[current_health]%</font></div>") /// SKYRAPTOR EDIT: MNC maptext subtype
 
 /mob/camera/blob/proc/add_points(points)
 	blob_points = clamp(blob_points + points, 0, max_blob_points)
-	hud_used.blobpwrdisplay.maptext = MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#e36600'>[round(blob_points)]</font></div>")
+	hud_used.blobpwrdisplay.maptext = MAPTEXT_MNC("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#e36600'>[round(blob_points)]</font></div>") /// SKYRAPTOR EDIT: MNC maptext subtype
 
 /mob/camera/blob/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null, filterproof = null, message_range = 7, datum/saymode/saymode = null)
 	if (!message)
