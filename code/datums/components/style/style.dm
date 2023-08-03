@@ -261,7 +261,7 @@
 		if(STYLE_ECLIPSED)
 			return "#333333"
 		if(STYLE_DIM)
-			return "#aaaaaa
+			return "#aaaaaa"
 		if(STYLE_COSMIC)
 			return "#6600FF"
 		if(STYLE_BINARY)
