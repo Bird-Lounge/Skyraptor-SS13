@@ -1,6 +1,8 @@
 /// Dynamically calculate nightshift brightness. How TG does it is painful to modify.
 #define NIGHTSHIFT_LIGHT_MODIFIER 0.15
 #define NIGHTSHIFT_COLOR_MODIFIER 0.10
+#define LIGHT_ON_DELAY_UPPER (2 SECONDS)
+#define LIGHT_ON_DELAY_LOWER (0.25 SECONDS)
 
 /atom
 	light_power = 1.25
@@ -27,10 +29,15 @@
 	var/flicker_timer = null
 	var/roundstart_flicker = FALSE
 
+/obj/machinery/light/floor
+	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/lights/icons/lighting.dmi'
+	overlay_icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/lights/icons/lighting_overlay.dmi'
+
 /obj/machinery/light/set_on(turn_on)
-	. = ..()
-	if(turn_on && status == LIGHT_OK)
-		playsound(src.loc, 'modular_skyraptor/modules/aesthetics/inherited_skyrat/lights/sound/light_on.ogg', 65, 1)
+	spawn(rand(LIGHT_ON_DELAY_LOWER, LIGHT_ON_DELAY_UPPER))
+		. = ..()
+		if(turn_on && status == LIGHT_OK)
+			playsound(src.loc, 'modular_skyraptor/modules/aesthetics/inherited_skyrat/lights/sound/light_on.ogg', 65, 1)
 
 /obj/machinery/light/proc/start_flickering()
 	on = FALSE
@@ -113,3 +120,5 @@
 
 #undef NIGHTSHIFT_LIGHT_MODIFIER
 #undef NIGHTSHIFT_COLOR_MODIFIER
+#undef LIGHT_ON_DELAY_UPPER (2 SECONDS)
+#undef LIGHT_ON_DELAY_LOWER (0.25 SECONDS)
