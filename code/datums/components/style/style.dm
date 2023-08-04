@@ -283,18 +283,17 @@
 			return STYLE_ECLIPSED
 		if(200 to 299)
 			return STYLE_DIM
-		if(300 to 449)
+		if(300 to 399)
 			return STYLE_COSMIC
-		if(450 to 599)
+		if(400 to 499)
 			return STYLE_BINARY
-		if(600 to 799)
+		if(500 to 599)
 			return STYLE_AURORA
-		if(800 to 999)
+		if(600 to 699)
 			return STYLE_SPACED
-		if(1000 to 1249)
+		if(700 to 799)
 			return STYLE_SPACEDPLUS
-		if(1500 to INFINITY)
-			return STYLE_SPACEDPLUSPLUS
+	return STYLE_SPACEDPLUSPLUS
 
 /datum/component/style/proc/rank_to_oremult(new_rank)
 	switch(new_rank)
