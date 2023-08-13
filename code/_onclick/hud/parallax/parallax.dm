@@ -21,7 +21,7 @@
 		else
 			C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/planet(null, src) /// SKYRAPTOR EDIT END
 		if(SSparallax.random_layer)
-			C.parallax_layers_cached += new SSparallax.random_layer.type(null, src, SSparallax.random_layer)
+			C.parallax_layers_cached += new SSparallax.random_layer.type(null, src, FALSE, SSparallax.random_layer)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_3(null, src)
 
 	C.parallax_layers = C.parallax_layers_cached.Copy()
