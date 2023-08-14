@@ -52,7 +52,7 @@
 
 /obj/item/clothing/under/rank/civilian
 	worn_icon = 'modular_skyraptor/modules/aesthetics/digiclothes/skyrat_inherited/under/civilian.dmi'
-	supported_bodytypes = list(BODYTYPE_HUMANOID, BODYTYPE_DIGITIGRADE)
+	supported_bodytypes = list(BODYTYPE_HUMANOID, BODYTYPE_DIGITIGRADE, BODYTYPE_TESHVALI, BODYTYPE_AVALARI)
 	bodytype_icon_files = list("4" = 'modular_skyraptor/modules/aesthetics/digiclothes/skyrat_inherited/under/civilian.dmi',
 		"16" = 'modular_skyraptor/modules/aesthetics/digiclothes/skyrat_inherited/under/civilian_digi.dmi',
 		"1024" = 'modular_skyraptor/modules/species_teshvali/icons/clothing/under/teshvali_under_civ.dmi',
@@ -60,7 +60,7 @@
 
 /obj/item/clothing/under/suit
 	worn_icon = 'modular_skyraptor/modules/aesthetics/digiclothes/skyrat_inherited/under/suits.dmi'
-	supported_bodytypes = list(BODYTYPE_HUMANOID, BODYTYPE_DIGITIGRADE)
+	supported_bodytypes = list(BODYTYPE_HUMANOID, BODYTYPE_DIGITIGRADE, BODYTYPE_TESHVALI, BODYTYPE_AVALARI)
 	bodytype_icon_files = list("4" = 'modular_skyraptor/modules/aesthetics/digiclothes/skyrat_inherited/under/suits.dmi',
 		"16" = 'modular_skyraptor/modules/aesthetics/digiclothes/skyrat_inherited/under/suits_digi.dmi',
 		"1024" = 'modular_skyraptor/modules/species_teshvali/icons/clothing/under/teshvali_under_civ.dmi',
