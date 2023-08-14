@@ -17131,7 +17131,7 @@
 /area/station/maintenance/floor1/starboard/fore)
 "eur" = (
 /obj/effect/mapping_helpers/airlock/access/any/supply/mining,
-/obj/machinery/door/airlock/glass_large{
+/obj/machinery/door/airlock/multi_tile/glass{
 	name = "Xenoflora"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -29960,10 +29960,10 @@
 /turf/open/floor/iron/checker,
 /area/station/commons/vacant_room/commissary)
 "hTf" = (
-/obj/effect/landmark/start/medical_doctor,
 /obj/structure/chair{
 	dir = 8
 	},
+/obj/effect/landmark/start/assistant,
 /turf/open/floor/iron/checker,
 /area/station/commons/vacant_room/commissary)
 "hTj" = (
@@ -31580,10 +31580,10 @@
 /area/station/security/prison)
 "ipB" = (
 /obj/structure/sign/poster/official/random/directional/north,
-/obj/effect/landmark/start/medical_doctor,
 /obj/structure/chair{
 	dir = 8
 	},
+/obj/effect/landmark/start/assistant,
 /turf/open/floor/iron/checker,
 /area/station/commons/vacant_room/commissary)
 "ipI" = (
@@ -77122,7 +77122,9 @@
 /area/station/maintenance/disposal/incinerator)
 "uko" = (
 /obj/structure/table,
-/obj/item/pai_card,
+/obj/item/pai_card{
+	pixel_y = 6
+	},
 /turf/open/floor/iron/checker,
 /area/station/commons/vacant_room/commissary)
 "ukr" = (

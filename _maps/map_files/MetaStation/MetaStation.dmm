@@ -41192,7 +41192,7 @@
 /obj/machinery/button/door/directional/north{
 	id = "hop";
 	name = "Privacy Shutters Control";
-	req_access = list("kitchen")
+	req_access = list("hop")
 	},
 /obj/machinery/computer/accounting,
 /turf/open/floor/wood,
