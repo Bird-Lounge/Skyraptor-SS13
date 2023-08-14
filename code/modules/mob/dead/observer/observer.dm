@@ -212,7 +212,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		else
 			ghostimage_default.icon_state = new_form
 
-	if((ghost_accs == GHOST_ACCS_DIR || ghost_accs == GHOST_ACCS_FULL) && (icon_state in GLOB.ghost_forms_with_directions_list)) //if this icon has dirs AND the client wants to show them, we make sure we update the dir on movement
+	if((ghost_accs != GHOST_ACCS_NONE) && (icon_state in GLOB.ghost_forms_with_directions_list || ghost_accs == GHOST_ACCS_SPRITE)) //SKR EDIT - if this icon has dirs AND the client wants to show them, we make sure we update the dir on movement
 		updatedir = 1
 	else
 		updatedir = 0 //stop updating the dir in case we want to show accessories with dirs on a ghost sprite without dirs
@@ -237,8 +237,8 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 				hair_overlay.alpha = 200
 				add_overlay(hair_overlay)
 	if(ghost_accs == GHOST_ACCS_SPRITE) /// SKYRAPTOR ADDITION BEGIN
-		if(mind)
-			if(mind.current)
+		if(mind != null)
+			if(mind.current != null)
 				set_ghost_appearance_from_mob(mind.current) /// SKYRAPTOR ADDITION END
 
 /*
@@ -826,7 +826,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if(client?.prefs.read_preference(/datum/preference/choiced/ghost_accessories) == GHOST_ACCS_SPRITE) /// SKYRAPTOR ADDITION BEGIN: reset to your default character prefs
 			var/mob/living/carbon/human/dummy/consistent/template = new
 			client.prefs.apply_prefs_to(template)
-			set_ghost_appearance_from_mob(template) /// SKYRAPTOR ADDITION END
+			set_ghost_appearance_from_mob(template)
+			spawn(3) //wait 3 ticks for things to finish and then clear the dummy (this code is scary and haunted)
+				QDEL(template) /// SKYRAPTOR ADDITION END
 
 /mob/dead/observer/proc/set_ghost_appearance()
 	if(!client?.prefs)
