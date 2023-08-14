@@ -202,3 +202,22 @@
 /datum/emote/living/hiss/get_sound(mob/living/user)
 	return pick('modular_skyraptor/modules/newemotes/sounds/voice/hiss1.ogg',
 					'modular_skyraptor/modules/newemotes/sounds/voice/hiss2.ogg')
+
+/datum/emote/living/purr
+	key = "purr"
+	key_third_person = "purrs"
+	message = "purrs."
+	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
+	audio_cooldown = 3 SECONDS
+	vary = TRUE
+
+/datum/emote/living/purr/get_sound(mob/living/user)
+	return pick('modular_skyraptor/modules/newemotes/sounds/voice/feline_purr.ogg')
+
+/datum/emote/living/purr/raptor
+	key = "rpurr"
+	key_third_person = "rpurrs"
+	message = "purrs harshly."
+
+/datum/emote/living/purr/raptor/get_sound(mob/living/user)
+	return pick('modular_skyraptor/modules/newemotes/sounds/voice/raptor_purr.ogg')

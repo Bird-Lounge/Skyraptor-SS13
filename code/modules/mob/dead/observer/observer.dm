@@ -236,6 +236,10 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 					hair_overlay.color = hair_color
 				hair_overlay.alpha = 200
 				add_overlay(hair_overlay)
+	if(ghost_accs == GHOST_ACCS_SPRITE) /// SKYRAPTOR ADDITION BEGIN
+		if(mind)
+			if(mind.current)
+				set_ghost_appearance_from_mob(mind.current) /// SKYRAPTOR ADDITION END
 
 /*
  * Increase the brightness of a color by calculating the average distance between the R, G and B values,
@@ -819,6 +823,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if(mind)
 			mind.ghostname = real_name
 		name = real_name
+		if(client?.prefs.read_preference(/datum/preference/choiced/ghost_accessories) == GHOST_ACCS_SPRITE) /// SKYRAPTOR ADDITION BEGIN: reset to your default character prefs
+			var/mob/living/carbon/human/dummy/consistent/template = new
+			client.prefs.apply_prefs_to(template)
+			set_ghost_appearance_from_mob(template) /// SKYRAPTOR ADDITION END
 
 /mob/dead/observer/proc/set_ghost_appearance()
 	if(!client?.prefs)
@@ -839,6 +847,21 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	qdel(species)
 
 	update_appearance()
+
+/// SKYRAPTOR ADDITION BEGIN: THIS CODE SHAMELESSLY CRIBBED FROM DAEDALUS
+/mob/dead/observer/proc/set_ghost_appearance_from_mob(mob/living/to_copy)
+	if(!to_copy || !to_copy.icon)
+		icon = initial(icon)
+		icon_state = "ghost"
+		alpha = 255
+		overlays.Cut()
+	else
+		icon = to_copy.icon
+		icon_state = to_copy.icon_state
+		overlays = to_copy.overlays
+		alpha = 127
+	update_appearance()
+/// SKYRAPTOR ADDITION END
 
 /mob/dead/observer/can_perform_action(atom/movable/target, action_bitflags)
 	return isAdminGhostAI(usr)
