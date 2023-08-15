@@ -17,11 +17,9 @@
 #define GHOST_ACCS_DIR "Only directional sprites"
 /// The main player's ghost will display as a transparent mob with clothing
 #define GHOST_ACCS_FULL "Full accessories"
-/// SKYRAPTOR ADDITION: The main player's ghost will display as a transparent copy of their sprite
-#define GHOST_ACCS_SPRITE "Player Sprite"
 
 /// The default ghost display selection for the main player
-#define GHOST_ACCS_DEFAULT_OPTION GHOST_ACCS_SPRITE /// SKYRAPTOR EDIT: default to showing your sprite
+#define GHOST_ACCS_DEFAULT_OPTION GHOST_ACCS_FULL
 
 /// The other players ghosts will display as a simple white ghost 
 #define GHOST_OTHERS_SIMPLE "White ghosts"

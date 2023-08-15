@@ -5,7 +5,7 @@
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
 
 /datum/preference/choiced/ghost_accessories/init_possible_values()
-	return list(GHOST_ACCS_NONE, GHOST_ACCS_DIR, GHOST_ACCS_FULL, GHOST_ACCS_SPRITE) /// SKYRAPTOR EDIT: added our new category
+	return list(GHOST_ACCS_NONE, GHOST_ACCS_DIR, GHOST_ACCS_FULL)
 
 /datum/preference/choiced/ghost_accessories/create_default_value()
 	return GHOST_ACCS_DEFAULT_OPTION
