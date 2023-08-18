@@ -25,13 +25,13 @@
 	feature_spawn_chance = 0.1
 
 	weighted_mob_spawn_list = list(
-		/mob/living/basic/mining/goliath/random = 34,
-		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random = 13,
-		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/random = 13,
 		//SPAWN_MEGAFAUNA = 0,
+		/obj/effect/spawner/random/lavaland_mob/goliath = 34,
+		/obj/effect/spawner/random/lavaland_mob/watcher = 13,
+		/obj/effect/spawner/random/lavaland_mob/legion = 13,
 		/mob/living/simple_animal/hostile/asteroid/goldgrub = 3,
-		/mob/living/basic/mining/lobstrosity/lava = 5,
 		/mob/living/simple_animal/hostile/asteroid/brimdemon = 3,
+		/mob/living/basic/mining/lobstrosity/lava = 5,
 		/mob/living/basic/mining/bileworm = 5,
 		/obj/structure/spawner/lavaland/legion = 2,
 		/obj/structure/spawner/lavaland/goliath = 2,
@@ -81,13 +81,13 @@
 	feature_spawn_chance = 0.15
 
 	weighted_mob_spawn_list = list(
-		/mob/living/basic/mining/goliath/random = 32,
-		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random = 12,
-		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/random = 13,
 		SPAWN_MEGAFAUNA = 1,
+		/obj/effect/spawner/random/lavaland_mob/goliath = 32,
+		/obj/effect/spawner/random/lavaland_mob/watcher = 12,
+		/obj/effect/spawner/random/lavaland_mob/legion = 13,
 		/mob/living/simple_animal/hostile/asteroid/goldgrub = 2,
-		/mob/living/basic/mining/lobstrosity/lava = 2,
 		/mob/living/simple_animal/hostile/asteroid/brimdemon = 3,
+		/mob/living/basic/mining/lobstrosity/lava = 2,
 		/mob/living/basic/mining/bileworm = 5,
 		/obj/structure/spawner/lavaland/legion = 4,
 		/obj/structure/spawner/lavaland/goliath = 4,
