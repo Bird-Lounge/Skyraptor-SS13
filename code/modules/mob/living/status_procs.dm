@@ -29,6 +29,15 @@
 
 	return TRUE
 
+/// SKYRAPTOR ADDITION BEGIN
+/mob/living/proc/stamina_stun()
+	return
+
+/mob/living/proc/exit_stamina_stun()
+	SIGNAL_HANDLER
+	return
+/// SKYRAPTOR ADDITION END
+
 /* STUN */
 /mob/living/proc/IsStun() //If we're stunned
 	return has_status_effect(/datum/status_effect/incapacitating/stun)
@@ -721,4 +730,4 @@
 
 /// Helper to check if we seem to be alive or not
 /mob/living/proc/appears_alive()
-	return health >= 0 && !HAS_TRAIT(src, TRAIT_FAKEDEATH)
+	return stat != DEAD && !HAS_TRAIT(src, TRAIT_FAKEDEATH)
