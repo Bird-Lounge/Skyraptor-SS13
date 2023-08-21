@@ -795,3 +795,27 @@
       cost should be consistent in comparison to manual construction now.
   - admin: admins can now upload files to the server up to 5mb (used to be 2.5mb)
   - config: file upload restriction is now config
+2023-08-21:
+  LT3:
+  - bugfix: Base large airlock subtype no longer spawns a normal sized airlock
+  - image: Added mapping icons for large airlocks
+  - code_imp: Repathed all public airlocks to consistent naming
+  NaakaKo:
+  - qol: Emergency shuttle now gracefully display occupancy limits and prerequisites
+      in the communication console.
+  - bugfix: Fixed embedding for projectiles.
+  - rscadd: Sacrificed heretic targets will now receive a phobia of heresy instead
+      of a phobia of the supernatural. Sacrificed heretics will not get this phobia,
+      but will lose knowledge points instead.
+  - qol: Satchels can now be crafted using the same recipe (4 cloth) as backpacks.
+  - bugfix: Fixed a light inside a wall on Delta Station.
+  - balance: the lion hunters rifle has been pegged down the knowledge tree. to make
+      sure the tree is kept happy, the rust path and blade path can access rust charge
+  - rscadd: rust charge
+  - balance: the lion hunter ammo knowledge is free
+  - qol: Added two magboots to engine SMES room on icebox station
+  - bugfix: wellcheers is now based on sanity rather than mood
+  - image: resprites martian cans
+  - image: adds inhands for martian cans and wellcheers
+  - image: minor tweaks to other cans
+  - spellcheck: updates wellcheers mood text
