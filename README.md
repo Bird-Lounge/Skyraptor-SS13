@@ -46,6 +46,7 @@ On **2021-01-04** we have changed the way to compile the codebase.
 
 ## LICENSE
 With thanks & apologies to:
+ - [TGStation](https://github.com/tgstation/tgstation) for being the source this was forked from, and for putting up with multiple accidental nukes in PR form.
  - [Skyrat Station](https://github.com/Skyrat-SS13/Skyrat-tg) for inspiration & inspiration for our tongue-in-cheek name, as well as a handful of sprites.
  - [Daedalus Dock](https://github.com/DaedalusDock/daedalusdock) for being goals & reference during implementation of systems like Goonstam.
  - [Goonstation](https://github.com/goonstation/goonstation) for its kick-ass stamina mechanics and a handful of assets.
