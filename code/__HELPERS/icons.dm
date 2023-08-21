@@ -1505,3 +1505,22 @@ GLOBAL_LIST_EMPTY(transformation_animation_objects)
 	var/size = size_check.Width() / world.icon_size
 
 	return size
+
+/**
+ * Updates the bounds of a rotated object
+ * This ensures that the bounds are always correct,
+ * even if the object is rotated after init.
+ */
+/obj/proc/set_bounds()
+	var/size = get_size_in_tiles(src)
+
+	if(dir in list(NORTH, SOUTH))
+		bound_width = size * world.icon_size
+		bound_height = world.icon_size
+	else
+		bound_width = world.icon_size
+<<<<<<< HEAD
+		bound_height = size * world.icon_size
+=======
+		bound_height = size * world.icon_size
+>>>>>>> bb4792cc0dc (Fix invisible box on rotated multi-tile airlocks (#77736))

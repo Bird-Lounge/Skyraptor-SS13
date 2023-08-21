@@ -25025,19 +25025,8 @@
 /turf/open/floor/iron/textured_half,
 /area/station/hallway/primary/aft)
 "jif" = (
-/obj/item/mod/core/standard{
-	pixel_x = -4
-	},
-/obj/item/mod/core/standard{
-	pixel_x = 4
-	},
-/obj/item/mod/core/standard{
-	pixel_y = 4
-	},
-/obj/structure/closet/crate/science{
-	name = "MOD core crate"
-	},
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/structure/closet/crate/mod,
 /turf/open/floor/iron/white,
 /area/station/science/robotics/augments)
 "jig" = (
@@ -39316,7 +39305,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/machinery/door/airlock/multi_tile/public/glass{
 	name = "Library"
 	},
 /obj/machinery/door/firedoor,
@@ -53657,7 +53646,7 @@
 "sTa" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/machinery/door/airlock/multi_tile/public/glass{
 	name = "Diner"
 	},
 /obj/machinery/door/firedoor,
@@ -53740,7 +53729,7 @@
 /turf/open/floor/iron,
 /area/station/commons/dorms)
 "sTW" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/machinery/door/airlock/multi_tile/public/glass{
 	name = "Theatre"
 	},
 /obj/machinery/door/firedoor,
