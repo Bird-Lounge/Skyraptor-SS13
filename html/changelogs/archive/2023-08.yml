@@ -819,3 +819,69 @@
   - image: adds inhands for martian cans and wellcheers
   - image: minor tweaks to other cans
   - spellcheck: updates wellcheers mood text
+2023-08-22:
+  Melbert:
+  - bugfix: Fixed some tooltips in the sec records UI showing "false"s where they
+      shouldn't.
+  NaakaKo:
+  - bugfix: plumbing ducts connects to other plumbing machinery again
+  - refactor: AI's player-tracking eyes received an unwanted obligatory update, and
+      should now not tell you that a player is untrackable when they clearly obviously
+      can be.
+  - code_imp: removed unused procs in ore silo
+  - code_imp: merged repeated code segments when using materials from the ore silo
+      into a single proc
+  - code_imp: added auto docs & cleaned up some procs
+  - refactor: logging when an item is inserted or sheets are ejected from the silo
+      is now handled directly by the silo itself
+  - bugfix: '[Birdshot] Morgue now has coroner''s surgery duffel bag instead of regular
+      surgery duffel.'
+  - rscadd: You can now feed fish with the can of fish feed without having to put
+      the fish in a aquarium first.
+  - balance: Some fish may survive in different, harsher atmospheres if given the
+      amphibious trait, like chasm chrabs on lavaland.
+  - qol: aquarium now uses balloon alerts when feeding fish.
+  - bugfix: The wary and shiny lover no longer incorrectly remove difficulty from
+      the minigame if conditions aren't met.
+  - bugfix: Mobs whose human appearance is set dynamically will once again have their
+      bespoke names and descriptions, instead of Unknown, with a blank description.
+  - image: adds new sprites for opened fireaxe/mech crowbar cabinets.
+  - rscadd: Added compact shotgun to the hos locker
+  - rscadd: Added compact shotgun as a traitor objective
+  - balance: gives the compact shotgun 1 extra shot
+  - bugfix: The "Unlocked Achievements" score will now be properly saved at the end
+      of the round the first time it's loaded.
+  - bugfix: you can detach signaller from wires without the machine deconstructing
+      itself
+  - bugfix: Bots that can't be controlled (like beepsky) no longer has a stray 0 at
+      the very right side of its UI.
+  - balance: Watchers have less health
+  - balance: You can't be overwatched by several watchers at a time
+  - balance: Watchers won't overwatch you instantly upon seeing you
+  - balance: Goliaths won't launch tentacles at you instantly upon seeing you
+  - rscadd: Adds green jester shoes that jingle to the autodrobe!
+  - bugfix: fixed beakers disappearing when swapped in a chem heater
+  Rhials:
+  - rscadd: Ninjas can now temporarily disable cameras with the Ninja MOD right-click
+      hacking ability.
+  - rscadd: Ninjas can emag windoors, elevator controls, and buttons with their hacking
+      ability.
+  - rscadd: Ninjas can drain the power from energy weaponry, adding the charge to
+      their MODsuit.
+  - rscadd: Ninjas can now hack simplebots, overloading and detonating them after
+      a brief delay.
+  - rscadd: Ninjas can now hack vendors, causing them to eject their inventory at
+      people.
+  - rscadd: Ninjas can now hack the recycler, which notifies the AI and emags it once
+      complete.
+  - rscadd: Ninjas can now trigger an extended tram malfunction by hacking the tram
+      control console.
+  - rscadd: Ninjas can now hack open firelocks (temporarily) with right-click.
+  - balance: Hacking open doors with the Ninja Hacking MODule will subtract a paltry
+      amount of energy from your suit.
+  distributivgesetz:
+  - rscadd: Replaced slime clone damage with a "Covered in Slime" status effect that
+      deals brute damage over time and can be washed off by standing under a shower.
+  - rscadd: Northstar and Birdshot Xenobiology have been outfitted with a new shower.
+  - code_imp: Replaced the magic strings in slime code with macros. Also included
+      some warnings to anyone daring to touch the macros.
