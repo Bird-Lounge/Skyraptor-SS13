@@ -355,12 +355,16 @@
 #include "code\__DEFINES\dcs\signals\signals_mob\signals_mob_spawner.dm"
 #include "code\__DEFINES\research\anomalies.dm"
 #include "code\__DEFINES\research\research_categories.dm"
+<<<<<<< HEAD
 #include "code\__DEFINES\~skyraptor_defines\stamina.dm"
 #include "code\__DEFINES\~skyraptor_defines\pixelshift.dm"
 #include "code\__DEFINES\~skyraptor_defines\species_akula.dm"
 #include "code\__DEFINES\~skyraptor_defines\species_slugcat.dm"
 #include "code\__DEFINES\~skyraptor_defines\species_talonmoth.dm"
 #include "code\__DEFINES\~skyraptor_defines\species_teshvali.dm"
+=======
+#include "code\__DEFINES\research\slimes.dm"
+>>>>>>> 3645fa7d895 (Replaces slime clone damage with a "Covered in Slime" status effect (#77569))
 #include "code\__HELPERS\_auxtools_api.dm"
 #include "code\__HELPERS\_lists.dm"
 #include "code\__HELPERS\_planes.dm"
@@ -1556,6 +1560,7 @@
 #include "code\datums\status_effects\debuffs\screen_blur.dm"
 #include "code\datums\status_effects\debuffs\screwy_hud.dm"
 #include "code\datums\status_effects\debuffs\silenced.dm"
+#include "code\datums\status_effects\debuffs\slimed.dm"
 #include "code\datums\status_effects\debuffs\spacer.dm"
 #include "code\datums\status_effects\debuffs\speech_debuffs.dm"
 #include "code\datums\status_effects\debuffs\strandling.dm"
@@ -1911,6 +1916,7 @@
 #include "code\game\objects\effects\particles\fire.dm"
 #include "code\game\objects\effects\particles\misc.dm"
 #include "code\game\objects\effects\particles\note_particles.dm"
+#include "code\game\objects\effects\particles\slime.dm"
 #include "code\game\objects\effects\particles\smoke.dm"
 #include "code\game\objects\effects\particles\water.dm"
 #include "code\game\objects\effects\posters\contraband.dm"
