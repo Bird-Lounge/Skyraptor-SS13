@@ -376,10 +376,7 @@
 #include "code\__HELPERS\auxtools.dm"
 #include "code\__HELPERS\bitflag_lists.dm"
 #include "code\__HELPERS\byond_status.dm"
-<<<<<<< HEAD
 #include "code\__HELPERS\cameras.dm"
-=======
->>>>>>> 79a12235a74 (Include temporary library for getting sleeping procs (#77773))
 #include "code\__HELPERS\chat.dm"
 #include "code\__HELPERS\chat_filter.dm"
 #include "code\__HELPERS\clients.dm"
