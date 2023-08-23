@@ -885,3 +885,15 @@
   - rscadd: Northstar and Birdshot Xenobiology have been outfitted with a new shower.
   - code_imp: Replaced the magic strings in slime code with macros. Also included
       some warnings to anyone daring to touch the macros.
+2023-08-23:
+  Melbert:
+  - code_imp: Cleans up limb wound examine text code a tad.
+  NaakaKo:
+  - balance: Lasers now have increased energy cost, reverting the cost back to the
+      initial value before the laser buff.
+  - bugfix: pda messages are no longer hidden from dead players who are not observers
+  - bugfix: Taking a nap can once again heal minor wounds
+  - bugfix: A breath of healium will no longer knock you out for eternity
+  - bugfix: Healium sleep now respects sleep immunity
+  - bugfix: Metastation's arrivals area no longer has an intercom overlapping with
+      the request console.
