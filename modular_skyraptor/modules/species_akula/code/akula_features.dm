@@ -1,27 +1,27 @@
-/proc/generate_akula_side_shots(list/sprite_accessories, key, include_snout = TRUE)
-	var/list/values = list()
+/proc/generate_akula_side_shot(datum/sprite_accessory/sprite_accessory, key, include_snout = TRUE)
+	var/static/icon/akula
+	var/static/icon/akula_with_snout
 
-	var/icon/lizard = icon('modular_skyraptor/modules/species_akula/icons/bodyparts.dmi', "akula_head", EAST)
+	if (isnull(akula))
+		akula = icon('modular_skyraptor/modules/species_akula/icons/bodyparts.dmi', "akula_head", EAST)
+		var/icon/eyes = icon('icons/mob/human/human_face.dmi', "eyes", EAST)
+		eyes.Blend(COLOR_GRAY, ICON_MULTIPLY)
+		akula.Blend(eyes, ICON_OVERLAY)
 
-	if (include_snout)
-		lizard.Blend(icon('modular_skyraptor/modules/species_akula/icons/akula_external.dmi', "m_snout_akula_standard_ADJ", EAST), ICON_OVERLAY)
+		akula_with_snout = icon(akula)
+		akula_with_snout.Blend(icon('modular_skyraptor/modules/species_akula/icons/akula_external.dmi', "m_snout_akula_standard_ADJ", EAST), ICON_OVERLAY)
 
-	for (var/name in sprite_accessories)
-		var/datum/sprite_accessory/sprite_accessory = sprite_accessories[name]
+	var/icon/final_icon = include_snout ? icon(akula_with_snout) : icon(akula)
 
-		var/icon/final_icon = icon(lizard)
+	if (!isnull(sprite_accessory))
+		var/icon/accessory_icon = icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ", EAST)
+		final_icon.Blend(accessory_icon, ICON_OVERLAY)
 
-		if (sprite_accessory.icon_state != "none")
-			var/icon/accessory_icon = icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ", EAST)
-			final_icon.Blend(accessory_icon, ICON_OVERLAY)
+	final_icon.Crop(11, 20, 23, 32)
+	final_icon.Scale(32, 32)
+	final_icon.Blend(COLOR_WHITE, ICON_MULTIPLY)
 
-		final_icon.Crop(11, 20, 23, 32)
-		final_icon.Scale(32, 32)
-		final_icon.Blend(COLOR_WHITE, ICON_MULTIPLY)
-
-		values[name] = final_icon
-
-	return values
+	return final_icon
 
 
 
@@ -40,8 +40,8 @@
 /datum/preference/choiced/akula_snout/init_possible_values()
 	return assoc_to_keys_features(GLOB.snouts_list_akula)
 
-/datum/preference/choiced/akula_snout/icons_for(value)
-	return generate_akula_side_shots(GLOB.snouts_list_akula, "snout_akula", include_snout = TRUE)
+/datum/preference/choiced/akula_snout/icon_for(value)
+	return generate_akula_side_shot(GLOB.snouts_list_akula[value], "snout_akula", include_snout = TRUE)
 
 /datum/preference/choiced/akula_snout/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["snout_akula"] = value
@@ -62,8 +62,8 @@
 /datum/preference/choiced/akula_horns/init_possible_values()
 	return assoc_to_keys_features(GLOB.horns_list_akula)
 
-/datum/preference/choiced/akula_horns/icons_for(value)
-	return generate_akula_side_shots(GLOB.horns_list_akula, "horns_akula", include_snout = TRUE)
+/datum/preference/choiced/akula_horns/icon_for(value)
+	return generate_akula_side_shot(GLOB.horns_list_akula[value], "horns_akula", include_snout = TRUE)
 
 /datum/preference/choiced/akula_horns/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["horns_akula"] = value
