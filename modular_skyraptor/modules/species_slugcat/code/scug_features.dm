@@ -41,6 +41,9 @@
 	relevant_external_organ = /obj/item/organ/external/snout/slugcat
 
 /datum/preference/choiced/slugcat_snout/init_possible_values()
+	return assoc_to_keys_features(GLOB.snouts_list_slugcat)
+
+/datum/preference/choiced/slugcat_snout/icons_for(value)
 	return generate_slugcat_side_shots(GLOB.snouts_list_slugcat, "snout_scug", include_snout = TRUE)
 
 /datum/preference/choiced/slugcat_snout/apply_to_human(mob/living/carbon/human/target, value)
@@ -60,6 +63,9 @@
 	relevant_external_organ = /obj/item/organ/external/horns/slugcat
 
 /datum/preference/choiced/slugcat_horns/init_possible_values()
+	return assoc_to_keys_features(GLOB.horns_list_slugcat)
+
+/datum/preference/choiced/slugcat_horns/icons_for(value)
 	return generate_slugcat_side_shots(GLOB.horns_list_slugcat, "horns_scug", include_snout = TRUE)
 
 /datum/preference/choiced/slugcat_horns/apply_to_human(mob/living/carbon/human/target, value)
@@ -109,6 +115,9 @@
 	relevant_external_organ = /obj/item/organ/external/frills/slugcat
 
 /datum/preference/choiced/slugcat_frills/init_possible_values()
+	return assoc_to_keys_features(GLOB.frills_list_slugcat)
+
+/datum/preference/choiced/slugcat_frills/icons_for(value)
 	return generate_slugcat_side_shots(GLOB.frills_list_slugcat, "frills_scug", include_snout = TRUE)
 
 /datum/preference/choiced/slugcat_frills/apply_to_human(mob/living/carbon/human/target, value)
@@ -135,7 +144,7 @@
 	can_randomize = TRUE
 	relevant_mutant_bodypart = "ears"
 
-/datum/preference/choiced/slugcat_ears/init_possible_values()
+/datum/preference/choiced/slugcat_ears/icons_for(value)
 	return assoc_to_keys_features(GLOB.slugcat_ears_list)
 
 /datum/preference/choiced/slugcat_ears/apply_to_human(mob/living/carbon/human/target, value)

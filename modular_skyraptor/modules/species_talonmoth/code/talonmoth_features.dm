@@ -40,7 +40,10 @@
 	should_generate_icons = TRUE
 	relevant_external_organ = /obj/item/organ/external/snout/talonmoth
 
-/datum/preference/choiced/talonmoth_snout/init_possible_values()
+/datum/preference/choiced/talonmouth_snout/init_possible_values()
+	return assoc_to_keys_features(GLOB.snouts_list_talonmoth)
+
+/datum/preference/choiced/talonmoth_snout/icons_for(value)
 	return generate_talonmoth_side_shots(GLOB.snouts_list_talonmoth, "snout_talonmoth", include_snout = TRUE)
 
 /datum/preference/choiced/talonmoth_snout/apply_to_human(mob/living/carbon/human/target, value)

@@ -38,6 +38,9 @@
 	relevant_external_organ = /obj/item/organ/external/snout/akula
 
 /datum/preference/choiced/akula_snout/init_possible_values()
+	return assoc_to_keys_features(GLOB.snouts_list_akula)
+
+/datum/preference/choiced/akula_snout/icons_for(value)
 	return generate_akula_side_shots(GLOB.snouts_list_akula, "snout_akula", include_snout = TRUE)
 
 /datum/preference/choiced/akula_snout/apply_to_human(mob/living/carbon/human/target, value)
@@ -57,6 +60,9 @@
 	relevant_external_organ = /obj/item/organ/external/horns/akula
 
 /datum/preference/choiced/akula_horns/init_possible_values()
+	return assoc_to_keys_features(GLOB.horns_list_akula)
+
+/datum/preference/choiced/akula_horns/icons_for(value)
 	return generate_akula_side_shots(GLOB.horns_list_akula, "horns_akula", include_snout = TRUE)
 
 /datum/preference/choiced/akula_horns/apply_to_human(mob/living/carbon/human/target, value)

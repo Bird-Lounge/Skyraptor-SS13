@@ -41,6 +41,9 @@
 	relevant_external_organ = /obj/item/organ/external/snout/avalari
 
 /datum/preference/choiced/avalari_snout/init_possible_values()
+	return assoc_to_keys_features(GLOB.snouts_list_avalari)
+
+/datum/preference/choiced/avalari_snout/icons_for(value)
 	return generate_avalari_side_shots(GLOB.snouts_list_avalari, "snout_avalari", include_snout = TRUE)
 
 /datum/preference/choiced/avalari_snout/apply_to_human(mob/living/carbon/human/target, value)
@@ -60,6 +63,9 @@
 	relevant_external_organ = /obj/item/organ/external/horns/avalari
 
 /datum/preference/choiced/avalari_horns/init_possible_values()
+	return assoc_to_keys_features(GLOB.horns_list_avalari)
+
+/datum/preference/choiced/avalari_horns/icons_for(value)
 	return generate_avalari_side_shots(GLOB.horns_list_avalari, "horns_avalari", include_snout = TRUE)
 
 /datum/preference/choiced/avalari_horns/apply_to_human(mob/living/carbon/human/target, value)

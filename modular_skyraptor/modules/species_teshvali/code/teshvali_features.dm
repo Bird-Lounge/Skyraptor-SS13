@@ -41,6 +41,9 @@
 	relevant_external_organ = /obj/item/organ/external/snout/teshvali
 
 /datum/preference/choiced/teshvali_snout/init_possible_values()
+	return assoc_to_keys_features(GLOB.snouts_list_teshvali)
+
+/datum/preference/choiced/teshvali_snout/icons_for(value)
 	return generate_teshvali_side_shots(GLOB.snouts_list_teshvali, "snout_teshvali", include_snout = TRUE)
 
 /datum/preference/choiced/teshvali_snout/apply_to_human(mob/living/carbon/human/target, value)
@@ -60,6 +63,9 @@
 	relevant_external_organ = /obj/item/organ/external/horns/teshvali
 
 /datum/preference/choiced/teshvali_horns/init_possible_values()
+	return assoc_to_keys_features(GLOB.horns_list_teshvali)
+
+/datum/preference/choiced/teshvali_horns/icons_for(value)
 	return generate_teshvali_side_shots(GLOB.horns_list_teshvali, "horns_teshvali", include_snout = TRUE)
 
 /datum/preference/choiced/teshvali_horns/apply_to_human(mob/living/carbon/human/target, value)
