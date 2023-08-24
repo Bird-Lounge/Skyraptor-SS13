@@ -1,0 +1,41 @@
+/obj/item/bodypart/head/moth
+	icon_greyscale = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/bodyparts.dmi'
+
+/obj/item/bodypart/chest/moth
+	icon_greyscale = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/bodyparts.dmi'
+
+/obj/item/bodypart/arm/left/moth
+	icon_greyscale = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/bodyparts.dmi'
+
+/obj/item/bodypart/arm/right/moth
+	icon_greyscale = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/bodyparts.dmi'
+
+/obj/item/bodypart/leg/left/moth
+	icon_greyscale = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/bodyparts.dmi'
+
+/obj/item/bodypart/leg/right/moth
+	icon_greyscale = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/bodyparts.dmi'
+
+/obj/item/organ/internal/eyes/moth
+	eye_icon_file = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/eyes.dmi'
+
+/obj/item/organ/internal/eyes/moth
+	eye_icon_file = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/eyes.dmi'
+
+/obj/item/organ/internal/eyes/robotic/moth
+	eye_icon_file = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/eyes.dmi'
+
+/obj/item/organ/internal/eyes/robotic/basic/moth
+	eye_icon_file = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/eyes.dmi'
+
+/obj/item/organ/internal/eyes/robotic/xray/moth
+	eye_icon_file = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/eyes.dmi'
+
+/obj/item/organ/internal/eyes/robotic/shield/moth
+	eye_icon_file = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/eyes.dmi'
+
+/obj/item/organ/internal/eyes/robotic/glow/moth
+	eye_icon_file = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/eyes.dmi'
+
+/obj/item/organ/internal/eyes/robotic/thermals/moth
+	eye_icon_file = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/eyes.dmi'
