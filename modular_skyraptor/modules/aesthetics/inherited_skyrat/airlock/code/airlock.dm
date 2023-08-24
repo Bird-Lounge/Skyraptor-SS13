@@ -386,7 +386,7 @@
 	overlays_file = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/airlock/icons/airlocks/highsec/overlays.dmi'
 
 //GLASS
-/obj/machinery/door/airlock/multi_tile/glass
+/obj/machinery/door/airlock/multi_tile
 	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/airlock/icons/airlocks/multi_tile/multi_tile.dmi'
 	overlays_file = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/airlock/icons/airlocks/multi_tile/overlays.dmi'
 

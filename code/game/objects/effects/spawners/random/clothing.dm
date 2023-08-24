@@ -150,6 +150,7 @@
 		/obj/item/storage/backpack/genetics,
 		/obj/item/storage/backpack/science,
 		/obj/item/storage/backpack/virology,
+		/obj/item/storage/backpack/cargo,				/// SKYRAPTOR ADDITION
 		/obj/item/storage/backpack/satchel,
 		/obj/item/storage/backpack/satchel/leather,
 		/obj/item/storage/backpack/satchel/eng,
@@ -161,6 +162,7 @@
 		/obj/item/storage/backpack/satchel/hyd,
 		/obj/item/storage/backpack/satchel/sec,
 		/obj/item/storage/backpack/satchel/explorer,
+		/obj/item/storage/backpack/satchel/cargo,		/// SKYRAPTOR ADDITION
 		/obj/item/storage/backpack/duffelbag,
 		/obj/item/storage/backpack/duffelbag/med,
 		/obj/item/storage/backpack/duffelbag/explorer,
@@ -172,6 +174,7 @@
 		/obj/item/storage/backpack/duffelbag/sec,
 		/obj/item/storage/backpack/duffelbag/engineering,
 		/obj/item/storage/backpack/duffelbag/clown,
+		/obj/item/storage/backpack/duffelbag/cargo,		/// SKYRAPTOR ADDITION
 		/obj/item/storage/backpack/messenger,
 		/obj/item/storage/backpack/messenger/eng,
 		/obj/item/storage/backpack/messenger/med,
@@ -182,6 +185,7 @@
 		/obj/item/storage/backpack/messenger/hyd,
 		/obj/item/storage/backpack/messenger/sec,
 		/obj/item/storage/backpack/messenger/explorer,
+		/obj/item/storage/backpack/messenger/cargo		/// SKYRAPTOR ADDITION
 	)
 
 /obj/effect/spawner/random/clothing/funny_hats
