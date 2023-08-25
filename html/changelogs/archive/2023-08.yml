@@ -911,3 +911,12 @@
   Vekter:
   - balance: Grilles will now take 0-1 damage every time they shock something.
   - balance: Powersinks are now available earlier in traitor progression.
+2023-08-25:
+  Guillaume Prata:
+  - qol: QM jumpsuit/skirt expose the torso when adjusted.
+  LT3:
+  - rscadd: Immovable rod will now battle the unstoppable tram should they cross paths
+  - bugfix: Birdshot's maint tram doors now work properly
+  - bugfix: Tramstation's exterior light fixtures no longer get destroyed as soon
+      as the tram moves
+  - code_imp: Tram landmarks are now all subtyped instead of map varedits
