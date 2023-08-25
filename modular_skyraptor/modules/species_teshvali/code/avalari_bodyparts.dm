@@ -58,6 +58,12 @@
 		//offset_x = list("east" = -1, "west" = 1),
 		offset_y = list("north" = -4, "south" = -4, "east" = -4, "west" = -4),
 	)
+	worn_suit_storage_offset = new(
+		attached_part = src,
+		feature_key = OFFSET_SUIT,
+		//offset_x = list("east" = -1, "west" = 1),
+		offset_y = list("north" = -4, "south" = -4, "east" = -4, "west" = -4),
+	)
 	worn_uniform_offset = new(
 		attached_part = src,
 		feature_key = OFFSET_UNIFORM,

@@ -1,20 +1,27 @@
 /obj/item/bodypart/head/moth
 	icon_greyscale = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/bodyparts.dmi'
+	should_draw_greyscale = TRUE
+	head_flags = HEAD_ALL_FEATURES
 
 /obj/item/bodypart/chest/moth
 	icon_greyscale = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/bodyparts.dmi'
+	should_draw_greyscale = TRUE
 
 /obj/item/bodypart/arm/left/moth
 	icon_greyscale = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/bodyparts.dmi'
+	should_draw_greyscale = TRUE
 
 /obj/item/bodypart/arm/right/moth
 	icon_greyscale = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/bodyparts.dmi'
+	should_draw_greyscale = TRUE
 
 /obj/item/bodypart/leg/left/moth
 	icon_greyscale = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/bodyparts.dmi'
+	should_draw_greyscale = TRUE
 
 /obj/item/bodypart/leg/right/moth
 	icon_greyscale = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/bodyparts.dmi'
+	should_draw_greyscale = TRUE
 
 /obj/item/organ/internal/eyes/moth
 	eye_icon_file = 'modular_skyraptor/modules/aesthetics/daedmoth/icons/eyes.dmi'

@@ -133,28 +133,6 @@
 
 
 
-//== EARS
-/*/datum/preference/choiced/slugcat_ears
-	savefile_key = "feature_human_ears"
-	savefile_identifier = PREFERENCE_CHARACTER
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
-	can_randomize = TRUE
-	relevant_mutant_bodypart = "ears"
-
-/datum/preference/choiced/slugcat_ears/icon_for(value)
-	return assoc_to_keys_features(GLOB.slugcat_ears_list)
-
-/datum/preference/choiced/slugcat_ears/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["ears"] = value
-
-/datum/preference/choiced/slugcat_ears/create_default_value()
-	var/datum/sprite_accessory/ears/slugcat/ears = /datum/sprite_accessory/ears/slugcat/perky
-	return initial(ears.name)*/
-
-
-
-
-
 //== BODY MARKINGS
 /datum/preference/choiced/slugcat_body_markings
 	savefile_key = "feature_slugcat_body_markings"
@@ -165,31 +143,40 @@
 	relevant_mutant_bodypart = "bodymarks_scug"
 
 /datum/preference/choiced/slugcat_body_markings/init_possible_values()
-	var/list/values = list()
+	return assoc_to_keys_features(GLOB.bodymarks_list_slugcat)
 
-	var/icon/lizard = icon('modular_skyraptor/modules/species_slugcat/icons/bodyparts.dmi', "slugcat_chest_m")
+/datum/preference/choiced/slugcat_body_markings/icon_for(value)
+	var/datum/sprite_accessory/sprite_accessory = GLOB.bodymarks_list_slugcat[value]
+	var/icon/final_icon = icon('modular_skyraptor/modules/species_slugcat/icons/bodyparts.dmi', "slugcat_chest_m")
 
-	for (var/name in GLOB.bodymarks_list_slugcat)
-		var/datum/sprite_accessory/sprite_accessory = GLOB.bodymarks_list_slugcat[name]
-
-		var/icon/final_icon = icon(lizard)
-
-		if (sprite_accessory.icon_state != "none")
-			var/icon/body_markings_icon = icon(
+	if (sprite_accessory.icon_state != "none")
+		var/icon/body_markings_icon = icon(
+			'modular_skyraptor/modules/species_slugcat/icons/slugcat_external.dmi',
+			"m_bodymarks_scug_[sprite_accessory.icon_state]_ADJ",
+		)
+		body_markings_icon.Blend(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
+		final_icon.Blend(body_markings_icon, ICON_OVERLAY)
+		if(sprite_accessory.hasinner)
+			var/icon/body_markings_innericon = icon(
 				'modular_skyraptor/modules/species_slugcat/icons/slugcat_external.dmi',
-				"m_bodymarks_scug_[sprite_accessory.icon_state]_ADJ",
+				"m_bodymarks_scuginner_[sprite_accessory.icon_state]_ADJ",
 			)
+			body_markings_innericon.Blend(COLOR_RED, ICON_MULTIPLY)
+			final_icon.Blend(body_markings_innericon, ICON_OVERLAY)
+		if(sprite_accessory.hasinner2)
+			var/icon/body_markings_innericon = icon(
+				'modular_skyraptor/modules/species_slugcat/icons/slugcat_external.dmi',
+				"m_bodymarks_scuginner2_[sprite_accessory.icon_state]_ADJ",
+			)
+			body_markings_innericon.Blend(COLOR_BLUE, ICON_MULTIPLY)
+			final_icon.Blend(body_markings_innericon, ICON_OVERLAY)
 
-			final_icon.Blend(body_markings_icon, ICON_OVERLAY)
+	final_icon.Blend(COLOR_WHITE, ICON_MULTIPLY)
+	final_icon.Crop(10, 8, 22, 23)
+	final_icon.Scale(26, 32)
+	final_icon.Crop(-2, 1, 29, 32)
 
-		final_icon.Blend(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
-		final_icon.Crop(10, 8, 22, 23)
-		final_icon.Scale(26, 32)
-		final_icon.Crop(-2, 1, 29, 32)
-
-		values[name] = final_icon
-
-	return values
+	return final_icon
 
 /datum/preference/choiced/slugcat_body_markings/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["bodymarks_scug"] = value

@@ -112,31 +112,40 @@
 	relevant_mutant_bodypart = "bodymarks_teshvali"
 
 /datum/preference/choiced/teshvali_body_markings/init_possible_values()
-	var/list/values = list()
+	return assoc_to_keys_features(GLOB.bodymarks_list_teshvali)
 
-	var/icon/lizard = icon('modular_skyraptor/modules/species_teshvali/icons/bodyparts.dmi', "teshvali_chest_m")
+/datum/preference/choiced/teshvali_body_markings/icon_for(value)
+	var/datum/sprite_accessory/sprite_accessory = GLOB.bodymarks_list_teshvali[value]
+	var/icon/final_icon = icon('modular_skyraptor/modules/species_teshvali/icons/bodyparts.dmi', "teshvali_chest_m")
 
-	for (var/name in GLOB.bodymarks_list_teshvali)
-		var/datum/sprite_accessory/sprite_accessory = GLOB.bodymarks_list_teshvali[name]
-
-		var/icon/final_icon = icon(lizard)
-
-		if (sprite_accessory.icon_state != "none")
-			var/icon/body_markings_icon = icon(
+	if (sprite_accessory.icon_state != "none")
+		var/icon/body_markings_icon = icon(
+			'modular_skyraptor/modules/species_teshvali/icons/teshvali_external.dmi',
+			"m_bodymarks_teshvali_[sprite_accessory.icon_state]_ADJ",
+		)
+		body_markings_icon.Blend(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
+		final_icon.Blend(body_markings_icon, ICON_OVERLAY)
+		if(sprite_accessory.hasinner)
+			var/icon/body_markings_innericon = icon(
 				'modular_skyraptor/modules/species_teshvali/icons/teshvali_external.dmi',
-				"m_bodymarks_teshvali_[sprite_accessory.icon_state]_ADJ",
+				"m_bodymarks_teshvaliinner_[sprite_accessory.icon_state]_ADJ",
 			)
+			body_markings_innericon.Blend(COLOR_RED, ICON_MULTIPLY)
+			final_icon.Blend(body_markings_innericon, ICON_OVERLAY)
+		if(sprite_accessory.hasinner2)
+			var/icon/body_markings_innericon = icon(
+				'modular_skyraptor/modules/species_teshvali/icons/teshvali_external.dmi',
+				"m_bodymarks_teshvaliinner2_[sprite_accessory.icon_state]_ADJ",
+			)
+			body_markings_innericon.Blend(COLOR_BLUE, ICON_MULTIPLY)
+			final_icon.Blend(body_markings_innericon, ICON_OVERLAY)
 
-			final_icon.Blend(body_markings_icon, ICON_OVERLAY)
+	final_icon.Blend(COLOR_WHITE, ICON_MULTIPLY)
+	final_icon.Crop(10, 8, 22, 23)
+	final_icon.Scale(26, 32)
+	final_icon.Crop(-2, 1, 29, 32)
 
-		final_icon.Blend(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
-		final_icon.Crop(10, 8, 22, 23)
-		final_icon.Scale(26, 32)
-		final_icon.Crop(-2, 1, 29, 32)
-
-		values[name] = final_icon
-
-	return values
+	return final_icon
 
 /datum/preference/choiced/teshvali_body_markings/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["bodymarks_teshvali"] = value
