@@ -67,6 +67,7 @@
 		return TRUE
 	return !mover.density || body_position == LYING_DOWN
 
+<<<<<<< HEAD
 /mob/living/toggle_move_intent()
 	. = ..()
 	update_move_intent_slowdown()
@@ -77,11 +78,14 @@
 	update_move_intent_slowdown()
 /// SKYRAPTOR ADDITION END
 
+=======
+>>>>>>> ef352ca7310 (minor changes to living and mob vars (#77820))
 /mob/living/update_config_movespeed()
 	update_move_intent_slowdown()
 	return ..()
 
 /mob/living/proc/update_move_intent_slowdown()
+<<<<<<< HEAD
 	/// SKYRAPTOR REMOVAL
 	//add_movespeed_modifier((m_intent == MOVE_INTENT_WALK)? /datum/movespeed_modifier/config_walk_run/walk : /datum/movespeed_modifier/config_walk_run/run)
 	/// SKYRAPTOR ADDITION BEGIN
@@ -94,6 +98,9 @@
 		modifier = /datum/movespeed_modifier/config_walk_run/sprint
 	add_movespeed_modifier(modifier)
 	/// SKYRAPTOR ADDITION END
+=======
+	add_movespeed_modifier((move_intent == MOVE_INTENT_WALK)? /datum/movespeed_modifier/config_walk_run/walk : /datum/movespeed_modifier/config_walk_run/run)
+>>>>>>> ef352ca7310 (minor changes to living and mob vars (#77820))
 
 /mob/living/proc/update_turf_movespeed(turf/open/turf)
 	if(isopenturf(turf) && !HAS_TRAIT(turf, TRAIT_TURF_IGNORE_SLOWDOWN))
