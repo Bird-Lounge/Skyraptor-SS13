@@ -1046,3 +1046,24 @@
   - bugfix: Non-surgically debraining someone no longer makes their brain unusuable
   - bugfix: Quartermaster's Overcoat and Cargo's gorka can now hold stamps in their
       suit slots, just like their winter coat counterpart
+2023-08-30:
+  NaakaKo:
+  - rscadd: Cargo now once again has access to a "Cargo Shortskirt", a skirt variant
+      of their shorts!
+  - image: tweaks and adjustments to the Cargo resprite have been made, as well as
+      respriting some missed icons such as the Winter Coats and QM Cloak
+  - image: progress bars and cleaning particles are now centered on the tile occupied
+      by the target, if it is a big sprite
+  - qol: The coroner can now store scythes in their labcoat and winter coat suit storage.
+      Ask not for whom the bell tolls...
+  - bugfix: Ash drakes, colossi, and Bubblegum spawn on Lavaland more often; a sharp
+      increase from the previous bugged amount of "basically never".
+  - qol: Various jobs have gotten additional programs uploaded at roundstart, engineers
+      now have the canary and atmospheric scanner programs, atmospheric technicians
+      now have the supermatter monitor, and Robotisists/RDs now have the silliconnect
+      program.
+  - qol: Metastation has had more navigate landmarks added, namely for areas like
+      Medbay, Cargo, Engineering, department heads offices and a few more.
+  Seven:
+  - bugfix: Syndicate ranged mobs (and probably other basic mobs) properly update
+      their shell's description to show they are spent.
