@@ -1582,6 +1582,7 @@
 #include "code\datums\storage\subtypes\organ_box.dm"
 #include "code\datums\storage\subtypes\pockets.dm"
 #include "code\datums\storage\subtypes\rped.dm"
+#include "code\datums\storage\subtypes\surgery_tray.dm"
 #include "code\datums\storage\subtypes\trash.dm"
 #include "code\datums\votes\_vote_datum.dm"
 #include "code\datums\votes\custom_vote.dm"
@@ -2046,6 +2047,11 @@
 #include "code\game\objects\items\skub.dm"
 #include "code\game\objects\items\spear.dm"
 #include "code\game\objects\items\sticker.dm"
+<<<<<<< HEAD
+=======
+#include "code\game\objects\items\surgery_tray.dm"
+#include "code\game\objects\items\syndie_spraycan.dm"
+>>>>>>> 3c0159b1433 (replaces surgical and coroner duffels with surgery trays and medical carts, resprites razor (#77975))
 #include "code\game\objects\items\tail_pin.dm"
 #include "code\game\objects\items\taster.dm"
 #include "code\game\objects\items\teleportation.dm"
