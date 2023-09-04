@@ -1,0 +1,24 @@
+2023-09-01:
+  GoldenAlpharex:
+  - bugfix: Fixes a rare issue that could lead to players entering an infinite disconnection
+      loop from having a null view.
+  NaakaKo:
+  - bugfix: Fixes Star Gazer getting buckled
+  - image: Removes Star Gazer alpha pixels
+  - bugfix: Space heaters no longer give extra cells when deconstructed
+  - qol: removes the nukie tool parcel and places the tools directly in their box
+  - bugfix: Compact fishing toolboxes no longer break space and time to contain any
+      normal-sized object. Instead, they only break space and time to contain fishing
+      rods. Settlers migrating to Nanotrasen space have no reasonable explanation
+      for this phenomenon.
+  - bugfix: The Cursed Slot Machine should now actually give you more than one pull.
+  - bugfix: autolathe prints the correct amount of stacks and merges it with existing
+      stacks on the turf
+  - bugfix: autolathe takes constant time when printing stacks
+  - code_imp: autolathe will attempt to award you the "getting an upgrade" award only
+      once when printing multiple items & updates UI immediately
+  - bugfix: Changed icebox permabrig door type to be correct
+  - qol: Cryotubes will now notify medbay if the patient within is dead, and will
+      eject them if auto is on.
+  - qol: Cryotubes will now automatically turn on when a patient enters it if auto
+      is on, but you can no longer close the cryotube on yourself.
