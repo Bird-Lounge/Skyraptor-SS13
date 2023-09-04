@@ -1,0 +1,4 @@
+author: "NaakaKo"
+delete-after: True
+changes:
+  - bugfix: "basic ranged mobs will now chase victims"
