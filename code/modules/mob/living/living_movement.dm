@@ -83,12 +83,12 @@
 
 /mob/living/proc/update_move_intent_slowdown()
 	/// SKYRAPTOR REMOVAL
-	//add_movespeed_modifier((m_intent == MOVE_INTENT_WALK)? /datum/movespeed_modifier/config_walk_run/walk : /datum/movespeed_modifier/config_walk_run/run)
+	//add_movespeed_modifier((move_intent == MOVE_INTENT_WALK)? /datum/movespeed_modifier/config_walk_run/walk : /datum/movespeed_modifier/config_walk_run/run)
 	/// SKYRAPTOR ADDITION BEGIN
 	var/modifier
-	if(m_intent == MOVE_INTENT_WALK)
+	if(move_intent == MOVE_INTENT_WALK)
 		modifier = /datum/movespeed_modifier/config_walk_run/walk
-	else if(m_intent == MOVE_INTENT_RUN)
+	else if(move_intent == MOVE_INTENT_RUN)
 		modifier =  /datum/movespeed_modifier/config_walk_run/run
 	else
 		modifier = /datum/movespeed_modifier/config_walk_run/sprint
