@@ -51,6 +51,19 @@
 	return initial(snout.name)
 
 
+/datum/mutant_newdnafeature/snouts_talonmoth
+	name = "Talonmoth snout"
+	id = "snout_talonmoth"
+
+/datum/mutant_newdnafeature/snouts_talonmoth/gen_unique_features(var/features, var/L)
+	if(features[id])
+		L[DNA_SNOUT_BLOCK] = construct_block(GLOB.snouts_list_talonmoth.Find(features[id]), GLOB.snouts_list_talonmoth.len)
+
+/datum/mutant_newdnafeature/snouts_talonmoth/update_appear(var/datum/dna/dna, var/features)
+	if(dna.features[id])
+		dna.features[id] = GLOB.snouts_list_talonmoth[deconstruct_block(get_uni_feature_block(features, DNA_SNOUT_BLOCK), GLOB.snouts_list_talonmoth.len)]
+
+
 
 
 
@@ -102,3 +115,16 @@
 
 /datum/preference/choiced/talonmoth_body_markings/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["bodymarks_talonmoth"] = value
+
+
+/datum/mutant_newdnafeature/bodymarks_talonmoth
+	name = "Talonmoth body markings"
+	id = "bodymarks_talonmoth"
+
+/datum/mutant_newdnafeature/bodymarks_talonmoth/gen_unique_features(var/features, var/L)
+	if(features[id])
+		L[DNA_LIZARD_MARKINGS_BLOCK] = construct_block(GLOB.bodymarks_list_talonmoth.Find(features[id]), GLOB.bodymarks_list_talonmoth.len)
+
+/datum/mutant_newdnafeature/bodymarks_talonmoth/update_appear(var/datum/dna/dna, var/features)
+	if(dna.features[id])
+		dna.features[id] = GLOB.bodymarks_list_talonmoth[deconstruct_block(get_uni_feature_block(features, DNA_LIZARD_MARKINGS_BLOCK), GLOB.bodymarks_list_talonmoth.len)]

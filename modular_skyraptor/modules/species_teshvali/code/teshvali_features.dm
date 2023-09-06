@@ -50,6 +50,19 @@
 	var/datum/sprite_accessory/snouts/teshvali/standard/snout = /datum/sprite_accessory/snouts/teshvali/standard
 	return initial(snout.name)
 
+
+/datum/mutant_newdnafeature/snouts_teshvali
+	name = "Teshvali snout"
+	id = "snout_teshvali"
+
+/datum/mutant_newdnafeature/snouts_teshvali/gen_unique_features(var/features, var/L)
+	if(features[id])
+		L[DNA_SNOUT_BLOCK] = construct_block(GLOB.snouts_list_teshvali.Find(features[id]), GLOB.snouts_list_teshvali.len)
+
+/datum/mutant_newdnafeature/snouts_teshvali/update_appear(var/datum/dna/dna, var/features)
+	if(dna.features[id])
+		dna.features[id] = GLOB.snouts_list_teshvali[deconstruct_block(get_uni_feature_block(features, DNA_SNOUT_BLOCK), GLOB.snouts_list_teshvali.len)]
+
 //== HORNS
 /datum/preference/choiced/teshvali_horns
 	savefile_key = "feature_teshvali_horns"
@@ -69,7 +82,7 @@
 	target.dna.features["horns_teshvali"] = value
 
 /datum/preference/choiced/teshvali_horns/create_default_value()
-	var/datum/sprite_accessory/horns/teshvali/fluffy/horns = /datum/sprite_accessory/horns/teshvali/fluffy
+	var/datum/sprite_accessory/horns/teshvali/mane/horns = /datum/sprite_accessory/horns/teshvali/mane
 	return initial(horns.name)
 
 /datum/preference/choiced/teshvali_horns/compile_constant_data()
@@ -78,6 +91,19 @@
 	data[SUPPLEMENTAL_FEATURE_KEY] = "horns_color"
 
 	return data
+
+
+/datum/mutant_newdnafeature/horns_teshvali
+	name = "Teshvali horns"
+	id = "horns_teshvali"
+
+/datum/mutant_newdnafeature/horns_teshvali/gen_unique_features(var/features, var/L)
+	if(features[id])
+		L[DNA_HORNS_BLOCK] = construct_block(GLOB.horns_list_teshvali.Find(features[id]), GLOB.horns_list_teshvali.len)
+
+/datum/mutant_newdnafeature/horns_teshvali/update_appear(var/datum/dna/dna, var/features)
+	if(dna.features[id])
+		dna.features[id] = GLOB.horns_list_teshvali[deconstruct_block(get_uni_feature_block(features, DNA_HORNS_BLOCK), GLOB.horns_list_teshvali.len)]
 
 
 
@@ -99,6 +125,19 @@
 /datum/preference/choiced/teshvali_tail/create_default_value()
 	var/datum/sprite_accessory/tails/teshvali/fluffy/tail = /datum/sprite_accessory/tails/teshvali/fluffy
 	return initial(tail.name)
+
+
+/datum/mutant_newdnafeature/tail_teshvali
+	name = "Teshvali tail"
+	id = "tail_teshvali"
+
+/datum/mutant_newdnafeature/tail_teshvali/gen_unique_features(var/features, var/L)
+	if(features[id])
+		L[DNA_LIZARD_TAIL_BLOCK] = construct_block(GLOB.tails_list_teshvali.Find(features[id]), GLOB.tails_list_teshvali.len)
+
+/datum/mutant_newdnafeature/tail_teshvali/update_appear(var/datum/dna/dna, var/features)
+	if(dna.features[id])
+		dna.features[id] = GLOB.tails_list_teshvali[deconstruct_block(get_uni_feature_block(features, DNA_LIZARD_TAIL_BLOCK), GLOB.tails_list_teshvali.len)]
 
 
 
@@ -149,3 +188,16 @@
 
 /datum/preference/choiced/teshvali_body_markings/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["bodymarks_teshvali"] = value
+
+
+/datum/mutant_newdnafeature/bodymarks_teshvali
+	name = "Teshvali body markings"
+	id = "bodymarks_teshvali"
+
+/datum/mutant_newdnafeature/bodymarks_teshvali/gen_unique_features(var/features, var/L)
+	if(features[id])
+		L[DNA_LIZARD_MARKINGS_BLOCK] = construct_block(GLOB.bodymarks_list_teshvali.Find(features[id]), GLOB.bodymarks_list_teshvali.len)
+
+/datum/mutant_newdnafeature/bodymarks_teshvali/update_appear(var/datum/dna/dna, var/features)
+	if(dna.features[id])
+		dna.features[id] = GLOB.bodymarks_list_teshvali[deconstruct_block(get_uni_feature_block(features, DNA_LIZARD_MARKINGS_BLOCK), GLOB.bodymarks_list_teshvali.len)]

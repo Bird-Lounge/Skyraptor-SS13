@@ -50,6 +50,19 @@
 	var/datum/sprite_accessory/snouts/akula/fullsnout/snout = /datum/sprite_accessory/snouts/akula/fullsnout
 	return initial(snout.name)
 
+
+/datum/mutant_newdnafeature/snouts_akula
+	name = "Akula snout"
+	id = "snout_akula"
+
+/datum/mutant_newdnafeature/snouts_akula/gen_unique_features(var/features, var/L)
+	if(features[id])
+		L[DNA_SNOUT_BLOCK] = construct_block(GLOB.snouts_list_akula.Find(features[id]), GLOB.snouts_list_akula.len)
+
+/datum/mutant_newdnafeature/snouts_akula/update_appear(var/datum/dna/dna, var/features)
+	if(dna.features[id])
+		dna.features[id] = GLOB.snouts_list_akula[deconstruct_block(get_uni_feature_block(features, DNA_SNOUT_BLOCK), GLOB.snouts_list_akula.len)]
+
 //== HORNS
 /datum/preference/choiced/akula_horns
 	savefile_key = "feature_akula_horns"
@@ -80,6 +93,18 @@
 	return data
 
 
+/datum/mutant_newdnafeature/horns_akula
+	name = "Akula horns"
+	id = "horns_akula"
+
+/datum/mutant_newdnafeature/horns_akula/gen_unique_features(var/features, var/L)
+	if(features[id])
+		L[DNA_HORNS_BLOCK] = construct_block(GLOB.horns_list_akula.Find(features[id]), GLOB.horns_list_akula.len)
+
+/datum/mutant_newdnafeature/horns_akula/update_appear(var/datum/dna/dna, var/features)
+	if(dna.features[id])
+		dna.features[id] = GLOB.horns_list_akula[deconstruct_block(get_uni_feature_block(features, DNA_HORNS_BLOCK), GLOB.horns_list_akula.len)]
+
 
 //== TAIL
 /datum/preference/choiced/akula_tail
@@ -99,6 +124,19 @@
 /datum/preference/choiced/akula_tail/create_default_value()
 	var/datum/sprite_accessory/tails/akula/shark/tail = /datum/sprite_accessory/tails/akula/shark
 	return initial(tail.name)
+
+
+/datum/mutant_newdnafeature/tail_akula
+	name = "Akula tail"
+	id = "tail_akula"
+
+/datum/mutant_newdnafeature/tail_akula/gen_unique_features(var/features, var/L)
+	if(features[id])
+		L[DNA_LIZARD_TAIL_BLOCK] = construct_block(GLOB.tails_list_akula.Find(features[id]), GLOB.tails_list_akula.len)
+
+/datum/mutant_newdnafeature/tail_akula/update_appear(var/datum/dna/dna, var/features)
+	if(dna.features[id])
+		dna.features[id] = GLOB.tails_list_akula[deconstruct_block(get_uni_feature_block(features, DNA_LIZARD_TAIL_BLOCK), GLOB.tails_list_akula.len)]
 
 
 
@@ -149,3 +187,16 @@
 
 /datum/preference/choiced/akula_body_markings/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["bodymarks_akula"] = value
+
+
+/datum/mutant_newdnafeature/bodymarks_akula
+	name = "Akula body markings"
+	id = "bodymarks_akula"
+
+/datum/mutant_newdnafeature/bodymarks_akula/gen_unique_features(var/features, var/L)
+	if(features[id])
+		L[DNA_LIZARD_MARKINGS_BLOCK] = construct_block(GLOB.bodymarks_list_akula.Find(features[id]), GLOB.bodymarks_list_akula.len)
+
+/datum/mutant_newdnafeature/bodymarks_akula/update_appear(var/datum/dna/dna, var/features)
+	if(dna.features[id])
+		dna.features[id] = GLOB.bodymarks_list_akula[deconstruct_block(get_uni_feature_block(features, DNA_LIZARD_MARKINGS_BLOCK), GLOB.bodymarks_list_akula.len)]

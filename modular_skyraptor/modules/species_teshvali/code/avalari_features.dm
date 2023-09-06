@@ -50,6 +50,19 @@
 	var/datum/sprite_accessory/snouts/avalari/standard/snout = /datum/sprite_accessory/snouts/avalari/standard
 	return initial(snout.name)
 
+
+/datum/mutant_newdnafeature/snouts_avalari
+	name = "Avalari snout"
+	id = "snout_avalari"
+
+/datum/mutant_newdnafeature/snouts_avalari/gen_unique_features(var/features, var/L)
+	if(features[id])
+		L[DNA_SNOUT_BLOCK] = construct_block(GLOB.snouts_list_avalari.Find(features[id]), GLOB.snouts_list_avalari.len)
+
+/datum/mutant_newdnafeature/snouts_avalari/update_appear(var/datum/dna/dna, var/features)
+	if(dna.features[id])
+		dna.features[id] = GLOB.snouts_list_avalari[deconstruct_block(get_uni_feature_block(features, DNA_SNOUT_BLOCK), GLOB.snouts_list_avalari.len)]
+
 //== HORNS
 /datum/preference/choiced/avalari_horns
 	savefile_key = "feature_avalari_horns"
@@ -80,6 +93,19 @@
 	return data
 
 
+/datum/mutant_newdnafeature/horns_avalari
+	name = "Avalari horns"
+	id = "horns_avalari"
+
+/datum/mutant_newdnafeature/horns_avalari/gen_unique_features(var/features, var/L)
+	if(features[id])
+		L[DNA_HORNS_BLOCK] = construct_block(GLOB.horns_list_avalari.Find(features[id]), GLOB.horns_list_avalari.len)
+
+/datum/mutant_newdnafeature/horns_avalari/update_appear(var/datum/dna/dna, var/features)
+	if(dna.features[id])
+		dna.features[id] = GLOB.horns_list_avalari[deconstruct_block(get_uni_feature_block(features, DNA_HORNS_BLOCK), GLOB.horns_list_avalari.len)]
+
+
 
 //== TAIL
 /datum/preference/choiced/avalari_tail
@@ -99,6 +125,19 @@
 /datum/preference/choiced/avalari_tail/create_default_value()
 	var/datum/sprite_accessory/tails/avalari/fluffy/tail = /datum/sprite_accessory/tails/avalari/fluffy
 	return initial(tail.name)
+
+
+/datum/mutant_newdnafeature/tail_avalari
+	name = "Avalari tail"
+	id = "tail_avalari"
+
+/datum/mutant_newdnafeature/tail_avalari/gen_unique_features(var/features, var/L)
+	if(features[id])
+		L[DNA_LIZARD_TAIL_BLOCK] = construct_block(GLOB.tails_list_avalari.Find(features[id]), GLOB.tails_list_avalari.len)
+
+/datum/mutant_newdnafeature/tail_avalari/update_appear(var/datum/dna/dna, var/features)
+	if(dna.features[id])
+		dna.features[id] = GLOB.tails_list_avalari[deconstruct_block(get_uni_feature_block(features, DNA_LIZARD_TAIL_BLOCK), GLOB.tails_list_avalari.len)]
 
 
 
@@ -149,3 +188,16 @@
 
 /datum/preference/choiced/avalari_body_markings/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["bodymarks_avalari"] = value
+
+
+/datum/mutant_newdnafeature/bodymarks_avalari
+	name = "Avalari body markings"
+	id = "bodymarks_avalari"
+
+/datum/mutant_newdnafeature/bodymarks_avalari/gen_unique_features(var/features, var/L)
+	if(features[id])
+		L[DNA_LIZARD_MARKINGS_BLOCK] = construct_block(GLOB.bodymarks_list_avalari.Find(features[id]), GLOB.bodymarks_list_avalari.len)
+
+/datum/mutant_newdnafeature/bodymarks_avalari/update_appear(var/datum/dna/dna, var/features)
+	if(dna.features[id])
+		dna.features[id] = GLOB.bodymarks_list_avalari[deconstruct_block(get_uni_feature_block(features, DNA_LIZARD_MARKINGS_BLOCK), GLOB.bodymarks_list_avalari.len)]
