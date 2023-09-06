@@ -60,6 +60,16 @@
 	// !!KEYS IN THIS SHOULD BE IDENTICAL TO SUPPORTED_BODYTYPES!!
 	var/list/bodytype_icon_files
 
+
+	/// GOON COMBAT VARIABLES
+	// these are ported verbatim-ish from Goon
+	var/stamina_cost = STAMINA_SWING_COST_ITEM
+	var/stamina_damage = STAMINA_DAMAGE_ITEM
+	var/stamina_critical_chance = STAMINA_CRITICAL_RATE_ITEM
+	var/stamina_critical_modifier = STAMINA_CRITICAL_MODIFIER
+
+	var/combat_click_delay = CLICK_CD_MELEE
+
 	/// SKYRAPTOR EDIT END
 
 	/* !!!!!!!!!!!!!!! IMPORTANT !!!!!!!!!!!!!!
@@ -230,8 +240,8 @@
 
 	///Grinder var:A reagent list containing the reagents this item produces when ground up in a grinder - this can be an empty list to allow for reagent transferring only
 	var/list/grind_results
-	//Grinder var:A reagent list containing blah blah... but when JUICED in a grinder!
-	var/list/juice_results
+	///A reagent the nutriments are converted into when the item is juiced.
+	var/datum/reagent/consumable/juice_typepath
 
 	var/canMouseDown = FALSE
 
@@ -242,8 +252,10 @@
 	/// Used if we want to have a custom verb text for throwing. "John Spaceman flicks the ciggerate" for example.
 	var/throw_verb
 
-/obj/item/Initialize(mapload)
+	/// A lazylist used for applying fantasy values, contains the actual modification applied to a variable.
+	var/list/fantasy_modifications = null
 
+/obj/item/Initialize(mapload)
 	if(attack_verb_continuous)
 		attack_verb_continuous = string_list(attack_verb_continuous)
 	if(attack_verb_simple)
@@ -319,13 +331,15 @@
 
 	LAZYADD(actions, action)
 	RegisterSignal(action, COMSIG_QDELETING, PROC_REF(on_action_deleted))
-	if(ismob(loc))
-		// We're being held or are equipped by someone while adding an action?
-		// Then they should also probably be granted the action, given it's in a correct slot
-		var/mob/holder = loc
-		give_item_action(action, holder, holder.get_slot_by_item(src))
-
+	grant_action_to_bearer(action)
 	return action
+
+/// Grant the action to anyone who has this item equipped to an appropriate slot
+/obj/item/proc/grant_action_to_bearer(datum/action/action)
+	if(!ismob(loc))
+		return
+	var/mob/holder = loc
+	give_item_action(action, holder, holder.get_slot_by_item(src))
 
 /// Removes an instance of an action from our list of item actions.
 /obj/item/proc/remove_item_action(datum/action/action)
@@ -988,38 +1002,132 @@
 /obj/item/proc/grind_requirements(obj/machinery/reagentgrinder/R) //Used to check for extra requirements for grinding an object
 	return TRUE
 
-///Called BEFORE the object is ground up - use this to change grind results based on conditions. Use "return -1" to prevent the grinding from occurring
+///Called BEFORE the object is ground up - use this to change grind results based on conditions. Return "-1" to prevent the grinding from occurring
 /obj/item/proc/on_grind()
 	return SEND_SIGNAL(src, COMSIG_ITEM_ON_GRIND)
 
+///Grind item, adding grind_results to item's reagents and transfering to target_holder if specified
+/obj/item/proc/grind(datum/reagents/target_holder, mob/user)
+	if(on_grind() == -1)
+		return FALSE
+	if(!reagents)
+		reagents = new()
+	target_holder.add_reagent_list(grind_results)
+	if(reagents && target_holder)
+		reagents.trans_to(target_holder, reagents.total_volume, transfered_by = user)
+	return TRUE
+
+///Called BEFORE the object is ground up - use this to change grind results based on conditions. Return "-1" to prevent the grinding from occurring
 /obj/item/proc/on_juice()
+	if(!juice_typepath)
+		return -1
 	return SEND_SIGNAL(src, COMSIG_ITEM_ON_JUICE)
+
+///Juice item, converting nutriments into juice_typepath and transfering to target_holder if specified
+/obj/item/proc/juice(datum/reagents/target_holder, mob/user)
+	if(on_juice() == -1)
+		return FALSE
+	reagents.convert_reagent(/datum/reagent/consumable, juice_typepath, include_source_subtypes = TRUE)
+	if(reagents && target_holder)
+		reagents.trans_to(target_holder, reagents.total_volume, transfered_by = user)
+	return TRUE
+
+/// SKYRAPTOR EDIT/ADDITION BEGIN
+/obj/item/proc/damagetype2text()
+	. += list()
+	if(damtype == BURN)
+		. += "BURN"
+	if(damtype == BRUTE)
+		. += "BRUTE"
+	if(damtype == TOX)
+		. += "TOXIN"
+	if(sharpness & SHARP_EDGED)
+		. += "CUT"
+	if(sharpness & SHARP_POINTY)
+		. += "PUNCTURE"
+	if(!sharpness && damtype == BRUTE)
+		. += "CRUSH"
+	return english_list(., "NONE")
+
+/obj/item/proc/force2text()
+	return set_force_string(force)
 
 /obj/item/proc/set_force_string()
 	switch(force)
-		if(0 to 4)
-			force_string = "very low"
-		if(4 to 7)
-			force_string = "low"
-		if(7 to 10)
-			force_string = "medium"
-		if(10 to 11)
-			force_string = "high"
-		if(11 to 20) //12 is the force of a toolbox
-			force_string = "robust"
-		if(20 to 25)
-			force_string = "very robust"
-		else
-			force_string = "exceptionally robust"
+		if(-INFINITY to 0)
+			return "Harmless"
+		if(0 to 2)
+			return "Very Low"
+		if(2 to 6)
+			return "Low"
+		if(6 to 12)
+			return "Average"
+		if(12 to 16)
+			return "High"
+		if(16 to 30)
+			return "Very High"
+		if(30 to INFINITY)
+			return "You could really hurt somebody with this thing!"
 	last_force_string_check = force
 
+/obj/item/proc/staminadamage2text()
+	switch(stamina_damage)
+		if(-INFINITY to 0)
+			return "Harmless"
+		if(0 to 5)
+			return "Very Low"
+		if(5 to 10)
+			return "Low"
+		if(10 to 20)
+			return "Average"
+		if(20 to 25)
+			return "High"
+		if(25 to 35)
+			return "Very High"
+		if(35 to INFINITY)
+			return "This will take the wind out of your sails."
+
+/obj/item/proc/staminacost2text()
+	switch(stamina_cost)
+		if(-INFINITY to 0)
+			return "None"
+		if(0 to 5)
+			return "Very Low"
+		if(5 to 10)
+			return "Low"
+		if(10 to 15)
+			return "Average"
+		if(15 to 25)
+			return "High"
+		if(25 to 35)
+			return "Very High"
+		if(35 to INFINITY)
+			return "This will take the wind out of your sails."
+
+/obj/item/proc/tooltipContent(list/url_mappings)
+	RETURN_TYPE(/list)
+	. = list()
+	. += desc
+	if(!stamina_damage && !force)
+		return
+	. += "<hr>"
+	if(item_flags & FORCE_STRING_OVERRIDE)
+		. += "<img src='[url_mappings["attack.png"]]'>Lethality: [force_string]<br>"
+	else
+		. += "<img src='[url_mappings["attack.png"]]'>Lethality: [force2text()], type: [damagetype2text()]<br>"
+	. += "<img src='[url_mappings["stamina.png"]]'>Stamina: [staminadamage2text()]<br>"
+	. += "<img src='[url_mappings["stamcost.png"]]'>Stamina Cost: [staminacost2text()]<br>"
+
 /obj/item/proc/openTip(location, control, params, user)
-	if(last_force_string_check != force && !(item_flags & FORCE_STRING_OVERRIDE))
+	/*if(last_force_string_check != force && !(item_flags & FORCE_STRING_OVERRIDE))
 		set_force_string()
 	if(!(item_flags & FORCE_STRING_OVERRIDE))
 		openToolTip(user,src,params,title = name,content = "[desc]<br>[force ? "<b>Force:</b> [force_string]" : ""]",theme = "")
 	else
-		openToolTip(user,src,params,title = name,content = "[desc]<br><b>Force:</b> [force_string]",theme = "")
+		openToolTip(user,src,params,title = name,content = "[desc]<br><b>Force:</b> [force_string]",theme = "")*/
+	var/content = jointext(tooltipContent(get_asset_datum(/datum/asset/simple/namespaced/common).get_url_mappings()), "")
+	openToolTip(user,src,params,title = name,content = content,theme = "")
+/// SKYRAPTOR EDITS END
 
 /obj/item/MouseEntered(location, control, params)
 	. = ..()
@@ -1597,3 +1705,51 @@
 /obj/item/update_atom_colour()
 	. = ..()
 	update_slot_icon()
+
+/// Modifies the fantasy variable
+/obj/item/proc/modify_fantasy_variable(variable_key, value, bonus, minimum = 0)
+	var/result = LAZYACCESS(fantasy_modifications, variable_key)
+	if(!isnull(result))
+		if(HAS_TRAIT(src, TRAIT_INNATELY_FANTASTICAL_ITEM))
+			return result // we are immune to your foul magicks you inferior wizard, we keep our bonuses
+
+		stack_trace("modify_fantasy_variable was called twice for the same key '[variable_key]' on type '[type]' before reset_fantasy_variable could be called!")
+
+	var/intended_target = value + bonus
+	value = max(minimum, intended_target)
+
+	var/difference = intended_target - value
+	var/modified_amount = bonus - difference
+	LAZYSET(fantasy_modifications, variable_key, modified_amount)
+	return value
+
+/// Returns the original fantasy variable value
+/obj/item/proc/reset_fantasy_variable(variable_key, current_value)
+	var/modification = LAZYACCESS(fantasy_modifications, variable_key)
+
+	if(isnum(modification) && HAS_TRAIT(src, TRAIT_INNATELY_FANTASTICAL_ITEM))
+		return modification // we are immune to your foul magicks you inferior wizard, we keep our bonuses the way they are
+
+	LAZYREMOVE(fantasy_modifications, variable_key)
+	if(isnull(modification))
+		return current_value
+
+	return current_value - modification
+
+/obj/item/proc/apply_fantasy_bonuses(bonus)
+	SHOULD_CALL_PARENT(TRUE)
+	SEND_SIGNAL(src, COMSIG_ITEM_APPLY_FANTASY_BONUSES, bonus)
+	force = modify_fantasy_variable("force", force, bonus)
+	throwforce = modify_fantasy_variable("throwforce", throwforce, bonus)
+	wound_bonus = modify_fantasy_variable("wound_bonus", wound_bonus, bonus)
+	bare_wound_bonus = modify_fantasy_variable("bare_wound_bonus", bare_wound_bonus, bonus)
+	toolspeed = modify_fantasy_variable("toolspeed", toolspeed, -bonus/10, minimum = 0.1)
+
+/obj/item/proc/remove_fantasy_bonuses(bonus)
+	SHOULD_CALL_PARENT(TRUE)
+	force = reset_fantasy_variable("force", force)
+	throwforce = reset_fantasy_variable("throwforce", throwforce)
+	wound_bonus = reset_fantasy_variable("wound_bonus", wound_bonus)
+	bare_wound_bonus = reset_fantasy_variable("bare_wound_bonus", bare_wound_bonus)
+	toolspeed = reset_fantasy_variable("toolspeed", toolspeed)
+	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE_FANTASY_BONUSES, bonus)

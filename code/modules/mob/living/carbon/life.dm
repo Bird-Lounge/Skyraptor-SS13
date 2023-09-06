@@ -27,9 +27,9 @@
 	if(stat == DEAD)
 		stop_sound_channel(CHANNEL_HEARTBEAT)
 	else
-
-		if(getStaminaLoss() > 0 && stam_regen_start_time <= world.time)
-			adjustStaminaLoss(-INFINITY)
+		/// SKYRAPTOR REMOVAL: byebye oldstam
+		/*if(getStaminaLoss() > 0 && stam_regen_start_time <= world.time)
+			adjustStaminaLoss(-INFINITY)*/
 		var/bprv = handle_bodyparts(seconds_per_tick, times_fired)
 		if(bprv & BODYPART_LIFE_UPDATE_HEALTH)
 			updatehealth()
@@ -683,7 +683,7 @@
 		var/datum/reagent/bits = bile
 		if(istype(bits, /datum/reagent/consumable))
 			var/datum/reagent/consumable/goodbit = bile
-			fullness += goodbit.nutriment_factor * goodbit.volume / goodbit.metabolization_rate
+			fullness += goodbit.get_nutriment_factor() * goodbit.volume / goodbit.metabolization_rate
 			continue
 		fullness += 0.6 * bits.volume / bits.metabolization_rate //not food takes up space
 

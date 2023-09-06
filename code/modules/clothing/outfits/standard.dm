@@ -177,7 +177,7 @@
 	l_hand = /obj/item/fireaxe
 
 /datum/outfit/psycho/post_equip(mob/living/carbon/human/H)
-	for(var/obj/item/carried_item in H.get_equipped_items(TRUE))
+	for(var/obj/item/carried_item in H.get_equipped_items(include_pockets = TRUE, include_accessories = TRUE))
 		carried_item.add_mob_blood(H)//Oh yes, there will be blood...
 	for(var/obj/item/I in H.held_items)
 		I.add_mob_blood(H)
@@ -188,7 +188,7 @@
 
 	id = /obj/item/card/id/advanced/chameleon/black
 	id_trim = /datum/id_trim/reaper_assassin
-	uniform = /obj/item/clothing/under/suit/black
+	uniform = /obj/item/clothing/under/costume/buttondown/slacks/service
 	neck = /obj/item/clothing/neck/tie/red/hitman/tied
 	belt = /obj/item/modular_computer/pda/heads
 	ears = /obj/item/radio/headset
@@ -217,8 +217,7 @@
 	sec_briefcase.contents += new /obj/item/grenade/c4/x4
 
 	var/obj/item/modular_computer/pda/heads/pda = H.belt
-	pda.saved_identification = H.real_name
-	pda.saved_job = "Reaper"
+	pda.imprint_id(H.real_name, "Reaper")
 
 	var/obj/item/card/id/W = H.wear_id
 	W.registered_name = H.real_name

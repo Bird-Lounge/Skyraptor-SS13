@@ -65,9 +65,13 @@
 	var/color_src = MUTANT_COLOR
 	/// Decides if this sprite has an "inner" part, such as the fleshy parts on ears.
 	var/hasinner = FALSE
+	/// SKYRAPTOR ADDITION: Used for those rare few cases where you need three layers.
+	var/hasinner2 = FALSE
 
 	/// SKYRAPTOR ADDITION - this is used with hasinner and works the same way as normal color_src.
 	var/inner_color_src = 0
+	/// SKYRAPTOR ADDITION - secondary innercolor hngh
+	var/inner2_color_src = 0
 
 	/// Is this part locked from roundstart selection? Used for parts that apply effects.
 	var/locked = FALSE
@@ -85,19 +89,23 @@
 	return COLOR_WHITE
 
 /datum/sprite_accessory/proc/innercolor_override(mob/living/carbon/human/target) /// SKYRAPTOR ADDITION: meant to be used with SPRITE_ACC_SCRIPTED_COLOR
-	world.log << "Sprite accessory had color_override called without an implementation!"
+	world.log << "Sprite accessory had innercolor_override called without an implementation!"
+	return COLOR_WHITE
+
+/datum/sprite_accessory/proc/innercolor2_override(mob/living/carbon/human/target) /// SKYRAPTOR ADDITION: meant to be used with SPRITE_ACC_SCRIPTED_COLOR
+	world.log << "Sprite accessory had innercolor2_override called without an implementation!"
 	return COLOR_WHITE
 
 /datum/sprite_accessory/blank
 	name = "None"
 	icon_state = "None"
-	icon = 'icons/mob/species/human/human_face.dmi' //forcing this as a fallback
+	icon = 'icons/mob/human/human_face.dmi' //forcing this as a fallback
 
 //////////////////////
 // Hair Definitions //
 //////////////////////
 /datum/sprite_accessory/hair
-	icon = 'icons/mob/species/human/human_face.dmi'   // default icon for all hairs
+	icon = 'icons/mob/human/human_face.dmi'   // default icon for all hairs
 
 	// please make sure they're sorted alphabetically and, where needed, categorized
 	// try to capitalize the names please~
@@ -845,13 +853,17 @@
 */
 
 /datum/sprite_accessory/gradient
-	icon = 'icons/mob/species/hair_gradients.dmi'
+	icon = 'icons/mob/human/species/hair_gradients.dmi'
 	///whether this gradient applies to hair and/or beards. Some gradients do not work well on beards.
 	var/gradient_category = GRADIENT_APPLIES_TO_HAIR|GRADIENT_APPLIES_TO_FACIAL_HAIR
 
 /datum/sprite_accessory/gradient/none
 	name = "None"
 	icon_state = "none"
+
+/datum/sprite_accessory/gradient/full
+	name = "Full"
+	icon_state = "full"
 
 /datum/sprite_accessory/gradient/fadeup
 	name = "Fade Up"
@@ -936,7 +948,7 @@
 /////////////////////////////
 
 /datum/sprite_accessory/facial_hair
-	icon = 'icons/mob/species/human/human_face.dmi'
+	icon = 'icons/mob/human/human_face.dmi'
 	gender = MALE // barf (unless you're a dorf, dorfs dig chix w/ beards :P)
 	em_block = TRUE
 
@@ -1733,7 +1745,7 @@
 /////////////////////////////
 
 /datum/sprite_accessory/body_markings
-	icon = 'icons/mob/species/lizard/lizard_misc.dmi'
+	icon = 'icons/mob/human/species/lizard/lizard_misc.dmi'
 
 /datum/sprite_accessory/body_markings/none
 	name = "None"
@@ -1758,7 +1770,7 @@
 	em_block = TRUE
 
 /datum/sprite_accessory/tails/lizard
-	icon = 'icons/mob/species/lizard/lizard_tails.dmi'
+	icon = 'icons/mob/human/species/lizard/lizard_tails.dmi'
 
 /datum/sprite_accessory/tails/lizard/smooth
 	name = "Smooth"
@@ -1778,18 +1790,18 @@
 
 /datum/sprite_accessory/tails/human/cat
 	name = "Cat"
-	icon = 'icons/mob/species/human/cat_features.dmi'
+	icon = 'icons/mob/human/cat_features.dmi'
 	icon_state = "default"
 	color_src = HAIR_COLOR
 
 /datum/sprite_accessory/tails/monkey
 	name = "Monkey"
-	icon = 'icons/mob/species/monkey/monkey_tail.dmi'
+	icon = 'icons/mob/human/species/monkey/monkey_tail.dmi'
 	icon_state = "monkey"
 	color_src = FALSE
 
 /datum/sprite_accessory/pod_hair
-	icon = 'icons/mob/species/podperson_hair.dmi'
+	icon = 'icons/mob/human/species/podperson_hair.dmi'
 	em_block = TRUE
 
 /datum/sprite_accessory/pod_hair/ivy
@@ -1833,7 +1845,7 @@
 	icon_state = "hibiscus"
 
 /datum/sprite_accessory/snouts
-	icon = 'icons/mob/species/lizard/lizard_misc.dmi'
+	icon = 'icons/mob/human/species/lizard/lizard_misc.dmi'
 	em_block = TRUE
 
 /datum/sprite_accessory/snouts/sharp
@@ -1853,7 +1865,7 @@
 	icon_state = "roundlight"
 
 /datum/sprite_accessory/horns
-	icon = 'icons/mob/species/lizard/lizard_misc.dmi'
+	icon = 'icons/mob/human/species/lizard/lizard_misc.dmi'
 	em_block = TRUE
 
 /datum/sprite_accessory/horns/none
@@ -1881,7 +1893,7 @@
 	icon_state = "angler"
 
 /datum/sprite_accessory/ears
-	icon = 'icons/mob/species/human/cat_features.dmi'
+	icon = 'icons/mob/human/cat_features.dmi'
 	em_block = TRUE
 
 /datum/sprite_accessory/ears/none
@@ -1895,7 +1907,7 @@
 	color_src = HAIR_COLOR
 
 /datum/sprite_accessory/ears/fox
-	icon = 'icons/mob/species/human/fox_features.dmi'
+	icon = 'icons/mob/human/fox_features.dmi'
 	name = "Fox"
 	icon_state = "fox"
 	hasinner = TRUE
@@ -1907,11 +1919,11 @@
 	icon_state = "none"
 
 /datum/sprite_accessory/wings
-	icon = 'icons/mob/species/wings.dmi'
+	icon = 'icons/mob/human/species/wings.dmi'
 	em_block = TRUE
 
 /datum/sprite_accessory/wings_open
-	icon = 'icons/mob/species/wings.dmi'
+	icon = 'icons/mob/human/species/wings.dmi'
 	em_block = TRUE
 
 /datum/sprite_accessory/wings/angel
@@ -2032,7 +2044,7 @@
 	dimension_y = 32
 
 /datum/sprite_accessory/frills
-	icon = 'icons/mob/species/lizard/lizard_misc.dmi'
+	icon = 'icons/mob/human/species/lizard/lizard_misc.dmi'
 
 /datum/sprite_accessory/frills/none
 	name = "None"
@@ -2051,11 +2063,11 @@
 	icon_state = "aqua"
 
 /datum/sprite_accessory/spines
-	icon = 'icons/mob/species/lizard/lizard_spines.dmi'
+	icon = 'icons/mob/human/species/lizard/lizard_spines.dmi'
 	em_block = TRUE
 
 /datum/sprite_accessory/spines_animated
-	icon = 'icons/mob/species/lizard/lizard_spines.dmi'
+	icon = 'icons/mob/human/species/lizard/lizard_spines.dmi'
 	em_block = TRUE
 
 /datum/sprite_accessory/spines/none
@@ -2117,7 +2129,7 @@
 	name = DIGITIGRADE_LEGS
 
 /datum/sprite_accessory/caps
-	icon = 'icons/mob/species/mush_cap.dmi'
+	icon = 'icons/mob/human/species/mush_cap.dmi'
 	color_src = HAIR_COLOR
 	em_block = TRUE
 
@@ -2126,7 +2138,7 @@
 	icon_state = "round"
 
 /datum/sprite_accessory/moth_wings
-	icon = 'icons/mob/species/moth/moth_wings.dmi'
+	icon = 'icons/mob/human/species/moth/moth_wings.dmi'
 	color_src = null
 	em_block = TRUE
 
@@ -2228,7 +2240,7 @@
 	icon_state = "moffra"
 
 /datum/sprite_accessory/moth_antennae //Finally splitting the sprite
-	icon = 'icons/mob/species/moth/moth_antennae.dmi'
+	icon = 'icons/mob/human/species/moth/moth_antennae.dmi'
 	color_src = null
 
 /datum/sprite_accessory/moth_antennae/plain
@@ -2315,7 +2327,7 @@
 	icon_state = "moffra"
 
 /datum/sprite_accessory/moth_markings // the markings that moths can have. finally something other than the boring tan
-	icon = 'icons/mob/species/moth/moth_markings.dmi'
+	icon = 'icons/mob/human/species/moth/moth_markings.dmi'
 	color_src = SPRITE_ACC_SCRIPTED_COLOR /// SKYRAPTOR EDIT
 
 /// SKYRAPTOR ADDITION

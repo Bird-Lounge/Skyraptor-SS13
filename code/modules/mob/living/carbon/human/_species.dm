@@ -193,6 +193,9 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	 **/
 	var/properly_gained = FALSE
 
+	///A list containing outfits that will be overridden in the species_equip_outfit proc. [Key = Typepath passed in] [Value = Typepath of outfit you want to equip for this specific species instead].
+	var/list/outfit_override_registry = list()
+
 ///////////
 // PROCS //
 ///////////
@@ -843,6 +846,39 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				/// SKYRAPTOR ADDITION END
 
 				standing += inner_accessory_overlay
+			/// SKYRAPTOR ADDITION #2 BEGIN
+			if(accessory.hasinner2)
+				var/mutable_appearance/inner_accessory_overlay = mutable_appearance(accessory.icon, layer = -layer)
+				if(accessory.gender_specific)
+					inner_accessory_overlay.icon_state = "[g]_[bodypart]inner_[accessory.icon_state]_[layertext]"
+				else
+					inner_accessory_overlay.icon_state = "m_[bodypart]inner_[accessory.icon_state]_[layertext]"
+
+				if(accessory.center)
+					inner_accessory_overlay = center_image(inner_accessory_overlay, accessory.dimension_x, accessory.dimension_y)
+
+				switch(accessory.inner2_color_src)
+					if(MUTCOLORS)
+						if(fixed_mut_color)
+							inner_accessory_overlay.color = fixed_mut_color
+						else
+							inner_accessory_overlay.color = source.dna.features["mcolor"]
+					if(HAIR)
+						if(hair_color == "mutcolor")
+							inner_accessory_overlay.color = source.dna.features["mcolor"]
+						else if(hair_color == "fixedmutcolor")
+							inner_accessory_overlay.color = fixed_mut_color
+						else
+							inner_accessory_overlay.color = source.hair_color
+					if(FACEHAIR)
+						inner_accessory_overlay.color = source.facial_hair_color
+					if(EYECOLOR)
+						inner_accessory_overlay.color = source.eye_color_left
+					if(SPRITE_ACC_SCRIPTED_COLOR)
+						inner_accessory_overlay.color = accessory.innercolor2_override(source)
+
+				standing += inner_accessory_overlay
+			/// SKYRAPTOR ADDITION END
 
 		source.overlays_standing[layer] = standing.Copy()
 		standing = list()
@@ -1152,7 +1188,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	if(attacker_style?.help_act(user, target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE
 
-	if(target.body_position == STANDING_UP || target.appears_alive())
+	if(target.body_position == STANDING_UP || (target.appears_alive() && target.stat != SOFT_CRIT && target.stat != HARD_CRIT))
 		target.help_shake_act(user)
 		if(target != user)
 			log_combat(user, target, "shaken")
@@ -1303,6 +1339,10 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		return // dont attack after
 	if(owner.combat_mode)
 		harm(owner, target, attacker_style)
+		/// SKYRAPTOR ADDITION BEGIN
+		if(. & ATTACK_CONSUME_STAMINA)
+			owner.stamina_swing(STAMINA_SWING_COST_UNARMED)
+		/// SKYRAPTOR ADDITION END
 	else
 		help(owner, target, attacker_style)
 
@@ -1338,6 +1378,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	var/attack_direction = get_dir(user, human)
 	apply_damage(weapon.force * weakness, weapon.damtype, def_zone, armor_block, human, wound_bonus = Iwound_bonus, bare_wound_bonus = weapon.bare_wound_bonus, sharpness = weapon.get_sharpness(), attack_direction = attack_direction, attacking_item = weapon)
+	if(weapon.stamina_damage) /// SKYRAPTOR ADDITION
+		human.stamina.adjust(-weapon.stamina_damage * (prob(weapon.stamina_critical_chance) ? weapon.stamina_critical_modifier : 1))
 
 	if(!weapon.force)
 		return FALSE //item force is zero
@@ -1347,7 +1389,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	if(!(prob(25 + (weapon.force * 2))))
 		return TRUE
 
-	if(IS_ORGANIC_LIMB(affecting))
+	if(affecting.can_bleed())
 		weapon.add_mob_blood(human) //Make the weapon bloody, not the person.
 		if(prob(weapon.force * 2)) //blood spatter!
 			bloody = TRUE
@@ -1716,19 +1758,19 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	// Lets pick a random body part and check for an existing burn
 	var/obj/item/bodypart/bodypart = pick(humi.bodyparts)
-	var/datum/wound/burn/existing_burn = locate(/datum/wound/burn) in bodypart.wounds
+	var/datum/wound/burn/flesh/existing_burn = locate(/datum/wound/burn) in bodypart.wounds
 
 	// If we have an existing burn try to upgrade it
 	if(existing_burn)
 		switch(existing_burn.severity)
 			if(WOUND_SEVERITY_MODERATE)
 				if(humi.bodytemperature > BODYTEMP_HEAT_WOUND_LIMIT + 400) // 800k
-					bodypart.force_wound_upwards(/datum/wound/burn/severe, wound_source = "hot temperatures")
+					bodypart.force_wound_upwards(/datum/wound/burn/flesh/severe, wound_source = "hot temperatures")
 			if(WOUND_SEVERITY_SEVERE)
 				if(humi.bodytemperature > BODYTEMP_HEAT_WOUND_LIMIT + 2800) // 3200k
-					bodypart.force_wound_upwards(/datum/wound/burn/critical, wound_source = "hot temperatures")
+					bodypart.force_wound_upwards(/datum/wound/burn/flesh/critical, wound_source = "hot temperatures")
 	else // If we have no burn apply the lowest level burn
-		bodypart.force_wound_upwards(/datum/wound/burn/moderate, wound_source = "hot temperatures")
+		bodypart.force_wound_upwards(/datum/wound/burn/flesh/moderate, wound_source = "hot temperatures")
 
 	// always take some burn damage
 	var/burn_damage = HEAT_DAMAGE_LEVEL_1
@@ -1784,7 +1826,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 // FIRE //
 //////////
 
-/datum/species/proc/handle_fire(mob/living/carbon/human/H, seconds_per_tick, times_fired, no_protection = FALSE)
+/datum/species/proc/handle_fire(mob/living/carbon/human/H, seconds_per_tick, no_protection = FALSE)
 	return no_protection
 
 ////////////
@@ -2359,6 +2401,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			new_part = new path()
 			new_part.replace_limb(target, TRUE)
 			new_part.update_limb(is_creating = TRUE)
+			new_part.set_initial_damage(old_part.brute_dam, old_part.burn_dam)
 		qdel(old_part)
 
 /// Creates body parts for the target completely from scratch based on the species

@@ -216,6 +216,16 @@
 /obj/item/gun/energy/e_gun/hos/add_stealing_item_objective()
 	return add_item_to_steal(src, /obj/item/gun/energy/e_gun/hos)
 
+/datum/objective_item/steal/compactshotty
+	name = "the head of security's personal compact shotgun"
+	targetitem = /obj/item/gun/ballistic/shotgun/automatic/combat/compact
+	excludefromjob = list(JOB_HEAD_OF_SECURITY)
+	item_owner = list(JOB_HEAD_OF_SECURITY)
+	exists_on_map = TRUE
+
+/obj/item/gun/ballistic/shotgun/automatic/combat/compact/add_stealing_item_objective()
+	return add_item_to_steal(src, /obj/item/gun/ballistic/shotgun/automatic/combat/compact)
+
 /datum/objective_item/steal/handtele
 	name = "a hand teleporter"
 	targetitem = /obj/item/hand_tele
@@ -362,7 +372,8 @@
 		being = card.AI // why is this one capitalized and the other one not? i wish i knew.
 	else if(istype(potential_storage, /obj/item/mod/control))
 		var/obj/item/mod/control/suit = potential_storage
-		being = suit.ai
+		if(isAI(suit.ai_assistant))
+			being = suit.ai_assistant
 	else
 		stack_trace("check_special_completion() called on [src] with [potential_storage] ([potential_storage.type])! That's not supposed to happen!")
 		return FALSE
