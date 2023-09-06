@@ -1023,7 +1023,15 @@
 		return -1
 	return SEND_SIGNAL(src, COMSIG_ITEM_ON_JUICE)
 
-<<<<<<< HEAD
+///Juice item, converting nutriments into juice_typepath and transfering to target_holder if specified
+/obj/item/proc/juice(datum/reagents/target_holder, mob/user)
+	if(on_juice() == -1)
+		return FALSE
+	reagents.convert_reagent(/datum/reagent/consumable, juice_typepath, include_source_subtypes = TRUE)
+	if(reagents && target_holder)
+		reagents.trans_to(target_holder, reagents.total_volume, transfered_by = user)
+	return TRUE
+
 /// SKYRAPTOR EDIT/ADDITION BEGIN
 /obj/item/proc/damagetype2text()
 	. += list()
@@ -1042,18 +1050,9 @@
 	return english_list(., "NONE")
 
 /obj/item/proc/force2text()
-=======
-///Juice item, converting nutriments into juice_typepath and transfering to target_holder if specified
-/obj/item/proc/juice(datum/reagents/target_holder, mob/user)
-	if(on_juice() == -1)
-		return FALSE
-	reagents.convert_reagent(/datum/reagent/consumable, juice_typepath, include_source_subtypes = TRUE)
-	if(reagents && target_holder)
-		reagents.trans_to(target_holder, reagents.total_volume, transfered_by = user)
-	return TRUE
+	return set_force_string(force)
 
 /obj/item/proc/set_force_string()
->>>>>>> b1c5e5e0f6a (Foodening (#77887))
 	switch(force)
 		if(-INFINITY to 0)
 			return "Harmless"
