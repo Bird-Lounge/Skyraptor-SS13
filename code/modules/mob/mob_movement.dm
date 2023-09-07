@@ -74,8 +74,8 @@
 		return FALSE
 	if(!mob?.loc)
 		return FALSE
-	if(mob.notransform)
-		return FALSE //This is sota the goto stop mobs from moving var
+	if(HAS_TRAIT(mob, TRAIT_NO_TRANSFORM))
+		return FALSE //This is sorta the goto stop mobs from moving trait
 	if(mob.control_object)
 		return Move_object(direct)
 	if(!isliving(mob))
@@ -524,8 +524,8 @@
 	update_move_intent_slowdown()
 
 /// SKYRAPTOR ADDITION
-/mob/proc/set_move_intent(new_state)
-	m_intent = new_state
+/mob/living/proc/set_move_intent(new_state)
+	move_intent = new_state
 	if(hud_used?.static_inventory)
 		for(var/atom/movable/screen/mov_intent/selector in hud_used.static_inventory)
 			selector.update_appearance()
