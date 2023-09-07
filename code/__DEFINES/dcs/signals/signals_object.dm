@@ -461,9 +461,6 @@
 #define COMSIG_ORM_COLLECTED_ORE "orm_collected_ore"
 
 /// from /obj/plunger_act when an object is being plungered
-<<<<<<< HEAD
-#define COMSIG_PLUNGER_ACT "plunger_act"
-=======
 #define COMSIG_PLUNGER_ACT "plunger_act"
 
 /// from /obj/structure/cursed_slot_machine/handle_status_effect() when someone pulls the handle on the slot machine
@@ -476,8 +473,3 @@
 
 /// from /obj/structure/cursed_slot_machine/determine_victor() when someone finally wins.
 #define COMSIG_GLOB_CURSED_SLOT_MACHINE_WON "cursed_slot_machine_won"
-<<<<<<< HEAD
-
->>>>>>> d1afd66508e (The Curse Of The Slot Machine - Now Clone-less (#77841))
-=======
->>>>>>> 3c0159b1433 (replaces surgical and coroner duffels with surgery trays and medical carts, resprites razor (#77975))
