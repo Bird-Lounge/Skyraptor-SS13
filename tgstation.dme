@@ -358,12 +358,12 @@
 #include "code\__DEFINES\research\anomalies.dm"
 #include "code\__DEFINES\research\research_categories.dm"
 #include "code\__DEFINES\research\slimes.dm"
-#include "code\__DEFINES\~skyraptor_defines\stamina.dm"
 #include "code\__DEFINES\~skyraptor_defines\pixelshift.dm"
 #include "code\__DEFINES\~skyraptor_defines\species_akula.dm"
 #include "code\__DEFINES\~skyraptor_defines\species_slugcat.dm"
 #include "code\__DEFINES\~skyraptor_defines\species_talonmoth.dm"
 #include "code\__DEFINES\~skyraptor_defines\species_teshvali.dm"
+#include "code\__DEFINES\~skyraptor_defines\stamina.dm"
 #include "code\__HELPERS\_auxtools_api.dm"
 #include "code\__HELPERS\_lists.dm"
 #include "code\__HELPERS\_planes.dm"
@@ -2053,11 +2053,7 @@
 #include "code\game\objects\items\skub.dm"
 #include "code\game\objects\items\spear.dm"
 #include "code\game\objects\items\sticker.dm"
-<<<<<<< HEAD
-=======
 #include "code\game\objects\items\surgery_tray.dm"
-#include "code\game\objects\items\syndie_spraycan.dm"
->>>>>>> 3c0159b1433 (replaces surgical and coroner duffels with surgery trays and medical carts, resprites razor (#77975))
 #include "code\game\objects\items\tail_pin.dm"
 #include "code\game\objects\items\taster.dm"
 #include "code\game\objects\items\teleportation.dm"
