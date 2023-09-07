@@ -82,31 +82,23 @@
 	. = ..()
 	if(.)
 		return
-<<<<<<< HEAD
 	var/mob/M = user.mob
-	//M.toggle_move_intent() SKYRAPTOR REMOVAL
-	if(M.m_intent != MOVE_INTENT_WALK)
-		M.set_move_intent(MOVE_INTENT_WALK)
-	else
-		M.set_move_intent(MOVE_INTENT_RUN)
+	var/mob/living/L = M
+	if(L)
+		if(L.move_intent != MOVE_INTENT_WALK)
+			L.set_move_intent(MOVE_INTENT_WALK)
+		else
+			L.set_move_intent(MOVE_INTENT_RUN)
 	return TRUE
 
 /datum/keybinding/mob/toggle_move_intent/up(client/user)
 	var/mob/M = user.mob
-	//M.toggle_move_intent() SKYRAPTOR REMOVAL
-	if(M.m_intent != MOVE_INTENT_WALK)
-		M.set_move_intent(MOVE_INTENT_WALK)
-	else
-		M.set_move_intent(MOVE_INTENT_RUN)
-=======
-	var/mob/living/M = user.mob
-	M.toggle_move_intent()
-	return TRUE
-
-/datum/keybinding/mob/toggle_move_intent/up(client/user)
-	var/mob/living/M = user.mob
-	M.toggle_move_intent()
->>>>>>> ef352ca7310 (minor changes to living and mob vars (#77820))
+	var/mob/living/L = M
+	if(L)
+		if(L.move_intent != MOVE_INTENT_WALK)
+			L.set_move_intent(MOVE_INTENT_WALK)
+		else
+			L.set_move_intent(MOVE_INTENT_RUN)
 	return TRUE
 
 /datum/keybinding/mob/toggle_move_intent_alternative
@@ -120,17 +112,13 @@
 	. = ..()
 	if(.)
 		return
-<<<<<<< HEAD
 	var/mob/M = user.mob
-	//M.toggle_move_intent() SKYRAPTOR REMOVAL
-	if(M.m_intent != MOVE_INTENT_WALK)
-		M.set_move_intent(MOVE_INTENT_WALK)
-	else
-		M.set_move_intent(MOVE_INTENT_RUN)
-=======
-	var/mob/living/M = user.mob
-	M.toggle_move_intent()
->>>>>>> ef352ca7310 (minor changes to living and mob vars (#77820))
+	var/mob/living/L = M
+	if(L)
+		if(L.move_intent != MOVE_INTENT_WALK)
+			L.set_move_intent(MOVE_INTENT_WALK)
+		else
+			L.set_move_intent(MOVE_INTENT_RUN)
 	return TRUE
 
 /datum/keybinding/mob/target/down(client/user)

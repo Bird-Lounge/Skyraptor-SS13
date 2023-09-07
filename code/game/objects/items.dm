@@ -240,8 +240,8 @@
 
 	///Grinder var:A reagent list containing the reagents this item produces when ground up in a grinder - this can be an empty list to allow for reagent transferring only
 	var/list/grind_results
-	//Grinder var:A reagent list containing blah blah... but when JUICED in a grinder!
-	var/list/juice_results
+	///A reagent the nutriments are converted into when the item is juiced.
+	var/datum/reagent/consumable/juice_typepath
 
 	var/canMouseDown = FALSE
 
@@ -1002,7 +1002,7 @@
 /obj/item/proc/grind_requirements(obj/machinery/reagentgrinder/R) //Used to check for extra requirements for grinding an object
 	return TRUE
 
-///Called BEFORE the object is ground up - use this to change grind results based on conditions. Use "return -1" to prevent the grinding from occurring
+///Called BEFORE the object is ground up - use this to change grind results based on conditions. Return "-1" to prevent the grinding from occurring
 /obj/item/proc/on_grind()
 	return SEND_SIGNAL(src, COMSIG_ITEM_ON_GRIND)
 
@@ -1012,13 +1012,15 @@
 		return FALSE
 	if(!reagents)
 		reagents = new()
-	reagents.add_reagent_list(grind_results)
+	target_holder.add_reagent_list(grind_results)
 	if(reagents && target_holder)
 		reagents.trans_to(target_holder, reagents.total_volume, transferred_by = user)
 	return TRUE
 
 ///Called BEFORE the object is ground up - use this to change grind results based on conditions. Return "-1" to prevent the grinding from occurring
 /obj/item/proc/on_juice()
+	if(!juice_typepath)
+		return -1
 	return SEND_SIGNAL(src, COMSIG_ITEM_ON_JUICE)
 
 ///Juice item, converting nutriments into juice_typepath and transfering to target_holder if specified
@@ -1048,6 +1050,9 @@
 	return english_list(., "NONE")
 
 /obj/item/proc/force2text()
+	return set_force_string(force)
+
+/obj/item/proc/set_force_string()
 	switch(force)
 		if(-INFINITY to 0)
 			return "Harmless"
