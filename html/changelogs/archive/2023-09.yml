@@ -152,3 +152,28 @@
   - rscadd: Added flower crowns, craftable via the clothing menu.
   - image: Resprited geraniums, poppies, and lilys, along with changing their worn
       icon.
+2023-09-07:
+  Krysonism:
+  - image: resprites the noticeboard
+  NaakaKo:
+  - bugfix: Snow legions now drop only one corpse, and no longer drop Lavaland corpses.
+  - image: cleans up the engineering emergency internals sprite slightly
+  - spellcheck: Improved phrasing and syntax on dismemberment mood messages.
+  - spellcheck: re-writes cosmic heretic lore
+  - rscadd: Added the Numb quirk, that makes you (almost) unable to perceive how much
+      your injuries hurt.
+  - bugfix: Machine frames in NorthStar Cyto are now functional.
+  - qol: Minor cable/pipe changes to NorthStar the xeno containment.
+  - bugfix: Fixed all-in-one grinders not giving all the correct reagents when grinding.
+  - qol: Adds cables under birdshot xeno containment shielding.
+  - bugfix: fixed mirrors not breaking when a curse effect is triggered
+  - refactor: the minebots have been refactored please report any bugs
+  - rscadd: minebots can now mine walls and collect ores automatically and they will
+      alert everyone if they find u dead
+  - bugfix: The Birdshot Gaming Den now has arcade circuit boards and computer frames
+      that actually work.
+  - qol: NorthStar's departmental head offices have had their respective PDA & ID
+      imprinters added!
+  - qol: The NorthStar Head of Security office has gotten a small expansion.
+  - bugfix: Public mining storage's camera is now on the mining network instead of
+      the gulag.
