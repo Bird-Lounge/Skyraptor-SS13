@@ -131,3 +131,6 @@
 
 /obj/item/stack/ducts
 	icon = 'modular_skyraptor/modules/aesthetics/oldnewsurgery/hydrochem/fluid_ducts.dmi'
+
+/obj/item/surgery_tray
+	icon = 'modular_skyraptor/modules/aesthetics/oldnewsurgery/medicart.dmi'
