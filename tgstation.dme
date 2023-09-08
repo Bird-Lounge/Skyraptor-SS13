@@ -5686,7 +5686,6 @@
 #include "modular_skyraptor\modules\aesthetics\shiptest_chemcontainers\shipchems.dm"
 #include "modular_skyraptor\modules\aesthetics\ui_greenened\hud_greened.dm"
 #include "modular_skyraptor\modules\aesthetics\ui_greenened\lobby_colors.dm"
-#include "modular_skyraptor\modules\aesthetics\unshitty_bags\rebagged.dm"
 #include "modular_skyraptor\modules\cryosleep\code\ai.dm"
 #include "modular_skyraptor\modules\cryosleep\code\cryopod.dm"
 #include "modular_skyraptor\modules\cryosleep\code\job.dm"
@@ -5729,5 +5728,6 @@
 #include "modular_skyraptor\modules\transfer_timer\code\autotransfer_config.dm"
 #include "modular_skyraptor\modules\transfer_timer\code\shuttle.dm"
 #include "modular_skyraptor\modules\transfer_timer\code\transfer_vote.dm"
+#include "modular_skyraptor\modules\aesthetics\unshitty_bags\rebagged.dm"
 // END_INCLUDE
 
