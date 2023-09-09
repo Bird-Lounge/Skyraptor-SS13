@@ -235,3 +235,10 @@
   - qol: Communications console status display menu got a new "Radiation" button which
       shows radiation symbol on Status Displays
   - balance: colossus' near-death attack now starts after a 0.5 seconds delay
+2023-09-09:
+  LT3:
+  - qol: Supermatter common channel alerts are less frequent if the crystal's integrity
+      is rising rapidly
+  NaakaKo:
+  - bugfix: Cauteries now have 'heat', like lighters, welders, etc.
+  - qol: You can smoke with a space helmet as long as you have internals on.
