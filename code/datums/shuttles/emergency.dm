@@ -8,6 +8,11 @@
 	. = ..()
 	if(!occupancy_limit && who_can_purchase)
 		CRASH("The [name] needs an occupancy limit!")
+	if(HAS_TRAIT(SSstation, STATION_TRAIT_SHUTTLE_SALE) && credit_cost > 0 && prob(15))
+		var/discount_amount = round(rand(25, 80), 5)
+		name += " ([discount_amount]% Discount!)"
+		var/discount_multiplier = 100 - discount_amount
+		credit_cost = ((credit_cost * discount_multiplier) / 100)
 
 /datum/map_template/shuttle/emergency/backup
 	suffix = "backup"
