@@ -415,12 +415,23 @@
 
 	SEND_SIGNAL(src, COMSIG_CARBON_VOMITED, distance, force)
 	var/starting_dir = dir
+<<<<<<< HEAD
 	if(nutrition < 100 && !blood && !force)
+=======
+	var/message = (vomit_flags & MOB_VOMIT_MESSAGE)
+	var/stun = (vomit_flags & MOB_VOMIT_STUN)
+	var/knockdown = (vomit_flags & MOB_VOMIT_KNOCKDOWN)
+	var/blood = (vomit_flags & MOB_VOMIT_BLOOD)
+
+	if(!force && !blood && (nutrition < 100))
+>>>>>>> c571222cd79 (Readds (some) Knockdown Vomits (#78301))
 		if(message)
 			visible_message(span_warning("[src] dry heaves!"), \
 							span_userdanger("You try to throw up, but there's nothing in your stomach!"))
 		if(stun)
 			Stun(20 SECONDS)
+		if(knockdown)
+			Knockdown(20 SECONDS)
 		return TRUE
 
 	if(is_mouth_covered()) //make this add a blood/vomit overlay later it'll be hilarious
@@ -437,6 +448,8 @@
 
 	if(stun)
 		Stun(8 SECONDS)
+	if(knockdown)
+		Knockdown(8 SECONDS)
 
 	playsound(get_turf(src), 'sound/effects/splat.ogg', 50, TRUE)
 	var/turf/T = get_turf(src)
