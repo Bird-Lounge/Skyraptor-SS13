@@ -462,6 +462,16 @@
 		smash_headlamp()
 	return COMPONENT_BLOCK_LIGHT_EATER
 
+<<<<<<< HEAD
+=======
+/// special handling for getting shot with a light disruptor/saboteur e.g. the fisher
+/mob/living/silicon/robot/proc/on_saboteur(datum/source, disrupt_duration)
+	SIGNAL_HANDLER
+	if(lamp_enabled)
+		toggle_headlamp(TRUE)
+		to_chat(src, span_warning("Your headlamp was forcibly turned off. Restarting it should fix it, though."))
+	return COMSIG_SABOTEUR_SUCCESS
+>>>>>>> c6ac468b908 (second pass over the SC/FISHER code, incl. bitflags and PDAs (#78330))
 
 /**
  * Handles headlamp smashing

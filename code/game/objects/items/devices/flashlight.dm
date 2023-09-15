@@ -64,9 +64,21 @@
 	if(light_system == STATIC_LIGHT)
 		update_light()
 
+<<<<<<< HEAD
 /obj/item/flashlight/proc/toggle_light()
 	on = !on
 	playsound(src, on ? sound_on : sound_off, 40, TRUE)
+=======
+/obj/item/flashlight/proc/toggle_light(mob/user)
+	var/disrupted = FALSE
+	on = !on
+	playsound(src, on ? sound_on : sound_off, 40, TRUE)
+	if(!COOLDOWN_FINISHED(src, disabled_time))
+		if(user)
+			balloon_alert(user, "disrupted!")
+			on = FALSE
+			disrupted = TRUE
+>>>>>>> c6ac468b908 (second pass over the SC/FISHER code, incl. bitflags and PDAs (#78330))
 	update_brightness()
 	update_item_action_buttons()
 	return TRUE
@@ -254,6 +266,17 @@
 	if(istype(user) && dir != user.dir)
 		setDir(user.dir)
 
+<<<<<<< HEAD
+=======
+/// when hit by a light disruptor - turns the light off, forces the light to be disabled for a few seconds
+/obj/item/flashlight/proc/on_saboteur(datum/source, disrupt_duration)
+	SIGNAL_HANDLER
+	if(on)
+		toggle_light()
+	COOLDOWN_START(src, disabled_time, disrupt_duration)
+	return COMSIG_SABOTEUR_SUCCESS
+
+>>>>>>> c6ac468b908 (second pass over the SC/FISHER code, incl. bitflags and PDAs (#78330))
 /obj/item/flashlight/pen
 	name = "penlight"
 	desc = "A pen-sized light, used by medical staff. It can also be used to create a hologram to alert people of incoming medical assistance."

@@ -674,6 +674,14 @@
 	tube?.burn()
 	return
 
+<<<<<<< HEAD
+=======
+/obj/machinery/light/proc/on_saboteur(datum/source, disrupt_duration)
+	SIGNAL_HANDLER
+	break_light_tube()
+	return COMSIG_SABOTEUR_SUCCESS
+
+>>>>>>> c6ac468b908 (second pass over the SC/FISHER code, incl. bitflags and PDAs (#78330))
 /obj/machinery/light/proc/grey_tide(datum/source, list/grey_tide_areas)
 	SIGNAL_HANDLER
 

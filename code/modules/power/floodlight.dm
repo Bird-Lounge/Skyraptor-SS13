@@ -289,6 +289,14 @@
 /obj/machinery/power/floodlight/attack_ai(mob/user)
 	return attack_hand(user)
 
+<<<<<<< HEAD
+=======
+/obj/machinery/power/floodlight/proc/on_saboteur(datum/source, disrupt_duration)
+	SIGNAL_HANDLER
+	atom_break(ENERGY) // technically,
+	return COMSIG_SABOTEUR_SUCCESS
+
+>>>>>>> c6ac468b908 (second pass over the SC/FISHER code, incl. bitflags and PDAs (#78330))
 /obj/machinery/power/floodlight/atom_break(damage_flag)
 	. = ..()
 	if(!.)
