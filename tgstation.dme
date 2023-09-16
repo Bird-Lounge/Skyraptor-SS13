@@ -1245,6 +1245,7 @@
 #include "code\datums\elements\bed_tucking.dm"
 #include "code\datums\elements\befriend_petting.dm"
 #include "code\datums\elements\blocks_explosives.dm"
+#include "code\datums\elements\bombable_turf.dm"
 #include "code\datums\elements\bonus_damage.dm"
 #include "code\datums\elements\bsa_blocker.dm"
 #include "code\datums\elements\bugkiller_reagent.dm"
@@ -2441,6 +2442,10 @@
 #include "code\game\turfs\change_turf.dm"
 #include "code\game\turfs\turf.dm"
 #include "code\game\turfs\closed\_closed.dm"
+<<<<<<< HEAD
+=======
+#include "code\game\turfs\closed\indestructible.dm"
+>>>>>>> 4cf1f274512 (Replace wall/indestructible/destructible typepath with mapping helper (#78365))
 #include "code\game\turfs\closed\minerals.dm"
 #include "code\game\turfs\closed\walls.dm"
 #include "code\game\turfs\closed\wall\material_walls.dm"
