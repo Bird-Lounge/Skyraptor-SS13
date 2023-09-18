@@ -2544,7 +2544,6 @@
 /turf/open/space,
 /area/space/nearstation)
 "aFs" = (
-/obj/machinery/lapvend,
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 4
 	},
