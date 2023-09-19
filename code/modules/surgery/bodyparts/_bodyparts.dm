@@ -1,6 +1,3 @@
-#define AUGGED_LIMB_EMP_BRUTE_DAMAGE 3
-#define AUGGED_LIMB_EMP_BURN_DAMAGE 2
-
 /obj/item/bodypart
 	name = "limb"
 	desc = "Why is it detached..."
@@ -195,10 +192,19 @@
 	var/hp_percent_to_dismemberable = 0.8
 	/// If true, we will use [hp_percent_to_dismemberable] even if we are dismemberable via wounds. Useful for things with extreme wound resistance.
 	var/use_alternate_dismemberment_calc_even_if_mangleable = FALSE
+<<<<<<< HEAD
 	/// If false, no wound that can be applied to us can mangle our flesh. Used for determining if we should use [hp_percent_to_dismemberable] instead of normal dismemberment.
 	var/any_existing_wound_can_mangle_our_flesh
 	/// If false, no wound that can be applied to us can mangle our bone. Used for determining if we should use [hp_percent_to_dismemberable] instead of normal dismemberment.
 	var/any_existing_wound_can_mangle_our_bone
+=======
+	/// If false, no wound that can be applied to us can mangle our exterior. Used for determining if we should use [hp_percent_to_dismemberable] instead of normal dismemberment.
+	var/any_existing_wound_can_mangle_our_exterior
+	/// If false, no wound that can be applied to us can mangle our interior. Used for determining if we should use [hp_percent_to_dismemberable] instead of normal dismemberment.
+	var/any_existing_wound_can_mangle_our_interior
+	/// get_damage() / total_damage must surpass this to allow our limb to be disabled, even temporarily, by an EMP.
+	var/robotic_emp_paralyze_damage_percent_threshold = 0.3
+>>>>>>> e742c5e742f (Nerfs EMP effect on synthetic limbs/organs (#78373))
 
 /obj/item/bodypart/apply_fantasy_bonuses(bonus)
 	. = ..()
@@ -1259,12 +1265,13 @@
 	. = ..()
 	if(. & EMP_PROTECT_WIRES || !IS_ROBOTIC_LIMB(src))
 		return FALSE
-	owner.visible_message(span_danger("[owner]'s [src.name] seems to malfunction!"))
 
-	// with defines at the time of writing, this is 3 brute and 2 burn
-	// 3 + 2 = 5, with 6 limbs thats 30, on a heavy 60
-	// 60 * 0.8 = 48
-	var/time_needed = 10 SECONDS
+	// with defines at the time of writing, this is 2 brute and 1.5 burn
+	// 2 + 1.5 = 3,5, with 6 limbs thats 21, on a heavy 42
+	// 42 * 0.8 = 33.6
+	// 3 hits to crit with an ion rifle on someone fully augged at a total of 100.8 damage, although im p sure mood can boost max hp above 100
+	// dont forget emps pierce armor, debilitate augs, and usually comes with splash damage e.g. ion rifles or grenades
+	var/time_needed = AUGGED_LIMB_EMP_PARALYZE_TIME
 	var/brute_damage = AUGGED_LIMB_EMP_BRUTE_DAMAGE
 	var/burn_damage = AUGGED_LIMB_EMP_BURN_DAMAGE
 	if(severity == EMP_HEAVY)
@@ -1274,8 +1281,11 @@
 
 	receive_damage(brute_damage, burn_damage)
 	do_sparks(number = 1, cardinal_only = FALSE, source = owner)
-	ADD_TRAIT(src, TRAIT_PARALYSIS, EMP_TRAIT)
-	addtimer(CALLBACK(src, PROC_REF(un_paralyze)), time_needed)
+	var/damage_percent_to_max = (get_damage() / max_damage)
+	if (time_needed && (damage_percent_to_max >= robotic_emp_paralyze_damage_percent_threshold))
+		owner.visible_message(span_danger("[owner]'s [src] seems to malfunction!"))
+		ADD_TRAIT(src, TRAIT_PARALYSIS, EMP_TRAIT)
+		addtimer(CALLBACK(src, PROC_REF(un_paralyze)), time_needed)
 	return TRUE
 
 /obj/item/bodypart/proc/un_paralyze()
