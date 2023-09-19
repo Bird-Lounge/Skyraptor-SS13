@@ -53,10 +53,13 @@ jobs:
           tools/bootstrap/python -c ''
       - name: Run Linters
         run: |
+<<<<<<< HEAD
           bash tools/ci/check_filedirs.sh tgstation.dme
           bash tools/ci/check_changelogs.sh
           bash tools/ci/check_grep.sh
           bash tools/ci/check_misc.sh
+=======
+>>>>>>> 35e741abc9c (Fixes TFE being useless after #78265 (#78433))
           tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < tools/ticked_file_enforcement/schemas/tgstation_dme.json
           tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < tools/ticked_file_enforcement/schemas/unit_tests.json
           tools/bootstrap/python -m tools.maplint.source --github
