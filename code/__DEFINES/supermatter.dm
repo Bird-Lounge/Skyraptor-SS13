@@ -51,7 +51,14 @@
 #define VORTEX_ANOMALY "vortex_anomaly"
 #define DIMENSIONAL_ANOMALY "dimensional_anomaly"
 
+<<<<<<< HEAD
 #define SUPERMATTER_COUNTDOWN_TIME (30 SECONDS)
+=======
+/// How long it takes for the supermatter to delaminate after hitting 0 integrity
+#define SUPERMATTER_COUNTDOWN_TIME (15 SECONDS)
+/// How long it takes for the supermatter to delaminate after hitting 0 integrity if a sliver has been removed
+#define SUPERMATTER_SLIVER_REMOVED_COUNTDOWN_TIME (5 SECONDS)
+>>>>>>> 68b6c1fa753 (Rounded supermatter delamination times to 5 seconds, restored old mood messages (#78335))
 
 ///to prevent accent sounds from layering
 #define SUPERMATTER_ACCENT_SOUND_MIN_COOLDOWN (2 SECONDS)
