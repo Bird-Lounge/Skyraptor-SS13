@@ -11,6 +11,10 @@
 	/// Should we pixel offset ourselves at init? for mapping
 	var/offset_at_init = TRUE
 
+// This may look like it's doing nothing but it's necessary, we do this to have kwargs work in New (for passing into Initialize)  
+/obj/item/grown/New(loc, obj/item/seeds/new_seed)
+	return ..()
+
 /obj/item/grown/Initialize(mapload, obj/item/seeds/new_seed)
 	. = ..()
 	create_reagents(100)
