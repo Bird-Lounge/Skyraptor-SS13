@@ -212,6 +212,55 @@
 	victim = new_victim
 	if(victim)
 		RegisterSignal(victim, COMSIG_QDELETING, PROC_REF(null_victim))
+<<<<<<< HEAD
+=======
+		RegisterSignals(victim, list(COMSIG_MOB_SWAP_HANDS, COMSIG_CARBON_POST_REMOVE_LIMB, COMSIG_CARBON_POST_ATTACH_LIMB), PROC_REF(add_or_remove_actionspeed_mod))
+
+		if (limb)
+			start_limping_if_we_should() // the status effect already handles removing itself
+			add_or_remove_actionspeed_mod()
+
+/// Proc called to change the variable `limb` and react to the event.
+/datum/wound/proc/set_limb(obj/item/bodypart/new_value, replaced = FALSE)
+	if(limb == new_value)
+		return FALSE //Limb can either be a reference to something or `null`. Returning the number variable makes it clear no change was made.
+	. = limb
+	if(limb) // if we're nulling limb, we're basically detaching from it, so we should remove ourselves in that case
+		UnregisterSignal(limb, COMSIG_QDELETING)
+		UnregisterSignal(limb, list(COMSIG_BODYPART_GAUZED, COMSIG_BODYPART_GAUZE_DESTROYED))
+		LAZYREMOVE(limb.wounds, src)
+		limb.update_wounds(replaced)
+		if (disabling)
+			limb.remove_traits(list(TRAIT_PARALYSIS, TRAIT_DISABLED_BY_WOUND), REF(src))
+
+	limb = new_value
+
+	// POST-CHANGE
+
+	if (limb)
+		RegisterSignal(limb, COMSIG_QDELETING, PROC_REF(source_died))
+		RegisterSignals(limb, list(COMSIG_BODYPART_GAUZED, COMSIG_BODYPART_GAUZE_DESTROYED), PROC_REF(gauze_state_changed))
+		if (disabling)
+			limb.add_traits(list(TRAIT_PARALYSIS, TRAIT_DISABLED_BY_WOUND), REF(src))
+
+		if (victim)
+			start_limping_if_we_should() // the status effect already handles removing itself
+			add_or_remove_actionspeed_mod()
+
+		update_inefficiencies(replaced)
+
+/datum/wound/proc/add_or_remove_actionspeed_mod()
+	update_actionspeed_modifier()
+	if (actionspeed_mod)
+		if(victim.get_active_hand() == limb)
+			victim.add_actionspeed_modifier(actionspeed_mod, TRUE)
+		else
+			victim.remove_actionspeed_modifier(actionspeed_mod)
+
+/datum/wound/proc/start_limping_if_we_should()
+	if ((limb.body_zone == BODY_ZONE_L_LEG || limb.body_zone == BODY_ZONE_R_LEG) && limp_slowdown > 0 && limp_chance > 0)
+		victim.apply_status_effect(/datum/status_effect/limp)
+>>>>>>> 0dbc7cfb9f8 ([GBP: NO UPDATE] Fixes a bug where update_inefficiencies() would call update_wounds() and cause gauze to fall off on promotion/demotion of wound (#78398))
 
 /datum/wound/proc/source_died()
 	SIGNAL_HANDLER
@@ -295,6 +344,63 @@
 	if(limb?.can_be_disabled)
 		limb.update_disabled()
 
+<<<<<<< HEAD
+=======
+/// Setter for [interaction_efficiency_penalty]. Updates the actionspeed of our actionspeed mod.
+/datum/wound/proc/set_interaction_efficiency_penalty(new_value)
+	var/should_update = (new_value != interaction_efficiency_penalty)
+
+	interaction_efficiency_penalty = new_value
+
+	if (should_update)
+		update_actionspeed_modifier()
+
+/// Returns a "adjusted" interaction_efficiency_penalty that will be used for the actionspeed mod.
+/datum/wound/proc/get_effective_actionspeed_modifier()
+	return interaction_efficiency_penalty - 1
+
+/// Returns the decisecond multiplier of any click interactions, assuming our limb is being used.
+/datum/wound/proc/get_action_delay_mult()
+	SHOULD_BE_PURE(TRUE)
+
+	return interaction_efficiency_penalty
+
+/// Returns the decisecond increment of any click interactions, assuming our limb is being used.
+/datum/wound/proc/get_action_delay_increment()
+	SHOULD_BE_PURE(TRUE)
+
+	return 0
+
+/// Signal proc for if gauze has been applied or removed from our limb.
+/datum/wound/proc/gauze_state_changed()
+	SIGNAL_HANDLER
+
+	if (wound_flags & ACCEPTS_GAUZE)
+		update_inefficiencies()
+
+/// Updates our limping and interaction penalties in accordance with our gauze.
+/datum/wound/proc/update_inefficiencies(replaced_or_replacing = FALSE)
+	if (wound_flags & ACCEPTS_GAUZE)
+		if(limb.body_zone in list(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG))
+			if(limb.current_gauze?.splint_factor)
+				limp_slowdown = initial(limp_slowdown) * limb.current_gauze.splint_factor
+				limp_chance = initial(limp_chance) * limb.current_gauze.splint_factor
+			else
+				limp_slowdown = initial(limp_slowdown)
+				limp_chance = initial(limp_chance)
+		else if(limb.body_zone in list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))
+			if(limb.current_gauze?.splint_factor)
+				set_interaction_efficiency_penalty(1 + ((get_effective_actionspeed_modifier()) * limb.current_gauze.splint_factor))
+			else
+				set_interaction_efficiency_penalty(initial(interaction_efficiency_penalty))
+
+		if(initial(disabling))
+			set_disabling(!limb.current_gauze)
+
+		limb.update_wounds(replaced_or_replacing)
+
+	start_limping_if_we_should()
+>>>>>>> 0dbc7cfb9f8 ([GBP: NO UPDATE] Fixes a bug where update_inefficiencies() would call update_wounds() and cause gauze to fall off on promotion/demotion of wound (#78398))
 
 /// Additional beneficial effects when the wound is gained, in case you want to give a temporary boost to allow the victim to try an escape or last stand
 /datum/wound/proc/second_wind()
