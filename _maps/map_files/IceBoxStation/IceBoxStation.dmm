@@ -765,6 +765,14 @@
 /obj/machinery/light/floor,
 /turf/open/floor/iron,
 /area/station/command/bridge)
+"aol" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/firealarm/directional/east,
+/turf/open/floor/iron,
+/area/station/command/heads_quarters/hop)
 "aoo" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -10640,7 +10648,7 @@
 	pixel_x = -4;
 	pixel_y = 3
 	},
-/obj/item/surgery_tray,
+/obj/item/surgery_tray/full,
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 1
 	},
@@ -13062,7 +13070,7 @@
 	network = list("ss13","medbay");
 	pixel_x = 22
 	},
-/obj/item/surgery_tray,
+/obj/item/surgery_tray/full,
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 1
 	},
@@ -13343,6 +13351,22 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+<<<<<<< HEAD
+=======
+"ebC" = (
+/obj/machinery/recycler{
+	dir = 8
+	},
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "garbage"
+	},
+/obj/structure/sign/warning/secure_area/directional/south,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating,
+/area/station/maintenance/disposal)
+>>>>>>> 18d17d279e8 (directional recyclers (#78323))
 "ebK" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/rack,
@@ -18400,6 +18424,7 @@
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 4
 	},
+/obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
@@ -18867,6 +18892,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood,
 /area/station/command/meeting_room)
 "fTo" = (
@@ -24857,6 +24883,7 @@
 	id = "medsecprivacy";
 	name = "Privacy Shutters"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/station/security/checkpoint/medical)
 "hSF" = (
@@ -25940,6 +25967,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
 /obj/effect/turf_decal/tile/blue/full,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/large,
 /area/station/maintenance/aft/greater)
 "ikz" = (
@@ -27364,6 +27392,7 @@
 /obj/effect/mapping_helpers/airlock/unres,
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
 /obj/effect/turf_decal/tile/blue/full,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/large,
 /area/station/medical/medbay/lobby)
 "iIF" = (
@@ -29788,11 +29817,18 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/station/medical/storage)
+<<<<<<< HEAD
 "jxK" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/pink/hidden,
 /obj/machinery/space_heater,
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
+=======
+"jyg" = (
+/obj/machinery/firealarm/directional/north,
+/turf/open/floor/iron,
+/area/station/hallway/primary/starboard)
+>>>>>>> 86c21564063 (adds some firealarms to icebox (#78379))
 "jyh" = (
 /obj/structure/table/wood,
 /obj/effect/turf_decal/siding/wood{
@@ -39275,7 +39311,6 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
 /turf/open/floor/iron/dark,
@@ -44626,7 +44661,7 @@
 "oiv" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/table/reinforced,
-/obj/item/surgery_tray/morgue,
+/obj/item/surgery_tray/full/morgue,
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
 "oiy" = (
@@ -49659,6 +49694,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/disposalpipe/segment,
 /obj/effect/mapping_helpers/airlock/access/all/command/hop,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/hop)
 "pJQ" = (
@@ -56018,6 +56054,17 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron,
 /area/station/cargo/office)
+<<<<<<< HEAD
+=======
+"rLw" = (
+/obj/machinery/mass_driver/trash{
+	dir = 1
+	},
+/obj/structure/sign/warning/cold_temp/directional/east,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating,
+/area/station/maintenance/disposal)
+>>>>>>> 86c21564063 (adds some firealarms to icebox (#78379))
 "rLV" = (
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/effect/turf_decal/siding/thinplating/dark{
@@ -57306,6 +57353,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/access/all/command/hop,
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
 "sib" = (
@@ -59357,6 +59405,7 @@
 	id = "hopflash";
 	pixel_y = -23
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/hop)
 "sMY" = (
@@ -64113,6 +64162,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
+"utN" = (
+/obj/machinery/firealarm/directional/east,
+/turf/open/floor/wood,
+/area/station/command/meeting_room)
 "utR" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -71806,6 +71859,7 @@
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 8
 	},
+/obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
@@ -72641,6 +72695,13 @@
 	},
 /turf/open/lava/plasma/ice_moon,
 /area/icemoon/underground/explored)
+"xcJ" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/machinery/firealarm/directional/south,
+/turf/open/floor/iron,
+/area/station/hallway/primary/starboard)
 "xcW" = (
 /obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2{
 	dir = 1
@@ -74529,6 +74590,7 @@
 	id = "medsecprivacy";
 	name = "Privacy Shutters"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/station/security/checkpoint/medical)
 "xGI" = (
@@ -75182,6 +75244,7 @@
 	c_tag = "Atmospherics Incinerator"
 	},
 /obj/machinery/atmospherics/components/tank/plasma,
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron,
 /area/station/maintenance/disposal/incinerator)
 "xTw" = (
@@ -234457,7 +234520,7 @@ nDA
 vvi
 xpJ
 vYs
-nDA
+aol
 gCn
 pJN
 dZQ
@@ -234702,7 +234765,7 @@ xKJ
 rmM
 pZh
 oYI
-wzk
+utN
 uPY
 knU
 kPv
@@ -247809,7 +247872,7 @@ xbf
 kKL
 rjP
 qEM
-pxn
+xcJ
 vBG
 vBG
 vBG
@@ -251405,7 +251468,7 @@ pDS
 sEi
 bwl
 hUD
-lso
+jyg
 cYE
 acw
 ult

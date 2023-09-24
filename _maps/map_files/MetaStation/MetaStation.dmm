@@ -12997,7 +12997,7 @@
 	dir = 8
 	},
 /obj/machinery/light/small/directional/north,
-/obj/item/surgery_tray/morgue,
+/obj/item/surgery_tray/full/morgue,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
 	},
@@ -36999,7 +36999,7 @@
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 1
 	},
-/obj/item/surgery_tray,
+/obj/item/surgery_tray/full,
 /obj/item/clothing/gloves/latex,
 /obj/item/clothing/suit/apron/surgical,
 /turf/open/floor/iron/white,
@@ -45289,7 +45289,6 @@
 	},
 /obj/item/defibrillator/loaded,
 /obj/structure/window/spawner/directional/west,
-/obj/machinery/status_display/evac/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/medical/storage)
 "qph" = (
@@ -57559,7 +57558,9 @@
 	dir = 4;
 	id = "garbage"
 	},
-/obj/machinery/recycler,
+/obj/machinery/recycler{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "uEO" = (

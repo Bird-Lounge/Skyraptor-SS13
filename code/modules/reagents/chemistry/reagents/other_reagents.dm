@@ -411,6 +411,7 @@
 	name = "Unholy Water"
 	description = "Something that shouldn't exist on this plane of existence."
 	taste_description = "suffering"
+	self_consuming = TRUE //unholy intervention won't be limited by the lack of a liver
 	metabolization_rate = 2.5 * REAGENTS_METABOLISM  //0.5u/second
 	penetrates_skin = TOUCH|VAPOR
 	ph = 6.5
@@ -2525,7 +2526,10 @@
 		if(yuck_cycles % YUCK_PUKE_CYCLES == 0)
 			if(yuck_cycles >= YUCK_PUKE_CYCLES * YUCK_PUKES_TO_STUN)
 				holder.remove_reagent(type, 5)
-			affected_mob.vomit(rand(14, 26), stun = yuck_cycles >= YUCK_PUKE_CYCLES * YUCK_PUKES_TO_STUN)
+			var/passable_flags = (MOB_VOMIT_MESSAGE | MOB_VOMIT_HARM)
+			if(yuck_cycles >= (YUCK_PUKE_CYCLES * YUCK_PUKES_TO_STUN))
+				passable_flags |= MOB_VOMIT_STUN
+			affected_mob.vomit(vomit_flags = passable_flags, lost_nutrition = rand(14, 26))
 	if(holder)
 		return ..()
 #undef YUCK_PUKE_CYCLES
@@ -2690,6 +2694,7 @@
 		It re-energizes and heals those who can see beyond this fragile reality, \
 		but is incredibly harmful to the closed-minded. It metabolizes very quickly."
 	taste_description = "Ag'hsj'saje'sh"
+	self_consuming = TRUE //eldritch intervention won't be limited by the lack of a liver
 	color = "#1f8016"
 	metabolization_rate = 2.5 * REAGENTS_METABOLISM  //0.5u/second
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_NO_RANDOM_RECIPE
@@ -2770,7 +2775,7 @@
 	if(SPT_PROB(15, seconds_per_tick))
 		victim.emote("scream")
 	if(SPT_PROB(2, seconds_per_tick)) // Stuns, but purges ants.
-		victim.vomit(rand(5,10), FALSE, TRUE, 1, TRUE, FALSE, purge_ratio = 1)
+		victim.vomit(VOMIT_CATEGORY_DEFAULT, lost_nutrition = rand(5,10), purge_ratio = 1)
 	return ..()
 
 /datum/reagent/ants/on_mob_end_metabolize(mob/living/living_anthill)

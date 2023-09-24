@@ -43,7 +43,7 @@
 	timeout = 3 MINUTES
 
 /datum/mood_event/delam //SM delamination
-	description = "Those goddamn engineers can't do anything right..."
+	description = "Ever since that supermatter delamination, my head has been killing me..."
 	mood_change = -2
 	timeout = 4 MINUTES
 
