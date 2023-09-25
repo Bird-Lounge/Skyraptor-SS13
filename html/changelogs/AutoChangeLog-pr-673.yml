@@ -1,4 +1,0 @@
-author: "NaakaKo"
-delete-after: True
-changes:
-  - bugfix: "Dynamic now biases less heavily towards the exact average."
