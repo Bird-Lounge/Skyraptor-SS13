@@ -18,6 +18,7 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_CASTABLE_LOC, INNATE_TRAIT)
 
+<<<<<<< HEAD
 /obj/item/computer_disk/syndie_ai_upgrade
 	name = "AI interaction range upgrade"
 	desc = "A NT data chip containing information that a syndiCard AI can utilize to improve its wireless interfacing abilities. Simply slap it on top of an intelliCard, MODsuit, or AI core and watch it do its work! It's rumoured that there's something 'pretty awful' in it."
@@ -100,6 +101,8 @@
 	playsound(src, 'sound/machines/chime.ogg', 25, TRUE)
 	return TRUE
 
+=======
+>>>>>>> 16910e15b66 (Nuke Op AI card is single use as described (#78527))
 /obj/item/aicard/Destroy(force)
 	if(AI)
 		AI.ghostize(can_reenter_corpse = FALSE)
