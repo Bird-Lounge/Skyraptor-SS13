@@ -1,5 +1,3 @@
-#define VERY_LATE_ARRIVAL_TOAST_PROB 20
-
 SUBSYSTEM_DEF(job)
 	name = "Jobs"
 	init_order = INIT_ORDER_JOBS
@@ -539,9 +537,7 @@ SUBSYSTEM_DEF(job)
 	SEND_SIGNAL(equipping, COMSIG_JOB_RECEIVED, job)
 
 	equipping.mind?.set_assigned_role_with_greeting(job, player_client)
-
 	equipping.on_job_equipping(job)
-
 	job.announce_job(equipping)
 
 	if(player_client?.holder)
@@ -550,29 +546,7 @@ SUBSYSTEM_DEF(job)
 		else
 			handle_auto_deadmin_roles(player_client, job.title)
 
-	if(player_client)
-		to_chat(player_client, "<span class='infoplain'><b>As the [job.title] you answer directly to [job.supervisors]. Special circumstances may change this.</b></span>")
-
-	job.radio_help_message(equipping)
-
-	if(player_client)
-		if(job.req_admin_notify)
-			to_chat(player_client, span_infoplain("<b>You are playing a job that is important for Game Progression. \
-				If you have to disconnect, please notify the admins via adminhelp.</b>"))
-		if(CONFIG_GET(number/minimal_access_threshold))
-			to_chat(player_client, span_boldnotice("As this station was initially staffed with a \
-				[CONFIG_GET(flag/jobs_have_minimal_access) ? "full crew, only your job's necessities" : "skeleton crew, additional access may"] \
-				have been added to your ID card."))
-
-	if(ishuman(equipping))
-		var/mob/living/carbon/human/wageslave = equipping
-		wageslave.add_mob_memory(/datum/memory/key/account, remembered_id = wageslave.account_id)
-
-		if(EMERGENCY_PAST_POINT_OF_NO_RETURN && prob(VERY_LATE_ARRIVAL_TOAST_PROB))
-			equipping.equip_to_slot_or_del(new /obj/item/food/griddle_toast(equipping), ITEM_SLOT_MASK)
-
 	job.after_spawn(equipping, player_client)
-
 
 /datum/controller/subsystem/job/proc/handle_auto_deadmin_roles(client/C, rank)
 	if(!C?.holder)
@@ -919,4 +893,29 @@ SUBSYSTEM_DEF(job)
 
 	return JOB_AVAILABLE
 
+<<<<<<< HEAD
 #undef VERY_LATE_ARRIVAL_TOAST_PROB
+=======
+/**
+ * Check if the station manifest has at least a certain amount of this staff type.
+ * If a matching head of staff is on the manifest, automatically passes (returns TRUE)
+ *
+ * Arguments:
+ * * crew_threshold - amount of crew to meet the requirement
+ * * jobs - a list of jobs that qualify the requirement
+ * * head_jobs - a list of head jobs that qualify the requirement
+ *
+*/
+/datum/controller/subsystem/job/proc/has_minimum_jobs(crew_threshold, list/jobs = list(), list/head_jobs = list())
+	var/employees = 0
+	for(var/datum/record/crew/target in GLOB.manifest.general)
+		if(target.trim in head_jobs)
+			return TRUE
+		if(target.trim in jobs)
+			employees++
+
+	if(employees > crew_threshold)
+		return TRUE
+
+	return FALSE
+>>>>>>> 9ebfb279409 (Fix roundstart crewmembers not getting their radio hint message / Examine blocks out starting job information (#78647))
