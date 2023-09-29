@@ -197,6 +197,7 @@
 		QDEL_NULL(fishing_line)
 	if(lure)
 		QDEL_NULL(lure)
+	SStgui.close_uis(src)
 	user = null
 	used_rod = null
 	return ..()
@@ -258,13 +259,9 @@
 		send_alert("stopped fishing")
 		complete(FALSE)
 
-<<<<<<< HEAD
 /datum/fishing_challenge/proc/complete(win = FALSE, perfect_win = FALSE)
-=======
-/datum/fishing_challenge/proc/complete(win = FALSE)
 	if(completed)
 		return
->>>>>>> da42afcbaea (Reworks the fishing minigame into a game screen object from a TGUI interface (#78052))
 	deltimer(next_phase_timer)
 	completed = TRUE
 	if(phase == MINIGAME_PHASE)
@@ -275,7 +272,7 @@
 			var/seconds_spent = (world.time - start_time) * 0.1
 			if(!(special_effects & FISHING_MINIGAME_RULE_NO_EXP))
 				user.mind?.adjust_experience(/datum/skill/fishing, round(seconds_spent * FISHING_SKILL_EXP_PER_SECOND * experience_multiplier))
-				if(win && user.mind?.get_skill_level(/datum/skill/fishing) >= SKILL_LEVEL_LEGENDARY)
+				if(user.mind?.get_skill_level(/datum/skill/fishing) >= SKILL_LEVEL_LEGENDARY)
 					user.client?.give_award(/datum/award/achievement/skill/legendary_fisher, user)
 	if(win)
 		if(reward_path != FISHING_DUD)
