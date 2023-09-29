@@ -10723,7 +10723,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "cEy" = (
-/obj/machinery/atmospherics/components/unary/cryo_cell{
+/obj/machinery/cryo_cell{
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
@@ -13449,7 +13449,7 @@
 	dir = 1
 	},
 /obj/item/radio/intercom/directional/north,
-/obj/item/surgery_tray,
+/obj/item/surgery_tray/full,
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/aft)
 "dCG" = (
@@ -20741,7 +20741,9 @@
 	dir = 4;
 	id = "cargolower"
 	},
-/obj/machinery/recycler,
+/obj/machinery/recycler{
+	dir = 8
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
@@ -34415,6 +34417,7 @@
 /area/station/cargo/sorting)
 "lnh" = (
 /obj/machinery/door/poddoor/massdriver_chapel,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/station/service/chapel/monastery)
 "lnk" = (
@@ -48614,7 +48617,7 @@
 	pixel_y = 8
 	},
 /obj/structure/window/reinforced/spawner/directional/north,
-/obj/item/surgery_tray/morgue,
+/obj/item/surgery_tray/full/morgue,
 /obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
@@ -61818,7 +61821,7 @@
 /obj/structure/table/glass,
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/item/radio/intercom/directional/south,
-/obj/item/surgery_tray,
+/obj/item/surgery_tray/full,
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/fore)
 "uWn" = (
