@@ -199,8 +199,6 @@
 	speech_chance = 5
 	emote_hear = list("rawrs.","grumbles.","grawls.", "stomps!")
 	emote_see = list("stares ferociously.")
-<<<<<<< HEAD
-=======
 
 /datum/ai_planning_subtree/random_speech/blackboard //literal tower of babel, subtree form
 	speech_chance = 1
@@ -210,11 +208,10 @@
 	if(isnull(speech_lines))
 		return ..()
 	
-	speak = speech_lines[BB_EMOTE_SAY] || list()
-	emote_see = speech_lines[BB_EMOTE_SEE] || list()
-	emote_hear = speech_lines[BB_EMOTE_HEAR] || list()
-	sound = speech_lines[BB_EMOTE_SOUND] || list()
+	speak = speech_lines[BB_EMOTE_SAY] ? speech_lines[BB_EMOTE_SAY] : initial(speak)
+	emote_see = speech_lines[BB_EMOTE_SEE] ? speech_lines[BB_EMOTE_SEE] : initial(emote_see)
+	emote_hear = speech_lines[BB_EMOTE_HEAR] ? speech_lines[BB_EMOTE_HEAR] : initial(emote_hear)
+	sound = speech_lines[BB_EMOTE_SOUND] ? speech_lines[BB_EMOTE_SOUND] : initial(sound)
 	speech_chance = speech_lines[BB_EMOTE_CHANCE] ? speech_lines[BB_EMOTE_CHANCE] : initial(speech_chance)
 
 	return ..()
->>>>>>> cf5360acd82 ([no gbp] fixes blackboard speech error (#78551))
