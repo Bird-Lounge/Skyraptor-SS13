@@ -299,13 +299,11 @@ SUBSYSTEM_DEF(job)
 		player.mind.special_role = null
 	SetupOccupations()
 	unassigned = list()
-<<<<<<< HEAD
-=======
 	if(CONFIG_GET(flag/load_jobs_from_txt))
 		// Any errors with the configs has already been said, we don't need to repeat them here.
 		load_jobs_from_config(silent = TRUE)
-	set_overflow_role(overflow_role)
->>>>>>> 2b9a07e5dbe (Fixes some more issues with job configs not being loaded by ResetOccupation (#78596))
+	if(overflow_role)
+		set_overflow_role(overflow_role)
 	return
 
 
