@@ -2,13 +2,8 @@ export const CRIMESTATUS2COLOR = {
   Arrest: 'bad',
   Discharged: 'blue',
   Incarcerated: 'average',
-<<<<<<< HEAD
-  Parole: 'blue',
-  Suspected: 'purple',
-=======
   Parole: 'good',
   Suspected: 'teal',
->>>>>>> 8f6aa8eb6dd (Fixes sec record colors (#78528))
 } as const;
 
 export const CRIMESTATUS2DESC = {
