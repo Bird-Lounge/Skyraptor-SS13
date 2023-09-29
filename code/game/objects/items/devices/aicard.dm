@@ -18,6 +18,7 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_CASTABLE_LOC, INNATE_TRAIT)
 
+<<<<<<< HEAD
 /obj/item/computer_disk/syndie_ai_upgrade
 	name = "AI interaction range upgrade"
 	desc = "A NT data chip containing information that a syndiCard AI can utilize to improve its wireless interfacing abilities. Simply slap it on top of an intelliCard, MODsuit, or AI core and watch it do its work! It's rumoured that there's something 'pretty awful' in it."
@@ -88,6 +89,7 @@
 	new_ai.mind.add_antag_datum(nuke_datum, creator_op.nuke_team)
 	new_ai.mind.special_role = "Syndicate AI"
 	new_ai.faction |= ROLE_SYNDICATE
+	new_ai.grant_language(/datum/language/codespeak, source = LANGUAGE_MIND)
 	// Make it look evil!!!
 	new_ai.hologram_appearance = mutable_appearance('icons/mob/silicon/ai.dmi',"xeno_queen") //good enough
 	new_ai.icon_state = resolve_ai_icon("hades") // evli
@@ -100,6 +102,8 @@
 	playsound(src, 'sound/machines/chime.ogg', 25, TRUE)
 	return TRUE
 
+=======
+>>>>>>> 16910e15b66 (Nuke Op AI card is single use as described (#78527))
 /obj/item/aicard/Destroy(force)
 	if(AI)
 		AI.ghostize(can_reenter_corpse = FALSE)
