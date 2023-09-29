@@ -100,6 +100,6 @@
 	These shocks are capable of affecting the inner circuitry of most robots as well, applying a short stun. \
 	Has the added benefit of affecting the vocal cords of your victim, causing them to slur as if inebriated."
 	item = /obj/item/melee/baton/telescopic/contractor_baton
-	cost = 12
+	cost = 15 /// SKYRAPTOR EDIT: 15, up from 12.  screw contractor batons, even with Goonstam
 	surplus = 50
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
