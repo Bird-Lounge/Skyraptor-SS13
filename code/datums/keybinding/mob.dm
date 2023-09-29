@@ -71,6 +71,7 @@
 		user.mob.dropItemToGround(I)
 	return TRUE
 
+<<<<<<< HEAD
 /datum/keybinding/mob/toggle_move_intent
 	hotkey_keys = list("C")
 	name = "toggle_move_intent"
@@ -121,6 +122,8 @@
 			L.set_move_intent(MOVE_INTENT_RUN)
 	return TRUE
 
+=======
+>>>>>>> b021f291722 (Fix a runtime in toggle_move_intent keybindings (#78384))
 /datum/keybinding/mob/target/down(client/user)
 	. = ..()
 	if(.)
