@@ -677,16 +677,8 @@
 /turf/open/floor/iron/white/corner,
 /area/station/medical/medbay)
 "cL" = (
-<<<<<<< upstream-merge-78290
-/obj/item/surgery_tray/advanced,
-=======
-<<<<<<< HEAD
-/obj/item/storage/backpack/duffelbag/syndie/surgery,
 /obj/item/disk/surgery/debug,
-=======
 /obj/item/surgery_tray/full/advanced,
->>>>>>> a446ac71662 (Adds craftable surgery trays. (#78364))
->>>>>>> master
 /obj/structure/table/glass,
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
