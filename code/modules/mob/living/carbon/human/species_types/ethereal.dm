@@ -68,6 +68,7 @@
 	RegisterSignal(ethereal, COMSIG_ATOM_EMAG_ACT, PROC_REF(on_emag_act))
 	RegisterSignal(ethereal, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp_act))
 	RegisterSignal(ethereal, COMSIG_LIGHT_EATER_ACT, PROC_REF(on_light_eater))
+	RegisterSignal(ethereal, COMSIG_HIT_BY_SABOTEUR, PROC_REF(on_saboteur))
 	ethereal_light = ethereal.mob_light(light_type = /obj/effect/dummy/lighting_obj/moblight/species)
 	spec_updatehealth(ethereal)
 	new_ethereal.set_safe_hunger_level()
@@ -84,6 +85,7 @@
 	UnregisterSignal(former_ethereal, COMSIG_ATOM_EMAG_ACT)
 	UnregisterSignal(former_ethereal, COMSIG_ATOM_EMP_ACT)
 	UnregisterSignal(former_ethereal, COMSIG_LIGHT_EATER_ACT)
+	UnregisterSignal(former_ethereal, COMSIG_HIT_BY_SABOTEUR)
 	QDEL_NULL(ethereal_light)
 	return ..()
 
@@ -102,8 +104,10 @@
 
 	return randname
 
-/datum/species/ethereal/randomize_features(mob/living/carbon/human/human_mob)
-	human_mob.dna.features["ethcolor"] = GLOB.color_list_ethereal[pick(GLOB.color_list_ethereal)]
+/datum/species/ethereal/randomize_features()
+	var/list/features = ..()
+	features["ethcolor"] = GLOB.color_list_ethereal[pick(GLOB.color_list_ethereal)]
+	return features
 
 /datum/species/ethereal/spec_updatehealth(mob/living/carbon/human/ethereal)
 	. = ..()
@@ -147,8 +151,6 @@
 		if(EMP_HEAVY)
 			addtimer(CALLBACK(src, PROC_REF(stop_emp), H), 20 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE) //We're out for 20 seconds
 
-<<<<<<< HEAD
-=======
 /datum/species/ethereal/proc/on_saboteur(datum/source, disrupt_duration)
 	SIGNAL_HANDLER
 	var/mob/living/carbon/human/our_target = source
@@ -159,7 +161,6 @@
 	addtimer(CALLBACK(src, PROC_REF(stop_emp), our_target), disrupt_duration, TIMER_UNIQUE|TIMER_OVERRIDE)
 	return COMSIG_SABOTEUR_SUCCESS
 
->>>>>>> c6ac468b908 (second pass over the SC/FISHER code, incl. bitflags and PDAs (#78330))
 /datum/species/ethereal/proc/on_emag_act(mob/living/carbon/human/H, mob/user)
 	SIGNAL_HANDLER
 	if(emageffect)

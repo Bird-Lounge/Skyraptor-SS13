@@ -4704,7 +4704,9 @@
 /turf/open/floor/iron,
 /area/station/science/robotics/lab)
 "biF" = (
-/obj/machinery/recycler,
+/obj/machinery/recycler{
+	dir = 8
+	},
 /obj/machinery/conveyor{
 	dir = 4;
 	id = "disposals"
@@ -13161,7 +13163,7 @@
 /area/station/maintenance/floor3/port/fore)
 "dss" = (
 /obj/effect/mapping_helpers/broken_floor,
-/obj/item/wirerod,
+/obj/item/melee/baton/security/cattleprod,
 /turf/open/floor/plating,
 /area/station/maintenance/floor1/port/aft)
 "dsv" = (
@@ -26334,7 +26336,7 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced/rglass,
-/obj/item/surgery_tray/morgue,
+/obj/item/surgery_tray/full/morgue,
 /obj/machinery/digital_clock/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
@@ -54965,7 +54967,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit)
 "onz" = (
-/obj/item/surgery_tray{
+/obj/item/surgery_tray/full{
 	pixel_y = 13
 	},
 /obj/item/reagent_containers/medigel/sterilizine{
@@ -58301,7 +58303,7 @@
 /turf/open/floor/plating,
 /area/station/security/execution/transfer)
 "pjR" = (
-/obj/item/surgery_tray{
+/obj/item/surgery_tray/full{
 	pixel_y = 13
 	},
 /obj/item/reagent_containers/medigel/sterilizine{
@@ -66027,7 +66029,7 @@
 /turf/open/floor/iron/dark,
 /area/station/medical/psychology)
 "rku" = (
-/obj/machinery/atmospherics/components/unary/cryo_cell{
+/obj/machinery/cryo_cell{
 	dir = 4
 	},
 /turf/open/floor/iron/dark/textured,
@@ -84081,7 +84083,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/floor2/aft)
 "waA" = (
-/obj/machinery/atmospherics/components/unary/cryo_cell{
+/obj/machinery/cryo_cell{
 	dir = 8
 	},
 /obj/structure/sign/poster/official/random/directional/east,
