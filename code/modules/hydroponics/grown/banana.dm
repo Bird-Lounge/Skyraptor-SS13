@@ -174,6 +174,7 @@
 		obj/item/seeds/new_seed,
 	)
 	. = ..()
+	reagents.clear_reagents()
 	reagents.add_reagent(/datum/reagent/consumable/monkey_energy, 10)
 	reagents.add_reagent(/datum/reagent/consumable/banana, 10)
 
