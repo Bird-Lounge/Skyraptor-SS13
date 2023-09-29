@@ -44,6 +44,8 @@
 
 /// Generic key for a non-specific targetted action
 #define BB_TARGETTED_ACTION "BB_targetted_action"
+/// Generic key for a non-specific action
+#define BB_GENERIC_ACTION "BB_generic_action"
 
 ///How long have we spent with no target?
 #define BB_TARGETLESS_TIME "BB_targetless_time"
@@ -83,8 +85,6 @@
 #define BB_MOD_IMPLANT "BB_mod_implant"
 ///Range for a MOD AI controller.
 #define MOD_AI_RANGE 200
-<<<<<<< HEAD
-=======
 
 ///should we skip the faction check for the targetting datum?
 #define BB_BASIC_MOB_SKIP_FACTION_CHECK "BB_basic_mob_skip_faction_check"
@@ -96,4 +96,6 @@
 #define BB_EMOTE_SEE "emote_see"
 #define BB_EMOTE_SOUND "emote_sound"
 #define BB_EMOTE_CHANCE "emote_chance"
->>>>>>> 5db7992b098 (basicmob clowns (#78448))
+
+///should we skip the faction check for the targetting datum?
+#define BB_BASIC_MOB_SKIP_FACTION_CHECK "BB_basic_mob_skip_faction_check"

@@ -53,6 +53,7 @@
 
 /// Actually fire the damn thing
 /datum/component/ranged_attacks/proc/async_fire_ranged_attack(mob/living/basic/firer, atom/target, modifiers)
+	firer.face_atom(target)
 	if(projectile_type)
 		firer.fire_projectile(projectile_type, target, projectile_sound)
 		return
