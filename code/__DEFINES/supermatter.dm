@@ -28,6 +28,12 @@
 
 #define MATTER_POWER_CONVERSION 10 //Crystal converts 1/this value of stored matter into energy.
 
+/// The internal energy gain coefficient.
+#define GAS_HEAT_POWER_SCALING_COEFFICIENT (1/6)
+
+/// The base zap power transmission of the supermatter crystal in W/MeV.
+#define BASE_POWER_TRANSMISSION_RATE 1040
+
 //These would be what you would get at point blank, decreases with distance
 #define DETONATION_HALLUCINATION (20 MINUTES)
 
@@ -51,7 +57,10 @@
 #define VORTEX_ANOMALY "vortex_anomaly"
 #define DIMENSIONAL_ANOMALY "dimensional_anomaly"
 
-#define SUPERMATTER_COUNTDOWN_TIME (30 SECONDS)
+/// How long it takes for the supermatter to delaminate after hitting 0 integrity
+#define SUPERMATTER_COUNTDOWN_TIME (13 SECONDS)
+/// How long it takes for the supermatter to delaminate after hitting 0 integrity if a sliver has been removed
+#define SUPERMATTER_SLIVER_REMOVED_COUNTDOWN_TIME (3 SECONDS)
 
 ///to prevent accent sounds from layering
 #define SUPERMATTER_ACCENT_SOUND_MIN_COOLDOWN (2 SECONDS)
@@ -160,9 +169,9 @@
 #define SM_TEMP_LIMIT_LOW_MOLES "Low Moles Heat Resistance"
 
 /// How much we are multiplying our zap energy.
-#define SM_ZAP_BASE "Base Zap Multiplier"
+#define SM_ZAP_BASE "Base Zap Transmission"
 /// How much we are multiplying our zap energy because of gas factors.
-#define SM_ZAP_GAS "Gas Zap Multiplier"
+#define SM_ZAP_GAS "Gas Zap Transmission Modifier"
 /// Delamination types.
 #define CASCADE_DELAMINATION "cascade"
 #define SINGULARITY_DELAMINATION "singularity"

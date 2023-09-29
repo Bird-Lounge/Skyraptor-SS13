@@ -15865,7 +15865,7 @@
 /area/station/cargo/lobby)
 "dRQ" = (
 /obj/structure/table/glass,
-/obj/item/surgery_tray,
+/obj/item/surgery_tray/full,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/item/clothing/gloves/latex,
 /obj/item/clothing/suit/apron/surgical,
@@ -17338,7 +17338,9 @@
 	dir = 4;
 	id = "garbage"
 	},
-/obj/machinery/recycler,
+/obj/machinery/recycler{
+	dir = 8
+	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
@@ -23911,7 +23913,7 @@
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
 "fUr" = (
-/obj/machinery/atmospherics/components/unary/cryo_cell{
+/obj/machinery/cryo_cell{
 	dir = 8
 	},
 /turf/open/floor/iron/dark/textured_large,
@@ -52548,7 +52550,7 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
-/obj/item/surgery_tray/morgue,
+/obj/item/surgery_tray/full/morgue,
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted{
 	dir = 4
 	},
@@ -61947,7 +61949,7 @@
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "pDy" = (
-/obj/machinery/atmospherics/components/unary/cryo_cell{
+/obj/machinery/cryo_cell{
 	dir = 8
 	},
 /obj/machinery/status_display/ai/directional/south,
@@ -77280,7 +77282,7 @@
 /area/station/engineering/atmos)
 "tsx" = (
 /obj/structure/table/glass,
-/obj/item/surgery_tray,
+/obj/item/surgery_tray/full,
 /obj/item/clothing/gloves/latex,
 /obj/item/clothing/suit/apron/surgical,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
