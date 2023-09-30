@@ -1351,6 +1351,7 @@
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/rnd/production/techfab/department/cargo
 
+<<<<<<< HEAD
 /obj/item/circuitboard/machine/bepis
 	name = "BEPIS Chamber"
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
@@ -1361,6 +1362,16 @@
 		/datum/stock_part/servo = 1,
 		/datum/stock_part/micro_laser = 1,
 		/datum/stock_part/scanning_module = 1)
+=======
+/obj/item/circuitboard/machine/materials_market
+	name = "Galactic Materials Market"
+	greyscale_colors = CIRCUIT_COLOR_SUPPLY
+	build_path = /obj/machinery/materials_market
+	req_components = list(
+		/obj/item/stack/cable_coil = 5,
+		/datum/stock_part/scanning_module = 1,
+		/datum/stock_part/card_reader = 1)
+>>>>>>> 9073290d8ac (ArCargo: Adds the Galactic Materials Stock Market V1.2 (Free Market Edition) (#78500))
 
 //Misc
 /obj/item/circuitboard/machine/sheetifier
