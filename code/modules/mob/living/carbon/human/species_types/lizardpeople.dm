@@ -76,16 +76,15 @@
 	return randname
 
 
-<<<<<<< HEAD
+
 /datum/species/lizard/randomize_features(mob/living/carbon/human/human_mob)
 	human_mob.dna.features["bodymarks_lizard"] = pick(GLOB.body_markings_list)
 	randomize_external_organs(human_mob)
-=======
+
 /datum/species/lizard/randomize_features()
 	var/list/features = ..()
 	features["body_markings"] = pick(GLOB.body_markings_list)
 	return features
->>>>>>> 9e1c71f794a (Reworks transformation sting to be temporarily in living mobs, forever in dead mobs (#78502))
 
 /datum/species/lizard/get_scream_sound(mob/living/carbon/human/lizard)
 	return pick(

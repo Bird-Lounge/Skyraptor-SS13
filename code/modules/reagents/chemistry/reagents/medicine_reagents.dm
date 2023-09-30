@@ -867,10 +867,7 @@
 	if(SPT_PROB(10, seconds_per_tick))
 		affected_mob.AdjustAllImmobility(-20)
 	..()
-<<<<<<< HEAD
-=======
 	return TRUE
->>>>>>> 480d5ddb03c (Fixes Epinephrine Healing (#78479))
 
 /datum/reagent/medicine/epinephrine/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
 	if(SPT_PROB(18, REM * seconds_per_tick))
