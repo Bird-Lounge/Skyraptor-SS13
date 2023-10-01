@@ -1,0 +1,34 @@
+2023-10-01:
+  DrDiasyl aka DrTuxedo:
+  - balance: Holsters can now be clipped to any suit, and house Captain antique gun
+      and HoS gun. You now can buy holsters from the SecTech premium section.
+  NaakaKo:
+  - balance: Sci now has access to the materials & canisters section in their departmental
+      order console
+  - bugfix: Aloe and other baked foods that don't have reagents can be baked again
+      without turning to ash
+  - bugfix: Added warden to list of default required enemies for rulesets.
+  - qol: Font settings in the chat panel applies to all text now.
+  - rscadd: A new export has arrived in the imports section, the Galactic Materials
+      Market! You can use this to buy and sell minerals for profit or cost, as well
+      as stock your station when you don't have any miners.
+  - rscadd: Insert sheets of minerals into the Galactic Materials Market to convert
+      them into a stock block, allowing you to lock in your price for 5 minutes. Wait
+      too long and it'll be subject to market value again!
+  - rscadd: Minerals can be bought on the market either using the station's cargo
+      budget by cargo crew, or privately by everyone else.
+  - rscdel: Any material stacks that can be bought and sold on the market before have
+      been removed from the cargo catalog.
+  - bugfix: PDA flashlights wont cause the cell to constantly drain faster and faster.
+  - code_imp: removed some redundant code for airlocks
+  - refactor: Supermatter Spiders have been refactored into basic mobs, on the extremely
+      off chance you spot one and also notice any weird bugs regarding it, please
+      report it.
+  - bugfix: The reverse revolver now looks like a normal Syndicate revolver on inspection.
+  - bugfix: Actually fixed the hooked item exploit.
+  - balance: There are now 3 roundstart cyborg job slots open by default.
+  - code_imp: Gauze removal is now handled by the gauze's destroy instead of seep_gauze
+  ninjanomnom:
+  - rscdel: An easter egg plushie that was spawning where it shouldn't has been brought
+      back home.
+  - rscadd: The secure closet can now spawn live gibtonite, enjoy your free bomb.
