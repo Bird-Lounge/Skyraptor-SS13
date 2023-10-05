@@ -32,3 +32,11 @@
   - rscdel: An easter egg plushie that was spawning where it shouldn't has been brought
       back home.
   - rscadd: The secure closet can now spawn live gibtonite, enjoy your free bomb.
+2023-10-05:
+  NaakaKo:
+  - bugfix: fixed misplaced door on syndicate listening post
+  - rscadd: adds boxes of bandages, a quick healing item
+  - image: Railings have had a visual update.
+  - bugfix: Spiders, Morphs, Fire Sharks, and Regal Rats no longer have a reduced
+      click speed.
+  - bugfix: Fix organs having no DNA and become bloody when violently removed.
