@@ -19,7 +19,12 @@
 		return
 
 	controller.clear_blackboard_key(target_key)
+<<<<<<< HEAD
 	var/list/potential_targets = hearers(vision_range, controller.pawn) - living_mob //Remove self, so we don't suicide
+=======
+
+	var/list/potential_targets = hearers(aggro_range, get_turf(controller.pawn)) - living_mob //Remove self, so we don't suicide
+>>>>>>> 5e2c8459dd0 (Basic Heretic Mobs: The Rest of Them (#78757))
 
 	for(var/HM in typecache_filter_list(range(vision_range, living_mob), hostile_machines)) //Can we see any hostile machines?
 		if(can_see(living_mob, HM, vision_range))
