@@ -16,12 +16,7 @@
 	if(!prev_lying)
 		gib_animation()
 
-<<<<<<< HEAD
-	spill_organs(no_brain, no_organs, no_bodyparts)
-=======
-	ghostize()
 	spill_organs(drop_bitflags)
->>>>>>> d6f79f44276 (Refactor gib code to use bitflags and have documentation (#78754))
 
 	if(drop_bitflags & DROP_BODYPARTS)
 		spread_bodyparts(drop_bitflags)

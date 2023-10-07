@@ -4689,9 +4689,15 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+<<<<<<< HEAD
 /obj/structure/disposalpipe/segment,
 /obj/effect/mapping_helpers/airlock/access/all/supply/mining,
 /obj/effect/landmark/navigate_destination,
+=======
+/obj/effect/mapping_helpers/airlock/access/any/supply/mining,
+/obj/effect/mapping_helpers/airlock/access/any/supply/bit_den,
+/obj/structure/disposalpipe/segment,
+>>>>>>> 4fdbc826a1c (MetaStation disposals fix (#78760))
 /turf/open/floor/iron,
 /area/station/cargo/miningoffice)
 "bHb" = (
@@ -18182,9 +18188,7 @@
 /area/station/science/xenobiology/hallway)
 "gLF" = (
 /obj/structure/sink/kitchen/directional/west,
-/mob/living/simple_animal/hostile/retaliate/goat{
-	name = "Pete"
-	},
+/mob/living/basic/goat/pete,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/kitchen/coldroom)
 "gLI" = (

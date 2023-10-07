@@ -43,6 +43,7 @@
 		var/datum/action/cooldown/spell/new_spell = new spell(src)
 		new_spell.Grant(src)
 
+<<<<<<< HEAD
 // What if we took a linked list... But made it a mob?
 /// The "Terror of the Night" / Armsy, a large worm made of multiple bodyparts that occupies multiple tiles
 /mob/living/simple_animal/hostile/heretic_summon/armsy
@@ -268,6 +269,8 @@
 	matrix_transformation.Scale(1.4, 1.4)
 	transform = matrix_transformation
 
+=======
+>>>>>>> 3ed187e86b4 (Basic Mob Flesh Worm (#78744))
 /mob/living/simple_animal/hostile/heretic_summon/rust_spirit
 	name = "Rust Walker"
 	real_name = "Rusty"

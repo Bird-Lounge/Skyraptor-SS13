@@ -1,0 +1,4 @@
+author: "NaakaKo"
+delete-after: True
+changes:
+  - bugfix: "Blood once again appears as small drops instead of splatters during minor bleeding."
