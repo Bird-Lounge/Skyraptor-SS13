@@ -64,6 +64,7 @@
 		/mob/living/simple_animal/hostile/asteroid/gutlunch/grublunch,
 		/mob/living/simple_animal/hostile/asteroid/gutlunch/gubbuck,
 		/mob/living/simple_animal/hostile/asteroid/gutlunch/guthen,
+<<<<<<< HEAD
 		/mob/living/simple_animal/hostile/asteroid/hivelord,
 		/mob/living/simple_animal/hostile/asteroid/hivelord/legion,
 		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/advanced,
@@ -76,6 +77,8 @@
 		/mob/living/simple_animal/hostile/asteroid/hivelordbrood/legion/advanced,
 		/mob/living/simple_animal/hostile/asteroid/hivelordbrood/legion/snow,
 		/mob/living/simple_animal/hostile/asteroid/ice_demon,
+=======
+>>>>>>> 032419f30f7 (ice demon basic mobs (#78539))
 		/mob/living/simple_animal/hostile/asteroid/polarbear,
 		/mob/living/simple_animal/hostile/asteroid/polarbear/lesser,
 		/mob/living/simple_animal/hostile/asteroid/wolf,
