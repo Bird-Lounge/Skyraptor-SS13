@@ -84,3 +84,103 @@
       cooldown expires
   ninjanomnom:
   - admin: Appearance vars in VV now display instead of being left blank
+2023-10-08:
+  LT3:
+  - image: Text alignment on ID cards slightly adjusted
+  Melbert:
+  - refactor: Refactors how ethereals update their color when damaged.
+  - bugfix: Fixed an error from reading an ID card closely when you can't read
+  - qol: AI, cyborg, and PAI camera (photo taking) behavior now uses balloon alerts
+      and has sound effects associated
+  - refactor: Refactored AI, cyborg, and PAI camera (photo taking) code
+  - bugfix: fixed being unable to print photos as a cyborg when below 50% toner, even
+      though photos only take 5%
+  NaakaKo:
+  - bugfix: Flesh Worms will move smoothly more consistently.
+  - bugfix: fixed a PDA's messenger TGUI issue with handling of destroyed recipients.
+  - image: We have received a new shipment of IDs, as the old ones were found out
+      to be haunted.
+  - image: Laser tag red team ID has received a massive nerf
+  - image: Station budget cards have gotten a facelift
+  - image: Emags and Doorjacks
+  - bugfix: Numbered prisoner IDs will now be legible
+  - bugfix: People who are irremediably bald can still grow a beard with barber aid.
+  - bugfix: plumbing reaction chamber now balances the ph of it's solution correctly
+      to the best of it's ability so no guarantees
+  - code_imp: converted plumbing reaction chamber & mixing chamber UI files to Typescript
+  - refactor: plumbing mixing chamber now also accepts an TGUI input list to input
+      it's chemicals
+  - qol: allows janitor keys to be stored in janitor wintercoats and janibets
+  - refactor: Refactored goats into basic mobs! Not much should have changed beyond
+      their endless desire to retaliate should you attack them, they're still just
+      as good as chomping away plant life as ever.
+  - balance: Despite earlier reports suggesting that the famous lethality of the Regal
+      Condor was largely a myth, there has been rumors that the gun has once again
+      started to display its true killing potential on any station that it 'manifests'.
+  - qol: '"prison" intercoms have been renamed to "receive-only" intercoms to make
+      it clearer they cannot transmit.'
+  - refactor: Sloths are now basic mobs, however their overall sluggish behavior shouldn't
+      have changed much- let us know if anything is broken.
+  - rscadd: The laser carbine, a weak but fully automatic sidegrade to the normal
+      laser gun, can now be ordered from cargo.
+  - bugfix: Adminheal will now properly clear negative mutations as intended.
+  - refactor: Refactor gib code to be more robust.
+  - qol: Gibbing a mob will result in all items being dropped instead of getting deleted.
+      There are a few exceptions (like admin gib self) where this will not take place.
+  - bugfix: fixed implanted legion cores being available for use when unconscious/dead.
+  - rscadd: Expanded the fishing portal generator. It now comes with several portal
+      options that can be unlocked by performing fish scanning experiments, which
+      also award a modest amount of techweb points.
+  - balance: The fishing portal generator is now buildable and no longer orderable.
+      The board can be printed from cargo, service and science lathes.
+  - balance: Advanced fishing tech is no longer a BEPIS design. It now requires the
+      base fish scanning experiment and 2000 points to be unlocked.
+  - rscadd: The advanced fishing rod now comes with an incorporated experiscanner
+      specific for fish scanning.
+  - rscadd: Added a new skillchip that may change the icon of the "fish" shown in
+      the minigame UI to less generic ones. Reaching master level in fishing also
+      does that.
+  - qol: The experiment handler UI no longer shows unselectable experiments.
+  - qol: Miners can now tag monster spawners (necropolis tendrils, animal dens, demonic
+      portals, and netherworld links) by using their mining scanner on it, which updates
+      their GPS tag (and/or gives them one) to give it a numerical designation and
+      a short identifier for what it's spawning.
+  - rscadd: Fish analyzers can now be used to perform fish scanning experiments.
+  - balance: They can now be singularly bought as a goodie pack for 125 cr each, instead
+      of a crate of three for 500 cr.
+  - bugfix: Engineering borgs can no longer grab and drop their own iron/glass sheet
+      module.
+  - qol: gives empty fireaxe and mech removal crowbars cabinets directional helpers
+  - bugfix: Blood once again appears as small drops instead of splatters during minor
+      bleeding.
+  - bugfix: you are now made a ghost faster if you get gibbed
+  - bugfix: Fix bodies now lose fire stacks while husked.
+  - bugfix: fixed bad food not having bad food reagents
+  - bugfix: Spider types get properly checked again.
+  - qol: Added slapcrafting to unloaded tech shells, click on them with ingredients
+      to quickly craft your shell.
+  - bugfix: Borgs will no longer become permanently upside-down if tipped over by
+      multiple people at the same time.
+  - rscadd: Fake moustaches are now poorly slapped on top of what you're wearing
+  - admin: Boneless smite should work properly again.
+  - bugfix: Security officers can now download the crew manifest PDA app that they
+      start with.
+  - bugfix: It is no longer possible to chasm yourself on the geode. Again.
+  - bugfix: Ice whelps can now use spells given to them by admins, and people who
+      have polymorphed into ice whelps can now polymorph back to normal.
+  - bugfix: The Galactic Materials Market now offers things for sale as it should.
+  - bugfix: Fixed silent catwalks.
+  - spellcheck: '"offical" has been officially corrected to "official" in several
+      official locations.'
+  Wallem:
+  - rscadd: Buffs the Active Sonar module with a radial scan, and makes the power
+      costs more in-line with other modules.
+  Wallem, MTandi:
+  - image: Updates chem factory tank sprites
+  distributivgesetz:
+  - bugfix: Font scaling in TGUI chat has been reverted to its original implementation.
+  neocloudy:
+  - bugfix: MetaStation disposal pipes from Cargo to Disposals/the rest of the station
+      are working again.
+  oranges:
+  - rscadd: Dogs now react to centrist grillers more realistically
