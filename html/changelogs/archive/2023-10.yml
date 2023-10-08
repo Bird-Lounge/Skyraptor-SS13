@@ -1,0 +1,86 @@
+2023-10-01:
+  DrDiasyl aka DrTuxedo:
+  - balance: Holsters can now be clipped to any suit, and house Captain antique gun
+      and HoS gun. You now can buy holsters from the SecTech premium section.
+  NaakaKo:
+  - balance: Sci now has access to the materials & canisters section in their departmental
+      order console
+  - bugfix: Aloe and other baked foods that don't have reagents can be baked again
+      without turning to ash
+  - bugfix: Added warden to list of default required enemies for rulesets.
+  - qol: Font settings in the chat panel applies to all text now.
+  - rscadd: A new export has arrived in the imports section, the Galactic Materials
+      Market! You can use this to buy and sell minerals for profit or cost, as well
+      as stock your station when you don't have any miners.
+  - rscadd: Insert sheets of minerals into the Galactic Materials Market to convert
+      them into a stock block, allowing you to lock in your price for 5 minutes. Wait
+      too long and it'll be subject to market value again!
+  - rscadd: Minerals can be bought on the market either using the station's cargo
+      budget by cargo crew, or privately by everyone else.
+  - rscdel: Any material stacks that can be bought and sold on the market before have
+      been removed from the cargo catalog.
+  - bugfix: PDA flashlights wont cause the cell to constantly drain faster and faster.
+  - code_imp: removed some redundant code for airlocks
+  - refactor: Supermatter Spiders have been refactored into basic mobs, on the extremely
+      off chance you spot one and also notice any weird bugs regarding it, please
+      report it.
+  - bugfix: The reverse revolver now looks like a normal Syndicate revolver on inspection.
+  - bugfix: Actually fixed the hooked item exploit.
+  - balance: There are now 3 roundstart cyborg job slots open by default.
+  - code_imp: Gauze removal is now handled by the gauze's destroy instead of seep_gauze
+  ninjanomnom:
+  - rscdel: An easter egg plushie that was spawning where it shouldn't has been brought
+      back home.
+  - rscadd: The secure closet can now spawn live gibtonite, enjoy your free bomb.
+2023-10-05:
+  NaakaKo:
+  - bugfix: fixed misplaced door on syndicate listening post
+  - rscadd: adds boxes of bandages, a quick healing item
+  - image: Railings have had a visual update.
+  - bugfix: Spiders, Morphs, Fire Sharks, and Regal Rats no longer have a reduced
+      click speed.
+  - bugfix: Fix organs having no DNA and become bloody when violently removed.
+2023-10-06:
+  Coded by Jacquerel, Sprited by Dalmationer:
+  - rscadd: Added tongs to the kitchen, which you can use to manipulate food from
+      further away
+  FIoppie:
+  - sound: '*flap now makes a fluttering noise for moth wings'
+  - sound: Moths now have a death sound
+  - qol: '*tremble emote now is just "trembles!" instead of "trembles in fear!"'
+  Fazzie:
+  - rscadd: Added a budget solar crate to the derelict teleporter room
+  - rscadd: Added a solar panel control to the north derelict solar
+  - qol: The derelict's AI coridoor is now shorter and prettier
+  - rscadd: A lot of new content has been added to the beach away mission
+  - qol: It also looks substantially better, too!
+  Melbert:
+  - qol: Moved a lot of maintenance spawnpoints out of non-maintenance rooms. Some
+      antags (paradox clone, fugitives, nightmares, spiders) are now less likely to
+      spawn in obvious places like the morgue, tech storage, or dorms rooms.
+  NaakaKo:
+  - rscadd: Added blackout, happens when you drink...ALOT
+  - code_imp: exploration drone adventures are now file-based and not database-based
+  - bugfix: Cutting open a hand-pressed paper bundle no longer deletes all of the
+      paper.
+  - rscadd: The funds the syndicate have been saving by restricting galley access
+      has been suddenly funneled into a singular mosaic pattern in the experiments
+      wing.
+  - admin: Admins can turn off dynamic rulesets (or force them on despite not meeting
+      the qualification criteria) on a per-round basis.
+  - refactor: Raw Prophets now use the basic mob framework. Please report any unusual
+      behaviour.
+  - bugfix: Fix butchered monkeys to transfer reagents and diseases to meat
+  - bugfix: The Syndicate have fired their previous construction company after poor
+      results in recent outposts.
+  - balance: Kudzu will now be destroyed by adverse weather.
+  - balance: Kudzu will no longer spread over holes.
+  - bugfix: Some icons for selecting character preferences are no longer scaled incorrectly.
+  - refactor: fixed many instances of updatehealth() either being called needlessly
+      or not at all within on_mob_life() and in various other parts of the code
+  - refactor: damage procs now return useful information--the actual net change in
+      damage on the mob. added a unit test for this
+  - qol: Departmental order consoles now alert their department via radio when their
+      cooldown expires
+  ninjanomnom:
+  - admin: Appearance vars in VV now display instead of being left blank

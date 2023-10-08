@@ -207,20 +207,38 @@
 	return ""
 
 // moved out of admins.dm because things other than admin procs were calling this.
-/// Returns TRUE if the game has started and we're either an AI with a 0th law, or we're someone with a special role/antag datum
-/proc/is_special_character(mob/M)
+/**
+ * Returns TRUE if the game has started and we're either an AI with a 0th law, or we're someone with a special role/antag datum
+ * If allow_fake_antags is set to FALSE, Valentines, ERTs, and any such roles with FLAG_FAKE_ANTAG won't pass.
+*/
+/proc/is_special_character(mob/M, allow_fake_antags = FALSE)
 	if(!SSticker.HasRoundStarted())
 		return FALSE
 	if(!istype(M))
 		return FALSE
 	if(iscyborg(M)) //as a borg you're now beholden to your laws rather than greentext
 		return FALSE
+
+
+	// Returns TRUE if AI has a zeroth law *and* either has a special role *or* an antag datum.
 	if(isAI(M))
 		var/mob/living/silicon/ai/A = M
 		return (A.laws?.zeroth && (A.mind?.special_role || !isnull(M.mind?.antag_datums)))
-	if(M.mind?.special_role || !isnull(M.mind?.antag_datums)) //they have an antag datum!
+
+	if(M.mind?.special_role)
 		return TRUE
-	return FALSE
+
+	// Turns 'faker' to TRUE if the antag datum is fake. If it's not fake, returns TRUE directly.
+	var/faker = FALSE
+	for(var/datum/antagonist/antag_datum as anything in M.mind?.antag_datums)
+		if((antag_datum.antag_flags & FLAG_FAKE_ANTAG))
+			faker = TRUE
+		else
+			return TRUE
+
+	// If 'faker' was assigned TRUE in the above loop and the argument 'allow_fake_antags' is set to TRUE, this passes.
+	// Else, return FALSE.
+	return (faker && allow_fake_antags)
 
 /**
  * Fancy notifications for ghosts
@@ -303,7 +321,7 @@
 		return FALSE
 	var/brute_damage = brute_heal > burn_heal //changes repair text based on how much brute/burn was supplied
 	if((brute_heal > 0 && affecting.brute_dam > 0) || (burn_heal > 0 && affecting.burn_dam > 0))
-		if(affecting.heal_damage(brute_heal, burn_heal, BODYTYPE_ROBOTIC))
+		if(affecting.heal_damage(brute_heal, burn_heal, required_bodytype = BODYTYPE_ROBOTIC))
 			human.update_damage_overlays()
 		user.visible_message(span_notice("[user] fixes some of the [brute_damage ? "dents on" : "burnt wires in"] [human]'s [affecting.name]."), \
 			span_notice("You fix some of the [brute_damage ? "dents on" : "burnt wires in"] [human == user ? "your" : "[human]'s"] [affecting.name]."))
