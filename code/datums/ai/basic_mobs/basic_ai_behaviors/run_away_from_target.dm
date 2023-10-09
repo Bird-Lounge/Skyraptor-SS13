@@ -18,7 +18,7 @@
 
 /datum/ai_behavior/run_away_from_target/perform(seconds_per_tick, datum/ai_controller/controller, target_key, hiding_location_key)
 	. = ..()
-	if (!controller.blackboard[BB_BASIC_MOB_FLEEING])
+	if (controller.blackboard[BB_BASIC_MOB_STOP_FLEEING])
 		return
 	var/atom/target = controller.blackboard[hiding_location_key] || controller.blackboard[target_key]
 	var/escaped =  QDELETED(target) || !can_see(controller.pawn, target, run_distance) // If we can't see it we got away
@@ -26,8 +26,13 @@
 		finish_action(controller, succeeded = TRUE, target_key = target_key, hiding_location_key = hiding_location_key)
 		return
 	if (get_dist(controller.pawn, controller.current_movement_target) > required_distance)
+<<<<<<< HEAD
 		return
 	if(plot_path_away_from(controller, target))
+=======
+		return // Still heading over
+	if (plot_path_away_from(controller, target))
+>>>>>>> ed907096e30 (Fixes fleeing behaviour (#78821))
 		return
 	finish_action(controller, succeeded = FALSE, target_key = target_key, hiding_location_key = hiding_location_key)
 
