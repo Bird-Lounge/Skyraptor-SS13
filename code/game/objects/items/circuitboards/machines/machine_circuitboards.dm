@@ -1541,3 +1541,7 @@
 		/obj/item/mod/module/rad_protection = 1,
 		/obj/item/stack/sheet/plasteel = 2,
 	)
+<<<<<<< HEAD
+=======
+
+>>>>>>> 235ebba7e0b (Bitrunning hotfix 3 (#78818))
