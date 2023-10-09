@@ -17,6 +17,8 @@
 	paintable = FALSE
 	hide = FALSE
 
+	has_gas_visuals = FALSE
+
 	///cache for the icons
 	var/static/list/mutable_appearance/center_cache = list()
 
@@ -35,7 +37,7 @@
 	. = ..()
 	var/mutable_appearance/center = center_cache["[piping_layer]"]
 	if(!center)
-		center = mutable_appearance(icon, "adapter_center")
+		center = mutable_appearance(initial(icon), "adapter_center")
 		PIPING_LAYER_DOUBLE_SHIFT(center, piping_layer)
 		center_cache["[piping_layer]"] = center
 	. += center
