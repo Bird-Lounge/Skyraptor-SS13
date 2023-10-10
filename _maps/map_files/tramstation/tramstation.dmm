@@ -10096,7 +10096,11 @@
 	layer = 3.1;
 	linked_elevator_id = "tram_xeno_lift";
 	pixel_y = 2;
+<<<<<<< HEAD
 	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
+=======
+	preset_destination_names = list("2"="Lower                                                                Deck","3"="Upper                                                                Deck")
+>>>>>>> b0a4ace2f77 (Relocates a garbage spawner on Tramstation that was causing rng CI failures (#78883))
 	},
 /turf/closed/wall,
 /area/station/science/xenobiology)
@@ -19676,7 +19680,11 @@
 /area/station/security/processing)
 "fWK" = (
 /obj/machinery/computer/atmos_control/oxygen_tank{
+<<<<<<< HEAD
 	atmos_chambers = list("o2ordance"="Oxygen        Supply")
+=======
+	atmos_chambers = list("o2ordance"="Oxygen                                                                Supply")
+>>>>>>> b0a4ace2f77 (Relocates a garbage spawner on Tramstation that was causing rng CI failures (#78883))
 	},
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/airalarm/directional/north,
@@ -20250,7 +20258,11 @@
 	},
 /obj/machinery/elevator_control_panel/directional/west{
 	linked_elevator_id = "tram_sci_lift";
+<<<<<<< HEAD
 	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
+=======
+	preset_destination_names = list("2"="Lower                                                                Deck","3"="Upper                                                                Deck")
+>>>>>>> b0a4ace2f77 (Relocates a garbage spawner on Tramstation that was causing rng CI failures (#78883))
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/station/science/lower)
@@ -29091,7 +29103,11 @@
 /obj/structure/industrial_lift/public,
 /obj/machinery/elevator_control_panel/directional/west{
 	linked_elevator_id = "tram_cargo_lift";
+<<<<<<< HEAD
 	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck");
+=======
+	preset_destination_names = list("2"="Lower                                                                Deck","3"="Upper                                                                Deck");
+>>>>>>> b0a4ace2f77 (Relocates a garbage spawner on Tramstation that was causing rng CI failures (#78883))
 	req_access = list("mining")
 	},
 /obj/effect/abstract/elevator_music_zone{
@@ -34947,7 +34963,11 @@
 	},
 /obj/machinery/elevator_control_panel/directional/west{
 	linked_elevator_id = "tram_perma_lift";
+<<<<<<< HEAD
 	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
+=======
+	preset_destination_names = list("2"="Lower                                                                Deck","3"="Upper                                                                Deck")
+>>>>>>> b0a4ace2f77 (Relocates a garbage spawner on Tramstation that was causing rng CI failures (#78883))
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/station/security/execution/transfer)
@@ -39020,7 +39040,11 @@
 	},
 /obj/machinery/elevator_control_panel/directional/north{
 	linked_elevator_id = "tram_upper_center_lift";
+<<<<<<< HEAD
 	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
+=======
+	preset_destination_names = list("2"="Lower                                                                Deck","3"="Upper                                                                Deck")
+>>>>>>> b0a4ace2f77 (Relocates a garbage spawner on Tramstation that was causing rng CI failures (#78883))
 	},
 /obj/effect/turf_decal/trimline/dark_red/warning{
 	dir = 1
@@ -43932,7 +43956,11 @@
 	layer = 3.1;
 	linked_elevator_id = "tram_xeno_lift";
 	pixel_y = 2;
+<<<<<<< HEAD
 	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
+=======
+	preset_destination_names = list("2"="Lower                                                                Deck","3"="Upper                                                                Deck")
+>>>>>>> b0a4ace2f77 (Relocates a garbage spawner on Tramstation that was causing rng CI failures (#78883))
 	},
 /turf/closed/wall/r_wall,
 /area/station/science/xenobiology)
@@ -60102,7 +60130,11 @@
 /obj/structure/industrial_lift/public,
 /obj/machinery/elevator_control_panel/directional/east{
 	linked_elevator_id = "tram_lower_center_lift";
+<<<<<<< HEAD
 	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
+=======
+	preset_destination_names = list("2"="Lower                                                                Deck","3"="Upper                                                                Deck")
+>>>>>>> b0a4ace2f77 (Relocates a garbage spawner on Tramstation that was causing rng CI failures (#78883))
 	},
 /turf/open/floor/plating/elevatorshaft,
 /area/station/maintenance/tram/mid)
@@ -61620,7 +61652,11 @@
 /obj/structure/industrial_lift/public,
 /obj/machinery/elevator_control_panel/directional/south{
 	linked_elevator_id = "tram_dorm_lift";
+<<<<<<< HEAD
 	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
+=======
+	preset_destination_names = list("2"="Lower                                                                Deck","3"="Upper                                                                Deck")
+>>>>>>> b0a4ace2f77 (Relocates a garbage spawner on Tramstation that was causing rng CI failures (#78883))
 	},
 /obj/structure/railing,
 /turf/open/floor/plating/elevatorshaft,
@@ -80798,7 +80834,7 @@ aac
 aac
 aac
 aac
-aac
+aaR
 aac
 aac
 vXM
@@ -81055,7 +81091,7 @@ aac
 aac
 aac
 aac
-aaR
+aac
 aac
 aac
 vXM
