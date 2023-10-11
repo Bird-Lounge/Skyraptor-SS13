@@ -9,7 +9,12 @@
 
 /datum/ai_planning_subtree/flee_target/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
 	. = ..()
+<<<<<<< HEAD
 	if (!controller.blackboard[BB_BASIC_MOB_FLEEING] || !controller.blackboard_key_exists(target_key))
+=======
+	var/atom/flee_from = controller.blackboard[target_key]
+	if (controller.blackboard[BB_BASIC_MOB_STOP_FLEEING] || QDELETED(flee_from))
+>>>>>>> ed907096e30 (Fixes fleeing behaviour (#78821))
 		return
 	controller.queue_behavior(flee_behaviour, target_key, hiding_place_key)
 	return SUBTREE_RETURN_FINISH_PLANNING //we gotta get out of here.
