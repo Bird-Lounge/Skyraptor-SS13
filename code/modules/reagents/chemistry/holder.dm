@@ -261,7 +261,11 @@
 			iter_reagent.purity = ((iter_reagent.creation_purity * iter_reagent.volume) + (added_purity * amount)) /(iter_reagent.volume + amount) //This should add the purity to the product
 			iter_reagent.creation_purity = iter_reagent.purity
 			iter_reagent.ph = ((iter_reagent.ph*(iter_reagent.volume))+(added_ph*amount))/(iter_reagent.volume+amount)
+<<<<<<< HEAD
 			iter_reagent.volume += round(amount, CHEMICAL_QUANTISATION_LEVEL)
+=======
+			iter_reagent.volume = FLOOR(iter_reagent.volume + amount, CHEMICAL_QUANTISATION_LEVEL)
+>>>>>>> eb0be123aa8 ([NO GBP] Some more code maintenance for reagents (#78884))
 			update_total()
 
 			iter_reagent.on_merge(data, amount)
@@ -325,11 +329,16 @@
 
 	var/list/cached_reagents = reagent_list
 	for(var/datum/reagent/cached_reagent as anything in cached_reagents)
+<<<<<<< HEAD
 		if(cached_reagent.type == reagent)
 			//clamp the removal amount to be between current reagent amount
 			//and zero, to prevent removing more than the holder has stored
 			amount = clamp(amount, 0, cached_reagent.volume)
 			cached_reagent.volume -= amount
+=======
+		if(cached_reagent.type == reagent_type)
+			cached_reagent.volume = FLOOR(max(cached_reagent.volume - amount, 0),  CHEMICAL_QUANTISATION_LEVEL)
+>>>>>>> eb0be123aa8 ([NO GBP] Some more code maintenance for reagents (#78884))
 			update_total()
 			if(!safety)//So it does not handle reactions when it need not to
 				handle_reactions()
@@ -371,6 +380,7 @@
 /// Removes all reagents from this holder
 /datum/reagents/proc/remove_all(amount = 1)
 	var/list/cached_reagents = reagent_list
+<<<<<<< HEAD
 	if(total_volume > 0)
 		var/part = amount / total_volume
 		for(var/datum/reagent/reagent as anything in cached_reagents)
@@ -379,6 +389,41 @@
 		//finish_reacting() //A just in case - update total is in here - should be unneeded, make sure to test this
 		handle_reactions()
 		return amount
+=======
+	var/part = amount / total_volume
+	var/remove_amount
+	var/removed_amount = 0
+
+	for(var/datum/reagent/reagent as anything in cached_reagents)
+		remove_amount = FLOOR(reagent.volume * part, CHEMICAL_QUANTISATION_LEVEL)
+		remove_reagent(reagent.type, remove_amount)
+		removed_amount += remove_amount
+
+	handle_reactions()
+	return removed_amount
+
+/**
+ * Removes all reagent of X type
+ * Arguments
+ *
+ * * [reagent_type][datum/reagent] - the reagent typepath we are trying to remove
+ * * amount - the volume of reagent to remove
+ * * strict - If TRUE will also remove childs of this reagent type
+ */
+/datum/reagents/proc/remove_all_type(datum/reagent/reagent_type, amount, strict = 0, safety = 1)
+	if(!ispath(reagent_type))
+		stack_trace("invalid reagent path passed to remove all type [reagent_type]")
+		return FALSE
+
+	if(!IS_FINITE(amount))
+		stack_trace("non finite amount passed to remove all type reagent [amount] [reagent_type]")
+		return FALSE
+
+	// Prevents small amount problems, as well as zero and below zero amounts.
+	amount = FLOOR(amount, CHEMICAL_QUANTISATION_LEVEL)
+	if(amount <= 0)
+		return FALSE
+>>>>>>> eb0be123aa8 ([NO GBP] Some more code maintenance for reagents (#78884))
 
 /// Removes all reagent of X type. @strict set to 1 determines whether the childs of the type are included.
 /datum/reagents/proc/remove_all_type(reagent_type, amount, strict = 0, safety = 1)
@@ -403,23 +448,31 @@
 
 	return has_removed_reagent
 
+<<<<<<< HEAD
 /// Fuck this one reagent
 /datum/reagents/proc/del_reagent(target_reagent_typepath)
+=======
+/**
+ * Removes an specific reagent from this holder
+ * Arguments
+ *
+ * * [target_reagent_typepath][datum/reagent] - type typepath of the reagent to remove
+ */
+/datum/reagents/proc/del_reagent(datum/reagent/target_reagent_typepath)
+	if(!ispath(target_reagent_typepath))
+		stack_trace("invalid reagent path passed to del reagent [target_reagent_typepath]")
+		return FALSE
+
+	//setting the volume to 0 will allow update_total() to clear it up for us
+>>>>>>> eb0be123aa8 ([NO GBP] Some more code maintenance for reagents (#78884))
 	var/list/cached_reagents = reagent_list
 	for(var/datum/reagent/reagent as anything in cached_reagents)
 		if(reagent.type == target_reagent_typepath)
-			if(isliving(my_atom))
-				if(reagent.metabolizing)
-					reagent.metabolizing = FALSE
-					reagent.on_mob_end_metabolize(my_atom)
-				reagent.on_mob_delete(my_atom)
-
-			reagent_list -= reagent
-			LAZYREMOVE(previous_reagent_list, reagent.type)
-			qdel(reagent)
+			reagent.volume = 0
 			update_total()
-			SEND_SIGNAL(src, COMSIG_REAGENTS_DEL_REAGENT, reagent)
-	return TRUE
+			return TRUE
+
+	return FALSE
 
 /// Turn one reagent into another, preserving volume, temp, purity, ph
 /datum/reagents/proc/convert_reagent(source_reagent_typepath, target_reagent_typepath, multiplier = 1, include_source_subtypes = FALSE)
@@ -461,10 +514,13 @@
 /// Removes all reagents
 /datum/reagents/proc/clear_reagents()
 	var/list/cached_reagents = reagent_list
-	for(var/datum/reagent/reagent as anything in cached_reagents)
-		del_reagent(reagent.type)
-	SEND_SIGNAL(src, COMSIG_REAGENTS_CLEAR_REAGENTS)
 
+	//setting volume to 0 will allow update_total() to clean it up
+	for(var/datum/reagent/reagent as anything in cached_reagents)
+		reagent.volume = 0
+	update_total()
+
+	SEND_SIGNAL(src, COMSIG_REAGENTS_CLEAR_REAGENTS)
 
 /**
  * Check if this holder contains this reagent.
@@ -484,7 +540,11 @@
 					return FALSE
 				return holder_reagent
 			else
+<<<<<<< HEAD
 				if(round(holder_reagent.volume, CHEMICAL_QUANTISATION_LEVEL) >= amount)
+=======
+				if(holder_reagent.volume >= amount)
+>>>>>>> eb0be123aa8 ([NO GBP] Some more code maintenance for reagents (#78884))
 					if(needs_metabolizing && !holder_reagent.metabolizing)
 						if(check_subtypes)
 							continue
@@ -521,16 +581,31 @@
  * * no_react - passed through to [/datum/reagents/proc/add_reagent]
  * * mob/transferred_by - used for logging
  * * remove_blacklisted - skips transferring of reagents without REAGENT_CAN_BE_SYNTHESIZED in chemical_flags
- * * methods - passed through to [/datum/reagents/proc/expose_single] and [/datum/reagent/proc/on_transfer]
- * * show_message - passed through to [/datum/reagents/proc/expose_single]
- * * round_robin - if round_robin=TRUE, so transfer 5 from 15 water, 15 sugar and 15 plasma becomes 10, 15, 15 instead of 13.3333, 13.3333 13.3333. Good if you hate floating point errors
+ * * methods - passed through to [/datum/reagents/proc/expose_multiple] and [/datum/reagent/proc/on_transfer]
+ * * show_message - passed through to [/datum/reagents/proc/expose_multiple]
  * * ignore_stomach - when using methods INGEST will not use the stomach as the target
  */
+<<<<<<< HEAD
 /datum/reagents/proc/trans_to(obj/target, amount = 1, multiplier = 1, preserve_data = TRUE, no_react = FALSE, mob/transferred_by, remove_blacklisted = FALSE, methods = NONE, show_message = TRUE, round_robin = FALSE, ignore_stomach = FALSE)
 	var/list/cached_reagents = reagent_list
 	if(!target || !total_volume)
 		return
 	if(amount < 0)
+=======
+/datum/reagents/proc/trans_to(
+	obj/target,
+	amount = 1,
+	multiplier = 1,
+	preserve_data = TRUE,
+	no_react = FALSE,
+	mob/transferred_by,
+	remove_blacklisted = FALSE,
+	methods = NONE,
+	show_message = TRUE,
+	ignore_stomach = FALSE
+)
+	if(QDELETED(target) || !total_volume)
+>>>>>>> eb0be123aa8 ([NO GBP] Some more code maintenance for reagents (#78884))
 		return
 
 	var/cached_amount = amount
@@ -558,6 +633,7 @@
 	if(!no_react)
 		transfer_reactions(R)
 
+<<<<<<< HEAD
 	amount = min(min(amount, src.total_volume), R.maximum_volume-R.total_volume)
 	var/trans_data = null
 	var/transfer_log = list()
@@ -619,6 +695,44 @@
 			remove_reagent(reagent.type, transfer_amount)
 			var/list/reagent_qualities = list(REAGENT_TRANSFER_AMOUNT = transfer_amount, REAGENT_PURITY = reagent.purity)
 			transfer_log[reagent.type] = reagent_qualities
+=======
+	var/trans_data = null
+	var/list/transfer_log = list()
+	var/list/r_to_send = list()	// Validated list of reagents to be exposed
+	var/list/reagents_to_remove = list()
+
+	var/part = amount / total_volume
+	var/transfer_amount
+	var/transfered_amount = 0
+
+	//first add reagents to target
+	for(var/datum/reagent/reagent as anything in cached_reagents)
+		if(remove_blacklisted && !(reagent.chemical_flags & REAGENT_CAN_BE_SYNTHESIZED))
+			continue
+		if(preserve_data)
+			trans_data = copy_data(reagent)
+		if(reagent.intercept_reagents_transfer(target_holder, cached_amount))
+			continue
+		transfer_amount = FLOOR(reagent.volume * part, CHEMICAL_QUANTISATION_LEVEL)
+		if(!target_holder.add_reagent(reagent.type, transfer_amount, trans_data, chem_temp, reagent.purity, reagent.ph, no_react = TRUE, ignore_splitting = reagent.chemical_flags & REAGENT_DONOTSPLIT)) //we only handle reaction after every reagent has been transferred.
+			continue
+		if(methods)
+			r_to_send += reagent
+		reagents_to_remove += list(list("R" = reagent, "T" = transfer_amount))
+		transfered_amount += transfer_amount
+
+	//expose target to reagent changes
+	target_holder.expose_multiple(r_to_send, isorgan(target_atom) ? target : target_atom, methods, part, show_message)
+
+	//remove chemicals that were added above
+	for(var/list/data as anything in reagents_to_remove)
+		var/datum/reagent/reagent = data["R"]
+		transfer_amount = data["T"]
+		if(methods)
+			reagent.on_transfer(target_atom, methods, transfer_amount)
+		remove_reagent(reagent.type, transfer_amount)
+		transfer_log[reagent.type] = list(REAGENT_TRANSFER_AMOUNT = transfer_amount, REAGENT_PURITY = reagent.purity)
+>>>>>>> eb0be123aa8 ([NO GBP] Some more code maintenance for reagents (#78884))
 
 	if(transferred_by && target_atom)
 		target_atom.add_hiddenprint(transferred_by) //log prints so admins can figure out who touched it last.
@@ -686,6 +800,7 @@
 	if(amount < 0)
 		return
 
+<<<<<<< HEAD
 	amount = min(min(amount, total_volume), target_holder.maximum_volume - target_holder.total_volume)
 	var/part = amount / total_volume
 	var/trans_data = null
@@ -703,6 +818,28 @@
 		target_holder.handle_reactions()
 
 	return amount
+=======
+	var/list/cached_reagents = reagent_list
+	var/part = amount / total_volume
+	var/transfer_amount
+	var/transfered_amount = 0
+	var/trans_data = null
+
+	for(var/datum/reagent/reagent as anything in cached_reagents)
+		transfer_amount = FLOOR(reagent.volume * part, CHEMICAL_QUANTISATION_LEVEL)
+		if(preserve_data)
+			trans_data = reagent.data
+		if(!target_holder.add_reagent(reagent.type, transfer_amount, trans_data, chem_temp, reagent.purity, reagent.ph, no_react = TRUE, ignore_splitting = reagent.chemical_flags & REAGENT_DONOTSPLIT))
+			continue
+		transfered_amount += transfer_amount
+
+	if(!no_react)
+		// pass over previous ongoing reactions before handle_reactions is called
+		transfer_reactions(target_holder)
+
+		target_holder.update_total()
+		target_holder.handle_reactions()
+>>>>>>> eb0be123aa8 ([NO GBP] Some more code maintenance for reagents (#78884))
 
 ///Multiplies the reagents inside this holder by a specific amount
 /datum/reagents/proc/multiply_reagents(multiplier=1)
@@ -784,9 +921,13 @@
 		// skip metabolizing effects for small units of toxins
 		if(istype(reagent, /datum/reagent/toxin) && liver && !dead)
 			var/datum/reagent/toxin/toxin = reagent
+<<<<<<< HEAD
 			var/amount = round(toxin.volume, CHEMICAL_QUANTISATION_LEVEL)
+=======
+			var/amount = toxin.volume
+>>>>>>> eb0be123aa8 ([NO GBP] Some more code maintenance for reagents (#78884))
 			if(belly)
-				amount += belly.reagents.get_reagent_amount(toxin.type)
+				amount = FLOOR(amount + belly.reagents.get_reagent_amount(toxin.type), CHEMICAL_QUANTISATION_LEVEL)
 
 			if(amount <= liver_tolerance)
 				owner.reagents.remove_reagent(toxin.type, toxin.metabolization_rate * owner.metabolism_efficiency * seconds_per_tick)
@@ -972,12 +1113,12 @@
 
 				var/list/cached_required_reagents = reaction.required_reagents
 				for(var/req_reagent in cached_required_reagents)
-					if(!has_reagent(req_reagent, (cached_required_reagents[req_reagent]*granularity)))
+					if(!has_reagent(req_reagent, (cached_required_reagents[req_reagent] * granularity)))
 						continue reaction_loop
 
 				var/list/cached_required_catalysts = reaction.required_catalysts
 				for(var/_catalyst in cached_required_catalysts)
-					if(!has_reagent(_catalyst, (cached_required_catalysts[_catalyst]*granularity)))
+					if(!has_reagent(_catalyst, (cached_required_catalysts[_catalyst] * granularity)))
 						continue reaction_loop
 
 				if(cached_my_atom)
@@ -1280,6 +1421,7 @@
 /// Updates [/datum/reagents/var/total_volume]
 /datum/reagents/proc/update_total()
 	var/list/cached_reagents = reagent_list
+<<<<<<< HEAD
 	. = 0 // This is a relatively hot proc.
 	var/total_ph = 0 // I know I know, I'm sorry
 	for(var/datum/reagent/reagent as anything in cached_reagents)
@@ -1290,14 +1432,54 @@
 		else
 			. += reagent.volume
 			total_ph += (reagent.ph * reagent.volume)
+=======
+	var/list/deleted_reagents = list()
+	var/chem_index = 1
+	var/num_reagents = length(cached_reagents)
+	var/total_ph = 0
+	. = 0
+
+	//responsible for removing reagents and computing total ph & volume
+	//all it's code was taken out of del_reagent() initially for efficiency purposes
+	while(chem_index <= num_reagents)
+		var/datum/reagent/reagent = cached_reagents[chem_index]
+		chem_index += 1
+
+		//remove very small amounts of reagents
+		if((reagent.volume <= 0.05 && !is_reacting) || reagent.volume <= CHEMICAL_QUANTISATION_LEVEL)
+			//end metabolization
+			if(isliving(my_atom))
+				if(reagent.metabolizing)
+					reagent.metabolizing = FALSE
+					reagent.on_mob_end_metabolize(my_atom)
+				reagent.on_mob_delete(my_atom)
+
+			//removing it and store in a seperate list for processing later
+			cached_reagents -= reagent
+			LAZYREMOVE(previous_reagent_list, reagent.type)
+			deleted_reagents += reagent
+
+			//move pointer back so we don't overflow & decrease length
+			chem_index -= 1
+			num_reagents -= 1
+			continue
+
+		//compute volume & ph like we would normally
+		. += reagent.volume
+		total_ph += (reagent.ph * reagent.volume)
+
+	//assign the final values
+>>>>>>> eb0be123aa8 ([NO GBP] Some more code maintenance for reagents (#78884))
 	total_volume = .
-
-	if(!.) // No volume, default to the base
+	if(!.)
 		ph = CHEMICAL_NORMAL_PH
-		return .
-	//Keep limited // should really be defines
-	ph = clamp(total_ph/total_volume, 0, 14)
+	else
+		ph = clamp(total_ph / total_volume, 0, 14)
 
+	//now send the signals after the volume & ph has been computed
+	for(var/datum/reagent/deleted_reagent as anything in deleted_reagents)
+		SEND_SIGNAL(src, COMSIG_REAGENTS_DEL_REAGENT, deleted_reagent)
+		qdel(deleted_reagent)
 
 /**
  * Applies the relevant expose_ proc for every reagent in this holder
@@ -1362,8 +1544,14 @@
 	var/total_amount = 0
 	for(var/datum/reagent/cached_reagent as anything in cached_reagents)
 		if((!include_subtypes && cached_reagent.type == reagent) || (include_subtypes && ispath(cached_reagent.type, reagent)))
+<<<<<<< HEAD
 			total_amount += round(cached_reagent.volume, CHEMICAL_QUANTISATION_LEVEL)
 	return total_amount
+=======
+			total_amount += cached_reagent.volume
+
+	return FLOOR(total_amount, CHEMICAL_QUANTISATION_LEVEL)
+>>>>>>> eb0be123aa8 ([NO GBP] Some more code maintenance for reagents (#78884))
 
 /datum/reagents/proc/get_multiple_reagent_amounts(list/reagents)
 	var/list/cached_reagents = reagent_list
