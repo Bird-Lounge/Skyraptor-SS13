@@ -210,7 +210,11 @@
 		/mob/living/simple_animal/pet/cat/space,
 		/mob/living/simple_animal/pet/gondola,
 		/mob/living/simple_animal/pet/gondola/gondolapod,
+<<<<<<< HEAD
 		/mob/living/simple_animal/revenant,
+=======
+		/mob/living/simple_animal/pet/gondola/virtual_domain,
+>>>>>>> 3415828c6bc (Refactors Revenants into Basic Mobs (#78782))
 		/mob/living/simple_animal/shade,
 		/mob/living/simple_animal/slime,
 		/mob/living/simple_animal/slime/pet,
