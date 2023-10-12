@@ -1,0 +1,8 @@
+author: "CliffracerX"
+delete-after: True
+changes:
+  - rscadd: "ghosts now resemble their mortal forms"
+  - rscadd: "purring cats and raptors"
+  - bugfix: "NT stopped having clerical errors giving everyone random ID cards"
+  - qol: "char prefs menu is no longer scrunched"
+  - qol: "char slots buffed, 6 for normies, 15 for byong members"
