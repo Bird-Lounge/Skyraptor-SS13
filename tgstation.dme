@@ -5835,6 +5835,7 @@
 #include "interface\fonts\tiny_unicode.dm"
 #include "interface\fonts\vcr_osd_mono.dm"
 #include "modular_skyraptor\modules\aesthetics\batong\batong.dm"
+#include "modular_skyraptor\modules\aesthetics\daedmoth\code\daedmoth.dm"
 #include "modular_skyraptor\modules\aesthetics\digiclothes\bespoke_uniforms.dm"
 #include "modular_skyraptor\modules\aesthetics\digiclothes\ported_feet.dm"
 #include "modular_skyraptor\modules\aesthetics\digiclothes\ported_gloves.dm"

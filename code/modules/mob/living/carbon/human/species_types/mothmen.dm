@@ -3,14 +3,14 @@
 	plural_form = "Mothmen"
 	id = SPECIES_MOTH
 	inherent_traits = list(
+		TRAIT_MUTANT_COLORS, /// SKYRAPTOR ADDITION: we're forcing this to the top of the stack to try and avoid fuckery...
 		TRAIT_HAS_MARKINGS,
 		TRAIT_CAN_USE_FLIGHT_POTION,
 		TRAIT_TACKLING_WINGED_ATTACKER,
 		TRAIT_ANTENNAE,
-		USE_TRICOLOR_ALPHA, /// SKYRAPTOR ADDITIONS
+		USE_TRICOLOR_ALPHA, /// SKYRAPTOR ADDITIONS AFTER HERE
 		USE_TRICOLOR_BETA,
 		USE_TRICOLOR_CHARLIE,
-		TRAIT_MUTANT_COLORS,
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_BUG
 	mutant_bodyparts = list("moth_markings" = "None")
