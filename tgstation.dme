@@ -5889,6 +5889,7 @@
 #include "modular_skyraptor\modules\aesthetics\inherited_skyrat\washing_machine\code\washing_machine.dm"
 #include "modular_skyraptor\modules\aesthetics\inherited_skyrat\windows\code\windows.dm"
 #include "modular_skyraptor\modules\aesthetics\moremospherics\altered_machines.dm"
+#include "modular_skyraptor\modules\aesthetics\moremospherics\atmosia_items.dm"
 #include "modular_skyraptor\modules\aesthetics\moremospherics\more_colors.dm"
 #include "modular_skyraptor\modules\aesthetics\moremospherics\pipes.dm"
 #include "modular_skyraptor\modules\aesthetics\oldnewsurgery\oldnewsurgery.dm"
@@ -5937,5 +5938,6 @@
 #include "modular_skyraptor\modules\transfer_timer\code\autotransfer_config.dm"
 #include "modular_skyraptor\modules\transfer_timer\code\shuttle.dm"
 #include "modular_skyraptor\modules\transfer_timer\code\transfer_vote.dm"
+#include "modular_skyraptor\modules\aesthetics\unshitty_bags\rebagged.dm"
 // END_INCLUDE
 
