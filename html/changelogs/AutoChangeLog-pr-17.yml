@@ -1,0 +1,10 @@
+author: "CliffracerX"
+delete-after: True
+changes:
+  - image: "redid all unary devices for Atmospherics"
+  - image: "updated some pipe item states for visibility"
+  - image: "wide and grunge airlocks updated"
+  - image: "emitters and fieldgens now in-line with our style"
+  - bugfix: "cell chargers no longer janky"
+  - bugfix: "extinguishers consistent (tankholders, etc)"
+  - bugfix: "shipchems less scrungly"
