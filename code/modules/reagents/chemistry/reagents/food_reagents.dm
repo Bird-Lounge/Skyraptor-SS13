@@ -478,6 +478,8 @@
 =======
 /datum/reagent/consumable/salt/expose_mob(mob/living/exposed_mob, methods, reac_volume)
 	. = ..()
+	if(!iscarbon(exposed_mob))
+		return
 	var/mob/living/carbon/carbies = exposed_mob
 	if(!(methods & (PATCH|TOUCH|VAPOR)))
 		return
@@ -651,6 +653,40 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	default_container = /obj/item/reagent_containers/condiment/flour
 
+<<<<<<< HEAD
+=======
+/datum/reagent/consumable/flour/expose_mob(mob/living/exposed_mob, methods, reac_volume)
+	. = ..()
+	if(!iscarbon(exposed_mob))
+		return
+	var/mob/living/carbon/carbies = exposed_mob
+	if(!(methods & (PATCH|TOUCH|VAPOR)))
+		return
+	for(var/datum/wound/iter_wound as anything in carbies.all_wounds)
+		iter_wound.on_flour(reac_volume, carbies)
+
+/datum/wound/proc/on_flour(reac_volume, mob/living/carbon/carbies)
+	return
+
+/datum/wound/pierce/bleed/on_flour(reac_volume, mob/living/carbon/carbies)
+	adjust_blood_flow(-0.015 * reac_volume) // 30u of a flour sack * 0.015 = -0.45~ blood flow, prettay good
+	to_chat(carbies, span_notice("The flour seeps into [lowertext(src)], painfully drying it up and absorbing some of the blood."))
+	// When some nerd adds infection for wounds, make this increase the infection
+
+/datum/wound/slash/flesh/on_flour(reac_volume, mob/living/carbon/carbies)
+	adjust_blood_flow(-0.04 * reac_volume) // 30u of a flour sack * 0.04 = -1.25~ blood flow, pretty good!
+	to_chat(carbies, span_notice("The flour seeps into [lowertext(src)], painfully drying some of it up and absorbing a little blood."))
+	// When some nerd adds infection for wounds, make this increase the infection
+
+// Don't pour flour onto burn wounds, it increases infection risk! Very unwise. Backed up by REAL info from REAL professionals.
+// https://www.reuters.com/article/uk-factcheck-flour-burn-idUSKCN26F2N3
+/datum/wound/burn/flesh/on_flour(reac_volume)
+	to_chat(victim, span_notice("The flour seeps into [lowertext(src)], spiking you with intense pain! That probably wasn't a good idea..."))
+	sanitization -= min(0, 1)
+	infestation += 0.2
+	return
+
+>>>>>>> a45d37aca16 (Fixes salt, flour, corn starch, and saltwater not sanity checking exposed mobs (#78846))
 /datum/reagent/consumable/flour/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
 	if(isspaceturf(exposed_turf))
@@ -723,6 +759,42 @@
 	description = "A slippery solution."
 	color = "#DBCE95"
 	taste_description = "slime"
+<<<<<<< HEAD
+=======
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_AFFECTS_WOUNDS
+
+// Starch has similar absorbing properties to flour (Stronger here because it's rarer)
+/datum/reagent/consumable/corn_starch/expose_mob(mob/living/exposed_mob, methods, reac_volume)
+	. = ..()
+	if(!iscarbon(exposed_mob))
+		return
+	var/mob/living/carbon/carbies = exposed_mob
+	if(!(methods & (PATCH|TOUCH|VAPOR)))
+		return
+	for(var/datum/wound/iter_wound as anything in carbies.all_wounds)
+		iter_wound.on_starch(reac_volume, carbies)
+
+/datum/wound/proc/on_starch(reac_volume, mob/living/carbon/carbies)
+	return
+
+/datum/wound/pierce/bleed/on_starch(reac_volume, mob/living/carbon/carbies)
+	adjust_blood_flow(-0.03 * reac_volume)
+	to_chat(carbies, span_notice("The slimey starch seeps into [lowertext(src)], painfully drying some of it up and absorbing a little blood."))
+	// When some nerd adds infection for wounds, make this increase the infection
+	return
+
+/datum/wound/slash/flesh/on_starch(reac_volume, mob/living/carbon/carbies)
+	adjust_blood_flow(-0.06 * reac_volume)
+	to_chat(carbies, span_notice("The slimey starch seeps into [lowertext(src)], painfully drying it up and absorbing some of the blood."))
+	// When some nerd adds infection for wounds, make this increase the infection
+	return
+
+/datum/wound/burn/flesh/on_starch(reac_volume, mob/living/carbon/carbies)
+	to_chat(carbies, span_notice("The slimey starch seeps into [lowertext(src)], spiking you with intense pain! That probably wasn't a good idea..."))
+	sanitization -= min(0, 0.5)
+	infestation += 0.1
+	return
+>>>>>>> a45d37aca16 (Fixes salt, flour, corn starch, and saltwater not sanity checking exposed mobs (#78846))
 
 /datum/reagent/consumable/corn_syrup
 	name = "Corn Syrup"
