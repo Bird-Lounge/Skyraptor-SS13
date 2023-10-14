@@ -362,3 +362,14 @@
   Wallem:
   - rscadd: Nuclear Operatives now have ready access to ancient cowboy technology
       in the form of the Outlaw Bundle. Now you too can roll into town on your horse.
+2023-10-14:
+  LT3:
+  - qol: Canisters can now be built in one step, no upgrading required
+  NaakaKo:
+  - bugfix: Dullahans can read, strip people, and utilise tools.
+  - bugfix: Dullahan brains and eyes will not decay while inside their living severed
+      head.
+  - image: Inhands for the Sakhno and related rifles will no longer be way too high
+      or big
+  - bugfix: Fixed the errant bluescreen in the camera console.
+  - code_imp: basicmobs that delete on death, ghost before dying
