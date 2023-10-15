@@ -28,9 +28,6 @@
 	var/supply_color = COLOR_BLUE
 	///Extend the pipe to the edge for wall-mounted plumbed devices, like sinks and showers
 	var/extend_pipe_to_edge = FALSE
-	
-	/// SKYRAPTOR ADDITION: modularize your goddamn overlays guys!!
-	var/connection_icon = 'icons/obj/pipes_n_cables/hydrochem/connects.dmi'
 
 ///turn_connects is for wheter or not we spin with the object to change our pipes
 /datum/component/plumbing/Initialize(start=TRUE, ducting_layer, turn_connects=TRUE, datum/reagents/custom_receiver, extend_pipe_to_edge = FALSE)
@@ -76,8 +73,8 @@
 
 /datum/component/plumbing/process()
 	if(!demand_connects || !reagents)
-		STOP_PROCESSING(SSplumbing, src)
-		return
+		return PROCESS_KILL
+
 	if(reagents.total_volume < reagents.maximum_volume)
 		for(var/D in GLOB.cardinals)
 			if(D & demand_connects)
@@ -96,25 +93,22 @@
 
 ///called from in process(). only calls process_request(), but can be overwritten for children with special behaviour
 /datum/component/plumbing/proc/send_request(dir)
-	process_request(amount = MACHINE_REAGENT_TRANSFER, reagent = null, dir = dir)
+	process_request(dir = dir)
 
 ///check who can give us what we want, and how many each of them will give us
-/datum/component/plumbing/proc/process_request(amount, reagent, dir)
-	var/list/valid_suppliers = list()
+/datum/component/plumbing/proc/process_request(amount = MACHINE_REAGENT_TRANSFER, reagent, dir)
+	//find the duct to take from
 	var/datum/ductnet/net
 	if(!ducts.Find(num2text(dir)))
 		return
 	net = ducts[num2text(dir)]
+
+	//find all valid suppliers in the duct
+	var/list/valid_suppliers = list()
 	for(var/datum/component/plumbing/supplier as anything in net.suppliers)
 		if(supplier.can_give(amount, reagent, net))
 			valid_suppliers += supplier
-	// Need to ask for each in turn very carefully, making sure we get the total volume. This is to avoid a division that would always round down and become 0
-	var/targetVolume = reagents.total_volume + amount
 	var/suppliersLeft = valid_suppliers.len
-<<<<<<< HEAD
-	for(var/datum/component/plumbing/give as anything in valid_suppliers)
-		var/currentRequest = (targetVolume - reagents.total_volume) / suppliersLeft
-=======
 	if(!suppliersLeft)
 		return
 
@@ -123,7 +117,6 @@
 	var/target_volume = reagents.total_volume + amount
 	for(var/datum/component/plumbing/give as anything in valid_suppliers)
 		currentRequest = (target_volume - reagents.total_volume) / suppliersLeft
->>>>>>> ecf99a90e59 ([NO GBP]Fixes plumbing for good(hopefully) & more reagent code (#78947))
 		give.transfer_to(src, currentRequest, reagent, net)
 		suppliersLeft--
 
@@ -136,7 +129,7 @@
 		for(var/datum/reagent/contained_reagent as anything in reagents.reagent_list)
 			if(contained_reagent.type == reagent)
 				return TRUE
-	else if(reagents.total_volume > 0) //take whatever
+	else if(reagents.total_volume) //take whatever
 		return TRUE
 
 	return FALSE
@@ -148,7 +141,7 @@
 	if(reagent)
 		reagents.trans_id_to(target.recipient_reagents_holder, reagent, amount)
 	else
-		reagents.trans_to(target.recipient_reagents_holder, amount, round_robin = TRUE, methods = methods)//we deal with alot of precise calculations so we round_robin=TRUE. Otherwise we get floating point errors, 1 != 1 and 2.5 + 2.5 = 6
+		reagents.trans_to(target.recipient_reagents_holder, amount, methods = methods)
 
 ///We create our luxurious piping overlays/underlays, to indicate where we do what. only called once if use_overlays = TRUE in Initialize()
 /datum/component/plumbing/proc/create_overlays(atom/movable/parent_movable, list/overlays)
@@ -190,9 +183,9 @@
 
 		var/image/overlay
 		if(turn_connects)
-			overlay = image(connection_icon, "[direction_text]-[ducting_layer]", layer = duct_layer) /// SKYRAPTOR EDIT: modularize this
+			overlay = image('icons/obj/pipes_n_cables/hydrochem/connects.dmi', "[direction_text]-[ducting_layer]", layer = duct_layer)
 		else
-			overlay = image(connection_icon, "[direction_text]-[ducting_layer]-s", layer = duct_layer) /// SKYRAPTOR EDIT: modularize this
+			overlay = image('icons/obj/pipes_n_cables/hydrochem/connects.dmi', "[direction_text]-[ducting_layer]-s", layer = duct_layer)
 			overlay.dir = direction
 
 		overlay.color = color
@@ -203,7 +196,7 @@
 
 		// This is a little wiggley extension to make wallmounts like sinks and showers visually link to the pipe
 		if(extend_pipe_to_edge && !extension_handled)
-			var/image/edge_overlay = image(connection_icon, "edge-extension", layer = duct_layer) /// SKYRAPTOR EDIT: modularize this
+			var/image/edge_overlay = image('icons/obj/pipes_n_cables/hydrochem/connects.dmi', "edge-extension", layer = duct_layer)
 			edge_overlay.dir = parent_movable.dir
 			edge_overlay.color = color
 			edge_overlay.pixel_x = -parent_movable.pixel_x - parent_movable.pixel_w
