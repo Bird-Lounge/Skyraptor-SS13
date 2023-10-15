@@ -43,7 +43,7 @@
 	var/offset_x = icon_offsets["x"]
 	offset_y = icon_offsets["y"]
 
-	bar = image('icons/effects/progressbar.dmi', bar_loc, "prog_bar_0", pixel_x = offset_x)
+	bar = image('modular_skyraptor/modules/aesthetics/ui_greenened/hud/progressbar.dmi', bar_loc, "prog_bar_0", pixel_x = offset_x) /// SKYRAPTOR EDIT: switching to our progressbar
 	SET_PLANE_EXPLICIT(bar, ABOVE_HUD_PLANE, User)
 	bar.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 	user = User

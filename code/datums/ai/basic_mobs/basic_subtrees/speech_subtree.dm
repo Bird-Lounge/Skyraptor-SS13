@@ -218,11 +218,22 @@
 	var/list/speech_lines = controller.blackboard[BB_BASIC_MOB_SPEAK_LINES]
 	if(isnull(speech_lines))
 		return ..()
+<<<<<<< HEAD
 	
 	speak = speech_lines[BB_EMOTE_SAY] ? speech_lines[BB_EMOTE_SAY] : initial(speak)
 	emote_see = speech_lines[BB_EMOTE_SEE] ? speech_lines[BB_EMOTE_SEE] : initial(emote_see)
 	emote_hear = speech_lines[BB_EMOTE_HEAR] ? speech_lines[BB_EMOTE_HEAR] : initial(emote_hear)
 	sound = speech_lines[BB_EMOTE_SOUND] ? speech_lines[BB_EMOTE_SOUND] : initial(sound)
 	speech_chance = speech_lines[BB_EMOTE_CHANCE] ? speech_lines[BB_EMOTE_CHANCE] : initial(speech_chance)
+=======
+
+	// Note to future developers: this behaviour a singleton so this probably doesn't work as you would expect
+	// The whole speech tree really needs to be refactored because this isn't how we use AI data these days
+	speak = speech_lines[BB_EMOTE_SAY] || list()
+	emote_see = speech_lines[BB_EMOTE_SEE] || list()
+	emote_hear = speech_lines[BB_EMOTE_HEAR] || list()
+	sound = speech_lines[BB_EMOTE_SOUND] || list()
+	speech_chance = speech_lines[BB_SPEAK_CHANCE] ? speech_lines[BB_SPEAK_CHANCE] : initial(speech_chance)
+>>>>>>> 504e6acfa35 (Basic Mob Gorillas (#78918))
 
 	return ..()

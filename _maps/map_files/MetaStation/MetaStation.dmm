@@ -3344,12 +3344,20 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
 "bje" = (
+<<<<<<< HEAD
 /obj/structure/closet/emcloset,
 /obj/structure/disposalpipe/segment{
 	dir = 5
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
+=======
+/obj/effect/decal/cleanable/oil/streak,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/structure/extinguisher_cabinet/directional/north,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/bitrunning/den)
+>>>>>>> 235ebba7e0b (Bitrunning hotfix 3 (#78818))
 "bjl" = (
 /obj/machinery/rnd/production/techfab/department/service,
 /obj/effect/turf_decal/trimline/brown/warning{
@@ -18455,6 +18463,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/mail_sorting/supply/disposals,
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "gQw" = (
@@ -22402,9 +22411,7 @@
 /area/station/science/xenobiology)
 "imy" = (
 /obj/structure/table/reinforced,
-/obj/machinery/microwave{
-	pixel_y = 6
-	},
+/obj/machinery/microwave/engineering/cell_included,
 /obj/effect/turf_decal/tile/neutral/opposingcorners{
 	dir = 1
 	},
@@ -27205,7 +27212,7 @@
 /area/station/medical/chemistry)
 "jOF" = (
 /obj/structure/rack,
-/obj/item/gun/energy/laser/practice{
+/obj/item/gun/energy/laser/carbine/practice{
 	pixel_x = 2;
 	pixel_y = 5
 	},
@@ -29632,12 +29639,22 @@
 /turf/open/floor/engine,
 /area/station/science/explab)
 "kHU" = (
+<<<<<<< HEAD
 /obj/structure/reagent_dispensers/watertank,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
+=======
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light_switch/directional/north,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/byteforge,
+/obj/effect/turf_decal/box,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/bitrunning/den)
+>>>>>>> 235ebba7e0b (Bitrunning hotfix 3 (#78818))
 "kIG" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/maintenance/two,
@@ -40543,7 +40560,6 @@
 	pixel_x = -8
 	},
 /obj/machinery/door/window/left/directional/north{
-	dir = 2;
 	name = "Pharmacy Desk";
 	req_access = list("pharmacy")
 	},
@@ -43282,7 +43298,7 @@
 /turf/open/floor/iron/grimy,
 /area/station/tcommsat/computer)
 "pDh" = (
-/obj/structure/showcase/machinery/microwave{
+/obj/effect/spawner/random/decoration/microwave{
 	dir = 1;
 	pixel_y = 2
 	},
@@ -56245,9 +56261,7 @@
 /area/station/security/office)
 "uew" = (
 /obj/structure/table/reinforced,
-/obj/machinery/microwave{
-	pixel_y = 6
-	},
+/obj/machinery/microwave/engineering/cell_included,
 /obj/effect/turf_decal/stripes/corner,
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -64428,7 +64442,6 @@
 	name = "Pharmacy Shutters"
 	},
 /obj/machinery/door/window/right/directional/east{
-	dir = 8;
 	name = "Pharmacy Desk";
 	req_access = list("pharmacy")
 	},

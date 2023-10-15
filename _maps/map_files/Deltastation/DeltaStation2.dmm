@@ -10159,6 +10159,7 @@
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/hop)
 "cwd" = (
+<<<<<<< HEAD
 /obj/structure/rack,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/storage/toolbox/emergency{
@@ -10174,6 +10175,13 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron,
 /area/station/cargo/miningoffice)
+=======
+/obj/machinery/light/directional/south,
+/obj/machinery/byteforge,
+/obj/effect/turf_decal/box,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/bitrunning/den)
+>>>>>>> 235ebba7e0b (Bitrunning hotfix 3 (#78818))
 "cwe" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -20306,7 +20314,7 @@
 /area/station/maintenance/space_hut/observatory)
 "eYo" = (
 /obj/structure/table/reinforced,
-/obj/item/gun/energy/laser/practice{
+/obj/item/gun/energy/laser/carbine/practice{
 	pixel_x = 3;
 	pixel_y = -3
 	},
@@ -39298,6 +39306,7 @@
 /turf/open/floor/iron/white,
 /area/station/command/heads_quarters/cmo)
 "jKY" = (
+<<<<<<< HEAD
 /obj/structure/cable,
 /obj/effect/turf_decal/bot,
 /obj/structure/table,
@@ -39305,6 +39314,19 @@
 /obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/iron,
 /area/station/cargo/miningoffice)
+=======
+/obj/effect/decal/cleanable/oil/streak,
+/obj/machinery/camera/directional/south,
+/obj/structure/table,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/cup/soda_cans/space_mountain_wind{
+	pixel_x = 5
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/bitrunning/den)
+>>>>>>> 235ebba7e0b (Bitrunning hotfix 3 (#78818))
 "jLa" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/railing{
@@ -53605,7 +53627,7 @@
 /area/station/commons/fitness/recreation)
 "ntU" = (
 /obj/structure/table/reinforced,
-/obj/machinery/microwave,
+/obj/machinery/microwave/engineering/cell_included,
 /obj/structure/sign/poster/random/directional/west,
 /turf/open/floor/wood,
 /area/station/engineering/break_room)
@@ -63444,7 +63466,8 @@
 	},
 /obj/machinery/door/window/left/directional/west{
 	name = "Pharmacy Desk";
-	req_access = list("pharmacy")
+	req_access = list("pharmacy");
+	dir = 4
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/pharmacy)
@@ -68560,6 +68583,7 @@
 	name = "Pharmacy Shutters"
 	},
 /obj/machinery/smartfridge/chemistry/preloaded,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron/white,
 /area/station/medical/pharmacy)
 "rjd" = (
@@ -84422,7 +84446,7 @@
 /area/station/maintenance/port/fore)
 "vbT" = (
 /obj/structure/rack,
-/obj/item/gun/energy/laser/practice{
+/obj/item/gun/energy/laser/carbine/practice{
 	pixel_x = 3;
 	pixel_y = -3
 	},
@@ -86521,6 +86545,19 @@
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/hos)
 "vDj" = (
+<<<<<<< HEAD
+=======
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/brown/line,
+/obj/effect/turf_decal/trimline/brown/line{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+>>>>>>> 235ebba7e0b (Bitrunning hotfix 3 (#78818))
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/purple/half/contrasted,

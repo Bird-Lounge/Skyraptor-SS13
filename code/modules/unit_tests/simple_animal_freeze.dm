@@ -64,6 +64,7 @@
 		/mob/living/simple_animal/hostile/asteroid/gutlunch/grublunch,
 		/mob/living/simple_animal/hostile/asteroid/gutlunch/gubbuck,
 		/mob/living/simple_animal/hostile/asteroid/gutlunch/guthen,
+<<<<<<< HEAD
 		/mob/living/simple_animal/hostile/asteroid/hivelord,
 		/mob/living/simple_animal/hostile/asteroid/hivelord/legion,
 		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/advanced,
@@ -76,6 +77,8 @@
 		/mob/living/simple_animal/hostile/asteroid/hivelordbrood/legion/advanced,
 		/mob/living/simple_animal/hostile/asteroid/hivelordbrood/legion/snow,
 		/mob/living/simple_animal/hostile/asteroid/ice_demon,
+=======
+>>>>>>> 032419f30f7 (ice demon basic mobs (#78539))
 		/mob/living/simple_animal/hostile/asteroid/polarbear,
 		/mob/living/simple_animal/hostile/asteroid/polarbear/lesser,
 		/mob/living/simple_animal/hostile/asteroid/wolf,
@@ -92,7 +95,6 @@
 		/mob/living/simple_animal/hostile/construct/artificer/hostile,
 		/mob/living/simple_animal/hostile/construct/artificer/mystic,
 		/mob/living/simple_animal/hostile/construct/artificer/noncult,
-		/mob/living/simple_animal/hostile/construct/harvester,
 		/mob/living/simple_animal/hostile/construct/juggernaut,
 		/mob/living/simple_animal/hostile/construct/juggernaut/angelic,
 		/mob/living/simple_animal/hostile/construct/juggernaut/hostile,
@@ -106,9 +108,6 @@
 		/mob/living/simple_animal/hostile/construct/wraith/mystic,
 		/mob/living/simple_animal/hostile/construct/wraith/noncult,
 		/mob/living/simple_animal/hostile/dark_wizard,
-		/mob/living/simple_animal/hostile/gorilla,
-		/mob/living/simple_animal/hostile/gorilla/lesser,
-		/mob/living/simple_animal/hostile/gorilla/cargo_domestic,
 		/mob/living/simple_animal/hostile/guardian,
 		/mob/living/simple_animal/hostile/guardian/assassin,
 		/mob/living/simple_animal/hostile/guardian/charger,
@@ -185,10 +184,7 @@
 		/mob/living/simple_animal/hostile/skeleton/plasmaminer,
 		/mob/living/simple_animal/hostile/skeleton/plasmaminer/jackhammer,
 		/mob/living/simple_animal/hostile/skeleton/templar,
-		/mob/living/simple_animal/hostile/space_dragon,
-		/mob/living/simple_animal/hostile/space_dragon/spawn_with_antag,
 		/mob/living/simple_animal/hostile/vatbeast,
-		/mob/living/simple_animal/hostile/venus_human_trap,
 		/mob/living/simple_animal/hostile/wizard,
 		/mob/living/simple_animal/hostile/zombie,
 		/mob/living/simple_animal/parrot,
@@ -207,7 +203,11 @@
 		/mob/living/simple_animal/pet/cat/space,
 		/mob/living/simple_animal/pet/gondola,
 		/mob/living/simple_animal/pet/gondola/gondolapod,
+<<<<<<< HEAD
 		/mob/living/simple_animal/revenant,
+=======
+		/mob/living/simple_animal/pet/gondola/virtual_domain,
+>>>>>>> 3415828c6bc (Refactors Revenants into Basic Mobs (#78782))
 		/mob/living/simple_animal/shade,
 		/mob/living/simple_animal/slime,
 		/mob/living/simple_animal/slime/pet,

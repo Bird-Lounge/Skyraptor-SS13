@@ -184,3 +184,192 @@
       are working again.
   oranges:
   - rscadd: Dogs now react to centrist grillers more realistically
+2023-10-12:
+  CliffracerX:
+  - rscadd: ghosts now resemble their mortal forms
+  - rscadd: purring cats and raptors
+  - bugfix: NT stopped having clerical errors giving everyone random ID cards
+  - qol: char prefs menu is no longer scrunched
+  - qol: char slots buffed, 6 for normies, 15 for byong members
+  - image: redid all unary devices for Atmospherics
+  - image: updated some pipe item states for visibility
+  - image: wide and grunge airlocks updated
+  - image: emitters and fieldgens now in-line with our style
+  - bugfix: cell chargers no longer janky
+  - bugfix: extinguishers consistent (tankholders, etc)
+  - bugfix: shipchems less scrungly
+  Fazzie:
+  - qol: NT's logo on Centcom's landing pad looks better
+  - qol: Centcom's Cargo and other rooms had their items rearanged to look marginally
+      better. Like you're every gonna see them!
+  - bugfix: The Thunderdome on Centcom now has up-to-date cooking machinery
+  LT3:
+  - bugfix: After the untimely loss of too many novice HoPs, the Icebox "New IDs and
+      You" instructions have been moved from the icemoon wastes to the HoP's office,
+      ending this rite of passage
+  - bugfix: Added some missing firelocks in the pharmacy area. Icebox pharmacy now
+      has a shower
+  - rscadd: Introducing Nanotrasen Wave! A Nanotrasen exclusive, Waveallows your PDA
+      to be charged wirelessly through microwave frequencies. You can Wave-charge
+      your device by placing it inside a compatible microwave and selecting the charge
+      mode.
+  - rscadd: Microwaves can be upgraded to add wireless charging
+  - rscadd: Cell-swappable microwave for the engineer on-the-go
+  - rscadd: Microwave now has a wire to swap charge/cook modes
+  - rscadd: Furnishings RCD upgrade now includes wireless microwave
+  - rscadd: Tramstation and Birdshot engineering break rooms now have microwave and
+      donk pockets. Some microwaves come pre-equipped with wireless charging and an
+      upgraded cell.
+  - bugfix: The microwave in the snowdin ruin is now real, not a fluff prop
+  Melber:
+  - bugfix: Wearing bread (or roses, or other non-mask things) no longer prevents
+      you from TTS speaking.
+  Melbert:
+  - bugfix: Robotic bodyparts not attached to people are now properly affected by
+      EMPs.
+  - bugfix: Virtual Drink Glasses now look correct.
+  NaakaKo:
+  - bugfix: fixes a runtime in organ on_death()
+  - bugfix: Metastation disposals will no longer infinitely loop garbage around the
+      station.
+  - bugfix: Necropolis tendrils and other mining mob spawners can be hit in melee
+      again.
+  - bugfix: Cowardly mobs will consistently run away from you instead of getting tired
+      and just sort of standing there after an initial burst of movement.
+  - refactor: ice demons have been refactored into basic mbos. please report any bugs
+  - rscadd: ice demons now have a unique trophy
+  - image: you can now change the style of lipstick to be higher or lower on the face
+      by alt-clicking the lipstick tube
+  - bugfix: fixed some faulty research connections in between heretic's blade and
+      rust paths.
+  - bugfix: bitrunners will no longer be lumped in with assistants on the crew monitor
+      console's display
+  - bugfix: Wound promotion and demotion no longer removes gauze from the limb
+  - code_imp: made an eensy teensie weensie change to some supermatter boilerplate
+  - bugfix: You cannot order with cargo budget if you don't have cargo access in the
+      Galactic Market
+  - bugfix: Private & Cargo orders no longer get mixed together in the same crate
+      if you order them interchangeably so no more embezzlement in the Galactic Market
+  - bugfix: Orders made with cargo budget come in a regular cargo crate thus allowing
+      you to open them without QM cargo budget card in the Galactic Market
+  - qol: Orders made in the Galactic Market will deduct money from your account/cargo
+      budget only after the order has been confirmed in the cargo request console
+      & after the shuttle arrives with your order. This way you drain the budget only
+      after your orders were successfully delivered and not before hand itself
+  - qol: Supermatter shards can now be fastened with right click too. Now, just don't
+      forget to use a wrench.
+  - bugfix: count station food verb now counts food only onstation
+  - rscadd: Adds practice carbines to all firing ranges. They don't deal damage.
+  - balance: Flesh Spiders heal automatically over time if they go a short time without
+      taking damage, instead of healing large chunks by clicking themselves and waiting
+      two seconds.
+  - qol: Spider egg clusters which only hatch into one kind of spider don't ask you
+      to select that one type from a radial menu with one option on it.
+  - qol: As a Flesh Spider, the game now tells you how you can heal yourself.
+  - bugfix: moved a garbage spawner on Tramstation that was causing random runtimes
+      due to sometimes spawning in space depending on which module got loaded
+  - bugfix: Examining twice experiment handlers with an active fish-related experiment
+      now gives a comprehensible, correctly spaced list of scanned species rather
+      than something like "pufferfishguppyslimefishchasmchrab".
+  - bugfix: No more "line snapped" balloon messages everytime the fishing minigame
+      is over
+  - bugfix: Getting to the Master level of the fishing skill now correctly gives you
+      that slight helping hand to identify yet-to-be-caught fishes.
+  - bugfix: Added extra checks to bitrunning domain cleanup so avatars are deleted
+      properly.
+  - rscadd: Quantum servers now look for a new machine called a byteforge to spawn
+      loot on- no longer on an invisible landmark. This should make the rooms rebuildable
+      after disasters.
+  - rscadd: '*Most* bitrunning machinery is now researchable and buildable via circuits
+      in the engineering protolathe.'
+  - balance: Reviver Implant now able to revive dead people.
+  - bugfix: Fixed some issues in the security camera UI - pressing next or back will
+      now loop through the cameras
+  - bugfix: Fixed some style issues in the camera console where selected cams weren't
+      showing as selected
+  - bugfix: Camera console search works again
+  - bugfix: Virtual domain gondola meat will no longer have a small chance to turn
+      you into a weaker gondola variant
+  - refactor: Gorillas now use the basic mob framework. Please report any unusual
+      side effects.
+  - bugfix: using a magic mirror to change gender or skintone will now update your
+      icon properly to match your selection
+  - bugfix: Slaughter/Laughter demon melee cooldowns have been fixed and now attack
+      at the regular player character attack speed
+  - bugfix: you can no longer polymorph belt into a holoparasite
+  - bugfix: Borg modules can no longer be sold by pirates.
+  - qol: Adds a base physical description proc to gameplay species, displays it on
+      magic mirrors. It will give a description of not the lore of the species but
+      in what way they differ from base species.
+  - bugfix: Fixes a bad subtype on magical mirrors.
+  - bugfix: Magical mirrors now give the user ADVANCEDTOOLUSER and LITERACY if they
+      lack either of them, so monkey wizards aren't softlocked.
+  - balance: The chemical gun and PKA pressure mod traitor items are now purchasable
+      within 15 minutes of the round starting rather than 20/30.
+  - balance: All preset bundle kits, the cash briefcase, the makarov, the revolver,
+      the throwing weapon kit, c4, the detomatix cartridge, the large EMP bomb, gorillas,
+      advanced mimery tome, pie cannon, clown car, His Grace, and the origami kit
+      are now all purchasable at the start of a round.
+  - qol: The autopsy tray (and surgery trays) can now hold the autopsy scanner
+  - bugfix: Heretic mobs will not be summoned with AI enabled, and won't turn into
+      small animals instead of summoning a flesh stalker.
+  - bugfix: Warm donk-pockets should now have omnizine in them again.
+  - refactor: Harvester constructs have been updated to the basic mob framework. This
+      should have very little impact on their behavior, but please report any issues.
+  - sound: Add burning sound loop to bonfires and fireplaces
+  - code_imp: Improved fireplaces to only process when lit
+  - code_imp: COMSIG_GLOB_LIGHT_MECHANISM_COMPLETED is now COMSIG_GLOB_PUZZLE_COMPLETED
+  - refactor: Revenants, the mob that's split between planes of Life and Death, have
+      been refactored into a basic mob. While this alone shouldn't touch behavior,
+      a lot of the backend code has been gutted and refactored to try and furnish
+      a better antagonist experience. This might mean that some weird stuff can come
+      up and around, report something if it's utterly broken.
+  - code_imp: In order to better facilitate some code, you do not ghost outside of
+      a revenant on death, you simply get transferred into the ectoplasm. You should
+      still be able to speak with your ghost friends on how hard you got wrecked or
+      if you'll be able to resurrect though.
+  - code_imp: The timing on revenant stuff such as being revealed, stunned, and inhibited
+      (by holy weapons) should be tweaked a bit to allow better management. This should
+      mean that getting unstunned and such should be a bit more precise now.
+  - qol: Revenant instructions are now relayed in a neat little examine block.
+  - rscadd: Adds a new lavaland ruin where you can find a unique egg.
+  - refactor: venus human traps are basicmobs now
+  - balance: venus human traps have 100 health
+  - balance: venus human traps take damage out of range of kudzu, heal near kudzu,
+      are slightly slower, attack slower, and their damage output is slightly more
+      random
+  - balance: also venus human trap tangle ability now needs you to actually move backwards
+      to pull victims
+  - balance: Unholy water acts as a coagulant for cultists.
+  - code_imp: moved some global procs and vars related to reagents to its own dedicated
+      file. removed some unused procs and macros
+  - code_imp: heavy auto docs for a lot of procs
+  - refactor: adds reagent sanity and bound check code
+  - refactor: multiple reagents are more uniformly distributed when transferring them
+      between beakers or dropper & in every other reagent dependent operation
+  - bugfix: Fixes a few runtimes with TTS and skips some code if TTS isn't enabled.
+  - balance: The Changeling Space Suit has been replaced by a new ability which makes
+      you passively spaceproof without replacing your clothing.
+  - admin: Editing the atmos sensitivity variables on a basic mob during the game
+      will now actually do something.
+  - sound: the blood cult's rise to power is now accompanied by several new sound
+      effects
+  - bugfix: The Holy Hand Grenade's effect on revealing a revenant had its duration
+      accidentally nerfed, it is now back to 10 seconds.
+  - bugfix: Revenant midrounds should now properly run.
+  - bugfix: Revenant harvesting should now let you actually pass the final do_after
+      so you can harvest that sweet essence.
+  Wallem:
+  - rscadd: Nuclear Operatives now have ready access to ancient cowboy technology
+      in the form of the Outlaw Bundle. Now you too can roll into town on your horse.
+2023-10-14:
+  LT3:
+  - qol: Canisters can now be built in one step, no upgrading required
+  NaakaKo:
+  - bugfix: Dullahans can read, strip people, and utilise tools.
+  - bugfix: Dullahan brains and eyes will not decay while inside their living severed
+      head.
+  - image: Inhands for the Sakhno and related rifles will no longer be way too high
+      or big
+  - bugfix: Fixed the errant bluescreen in the camera console.
+  - code_imp: basicmobs that delete on death, ghost before dying
