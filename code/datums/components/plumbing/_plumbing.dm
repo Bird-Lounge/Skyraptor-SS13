@@ -111,8 +111,19 @@
 	// Need to ask for each in turn very carefully, making sure we get the total volume. This is to avoid a division that would always round down and become 0
 	var/targetVolume = reagents.total_volume + amount
 	var/suppliersLeft = valid_suppliers.len
+<<<<<<< HEAD
 	for(var/datum/component/plumbing/give as anything in valid_suppliers)
 		var/currentRequest = (targetVolume - reagents.total_volume) / suppliersLeft
+=======
+	if(!suppliersLeft)
+		return
+
+	//take an equal amount from each supplier
+	var/currentRequest
+	var/target_volume = reagents.total_volume + amount
+	for(var/datum/component/plumbing/give as anything in valid_suppliers)
+		currentRequest = (target_volume - reagents.total_volume) / suppliersLeft
+>>>>>>> ecf99a90e59 ([NO GBP]Fixes plumbing for good(hopefully) & more reagent code (#78947))
 		give.transfer_to(src, currentRequest, reagent, net)
 		suppliersLeft--
 
@@ -127,6 +138,8 @@
 				return TRUE
 	else if(reagents.total_volume > 0) //take whatever
 		return TRUE
+
+	return FALSE
 
 ///this is where the reagent is actually transferred and is thus the finish point of our process()
 /datum/component/plumbing/proc/transfer_to(datum/component/plumbing/target, amount, reagent, datum/ductnet/net)
