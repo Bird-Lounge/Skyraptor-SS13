@@ -10,7 +10,7 @@
 /datum/component/plumbing/reaction_chamber/can_give(amount, reagent, datum/ductnet/net)
 	. = ..()
 	var/obj/machinery/plumbing/reaction_chamber/reaction_chamber = parent
-	if(!. || !reaction_chamber.emptying || reagents.is_reacting == TRUE)
+	if(!. || !reaction_chamber.emptying || reagents.is_reacting)
 		return FALSE
 
 /datum/component/plumbing/reaction_chamber/send_request(dir)
@@ -22,12 +22,22 @@
 		var/has_reagent = FALSE
 		for(var/datum/reagent/containg_reagent as anything in reagents.reagent_list)
 			if(required_reagent == containg_reagent.type)
+<<<<<<< HEAD
 				has_reagent = TRUE
 				if(containg_reagent.volume + CHEMICAL_QUANTISATION_LEVEL < chamber.required_reagents[required_reagent])
 					process_request(min(chamber.required_reagents[required_reagent] - containg_reagent.volume, MACHINE_REAGENT_TRANSFER) , required_reagent, dir)
 					return
 		if(!has_reagent)
 			process_request(min(chamber.required_reagents[required_reagent], MACHINE_REAGENT_TRANSFER), required_reagent, dir)
+=======
+				present_amount = containg_reagent.volume
+				break
+
+		//compute how much more is needed and round it
+		diff = chamber.required_reagents[required_reagent] - present_amount
+		if(diff >= CHEMICAL_QUANTISATION_LEVEL * 10) //should be safe even after rounding
+			process_request(min(diff, MACHINE_REAGENT_TRANSFER), required_reagent, dir)
+>>>>>>> ecf99a90e59 ([NO GBP]Fixes plumbing for good(hopefully) & more reagent code (#78947))
 			return
 
 	reagents.flags &= ~NO_REACT

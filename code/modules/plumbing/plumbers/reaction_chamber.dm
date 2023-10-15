@@ -47,11 +47,34 @@
 	return NONE
 
 /obj/machinery/plumbing/reaction_chamber/process(seconds_per_tick)
+<<<<<<< HEAD
 	if(!emptying || reagents.is_reacting) //suspend heating/cooling during emptying phase
 		reagents.adjust_thermal_energy((target_temperature - reagents.chem_temp) * heater_coefficient * seconds_per_tick * SPECIFIC_HEAT_DEFAULT * reagents.total_volume) //keep constant with chem heater
 		reagents.handle_reactions()
 
 	use_power(active_power_usage * seconds_per_tick)
+=======
+	//half the power for getting reagents in
+	var/power_usage = active_power_usage * 0.5
+
+	if(!emptying || reagents.is_reacting)
+		//adjust temperature of final solution
+		var/temp_diff = target_temperature - reagents.chem_temp
+		if(abs(temp_diff) > 0.01) //if we are not close enough keep going
+			reagents.adjust_thermal_energy(temp_diff * HEATER_COEFFICIENT * seconds_per_tick * SPECIFIC_HEAT_DEFAULT * reagents.total_volume) //keep constant with chem heater
+
+		//do other stuff with final solution
+		handle_reagents(seconds_per_tick)
+
+		//full power for doing reactions
+		power_usage *= 2
+
+	use_power(power_usage * seconds_per_tick)
+
+///For subtypes that want to do additional reagent handling
+/obj/machinery/plumbing/reaction_chamber/proc/handle_reagents(seconds_per_tick)
+	return
+>>>>>>> ecf99a90e59 ([NO GBP]Fixes plumbing for good(hopefully) & more reagent code (#78947))
 
 /obj/machinery/plumbing/reaction_chamber/power_change()
 	. = ..()
@@ -147,6 +170,7 @@
 	QDEL_NULL(alkaline_beaker)
 	return ..()
 
+<<<<<<< HEAD
 /obj/machinery/plumbing/reaction_chamber/chem/process(seconds_per_tick)
 	//add acidic/alkaine buffer if over/under limit
 	if(reagents.is_reacting && reagents.ph < alkaline_limit)
@@ -154,6 +178,36 @@
 	if(reagents.is_reacting && reagents.ph > acidic_limit)
 		acidic_beaker.reagents.trans_to(reagents, 1 * seconds_per_tick)
 	..()
+=======
+/obj/machinery/plumbing/reaction_chamber/chem/handle_reagents(seconds_per_tick)
+	while(reagents.ph < acidic_limit || reagents.ph > alkaline_limit)
+		//no power
+		if(machine_stat & NOPOWER)
+			return
+
+		//nothing to react with
+		var/num_of_reagents = length(reagents.reagent_list)
+		if(!num_of_reagents)
+			return
+
+		/**
+		 * figure out which buffer to transfer to restore balance
+		 * if solution is getting too basic(high ph) add some acid to lower it's value
+		 * else if solution is getting too acidic(low ph) add some base to increase it's value
+		 */
+		var/datum/reagents/buffer = reagents.ph > alkaline_limit ? acidic_beaker.reagents : alkaline_beaker.reagents
+		if(!buffer.total_volume)
+			return
+
+		//transfer buffer and handle reactions
+		var/ph_change = (reagents.ph > alkaline_limit ? (reagents.ph - alkaline_limit) : (acidic_limit - reagents.ph))
+		var/buffer_amount = ((ph_change * reagents.total_volume) / (BUFFER_IONIZING_STRENGTH * num_of_reagents))
+		if(!buffer.trans_to(reagents, buffer_amount * seconds_per_tick))
+			return
+
+		//some power for accurate ph balancing
+		use_power(active_power_usage * 0.03 * buffer_amount * seconds_per_tick)
+>>>>>>> ecf99a90e59 ([NO GBP]Fixes plumbing for good(hopefully) & more reagent code (#78947))
 
 /obj/machinery/plumbing/reaction_chamber/chem/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
