@@ -193,6 +193,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 				continue
 			if(!(A.area_flags & BLOBS_ALLOWED))
 				continue
+<<<<<<< HEAD
 			A.color = blobstrain.color
 			A.name = "blob"
 			A.icon = 'icons/mob/nonhuman-player/blob.dmi'
@@ -200,6 +201,16 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 			A.layer = BELOW_MOB_LAYER
 			A.invisibility = 0
 			A.blend_mode = 0
+=======
+			check_area.color = blobstrain.color
+			check_area.name = "blob"
+			check_area.icon = 'icons/mob/nonhuman-player/blob.dmi'
+			check_area.icon_state = "blob_shield"
+			check_area.layer = BELOW_MOB_LAYER
+			check_area.SetInvisibility(INVISIBILITY_NONE)
+			check_area.blend_mode = 0
+
+>>>>>>> 96d7e9c690b (Invisibility refactor (#78908))
 	var/datum/antagonist/blob/B = mind.has_antag_datum(/datum/antagonist/blob)
 	if(B)
 		var/datum/objective/blob_takeover/main_objective = locate() in B.objectives
