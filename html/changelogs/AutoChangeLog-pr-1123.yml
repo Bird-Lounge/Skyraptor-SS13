@@ -1,0 +1,4 @@
+author: "NaakaKo"
+delete-after: True
+changes:
+  - code_imp: "removed unnecessary calls to `update_total()`"
