@@ -661,9 +661,39 @@ ab
 ab
 ab
 ab
+<<<<<<< HEAD
 "}
 (2,1,1) = {"
 ab
+=======
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+"}
+(2,1,1) = {"
+ab
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 Fd
 Fd
@@ -695,6 +725,22 @@ ab
 "}
 (3,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+jt
+jt
+wo
+wo
+jt
+En
+En
+jt
+wo
+wo
+jt
+jt
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 ZA
 ZA
@@ -721,11 +767,26 @@ La
 La
 La
 La
-Fd
 ab
 "}
 (4,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+jt
+AY
+AY
+AY
+AY
+AY
+AY
+AY
+AY
+fL
+AY
+jt
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 ZA
 Pl
@@ -752,11 +813,26 @@ AO
 wY
 Wb
 La
-Fd
 ab
 "}
 (5,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+wo
+AY
+fL
+uM
+AY
+AY
+qo
+fL
+AY
+mW
+MZ
+wo
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 ZA
 wS
@@ -783,11 +859,26 @@ AO
 AO
 wY
 La
-Fd
 ab
 "}
 (6,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+wo
+AY
+Aw
+fL
+AY
+wP
+fL
+fL
+AY
+qo
+AY
+wo
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 ZA
 OG
@@ -814,11 +905,26 @@ AO
 AO
 AO
 La
-Fd
 ab
 "}
 (7,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+jt
+AY
+fL
+fL
+AY
+AY
+fL
+AY
+AY
+fL
+Aw
+jt
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 ZA
 Bw
@@ -845,11 +951,26 @@ AO
 AO
 wY
 La
-Fd
 ab
 "}
 (8,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+En
+AY
+MZ
+fL
+AY
+Zw
+OW
+AY
+AY
+AY
+fL
+En
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 ZA
 Bw
@@ -876,11 +997,26 @@ AO
 wY
 jB
 La
-Fd
 ab
 "}
 (9,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+En
+fL
+AY
+AY
+AY
+fL
+fL
+AY
+AY
+fL
+AY
+En
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 ZA
 Bw
@@ -907,11 +1043,26 @@ AO
 wY
 Wb
 La
-Fd
 ab
 "}
 (10,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+jt
+AY
+AY
+fL
+AY
+fL
+AY
+fL
+AY
+AW
+fL
+jt
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 ZA
 Bw
@@ -938,11 +1089,26 @@ AO
 wY
 Wb
 La
-Fd
 ab
 "}
 (11,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+wo
+fL
+AY
+hE
+MZ
+AY
+AY
+hE
+fL
+wP
+AY
+wo
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 ZA
 Pl
@@ -969,11 +1135,26 @@ AO
 AO
 wY
 La
-Fd
 ab
 "}
 (12,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+wo
+AY
+fL
+AY
+AY
+AY
+fL
+AY
+OW
+fL
+fL
+wo
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 ZA
 wS
@@ -1000,11 +1181,26 @@ wY
 AO
 AO
 La
-Fd
 ab
 "}
 (13,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+jt
+AY
+AY
+fL
+fL
+AY
+AY
+AY
+AY
+AY
+AY
+jt
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 ZA
 OG
@@ -1031,11 +1227,26 @@ qn
 wY
 AO
 La
-Fd
 ab
 "}
 (14,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+jt
+jt
+wo
+wo
+jt
+En
+En
+jt
+wo
+wo
+jt
+jt
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 ZA
 ZA
@@ -1062,11 +1273,25 @@ La
 La
 La
 La
-Fd
 ab
 "}
 (15,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 Fd
 Fd
@@ -1098,6 +1323,22 @@ ab
 "}
 (16,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 WD
 WD
@@ -1124,11 +1365,26 @@ HQ
 HQ
 HQ
 HQ
-Fd
 ab
 "}
 (17,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+fO
+fO
+fO
+fO
+fO
+fO
+xc
+xc
+xc
+xc
+xc
+fO
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 WD
 dZ
@@ -1155,11 +1411,26 @@ St
 ui
 St
 HQ
-Fd
 ab
 "}
 (18,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+xc
+fO
+fO
+fO
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 WD
 dZ
@@ -1186,11 +1457,26 @@ Xt
 Vd
 ui
 HQ
-Fd
 ab
 "}
 (19,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+fO
+fO
+fO
+fO
+fO
+fO
+xc
+xc
+xc
+xc
+xc
+fO
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 WD
 ER
@@ -1217,11 +1503,26 @@ hZ
 ui
 St
 HQ
-Fd
 ab
 "}
 (20,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 WD
 Se
@@ -1248,11 +1549,26 @@ RW
 RW
 St
 HQ
-Fd
 ab
 "}
 (21,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+fO
+fO
+fO
+fO
+fO
+fO
+xc
+fO
+xc
+xc
+xc
+fO
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 WD
 Xr
@@ -1279,11 +1595,26 @@ St
 RW
 St
 HQ
-Fd
 ab
 "}
 (22,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 WD
 Se
@@ -1310,11 +1641,26 @@ JJ
 ui
 St
 HQ
-Fd
 ab
 "}
 (23,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 WD
 Xr
@@ -1341,11 +1687,26 @@ ui
 ui
 St
 HQ
-Fd
 ab
 "}
 (24,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 WD
 ps
@@ -1372,11 +1733,26 @@ rP
 ui
 St
 HQ
-Fd
 ab
 "}
 (25,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 WD
 Je
@@ -1403,11 +1779,26 @@ RW
 cS
 ui
 HQ
-Fd
 ab
 "}
 (26,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 WD
 ER
@@ -1434,11 +1825,26 @@ Yp
 Xt
 St
 HQ
-Fd
 ab
 "}
 (27,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 WD
 WD
@@ -1465,11 +1871,25 @@ HQ
 HQ
 HQ
 HQ
-Fd
 ab
 "}
 (28,1,1) = {"
 ab
+<<<<<<< HEAD
+=======
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 Fd
 Fd
 Fd
@@ -1529,4 +1949,19 @@ ab
 ab
 ab
 ab
+<<<<<<< HEAD
+=======
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+Fd
+ab
+ab
+ab
+>>>>>>> 10f194781db (It is now possible to survive the Mansus  (#79131))
 "}
