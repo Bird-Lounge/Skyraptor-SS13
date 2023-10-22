@@ -26,8 +26,8 @@
 "aaj" = (
 /obj/structure/bed/dogbed/renault,
 /obj/machinery/newscaster/directional/south,
-/mob/living/basic/pet/fox/renault,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/mob/living/basic/pet/fox/renault,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/captain)
 "aaz" = (
@@ -21129,8 +21129,8 @@
 /turf/open/floor/wood,
 /area/station/service/library/abandoned)
 "fiu" = (
-/mob/living/basic/cockroach,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/mob/living/basic/cockroach,
 /turf/open/floor/iron/dark,
 /area/station/service/abandoned_gambling_den)
 "fix" = (
@@ -24436,7 +24436,7 @@
 /obj/effect/spawner/random/structure/table_fancy,
 /obj/item/reagent_containers/cup/glass/bottle/beer{
 	desc = "Whatever it is, it reeks of foul, putrid froth.";
-	list_reagents = list(/datum/reagent/consumable/ethanol/bacchus_blessing=15);
+	list_reagents = list(/datum/reagent/consumable/ethanol/bacchus_blessing = 15);
 	name = "Delta-Down";
 	pixel_x = 5;
 	pixel_y = 5
@@ -26583,6 +26583,7 @@
 /area/station/maintenance/department/security)
 "gzc" = (
 /obj/structure/table/wood,
+/obj/item/aquarium_kit,
 /turf/open/floor/carpet/red,
 /area/station/hallway/secondary/service)
 "gzj" = (
@@ -42782,10 +42783,10 @@
 "kDv" = (
 /obj/structure/bed/dogbed/runtime,
 /obj/item/radio/intercom/directional/south,
-/mob/living/simple_animal/pet/cat/runtime,
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 1
 	},
+/mob/living/simple_animal/pet/cat/runtime,
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/cmo)
 "kDB" = (
@@ -47666,8 +47667,8 @@
 /area/station/commons/vacant_room/office)
 "lNN" = (
 /obj/structure/bed/dogbed/mcgriff,
-/mob/living/basic/pet/dog/pug/mcgriff,
 /obj/effect/turf_decal/tile/red/anticorner/contrasted,
+/mob/living/basic/pet/dog/pug/mcgriff,
 /turf/open/floor/iron,
 /area/station/security/warden)
 "lNZ" = (
@@ -49282,8 +49283,8 @@
 /obj/machinery/duct,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/mob/living/basic/cockroach,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/mob/living/basic/cockroach,
 /turf/open/floor/iron,
 /area/station/medical/abandoned)
 "mmM" = (
@@ -51465,8 +51466,8 @@
 /obj/effect/turf_decal/trimline/white/warning{
 	dir = 8
 	},
-/mob/living/simple_animal/hostile/retaliate/goose/vomit,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/mob/living/simple_animal/hostile/retaliate/goose/vomit,
 /turf/open/floor/iron/dark,
 /area/station/service/abandoned_gambling_den)
 "mOo" = (
@@ -54883,8 +54884,8 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/mob/living/simple_animal/bot/secbot/beepsky/officer,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/mob/living/simple_animal/bot/secbot/beepsky/officer,
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
 "nJK" = (
@@ -76706,9 +76707,9 @@
 "thZ" = (
 /obj/machinery/status_display/evac/directional/west,
 /obj/structure/filingcabinet/chestdrawer,
-/mob/living/simple_animal/parrot/poly,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/machinery/newscaster/directional/north,
+/mob/living/simple_animal/parrot/poly,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/ce)
 "tip" = (
@@ -95388,8 +95389,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
-/mob/living/basic/sloth/citrus,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/mob/living/basic/sloth/citrus,
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/qm)
 "xPo" = (
@@ -95444,8 +95445,8 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/mob/living/basic/cockroach,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/mob/living/basic/cockroach,
 /turf/open/floor/iron/dark,
 /area/station/service/abandoned_gambling_den)
 "xQr" = (
