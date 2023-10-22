@@ -90,6 +90,11 @@
 		var/atom/throw_target = get_edge_target_turf(defender, attacker.dir)
 		defender.throw_at(throw_target, 1, 14, attacker)
 		defender.apply_damage(10, attacker.get_attack_type())
+<<<<<<< HEAD
+=======
+		if(defender.body_position == LYING_DOWN && !defender.IsUnconscious())
+			defender.adjustStaminaLoss(45)
+>>>>>>> 1718b882300 ([NO GBP] Fix cqc kicks to only cause staminaloss when target is on the floor (#79119))
 		log_combat(attacker, defender, "kicked (CQC)")
 		. = TRUE
 	if(defender.IsParalyzed() && !defender.stat)

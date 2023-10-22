@@ -10,8 +10,13 @@
 /datum/ai_controller/basic_controller/carp
 	blackboard = list(
 		BB_BASIC_MOB_STOP_FLEEING = TRUE,
+<<<<<<< HEAD
 		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic/allow_items(),
 		BB_PET_TARGETTING_DATUM = new /datum/targetting_datum/not_friends()
+=======
+		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic/allow_items,
+		BB_PET_TARGETTING_DATUM = new /datum/targetting_datum/basic/not_friends
+>>>>>>> 370a38165e4 (new syndicate item - bee smoker (#78988))
 	)
 
 	ai_movement = /datum/ai_movement/basic_avoidance
@@ -37,8 +42,13 @@
 /datum/ai_controller/basic_controller/carp/pet
 	blackboard = list(
 		BB_BASIC_MOB_STOP_FLEEING = TRUE,
+<<<<<<< HEAD
 		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic/ignore_faction(),
 		BB_PET_TARGETTING_DATUM = new /datum/targetting_datum/not_friends()
+=======
+		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic,
+		BB_PET_TARGETTING_DATUM = new /datum/targetting_datum/basic/not_friends
+>>>>>>> 370a38165e4 (new syndicate item - bee smoker (#78988))
 	)
 	ai_traits = STOP_MOVING_WHEN_PULLED
 	planning_subtrees = list(
@@ -81,8 +91,13 @@
 /datum/ai_controller/basic_controller/carp/passive
 	blackboard = list(
 		BB_BASIC_MOB_STOP_FLEEING = TRUE,
+<<<<<<< HEAD
 		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic/ignore_faction(),
 		BB_PET_TARGETTING_DATUM = new /datum/targetting_datum/not_friends()
+=======
+		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic,
+		BB_PET_TARGETTING_DATUM = new /datum/targetting_datum/basic/not_friends,
+>>>>>>> 370a38165e4 (new syndicate item - bee smoker (#78988))
 	)
 	ai_traits = STOP_MOVING_WHEN_PULLED
 	planning_subtrees = list(

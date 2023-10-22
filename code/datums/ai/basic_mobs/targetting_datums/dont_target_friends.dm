@@ -1,11 +1,12 @@
 /// Don't target an atom in our friends list (or turfs), anything else is fair game
-/datum/targetting_datum/not_friends
+/datum/targetting_datum/basic/not_friends
 	/// Stop regarding someone as a valid target once they pass this stat level, setting it to DEAD means you will happily attack corpses
 	var/attack_until_past_stat = HARD_CRIT
 	/// If we can try to closed turfs or not
 	var/attack_closed_turf = FALSE
 
 ///Returns true or false depending on if the target can be attacked by the mob
+<<<<<<< HEAD
 /datum/targetting_datum/not_friends/can_attack(mob/living/living_mob, atom/target)
 	if (!target)
 		return FALSE
@@ -33,11 +34,22 @@
 	if (!(target in living_mob.ai_controller.blackboard[BB_FRIENDS_LIST]))
 		// We don't have any friends, anything's fair game
 		// OR This is not our friend, fire at will
+=======
+/datum/targetting_datum/basic/not_friends/can_attack(mob/living/living_mob, atom/target, vision_range)
+	if(attack_closed_turf && isclosedturf(target))
+>>>>>>> 370a38165e4 (new syndicate item - bee smoker (#78988))
 		return TRUE
 
+	if(target in living_mob.ai_controller.blackboard[BB_FRIENDS_LIST])
+		return FALSE
+
+	return ..()
+
+///friends dont care about factions
+/datum/targetting_datum/basic/not_friends/faction_check(mob/living/living_mob, mob/living/the_target)
 	return FALSE
 
-/datum/targetting_datum/not_friends/attack_closed_turfs
+/datum/targetting_datum/basic/not_friends/attack_closed_turfs
 	attack_closed_turf = TRUE
 
 /// Subtype that allows us to target items while deftly avoiding attacking our allies. Be careful when it comes to targetting items as an AI could get trapped targetting something it can't destroy.
