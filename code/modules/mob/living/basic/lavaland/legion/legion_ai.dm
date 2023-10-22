@@ -1,7 +1,8 @@
 /// Keep away and launch skulls at every opportunity, prioritising injured allies
 /datum/ai_controller/basic_controller/legion
 	blackboard = list(
-		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic/attack_until_dead/legion,
+		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic/legion,
+		BB_TARGET_MINIMUM_STAT = HARD_CRIT,
 		BB_AGGRO_RANGE = 5, // Unobservant
 		BB_BASIC_MOB_FLEE_DISTANCE = 6,
 	)
@@ -18,7 +19,8 @@
 /// Chase and attack whatever we are targetting, if it's friendly we will heal them
 /datum/ai_controller/basic_controller/legion_brood
 	blackboard = list(
-		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic/attack_until_dead/legion,
+		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic/legion,
+		BB_TARGET_MINIMUM_STAT = HARD_CRIT,
 	)
 
 	ai_movement = /datum/ai_movement/basic_avoidance
@@ -29,13 +31,17 @@
 	)
 
 /// Target nearby friendlies if they are hurt (and are not themselves Legions)
-/datum/targetting_datum/basic/attack_until_dead/legion
+/datum/targetting_datum/basic/legion
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 /datum/targetting_datum/basic/attack_until_dead/legion/faction_check(mob/living/living_mob, mob/living/the_target)
 	if (!living_mob.faction_check_mob(the_target, exact_match = check_factions_exactly))
 =======
 /datum/targetting_datum/basic/attack_until_dead/legion/faction_check(datum/ai_controller/controller, mob/living/living_mob, mob/living/the_target)
+=======
+/datum/targetting_datum/basic/legion/faction_check(datum/ai_controller/controller, mob/living/living_mob, mob/living/the_target)
+>>>>>>> 0c17553a962 (Basic Constructs: Artificer (#79015))
 	if (!living_mob.faction_check_atom(the_target, exact_match = check_factions_exactly))
 >>>>>>> 847514310d2 (Fixes a runtime with AI targeting code, refactors faction checking to be at the atom/movable level (#78803))
 		return FALSE

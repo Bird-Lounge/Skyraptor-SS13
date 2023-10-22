@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 //Pills & Patches
 /// List of containers the Chem Master machine can print
 GLOBAL_LIST_INIT(reagent_containers, list(
@@ -39,7 +37,6 @@ GLOBAL_LIST_INIT(reagent_containers, list(
 	)),
 ))
 
->>>>>>> bfc70046220 (Adds a trailing comma to reagent_containers list (#79121))
 /// list of all /datum/chemical_reaction datums indexed by their typepath. Use this for general lookup stuff
 GLOBAL_LIST(chemical_reactions_list)
 /// list of all /datum/chemical_reaction datums. Used during chemical reactions. Indexed by REACTANT types
