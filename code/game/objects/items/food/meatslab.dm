@@ -4,6 +4,30 @@
 	icon = 'icons/obj/food/meat.dmi'
 	var/subjectname = ""
 	var/subjectjob = null
+<<<<<<< HEAD
+=======
+	var/blood_decal_type = /obj/effect/decal/cleanable/blood
+
+/obj/item/food/meat/Initialize(mapload)
+	. = ..()
+
+	if(!blood_decal_type)
+		return
+
+	AddComponent(
+		/datum/component/blood_walk,\
+		blood_type = blood_decal_type,\
+		blood_spawn_chance = 45,\
+		max_blood = custom_materials[custom_materials[1]],\
+	)
+
+	AddComponent(
+		/datum/component/bloody_spreader,\
+		blood_left = custom_materials[custom_materials[1]],\
+		blood_dna = list("meaty DNA" = "MT-"),\
+		diseases = null,\
+	)
+>>>>>>> 7691808a55b (Cooked meat no longer spreads blood around. (#79124))
 
 /obj/item/food/meat/slab
 	name = "meat"
@@ -348,6 +372,7 @@
 	tastes = list("bacon" = 1)
 	foodtypes = MEAT | BREAKFAST
 	crafting_complexity = FOOD_COMPLEXITY_1
+	blood_decal_type = null
 
 /obj/item/food/meat/slab/gondola
 	name = "gondola meat"
@@ -410,6 +435,7 @@
 	tastes = list("crab" = 1)
 	foodtypes = SEAFOOD
 	crafting_complexity = FOOD_COMPLEXITY_1
+	blood_decal_type = null
 
 
 /obj/item/food/meat/slab/chicken
@@ -469,6 +495,7 @@
 	foodtypes = MEAT
 	tastes = list("meat" = 1)
 	crafting_complexity = FOOD_COMPLEXITY_1
+	blood_decal_type = null
 
 /obj/item/food/meat/steak/Initialize(mapload)
 	. = ..()
@@ -684,6 +711,7 @@
 	tastes = list("meat" = 1)
 	foodtypes = MEAT
 	crafting_complexity = FOOD_COMPLEXITY_1
+	blood_decal_type = null
 
 /obj/item/food/meat/cutlet/Initialize(mapload)
 	. = ..()
