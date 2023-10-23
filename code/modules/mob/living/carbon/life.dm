@@ -26,21 +26,12 @@
 
 	if(stat == DEAD)
 		stop_sound_channel(CHANNEL_HEARTBEAT)
-	else
-<<<<<<< HEAD
-		/// SKYRAPTOR REMOVAL: byebye oldstam
-		/*if(getStaminaLoss() > 0 && stam_regen_start_time <= world.time)
-			adjustStaminaLoss(-INFINITY)*/
-		var/bprv = handle_bodyparts(seconds_per_tick, times_fired)
-		if(bprv & BODYPART_LIFE_UPDATE_HEALTH)
-			updatehealth()
-=======
-
+	/// SKYRAPTOR REMOVAL: byebye oldstam
+	/*else
 		if(getStaminaLoss() > 0 && stam_regen_start_time <= world.time)
-			adjustStaminaLoss(-INFINITY)
+			adjustStaminaLoss(-INFINITY)*/
 
 	handle_bodyparts(seconds_per_tick, times_fired)
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 	if(. && mind) //. == not dead
 		for(var/key in mind.addiction_points)

@@ -4,8 +4,6 @@
 	icon = 'icons/obj/food/meat.dmi'
 	var/subjectname = ""
 	var/subjectjob = null
-<<<<<<< HEAD
-=======
 	var/blood_decal_type = /obj/effect/decal/cleanable/blood
 
 /obj/item/food/meat/Initialize(mapload)
@@ -27,7 +25,6 @@
 		blood_dna = list("meaty DNA" = "MT-"),\
 		diseases = null,\
 	)
->>>>>>> 7691808a55b (Cooked meat no longer spreads blood around. (#79124))
 
 /obj/item/food/meat/slab
 	name = "meat"
@@ -79,6 +76,7 @@
 	tastes = list("slime" = 1, "jelly" = 1)
 	foodtypes = MEAT | RAW | TOXIC
 	venue_value = FOOD_MEAT_MUTANT_RARE
+	blood_decal_type = null
 
 /obj/item/food/meat/slab/human/mutant/golem
 	icon_state = "golemmeat"
@@ -90,6 +88,7 @@
 	tastes = list("rock" = 1)
 	foodtypes = MEAT | RAW | GROSS
 	venue_value = FOOD_MEAT_MUTANT_RARE
+	blood_decal_type = null
 
 /obj/item/food/meat/slab/human/mutant/golem/adamantine
 	icon_state = "agolemmeat"
@@ -113,6 +112,7 @@
 	tastes = list("salad" = 1, "wood" = 1)
 	foodtypes = VEGETABLES
 	venue_value = FOOD_MEAT_MUTANT_RARE
+	blood_decal_type = /obj/effect/decal/cleanable/food/plant_smudge
 
 /obj/item/food/meat/slab/human/mutant/shadow
 	icon_state = "shadowmeat"
@@ -131,6 +131,7 @@
 	tastes = list("maggots" = 1, "the inside of a reactor" = 1)
 	foodtypes = MEAT | RAW | GROSS | BUGS | GORE
 	venue_value = FOOD_MEAT_MUTANT
+	blood_decal_type = /obj/effect/decal/cleanable/insectguts
 
 /obj/item/food/meat/slab/human/mutant/moth
 	icon_state = "mothmeat"
@@ -146,6 +147,7 @@
 	tastes = list("bone" = 1)
 	foodtypes = GROSS | GORE
 	venue_value = FOOD_MEAT_MUTANT_RARE
+	blood_decal_type = null
 
 /obj/item/food/meat/slab/human/mutant/skeleton/make_processable()
 	return //skeletons dont have cutlets
@@ -164,6 +166,7 @@
 	tastes = list("pure electricity" = 2, "meat" = 1)
 	foodtypes = RAW | MEAT | TOXIC | GORE
 	venue_value = FOOD_MEAT_MUTANT
+	blood_decal_type = null
 
 ////////////////////////////////////// OTHER MEATS ////////////////////////////////////////////////////////
 
@@ -198,6 +201,7 @@
 	name = "bug meat"
 	icon_state = "spidermeat"
 	foodtypes = RAW | MEAT | BUGS
+	blood_decal_type = /obj/effect/decal/cleanable/insectguts
 
 /obj/item/food/meat/slab/mouse
 	name = "mouse meat"
@@ -243,6 +247,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	tastes = list("tomato" = 1)
 	foodtypes = FRUIT
+	blood_decal_type = /obj/effect/decal/cleanable/food/tomato_smudge
 
 /obj/item/food/meat/slab/killertomato/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/killertomato, rand(70 SECONDS, 85 SECONDS), TRUE, TRUE)
@@ -284,6 +289,7 @@
 	bite_consumption = 4
 	tastes = list("meat" = 1, "acid" = 1)
 	foodtypes = RAW | MEAT
+	blood_decal_type = /obj/effect/decal/cleanable/xenoblood
 
 /obj/item/food/meat/slab/xeno/make_processable()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/meat/rawcutlet/xeno, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "Cut")
@@ -302,6 +308,7 @@
 	)
 	tastes = list("cobwebs" = 1)
 	foodtypes = RAW | MEAT | TOXIC
+	blood_decal_type = /obj/effect/decal/cleanable/insectguts
 
 /obj/item/food/meat/slab/spider/make_processable()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/meat/rawcutlet/spider, 3, 3 SECONDS, table_required = TRUE, screentip_verb = "Cut")
@@ -436,7 +443,6 @@
 	foodtypes = SEAFOOD
 	crafting_complexity = FOOD_COMPLEXITY_1
 	blood_decal_type = null
-
 
 /obj/item/food/meat/slab/chicken
 	name = "chicken meat"
@@ -646,6 +652,7 @@
 	name = "raw killer tomato cutlet"
 	tastes = list("tomato" = 1)
 	foodtypes = FRUIT
+	blood_decal_type = /obj/effect/decal/cleanable/food/tomato_smudge
 
 /obj/item/food/meat/rawcutlet/killertomato/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/cutlet/killertomato, rand(35 SECONDS, 50 SECONDS), TRUE, TRUE)
@@ -664,6 +671,7 @@
 /obj/item/food/meat/rawcutlet/xeno
 	name = "raw xeno cutlet"
 	tastes = list("meat" = 1, "acid" = 1)
+	blood_decal_type = /obj/effect/decal/cleanable/xenoblood
 
 /obj/item/food/meat/rawcutlet/xeno/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/cutlet/xeno, rand(35 SECONDS, 50 SECONDS), TRUE, TRUE)
@@ -671,6 +679,7 @@
 /obj/item/food/meat/rawcutlet/spider
 	name = "raw spider cutlet"
 	tastes = list("cobwebs" = 1)
+	blood_decal_type = /obj/effect/decal/cleanable/insectguts
 
 /obj/item/food/meat/rawcutlet/spider/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/cutlet/spider, rand(35 SECONDS, 50 SECONDS), TRUE, TRUE)

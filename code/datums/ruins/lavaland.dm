@@ -283,8 +283,6 @@
 	suffix = "lavaland_battle_site.dmm"
 	allow_duplicates = TRUE
 	cost = 3
-<<<<<<< HEAD
-=======
 
 /datum/map_template/ruin/lavaland/watcher_grave
 	name = "Watchers' Grave"
@@ -301,4 +299,3 @@
 	suffix = "lavaland_surface_mookvillage.dmm"
 	allow_duplicates = FALSE
 	cost = 5
->>>>>>> eb28d04f08a (Watcher Nest Lavaland Ruin (#78790))
