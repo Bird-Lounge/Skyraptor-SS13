@@ -18,6 +18,11 @@
 	. = ..()
 	set_greyscale(colors = list(pick(crowbar_colors)))
 
+/obj/item/crowbar/power
+	inhand_icon_state = "jawsoflife"
+	lefthand_file = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/tools/tools_lefthand.dmi'
+	righthand_file = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/tools/tools_righthand.dmi'
+
 /obj/item/crowbar/power/syndicate	//Because we have a clearly different color JOL than upstream, this needs to be specifically different now
 	inhand_icon_state = "jaws_syndie"
 
@@ -91,6 +96,9 @@
 	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/tools/tools.dmi'
 	lefthand_file = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/tools/tools_lefthand.dmi'
 	righthand_file = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/tools/tools_righthand.dmi'
+
+/obj/structure/fireaxecabinet
+	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/tools/wallmount.dmi'
 
 /*
  * Bespoke Cinder-Swimmer fireaxe, a hidden goodie.

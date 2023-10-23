@@ -354,6 +354,19 @@
 	icon_file = 'icons/mob/clothing/under/shorts_pants_shirts.dmi'
 	json_config = 'code/datums/greyscale/json_configs/buttondown_skirt_worn.json'
 
+//
+// LABCOATS
+//
+
+/datum/greyscale_config/labcoat
+	name = "Labcoat"
+	icon_file = 'icons/mob/clothing/suits/labcoat.dmi'
+	json_config = 'code/datums/greyscale/json_configs/labcoat_worn.json'
+
+/datum/greyscale_config/labcoat/worn
+	name = "Labcoat (Worn)"
+	icon_file = 'icons/mob/clothing/suits/labcoat.dmi'
+	json_config = 'code/datums/greyscale/json_configs/labcoat_worn.json'
 
 //
 // SUITS
@@ -495,6 +508,15 @@
 
 /datum/greyscale_config/sneakers_marisa/worn
 	name = "Worn Marisa Sneakers (Worn)"
+	icon_file = 'icons/mob/clothing/feet.dmi'
+
+/datum/greyscale_config/glow_shoes
+	name = "Glow Shoes"
+	icon_file = 'icons/obj/clothing/shoes.dmi'
+	json_config = 'code/datums/greyscale/json_configs/glow_shoes.json'
+
+/datum/greyscale_config/glow_shoes/worn
+	name = "Glow Shoes (Worn)"
 	icon_file = 'icons/mob/clothing/feet.dmi'
 
 //

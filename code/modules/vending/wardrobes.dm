@@ -5,7 +5,6 @@
 	default_price = PAYCHECK_CREW
 	extra_price = PAYCHECK_COMMAND
 	payment_department = NO_FREEBIES
-	input_display_header = "Returned Clothing"
 	panel_type = "panel19"
 	light_mask = "wardrobe-light-mask"
 
@@ -60,6 +59,7 @@
 		/obj/item/clothing/head/utility/surgerycap/green = 4,
 		/obj/item/clothing/head/beret/medical/paramedic = 4,
 		/obj/item/clothing/head/soft/paramedic = 4,
+		/obj/item/clothing/head/utility/head_mirror = 4,
 		/obj/item/clothing/mask/bandana/striped/medical = 4,
 		/obj/item/clothing/mask/surgical = 4,
 		/obj/item/clothing/under/rank/medical/doctor = 4,
@@ -163,11 +163,11 @@
 		/obj/item/clothing/suit/hooded/wintercoat/cargo = 3,
 		/obj/item/clothing/gloves/fingerless = 3,
 		/obj/item/clothing/shoes/sneakers/black = 3,
-		/obj/item/storage/backpack = 3,
-		/obj/item/storage/backpack/satchel = 3,
+		/obj/item/storage/backpack/cargo = 3,			/// SKYRAPTOR EDIT: cargo goodies
+		/obj/item/storage/backpack/satchel/cargo = 3,	/// SKYRAPTOR EDIT: cargo goodies
 		/obj/item/storage/backpack/satchel/leather = 3,
-		/obj/item/storage/backpack/duffelbag = 3,
-		/obj/item/storage/backpack/messenger = 3,
+		/obj/item/storage/backpack/duffelbag/cargo = 3,	/// SKYRAPTOR EDIT: cargo goodies
+		/obj/item/storage/backpack/messenger/cargo = 3,	/// SKYRAPTOR EDIT: cargo goodies
 		/obj/item/storage/bag/mail = 3,
 		/obj/item/radio/headset/headset_cargo = 3,
 	)
@@ -522,6 +522,8 @@
 		/obj/item/storage/backpack/cultpack = 1,
 		/obj/item/storage/fancy/candle_box = 2,
 		/obj/item/radio/headset/headset_srv = 2,
+		/obj/item/clothing/suit/chaplainsuit/habit = 1,
+		/obj/item/clothing/head/chaplain/habit_veil = 1,
 	)
 	contraband = list(
 		/obj/item/toy/plush/ratplush = 1,
