@@ -137,6 +137,19 @@
 
 		item_target.worn_icon_state = initial(picked_item.worn_icon_state)
 		item_target.inhand_icon_state = initial(picked_item.inhand_icon_state)
+		
+		/// SKYRAPTOR EDIT BEGIN
+		if(initial(picked_item.greyscale_config_worn_bodytypes) && initial(picked_item.greyscale_colors))
+			if(ishuman(user))
+				var/mob/living/carbon/human/H = user
+				var/N
+				var/altbody
+				for(N in picked_item.supported_bodytypes)
+					if(H.bodytype & N)
+						altbody = picked_item.greyscale_config_worn_bodytypes["[N]"]
+				if(altbody)
+					item_target.worn_icon = SSgreyscale.GetColoredIconByType(initial(altbody), initial(picked_item.greyscale_colors))
+		/// SKYRAPTOR EDIT END
 
 		if(initial(picked_item.greyscale_colors))
 			if(initial(picked_item.greyscale_config_worn))
