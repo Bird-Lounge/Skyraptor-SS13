@@ -8,11 +8,12 @@
 	anchored = TRUE
 	density = TRUE
 
+	faction = list(FACTION_HOSTILE)
+
 	var/max_mobs = 5
 	var/spawn_time = 30 SECONDS
 	var/mob_types = list(/mob/living/basic/carp)
 	var/spawn_text = "emerges from"
-	var/faction = list(FACTION_HOSTILE)
 	var/spawner_type = /datum/component/spawner
 	/// Is this spawner taggable with something?
 	var/scanner_taggable = FALSE
@@ -39,8 +40,12 @@
 		. += span_notice("It looks like you could probably scan and tag it with a <b>[scanner_descriptor]</b>.")
 
 /obj/structure/spawner/attackby(obj/item/item, mob/user, params)
+	. = ..()
+	if(.)
+		return TRUE
 	if(scanner_taggable && is_type_in_list(item, scanner_types))
 		gps_tag(user)
+		return TRUE
 
 /// Tag the spawner, prefixing its GPS entry with an identifier - or giving it one, if nonexistent.
 /obj/structure/spawner/proc/gps_tag(mob/user)
@@ -128,12 +133,8 @@
 		/mob/living/basic/mining/basilisk,
 		/mob/living/basic/mining/goldgrub,
 		/mob/living/basic/mining/goliath/ancient,
-<<<<<<< HEAD
-=======
 		/mob/living/basic/mining/hivelord,
->>>>>>> 0ff97e28fe3 (Tendril Tagging - scanning necropolis tendrils with a mining analyzer updates its GPS tag (#78738))
 		/mob/living/basic/wumborian_fugu,
-		/mob/living/simple_animal/hostile/asteroid/hivelord,
 	)
 	faction = list(FACTION_MINING)
 
@@ -152,12 +153,8 @@
 /obj/structure/spawner/mining/hivelord
 	name = "hivelord den"
 	desc = "A den housing a nest of hivelords."
-<<<<<<< HEAD
-	mob_types = list(/mob/living/simple_animal/hostile/asteroid/hivelord)
-=======
 	mob_types = list(/mob/living/basic/mining/hivelord)
 	mob_gps_id = "HL"
->>>>>>> 0ff97e28fe3 (Tendril Tagging - scanning necropolis tendrils with a mining analyzer updates its GPS tag (#78738))
 
 /obj/structure/spawner/mining/basilisk
 	name = "basilisk den"

@@ -26,21 +26,12 @@
 
 	if(stat == DEAD)
 		stop_sound_channel(CHANNEL_HEARTBEAT)
-	else
-<<<<<<< HEAD
-		/// SKYRAPTOR REMOVAL: byebye oldstam
-		/*if(getStaminaLoss() > 0 && stam_regen_start_time <= world.time)
-			adjustStaminaLoss(-INFINITY)*/
-		var/bprv = handle_bodyparts(seconds_per_tick, times_fired)
-		if(bprv & BODYPART_LIFE_UPDATE_HEALTH)
-			updatehealth()
-=======
-
+	/// SKYRAPTOR REMOVAL: byebye oldstam
+	/*else
 		if(getStaminaLoss() > 0 && stam_regen_start_time <= world.time)
-			adjustStaminaLoss(-INFINITY)
+			adjustStaminaLoss(-INFINITY)*/
 
 	handle_bodyparts(seconds_per_tick, times_fired)
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 	if(. && mind) //. == not dead
 		for(var/key in mind.addiction_points)
@@ -467,7 +458,8 @@
 			return
 		for(var/obj/item/organ/internal/organ in organs)
 			// On-death is where organ decay is handled
-			organ?.on_death(seconds_per_tick, times_fired) // organ can be null due to reagent metabolization causing organ shuffling
+			if(organ?.owner) // organ + owner can be null due to reagent metabolization causing organ shuffling
+				organ.on_death(seconds_per_tick, times_fired)
 			// We need to re-check the stat every organ, as one of our others may have revived us
 			if(stat != DEAD)
 				break
@@ -719,7 +711,7 @@
 ///Check to see if we have the liver, if not automatically gives you last-stage effects of lacking a liver.
 
 /mob/living/carbon/proc/handle_liver(seconds_per_tick, times_fired)
-	if(!dna)
+	if(isnull(has_dna()))
 		return
 
 	var/obj/item/organ/internal/liver/liver = get_organ_slot(ORGAN_SLOT_LIVER)

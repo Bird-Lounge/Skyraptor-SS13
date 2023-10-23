@@ -24,12 +24,8 @@
 	mob_gps_id = "GL"
 
 /obj/structure/spawner/lavaland/legion
-<<<<<<< HEAD
-	mob_types = list(/mob/living/simple_animal/hostile/asteroid/hivelord/legion/tendril)
-=======
 	mob_types = list(/mob/living/basic/mining/legion/spawner_made)
 	mob_gps_id = "LG"
->>>>>>> 0ff97e28fe3 (Tendril Tagging - scanning necropolis tendrils with a mining analyzer updates its GPS tag (#78738))
 
 /obj/structure/spawner/lavaland/icewatcher
 	mob_types = list(/mob/living/basic/mining/watcher/icewing)

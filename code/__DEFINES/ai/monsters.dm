@@ -45,6 +45,8 @@
 #define BB_CURRENT_HOME "BB_current_home"
 ///the hydro we will pollinate
 #define BB_TARGET_HYDRO "BB_target_hydro"
+///key to swarm around
+#define BB_SWARM_TARGET "BB_swarm_target"
 
 // bear keys
 ///the hive with honey that we will steal from
@@ -146,8 +148,6 @@
 #define BB_RAPIDSEEDS_ABILITY "rapidseeds_ability"
 /// key holds the tray we will beam
 #define BB_BEAMABLE_HYDROPLANT_TARGET "beamable_hydroplant_target"
-<<<<<<< HEAD
-=======
 
 //ice demons
 ///the list of items we are afraid of
@@ -191,4 +191,3 @@
 #define BB_MOOK_MUSIC_AUDIENCE "music_audience"
 /// the bonfire we will light up
 #define BB_MOOK_BONFIRE_TARGET "bonfire_target"
->>>>>>> 0f5d14e68b1 (Mook village and basic mook refactor (#78789))

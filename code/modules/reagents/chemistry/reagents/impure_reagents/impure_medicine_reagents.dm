@@ -47,14 +47,9 @@
 		if("tox")
 			need_mob_update += affected_mob.adjustToxLoss(-0.5, updating_health = FALSE, required_biotype = affected_biotype)
 		if("oxy")
-<<<<<<< HEAD
-			owner.adjustOxyLoss(-0.5, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
-	..()
-=======
 			need_mob_update += affected_mob.adjustOxyLoss(-0.5, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 // C2 medications
 // Helbital
@@ -203,18 +198,11 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	description = "These inhibitory peptides drains nutrition and causes brain damage in the patient!"
 	ph = 2.1
 
-<<<<<<< HEAD
-/datum/reagent/peptides_failed/on_mob_life(mob/living/carbon/owner, seconds_per_tick, times_fired)
-	owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.25 * seconds_per_tick, 170)
-	owner.adjust_nutrition(-5 * REAGENTS_METABOLISM * seconds_per_tick)
-	. = ..()
-=======
 /datum/reagent/peptides_failed/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	if(affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.25 * seconds_per_tick, 170))
 		. = UPDATE_MOB_HEALTH
 	affected_mob.adjust_nutrition(-5 * REAGENTS_METABOLISM * seconds_per_tick)
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 //Lenturi
 //impure
@@ -247,15 +235,10 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	var/spammer = 0
 
 //Just the removed itching mechanism - omage to it's origins.
-<<<<<<< HEAD
-/datum/reagent/inverse/ichiyuri/on_mob_life(mob/living/carbon/owner, seconds_per_tick, times_fired)
-	if(prob(resetting_probability) && !(HAS_TRAIT(owner, TRAIT_RESTRAINED) || owner.incapacitated()))
-=======
 /datum/reagent/inverse/ichiyuri/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	if(prob(resetting_probability) && !(HAS_TRAIT(affected_mob, TRAIT_RESTRAINED) || affected_mob.incapacitated()))
 		. = TRUE
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 		if(spammer < world.time)
 			to_chat(affected_mob,span_warning("You can't help but itch yourself."))
 			spammer = world.time + (10 SECONDS)
@@ -264,13 +247,7 @@ Basically, we fill the time between now and 2s from now with hands based off the
 			. = UPDATE_MOB_HEALTH
 		affected_mob.bleed(scab)
 		resetting_probability = 0
-<<<<<<< HEAD
-	resetting_probability += (5*(current_cycle/10) * seconds_per_tick) // 10 iterations = >51% to itch
-	..()
-	return TRUE
-=======
 	resetting_probability += (5*((current_cycle-1)/10) * seconds_per_tick) // 10 iterations = >51% to itch
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 //Aiuri
 //impure
@@ -470,14 +447,8 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	time_until_next_poison -= seconds_per_tick * (1 SECONDS)
 	if (time_until_next_poison <= 0)
 		time_until_next_poison = poison_interval
-<<<<<<< HEAD
-		owner.adjustToxLoss(creation_purity * 1, required_biotype = affected_biotype)
-
-	..()
-=======
 		if(affected_mob.adjustToxLoss(creation_purity * 1, updating_health = FALSE, required_biotype = affected_biotype))
 			return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 //Kind of a healing effect, Presumably you're using syrinver to purge so this helps that
 /datum/reagent/inverse/healing/syriniver
@@ -525,6 +496,7 @@ Basically, we fill the time between now and 2s from now with hands based off the
 
 //Heals toxins if it's the only thing present - kinda the oposite of multiver! Maybe that's why it's inverse!
 /datum/reagent/inverse/healing/monover/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+	. = ..()
 	var/need_mob_update
 	if(length(affected_mob.reagents.reagent_list) > 1)
 		need_mob_update = affected_mob.adjustOrganLoss(ORGAN_SLOT_LUNGS, 0.5 * seconds_per_tick, required_organ_flag = affected_organ_flags) //Hey! It's everyone's favourite drawback from multiver!
@@ -598,12 +570,8 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	var/obj/item/organ/internal/heart/heart = affected_mob.get_organ_slot(ORGAN_SLOT_HEART)
 	if(!heart || heart.organ_flags & ORGAN_FAILING)
 		remove_buffs(affected_mob)
-<<<<<<< HEAD
-	..()
-=======
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/inverse/penthrite/on_mob_delete(mob/living/carbon/affected_mob)
 	. = ..()
@@ -719,7 +687,7 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	affected_mob.cure_trauma_type(temp_trauma, resilience = TRAUMA_RESILIENCE_MAGIC)
 
 /datum/reagent/inverse/corazargh
-	name = "Corazargh" //It's what you yell! Though, if you've a better name feel free. Also an omage to an older chem
+	name = "Corazargh" //It's what you yell! Though, if you've a better name feel free. Also an homage to an older chem
 	description = "Interferes with the body's natural pacemaker, forcing the patient to manually beat their heart."
 	color = "#5F5F5F"
 	self_consuming = TRUE
@@ -728,83 +696,23 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	metabolization_rate = REM
 	chemical_flags = REAGENT_DEAD_PROCESS
 	tox_damage = 0
-	///Weakref to the old heart we're swapping for
-	var/datum/weakref/original_heart_ref
-	///Weakref to the new heart that's temp added
-	var/datum/weakref/manual_heart_ref
 
-///Creates a new cursed heart and puts the old inside of it, then replaces the position of the old
+///Give the victim the manual heart beating component.
 /datum/reagent/inverse/corazargh/on_mob_metabolize(mob/living/affected_mob)
 	. = ..()
 	if(!iscarbon(affected_mob))
 		return
 	var/mob/living/carbon/carbon_mob = affected_mob
-	var/obj/item/organ/internal/heart/original_heart = affected_mob.get_organ_slot(ORGAN_SLOT_HEART)
-	if(!original_heart)
+	var/obj/item/organ/internal/heart/affected_heart = carbon_mob.get_organ_slot(ORGAN_SLOT_HEART)
+	if(isnull(affected_heart))
 		return
-	original_heart_ref = WEAKREF(original_heart)
+	carbon_mob.AddComponent(/datum/component/manual_heart)
+	return ..()
 
-	var/obj/item/organ/internal/heart/cursed/manual_heart = new(null, src)
-	manual_heart_ref = WEAKREF(manual_heart)
-	original_heart.Remove(carbon_mob, special = TRUE) //So we don't suddenly die
-	original_heart.forceMove(manual_heart)
-	original_heart.organ_flags |= ORGAN_FROZEN //Not actually frozen, but we want to pause decay
-	manual_heart.Insert(carbon_mob, special = TRUE)
-	//these last so instert doesn't call them
-	RegisterSignal(carbon_mob, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(on_gained_organ))
-	RegisterSignal(carbon_mob, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(on_removed_organ))
-	to_chat(affected_mob, span_userdanger("You feel your heart suddenly stop beating on it's own - you'll have to manually beat it!"))
-
-///Intercepts the new heart and creates a new cursed heart - putting the old inside of it
-/datum/reagent/inverse/corazargh/proc/on_gained_organ(mob/affected_mob, obj/item/organ/organ)
-	SIGNAL_HANDLER
-	if(!istype(organ, /obj/item/organ/internal/heart))
-		return
-	// DO NOT REACT TO YOUR OWN HEART ADDITION I SWEAR TO CHRIST
-	var/obj/item/organ/internal/heart/cursed/manual_heart = manual_heart_ref?.resolve()
-	if(organ == manual_heart)
-		return
-
-	var/mob/living/carbon/affected_carbon = affected_mob
-	var/obj/item/organ/internal/heart/original_heart = organ
-	original_heart_ref = WEAKREF(original_heart)
-	original_heart.Remove(affected_carbon, special = TRUE)
-	if(!manual_heart)
-		manual_heart = new(null, src)
-		manual_heart_ref = WEAKREF(manual_heart)
-	original_heart.forceMove(manual_heart)
-	original_heart.organ_flags |= ORGAN_FROZEN //Not actually frozen, but we want to pause decay
-	manual_heart.Insert(affected_carbon, special = TRUE)
-
-///If we're ejecting out the organ - replace it with the original
-/datum/reagent/inverse/corazargh/proc/on_removed_organ(mob/prev_owner, obj/item/organ/organ)
-	SIGNAL_HANDLER
-	var/obj/item/organ/internal/heart/cursed/manual_heart = manual_heart_ref?.resolve()
-	if(organ != manual_heart)
-		return
-	var/obj/item/organ/internal/heart/original_heart = original_heart_ref?.resolve()
-	if(!original_heart)
-		return
-
-	original_heart.forceMove(manual_heart.loc)
-	original_heart.organ_flags &= ~ORGAN_FROZEN //enable decay again
-	QDEL_NULL(manual_heart_ref)
-
-///We're done - remove the curse and restore the old one
+///We're done - remove the curse
 /datum/reagent/inverse/corazargh/on_mob_end_metabolize(mob/living/affected_mob)
-	. = ..()
-	//Do these first so Insert doesn't call them
-	UnregisterSignal(affected_mob, COMSIG_CARBON_LOSE_ORGAN)
-	UnregisterSignal(affected_mob, COMSIG_CARBON_GAIN_ORGAN)
-	if(!iscarbon(affected_mob))
-		return
-	var/mob/living/carbon/affected_carbon = affected_mob
-	var/obj/item/organ/internal/heart/original_heart = original_heart_ref?.resolve()
-	if(original_heart) //Mostly a just in case
-		original_heart.organ_flags &= ~ORGAN_FROZEN //enable decay again
-		original_heart.Insert(affected_carbon, special = TRUE)
-	QDEL_NULL(manual_heart_ref)
-	to_chat(affected_mob, span_userdanger("You feel your heart start beating normally again!"))
+	qdel(affected_mob.GetComponent(/datum/component/manual_heart))
+	..()
 
 /datum/reagent/inverse/antihol
 	name = "Prohol"
