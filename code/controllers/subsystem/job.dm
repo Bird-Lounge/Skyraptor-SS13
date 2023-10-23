@@ -300,8 +300,7 @@ SUBSYSTEM_DEF(job)
 	if(CONFIG_GET(flag/load_jobs_from_txt))
 		// Any errors with the configs has already been said, we don't need to repeat them here.
 		load_jobs_from_config(silent = TRUE)
-	if(overflow_role)
-		set_overflow_role(overflow_role)
+	set_overflow_role(overflow_role)
 	return
 
 
@@ -898,9 +897,6 @@ SUBSYSTEM_DEF(job)
 
 	return JOB_AVAILABLE
 
-<<<<<<< HEAD
-#undef VERY_LATE_ARRIVAL_TOAST_PROB
-=======
 /**
  * Check if the station manifest has at least a certain amount of this staff type.
  * If a matching head of staff is on the manifest, automatically passes (returns TRUE)
@@ -923,4 +919,3 @@ SUBSYSTEM_DEF(job)
 		return TRUE
 
 	return FALSE
->>>>>>> 9ebfb279409 (Fix roundstart crewmembers not getting their radio hint message / Examine blocks out starting job information (#78647))

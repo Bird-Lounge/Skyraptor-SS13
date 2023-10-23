@@ -248,7 +248,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	/// SKYRAPTOR EDIT END: modular_chargen
 
 	for(var/blocknum in 1 to DNA_FEATURE_BLOCKS)
-		. += L[blocknum] || random_string(GET_UI_BLOCK_LEN(blocknum), GLOB.hex_characters)
+		. += L[blocknum] || random_string(GET_UF_BLOCK_LEN(blocknum), GLOB.hex_characters)
 
 /datum/dna/proc/generate_dna_blocks()
 	var/bonus
@@ -359,17 +359,11 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		if(DNA_LIZARD_MARKINGS_BLOCK) //SKYRAPTOR EDIT: bodymarks_lizard specifically
 			set_uni_feature_block(blocknumber, construct_block(GLOB.bodymarks_list_lizard.Find(features["bodymarks_lizard"]), GLOB.bodymarks_list_lizard.len))
 		if(DNA_TAIL_BLOCK)
-<<<<<<< HEAD
-			set_uni_feature_block(blocknumber, construct_block(GLOB.tails_list.Find(features["tail_lizard"]), GLOB.tails_list.len))
-		if(DNA_SNOUT_BLOCK) //SKYRAPTOR EDIT: snout to snout_lizard
-			set_uni_feature_block(blocknumber, construct_block(GLOB.snouts_list.Find(features["snout_lizard"]), GLOB.snouts_list.len))
-=======
 			set_uni_feature_block(blocknumber, construct_block(GLOB.tails_list_human.Find(features["tail_cat"]), GLOB.tails_list_human.len))
 		if(DNA_LIZARD_TAIL_BLOCK)
 			set_uni_feature_block(blocknumber, construct_block(GLOB.tails_list_lizard.Find(features["tail_lizard"]), GLOB.tails_list_lizard.len))
 		if(DNA_SNOUT_BLOCK)
 			set_uni_feature_block(blocknumber, construct_block(GLOB.snouts_list.Find(features["snout"]), GLOB.snouts_list.len))
->>>>>>> 9e1c71f794a (Reworks transformation sting to be temporarily in living mobs, forever in dead mobs (#78502))
 		if(DNA_HORNS_BLOCK)
 			set_uni_feature_block(blocknumber, construct_block(GLOB.horns_list.Find(features["horns"]), GLOB.horns_list.len))
 		if(DNA_FRILLS_BLOCK)
@@ -527,6 +521,8 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	if(ispath(mrace))
 		new_race = new mrace
 	else if(istype(mrace))
+		if(QDELING(mrace))
+			CRASH("someone is calling set_species() and is passing it a qdeling species datum, this is VERY bad, stop it")
 		new_race = mrace
 	else
 		CRASH("set_species called with an invalid mrace [mrace]")
@@ -924,7 +920,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		switch(rand(0,6))
 			if(0)
 				investigate_log("has been gibbed by DNA instability.", INVESTIGATE_DEATHS)
-				gib()
+				gib(DROP_ALL_REMAINS)
 			if(1)
 				investigate_log("has been dusted by DNA instability.", INVESTIGATE_DEATHS)
 				dust()
@@ -940,7 +936,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 						BP.dismember()
 					else
 						investigate_log("has been gibbed by DNA instability.", INVESTIGATE_DEATHS)
-						gib()
+						gib(DROP_ALL_REMAINS)
 				else
 					set_species(/datum/species/dullahan)
 			if(4)

@@ -66,6 +66,7 @@
 		PATH_VOID = "blue",
 		PATH_BLADE = "label", // my favorite color is label
 		PATH_COSMIC = "purple",
+		PATH_KNOCK = "yellow",
 	)
 	var/static/list/path_to_rune_color = list(
 		PATH_START = COLOR_LIME,
@@ -75,6 +76,7 @@
 		PATH_VOID = COLOR_CYAN,
 		PATH_BLADE = COLOR_SILVER,
 		PATH_COSMIC = COLOR_PURPLE,
+		PATH_KNOCK = COLOR_YELLOW,
 	)
 
 /datum/antagonist/heretic/Destroy()
@@ -523,6 +525,7 @@
 			.["Remove Heart Target"] = CALLBACK(src, PROC_REF(remove_target))
 
 	.["Adjust Knowledge Points"] = CALLBACK(src, PROC_REF(admin_change_points))
+	.["Give Focus"] = CALLBACK(src, PROC_REF(admin_give_focus))
 
 /**
  * Admin proc for giving a heretic a Living Heart easily.
@@ -598,8 +601,6 @@
 
 	knowledge_points += change_num
 
-<<<<<<< HEAD
-=======
 /**
  * Admin proc for giving a heretic a focus.
  */
@@ -612,7 +613,6 @@
 	pawn.equip_to_slot_if_possible(new /obj/item/clothing/neck/heretic_focus(get_turf(pawn)), ITEM_SLOT_NECK, TRUE, TRUE)
 	to_chat(pawn, span_hypnophrase("The Mansus has manifested you a focus."))
 
->>>>>>> 2ab4fa3a923 (Heretic Rebalance -  Main Knowledge gives free Side points, reduced rune drawing time, Codex Cicatrix is easier and roundstart knowledge (#77939))
 /datum/antagonist/heretic/antag_panel_data()
 	var/list/string_of_knowledge = list()
 
@@ -810,4 +810,3 @@
 	suit = /obj/item/clothing/suit/hooded/cultrobes/eldritch
 	head = /obj/item/clothing/head/hooded/cult_hoodie/eldritch
 	r_hand = /obj/item/melee/touch_attack/mansus_fist
-
