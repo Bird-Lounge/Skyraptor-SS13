@@ -36,6 +36,9 @@
 /turf/cordon/ScrapeAway(amount, flags)
 	return src // :devilcat:
 
+/turf/cordon/TerraformTurf(path, list/new_baseturfs, flags)
+	return
+
 /turf/cordon/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	SHOULD_CALL_PARENT(FALSE) // Fuck you
 	return BULLET_ACT_BLOCK
