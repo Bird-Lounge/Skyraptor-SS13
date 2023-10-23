@@ -1,5 +1,5 @@
-/obj/structure/bed/roller
+/obj/structure/bed/medical
 	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/rollerbed/icons/rollerbed.dmi'
 
-/obj/item/roller
+/obj/item/emergency_bed
 	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/rollerbed/icons/rollerbed.dmi'
