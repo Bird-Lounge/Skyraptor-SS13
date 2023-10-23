@@ -335,6 +335,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_BLOOD_DEFICIENCY "blood_deficiency"
 #define TRAIT_JOLLY "jolly"
 #define TRAIT_NOCRITDAMAGE "no_crit"
+///Added to mob or mind, changes the icons of the fish shown in the minigame UI depending on the possible reward.
+#define TRAIT_REVEAL_FISH "reveal_fish"
 
 /// Stops the mob from slipping on water, or banana peels, or pretty much anything that doesn't have [GALOSHES_DONT_HELP] set
 #define TRAIT_NO_SLIP_WATER "noslip_water"
@@ -536,6 +538,11 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 // and emit less heat. Present on /mob or /datum/mind
 #define TRAIT_SUPERMATTER_SOOTHER "supermatter_soother"
 
+/// Trait added when a revenant is visible.
+#define TRAIT_REVENANT_REVEALED "revenant_revealed"
+/// Trait added when a revenant has been inhibited (typically by the bane of a holy weapon)
+#define TRAIT_REVENANT_INHIBITED "revenant_inhibited"
+
 /// Trait which prevents you from becoming overweight
 #define TRAIT_NOFAT "cant_get_fat"
 
@@ -725,8 +732,10 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 // cargo traits
 ///If the item will block the cargo shuttle from flying to centcom
 #define TRAIT_BANNED_FROM_CARGO_SHUTTLE "banned_from_cargo_shuttle"
-///If the item's contents are immune to the missing item manifest error
+///If the crate's contents are immune to the missing item manifest error
 #define TRAIT_NO_MISSING_ITEM_ERROR "no_missing_item_error"
+///If the crate is immune to the wrong content in manifest error
+#define TRAIT_NO_MANIFEST_CONTENTS_ERROR "no_manifest_contents_error"
 
 ///SSeconomy trait, if the market is crashing and people can't withdraw credits from ID cards.
 #define TRAIT_MARKET_CRASHING "market_crashing"
@@ -911,6 +920,9 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 ///Trait given to a mob with a ckey currently in a temporary body, allowing people to know someone will re-enter the round later.
 #define TRAIT_MIND_TEMPORARILY_GONE "temporarily_gone"
 
+/// Similar trait given to temporary bodies inhabited by players
+#define TRAIT_TEMPORARY_BODY "temporary_body"
+
 /// Trait given to mechs that can have orebox functionality on movement
 #define TRAIT_OREBOX_FUNCTIONAL "orebox_functional"
 
@@ -924,6 +936,10 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_FISH_AMPHIBIOUS "fish_amphibious"
 ///Trait needed for the lubefish evolution
 #define TRAIT_FISH_FED_LUBE "fish_fed_lube"
+#define TRAIT_FISH_NO_HUNGER "fish_no_hunger"
+
+/// Trait given to angelic constructs to let them purge cult runes
+#define TRAIT_ANGELIC "angelic"
 
 // common trait sources
 #define TRAIT_GENERIC "generic"
@@ -940,6 +956,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define DISEASE_TRAIT "disease"
 #define SPECIES_TRAIT "species"
 #define ORGAN_TRAIT "organ"
+/// Trait given by augmented limbs
+#define AUGMENTATION_TRAIT "augments"
 /// Trait given by organ gained via abductor surgery
 #define ABDUCTOR_GLAND_TRAIT "abductor_gland"
 /// cannot be removed without admin intervention
@@ -1097,6 +1115,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// sticky nodrop sounds like a bad soundcloud rapper's name
 #define STICKY_NODROP "sticky-nodrop"
 #define SKILLCHIP_TRAIT "skillchip"
+#define SKILL_TRAIT "skill"
 #define BUSY_FLOORBOT_TRAIT "busy-floorbot"
 #define PULLED_WHILE_SOFTCRIT_TRAIT "pulled-while-softcrit"
 #define LOCKED_BORG_TRAIT "locked-borg"
@@ -1160,6 +1179,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define AUTOPSY_TRAIT "autopsy_trait"
 /// Trait given by [/datum/status_effect/blessing_of_insanity]
 #define MAD_WIZARD_TRAIT "mad_wizard_trait"
+/// Isn't attacked harmfully by blob structures
+#define TRAIT_BLOB_ALLY "blob_ally"
 
 /**
 * Trait granted by [/mob/living/carbon/Initialize] and
@@ -1215,6 +1236,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_MAGNETIC_ID_CARD "magnetic_id_card"
 /// ID cards with this trait have special appraisal text.
 #define TRAIT_TASTEFULLY_THICK_ID_CARD "impressive_very_nice"
+/// things with this trait are treated as having no access in /obj/proc/check_access(obj/item)
+#define TRAIT_ALWAYS_NO_ACCESS "alwaysnoaccess"
 
 /// Traits granted to items due to their chameleon properties.
 #define CHAMELEON_ITEM_TRAIT "chameleon_item_trait"
@@ -1317,3 +1340,10 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 ///Trait given by /datum/element/relay_attacker
 #define TRAIT_RELAYING_ATTACKER "relaying_attacker"
+
+/// Trait given while using /datum/action/cooldown/mob_cooldown/wing_buffet
+#define TRAIT_WING_BUFFET "wing_buffet"
+/// Trait given while tired after using /datum/action/cooldown/mob_cooldown/wing_buffet
+#define TRAIT_WING_BUFFET_TIRED "wing_buffet_tired"
+/// Trait given to a dragon who fails to defend their rifts
+#define TRAIT_RIFT_FAILURE "fail_dragon_loser"
