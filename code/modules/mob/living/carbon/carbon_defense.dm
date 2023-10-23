@@ -104,7 +104,7 @@
 		affecting = bodyparts[1]
 	SEND_SIGNAL(I, COMSIG_ITEM_ATTACK_ZONE, src, user, affecting)
 	send_item_attack_message(I, user, affecting.plaintext_zone, affecting)
-	if(I.stamina_damage) /// Skyraptor addition: item stamina damage
+	if(I.stamina_damage) /// SKYRAPTOR ADDITION: item stamina damage
 		stamina.adjust(-1 * (I.stamina_damage * (prob(I.stamina_critical_chance) ? I.stamina_critical_modifier : 1)))
 	if(I.force)
 		var/attack_direction = get_dir(user, src)

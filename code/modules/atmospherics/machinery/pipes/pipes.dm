@@ -1,10 +1,6 @@
 /obj/machinery/atmospherics/pipe
-<<<<<<< HEAD
-	icon = 'icons/obj/pipes_n_cables/pipes_bitmask.dmi'
-	var/bitmask_icon = 'icons/obj/pipes_n_cables/pipes_bitmask.dmi' /// SKYRAPTOR ADDITION: this shouldn't be fucken hardcoded
-=======
 	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi'
->>>>>>> 4be51f846d0 (Pipe gas visuals (#78217))
+	var/bitmask_icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi' /// SKYRAPTOR ADDITION: this shouldn't be fucken hardcoded
 	damage_deflection = 12
 	/// Temporary holder for gases in the absence of a pipeline
 	var/datum/gas_mixture/air_temporary
@@ -123,16 +119,12 @@
 	return ..()
 
 /obj/machinery/atmospherics/pipe/proc/update_pipe_icon()
-<<<<<<< HEAD
-	icon = bitmask_icon //SKYRAPTOR EDIT
-=======
 	switch(initialize_directions)
 		if(NORTH, EAST, SOUTH, WEST) // Pipes with only a single connection aren't handled by this system
 			icon = null
 			return
 		else
-			icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi'
->>>>>>> 4be51f846d0 (Pipe gas visuals (#78217))
+			icon = bitmask_icon //SKYRAPTOR EDIT
 	var/connections = NONE
 	var/bitfield = NONE
 	for(var/i in 1 to device_type)

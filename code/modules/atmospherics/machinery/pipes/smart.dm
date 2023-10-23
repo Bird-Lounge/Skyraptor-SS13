@@ -14,11 +14,7 @@ GLOBAL_LIST_INIT(atmos_components, typecacheof(list(/obj/machinery/atmospherics)
 	var/connections = NONE
 
 /obj/machinery/atmospherics/pipe/smart/update_pipe_icon()
-<<<<<<< HEAD
 	icon = bitmask_icon ///SKYRAPTOR EDIT
-=======
-	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi'
->>>>>>> 4be51f846d0 (Pipe gas visuals (#78217))
 
 	//find all directions this pipe is connected with other nodes
 	connections = NONE

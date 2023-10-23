@@ -162,4 +162,4 @@
 
 /// SKYRAPTOR ADDITION: used to interrupt sprinting
 #define COMSIG_CARBON_PRE_SPRINT "carbon_pre_sprint"
-	#define INTERRUPT_SPRINT (1<<0)
+#define INTERRUPT_SPRINT (1<<0)

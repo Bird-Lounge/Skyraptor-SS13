@@ -546,12 +546,10 @@
 /obj/item/food/meat/steak/xeno
 	name = "xeno steak"
 	tastes = list("meat" = 1, "acid" = 1)
-	blood_decal_type = /obj/effect/decal/cleanable/xenoblood
 
 /obj/item/food/meat/steak/spider
 	name = "spider steak"
 	tastes = list("cobwebs" = 1)
-	blood_decal_type = /obj/effect/decal/cleanable/insectguts
 
 /obj/item/food/meat/steak/goliath
 	name = "goliath steak"
@@ -759,7 +757,6 @@
 	name = "killer tomato cutlet"
 	tastes = list("tomato" = 1)
 	foodtypes = FRUIT
-	blood_decal_type = /obj/effect/decal/cleanable/food/tomato_smudge
 
 /obj/item/food/meat/cutlet/bear
 	name = "bear cutlet"
@@ -768,12 +765,10 @@
 /obj/item/food/meat/cutlet/xeno
 	name = "xeno cutlet"
 	tastes = list("meat" = 1, "acid" = 1)
-	blood_decal_type = /obj/effect/decal/cleanable/xenoblood
 
 /obj/item/food/meat/cutlet/spider
 	name = "spider cutlet"
 	tastes = list("cobwebs" = 1)
-	blood_decal_type = /obj/effect/decal/cleanable/insectguts
 
 /obj/item/food/meat/cutlet/gondola
 	name = "gondola cutlet"

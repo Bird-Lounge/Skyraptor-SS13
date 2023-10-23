@@ -64,11 +64,8 @@
 	#define ATTACKER_STAMINA_ATTACK (1<<0)
 	///the attacker is shoving the source
 	#define ATTACKER_SHOVING (1<<1)
-<<<<<<< HEAD
-=======
 	/// The attack is a damaging-type attack
 	#define ATTACKER_DAMAGING_ATTACK (1<<2)
 
 /// Called on the atom being hit, from /datum/component/anti_magic/on_attack() : (obj/item/weapon, mob/user, antimagic_flags)
 #define COMSIG_ATOM_HOLYATTACK "atom_holyattacked"
->>>>>>> 4b73b37d60d (Heretic Knock Path (#78108))

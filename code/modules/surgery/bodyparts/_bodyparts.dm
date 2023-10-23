@@ -192,10 +192,6 @@
 	var/hp_percent_to_dismemberable = 0.8
 	/// If true, we will use [hp_percent_to_dismemberable] even if we are dismemberable via wounds. Useful for things with extreme wound resistance.
 	var/use_alternate_dismemberment_calc_even_if_mangleable = FALSE
-	/// If false, no wound that can be applied to us can mangle our flesh. Used for determining if we should use [hp_percent_to_dismemberable] instead of normal dismemberment.
-	var/any_existing_wound_can_mangle_our_flesh
-	/// If false, no wound that can be applied to us can mangle our bone. Used for determining if we should use [hp_percent_to_dismemberable] instead of normal dismemberment.
-	var/any_existing_wound_can_mangle_our_bone
 	/// If false, no wound that can be applied to us can mangle our exterior. Used for determining if we should use [hp_percent_to_dismemberable] instead of normal dismemberment.
 	var/any_existing_wound_can_mangle_our_exterior
 	/// If false, no wound that can be applied to us can mangle our interior. Used for determining if we should use [hp_percent_to_dismemberable] instead of normal dismemberment.

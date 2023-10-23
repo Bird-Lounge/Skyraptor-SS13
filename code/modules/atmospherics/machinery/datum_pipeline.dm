@@ -191,10 +191,7 @@
 	return
 
 /obj/machinery/atmospherics/pipe/add_member(obj/machinery/atmospherics/considered_device)
-	if(!isnull(parent))
-		parent.add_member(considered_device, src)
-	else
-		to_chat(world, "DEBUG FROM RAPT: tried to add a pipe to a nonexistent parent!  What did you do?")
+	parent.add_member(considered_device, src)
 
 /obj/machinery/atmospherics/components/add_member(obj/machinery/atmospherics/considered_device)
 	var/datum/pipeline/device_pipeline = return_pipenet(considered_device)
