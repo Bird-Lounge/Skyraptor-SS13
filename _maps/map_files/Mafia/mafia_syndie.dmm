@@ -7,8 +7,7 @@
 	desc = "A storage closet for syndicate conflict resolution operatives.";
 	name = "red closet"
 	},
-/obj/item/clothing/under/syndicate/tacticool,
-/obj/item/clothing/under/syndicate/tacticool/skirt,
+/obj/effect/spawner/random/clothing/syndie,
 /turf/open/floor/mineral/plastitanium,
 /area/centcom/mafia)
 "c" = (
@@ -46,20 +45,6 @@
 /obj/mafia_game_board,
 /turf/open/floor/plating,
 /area/centcom/mafia)
-"m" = (
-/obj/structure/closet/syndicate{
-	desc = "A storage closet for syndicate conflict resolution operatives.";
-	name = "red closet"
-	},
-/obj/item/clothing/under/syndicate/tacticool,
-/obj/item/clothing/under/syndicate/tacticool/skirt,
-/obj/effect/turf_decal/tile/red/fourcorners,
-/turf/open/floor/iron/dark,
-/area/centcom/mafia)
-"n" = (
-/obj/effect/landmark/mafia,
-/turf/open/floor/mineral/plastitanium,
-/area/centcom/mafia)
 "o" = (
 /obj/effect/turf_decal/tile/red/fourcorners,
 /turf/open/floor/iron/dark,
@@ -79,16 +64,11 @@
 	name = "tactical swivel chair"
 	},
 /obj/effect/turf_decal/tile/red/fourcorners,
+/obj/effect/landmark/mafia,
 /turf/open/floor/iron/dark,
 /area/centcom/mafia)
 "r" = (
 /turf/open/floor/mineral/plastitanium,
-/area/centcom/mafia)
-"s" = (
-/turf/open/floor/mineral/plastitanium/red,
-/area/centcom/mafia)
-"t" = (
-/turf/open/floor/circuit/red,
 /area/centcom/mafia)
 "u" = (
 /obj/effect/baseturf_helper/asteroid,
@@ -110,12 +90,14 @@
 	name = "tactical swivel chair"
 	},
 /obj/effect/turf_decal/tile/red/fourcorners,
+/obj/effect/landmark/mafia,
 /turf/open/floor/iron/dark,
 /area/centcom/mafia)
 "y" = (
 /obj/structure/chair/office{
 	name = "tactical swivel chair"
 	},
+/obj/effect/landmark/mafia,
 /turf/open/floor/mineral/plastitanium,
 /area/centcom/mafia)
 "z" = (
@@ -123,6 +105,7 @@
 	name = "tactical swivel chair"
 	},
 /obj/effect/turf_decal/tile/red/fourcorners,
+/obj/effect/landmark/mafia,
 /turf/open/floor/iron/dark,
 /area/centcom/mafia)
 "A" = (
@@ -130,6 +113,7 @@
 	dir = 8;
 	name = "tactical swivel chair"
 	},
+/obj/effect/landmark/mafia,
 /turf/open/floor/mineral/plastitanium,
 /area/centcom/mafia)
 "B" = (
@@ -137,6 +121,7 @@
 	dir = 4;
 	name = "tactical swivel chair"
 	},
+/obj/effect/landmark/mafia,
 /turf/open/floor/mineral/plastitanium,
 /area/centcom/mafia)
 "C" = (
@@ -145,6 +130,7 @@
 	name = "tactical swivel chair"
 	},
 /obj/effect/turf_decal/tile/red/fourcorners,
+/obj/effect/landmark/mafia,
 /turf/open/floor/iron/dark,
 /area/centcom/mafia)
 "E" = (
@@ -152,22 +138,23 @@
 	dir = 1;
 	name = "tactical swivel chair"
 	},
+/obj/effect/landmark/mafia,
 /turf/open/floor/mineral/plastitanium,
 /area/centcom/mafia)
 "G" = (
-/obj/item/clothing/under/syndicate/tacticool,
 /obj/structure/closet/syndicate{
 	desc = "A storage closet for syndicate conflict resolution operatives.";
 	name = "red closet"
 	},
-/obj/item/clothing/under/syndicate/tacticool/skirt,
 /obj/effect/turf_decal/tile/red/fourcorners,
+/obj/effect/spawner/random/clothing/syndie,
 /turf/open/floor/iron/dark,
 /area/centcom/mafia)
-"H" = (
-/obj/effect/landmark/mafia,
-/obj/effect/turf_decal/tile/red/fourcorners,
-/turf/open/floor/iron/dark,
+"Q" = (
+/turf/open/floor/circuit/red,
+/area/centcom/mafia)
+"S" = (
+/turf/open/floor/mineral/plastitanium/red,
 /area/centcom/mafia)
 
 (1,1,1) = {"
@@ -309,7 +296,7 @@ b
 r
 w
 o
-m
+G
 w
 j
 w
@@ -327,14 +314,14 @@ c
 c
 d
 w
-m
+G
 o
 p
-n
+r
 r
 p
 o
-H
+o
 p
 r
 b
@@ -352,7 +339,7 @@ c
 d
 d
 w
-H
+o
 o
 w
 w
@@ -362,7 +349,7 @@ o
 w
 w
 r
-n
+r
 w
 d
 d
@@ -413,7 +400,7 @@ p
 p
 w
 p
-m
+G
 w
 d
 c
@@ -426,19 +413,19 @@ w
 c
 d
 j
-n
+r
 r
 r
 y
 p
-s
-t
-s
+S
+Q
+S
 p
 q
 o
 o
-H
+o
 j
 i
 c
@@ -456,9 +443,9 @@ p
 w
 p
 p
-t
+Q
 u
-t
+Q
 p
 p
 w
@@ -476,19 +463,19 @@ w
 c
 d
 j
-H
+o
 o
 o
 z
 p
-s
-t
-s
+S
+Q
+S
 p
 E
 r
 r
-n
+r
 j
 d
 c
@@ -501,7 +488,7 @@ w
 c
 d
 w
-m
+G
 p
 w
 p
@@ -552,7 +539,7 @@ c
 f
 d
 w
-n
+r
 r
 w
 w
@@ -562,7 +549,7 @@ r
 w
 w
 o
-H
+o
 w
 d
 d
@@ -580,11 +567,11 @@ w
 b
 r
 p
-H
+o
 o
 p
 r
-n
+r
 p
 o
 G
@@ -605,7 +592,7 @@ w
 w
 j
 w
-m
+G
 o
 w
 r

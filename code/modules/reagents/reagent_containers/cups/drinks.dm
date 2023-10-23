@@ -49,7 +49,7 @@
 	throwforce = 1
 	amount_per_transfer_from_this = 5
 	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT)
-	possible_transfer_amounts = list(5)
+	has_variable_transfer_amount = FALSE
 	volume = 5
 	flags_1 = CONDUCT_1
 	spillable = TRUE
@@ -227,8 +227,8 @@
 	custom_price = PAYCHECK_LOWER * 0.8
 
 /obj/item/reagent_containers/cup/glass/waterbottle/Initialize(mapload)
-	. = ..()
 	cap_overlay = mutable_appearance(cap_icon, cap_icon_state)
+	. = ..()
 	if(cap_on)
 		spillable = FALSE
 		update_appearance()

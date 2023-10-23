@@ -15,9 +15,9 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/socks, GLOB.socks_list)
 	//bodypart accessories (blizzard intensifies)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/body_markings, GLOB.body_markings_list)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/tails, GLOB.tails_list, add_blank = TRUE)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/human, GLOB.tails_list_human, add_blank = TRUE)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/lizard, GLOB.tails_list_lizard, add_blank = TRUE)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/monkey, GLOB.tails_list_monkey, add_blank = TRUE)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/snouts, GLOB.snouts_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/horns,GLOB.horns_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/ears, GLOB.ears_list)
@@ -33,11 +33,19 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_markings, GLOB.moth_markings_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list)
 
+	/// SKYRAPTOR STATION EDIT BEGIN: modular_chargen
+	/// Custom sprite accessory subtype categorization
+	for(var/spath in subtypesof(/datum/mutant_spritecat))
+		var/datum/mutant_spritecat/S = new spath()
+		GLOB.mutant_spritecat_list[S.id] = spath
+		S.init_jank()
+	/// SKYRAPTOR STATION EDIT END: modular_chargen
+
 /// Inits GLOB.species_list. Not using GLOBAL_LIST_INIT b/c it depends on GLOB.string_lists
 /proc/init_species_list()
-	for(var/spath in subtypesof(/datum/species))
-		var/datum/species/S = new spath()
-		GLOB.species_list[S.id] = spath
+	for(var/species_path in subtypesof(/datum/species))
+		var/datum/species/species = new species_path()
+		GLOB.species_list[species.id] = species_path
 	sort_list(GLOB.species_list, GLOBAL_PROC_REF(cmp_typepaths_asc))
 
 /// Inits GLOB.surgeries

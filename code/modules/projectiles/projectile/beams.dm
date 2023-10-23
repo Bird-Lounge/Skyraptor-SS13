@@ -7,7 +7,7 @@
 	hitsound = 'sound/weapons/sear.ogg'
 	hitsound_wall = 'sound/weapons/effects/searwall.ogg'
 	armor_flag = LASER
-	eyeblur = 2
+	eyeblur = 4 SECONDS
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/red_laser
 	light_system = MOVABLE_LIGHT
 	light_range = 1
@@ -28,6 +28,16 @@
 	damage = 25
 	bare_wound_bonus = 40
 
+/obj/projectile/beam/laser/carbine
+	icon_state = "carbine_laser"
+	impact_effect_type = /obj/effect/temp_visual/impact_effect/yellow_laser
+	damage = 10
+
+/obj/projectile/beam/laser/carbine/practice
+	name = "practice laser"
+	impact_effect_type = /obj/effect/temp_visual/impact_effect/yellow_laser
+	damage = 0
+
 //overclocked laser, does a bit more damage but has much higher wound power (-0 vs -20)
 /obj/projectile/beam/laser/hellfire
 	name = "hellfire laser"
@@ -47,13 +57,28 @@
 	muzzle_type = /obj/effect/projectile/muzzle/heavy_laser
 	impact_type = /obj/effect/projectile/impact/heavy_laser
 
-/obj/projectile/beam/laser/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/beam/laser/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(iscarbon(target))
 		var/mob/living/carbon/M = target
 		M.ignite_mob()
 	else if(isturf(target))
 		impact_effect_type = /obj/effect/temp_visual/impact_effect/red_laser/wall
+
+/obj/projectile/beam/laser/musket
+	name = "low-power laser"
+	icon_state = "laser_musket"
+	impact_effect_type = /obj/effect/temp_visual/impact_effect/purple_laser
+	damage = 25
+	stamina = 40
+	light_color = COLOR_STRONG_VIOLET
+	weak_against_armour = TRUE
+
+/obj/projectile/beam/laser/musket/prime
+	name = "mid-power laser"
+	damage = 30
+	stamina = 45
+	weak_against_armour = FALSE
 
 /obj/projectile/beam/weak
 	damage = 15
@@ -91,7 +116,6 @@
 	damage_type = STAMINA
 	armor_flag = ENERGY
 	hitsound = 'sound/weapons/sear_disabler.ogg'
-	eyeblur = 0
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/blue_laser
 	light_color = LIGHT_COLOR_BLUE
 	tracer_type = /obj/effect/projectile/tracer/disabler
@@ -100,6 +124,15 @@
 
 /obj/projectile/beam/disabler/weak
 	damage = 15
+
+/obj/projectile/beam/disabler/smoothbore
+	name = "unfocused disabler beam"
+	weak_against_armour = TRUE
+
+/obj/projectile/beam/disabler/smoothbore/prime
+	name = "focused disabler beam"
+	weak_against_armour = FALSE
+	damage = 35 //slight increase in damage just for the hell of it
 
 /obj/projectile/beam/pulse
 	name = "pulse"
@@ -112,7 +145,7 @@
 	impact_type = /obj/effect/projectile/impact/pulse
 	wound_bonus = 10
 
-/obj/projectile/beam/pulse/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/beam/pulse/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if (!QDELETED(target) && (isturf(target) || isstructure(target)))
 		if(isobj(target))
@@ -129,7 +162,7 @@
 	projectile_piercing = ALL
 	var/pierce_hits = 2
 
-/obj/projectile/beam/pulse/heavy/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/beam/pulse/heavy/on_hit(atom/target, blocked = 0, pierce_hit)
 	if(pierce_hits <= 0)
 		projectile_piercing = NONE
 	pierce_hits -= 1
@@ -173,7 +206,7 @@
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/blue_laser
 	light_color = LIGHT_COLOR_BLUE
 
-/obj/projectile/beam/lasertag/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/beam/lasertag/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(ishuman(target))
 		var/mob/living/carbon/human/M = target
@@ -215,7 +248,7 @@
 	light_color = LIGHT_COLOR_BLUE
 	var/shrink_time = 90
 
-/obj/projectile/beam/shrink/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/beam/shrink/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
 	if(isopenturf(target) || isindestructiblewall(target))//shrunk floors wouldnt do anything except look weird, i-walls shouldn't be bypassable
 		return

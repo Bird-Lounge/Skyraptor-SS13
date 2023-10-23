@@ -87,6 +87,8 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 		message = CompileText(newhead, user, rank)
 	else if(message_type == "ARRIVALS_BROKEN")
 		message = "The arrivals shuttle has been damaged. Docking for repairs..."
+	else if(message_type == "CRYOSTORAGE") ///SKYRAPTOR ADDITION
+		message = "[user][rank ? ", [rank]" : ""] has been moved to cryo storage."
 
 	broadcast(message, channels)
 
@@ -176,8 +178,10 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	if(!(machine_stat & (NOPOWER|BROKEN)) && !(. & EMP_PROTECT_SELF))
 		act_up()
 
-/obj/machinery/announcement_system/emag_act()
+/obj/machinery/announcement_system/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(obj_flags & EMAGGED)
-		return
+		return FALSE
 	obj_flags |= EMAGGED
 	act_up()
+	balloon_alert(user, "announcement strings corrupted")
+	return TRUE

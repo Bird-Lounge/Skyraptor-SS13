@@ -2,7 +2,7 @@
 /obj/item/melee/sickly_blade
 	name = "\improper sickly blade"
 	desc = "A sickly green crescent blade, decorated with an ornamental eye. You feel like you're being watched..."
-	icon = 'icons/obj/eldritch.dmi'
+	icon = 'icons/obj/weapons/khopesh.dmi'
 	icon_state = "eldritch_blade"
 	inhand_icon_state = "eldritch_blade"
 	lefthand_file = 'icons/mob/inhands/64x64_lefthand.dmi'
@@ -88,6 +88,23 @@
 	inhand_icon_state = "flesh_blade"
 	after_use_message = "The Marshal hears your call..."
 
+/obj/item/melee/sickly_blade/flesh/Initialize(mapload)
+	. = ..()
+
+	AddComponent(
+		/datum/component/blood_walk,\
+		blood_type = /obj/effect/decal/cleanable/blood,\
+		blood_spawn_chance = 66.6,\
+		max_blood = INFINITY,\
+	)
+
+	AddComponent(
+		/datum/component/bloody_spreader,\
+		blood_left = INFINITY,\
+		blood_dna = list("Unknown DNA" = "X*"),\
+		diseases = null,\
+	)
+
 // Path of Void's blade
 /obj/item/melee/sickly_blade/void
 	name = "\improper void blade"
@@ -115,3 +132,14 @@
 	icon_state = "cosmic_blade"
 	inhand_icon_state = "cosmic_blade"
 	after_use_message = "The Stargazer hears your call..."
+
+// Path of Knock's blade
+/obj/item/melee/sickly_blade/knock
+	name = "\improper key blade"
+	desc = "A blade and a key, a key to what? \
+		What grand gates does it open?"
+	icon_state = "key_blade"
+	inhand_icon_state = "key_blade"
+	after_use_message = "The Mother of Ants hears your call..."
+	tool_behaviour = TOOL_CROWBAR
+	toolspeed = 1.3

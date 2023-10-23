@@ -7,29 +7,24 @@
 /datum/species/vampire
 	name = "Vampire"
 	id = SPECIES_VAMPIRE
-	species_traits = list(
-		EYECOLOR,
-		HAIR,
-		FACEHAIR,
-		LIPS,
-		DRINKSBLOOD,
-		BLOOD_CLANS,
-	)
+	examine_limb_id = SPECIES_HUMAN
 	inherent_traits = list(
+		TRAIT_BLOOD_CLANS,
+		TRAIT_DRINKS_BLOOD,
 		TRAIT_NOBREATH,
 		TRAIT_NOHUNGER,
+		TRAIT_USES_SKINTONES,
+		TRAIT_NO_MIRROR_REFLECTION,
 	)
 	inherent_biotypes = MOB_UNDEAD|MOB_HUMANOID
 	mutant_bodyparts = list("wings" = "None")
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | ERT_SPAWN
 	exotic_bloodtype = "U"
 	blood_deficiency_drain_rate = BLOOD_DEFICIENCY_MODIFIER // vampires already passively lose blood, so this just makes them lose it slightly more quickly when they have blood deficiency.
-	use_skintones = TRUE
 	mutantheart = /obj/item/organ/internal/heart/vampire
 	mutanttongue = /obj/item/organ/internal/tongue/vampire
 	mutantstomach = null
 	mutantlungs = null
-	examine_limb_id = SPECIES_HUMAN
 	skinned_type = /obj/item/stack/sheet/animalhide/human
 	///some starter text sent to the vampire initially, because vampires have shit to do to stay alive
 	var/info_text = "You are a <span class='danger'>Vampire</span>. You will slowly but constantly lose blood if outside of a coffin. If inside a coffin, you will slowly heal. You may gain more blood by grabbing a live victim and using your drain ability."
@@ -49,10 +44,13 @@
 /datum/species/vampire/spec_life(mob/living/carbon/human/vampire, seconds_per_tick, times_fired)
 	. = ..()
 	if(istype(vampire.loc, /obj/structure/closet/crate/coffin))
-		vampire.heal_overall_damage(brute = 2 * seconds_per_tick, burn = 2 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
-		vampire.adjustToxLoss(-2 * seconds_per_tick)
-		vampire.adjustOxyLoss(-2 * seconds_per_tick)
-		vampire.adjustCloneLoss(-2 * seconds_per_tick)
+		var/need_mob_update = FALSE
+		need_mob_update += vampire.heal_overall_damage(brute = 2 * seconds_per_tick, burn = 2 * seconds_per_tick, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
+		need_mob_update += vampire.adjustToxLoss(-2 * seconds_per_tick, updating_health = FALSE,)
+		need_mob_update += vampire.adjustOxyLoss(-2 * seconds_per_tick, updating_health = FALSE,)
+		need_mob_update += vampire.adjustCloneLoss(-2 * seconds_per_tick, updating_health = FALSE,)
+		if(need_mob_update)
+			vampire.updatehealth()
 		return
 	vampire.blood_volume -= 0.125 * seconds_per_tick
 	if(vampire.blood_volume <= BLOOD_VOLUME_SURVIVE)
@@ -70,6 +68,10 @@
 	if(istype(weapon, /obj/item/nullrod/whip))
 		return 2 //Whips deal 2x damage to vampires. Vampire killer.
 	return 1
+
+/datum/species/vampire/get_physical_attributes()
+	return "Vampires are afflicted with the Thirst, needing to sate it by draining the blood out of another living creature. However, they do not need to breathe or eat normally. \
+		They will instantly turn into dust if they run out of blood or enter a holy area. However, coffins stabilize and heal them, and they can transform into bats!"
 
 /datum/species/vampire/get_species_description()
 	return "A classy Vampire! They descend upon Space Station Thirteen Every year to spook the crew! \"Bleeg!!\""

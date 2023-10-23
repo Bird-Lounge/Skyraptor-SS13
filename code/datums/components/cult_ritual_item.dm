@@ -47,7 +47,7 @@
 /datum/component/cult_ritual_item/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ITEM_ATTACK_SELF, PROC_REF(try_scribe_rune))
 	RegisterSignal(parent, COMSIG_ITEM_ATTACK, PROC_REF(try_purge_holywater))
-	RegisterSignal(parent, COMSIG_ITEM_ATTACK_OBJ, PROC_REF(try_hit_object))
+	RegisterSignal(parent, COMSIG_ITEM_ATTACK_ATOM, PROC_REF(try_hit_object))
 	RegisterSignal(parent, COMSIG_ITEM_ATTACK_EFFECT, PROC_REF(try_clear_rune))
 
 	if(examine_message)
@@ -57,7 +57,7 @@
 	UnregisterSignal(parent, list(
 		COMSIG_ITEM_ATTACK_SELF,
 		COMSIG_ITEM_ATTACK,
-		COMSIG_ITEM_ATTACK_OBJ,
+		COMSIG_ITEM_ATTACK_ATOM,
 		COMSIG_ITEM_ATTACK_EFFECT,
 		COMSIG_ATOM_EXAMINE,
 		))
@@ -115,7 +115,7 @@
 	INVOKE_ASYNC(src, PROC_REF(do_purge_holywater), target, user)
 
 /*
- * Signal proc for [COMSIG_ITEM_ATTACK_OBJ].
+ * Signal proc for [COMSIG_ITEM_ATTACK_ATOM].
  * Allows the ritual items to unanchor cult buildings or destroy rune girders.
  */
 /datum/component/cult_ritual_item/proc/try_hit_object(datum/source, obj/structure/target, mob/cultist)
@@ -304,18 +304,29 @@
 		)
 
 	if(cultist.blood_volume)
-		cultist.apply_damage(initial(rune_to_scribe.scribe_damage), BRUTE, pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM), wound_bonus = CANT_WOUND) // *cuts arm* *bone explodes* ever have one of those days?
+		cultist.apply_damage(initial(rune_to_scribe.scribe_damage), BRUTE, pick(GLOB.arm_zones), wound_bonus = CANT_WOUND) // *cuts arm* *bone explodes* ever have one of those days?
 
 	var/scribe_mod = initial(rune_to_scribe.scribe_delay)
 	if(!initial(rune_to_scribe.no_scribe_boost) && (our_turf.type in turfs_that_boost_us))
 		scribe_mod *= 0.5
 
+	var/scribe_started = initial(rune_to_scribe.started_creating)
+	var/scribe_failed = initial(rune_to_scribe.failed_to_create)
+	if(scribe_started)
+		var/datum/callback/startup = CALLBACK(GLOBAL_PROC, scribe_started)
+		startup.Invoke()
+	var/datum/callback/failed
+	if(scribe_failed)
+		failed = CALLBACK(GLOBAL_PROC, scribe_failed)
+
 	SEND_SOUND(cultist, sound('sound/weapons/slice.ogg', 0, 1, 10))
 	if(!do_after(cultist, scribe_mod, target = get_turf(cultist), timed_action_flags = IGNORE_SLOWDOWNS))
 		cleanup_shields()
+		failed?.Invoke()
 		return FALSE
 	if(!can_scribe_rune(tool, cultist))
 		cleanup_shields()
+		failed?.Invoke()
 		return FALSE
 
 	cultist.visible_message(
@@ -357,9 +368,11 @@
 	if(!check_if_in_ritual_site(cultist, cult_team))
 		return FALSE
 	var/area/summon_location = get_area(cultist)
-	priority_announce("Figments from an eldritch god are being summoned by [cultist.real_name] into [summon_location.get_original_area_name()] from an unknown dimension. Disrupt the ritual at all costs!", "Central Command Higher Dimensional Affairs", ANNOUNCER_SPANOMALIES, has_important_message = TRUE)
+	priority_announce("Figments from an eldritch god are being summoned by [cultist.real_name] into [summon_location.get_original_area_name()] from an unknown dimension. Disrupt the ritual at all costs!", "Central Command Higher Dimensional Affairs", sound = 'sound/ambience/antag/bloodcult/bloodcult_scribe.ogg', has_important_message = TRUE)
 	for(var/shielded_turf in spiral_range_turfs(1, cultist, 1))
 		LAZYADD(shields, new /obj/structure/emergency_shield/cult/narsie(shielded_turf))
+
+	notify_ghosts("[cultist] has begun scribing a Nar'Sie rune!", source = cultist, action = NOTIFY_ORBIT, header = "Maranax Infirmux!")
 
 	return TRUE
 

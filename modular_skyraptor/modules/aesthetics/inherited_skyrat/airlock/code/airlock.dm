@@ -2,12 +2,12 @@
 #define AIRLOCK_LIGHT_POWER 0.5
 #define AIRLOCK_LIGHT_RANGE 2
 #define AIRLOCK_LIGHT_ENGINEERING "engineering"
-#define AIRLOCK_POWERON_LIGHT_COLOR "#3aa7c2"
-#define AIRLOCK_BOLTS_LIGHT_COLOR "#c22323"
-#define AIRLOCK_ACCESS_LIGHT_COLOR "#57e69c"
-#define AIRLOCK_EMERGENCY_LIGHT_COLOR "#d1d11d"
-#define AIRLOCK_ENGINEERING_LIGHT_COLOR "#fd8719"
-#define AIRLOCK_DENY_LIGHT_COLOR "#c22323"
+#define AIRLOCK_POWERON_LIGHT_COLOR "#AAFF00"
+#define AIRLOCK_BOLTS_LIGHT_COLOR "#FF6600"
+#define AIRLOCK_ACCESS_LIGHT_COLOR "#FFFF00"
+#define AIRLOCK_EMERGENCY_LIGHT_COLOR "#FF0000"
+#define AIRLOCK_ENGINEERING_LIGHT_COLOR "#0066FF"
+#define AIRLOCK_DENY_LIGHT_COLOR "#FF6600"
 //SKYRAT ADDITION END
 
 #define AIRLOCK_CLOSED	1
@@ -205,11 +205,12 @@
 	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/airlock/icons/airlocks/station/command.dmi'
 
 /obj/machinery/door/airlock/security
-	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/airlock/icons/airlocks/station/security.dmi'
-
-/obj/machinery/door/airlock/security/old
 	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/airlock/icons/airlocks/station/security2.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_sec/old
+
+/obj/machinery/door/airlock/security/old
+	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/airlock/icons/airlocks/station/security.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_sec
 
 /obj/machinery/door/airlock/security/old/glass
 	opacity = FALSE
@@ -385,10 +386,9 @@
 	overlays_file = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/airlock/icons/airlocks/highsec/overlays.dmi'
 
 //GLASS
-/*/obj/machinery/door/airlock/glass_large
+/obj/machinery/door/airlock/multi_tile
 	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/airlock/icons/airlocks/multi_tile/multi_tile.dmi'
 	overlays_file = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/airlock/icons/airlocks/multi_tile/overlays.dmi'
-	multi_tile = TRUE*/
 
 //ASSEMBLYS
 /obj/structure/door_assembly/door_assembly_public

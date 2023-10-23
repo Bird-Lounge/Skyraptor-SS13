@@ -3,20 +3,17 @@
 	name = "\improper Lizardperson"
 	plural_form = "Lizardfolk"
 	id = SPECIES_LIZARD
-	species_traits = list(
-		MUTCOLORS,
-		EYECOLOR,
-		LIPS,
-	)
 	inherent_traits = list(
+		TRAIT_MUTANT_COLORS,
 		TRAIT_CAN_USE_FLIGHT_POTION,
 		TRAIT_TACKLING_TAILED_DEFENDER,
+		USE_TRICOLOR_ALPHA, /// SKYRAPTOR ADDITIONS
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_REPTILE
-	mutant_bodyparts = list("body_markings" = "None", "legs" = "Normal Legs")
+	mutant_bodyparts = list("bodymarks_lizard" = "None", "legs" = "Normal Legs") //SKYRAPTOR EDITS: bodymarks_lizard from body_markings, new lizard subtypes for stability
 	external_organs = list(
-		/obj/item/organ/external/horns = "None",
-		/obj/item/organ/external/frills = "None",
+		/obj/item/organ/external/horns/lizard = "None",
+		/obj/item/organ/external/frills/lizard = "None",
 		/obj/item/organ/external/snout = "Round",
 		/obj/item/organ/external/spines = "None",
 		/obj/item/organ/external/tail/lizard = "Smooth",
@@ -24,14 +21,12 @@
 	mutanttongue = /obj/item/organ/internal/tongue/lizard
 	coldmod = 1.5
 	heatmod = 0.67
-	payday_modifier = 0.75
+	payday_modifier = 1.0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
 	species_cookie = /obj/item/food/meat/slab
 	meat = /obj/item/food/meat/slab/human/mutant/lizard
 	skinned_type = /obj/item/stack/sheet/animalhide/lizard
 	exotic_bloodtype = "L"
-	disliked_food = GRAIN | DAIRY | CLOTH | GROSS
-	liked_food = GORE | MEAT | SEAFOOD | NUTS | BUGS
 	inert_mutation = /datum/mutation/human/firebreath
 	death_sound = 'sound/voice/lizard/deathsound.ogg'
 	wing_types = list(/obj/item/organ/external/wings/functional/dragon)
@@ -81,9 +76,10 @@
 	return randname
 
 
-/datum/species/lizard/randomize_features(mob/living/carbon/human/human_mob)
-	human_mob.dna.features["body_markings"] = pick(GLOB.body_markings_list)
-	randomize_external_organs(human_mob)
+/datum/species/lizard/randomize_features()
+	var/list/features = ..()
+	features["body_markings"] = pick(GLOB.body_markings_list)
+	return features
 
 /datum/species/lizard/get_scream_sound(mob/living/carbon/human/lizard)
 	return pick(
@@ -91,6 +87,10 @@
 		'sound/voice/lizard/lizard_scream_2.ogg',
 		'sound/voice/lizard/lizard_scream_3.ogg',
 	)
+
+/datum/species/lizard/get_physical_attributes()
+	return "Lizardpeople can withstand slightly higher temperatures than most species, but they are very vulnerable to the cold \
+		and can't regulate their body-temperature internally, making the vacuum of space extremely deadly to them."
 
 /datum/species/lizard/get_species_description()
 	return "The militaristic Lizardpeople hail originally from Tizira, but have grown \
@@ -117,6 +117,38 @@
 		Roles range from combat to civil service and everything in between. As the old slogan goes: \"Your place will be found!\"",
 	)
 
+/// SKYRAPTOR EDIT BEGIN
+
+/datum/species/lizard/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
+	world.log << "SKYRAPTOR ALERT: SETTING UP LIZARD PREVIEW"
+	var/obj/item/organ/external/snout_tmp = human_for_preview.get_organ_by_type(/obj/item/organ/external/snout)
+	if(snout_tmp)
+		snout_tmp.bodypart_overlay.set_appearance(/datum/sprite_accessory/snouts/lizard/sharplight)
+		snout_tmp.bodypart_overlay.sprite_datum = new /datum/sprite_accessory/snouts/lizard/sharplight()
+	else
+		world.log << "SKYRAPTOR ERROR: LIZARD PREVIEW IS MISSING ITS SNOUT!"
+	var/obj/item/organ/external/horns_tmp = human_for_preview.get_organ_by_type(/obj/item/organ/external/horns/lizard)
+	if(horns_tmp)
+		horns_tmp.bodypart_overlay.set_appearance(/datum/sprite_accessory/horns/lizard/ram)
+		horns_tmp.bodypart_overlay.sprite_datum = new /datum/sprite_accessory/horns/lizard/ram()
+	else
+		world.log << "SKYRAPTOR ERROR: LIZARD PREVIEW IS MISSING ITS HORNS!"
+	var/obj/item/organ/external/frills_tmp = human_for_preview.get_organ_by_type(/obj/item/organ/external/frills/lizard)
+	if(frills_tmp)
+		frills_tmp.bodypart_overlay.set_appearance(/datum/sprite_accessory/frills/lizard/aquatic)
+		frills_tmp.bodypart_overlay.sprite_datum = new /datum/sprite_accessory/frills/lizard/aquatic()
+	else
+		world.log << "SKYRAPTOR ERROR: LIZARD PREVIEW IS MISSING ITS FRILLS!"
+	var/obj/item/organ/external/spines_tmp = human_for_preview.get_organ_by_type(/obj/item/organ/external/spines)
+	if(spines_tmp)
+		spines_tmp.bodypart_overlay.set_appearance(/datum/sprite_accessory/spines/none)
+		spines_tmp.bodypart_overlay.sprite_datum = new /datum/sprite_accessory/spines/none()
+	else
+		world.log << "SKYRAPTOR ERROR: LIZARD PREVIEW IS MISSING ITS SPINES!"
+	human_for_preview.update_body_parts()
+
+/// SKYRAPTOR EDIT END
+
 // Override for the default temperature perks, so we can give our specific "cold blooded" perk.
 /datum/species/lizard/create_pref_temperature_perks()
 	var/list/to_add = list()
@@ -138,16 +170,13 @@ Lizard subspecies: ASHWALKERS
 /datum/species/lizard/ashwalker
 	name = "Ash Walker"
 	id = SPECIES_LIZARD_ASH
+	examine_limb_id = SPECIES_LIZARD
 	mutantlungs = /obj/item/organ/internal/lungs/lavaland
 	mutantbrain = /obj/item/organ/internal/brain/primitive
-	species_traits = list(
-		MUTCOLORS,
-		EYECOLOR,
-		LIPS,
-	)
 	inherent_traits = list(
-		//TRAIT_LITERATE,
+		TRAIT_MUTANT_COLORS,
 		TRAIT_VIRUSIMMUNE,
+		TRAIT_FORBID_MINING_SHUTTLE_CONSOLE_OUTSIDE_STATION,
 	)
 	species_language_holder = /datum/language_holder/lizard/ash
 	digitigrade_customization = DIGITIGRADE_FORCED
@@ -160,6 +189,10 @@ Lizard subspecies: ASHWALKERS
 		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/lizard,
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/lizard,
 	)
+
+/datum/species/lizard/get_physical_attributes()
+	return "Ash Walkers are identical to lizardpeople in almost all aspects. \
+		Unlike them, they're always digitigrade, they can breathe Lavaland's often noxious atmosphere and resist viruses. They are usually illiterate."
 
 /*
 Lizard subspecies: SILVER SCALED
@@ -178,9 +211,9 @@ Lizard subspecies: SILVER SCALED
 		TRAIT_WINE_TASTER,
 	)
 	mutantlungs = null
+	damage_modifier = 10 //very light silvery scales soften blows
 	species_language_holder = /datum/language_holder/lizard/silver
 	mutanttongue = /obj/item/organ/internal/tongue/lizard/silver
-	armor = 10 //very light silvery scales soften blows
 	changesource_flags = MIRROR_BADMIN | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN
 	examine_limb_id = SPECIES_LIZARD
 	///stored mutcolor for when we turn back off of a silverscale.
@@ -190,22 +223,24 @@ Lizard subspecies: SILVER SCALED
 	///See above
 	var/old_eye_color_right
 
-/datum/species/lizard/silverscale/on_species_gain(mob/living/carbon/new_silverscale, datum/species/old_species, pref_load)
-	var/mob/living/carbon/human/silverscale = new_silverscale
-	old_mutcolor = new_silverscale.dna.features["mcolor"]
-	old_eye_color_left = silverscale.eye_color_left
-	old_eye_color_right = silverscale.eye_color_right
-	new_silverscale.dna.features["mcolor"] = "#eeeeee"
-	silverscale.eye_color_left = "#0000a0"
-	silverscale.eye_color_right = "#0000a0"
-	..()
-	silverscale.add_filter("silver_glint", 2, list("type" = "outline", "color" = "#ffffff63", "size" = 2))
+/datum/species/lizard/silverscale/get_physical_attributes()
+	return "Silver Scales are to lizardpeople what angels are to humans. \
+		Mostly identical, they are holy, don't breathe, don't get viruses, their hide cannot be pierced, love the taste of wine, \
+		and their tongue allows them to turn into a statue, for some reason."
 
-/datum/species/lizard/silverscale/on_species_loss(mob/living/carbon/old_silverscale, datum/species/new_species, pref_load)
-	var/mob/living/carbon/human/was_silverscale = old_silverscale
+/datum/species/lizard/silverscale/on_species_gain(mob/living/carbon/human/new_silverscale, datum/species/old_species, pref_load)
+	old_mutcolor = new_silverscale.dna.features["mcolor"]
+	old_eye_color_left = new_silverscale.eye_color_left
+	old_eye_color_right = new_silverscale.eye_color_right
+	new_silverscale.dna.features["mcolor"] = "#eeeeee"
+	new_silverscale.eye_color_left = "#0000a0"
+	new_silverscale.eye_color_right = "#0000a0"
+	. = ..()
+	new_silverscale.add_filter("silver_glint", 2, list("type" = "outline", "color" = "#ffffff63", "size" = 2))
+
+/datum/species/lizard/silverscale/on_species_loss(mob/living/carbon/human/was_silverscale, datum/species/new_species, pref_load)
 	was_silverscale.dna.features["mcolor"] = old_mutcolor
 	was_silverscale.eye_color_left = old_eye_color_left
 	was_silverscale.eye_color_right = old_eye_color_right
-
 	was_silverscale.remove_filter("silver_glint")
-	..()
+	return ..()

@@ -9,7 +9,7 @@
 /datum/religion_rites/fireproof
 	name = "Unmelting Protection"
 	desc = "Grants fire immunity to any piece of clothing."
-	ritual_length = 15 SECONDS
+	ritual_length = 12 SECONDS
 	ritual_invocations = list("And so to support the holder of the Ever-Burning candle...",
 	"... allow this unworthy apparel to serve you ...",
 	"... make it strong enough to burn a thousand time and more ...")
@@ -43,8 +43,8 @@
 
 /datum/religion_rites/burning_sacrifice
 	name = "Burning Offering"
-	desc = "Sacrifice a buckled burning corpse for favor, the more burn damage the corpse has the more favor you will receive."
-	ritual_length = 20 SECONDS
+	desc = "Sacrifice a buckled burning or husked corpse for favor, the more burn damage the corpse has the more favor you will receive."
+	ritual_length = 15 SECONDS
 	ritual_invocations = list("Burning body ...",
 	"... cleansed by the flame ...",
 	"... we were all created from fire ...",
@@ -71,8 +71,8 @@
 		if(chosen_sacrifice.stat != DEAD)
 			to_chat(user, span_warning("You can only sacrifice dead bodies, this one is still alive!"))
 			return FALSE
-		if(!chosen_sacrifice.on_fire)
-			to_chat(user, span_warning("This corpse needs to be on fire to be sacrificed!"))
+		if(!chosen_sacrifice.on_fire && !HAS_TRAIT_FROM(chosen_sacrifice, TRAIT_HUSK, BURN))
+			to_chat(user, span_warning("This corpse needs to be on fire or husked to be sacrificed!"))
 			return FALSE
 		return ..()
 
@@ -82,8 +82,8 @@
 		to_chat(user, span_warning("The right sacrifice is no longer on the altar!"))
 		chosen_sacrifice = null
 		return FALSE
-	if(!chosen_sacrifice.on_fire)
-		to_chat(user, span_warning("The sacrifice is no longer on fire, it needs to burn until the end of the rite!"))
+	if(!chosen_sacrifice.on_fire && !HAS_TRAIT_FROM(chosen_sacrifice, TRAIT_HUSK, BURN))
+		to_chat(user, span_warning("The sacrifice has to be on fire or husked to finish the end of the rite!"))
 		chosen_sacrifice = null
 		return FALSE
 	if(chosen_sacrifice.stat != DEAD)
@@ -92,7 +92,7 @@
 		return FALSE
 	var/favor_gained = 100 + round(chosen_sacrifice.getFireLoss())
 	GLOB.religious_sect.adjust_favor(favor_gained, user)
-	to_chat(user, span_notice("[GLOB.deity] absorbs the burning corpse and any trace of fire with it. [GLOB.deity] rewards you with [favor_gained] favor."))
+	to_chat(user, span_notice("[GLOB.deity] absorbs the charred corpse and any trace of fire with it. [GLOB.deity] rewards you with [favor_gained] favor."))
 	chosen_sacrifice.dust(force = TRUE)
 	playsound(get_turf(religious_tool), 'sound/effects/supermatter.ogg', 50, TRUE)
 	chosen_sacrifice = null
@@ -125,11 +125,11 @@
 	invoke_msg = "... a blazing star is born!"
 	favor_cost = 2000
 	///arrow to enchant
-	var/obj/item/ammo_casing/caseless/arrow/holy/enchant_target
+	var/obj/item/ammo_casing/arrow/holy/enchant_target
 
 /datum/religion_rites/blazing_star/perform_rite(mob/living/user, atom/religious_tool)
-	for(var/obj/item/ammo_casing/caseless/arrow/holy/can_enchant in get_turf(religious_tool))
-		if(istype(can_enchant, /obj/item/ammo_casing/caseless/arrow/holy/blazing))
+	for(var/obj/item/ammo_casing/arrow/holy/can_enchant in get_turf(religious_tool))
+		if(istype(can_enchant, /obj/item/ammo_casing/arrow/holy/blazing))
 			continue
 		enchant_target = can_enchant
 		return ..()
@@ -138,7 +138,7 @@
 
 /datum/religion_rites/blazing_star/invoke_effect(mob/living/user, atom/movable/religious_tool)
 	..()
-	var/obj/item/ammo_casing/caseless/arrow/holy/enchanting = enchant_target
+	var/obj/item/ammo_casing/arrow/holy/enchanting = enchant_target
 	var/turf/tool_turf = get_turf(religious_tool)
 	enchant_target = null
 	if(QDELETED(enchanting) || !(tool_turf == enchanting.loc)) //check if the arrow is still there
@@ -146,6 +146,6 @@
 		return FALSE
 	enchanting.visible_message(span_notice("[enchant_target] is blessed by holy fire!"))
 	playsound(tool_turf, 'sound/effects/pray.ogg', 50, TRUE)
-	new /obj/item/ammo_casing/caseless/arrow/holy/blazing(tool_turf)
+	new /obj/item/ammo_casing/arrow/holy/blazing(tool_turf)
 	qdel(enchanting)
 	return TRUE

@@ -1,6 +1,8 @@
 /// Dynamically calculate nightshift brightness. How TG does it is painful to modify.
 #define NIGHTSHIFT_LIGHT_MODIFIER 0.15
 #define NIGHTSHIFT_COLOR_MODIFIER 0.10
+#define LIGHT_ON_DELAY_UPPER (2 SECONDS)
+#define LIGHT_ON_DELAY_LOWER (0.25 SECONDS)
 
 /atom
 	light_power = 1.25
@@ -9,16 +11,17 @@
 	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/lights/icons/lighting.dmi'
 	overlay_icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/lights/icons/lighting_overlay.dmi'
 	brightness = 6.5
-	fire_brightness = 4.5
-	fire_colour = "#D47F9B"
+	fire_brightness = 8
+	fire_colour = "#ff5555"
 	bulb_colour = LIGHT_COLOR_FAINT_BLUE
 	bulb_power = 1.15
-	nightshift_light_color = null // Let the dynamic night shift color code handle this.
-	bulb_low_power_colour = "#FF6600"
-	bulb_low_power_brightness_mul = 0.4
-	bulb_low_power_pow_min = 0.4
-	bulb_emergency_colour = "#FF0000"
-	bulb_major_emergency_brightness_mul = 0.7
+	nightshift_light_color = LIGHT_COLOR_FAINT_BLUE // we don't have dynamic nightshift like Skrat so this has to suffice
+	//god y'all why did you have to make so much of that shit nonmodular
+	bulb_low_power_colour = "#ff9955"
+	bulb_low_power_brightness_mul = 0.75
+	bulb_low_power_pow_min = 0.75
+	bulb_emergency_colour = "#5599ff"
+	bulb_major_emergency_brightness_mul = 1.1
 	power_consumption_rate = 5.62
 	var/maploaded = FALSE //So we don't have a lot of stress on startup.
 	var/turning_on = FALSE //More stress stuff.
@@ -26,52 +29,15 @@
 	var/flicker_timer = null
 	var/roundstart_flicker = FALSE
 
-/obj/machinery/light/proc/turn_on(trigger, play_sound = TRUE)
-	if(QDELETED(src))
-		return
-	turning_on = FALSE
-	if(!on)
-		return
-	var/area/local_area  = get_room_area(src)
-	var/new_brightness = brightness
-	var/new_power = bulb_power
-	var/new_color = bulb_colour
-	if (local_area?.fire)
-		new_color = fire_colour
-		new_brightness = fire_brightness
-	else if(color)
-		new_color = color
-	else if (nightshift_enabled)
-		new_brightness -= new_brightness * NIGHTSHIFT_LIGHT_MODIFIER
-		new_power -= new_power * NIGHTSHIFT_LIGHT_MODIFIER
-		if(!color && nightshift_light_color)
-			new_color = nightshift_light_color
-		else if(color) // In case it's spraypainted.
-			new_color = color
-		else // Adjust light values to be warmer. I doubt caching would speed this up by any worthwhile amount, as it's all very fast number and string operations.
-			// Convert to numbers for easier manipulation.
-			var/red = GETREDPART(bulb_colour)
-			var/green = GETGREENPART(bulb_colour)
-			var/blue = GETBLUEPART(bulb_colour)
+/obj/machinery/light/floor
+	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/lights/icons/lighting.dmi'
+	overlay_icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/lights/icons/lighting_overlay.dmi'
 
-			red += round(red * NIGHTSHIFT_COLOR_MODIFIER)
-			green -= round(green * NIGHTSHIFT_COLOR_MODIFIER * 0.3)
-			red = clamp(red, 0, 255) // clamp to be safe, or you can end up with an invalid hex value
-			green = clamp(green, 0, 255)
-			blue = clamp(blue, 0, 255)
-			new_color = "#[num2hex(red, 2)][num2hex(green, 2)][num2hex(blue, 2)]"  // Splice the numbers together and turn them back to hex.
-
-	var/matching = light && new_brightness == light.light_range && new_power == light.light_power && new_color == light.light_color
-	if(!matching)
-		switchcount++
-		if( prob( min(60, (switchcount**2)*0.01) ) )
-			if(trigger)
-				burn_out()
-		else
-			use_power = ACTIVE_POWER_USE
-			set_light(new_brightness, new_power, new_color)
-			if(play_sound)
-				playsound(src.loc, 'modular_skyraptor/modules/aesthetics/inherited_skyrat/lights/sound/light_on.ogg', 65, 1)
+/obj/machinery/light/set_on(turn_on)
+	spawn(rand(LIGHT_ON_DELAY_LOWER, LIGHT_ON_DELAY_UPPER))
+		. = ..()
+		if(turn_on && status == LIGHT_OK)
+			playsound(src.loc, 'modular_skyraptor/modules/aesthetics/inherited_skyrat/lights/sound/light_on.ogg', 65, 1)
 
 /obj/machinery/light/proc/start_flickering()
 	on = FALSE
@@ -115,8 +81,6 @@
 
 /obj/item/light/tube
 	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/lights/icons/lighting.dmi'
-	lefthand_file = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/lights/icons/lights_lefthand.dmi'
-	righthand_file = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/lights/icons/lights_righthand.dmi'
 
 
 /obj/machinery/light/multitool_act(mob/living/user, obj/item/multitool)
@@ -131,5 +95,30 @@
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 	return ..()
 
+
+//completely overriding this is ill-advised but here we are
+/obj/machinery/light/update_icon_state()
+	var/return_valu = ..()
+	switch(status) // set icon_states
+		if(LIGHT_OK)
+			var/area/local_area = get_room_area(src)
+			if((local_area?.fire))
+				icon_state = "[base_state]_fire"
+			else if(low_power_mode)
+				icon_state = "[base_state]_lpower"
+			else if(major_emergency)
+				icon_state = "[base_state]_emergency"
+			else
+				icon_state = "[base_state]"
+		if(LIGHT_EMPTY)
+			icon_state = "[base_state]-empty"
+		if(LIGHT_BURNED)
+			icon_state = "[base_state]-burned"
+		if(LIGHT_BROKEN)
+			icon_state = "[base_state]-broken"
+	return return_valu
+
 #undef NIGHTSHIFT_LIGHT_MODIFIER
 #undef NIGHTSHIFT_COLOR_MODIFIER
+#undef LIGHT_ON_DELAY_UPPER
+#undef LIGHT_ON_DELAY_LOWER

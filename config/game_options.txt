@@ -33,8 +33,9 @@ COMMENDATION_PERCENT_POLL 0.05
 ## To speed things up make the number negative, to slow things down, make the number positive.
 
 ## These modify the run/walk speed of all mobs before the mob-specific modifiers are applied.
-RUN_DELAY 1.5
-WALK_DELAY 4
+RUN_DELAY 1.8
+WALK_DELAY 3.6
+SPRINT_DELAY 1.2
 
 ## The variables below affect the movement of specific mob types. THIS AFFECTS ALL SUBTYPES OF THE TYPE YOU CHOOSE!
 ## Entries completely override all subtypes. Later entries have precedence over earlier entries.
@@ -390,6 +391,13 @@ ROUNDSTART_RACES ethereal
 #ROUNDSTART_RACES military_synth
 #ROUNDSTART_RACES agent
 
+## Skyraptor species
+ROUNDSTART_RACES slugcat
+ROUNDSTART_RACES akula
+ROUNDSTART_RACES talonmoth
+ROUNDSTART_RACES teshvali
+ROUNDSTART_RACES avalari
+
 ##-------------------------------------------------------------------------------------------
 
 ## Roundstart no-reset races
@@ -399,7 +407,7 @@ ROUNDSTART_RACES ethereal
 ## Disable roundstart species morgue cadavers?
 ## Cadavers in the morgue at the start of the round will be randomly picked from all enabled ROUNDSTART_RACES
 ## Recommended to leave this commented out so nonhuman species will have viable replacement bodies / organs when they die.
-# MORGUE_CADAVER_DISABLE_NONHUMANS
+MORGUE_CADAVER_DISABLE_NONHUMANS
 
 ## Morgue Cadaver Species Probability
 ## The probability for nonhuman cadavers to spawn in the morgue.
@@ -414,10 +422,12 @@ MORGUE_CADAVER_OTHER_SPECIES_PROBABILITY 50
 #MORGUE_CADAVER_OVERRIDE_SPECIES lizard
 
 
-##Overflow job. Default is assistant
+##Overflow job. Default is assistant.
+## NOTE: This will overwrite anything you put in jobconfig.toml!
 OVERFLOW_JOB Assistant
 
 ## Overflow slot cap. Set to -1 for unlimited. If limited, it will still open up if every other job is full.
+## NOTE: This will overwrite anything you put in jobconfig.toml!
 OVERFLOW_CAP -1
 
 ## Uncomment to bring back old grey suit assistants instead of the now default rainbow colored assistants.

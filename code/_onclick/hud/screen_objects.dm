@@ -18,7 +18,7 @@
 	/// A reference to the object in the slot. Grabs or items, generally.
 	var/obj/master = null
 	/// A reference to the owner HUD, if any.
-	var/datum/hud/hud = null
+	VAR_PRIVATE/datum/hud/hud = null
 	/**
 	 * Map name assigned to this object.
 	 * Automatically set by /client/proc/add_obj_to_map.
@@ -35,6 +35,11 @@
 
 	/// If FALSE, this will not be cleared when calling /client/clear_screen()
 	var/clear_with_screen = TRUE
+
+/atom/movable/screen/Initialize(mapload, datum/hud/hud_owner)
+	. = ..()
+	if(hud_owner && istype(hud_owner))
+		hud = hud_owner
 
 /atom/movable/screen/Destroy()
 	master = null
@@ -116,9 +121,7 @@
 	screen_loc = ui_language_menu
 
 /atom/movable/screen/language_menu/Click()
-	var/mob/M = usr
-	var/datum/language_holder/H = M.get_language_holder()
-	H.open_language_menu(usr)
+	usr.get_language_holder().open_language_menu(usr)
 
 /atom/movable/screen/inventory
 	/// The identifier for the slot. It has nothing to do with ID cards.
@@ -244,7 +247,7 @@
 	plane = ABOVE_HUD_PLANE
 	icon_state = "backpack_close"
 
-/atom/movable/screen/close/Initialize(mapload, new_master)
+/atom/movable/screen/close/Initialize(mapload, datum/hud/hud_owner, new_master)
 	. = ..()
 	master = new_master
 
@@ -269,7 +272,7 @@
 	icon_state = "combat_off"
 	screen_loc = ui_combat_toggle
 
-/atom/movable/screen/combattoggle/Initialize(mapload)
+/atom/movable/screen/combattoggle/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
 	update_appearance()
 
@@ -323,15 +326,18 @@
 	toggle(usr)
 
 /atom/movable/screen/mov_intent/update_icon_state()
-	switch(hud?.mymob?.m_intent)
+	if(!hud || !hud.mymob || !isliving(hud.mymob))
+		return
+	var/mob/living/living_hud_owner = hud.mymob
+	switch(living_hud_owner.move_intent)
 		if(MOVE_INTENT_WALK)
 			icon_state = "walking"
 		if(MOVE_INTENT_RUN)
 			icon_state = "running"
 	return ..()
 
-/atom/movable/screen/mov_intent/proc/toggle(mob/user)
-	if(isobserver(user))
+/atom/movable/screen/mov_intent/proc/toggle(mob/living/user)
+	if(!istype(user))
 		return
 	user.toggle_move_intent(user)
 
@@ -386,7 +392,7 @@
 	screen_loc = "7,7 to 10,8"
 	plane = HUD_PLANE
 
-/atom/movable/screen/storage/Initialize(mapload, new_master)
+/atom/movable/screen/storage/Initialize(mapload, datum/hud/hud_owner, new_master)
 	. = ..()
 	master = new_master
 
@@ -627,7 +633,7 @@
 
 INITIALIZE_IMMEDIATE(/atom/movable/screen/splash)
 
-/atom/movable/screen/splash/Initialize(mapload, client/C, visible, use_previous_title)
+/atom/movable/screen/splash/Initialize(mapload, datum/hud/hud_owner, client/C, visible, use_previous_title)
 	. = ..()
 	if(!istype(C))
 		return
@@ -707,7 +713,170 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/splash)
 		add_overlay(intent_icon)
 	return ..()
 
+/// STAMINA IS HEAVILY REWORKED HERE: SKYRAPTOR ADDITION BEGIN
 /atom/movable/screen/stamina
 	name = "stamina"
-	icon_state = "stamina0"
+	icon_state = "stamina_7"
 	screen_loc = ui_stamina
+	icon = 'icons/hud/screen_goonstam.dmi'
+
+/atom/movable/screen/stamina/Click(location, control, params)
+	if (iscarbon(usr))
+		var/mob/living/carbon/C = usr
+		var/content = {"
+		<div class='notice'>
+			[span_boldnotice("You have [C.stamina.current]/[C.stamina.maximum] stamina, and are regenerating [C.stamina.regen_rate] per tick.")]
+		</div>
+		"}
+		to_chat(C, content)
+
+/atom/movable/screen/stamina/MouseEntered(location, control, params)
+	. = ..()
+	var/mob/living/L = usr
+	if(!istype(L))
+		return
+
+	if(QDELETED(src))
+		return
+	var/_content = {"
+		Stamina: [L.stamina.current]/[L.stamina.maximum]<br>
+		Regen: [L.stamina.regen_rate]
+	"}
+	openToolTip(usr, src, params, title = "Stamina", content = _content)
+
+/atom/movable/screen/stamina/MouseExited(location, control, params)
+	. = ..()
+	closeToolTip(usr)
+
+
+/// These are simple overlays
+/atom/movable/screen/stamina/capmod
+	name = "stamina capacity"
+	icon_state = "stamina_nomod"
+
+/atom/movable/screen/stamina/regenmod
+	name = "stamina regen"
+	icon_state = "stamina_nomod"
+
+
+/// Crit warning
+/atom/movable/screen/stamina/crit
+	name = "stamcrit alert"
+	icon_state = "stamina_nomod"
+
+/atom/movable/screen/stamina/crit/Click(location, control, params)
+	if (iscarbon(usr))
+		var/mob/living/carbon/C = usr
+		var/content = {"
+		<div class='notice'>
+			[span_bolddanger("You're in STAMCRIT - you'll be stuck like this until you recover enough to get to safety!")]
+		</div>
+		"}
+		to_chat(C, content)
+
+/atom/movable/screen/stamina/crit/MouseEntered(location, control, params)
+	. = ..()
+	var/mob/living/L = usr
+	if(!istype(L))
+		return
+
+	if(QDELETED(src))
+		return
+	var/_content = {"
+		You're in STAMCRIT!
+	"}
+	openToolTip(usr, src, params, title = "Stamcrit Warning", content = _content)
+
+
+/// These are are complicated overlays
+/atom/movable/screen/stamina/alert_up
+	name = "stamina buffs & alerts"
+	icon_state = "stamina_alert_base"
+	var/last_alert_index = 0
+
+/atom/movable/screen/stamina/alert_up/Click(location, control, params)
+	if (iscarbon(usr))
+		var/mob/living/carbon/C = usr
+		var/bufflist = ""
+		var/firstbuff = TRUE
+		for(var/buffname in C.stamina.majorbufflist)
+			if(C.stamina.majorbufflist[buffname] == "")
+				continue
+			if(firstbuff)
+				bufflist = "[buffname]: [C.stamina.majorbufflist[buffname]]<br>"
+				firstbuff = FALSE
+			else
+				bufflist = "[bufflist][buffname]: [C.stamina.majorbufflist[buffname]]<br>"
+		var/bufflist2 = ""
+		firstbuff = TRUE
+		for(var/buffname in C.stamina.bufflist)
+			if(C.stamina.bufflist[buffname] == "")
+				continue
+			if(firstbuff)
+				bufflist2 = "[buffname]: [C.stamina.bufflist[buffname]]<br>"
+				firstbuff = FALSE
+			else
+				bufflist2 = "[bufflist2][buffname]: [C.stamina.bufflist[buffname]]<br>"
+		var/content = {"
+		<div class='notice'>
+			[span_boldnotice("MAJOR BUFFS:")]<br>
+			[bufflist]<br>
+			[span_boldnotice("MINOR BUFFS:")]<br>
+			[bufflist2]<br>
+		</div>
+		"}
+		to_chat(C, content)
+
+/atom/movable/screen/stamina/alert_up/MouseEntered(location, control, params)
+	. = ..()
+	var/mob/living/L = usr
+	if(!istype(L))
+		return
+
+	if(QDELETED(src))
+		return
+
+	var/mob/living/carbon/C = usr
+	var/bufflist = ""
+	var/firstbuff = TRUE
+	for(var/buffname in C.stamina.majorbufflist)
+		if(C.stamina.majorbufflist[buffname] == "")
+			continue
+		if(firstbuff)
+			bufflist = buffname
+			firstbuff = FALSE
+		else
+			bufflist = "[bufflist] [buffname]"
+	var/_content = {"
+		Effects: [bufflist]
+	"}
+	openToolTip(usr, src, params, title = "Status Effects", content = _content)
+
+/// These are are complicated overlays
+/atom/movable/screen/stamina/hunger
+	name = "satiety alert"
+	icon_state = "stamina_foodbar_7"
+
+/atom/movable/screen/stamina/hunger/Click(location, control, params)
+	if (iscarbon(usr))
+		var/mob/living/carbon/C = usr
+		var/content = {"
+		<div class='notice'>
+			[span_bolddanger("This will be implemented properly when food 2.0 arrives!")]<br>
+			[span_boldnotice("Nutrition/Satiety: [C.nutrition]/[C.satiety]")]
+		</div>
+		"}
+		to_chat(C, content)
+
+/atom/movable/screen/stamina/hunger/MouseEntered(location, control, params)
+	. = ..()
+	var/mob/living/L = usr
+	if(!istype(L))
+		return
+
+	if(QDELETED(src))
+		return
+	var/_content = {"
+		Nutrition/Satiety: [L.nutrition]/[L.satiety]
+	"}
+	openToolTip(usr, src, params, title = "Hunger", content = _content)
