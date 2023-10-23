@@ -205,11 +205,12 @@
 	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/airlock/icons/airlocks/station/command.dmi'
 
 /obj/machinery/door/airlock/security
-	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/airlock/icons/airlocks/station/security.dmi'
-
-/obj/machinery/door/airlock/security/old
 	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/airlock/icons/airlocks/station/security2.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_sec/old
+
+/obj/machinery/door/airlock/security/old
+	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/airlock/icons/airlocks/station/security.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_sec
 
 /obj/machinery/door/airlock/security/old/glass
 	opacity = FALSE
@@ -385,10 +386,9 @@
 	overlays_file = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/airlock/icons/airlocks/highsec/overlays.dmi'
 
 //GLASS
-/*/obj/machinery/door/airlock/glass_large
+/obj/machinery/door/airlock/multi_tile
 	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/airlock/icons/airlocks/multi_tile/multi_tile.dmi'
 	overlays_file = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/airlock/icons/airlocks/multi_tile/overlays.dmi'
-	multi_tile = TRUE*/
 
 //ASSEMBLYS
 /obj/structure/door_assembly/door_assembly_public

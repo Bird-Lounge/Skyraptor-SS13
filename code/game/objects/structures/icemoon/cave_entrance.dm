@@ -80,7 +80,7 @@ GLOBAL_LIST_INIT(ore_probability, list(
 	name = "demonic portal"
 	desc = "A portal that goes to another world, normal creatures couldn't survive there."
 	icon_state = "nether"
-	mob_types = list(/mob/living/simple_animal/hostile/asteroid/ice_demon)
+	mob_types = list(/mob/living/basic/mining/ice_demon)
 	light_range = 1
 	light_color = COLOR_SOFT_RED
 	mob_gps_id = "WT|B" // watcher | bluespace
@@ -109,12 +109,8 @@ GLOBAL_LIST_INIT(ore_probability, list(
 	mob_gps_id = "ID|W" // ice drake | whelp
 
 /obj/structure/spawner/ice_moon/demonic_portal/snowlegion
-<<<<<<< HEAD
-	mob_types = list(/mob/living/simple_animal/hostile/asteroid/hivelord/legion/snow/portal)
-=======
 	mob_types = list(/mob/living/basic/mining/legion/snow/spawner_made)
 	mob_gps_id = "LG|S" // legion | snow
->>>>>>> 0ff97e28fe3 (Tendril Tagging - scanning necropolis tendrils with a mining analyzer updates its GPS tag (#78738))
 
 /obj/effect/collapsing_demonic_portal
 	name = "collapsing demonic portal"

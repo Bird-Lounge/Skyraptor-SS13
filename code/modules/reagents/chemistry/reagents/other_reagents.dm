@@ -282,13 +282,62 @@
 	//You don't belong in this world, monster!
 	mytray.reagents.remove_reagent(type, volume)
 
+/datum/reagent/water/salt
+	name = "Saltwater"
+	description = "Water, but salty. Smells like... the station infirmary?"
+	color = "#aaaaaa9d" // rgb: 170, 170, 170, 77 (alpha)
+	taste_description = "the sea"
+	cooling_temperature = 3
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_CLEANS
+	default_container = /obj/item/reagent_containers/cup/glass/waterbottle
+
+/datum/glass_style/shot_glass/water/salt
+	required_drink_type = /datum/reagent/water/salt
+	icon_state = "shotglassclear"
+
+/datum/glass_style/drinking_glass/water/salt
+	required_drink_type = /datum/reagent/water/salt
+	name = "glass of saltwater"
+	desc = "If you have a sore throat, gargle some saltwater and watch the pain go away. Can be used as a very improvised topical medicine against wounds."
+	icon_state = "glass_clear"
+
+/datum/reagent/water/salt/expose_mob(mob/living/exposed_mob, methods, reac_volume)
+	. = ..()
+	if(!iscarbon(exposed_mob))
+		return
+	var/mob/living/carbon/carbies = exposed_mob
+	if(!(methods & (PATCH|TOUCH|VAPOR)))
+		return
+	for(var/datum/wound/iter_wound as anything in carbies.all_wounds)
+		iter_wound.on_saltwater(reac_volume, carbies)
+
+// Mixed salt with water! All the help of salt with none of the irritation. Plus increased volume.
+/datum/wound/proc/on_saltwater(reac_volume, mob/living/carbon/carbies)
+	return
+
+/datum/wound/pierce/bleed/on_saltwater(reac_volume, mob/living/carbon/carbies)
+	adjust_blood_flow(-0.06 * reac_volume, initial_flow * 0.6)
+	to_chat(carbies, span_notice("The salt water splashes over [lowertext(src)], soaking up the blood."))
+
+/datum/wound/slash/flesh/on_saltwater(reac_volume, mob/living/carbon/carbies)
+	adjust_blood_flow(-0.1 * reac_volume, initial_flow * 0.5)
+	to_chat(carbies, span_notice("The salt water splashes over [lowertext(src)], soaking up the blood."))
+
+/datum/wound/burn/flesh/on_saltwater(reac_volume)
+	// Similar but better stats from normal salt.
+	sanitization += VALUE_PER(0.6, 30) * reac_volume
+	infestation -= max(VALUE_PER(0.5, 30) * reac_volume, 0)
+	infestation_rate += VALUE_PER(0.07, 30) * reac_volume
+	to_chat(victim, span_notice("The salt water splashes over [lowertext(src)], soaking up the... miscellaneous fluids. It feels somewhat better afterwards."))
+	return
+
 /datum/reagent/water/holywater
 	name = "Holy Water"
 	description = "Water blessed by some deity."
 	color = "#E0E8EF" // rgb: 224, 232, 239
 	self_consuming = TRUE //divine intervention won't be limited by the lack of a liver
 	ph = 7.5 //God is alkaline
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_CLEANS
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_CLEANS|REAGENT_UNAFFECTED_BY_METABOLISM // Operates at fixed metabolism for balancing memes.
 	default_container = /obj/item/reagent_containers/cup/glass/bottle/holywater
 
 /datum/glass_style/drinking_glass/holywater
@@ -296,6 +345,15 @@
 	name = "glass of holy water"
 	desc = "A glass of holy water."
 	icon_state = "glass_clear"
+
+/datum/reagent/water/holywater/on_new(list/data)
+	// Tracks the total amount of deciseconds that the reagent has been metab'd for, for the purpose of deconversion
+	if(isnull(data))
+		data = list("deciseconds_metabolized" = 0)
+	else if(isnull(data["deciseconds_metabolized"]))
+		data["deciseconds_metabolized"] = 0
+
+	return ..()
 
 // Holy water. Unlike water, which is nuked, stays in and heals the plant a little with the power of the spirits. Also ALSO increases instability.
 /datum/reagent/water/holywater/on_hydroponics_apply(obj/machinery/hydroponics/mytray, mob/user)
@@ -307,53 +365,49 @@
 	. = ..()
 	ADD_TRAIT(affected_mob, TRAIT_HOLY, type)
 
-/datum/reagent/water/holywater/on_mob_add(mob/living/affected_mob, amount)
-	. = ..()
-	if(data)
-		data["misc"] = 0
-
 /datum/reagent/water/holywater/on_mob_end_metabolize(mob/living/affected_mob)
 	. = ..()
 	REMOVE_TRAIT(affected_mob, TRAIT_HOLY, type)
 
-/datum/reagent/water/holywater/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
+/datum/reagent/water/holywater/on_mob_add(mob/living/affected_mob, amount)
 	. = ..()
-	if(IS_CULTIST(exposed_mob))
-		to_chat(exposed_mob, span_userdanger("A vile holiness begins to spread its shining tendrils through your mind, purging the Geometer of Blood's influence!"))
+	if(IS_CULTIST(affected_mob))
+		to_chat(affected_mob, span_userdanger("A vile holiness begins to spread its shining tendrils through your mind, purging the Geometer of Blood's influence!"))
 
 /datum/reagent/water/holywater/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
-	if(!data)
-		data = list("misc" = 0)
 
-	data["misc"] += seconds_per_tick SECONDS * REM
-	affected_mob.adjust_jitter_up_to(4 SECONDS * seconds_per_tick, 20 SECONDS)
+	data["deciseconds_metabolized"] += (seconds_per_tick * 1 SECONDS * REM)
+
+	affected_mob.adjust_jitter_up_to(4 SECONDS * REM * seconds_per_tick, 20 SECONDS)
+
 	if(IS_CULTIST(affected_mob))
 		for(var/datum/action/innate/cult/blood_magic/BM in affected_mob.actions)
-			to_chat(affected_mob, span_cultlarge("Your blood rites falter as holy water scours your body!"))
+			var/removed_any = FALSE
 			for(var/datum/action/innate/cult/blood_spell/BS in BM.spells)
+				removed_any = TRUE
 				qdel(BS)
-	if(data["misc"] >= (25 SECONDS)) // 10 units
-		affected_mob.adjust_stutter_up_to(4 SECONDS * seconds_per_tick, 20 SECONDS)
+			if(removed_any)
+				to_chat(affected_mob, span_cultlarge("Your blood rites falter as holy water scours your body!"))
+
+	if(data["deciseconds_metabolized"] >= (25 SECONDS)) // 10 units
+		affected_mob.adjust_stutter_up_to(4 SECONDS * REM * seconds_per_tick, 20 SECONDS)
 		affected_mob.set_dizzy_if_lower(10 SECONDS)
 		if(IS_CULTIST(affected_mob) && SPT_PROB(10, seconds_per_tick))
 			affected_mob.say(pick("Av'te Nar'Sie","Pa'lid Mors","INO INO ORA ANA","SAT ANA!","Daim'niodeis Arc'iai Le'eones","R'ge Na'sie","Diabo us Vo'iscum","Eld' Mon Nobis"), forced = "holy water")
 			if(prob(10))
 				affected_mob.visible_message(span_danger("[affected_mob] starts having a seizure!"), span_userdanger("You have a seizure!"))
 				affected_mob.Unconscious(12 SECONDS)
-				to_chat(affected_mob, "<span class='cultlarge'>[pick("Your blood is your bond - you are nothing without it", "Do not forget your place", \
-				"All that power, and you still fail?", "If you cannot scour this poison, I shall scour your meager life!")].</span>")
-	if(data["misc"] >= (1 MINUTES)) // 24 units
+				to_chat(affected_mob, span_cultlarge("[pick("Your blood is your bond - you are nothing without it", "Do not forget your place", \
+					"All that power, and you still fail?", "If you cannot scour this poison, I shall scour your meager life!")]."))
+
+	if(data["deciseconds_metabolized"] >= (1 MINUTES)) // 24 units
 		if(IS_CULTIST(affected_mob))
 			affected_mob.mind.remove_antag_datum(/datum/antagonist/cult)
-			affected_mob.Unconscious(100)
+			affected_mob.Unconscious(10 SECONDS)
 		affected_mob.remove_status_effect(/datum/status_effect/jitter)
 		affected_mob.remove_status_effect(/datum/status_effect/speech/stutter)
-		if(holder)
-			holder.remove_reagent(type, volume) // maybe this is a little too perfect and a max() cap on the statuses would be better??
-		return
-	if(holder)
-		holder.remove_reagent(type, 1 * REAGENTS_METABOLISM * seconds_per_tick) //fixed consumption to prevent balancing going out of whack
+		holder?.remove_reagent(type, volume) // maybe this is a little too perfect and a max() cap on the statuses would be better??
 
 /datum/reagent/water/holywater/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
@@ -419,6 +473,11 @@
 	ph = 6.5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
+/datum/reagent/fuel/unholywater/on_mob_metabolize(mob/living/affected_mob)
+	. = ..()
+	if(IS_CULTIST(affected_mob))
+		ADD_TRAIT(affected_mob, TRAIT_COAGULATING, type)
+
 /datum/reagent/fuel/unholywater/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	var/need_mob_update = FALSE
@@ -433,15 +492,17 @@
 		need_mob_update = TRUE
 		if(ishuman(affected_mob) && affected_mob.blood_volume < BLOOD_VOLUME_NORMAL)
 			affected_mob.blood_volume += 3 * REM * seconds_per_tick
+
+			var/datum/wound/bloodiest_wound
+
+			for(var/datum/wound/iter_wound as anything in affected_mob.all_wounds)
+				if(iter_wound.blood_flow && iter_wound.blood_flow > bloodiest_wound?.blood_flow)
+					bloodiest_wound = iter_wound
+
+			if(bloodiest_wound)
+				bloodiest_wound.adjust_blood_flow(-2 * REM * seconds_per_tick)
+
 	else  // Will deal about 90 damage when 50 units are thrown
-<<<<<<< HEAD
-		affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3 * REM * seconds_per_tick, 150)
-		affected_mob.adjustToxLoss(1 * REM * seconds_per_tick, 0)
-		affected_mob.adjustFireLoss(1 * REM * seconds_per_tick, 0)
-		affected_mob.adjustOxyLoss(1 * REM * seconds_per_tick, 0)
-		affected_mob.adjustBruteLoss(1 * REM * seconds_per_tick, 0)
-	..()
-=======
 		need_mob_update += affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3 * REM * seconds_per_tick, 150)
 		need_mob_update += affected_mob.adjustToxLoss(1 * REM * seconds_per_tick, updating_health = FALSE)
 		need_mob_update += affected_mob.adjustFireLoss(1 * REM * seconds_per_tick, updating_health = FALSE)
@@ -449,7 +510,10 @@
 		need_mob_update += affected_mob.adjustBruteLoss(1 * REM * seconds_per_tick, updating_health = FALSE)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
+
+/datum/reagent/fuel/unholywater/on_mob_end_metabolize(mob/living/affected_mob)
+	. = ..()
+	REMOVE_TRAIT(affected_mob, TRAIT_COAGULATING, type) //We don't cult check here because potentially our imbiber may no longer be a cultist for whatever reason! It doesn't purge holy water, after all!
 
 /datum/reagent/hellwater //if someone has this in their system they've really pissed off an eldrich god
 	name = "Hell Water"
@@ -466,14 +530,10 @@
 	need_mob_update = affected_mob.adjustToxLoss(0.5*seconds_per_tick, updating_health = FALSE)
 	need_mob_update += affected_mob.adjustFireLoss(0.5*seconds_per_tick, updating_health = FALSE) //Hence the other damages... ain't I a bastard?
 	affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 2.5*seconds_per_tick, 150)
-<<<<<<< HEAD
-	holder.remove_reagent(type, 0.5*seconds_per_tick)
-=======
 	if(holder)
 		holder.remove_reagent(type, 0.5*seconds_per_tick)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/medicine/omnizine/godblood
 	name = "Godblood"
@@ -945,13 +1005,8 @@
 		step(affected_mob, pick(GLOB.cardinals))
 	if(SPT_PROB(3.5, seconds_per_tick))
 		affected_mob.emote(pick("twitch","drool","moan"))
-<<<<<<< HEAD
-	affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.5*seconds_per_tick)
-	..()
-=======
 	if(affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.5*seconds_per_tick))
 		return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/sulfur
 	name = "Sulfur"
@@ -1077,7 +1132,7 @@
 	color = "#D0EFEE" // space cleaner but lighter
 	taste_description = "bitterness"
 	ph = 10.5
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_AFFECTS_WOUNDS
 
 /datum/reagent/space_cleaner/sterilizine/expose_mob(mob/living/carbon/exposed_carbon, methods=TOUCH, reac_volume)
 	. = ..()
@@ -1086,6 +1141,9 @@
 
 	for(var/datum/surgery/surgery as anything in exposed_carbon.surgeries)
 		surgery.speed_modifier = max(0.2, surgery.speed_modifier)
+
+/datum/reagent/space_cleaner/sterilizine/on_burn_wound_processing(datum/wound/burn/flesh/burn_wound)
+	burn_wound.sanitization += 0.9
 
 /datum/reagent/iron
 	name = "Iron"
@@ -1134,14 +1192,9 @@
 	var/tox_damage = 0.5
 
 /datum/reagent/uranium/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
-<<<<<<< HEAD
-	affected_mob.adjustToxLoss(tox_damage * seconds_per_tick * REM)
-	..()
-=======
 	. = ..()
 	if(affected_mob.adjustToxLoss(tox_damage * seconds_per_tick * REM, updating_health = FALSE))
 		return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/uranium/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
@@ -1256,14 +1309,14 @@
 
 /datum/reagent/space_cleaner
 	name = "Space Cleaner"
-	description = "A compound used to clean things. Now with 50% more sodium hypochlorite!"
+	description = "A compound used to clean things. Now with 50% more sodium hypochlorite! Can be used to clean wounds, but it's not really meant for that."
 	color = "#A5F0EE" // rgb: 165, 240, 238
 	taste_description = "sourness"
 	reagent_weight = 0.6 //so it sprays further
-	penetrates_skin = NONE
+	penetrates_skin = VAPOR
 	var/clean_types = CLEAN_WASH
 	ph = 5.5
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_CLEANS
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_CLEANS|REAGENT_AFFECTS_WOUNDS
 
 /datum/reagent/space_cleaner/expose_obj(obj/exposed_obj, reac_volume)
 	. = ..()
@@ -1289,6 +1342,13 @@
 	if(methods & (TOUCH|VAPOR))
 		exposed_mob.wash(clean_types)
 
+/datum/reagent/space_cleaner/on_burn_wound_processing(datum/wound/burn/flesh/burn_wound)
+	burn_wound.sanitization += 0.3
+	if(prob(5))
+		to_chat(burn_wound.victim, span_notice("Your [burn_wound] stings and burns from the [src] covering it! It does look pretty clean though."))
+		burn_wound.victim.adjustToxLoss(0.5)
+		burn_wound.limb.receive_damage(burn = 0.5, wound_bonus = CANT_WOUND)
+
 /datum/reagent/space_cleaner/ez_clean
 	name = "EZ Clean"
 	description = "A powerful, acidic cleaner sold by Waffle Co. Affects organic matter while leaving other objects unaffected."
@@ -1299,12 +1359,6 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/space_cleaner/ez_clean/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
-<<<<<<< HEAD
-	affected_mob.adjustBruteLoss(1.665*seconds_per_tick)
-	affected_mob.adjustFireLoss(1.665*seconds_per_tick)
-	affected_mob.adjustToxLoss(1.665*seconds_per_tick)
-	..()
-=======
 	. = ..()
 	var/need_mob_update
 	need_mob_update = affected_mob.adjustBruteLoss(1.665*seconds_per_tick, updating_health = FALSE)
@@ -1312,7 +1366,6 @@
 	need_mob_update += affected_mob.adjustToxLoss(1.665*seconds_per_tick, updating_health = FALSE)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/space_cleaner/ez_clean/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
 	. = ..()
@@ -1354,8 +1407,10 @@
 /datum/reagent/impedrezene/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	affected_mob.adjust_jitter(-5 SECONDS * seconds_per_tick)
+	. = FALSE
 	if(SPT_PROB(55, seconds_per_tick))
 		affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 2)
+		. = TRUE
 	if(SPT_PROB(30, seconds_per_tick))
 		affected_mob.adjust_drowsiness(6 SECONDS)
 	if(SPT_PROB(5, seconds_per_tick))
@@ -2524,13 +2579,10 @@
 /datum/reagent/peaceborg/tire/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	var/healthcomp = (100 - affected_mob.health) //DOES NOT ACCOUNT FOR ADMINBUS THINGS THAT MAKE YOU HAVE MORE THAN 200/210 HEALTH, OR SOMETHING OTHER THAN A HUMAN PROCESSING THIS.
+	. = FALSE
 	if(affected_mob.getStaminaLoss() < (45 - healthcomp)) //At 50 health you would have 200 - 150 health meaning 50 compensation. 60 - 50 = 10, so would only do 10-19 stamina.)
-<<<<<<< HEAD
-		affected_mob.adjustStaminaLoss(10 * REM * seconds_per_tick)
-=======
 		if(affected_mob.adjustStaminaLoss(10 * REM * seconds_per_tick, updating_stamina = FALSE))
 			. = UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 	if(SPT_PROB(16, seconds_per_tick))
 		to_chat(affected_mob, "You should sit down and take a rest...")
 
@@ -2540,11 +2592,12 @@
 	color = "#9A6750" //RGB: 154, 103, 80
 	taste_description = "inner peace"
 	penetrates_skin = NONE
+	var/datum/disease/transformation/gondola_disease = /datum/disease/transformation/gondola
 
 /datum/reagent/gondola_mutation_toxin/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message = TRUE, touch_protection = 0)
 	. = ..()
 	if((methods & (PATCH|INGEST|INJECT)) || ((methods & VAPOR) && prob(min(reac_volume,100)*(1 - touch_protection))))
-		exposed_mob.ForceContractDisease(new /datum/disease/transformation/gondola(), FALSE, TRUE)
+		exposed_mob.ForceContractDisease(new gondola_disease, FALSE, TRUE)
 
 
 /datum/reagent/spider_extract
@@ -2848,10 +2901,6 @@
 		victim.emote("scream")
 	if(SPT_PROB(2, seconds_per_tick)) // Stuns, but purges ants.
 		victim.vomit(VOMIT_CATEGORY_DEFAULT, lost_nutrition = rand(5,10), purge_ratio = 1)
-<<<<<<< HEAD
-	return ..()
-=======
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/ants/on_mob_end_metabolize(mob/living/living_anthill)
 	. = ..()
@@ -2902,12 +2951,8 @@
 
 /datum/reagent/lead/on_mob_life(mob/living/carbon/victim)
 	. = ..()
-<<<<<<< HEAD
-	victim.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.5)
-=======
 	if(victim.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.5))
 		return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 //The main feedstock for kronkaine production, also a shitty stamina healer.
 /datum/reagent/kronkus_extract
@@ -2920,16 +2965,11 @@
 
 /datum/reagent/kronkus_extract/on_mob_life(mob/living/carbon/kronkus_enjoyer)
 	. = ..()
-<<<<<<< HEAD
-	kronkus_enjoyer.adjustOrganLoss(ORGAN_SLOT_HEART, 0.1)
-	kronkus_enjoyer.adjustStaminaLoss(-2, FALSE)
-=======
 	var/need_mob_update
 	need_mob_update = kronkus_enjoyer.adjustOrganLoss(ORGAN_SLOT_HEART, 0.1)
 	need_mob_update += kronkus_enjoyer.adjustStaminaLoss(-2, updating_stamina = FALSE)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/brimdust
 	name = "Brimdust"
@@ -2941,12 +2981,8 @@
 
 /datum/reagent/brimdust/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
-<<<<<<< HEAD
-	affected_mob.adjustFireLoss((ispodperson(affected_mob) ? -1 : 1) * seconds_per_tick)
-=======
 	if(affected_mob.adjustFireLoss((ispodperson(affected_mob) ? -1 : 1 * seconds_per_tick), updating_health = FALSE))
 		return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/brimdust/on_hydroponics_apply(obj/machinery/hydroponics/mytray, mob/user)
 	mytray.adjust_weedlevel(-1)
@@ -3030,7 +3066,8 @@
 			. = UPDATE_MOB_HEALTH
 		if(SPT_PROB(10, seconds_per_tick))
 			affected_mob.emote(pick("twitch","choke","shiver","gag"))
-<<<<<<< HEAD
-		..()
-=======
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
+
+// The same as gold just with a slower metabolism rate, to make using the Hand of Midas easier.
+/datum/reagent/gold/cursed
+	name = "Cursed Gold"
+	metabolization_rate = 0.2 * REAGENTS_METABOLISM

@@ -182,7 +182,9 @@
 	if(nightshift_enabled)
 		. += mutable_appearance(overlay_icon, "[base_state]_nightshift")
 		return
-	. += mutable_appearance(overlay_icon, base_state)
+	var/mutable_appearance/overlay_temp = mutable_appearance(overlay_icon, base_state) /// SKYRAPTOR EDIT: no good way to do this modularly, despair
+	overlay_temp.color = light_color
+	. += overlay_temp
 
 // Area sensitivity is traditionally tied directly to power use, as an optimization
 // But since we want it for fire reacting, we disregard that

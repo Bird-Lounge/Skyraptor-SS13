@@ -75,6 +75,7 @@
 		/obj/item/wirecutters,
 		/obj/item/wrench,
 		/obj/item/spess_knife,
+		/obj/item/melee/sickly_blade/knock,
 	))
 
 /obj/item/storage/belt/utility/chief
@@ -424,6 +425,7 @@
 		/obj/item/wirecutters,
 		/obj/item/wrench,
 		/obj/item/wormhole_jaunter,
+		/obj/item/skeleton_key,
 	))
 
 

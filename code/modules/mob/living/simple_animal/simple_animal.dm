@@ -448,24 +448,20 @@
 
 /mob/living/simple_animal/death(gibbed)
 	drop_loot()
-<<<<<<< HEAD
-	if(dextrous)
-		drop_all_held_items()
-=======
->>>>>>> 6d59d8eb910 (Hands management element (#78887))
 	if(del_on_death)
 		..()
 		//Prevent infinite loops if the mob Destroy() is overridden in such
 		//a manner as to cause a call to death() again //Pain
 		del_on_death = FALSE
 		qdel(src)
-	else
-		health = 0
-		icon_state = icon_dead
-		if(flip_on_death)
-			transform = transform.Turn(180)
-		ADD_TRAIT(src, TRAIT_UNDENSE, BASIC_MOB_DEATH_TRAIT)
-		..()
+		return
+
+	health = 0
+	icon_state = icon_dead
+	if(flip_on_death)
+		transform = transform.Turn(180)
+	ADD_TRAIT(src, TRAIT_UNDENSE, BASIC_MOB_DEATH_TRAIT)
+	return ..()
 
 /mob/living/simple_animal/proc/CanAttack(atom/the_target)
 	if(!isatom(the_target)) // no
@@ -513,7 +509,7 @@
 			else if(!is_child && M.gender == MALE && !(M.flags_1 & HOLOGRAM_1)) //Better safe than sorry ;_;
 				partner = M
 
-		else if(isliving(M) && !faction_check_mob(M)) //shyness check. we're not shy in front of things that share a faction with us.
+		else if(isliving(M) && !faction_check_atom(M)) //shyness check. we're not shy in front of things that share a faction with us.
 			return //we never mate when not alone, so just abort early
 
 	if(alone && partner && children < 3)
@@ -567,6 +563,7 @@
 	update_held_items()
 
 /mob/living/simple_animal/update_held_items()
+	. = ..()
 	if(!client || !hud_used || hud_used.hud_version == HUD_STYLE_NOHUD)
 		return
 	var/turf/our_turf = get_turf(src)
