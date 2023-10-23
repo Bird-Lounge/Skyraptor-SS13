@@ -43,12 +43,10 @@
 	/// Should we pixel offset ourselves at init? for mapping
 	var/offset_at_init = TRUE
 
-/obj/item/food/grown/Initialize(
-		mapload,
-		starting_reagent_purity = null,
-		no_base_reagents = TRUE,
-		obj/item/seeds/new_seed,
-	)
+/obj/item/food/grown/New(loc, obj/item/seeds/new_seed)
+	return ..()
+
+/obj/item/food/grown/Initialize(mapload, obj/item/seeds/new_seed)
 	if(!tastes)
 		tastes = list("[name]" = 1) //This happens first else the component already inits
 
@@ -80,6 +78,7 @@
 
 	. = ..() //Only call it here because we want all the genes and shit to be applied before we add edibility. God this code is a mess.
 
+	reagents.clear_reagents()
 	seed.prepare_result(src)
 	transform *= TRANSFORM_USING_VARIABLE(seed.potency, 100) + 0.5 //Makes the resulting produce's sprite larger or smaller based on potency!
 
@@ -115,7 +114,7 @@
 /obj/item/food/grown/proc/ferment()
 	var/reagent_purity = seed.get_reagent_purity()
 	var/purity_above_base = clamp((reagent_purity - 0.5) * 2, 0, 1)
-	var/quality_min = 0
+	var/quality_min = DRINK_NICE
 	var/quality_max = DRINK_FANTASTIC
 	var/quality = round(LERP(quality_min, quality_max, purity_above_base))
 	for(var/datum/reagent/reagent in reagents.reagent_list)
