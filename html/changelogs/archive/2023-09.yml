@@ -581,3 +581,303 @@
   - rscadd: 'Added two new awards specifically for engineering and medical: The "Emergency
       Services Award" and the "Atmospheric Mastery Award". CEs get 3 Emergency Services
       Awards and 1 Atmospheric Mastery Award and CMOs get 3 Emergency Services Awards.'
+2023-09-30:
+  A.C.M.O.:
+  - bugfix: Fixes the death sandwich, making it safe to examine.
+  BurgerBB:
+  - bugfix: Scrubbers and Vents will no longer reset their settings on map load.
+  Ghommie (Thanks Sealed101):
+  - refactor: Reworked the fishing minigame into a game screen object from a TGUI
+      interface
+  LT3:
+  - admin: Successful restart votes will now restart on the current map
+  - code_imp: End round and persistence data will be saved before executing successful
+      restart vote
+  - spellcheck: Improved wording in greyscale JSON error message
+  Melbert:
+  - rscadd: Changelings can now speak through their decoy brain if it is placed in
+      an MMI, to maintain the illusion they are actually dead and have been debrained.
+  - rscadd: Doctors can now get head mirrors from their clothes vendor, to complete
+      the doctor outfit
+  - balance: Ascended Blade Heretics no longer have blanket stun immunity, they now
+      have 45 seconds of stun absorption that recharges after 2 minutes - think His
+      Grace. This doesn't affect stamcrit (still immune to that) (assuming you haven't
+      consumed all of your immunity charge) but does affect hard CC such as slips,
+      flashbangs, or beepsky.
+  - balance: Ascended Blade Heretics now have a 0.75 modifier to incoming knockdowns.
+  - qol: Examine blocked out roundstart / latejoin job information.
+  - qol: Captain gets a little bit more information about how their radio works roundstart.
+  - bugfix: Fixed roundstart players not getting radio information.
+  - balance: Transformation sting now lasts 8 minutes, down from permanent. However,
+      the effect is paused for dead and stasis mobs, making it permanent SO LONG AS
+      they stay dead or in stasis. The effect is also permanent if used on a monkey.
+  - balance: Transformation sting now costs 33 chemicals, down from 50.
+  - balance: Transformation sting now costs 2 dna points, down from 3.
+  - bugfix: Transformation sting works on monkeys again.
+  - refactor: Refactored a bit of human randomization.
+  - config: Adds a config option for player respawning that enables respawns, but
+      forces you pick a new character.
+  - config: '"NORESPAWN" has been replaced with "ALLOW_RESPAWN 0". Unlimited respawns
+      is "ALLOW_RESPAWN 1" and character limited respawns is "ALLOW_RESPAWN 2".'
+  NaakaKo:
+  - bugfix: Conveyor belts now properly show their new screentips on mouseover with
+      tools.
+  - bugfix: Splattercasting resets your blood to normal values when you transsform
+      into a vampire.
+  - bugfix: Gaining a new species will set your blood volume down to the normal volume
+      levels if higher than normal.
+  - bugfix: Fix water puddle runtime when washing items
+  - bugfix: Blob Zombies and Blobbernauts have had their attack speed restored to
+      its original value
+  - image: the security records suspected status is now teal instead of orange
+  - bugfix: Flares and candles no longer sound like flashlights when being turned
+      on.
+  - bugfix: Getting shot by an SC/FISHER now disables PDA lights for consistency's
+      sake.
+  - bugfix: dead bodies now cool down to room temperature over time
+  - code_imp: added some null checks for general juicing & grinding items
+  - bugfix: grinding stacks now grinds as many pieces/sheets from the stack as possible
+      that can fit in a beaker/container without wasting the whole stack
+  - bugfix: plumbing chemical grinder now actually works again
+  - bugfix: the plumbing chemical grinder allows stuff to enter from any direction
+      but not mobs and also accepts items put inside it via hand including bags
+  - bugfix: You can remove the beaker from the all in 1 grinder when power is off
+      via right click
+  - bugfix: All in 1 grinder now mixes faster with upgraded parts
+  - refactor: you can no longer walk into a plumbing chemical grinder
+  - qol: '[Deltastation, Icebox, Metastation, Tramstation] Adds cell timers to isolation
+      cells. (they do not auto-open the doors)'
+  - qol: '[Birdshot, Deltastation, Icebox, Metastation, Northstar, Tramstation] Adds
+      translator glove modules to the stacks of "accessibility" (e.g. plasma fixation
+      / thermal regulator) modules found in security, medical, and engineering storage
+      rooms.'
+  - qol: '[Birdshot] Adds a roll of packaging paper to the cargo office.'
+  - qol: '[Icebox] Adds a hand labeler to security''s gear room.'
+  - qol: '[Northstar] Nudges the set of binoculars covering the mass driver controls
+      in ordnance over a few inches.'
+  - bugfix: '[Birdshot] Remaps the janitor''s closet such that the recycling machine
+      will now work.'
+  - bugfix: '[Icebox] Removes a duplicated hand labeler from the rack near security''s
+      brig cells.'
+  - bugfix: '[Metastation] Patches a broken corpse disposal pipe running from aux
+      surgery to the morgue.'
+  - bugfix: '[Northstar] Fixes the SM being hotwired at round-start (partially rewires
+      the SM room, moves the APC to the North wall).'
+  - bugfix: Fixed zombies being able to infect headless corpses (Including former
+      zombies)
+  - bugfix: 'Fixed bio armor being totally useless against zombies. Now it checks
+      how hurt your limb is: If it''s more than the bio armor value, you get infected.
+      THICKMATERIAL clothing guarantees at least 25 damage required to infect you,
+      non-thick clothing reduces effective defence by 25. In practice this means people
+      with MODsuits, biosuits will resist infection unless they''re pummeled into
+      crit, and wearing a firesuit will save you from the first few slashes.'
+  - bugfix: Fixed the bomb hood armor not having the same bio armor value as bomb
+      armor.
+  - qol: Added a message to the zed when they succesfully infect someone.
+  - code_imp: Turned some proc names into snake_case rather than, uh, nospacecase.
+  - bugfix: Throwing things at cyborgs will now slow them down, as intended
+  - balance: Adjusted the calculation of throwforce -> slowdown for cyborgs such that
+      it is simply a flat duration for anything above a certain damage threshold (the
+      value of throwing iron rods)
+  - bugfix: Fix secret documents steal objective failing while inside folder.
+  - spellcheck: Replaced an irrelevant tip of the round about scars with a better
+      one
+  - bugfix: fixed geysers spawning on turfs with plants
+  - bugfix: Centcom now rejects contraband that somehow makes it way onto the cargo
+      shuttle mid-transit and returns it.
+  - bugfix: Fixed job configs not being loaded properly.
+  - bugfix: The nuclear operative MODsuit intellicard now actually downloads an AI
+      rather than simply kicking candidates from the game.
+  - admin: First time user connections are now logged
+  - bugfix: fixed Strong Stone ruin generation
+  - bugfix: Fixes full advanced surgery trays spawning with 'nothing'
+  - bugfix: You can no longer break the game by AI rolling in a card or APC
+  - qol: AI Roll now doesnt require you to click the exact turf to move you
+  - qol: AI roll cooldown and roll time is now a variable, making it possible for
+      AIs to become terrifying catamari damacy balls
+  - bugfix: Fixed the overflow role having less slots than it actually should.
+  - bugfix: Intellicards in computers are no longer deleted when the computer is destroyed.
+  - bugfix: Modular consoles can now be deconstructed by right clicking with a wrench.
+  - bugfix: Stun immune people should no longer have issues with gripper gloves and
+      other tackle gloves.
+  - bugfix: cigarettes no longer smoke themselves from inside your pockets or on your
+      hands.
+  - rscadd: Added the Hippocrates bust to medbay heirlooms. Paramedics don't get one.
+  - rscadd: You can now swear the Hippocratic oath with these busts! It'll give you
+      pacifism but nothing else. The process is reversible.
+  - rscadd: There's a very small chance that the Hippocrates bust was once wielded
+      by a certain German doctor. This chance is increased for coroner heirlooms.
+  - balance: Gave the bluespace geode pirates 4 more teleporter bolt turrets.
+  - bugfix: The bluespace geode pirates no longer have a bluespace portal to the bottomless
+      pit dimension.
+  - rscadd: Station-safe dirt tiles for all your mapping needs, but surely no station
+      maps use the chasm baseturf ones, right? Right?
+  - rscdel: removes surgical duffelbags
+  - bugfix: the surgery supply order now comes with a surgery tray
+  - bugfix: Forgetting to take dough out of the oven no longer progresses the server
+      to a crash-worthy state with infinite bread and ash and burned food products
+      for all.
+  - qol: NT CIMs shows how much power the supermatter is releasing.
+  - qol: NT CIMs internal energy will adjust its prefix.
+  - qol: Energy displays (such as multitooling grid) will use the full range of SI
+      prefixes available, up to the peta prefix if you somehow managed to reach that.
+  - rscdel: Removes the per cubic centimeter part of internal energy.
+  - bugfix: Fix unnecessary delta time scaling on inactive supermatters.
+  - bugfix: Fix high energy zaps not scaling with delta time.
+  - bugfix: Fixes grounding rods lying about potential power you can generate.
+  - code_imp: Convert supermatter_zap() and tesla_zap() zap_str argument unit to be
+      in joules, and scales everything that uses that argument.
+  - image: resprites pestkiller, weedkiller, and nolabel sprays
+  - image: updates shading on medigels
+  - image: resprites all spray bottles
+  - rscadd: SM crystal can now dust someone or something if it falls on it.
+  - bugfix: fixed fishing.
+  - rscadd: climbing hooks that allow you to go up holes for multiz, found in internals
+      boxes (on planetary maps), the uplink, cargo and nukie personal lockers
+  - qol: Gas masks now muffle your voice with TTS.
+  - qol: Security Hailer masks now disguise your voice to protect your right to brutalize
+      greytiders.
+  - qol: Lizards, Ethereals, and Xenomorphs now have a vocal effect.
+  - qol: Security Records now show someone's voice name.
+  - refactor: clowns are basicmobs now
+  - rscadd: Add candle design to biogenerator
+  - bugfix: You can now spray paint the SM without getting dusted
+  - rscadd: added ranged attack friendly fire checks for basic mobs. minebots and
+      hivebots will now try to avoid shooting their friends
+  - image: resprites t-ray scanner, gas analyzer, geiger counter and hand drill.
+  - bugfix: The flight potion wings will no longer fail to work on lavaland/icemoon
+      on rare occasions.
+  - qol: you can undeploy fulton beacons by clicking them with an empty hand
+  - qol: you can rename fulton beacons with a pen
+  - rscadd: Added a candle box crate for all your candle needs!
+  - qol: allowed names to start with a number if AI/Borg
+  - bugfix: Roundstart medbots and cleanbots are now more likely to be able to be
+      possessed by observers.
+  - admin: It's easier to modify the properties of bots to stop them from being possessed
+      or depossessed.
+  - bugfix: fixed lobstrosities becoming unmovable when killed during their charge
+      windup
+  - bugfix: Selecting "Monkey" on a magic mirror will now once again turn you into
+      a Monkey rather than a disgusting freak of nature.
+  - bugfix: Tall Boys have once again been barred from joining the Wizard Federation.
+  - bugfix: Metalgen can no longer be used to transmute indestructible turfs.
+  - bugfix: posibrains can be inserted again
+  - bugfix: Seeds will no longer be removed from existence after receiving the "You
+      can't seem to add [seed type] to the seed extractor" message
+  - bugfix: Some seeds that were previously not able to be added to the seed extractor
+      may now be added (starthistle for example)
+  - bugfix: fixes replica pod seeds spawning humans in nullspace
+  - image: adds a frog holoform for pAIs
+  - bugfix: Gauze no longer falls off if a wound is demoted or promoted
+  - rscadd: Wall mounted objects (Things like APCs, Air Alarms, Light switches, Signs,
+      Posters, Newscasters, you name it) will now fall to the ground and break or
+      deconstruct when their attaching wall is changed or broken.
+  - admin: There is now a tool to apply a DNA Infuser entry to any human.
+  - bugfix: Fix altars not allowing items to be sacrificed
+  - bugfix: Syndicate Modsuit AI's now downloads the current codespeak book upon being
+      downloaded.
+  - qol: The supply beacon will no longer delete itself due to explosions, and you
+      can now anchor it with a wrench.
+  - spellcheck: Express console now correctly states that it needs cargo access instead
+      of QM access.
+  - bugfix: Lavaland syndicate operatives can no longer trivially use the jetpack
+      on their modsuit to fly over the lava.
+  - refactor: Turned slapcrafting into a component! You can examine compatible items
+      to see what recipes they can be used in, and what the ingredients for them are.
+      For example, spears and the head-on-spear crafting recipe.
+  - bugfix: Fixed crabs not correctly (kinda) walking sideway.
+  - bugfix: you can now deconstruct exodrone scanner arrays
+  - bugfix: the tree in space exodrone adventure no longer softlocks you
+  - qol: the exodrone launchers now tell you on examine how to remove their fuel canister
+      if you somehow needed to do that
+  - balance: exodrone wide scans are now capped at 10 minutes
+  - balance: exodrone travel times are 18% faster
+  - balance: you can now upgrade scanner arrays for faster wide scan
+  - balance: exodrone point scan and deep scan are faster
+  - spellcheck: fixes several typos related to exodrones and gives scanner control
+      console a description
+  - bugfix: the parole status and discharged status are now green and blue respectively
+      in the security record interface
+  - balance: You can now remove and replace power cells from PDAs (with screwdriver).
+  - balance: PDAs now drain their power cells harder, and also take into account active
+      programs & their flashlight being on.
+  - balance: PDAs running out of charge now turn their flashlights off.
+  - balance: 'EMP damage on augs: 2/1.5 from 3/2'
+  - balance: Augs now only get paralyzed by EMP for 3/6 seconds if they are damaged
+      below 70% HP,
+  - balance: Aug EMP knockdown reduced to 3 seconds
+  - balance: Synthetic ears now take far less EMP damage
+  - balance: Makes it so Ephedrine spasms have a 10 * (1.5 - purity)% chance per second
+      to happen, Adding a downside to pure Ephedrine
+  - bugfix: fixed the stamp in the metastation CMO office always spawning on the floor
+  - balance: Supermatter now takes 15 seconds to delaminate normally and 5 if a sliver
+      has been taken from it. Gives a little more time to escape in the case of the
+      sliver and also evens out the times to please perfectionists.
+  - bugfix: Supermatter now accurately reports it's detonation time.
+  - spellcheck: Supermatter mood descriptions have been reverted back to their old,
+      more flavorful selves.
+  - balance: Diabetics rejoice! Nerfed sugar OD/hyperglycaemic shock to be an immediate
+      KO followed by drowsiness afterwards until the OD is gone.
+  - bugfix: The Nuke Op MODsuit AI downloader only works once per purchase, as intended.
+  - rscadd: Contractor baton in traitor uplink for 12 TC
+  - balance: Ebow no longer has a reputation requirement.
+  - bugfix: Dimensional Anomalies no longer destroy wall-mounted equipment.
+  - refactor: Snakes have been refactored into basic mobs. This means that they are
+      a bit more intelligent than previous snakes, making them more docile and averse
+      to harming people (unless otherwise provoked). They do chomp all sorts of mice
+      though. You can feed them a dead mouse to make them your friend if you'd want
+      that.
+  - sound: If you listen closely to snakes, you might be able to hear a small hissing
+      sound...
+  - code_imp: adds a gas connector component that allows connection to the atmos piping
+      system without the need of repathing
+  - refactor: changes the cryo machine to use this new system
+  - bugfix: '[Tramstation] Mass Driver in chapel now has tiny fan so you don''t space
+      yourself.'
+  - bugfix: removes incorrect stack traces when using some admin secrets
+  - refactor: Heavily refactored mirrors to be less ass cancer 1998 code. Player facing
+      changes are that mirrors now use a radial menu, women can get beards in magic
+      mirrors, made the magic mirror 'change sex' option Woke (it supports the 4 official
+      genders and physique as well)
+  - bugfix: Fixed Pride Mirror teleporting you into the space on the first use. Now
+      it waits until you officially cancel and say 'I am Done' so you can customize
+      yourself to your liking.
+  - bugfix: Left-clicking an empty surgery tray will now tell you exactly why it does
+      nothing.
+  - rscadd: Adds an advanced plastic surgery procedure, allowing you to imitate people
+      in pictures. Simply hold a picture in your offhand of the person you wish to
+      imitate as while conducting the surgery! Remember, it's not foolproof, it only
+      changes your name and voice!
+  - rscadd: You can obtain the disk containing the afromentioned surgery. as a role-restricted
+      item to doctors and roboticists for 1TC, as a rare maint loot and BEPIS technode
+      reward
+  - rscadd: Add drinking water causes drunk mobs to become sober
+  - balance: Head revolutionaries and heads of staff are no longer immediately considered
+      disqualified when going AFK or disconnecting and are given a 2 minute grace
+      period.
+  - admin: Admins now get a log when a head revolutionary or head of staff disconnects
+      or goes AFK during a revolution. They also get the same log 1 minute after to
+      give them a chance to act on the information.
+  - bugfix: Added complexity factors to foods that were missing them.
+  - admin: Mob abilities can be granted to arbitrary mobs via the VV menu in a similar
+      way to spells.
+  - code_imp: Your bodytype now decides what gendered sounds you make.
+  - spellcheck: Tweaks the message that players get when not being able to qualify
+      for roundstart antag to be more accurate as to what's happening.
+  - bugfix: The custom error message for when there is only one map to vote for should
+      pop up in all cases rather than just a select few.
+  - bugfix: Valentines and ERTs will no longer get mood boosts from traitor moodener
+      items
+  Rhials:
+  - bugfix: The Polymorph Belt should now update its sprite when active.
+  - qol: The freedom implant has received minor feedback and other minor usage improvements.
+  - bugfix: '"Spooky" meteors will now properly spawn during halloween.'
+  Tattle:
+  - qol: drones now have individual names, instead of just "drone"
+  Vekter:
+  - bugfix: Fixes the missing grinder in Birdshot's Virology department
+  - rscadd: Added a holodeck to Birdshot Station. It can be reached via the Crew Facilities
+      hallway.
+  tattle:
+  - qol: Basic animals now make sounds for audible emotes
+  - sound: Added new sound effects for chicks, chickens, crabs, and insects

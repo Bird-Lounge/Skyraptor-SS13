@@ -113,7 +113,7 @@
 	COOLDOWN_DECLARE(last_tipping_action_voice)
 
 /mob/living/simple_animal/bot/medbot/autopatrol
-	bot_mode_flags = BOT_MODE_ON | BOT_MODE_AUTOPATROL | BOT_MODE_REMOTE_ENABLED | BOT_MODE_CAN_BE_SAPIENT
+	bot_mode_flags = BOT_MODE_ON | BOT_MODE_AUTOPATROL | BOT_MODE_REMOTE_ENABLED | BOT_MODE_CAN_BE_SAPIENT | BOT_MODE_ROUNDSTART_POSSESSION
 
 /mob/living/simple_animal/bot/medbot/stationary
 	medical_mode_flags = MEDBOT_DECLARE_CRIT | MEDBOT_STATIONARY_MODE | MEDBOT_SPEAK_MODE
@@ -493,10 +493,10 @@
 		return
 
 	if(patient && path.len == 0 && (get_dist(src,patient) > 1))
-		path = get_path_to(src, patient, max_distance=30, id=access_card)
+		path = get_path_to(src, patient, max_distance=30, access=access_card.GetAccess())
 		mode = BOT_MOVING
 		if(!path.len) //try to get closer if you can't reach the patient directly
-			path = get_path_to(src, patient, max_distance=30, mintargetdist=1, id=access_card)
+			path = get_path_to(src, patient, max_distance=30, mintargetdist=1, access=access_card.GetAccess())
 			if(!path.len) //Do not chase a patient we cannot reach.
 				soft_reset()
 

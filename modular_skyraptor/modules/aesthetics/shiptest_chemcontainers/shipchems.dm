@@ -94,27 +94,45 @@
 	can_have_cap = TRUE
 	cap_icon_state = "beaker_cap"
 
+	volume = 60 //a skyraptor buff
+	desc = "A beaker. It can hold up to 60 units."
+
 /obj/item/reagent_containers/cup/beaker/jar
 	fill_icon = 'icons/obj/medical/reagent_fillings.dmi'
 	cap_on = FALSE
 	can_have_cap = FALSE
 	cap_icon_state = null
 
+	volume = 50
+
 /obj/item/reagent_containers/cup/beaker/large
 	fill_icon_thresholds = list(1, 40, 60, 80, 100)
 	cap_icon_state = "beakerlarge_cap"
+
+	volume = 120 //skyraptor buff
+	desc = "A large beaker. Can hold up to 120 units."
 
 /obj/item/reagent_containers/cup/beaker/plastic
 	fill_icon_thresholds = list(1, 40, 60, 80, 100)
 	fill_icon_state = "beakerlarge"
 	cap_icon_state = "beakerlarge_cap"
 
+	volume = 180 //skyraptor buff
+	desc = "An extra-large beaker. Can hold up to 180 units."
+
 /obj/item/reagent_containers/cup/beaker/meta
 	fill_icon_thresholds = list(1, 25, 50, 75, 100)
 	cap_icon_state = "beakergold_cap"
 
+	volume = 240 //skyraptor buff
+	desc = "An ultra-large beaker. Can hold up to 240 units."
+
 /obj/item/reagent_containers/cup/beaker/noreact
 	cap_icon_state = "beakernoreact_cap"
+
+	volume = 120 //skyraptor buff
+	desc = "A cryostasis beaker that allows for chemical storage without \
+		reactions. Can hold up to 120 units."
 
 /obj/item/reagent_containers/cup/beaker/bluespace
 	cap_icon_state = "beakerbluespace_cap"
@@ -122,7 +140,7 @@
 /obj/item/reagent_containers/cup/bottle
 	icon = 'modular_skyraptor/modules/aesthetics/shiptest_chemcontainers/shipchems.dmi'
 	fill_icon = 'modular_skyraptor/modules/aesthetics/shiptest_chemcontainers/reagentfillings.dmi'
-	fill_icon_thresholds = list(0, 10, 30, 50, 70)
+	fill_icon_thresholds = list(1, 30, 50, 70)
 
 	cap_on = TRUE
 	can_have_cap = TRUE
@@ -134,6 +152,13 @@
 /obj/item/reagent_containers/cup/bottle/syrup_bottle
 	fill_icon = 'icons/obj/medical/reagent_fillings.dmi'
 	fill_icon_thresholds = list(0, 20, 40, 60, 80, 100)
+	cap_on = FALSE
+	can_have_cap = FALSE
+	cap_icon_state = null
+
+/// test tubes need some bespoke work to add caps and get them in-line with our current style, this is a TODO
+/obj/item/reagent_containers/cup/tube
+	fill_icon = 'icons/obj/medical/reagent_fillings.dmi'
 	cap_on = FALSE
 	can_have_cap = FALSE
 	cap_icon_state = null

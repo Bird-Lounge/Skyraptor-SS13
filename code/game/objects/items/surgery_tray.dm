@@ -1,8 +1,32 @@
+/datum/storage/surgery_tray
+	max_total_storage = 30
+	max_specific_storage = WEIGHT_CLASS_NORMAL
+	max_slots = 14
+
+/datum/storage/surgery_tray/New()
+	. = ..()
+	set_holdable(list(
+		/obj/item/autopsy_scanner,
+		/obj/item/blood_filter,
+		/obj/item/bonesetter,
+		/obj/item/cautery,
+		/obj/item/circular_saw,
+		/obj/item/clothing/mask/surgical,
+		/obj/item/hemostat,
+		/obj/item/razor,
+		/obj/item/reagent_containers/medigel,
+		/obj/item/retractor,
+		/obj/item/scalpel,
+		/obj/item/stack/medical/bone_gel,
+		/obj/item/stack/sticky_tape/surgical,
+		/obj/item/surgical_drapes,
+		/obj/item/surgicaldrill,
+	))
+
 /**
  * Surgery Trays
  * A storage object that displays tools in its contents based on tier, better tools are more visible.
  * Can be folded up and carried. Click it to draw a random tool.
- *
  */
 /obj/item/surgery_tray
 	name = "surgery tray"
@@ -129,8 +153,10 @@
 /obj/item/surgery_tray/attack_hand(mob/living/user)
 	if(!user.can_perform_action(src, NEED_HANDS))
 		return ..()
-	var/obj/item/grabbies = pick(contents)
-	if(grabbies)
+	if(!length(contents))
+		balloon_alert(user, "empty!")
+	else
+		var/obj/item/grabbies = pick(contents)
 		atom_storage.remove_single(user, grabbies, drop_location())
 		user.put_in_hands(grabbies)
 	return TRUE
@@ -184,7 +210,7 @@
 	name = "autopsy tray"
 	desc = "A Deforest brand surgery tray, made for use in morgues. It is a folding model, \
 		meaning the wheels on the bottom can be extended outwards, making it a cart."
-	
+
 /obj/item/surgery_tray/full/morgue/populate_contents()
 	new /obj/item/blood_filter(src)
 	new /obj/item/bonesetter(src)
@@ -200,42 +226,17 @@
 	new /obj/item/surgical_drapes(src)
 	new /obj/item/surgicaldrill(src)
 
-<<<<<<< HEAD
-/datum/storage/surgery_tray
-	max_total_storage = 30
-	max_specific_storage = WEIGHT_CLASS_NORMAL
-	max_slots = 14
-
-/datum/storage/surgery_tray/New()
-	. = ..()
-	set_holdable(list(
-		/obj/item/blood_filter,
-		/obj/item/bonesetter,
-		/obj/item/cautery,
-		/obj/item/circular_saw,
-		/obj/item/clothing/mask/surgical,
-		/obj/item/hemostat,
-		/obj/item/razor,
-		/obj/item/retractor,
-		/obj/item/scalpel,
-		/obj/item/stack/medical/bone_gel,
-		/obj/item/stack/sticky_tape/surgical,
-		/obj/item/surgical_drapes,
-		/obj/item/surgicaldrill,
-	))
-=======
 /// Surgery tray with advanced tools for debug
 /obj/item/surgery_tray/full/advanced
 
 /obj/item/surgery_tray/full/advanced/populate_contents()
-	new /obj/item/scalpel/advanced
-	new /obj/item/retractor/advanced
-	new /obj/item/cautery/advanced
-	new /obj/item/surgical_drapes
-	new /obj/item/reagent_containers/medigel/sterilizine
-	new /obj/item/bonesetter
-	new /obj/item/blood_filter
-	new /obj/item/stack/medical/bone_gel
-	new /obj/item/stack/sticky_tape/surgical
-	new /obj/item/clothing/mask/surgical
->>>>>>> a446ac71662 (Adds craftable surgery trays. (#78364))
+	new /obj/item/scalpel/advanced(src)
+	new /obj/item/retractor/advanced(src)
+	new /obj/item/cautery/advanced(src)
+	new /obj/item/surgical_drapes(src)
+	new /obj/item/reagent_containers/medigel/sterilizine(src)
+	new /obj/item/bonesetter(src)
+	new /obj/item/blood_filter(src)
+	new /obj/item/stack/medical/bone_gel(src)
+	new /obj/item/stack/sticky_tape/surgical(src)
+	new /obj/item/clothing/mask/surgical(src)
