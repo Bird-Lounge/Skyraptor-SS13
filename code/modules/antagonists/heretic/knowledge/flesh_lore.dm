@@ -250,7 +250,7 @@
 		/obj/effect/decal/cleanable/blood = 1,
 		/obj/item/bodypart/arm/left = 1,
 	)
-	mob_to_summon = /mob/living/simple_animal/hostile/heretic_summon/raw_prophet
+	mob_to_summon = /mob/living/basic/heretic_summon/raw_prophet
 	cost = 1
 	route = PATH_FLESH
 	poll_ignore_define = POLL_IGNORE_RAW_PROPHET
@@ -262,8 +262,6 @@
 		I finally began to understand. And then, blood rained from the heavens."
 	next_knowledge = list(/datum/heretic_knowledge/summon/stalker)
 	route = PATH_FLESH
-	///What type of wound do we apply on hit
-	var/wound_type = /datum/wound/slash/flesh/severe
 
 /datum/heretic_knowledge/blade_upgrade/flesh/do_melee_effects(mob/living/source, mob/living/target, obj/item/melee/sickly_blade/blade)
 	if(!iscarbon(target) || source == target)
@@ -271,12 +269,7 @@
 
 	var/mob/living/carbon/carbon_target = target
 	var/obj/item/bodypart/bodypart = pick(carbon_target.bodyparts)
-<<<<<<< HEAD
-	var/datum/wound/slash/flesh/severe/crit_wound = new()
-=======
-	var/datum/wound/crit_wound = new wound_type()
->>>>>>> 4b73b37d60d (Heretic Knock Path (#78108))
-	crit_wound.apply_wound(bodypart, attack_direction = get_dir(source, target))
+	carbon_target.cause_wound_of_type_and_severity(WOUND_SLASH, bodypart, WOUND_SEVERITY_SEVERE, WOUND_SEVERITY_CRITICAL)
 
 /datum/heretic_knowledge/summon/stalker
 	name = "Lonely Ritual"
