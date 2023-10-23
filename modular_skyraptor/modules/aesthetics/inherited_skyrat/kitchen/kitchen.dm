@@ -25,3 +25,6 @@
 
 /obj/structure/showcase/machinery/microwave
 	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/kitchen/microwave.dmi'
+
+/obj/machinery/griddle
+	icon = 'modular_skyraptor/modules/aesthetics/inherited_skyrat/kitchen/kitchen.dmi'
