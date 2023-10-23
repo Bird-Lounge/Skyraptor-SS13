@@ -371,7 +371,10 @@
 	 */
 	var/list/prefill_flavours
 
-/obj/item/food/icecream/Initialize(mapload, starting_reagent_purity, no_base_reagents, list/prefill_flavours)
+/obj/item/food/icecream/New(loc, list/prefill_flavours)
+	return ..()
+
+/obj/item/food/icecream/Initialize(mapload, list/prefill_flavours)
 	if(prefill_flavours)
 		src.prefill_flavours = prefill_flavours
 	return ..()
@@ -537,6 +540,7 @@
 	foodtypes = GRAIN | SUGAR | DAIRY
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
+	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cookie/snickerdoodle
 	name = "snickerdoodle"
@@ -547,6 +551,7 @@
 	foodtypes = GRAIN | SUGAR | DAIRY
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
+	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cookie/macaron
 	name = "macaron"
@@ -558,6 +563,7 @@
 	foodtypes = GRAIN | SUGAR | DAIRY
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_TINY
+	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/cookie/macaron/Initialize(mapload)
 	. = ..()
@@ -572,3 +578,4 @@
 	foodtypes = GRAIN | SUGAR | FRUIT
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
+	crafting_complexity = FOOD_COMPLEXITY_3

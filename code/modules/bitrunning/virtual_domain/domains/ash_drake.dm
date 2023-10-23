@@ -12,7 +12,7 @@
 /mob/living/simple_animal/hostile/megafauna/dragon/virtual_domain
 	can_be_cybercop = FALSE
 	crusher_loot = list(/obj/structure/closet/crate/secure/bitrunning/encrypted)
-	health = 1600
+	health = 1400
 	loot = list(/obj/structure/closet/crate/secure/bitrunning/encrypted)
-	maxHealth = 1600
+	maxHealth = 1400
 	true_spawn = FALSE
