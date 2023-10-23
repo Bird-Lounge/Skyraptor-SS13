@@ -8,6 +8,19 @@
 #define BB_FOOD_TARGET "bb_food_target"
 ///Path we should use next time we use the JPS movement datum
 #define BB_PATH_TO_USE "BB_path_to_use"
+<<<<<<< HEAD
+=======
+///How close a mob must be for us to select it as a target, if that is less than how far we can maintain it as a target
+#define BB_AGGRO_RANGE "BB_aggro_range"
+
+/// Store a single or list of emotes at this key
+#define BB_EMOTE_KEY "BB_emotes"
+/// Chance to perform an emote per second
+#define BB_EMOTE_CHANCE "BB_EMOTE_CHANCE"
+
+///Turf we want a mob to move to
+#define BB_TRAVEL_DESTINATION "BB_travel_destination"
+>>>>>>> 504e6acfa35 (Basic Mob Gorillas (#78918))
 
 ///song instrument blackboard, set by instrument subtrees
 #define BB_SONG_INSTRUMENT "BB_SONG_INSTRUMENT"
@@ -33,6 +46,10 @@
 #define BB_BASIC_MOB_EXECUTION_TARGET "BB_basic_execution_target"
 ///Blackboard key for a whitelist typecache of "things we can target while trying to move"
 #define BB_OBSTACLE_TARGETTING_WHITELIST "BB_targetting_whitelist"
+/// Key for the minimum status at which we want to target mobs (does not need to be specified if CONSCIOUS)
+#define BB_TARGET_MINIMUM_STAT "BB_target_minimum_stat"
+/// Flag for whether to target only wounded mobs
+#define BB_TARGET_WOUNDED_ONLY "BB_target_wounded_only"
 
 /// Blackboard key storing how long your targetting datum has held a particular target
 #define BB_BASIC_MOB_HAS_TARGET_TIME "BB_basic_mob_has_target_time"
@@ -70,8 +87,8 @@
 ///List of mobs who have damaged us
 #define BB_BASIC_MOB_RETALIATE_LIST "BB_basic_mob_shitlist"
 
-/// Flag to set on or off if you want your mob to prioritise running away
-#define BB_BASIC_MOB_FLEEING "BB_basic_fleeing"
+/// Flag to set on if you want your mob to STOP running away
+#define BB_BASIC_MOB_STOP_FLEEING "BB_basic_stop_fleeing"
 
 ///list of foods this mob likes
 #define BB_BASIC_FOODS "BB_basic_foods"
@@ -95,7 +112,11 @@
 #define BB_EMOTE_HEAR "emote_hear"
 #define BB_EMOTE_SEE "emote_see"
 #define BB_EMOTE_SOUND "emote_sound"
+<<<<<<< HEAD
 #define BB_EMOTE_CHANCE "emote_chance"
 
 ///should we skip the faction check for the targetting datum?
 #define BB_BASIC_MOB_SKIP_FACTION_CHECK "BB_basic_mob_skip_faction_check"
+=======
+#define BB_SPEAK_CHANCE "emote_chance"
+>>>>>>> 504e6acfa35 (Basic Mob Gorillas (#78918))

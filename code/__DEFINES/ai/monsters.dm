@@ -45,6 +45,8 @@
 #define BB_CURRENT_HOME "BB_current_home"
 ///the hydro we will pollinate
 #define BB_TARGET_HYDRO "BB_target_hydro"
+///key to swarm around
+#define BB_SWARM_TARGET "BB_swarm_target"
 
 // bear keys
 ///the hive with honey that we will steal from
@@ -146,3 +148,29 @@
 #define BB_RAPIDSEEDS_ABILITY "rapidseeds_ability"
 /// key holds the tray we will beam
 #define BB_BEAMABLE_HYDROPLANT_TARGET "beamable_hydroplant_target"
+<<<<<<< HEAD
+=======
+
+//ice demons
+///the list of items we are afraid of
+#define BB_LIST_SCARY_ITEMS "list_scary_items"
+///our teleportation ability
+#define BB_DEMON_TELEPORT_ABILITY "demon_teleport_ability"
+///the destination of our teleport ability
+#define BB_TELEPORT_DESTINATION "teleport_destination"
+///the ability to clone ourself
+#define BB_DEMON_CLONE_ABILITY "demon_clone_ability"
+///our slippery ice ability
+#define BB_DEMON_SLIP_ABILITY "demon_slip_ability"
+///the turf we are escaping too
+#define BB_ESCAPE_DESTINATION "escape_destination"
+///how far away we will be from our target before teleporting
+#define BB_MINIMUM_DISTANCE_RANGE "minimum_distance_range"
+
+/// Corpse we have consumed
+#define BB_LEGION_CORPSE "legion_corpse"
+/// Things our target recently said
+#define BB_LEGION_RECENT_LINES "legion_recent_lines"
+/// The creator of our legion skull
+#define BB_LEGION_BROOD_CREATOR "legion_brood_creator"
+>>>>>>> 032419f30f7 (ice demon basic mobs (#78539))

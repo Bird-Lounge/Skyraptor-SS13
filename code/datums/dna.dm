@@ -248,7 +248,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	/// SKYRAPTOR EDIT END: modular_chargen
 
 	for(var/blocknum in 1 to DNA_FEATURE_BLOCKS)
-		. += L[blocknum] || random_string(GET_UI_BLOCK_LEN(blocknum), GLOB.hex_characters)
+		. += L[blocknum] || random_string(GET_UF_BLOCK_LEN(blocknum), GLOB.hex_characters)
 
 /datum/dna/proc/generate_dna_blocks()
 	var/bonus
@@ -521,6 +521,8 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	if(ispath(mrace))
 		new_race = new mrace
 	else if(istype(mrace))
+		if(QDELING(mrace))
+			CRASH("someone is calling set_species() and is passing it a qdeling species datum, this is VERY bad, stop it")
 		new_race = mrace
 	else
 		CRASH("set_species called with an invalid mrace [mrace]")
@@ -918,7 +920,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		switch(rand(0,6))
 			if(0)
 				investigate_log("has been gibbed by DNA instability.", INVESTIGATE_DEATHS)
-				gib()
+				gib(DROP_ALL_REMAINS)
 			if(1)
 				investigate_log("has been dusted by DNA instability.", INVESTIGATE_DEATHS)
 				dust()
@@ -934,7 +936,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 						BP.dismember()
 					else
 						investigate_log("has been gibbed by DNA instability.", INVESTIGATE_DEATHS)
-						gib()
+						gib(DROP_ALL_REMAINS)
 				else
 					set_species(/datum/species/dullahan)
 			if(4)

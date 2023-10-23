@@ -193,6 +193,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 				continue
 			if(!(A.area_flags & BLOBS_ALLOWED))
 				continue
+<<<<<<< HEAD
 			A.color = blobstrain.color
 			A.name = "blob"
 			A.icon = 'icons/mob/nonhuman-player/blob.dmi'
@@ -200,6 +201,16 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 			A.layer = BELOW_MOB_LAYER
 			A.invisibility = 0
 			A.blend_mode = 0
+=======
+			check_area.color = blobstrain.color
+			check_area.name = "blob"
+			check_area.icon = 'icons/mob/nonhuman-player/blob.dmi'
+			check_area.icon_state = "blob_shield"
+			check_area.layer = BELOW_MOB_LAYER
+			check_area.SetInvisibility(INVISIBILITY_NONE)
+			check_area.blend_mode = 0
+
+>>>>>>> 96d7e9c690b (Invisibility refactor (#78908))
 	var/datum/antagonist/blob/B = mind.has_antag_datum(/datum/antagonist/blob)
 	if(B)
 		var/datum/objective/blob_takeover/main_objective = locate() in B.objectives
@@ -273,7 +284,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 		if(client.prefs.muted & MUTE_IC)
 			to_chat(src, span_boldwarning("You cannot send IC messages (muted)."))
 			return
-		if (!(ignore_spam || forced) && src.client.handle_spam_prevention(message,MUTE_IC))
+		if (!(ignore_spam || forced) && src.client.handle_spam_prevention(message, MUTE_IC))
 			return
 
 	if (stat)
@@ -291,6 +302,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	src.log_talk(message, LOG_SAY)
 
 	var/message_a = say_quote(message)
+<<<<<<< HEAD
 	var/rendered = span_big("<font color=\"#EE4000\"><b>\[Blob Telepathy\] [name](<font color=\"[blobstrain.color]\">[blobstrain.name]</font>)</b> [message_a]</font>")
 
 	for(var/mob/M in GLOB.mob_list)
@@ -299,6 +311,10 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 		if(isobserver(M))
 			var/link = FOLLOW_LINK(M, src)
 			to_chat(M, "[link] [rendered]")
+=======
+	var/rendered = span_big(span_blob("<b>\[Blob Telepathy\] [name](<font color=\"[blobstrain.color]\">[blobstrain.name]</font>)</b> [message_a]"))
+	relay_to_list_and_observers(rendered, GLOB.blob_telepathy_mobs, src)
+>>>>>>> 3415828c6bc (Refactors Revenants into Basic Mobs (#78782))
 
 /mob/camera/blob/blob_act(obj/structure/blob/B)
 	return

@@ -1,7 +1,11 @@
 /datum/ai_controller/basic_controller/mega_arachnid
 	blackboard = list(
 		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic,
+<<<<<<< HEAD
 		BB_BASIC_MOB_FLEEING = TRUE,
+=======
+		BB_BASIC_MOB_FLEE_DISTANCE = 5,
+>>>>>>> ed907096e30 (Fixes fleeing behaviour (#78821))
 	)
 
 	ai_movement = /datum/ai_movement/basic_avoidance
@@ -36,7 +40,7 @@
 	flee_behaviour = /datum/ai_behavior/run_away_from_target/mega_arachnid
 
 /datum/ai_planning_subtree/flee_target/mega_arachnid/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
-	if(!controller.blackboard[BB_BASIC_MOB_FLEEING])
+	if(controller.blackboard[BB_BASIC_MOB_STOP_FLEEING])
 		return
 	var/datum/action/cooldown/slip_acid = controller.blackboard[BB_ARACHNID_SLIP]
 

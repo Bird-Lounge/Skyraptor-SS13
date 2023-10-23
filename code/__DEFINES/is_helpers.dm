@@ -11,6 +11,9 @@
 
 #define isweakref(D) (istype(D, /datum/weakref))
 
+GLOBAL_VAR_INIT(magic_appearance_detecting_image, new /image) // appearances are awful to detect safely, but this seems to be the best way ~ninjanomnom
+#define isappearance(thing) (!ispath(thing) && istype(GLOB.magic_appearance_detecting_image, thing))
+
 #define isgenerator(A) (istype(A, /generator))
 
 //Turfs
@@ -145,10 +148,13 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 
 #define ismining(A) (istype(A, /mob/living/simple_animal/hostile/asteroid) || istype(A, /mob/living/basic/mining))
 
+/// constructs, which are both simple and basic for now
+#define isconstruct(A) (istype(A, /mob/living/simple_animal/hostile/construct) || istype(A, /mob/living/basic/construct))
+
 //Simple animals
 #define isanimal(A) (istype(A, /mob/living/simple_animal))
 
-#define isrevenant(A) (istype(A, /mob/living/simple_animal/revenant))
+#define isrevenant(A) (istype(A, /mob/living/basic/revenant))
 
 #define isbot(A) (istype(A, /mob/living/simple_animal/bot))
 
@@ -158,7 +164,7 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 
 #define isslime(A) (istype(A, /mob/living/simple_animal/slime))
 
-#define isdrone(A) (istype(A, /mob/living/simple_animal/drone))
+#define isdrone(A) (istype(A, /mob/living/basic/drone))
 
 #define iscat(A) (istype(A, /mob/living/simple_animal/pet/cat))
 
@@ -172,13 +178,11 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 
 #define isguardian(A) (istype(A, /mob/living/simple_animal/hostile/guardian))
 
-#define isconstruct(A) (istype(A, /mob/living/simple_animal/hostile/construct))
-
 #define ismegafauna(A) (istype(A, /mob/living/simple_animal/hostile/megafauna))
 
 #define isclown(A) (istype(A, /mob/living/basic/clown))
 
-#define isspider(A) (istype(A, /mob/living/basic/spider/giant))
+#define isspider(A) (istype(A, /mob/living/basic/spider))
 
 
 //Misc mobs
@@ -221,7 +225,7 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 
 #define ismachinery(A) (istype(A, /obj/machinery))
 
-#define istramwall(A) (istype(A, /obj/structure/window/reinforced/tram/front))
+#define istramwall(A) (istype(A, /obj/structure/tram))
 
 #define isvendor(A) (istype(A, /obj/machinery/vending))
 
