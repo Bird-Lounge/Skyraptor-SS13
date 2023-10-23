@@ -19,16 +19,18 @@
 	/// affects mood, typically higher for mixed drinks with more complex recipes'
 	var/quality = 0
 
+/datum/reagent/consumable/New()
+	. = ..()
+	// All food reagents function at a fixed rate
+	chemical_flags |= REAGENT_UNAFFECTED_BY_METABOLISM
+
 /datum/reagent/consumable/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
-	current_cycle++
-	if(ishuman(affected_mob))
-		var/mob/living/carbon/human/affected_human = affected_mob
-		if(!HAS_TRAIT(affected_human, TRAIT_NOHUNGER))
-			affected_human.adjust_nutrition(get_nutriment_factor() * REM * seconds_per_tick)
-	if(length(reagent_removal_skip_list))
+	. = ..()
+	if(!ishuman(affected_mob) || HAS_TRAIT(affected_mob, TRAIT_NOHUNGER))
 		return
-	if(holder)
-		holder.remove_reagent(type, metabolization_rate * seconds_per_tick)
+
+	var/mob/living/carbon/human/affected_human = affected_mob
+	affected_human.adjust_nutrition(get_nutriment_factor(affected_mob) * REM * seconds_per_tick)
 
 /datum/reagent/consumable/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
 	. = ..()
@@ -53,8 +55,9 @@
 			if(isitem(the_real_food) && !is_reagent_container(the_real_food))
 				exposed_mob.add_mob_memory(/datum/memory/good_food, food = the_real_food)
 
-/datum/reagent/consumable/proc/get_nutriment_factor()
-	return nutriment_factor * REAGENTS_METABOLISM * (purity * 2)
+/// Gets just how much nutrition this reagent is worth for the passed mob
+/datum/reagent/consumable/proc/get_nutriment_factor(mob/living/carbon/eater)
+	return nutriment_factor * REAGENTS_METABOLISM * purity * 2
 
 /datum/reagent/consumable/nutriment
 	name = "Nutriment"
@@ -257,15 +260,12 @@
 	brute_heal = 0
 	burn_heal = 0
 
-/datum/reagent/consumable/nutriment/mineral/on_mob_life(mob/living/carbon/eater, seconds_per_tick, times_fired)
-	if(HAS_TRAIT(eater, TRAIT_ROCK_EATER)) // allow mobs who can eat rocks to do so
+/datum/reagent/consumable/nutriment/mineral/get_nutriment_factor(mob/living/carbon/eater)
+	if(HAS_TRAIT(eater, TRAIT_ROCK_EATER))
 		return ..()
-	else // otherwise just let them pass through the system
-		current_cycle++
-		if(length(reagent_removal_skip_list))
-			return
-		if(holder)
-			holder.remove_reagent(type, metabolization_rate * seconds_per_tick)
+
+	// You cannot eat rocks, it gives no nutrition
+	return 0
 
 /datum/reagent/consumable/sugar
 	name = "Sugar"
@@ -474,10 +474,10 @@
 		return
 	exposed_turf.spawn_unique_cleanable(/obj/effect/decal/cleanable/food/salt)
 
-<<<<<<< HEAD
-=======
 /datum/reagent/consumable/salt/expose_mob(mob/living/exposed_mob, methods, reac_volume)
 	. = ..()
+	if(!iscarbon(exposed_mob))
+		return
 	var/mob/living/carbon/carbies = exposed_mob
 	if(!(methods & (PATCH|TOUCH|VAPOR)))
 		return
@@ -509,7 +509,6 @@
 	flesh_healing -= max(VALUE_PER(5, 30) * reac_volume, 0)
 	to_chat(victim, span_notice("The salt bits seep in and stick to [lowertext(src)], painfully irritating the skin! After a few moments, it feels marginally better."))
 
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 /datum/reagent/consumable/blackpepper
 	name = "Black Pepper"
 	description = "A powder ground from peppercorns. *AAAACHOOO*"
@@ -648,8 +647,39 @@
 	reagent_state = SOLID
 	color = "#FFFFFF" // rgb: 0, 0, 0
 	taste_description = "chalky wheat"
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_AFFECTS_WOUNDS
 	default_container = /obj/item/reagent_containers/condiment/flour
+
+/datum/reagent/consumable/flour/expose_mob(mob/living/exposed_mob, methods, reac_volume)
+	. = ..()
+	if(!iscarbon(exposed_mob))
+		return
+	var/mob/living/carbon/carbies = exposed_mob
+	if(!(methods & (PATCH|TOUCH|VAPOR)))
+		return
+	for(var/datum/wound/iter_wound as anything in carbies.all_wounds)
+		iter_wound.on_flour(reac_volume, carbies)
+
+/datum/wound/proc/on_flour(reac_volume, mob/living/carbon/carbies)
+	return
+
+/datum/wound/pierce/bleed/on_flour(reac_volume, mob/living/carbon/carbies)
+	adjust_blood_flow(-0.015 * reac_volume) // 30u of a flour sack * 0.015 = -0.45~ blood flow, prettay good
+	to_chat(carbies, span_notice("The flour seeps into [lowertext(src)], painfully drying it up and absorbing some of the blood."))
+	// When some nerd adds infection for wounds, make this increase the infection
+
+/datum/wound/slash/flesh/on_flour(reac_volume, mob/living/carbon/carbies)
+	adjust_blood_flow(-0.04 * reac_volume) // 30u of a flour sack * 0.04 = -1.25~ blood flow, pretty good!
+	to_chat(carbies, span_notice("The flour seeps into [lowertext(src)], painfully drying some of it up and absorbing a little blood."))
+	// When some nerd adds infection for wounds, make this increase the infection
+
+// Don't pour flour onto burn wounds, it increases infection risk! Very unwise. Backed up by REAL info from REAL professionals.
+// https://www.reuters.com/article/uk-factcheck-flour-burn-idUSKCN26F2N3
+/datum/wound/burn/flesh/on_flour(reac_volume)
+	to_chat(victim, span_notice("The flour seeps into [lowertext(src)], spiking you with intense pain! That probably wasn't a good idea..."))
+	sanitization -= min(0, 1)
+	infestation += 0.2
+	return
 
 /datum/reagent/consumable/flour/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
@@ -723,6 +753,39 @@
 	description = "A slippery solution."
 	color = "#DBCE95"
 	taste_description = "slime"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_AFFECTS_WOUNDS
+
+// Starch has similar absorbing properties to flour (Stronger here because it's rarer)
+/datum/reagent/consumable/corn_starch/expose_mob(mob/living/exposed_mob, methods, reac_volume)
+	. = ..()
+	if(!iscarbon(exposed_mob))
+		return
+	var/mob/living/carbon/carbies = exposed_mob
+	if(!(methods & (PATCH|TOUCH|VAPOR)))
+		return
+	for(var/datum/wound/iter_wound as anything in carbies.all_wounds)
+		iter_wound.on_starch(reac_volume, carbies)
+
+/datum/wound/proc/on_starch(reac_volume, mob/living/carbon/carbies)
+	return
+
+/datum/wound/pierce/bleed/on_starch(reac_volume, mob/living/carbon/carbies)
+	adjust_blood_flow(-0.03 * reac_volume)
+	to_chat(carbies, span_notice("The slimey starch seeps into [lowertext(src)], painfully drying some of it up and absorbing a little blood."))
+	// When some nerd adds infection for wounds, make this increase the infection
+	return
+
+/datum/wound/slash/flesh/on_starch(reac_volume, mob/living/carbon/carbies)
+	adjust_blood_flow(-0.06 * reac_volume)
+	to_chat(carbies, span_notice("The slimey starch seeps into [lowertext(src)], painfully drying it up and absorbing some of the blood."))
+	// When some nerd adds infection for wounds, make this increase the infection
+	return
+
+/datum/wound/burn/flesh/on_starch(reac_volume, mob/living/carbon/carbies)
+	to_chat(carbies, span_notice("The slimey starch seeps into [lowertext(src)], spiking you with intense pain! That probably wasn't a good idea..."))
+	sanitization -= min(0, 0.5)
+	infestation += 0.1
+	return
 
 /datum/reagent/consumable/corn_syrup
 	name = "Corn Syrup"
@@ -760,20 +823,12 @@
 	. = ..()
 	var/need_mob_update
 	if(SPT_PROB(33, seconds_per_tick))
-<<<<<<< HEAD
-		M.adjustBruteLoss(-1, FALSE, required_bodytype = affected_bodytype)
-		M.adjustFireLoss(-1, FALSE, required_bodytype = affected_bodytype)
-		M.adjustOxyLoss(-1, FALSE, required_biotype = affected_biotype)
-		M.adjustToxLoss(-1, FALSE, required_biotype = affected_biotype)
-	..()
-=======
 		need_mob_update = affected_mob.adjustBruteLoss(-1, updating_health = FALSE, required_bodytype = affected_bodytype)
 		need_mob_update += affected_mob.adjustFireLoss(-1, updating_health = FALSE, required_bodytype = affected_bodytype)
 		need_mob_update += affected_mob.adjustOxyLoss(-1, updating_health = FALSE, required_biotype = affected_biotype)
 		need_mob_update += affected_mob.adjustToxLoss(-1, updating_health = FALSE, required_biotype = affected_biotype)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/consumable/honey/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
 	. = ..()
@@ -817,7 +872,7 @@
 /datum/reagent/consumable/nutriment/stabilized/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	if(affected_mob.nutrition > NUTRITION_LEVEL_FULL - 25)
-		affected_mob.adjust_nutrition(-3 * REM * get_nutriment_factor() * seconds_per_tick)
+		affected_mob.adjust_nutrition(-3 * REM * get_nutriment_factor(affected_mob) * seconds_per_tick)
 
 ////Lavaland Flora Reagents////
 
