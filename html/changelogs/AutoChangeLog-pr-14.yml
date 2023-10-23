@@ -1,0 +1,8 @@
+author: "CliffracerX"
+delete-after: True
+changes:
+  - rscadd: "MAJOR ADDITION - PrairieOutpost map"
+  - rscadd: "plasma storm weather type for prairie worlds"
+  - rscadd: "PrairieOutpost arrivals and cargo shuttles"
+  - refactor: "modularized weather code"
+  - config: "added PrairieOutpost to maps.txt rotation"
