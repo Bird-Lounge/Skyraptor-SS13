@@ -15,7 +15,11 @@
 		C.parallax_layers_cached = list()
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_1(null, src)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_2(null, src)
-		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/planet(null, src)
+		if(!isnull(SSmapping)) /// SKYRAPTOR EDIT BEGIN
+			var/planet_path = SSmapping.planet_parallax
+			C.parallax_layers_cached += new planet_path(null, src)
+		else
+			C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/planet(null, src) /// SKYRAPTOR EDIT END
 		if(SSparallax.random_layer)
 			C.parallax_layers_cached += new SSparallax.random_layer.type(null, src, FALSE, SSparallax.random_layer)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_3(null, src)
@@ -364,3 +368,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 
 /atom/movable/screen/parallax_layer/planet/update_o()
 	return //Shit won't move
+
+/// SKYRAPTOR ADDITION: a fallback type for when there's no mining Z
+/atom/movable/screen/parallax_layer/planet/asteroids
+	icon_state = "asteroids"

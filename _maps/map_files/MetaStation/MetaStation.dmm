@@ -6751,11 +6751,9 @@
 /turf/open/floor/iron/freezer,
 /area/station/commons/toilet/restrooms)
 "cwK" = (
-/obj/structure/closet/wardrobe/grey,
-/obj/effect/landmark/start/hangover/closet,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/machinery/light/directional/south,
-/turf/open/floor/iron/dark,
+/obj/structure/extinguisher_cabinet/directional/south,
+/turf/open/floor/iron/white/smooth_large,
 /area/station/commons/locker)
 "cwM" = (
 /obj/structure/chair/stool/directional/east,
@@ -12374,11 +12372,12 @@
 /turf/open/floor/plating,
 /area/station/service/bar)
 "eAq" = (
-/obj/structure/closet/wardrobe/white,
-/obj/effect/landmark/start/hangover/closet,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/structure/extinguisher_cabinet/directional/south,
-/turf/open/floor/iron/dark,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/machinery/computer/cryopod{
+	dir = 1;
+	pixel_y = -24
+	},
+/turf/open/floor/iron/white/smooth_large,
 /area/station/commons/locker)
 "eAr" = (
 /obj/effect/turf_decal/siding/wood{
@@ -12580,6 +12579,8 @@
 "eFC" = (
 /obj/machinery/bluespace_vendor/directional/south,
 /obj/effect/turf_decal/tile/neutral,
+/obj/structure/closet/wardrobe/grey,
+/obj/effect/landmark/start/hangover/closet,
 /turf/open/floor/iron,
 /area/station/commons/locker)
 "eFG" = (
@@ -22116,6 +22117,14 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage/tech)
+"ihB" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/machinery/door/window/right/directional/south{
+	name = "Cryogenics Cabin";
+	dir = 1
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/commons/locker)
 "ihF" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
@@ -30335,6 +30344,8 @@
 "kTn" = (
 /obj/machinery/firealarm/directional/south,
 /obj/effect/turf_decal/tile/neutral,
+/obj/structure/closet/wardrobe/black,
+/obj/effect/landmark/start/hangover/closet,
 /turf/open/floor/iron,
 /area/station/commons/locker)
 "kTO" = (
@@ -32105,10 +32116,11 @@
 /turf/open/floor/plating,
 /area/station/maintenance/central)
 "lDA" = (
-/obj/structure/closet/wardrobe/black,
-/obj/effect/landmark/start/hangover/closet,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/iron/white/smooth_large,
 /area/station/commons/locker)
 "lDP" = (
 /obj/structure/cable,
@@ -51472,6 +51484,18 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/maintenance/solars/starboard/fore)
+"sxq" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/table/glass,
+/obj/item/storage/medkit/fire{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/storage/medkit/o2,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/commons/locker)
 "sxA" = (
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/structure/cable,
@@ -52066,6 +52090,8 @@
 	c_tag = "Locker Room Port"
 	},
 /obj/effect/turf_decal/tile/neutral,
+/obj/structure/closet/wardrobe/white,
+/obj/effect/landmark/start/hangover/closet,
 /turf/open/floor/iron,
 /area/station/commons/locker)
 "sHt" = (
@@ -52890,6 +52916,15 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/white,
 /area/station/science/ordnance/storage)
+"sUX" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/commons/locker)
 "sVc" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/machinery/field/generator,
@@ -101821,7 +101856,7 @@ weC
 ycN
 bxm
 pJE
-uUl
+sUX
 lDA
 qXB
 fGp
@@ -102078,7 +102113,7 @@ qsK
 cBy
 cBy
 oNl
-uUl
+ihB
 cwK
 qXB
 gaG
@@ -102335,7 +102370,7 @@ bxm
 pJE
 uJB
 nFn
-uUl
+sxq
 eAq
 qXB
 wzK

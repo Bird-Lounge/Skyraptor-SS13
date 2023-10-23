@@ -5521,9 +5521,10 @@
 	json_key = "cargo";
 	name = "CentCom";
 	shuttle_id = "cargo_away";
-	width = 20
+	width = 20;
+	override_can_dock_checks = 1
 	},
-/turf/open/space,
+/turf/open/space/basic,
 /area/space)
 "yW" = (
 /obj/item/kirbyplants/organic/plant21,
@@ -12776,7 +12777,7 @@ fX
 fX
 fX
 fX
-de
+fX
 fX
 fX
 fX
@@ -13033,7 +13034,7 @@ fX
 fX
 fX
 fX
-fX
+de
 fX
 fX
 fX
@@ -15339,21 +15340,21 @@ aa
 aa
 "}
 (18,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -15596,21 +15597,21 @@ aa
 aa
 "}
 (19,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -15853,21 +15854,21 @@ jA
 aa
 "}
 (20,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -16110,21 +16111,21 @@ jA
 aa
 "}
 (21,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -49923,8 +49924,8 @@ aa
 aa
 aa
 aa
-aa
 yV
+ad
 aa
 aa
 aa

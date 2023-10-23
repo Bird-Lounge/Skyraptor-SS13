@@ -1,0 +1,225 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 4
+	},
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/plating/airless,
+/area/shuttle/supply)
+"c" = (
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/turf/open/floor/plating/airless,
+/area/shuttle/supply)
+"e" = (
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/obj/docking_port/mobile/supply,
+/turf/open/floor/plating/airless,
+/area/shuttle/supply)
+"f" = (
+/obj/machinery/light/floor,
+/turf/open/floor/mineral/titanium/white,
+/area/shuttle/supply)
+"j" = (
+/obj/structure/marker_beacon/olive,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/supply)
+"p" = (
+/obj/machinery/light/directional/north,
+/turf/open/floor/mineral/titanium/white,
+/area/shuttle/supply)
+"q" = (
+/turf/template_noop,
+/area/template_noop)
+"r" = (
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/supply)
+"v" = (
+/obj/structure/marker_beacon/burgundy,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/supply)
+"w" = (
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/supply)
+"x" = (
+/obj/machinery/door/airlock/titanium{
+	name = "Arrivals Shuttle Airlock"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/shuttle/supply)
+"z" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst/right{
+	dir = 4
+	},
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/floor/plating/airless,
+/area/shuttle/supply)
+"C" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 4
+	},
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/floor/plating/airless,
+/area/shuttle/supply)
+"D" = (
+/obj/machinery/door/poddoor{
+	id = "QMLoaddoor2";
+	name = "Supply Dock Loading Door"
+	},
+/obj/machinery/conveyor{
+	id = "QMLoad2"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/shuttle/supply)
+"G" = (
+/obj/machinery/door/poddoor{
+	id = "QMLoaddoor";
+	name = "Supply Dock Loading Door"
+	},
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "QMLoad"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/shuttle/supply)
+"H" = (
+/obj/machinery/button/door/directional/east{
+	id = "QMLoaddoor2";
+	name = "Loading Doors";
+	pixel_y = -24;
+	pixel_x = 8
+	},
+/obj/machinery/button/door/directional/east{
+	id = "QMLoaddoor";
+	name = "Loading Doors";
+	pixel_y = -24;
+	pixel_x = -8
+	},
+/turf/open/floor/mineral/titanium/white,
+/area/shuttle/supply)
+"J" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/mineral/titanium/white,
+/area/shuttle/supply)
+"K" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst/right{
+	dir = 4
+	},
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/plating/airless,
+/area/shuttle/supply)
+"P" = (
+/turf/open/floor/mineral/titanium/white,
+/area/shuttle/supply)
+"S" = (
+/obj/machinery/light/directional/south,
+/turf/open/floor/mineral/titanium/white,
+/area/shuttle/supply)
+
+(1,1,1) = {"
+q
+j
+c
+c
+c
+v
+q
+"}
+(2,1,1) = {"
+r
+r
+J
+P
+J
+r
+r
+"}
+(3,1,1) = {"
+c
+P
+P
+P
+P
+P
+G
+"}
+(4,1,1) = {"
+c
+P
+P
+P
+P
+P
+x
+"}
+(5,1,1) = {"
+j
+P
+P
+f
+P
+H
+v
+"}
+(6,1,1) = {"
+c
+P
+P
+P
+P
+P
+x
+"}
+(7,1,1) = {"
+c
+P
+P
+P
+P
+P
+D
+"}
+(8,1,1) = {"
+r
+p
+P
+P
+P
+S
+r
+"}
+(9,1,1) = {"
+r
+P
+w
+e
+w
+P
+r
+"}
+(10,1,1) = {"
+C
+P
+a
+q
+C
+P
+a
+"}
+(11,1,1) = {"
+z
+j
+K
+q
+z
+v
+K
+"}

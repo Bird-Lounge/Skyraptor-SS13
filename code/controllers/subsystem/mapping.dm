@@ -91,6 +91,9 @@ SUBSYSTEM_DEF(mapping)
 
 	/// list of lazy templates that have been loaded
 	var/list/loaded_lazy_templates
+	
+	/// SKYRAPTOR ADDITION: track the parallax layer in use
+	var/atom/movable/screen/parallax_layer/planet_parallax = /atom/movable/screen/parallax_layer/planet
 
 /datum/controller/subsystem/mapping/PreInit()
 	..()
@@ -255,6 +258,14 @@ SUBSYSTEM_DEF(mapping)
 	var/list/ice_ruins_underground = levels_by_trait(ZTRAIT_ICE_RUINS_UNDERGROUND)
 	if (ice_ruins_underground.len)
 		seedRuins(ice_ruins_underground, CONFIG_GET(number/icemoon_budget), list(/area/icemoon/underground/unexplored), themed_ruins[ZTRAIT_ICE_RUINS_UNDERGROUND], clear_below = TRUE)
+	
+	/// SKYRAPTOR ADDITION BEGIN
+	for(var/spath in subtypesof(/datum/mapping_newruins))
+		var/datum/mapping_newruins/S = new spath()
+		var/list/new_ruins = levels_by_trait(S.ztrait)
+		if(new_ruins.len)
+			seedRuins(new_ruins, S.get_budget(), S.area_list, themed_ruins[S.ztrait], clear_below = S.clear_below)
+	/// SKYRAPTOR ADDITION END
 
 	// Generate deep space ruins
 	var/list/space_ruins = levels_by_trait(ZTRAIT_SPACE_RUINS)
@@ -279,6 +290,14 @@ SUBSYSTEM_DEF(mapping)
 	var/list/ice_ruins_underground = levels_by_trait(ZTRAIT_ICE_RUINS_UNDERGROUND)
 	for (var/ice_z in ice_ruins_underground)
 		spawn_rivers(ice_z, 4, level_trait(ice_z, ZTRAIT_BASETURF), /area/icemoon/underground/unexplored/rivers)
+	
+	/// SKYRAPTOR ADDITION BEGIN
+	for(var/spath in subtypesof(/datum/mapping_newrivers))
+		var/datum/mapping_newrivers/S = new spath()
+		var/list/new_ruins = levels_by_trait(S.ztrait)
+			for(var/new_z in new_ruins)
+				spawn_rivers(new_z, S.river_magicnum, S.target_turf, S.target_area)
+	/// SKYRAPTOR ADDITION END
 
 /datum/controller/subsystem/mapping/proc/wipe_reservations(wipe_safety_delay = 100)
 	if(clearing_reserved_turfs || !initialized) //in either case this is just not needed.
@@ -438,10 +457,28 @@ Used by the AI doomsday and the self-destruct nuke.
 
 #ifndef LOWMEMORYMODE
 
+	/// SKYRAPTOR EDITS BEGIN HERE
+	var/found_mine = FALSE
+	if(config.minetype == "none")
+		planet_parallax = /atom/movable/screen/parallax_layer/planet/asteroids
+	
 	if(config.minetype == "lavaland")
 		LoadGroup(FailedZs, "Lavaland", "map_files/Mining", "Lavaland.dmm", default_traits = ZTRAITS_LAVALAND)
-	else if (!isnull(config.minetype) && config.minetype != "none")
+		found_mine = TRUE
+	
+	if(found_mine == FALSE)
+		for(var/spath in subtypesof(/datum/mapping_mining_z))
+			var/datum/mapping_mining_z/S = new spath()
+			if(S.id == config.minetype && found_mine == FALSE)
+				LoadGroup(FailedZs, S.z_name, "map_files/Mining", S.map_path, S.default_traits)
+				planet_parallax = S.planet_parallax
+				found_mine = TRUE
+				break
+	
+	if (!isnull(config.minetype) && config.minetype != "none" && found_mine == FALSE)
 		INIT_ANNOUNCE("WARNING: An unknown minetype '[config.minetype]' was set! This is being ignored! Update the maploader code!")
+		planet_parallax = /atom/movable/screen/parallax_layer/planet/asteroids
+	/// SKYRAPTOR ENDS END HERE
 #endif
 
 	if(LAZYLEN(FailedZs)) //but seriously, unless the server's filesystem is messed up this will never happen
@@ -587,7 +624,12 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 	var/list/banned = generateMapList("spaceruinblacklist.txt")
 	if(config.minetype == "lavaland")
 		banned += generateMapList("lavaruinblacklist.txt")
-	else if(config.blacklist_file)
+	for(var/spath in subtypesof(/datum/mapping_mining_z)) /// SKYRAPTOR ADDITION BEGIN
+		var/datum/mapping_mining_z/S = new spath()
+		if(S.id == config.minetype)
+			banned += generateMapList(S.blacklist)
+			break /// SKYRAPTOR ADDITION END
+	if(config.blacklist_file) /// SKYRAPTOR EDIT: blacklist file should still be used even if there's a mining Z
 		banned += generateMapList(config.blacklist_file)
 
 	for(var/item in sort_list(subtypesof(/datum/map_template/ruin), GLOBAL_PROC_REF(cmp_ruincost_priority)))
