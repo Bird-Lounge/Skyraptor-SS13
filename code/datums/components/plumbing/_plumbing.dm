@@ -413,13 +413,9 @@
 	var/obj/machinery/plumbing/buffer/buffer = parent
 	return (buffer.mode == READY) ? ..() : FALSE
 
-<<<<<<< HEAD
-#undef READY
-=======
 #undef READY
 
 ///Lazily demand from any direction. Overlays won't look good, and the aquarium sprite occupies about the entire 32x32 area anyway.
 /datum/component/plumbing/aquarium
 	demand_connects = SOUTH|NORTH|EAST|WEST
 	use_overlays = FALSE
->>>>>>> 9ed4bd202d9 (Aquariums now have an internal feed storage. Fish catalogs as 25cr goodies. (#78958))

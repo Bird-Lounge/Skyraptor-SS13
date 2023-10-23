@@ -63,14 +63,9 @@
 		exposed_mob.domutcheck()
 
 /datum/reagent/toxin/mutagen/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
-<<<<<<< HEAD
-	affected_mob.adjustToxLoss(0.5 * seconds_per_tick * REM, required_biotype = affected_biotype)
-	return ..()
-=======
 	. = ..()
 	if(affected_mob.adjustToxLoss(0.5 * seconds_per_tick * REM, required_biotype = affected_biotype))
 		return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/toxin/mutagen/on_hydroponics_apply(obj/machinery/hydroponics/mytray, mob/user)
 	mytray.mutation_roll(user)
@@ -519,13 +514,8 @@
 			affected_mob.Sleeping(40 * REM * seconds_per_tick)
 		if(52 to INFINITY)
 			affected_mob.Sleeping(40 * REM * seconds_per_tick)
-<<<<<<< HEAD
-			affected_mob.adjustToxLoss(1 * (current_cycle - 50) * REM * seconds_per_tick, FALSE, required_biotype = affected_biotype)
-	return ..()
-=======
 			if(affected_mob.adjustToxLoss(1 * (current_cycle - 50) * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype))
 				return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/toxin/coffeepowder
 	name = "Coffee Grounds"
@@ -572,10 +562,6 @@
 	. = ..()
 	// Gain approximately 12 seconds * creation purity seconds of silence every metabolism tick.
 	affected_mob.set_silence_if_lower(6 SECONDS * REM * normalise_creation_purity() * seconds_per_tick)
-<<<<<<< HEAD
-	..()
-=======
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/toxin/staminatoxin
 	name = "Tirizene"
@@ -606,14 +592,8 @@
 	if (!HAS_TRAIT(affected_mob, TRAIT_IRRADIATED) && SSradiation.can_irradiate_basic(affected_mob))
 		affected_mob.AddComponent(/datum/component/irradiated)
 	else
-<<<<<<< HEAD
-		affected_mob.adjustToxLoss(1 * REM * seconds_per_tick, required_biotype = affected_biotype)
-
-	..()
-=======
 		if(affected_mob.adjustToxLoss(1 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype))
 			return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/toxin/histamine
 	name = "Histamine"
@@ -940,17 +920,10 @@
 /datum/reagent/toxin/lipolicide/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	if(affected_mob.nutrition <= NUTRITION_LEVEL_STARVING)
-<<<<<<< HEAD
-		affected_mob.adjustToxLoss(1 * REM * seconds_per_tick, FALSE, required_biotype = affected_biotype)
-	affected_mob.adjust_nutrition(-3 * REM * normalise_creation_purity() * seconds_per_tick) // making the chef more valuable, one meme trap at a time
-	affected_mob.overeatduration = 0
-	return ..()
-=======
 		if(affected_mob.adjustToxLoss(1 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype))
 			. = UPDATE_MOB_HEALTH
 	affected_mob.adjust_nutrition(-3 * REM * normalise_creation_purity() * seconds_per_tick) // making the chef more valuable, one meme trap at a time
 	affected_mob.overeatduration = 0
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/toxin/coniine
 	name = "Coniine"
@@ -1248,10 +1221,6 @@
 				affected_mob.manual_emote(pick("oofs silently.", "looks like [affected_mob.p_their()] bones hurt.", "grimaces, as though [affected_mob.p_their()] bones hurt."))
 			if(3)
 				to_chat(affected_mob, span_warning("Your bones hurt!"))
-<<<<<<< HEAD
-	return ..()
-=======
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/toxin/bonehurtingjuice/overdose_process(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -1304,14 +1273,6 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/toxin/leadacetate/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
-<<<<<<< HEAD
-	affected_mob.adjustOrganLoss(ORGAN_SLOT_EARS, 1 * REM * seconds_per_tick)
-	affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 1 * REM * seconds_per_tick)
-	if(SPT_PROB(0.5, seconds_per_tick))
-		to_chat(affected_mob, span_notice("Ah, what was that? You thought you heard something..."))
-		affected_mob.adjust_confusion(5 SECONDS)
-	return ..()
-=======
 	. = ..()
 	var/need_mob_update
 	need_mob_update = affected_mob.adjustOrganLoss(ORGAN_SLOT_EARS, 1 * REM * seconds_per_tick)
@@ -1321,7 +1282,6 @@
 	if(SPT_PROB(0.5, seconds_per_tick))
 		to_chat(affected_mob, span_notice("Ah, what was that? You thought you heard something..."))
 		affected_mob.adjust_confusion(5 SECONDS)
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/toxin/hunterspider
 	name = "Spider Toxin"

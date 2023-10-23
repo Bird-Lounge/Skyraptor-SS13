@@ -321,10 +321,5 @@
 	. = ..()
 	AddComponent(/datum/component/edible, check_liked = CALLBACK(src, PROC_REF(check_liked)))
 
-<<<<<<< HEAD
-/obj/item/food/rationpack/proc/check_liked(fraction, mob/mob) //Nobody likes rationpacks. Nobody.
-	return FOOD_DISLIKED
-=======
 /obj/item/food/rationpack/proc/check_liked(mob/mob) //Nobody likes rationpacks. Nobody.
 	return FOOD_DISLIKED
->>>>>>> 84ca9d8278a (Fixed several Foodening taste issues. (#78481))

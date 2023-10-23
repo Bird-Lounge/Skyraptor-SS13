@@ -444,7 +444,6 @@
 	crafting_complexity = FOOD_COMPLEXITY_1
 	blood_decal_type = null
 
-
 /obj/item/food/meat/slab/chicken
 	name = "chicken meat"
 	icon_state = "birdmeat"

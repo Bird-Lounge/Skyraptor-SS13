@@ -843,11 +843,8 @@
 #include "code\datums\ai\basic_mobs\basic_subtrees\move_to_cardinal.dm"
 #include "code\datums\ai\basic_mobs\basic_subtrees\opportunistic_ventcrawler.dm"
 #include "code\datums\ai\basic_mobs\basic_subtrees\ranged_skirmish.dm"
-<<<<<<< HEAD
-=======
 #include "code\datums\ai\basic_mobs\basic_subtrees\run_emote.dm"
 #include "code\datums\ai\basic_mobs\basic_subtrees\shapechange_ambush.dm"
->>>>>>> 504e6acfa35 (Basic Mob Gorillas (#78918))
 #include "code\datums\ai\basic_mobs\basic_subtrees\simple_attack_target.dm"
 #include "code\datums\ai\basic_mobs\basic_subtrees\simple_find_nearest_target_to_flee.dm"
 #include "code\datums\ai\basic_mobs\basic_subtrees\simple_find_target.dm"
@@ -1553,8 +1550,6 @@
 #include "code\datums\quirks\negative_quirks\chronic_illness.dm"
 #include "code\datums\quirks\negative_quirks\claustrophobia.dm"
 #include "code\datums\quirks\negative_quirks\cursed.dm"
-<<<<<<< HEAD
-=======
 #include "code\datums\quirks\negative_quirks\deafness.dm"
 #include "code\datums\quirks\negative_quirks\depression.dm"
 #include "code\datums\quirks\negative_quirks\family_heirloom.dm"
@@ -1564,7 +1559,6 @@
 #include "code\datums\quirks\negative_quirks\heavy_sleeper.dm"
 #include "code\datums\quirks\negative_quirks\hemiplegic.dm"
 #include "code\datums\quirks\negative_quirks\hypersensitive.dm"
->>>>>>> 04936d9a5a3 (Adds Food Allergies as a counterpart to Medicine Allergies (#79118))
 #include "code\datums\quirks\negative_quirks\illiterate.dm"
 #include "code\datums\quirks\negative_quirks\indebted.dm"
 #include "code\datums\quirks\negative_quirks\junkie.dm"
@@ -3265,8 +3259,6 @@
 #include "code\modules\basketball\controller.dm"
 #include "code\modules\basketball\hoop.dm"
 #include "code\modules\basketball\referee.dm"
-<<<<<<< HEAD
-=======
 #include "code\modules\bitrunning\abilities.dm"
 #include "code\modules\bitrunning\alerts.dm"
 #include "code\modules\bitrunning\areas.dm"
@@ -3317,7 +3309,6 @@
 #include "code\modules\bitrunning\virtual_domain\domains\vaporwave.dm"
 #include "code\modules\bitrunning\virtual_domain\domains\wendigo.dm"
 #include "code\modules\bitrunning\virtual_domain\domains\xeno_nest.dm"
->>>>>>> 235ebba7e0b (Bitrunning hotfix 3 (#78818))
 #include "code\modules\buildmode\bm_mode.dm"
 #include "code\modules\buildmode\buildmode.dm"
 #include "code\modules\buildmode\buttons.dm"
@@ -4402,14 +4393,11 @@
 #include "code\modules\mob\living\basic\farm_animals\goat\_goat.dm"
 #include "code\modules\mob\living\basic\farm_animals\goat\goat_ai.dm"
 #include "code\modules\mob\living\basic\farm_animals\goat\goat_subtypes.dm"
-<<<<<<< HEAD
-=======
 #include "code\modules\mob\living\basic\farm_animals\gorilla\gorilla.dm"
 #include "code\modules\mob\living\basic\farm_animals\gorilla\gorilla_accessories.dm"
 #include "code\modules\mob\living\basic\farm_animals\gorilla\gorilla_ai.dm"
 #include "code\modules\mob\living\basic\farm_animals\gorilla\gorilla_emotes.dm"
 #include "code\modules\mob\living\basic\heretic\ash_spirit.dm"
->>>>>>> 504e6acfa35 (Basic Mob Gorillas (#78918))
 #include "code\modules\mob\living\basic\heretic\fire_shark.dm"
 #include "code\modules\mob\living\basic\heretic\flesh_worm.dm"
 #include "code\modules\mob\living\basic\heretic\heretic_summon.dm"
@@ -4771,11 +4759,8 @@
 #include "code\modules\mob\living\simple_animal\hostile\megafauna\wendigo.dm"
 #include "code\modules\mob\living\simple_animal\hostile\mining_mobs\curse_blob.dm"
 #include "code\modules\mob\living\simple_animal\hostile\mining_mobs\gutlunch.dm"
-<<<<<<< HEAD
 #include "code\modules\mob\living\simple_animal\hostile\mining_mobs\hivelord.dm"
 #include "code\modules\mob\living\simple_animal\hostile\mining_mobs\ice_demon.dm"
-=======
->>>>>>> 032419f30f7 (ice demon basic mobs (#78539))
 #include "code\modules\mob\living\simple_animal\hostile\mining_mobs\mining_mobs.dm"
 #include "code\modules\mob\living\simple_animal\hostile\mining_mobs\polarbear.dm"
 #include "code\modules\mob\living\simple_animal\hostile\mining_mobs\wolf.dm"
