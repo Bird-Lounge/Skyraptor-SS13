@@ -61,7 +61,6 @@
 	human_mob.underwear = random_underwear(human_mob.gender)
 	human_mob.socks = random_socks(human_mob.gender)
 	human_mob.hairstyle = random_hairstyle(human_mob.gender)
-	randomize_external_organs(human_mob)
 
 /datum/species/slugcat/get_scream_sound(mob/living/carbon/human/lizard)
 	return pick(

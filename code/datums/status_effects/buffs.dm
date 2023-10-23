@@ -233,7 +233,12 @@
 	name = "Exercise"
 	desc = "You feel well exercised! Sleeping will improve your fitness."
 	icon_state = "exercised"*/
-/// SKYRAPTOR REMOVAL END
+/// SKYRAPTOR REMOVAL END, REPLACEMENT BEGIN - 
+/datum/status_effect/exercised
+	id = "Exercised"
+	duration = 1 SECONDS
+	status_type = STATUS_EFFECT_REFRESH
+/// SKYRAPTOR REPLACEMENT END
 
 //Hippocratic Oath: Applied when the Rod of Asclepius is activated.
 /datum/status_effect/hippocratic_oath

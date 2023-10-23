@@ -77,7 +77,12 @@
 #define DNA_MUTATION_BLOCKS 8
 #define DNA_UNIQUE_ENZYMES_LEN 32
 
-/// SKYRAPTOR ADDITIONS: tricolor alpha and beta tags
+/// SKYRAPTOR ADDITIONS: tricolor alpha and beta tags & legacy bitflags
+#define MUTCOLORS 1
+#define HAIR 2
+#define FACEHAIR 3
+#define EYECOLOR 4
+#define USE_TRICOLOR_ALPHA 600
 #define USE_TRICOLOR_ALPHA 600
 #define USE_TRICOLOR_BETA 601
 #define USE_TRICOLOR_CHARLIE 602

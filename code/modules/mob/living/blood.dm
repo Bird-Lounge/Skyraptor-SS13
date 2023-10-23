@@ -51,7 +51,7 @@
 			if(SPT_PROB(5, seconds_per_tick))
 				to_chat(src, span_warning("You feel your skin swelling."))*/
 		/// SKYRAPTOR REMOVAL END
-		if(BLOOD_VOLUME_MAXIMUM to BLOOD_VOLUME_INFINITY) /// SKYRAPTOR EDIT
+		if(BLOOD_VOLUME_MAXIMUM to INFINITY) /// SKYRAPTOR EDIT
 			if(SPT_PROB(5, seconds_per_tick))
 				to_chat(src, span_warning("Your blood pressure feels way too high.")) /// SKYRAPTOR EDIT
 		if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
