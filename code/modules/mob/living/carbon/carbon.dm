@@ -10,11 +10,8 @@
 		COMSIG_CARBON_DISARM_COLLIDE = PROC_REF(disarm_collision),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
-<<<<<<< HEAD
 	AddComponent(/datum/component/carbon_sprint) /// SKYRAPTOR ADDITION: sprinting
-=======
 	ADD_TRAIT(src, TRAIT_CAN_HOLD_ITEMS, INNATE_TRAIT) // Carbons are assumed to be innately capable of having arms, we check their arms count instead
->>>>>>> 6d59d8eb910 (Hands management element (#78887))
 
 /mob/living/carbon/Destroy()
 	//This must be done first, so the mob ghosts correctly before DNA etc is nulled
