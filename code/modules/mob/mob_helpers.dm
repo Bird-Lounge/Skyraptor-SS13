@@ -206,31 +206,39 @@
 		return " \[[real_name]\]"
 	return ""
 
-///Checks if the mob is able to see or not. eye_blind is temporary blindness, the trait is if they're permanently blind.
-/mob/proc/is_blind()
-	SHOULD_BE_PURE(TRUE)
-	return eye_blind ? TRUE : HAS_TRAIT(src, TRAIT_BLIND)
-
 // moved out of admins.dm because things other than admin procs were calling this.
-/// Returns TRUE if the game has started and we're either an AI with a 0th law, or we're someone with a special role/antag datum
-/proc/is_special_character(mob/M)
+/**
+ * Returns TRUE if the game has started and we're either an AI with a 0th law, or we're someone with a special role/antag datum
+ * If allow_fake_antags is set to FALSE, Valentines, ERTs, and any such roles with FLAG_FAKE_ANTAG won't pass.
+*/
+/proc/is_special_character(mob/M, allow_fake_antags = FALSE)
 	if(!SSticker.HasRoundStarted())
 		return FALSE
 	if(!istype(M))
 		return FALSE
 	if(iscyborg(M)) //as a borg you're now beholden to your laws rather than greentext
 		return FALSE
+
+
+	// Returns TRUE if AI has a zeroth law *and* either has a special role *or* an antag datum.
 	if(isAI(M))
 		var/mob/living/silicon/ai/A = M
 		return (A.laws?.zeroth && (A.mind?.special_role || !isnull(M.mind?.antag_datums)))
-	if(M.mind?.special_role || !isnull(M.mind?.antag_datums)) //they have an antag datum!
+
+	if(M.mind?.special_role)
 		return TRUE
-	return FALSE
 
+	// Turns 'faker' to TRUE if the antag datum is fake. If it's not fake, returns TRUE directly.
+	var/faker = FALSE
+	for(var/datum/antagonist/antag_datum as anything in M.mind?.antag_datums)
+		if((antag_datum.antag_flags & FLAG_FAKE_ANTAG))
+			faker = TRUE
+		else
+			return TRUE
 
-/mob/proc/reagent_check(datum/reagent/R, delta_time, times_fired) // utilized in the species code
-	return TRUE
-
+	// If 'faker' was assigned TRUE in the above loop and the argument 'allow_fake_antags' is set to TRUE, this passes.
+	// Else, return FALSE.
+	return (faker && allow_fake_antags)
 
 /**
  * Fancy notifications for ghosts
@@ -250,56 +258,58 @@
  * * notify_suiciders If it should notify suiciders (who do not qualify for many ghost roles)
  * * notify_volume How loud the sound should be to spook the user
  */
-/proc/notify_ghosts(message, ghost_sound, enter_link, atom/source, mutable_appearance/alert_overlay, action = NOTIFY_JUMP, flashwindow = TRUE, ignore_mapload = TRUE, ignore_key, header, notify_suiciders = TRUE, notify_volume = 100) //Easy notification of ghosts.
+/proc/notify_ghosts(
+	message,
+	ghost_sound,
+	enter_link,
+	atom/source,
+	mutable_appearance/alert_overlay,
+	action = NOTIFY_JUMP,
+	flashwindow = TRUE,
+	ignore_mapload = TRUE,
+	ignore_key,
+	header,
+	notify_suiciders = TRUE,
+	notify_volume = 100
+)
 
 	if(ignore_mapload && SSatoms.initialized != INITIALIZATION_INNEW_REGULAR) //don't notify for objects created during a map load
 		return
+
+	var/list/viewers = list()
 	for(var/mob/dead/observer/ghost in GLOB.player_list)
-		if(!notify_suiciders && (ghost in GLOB.suicided_mob_list))
+		if(!notify_suiciders && HAS_TRAIT(ghost, TRAIT_SUICIDED))
 			continue
 		if(ignore_key && (ghost.ckey in GLOB.poll_ignore[ignore_key]))
 			continue
-		var/orbit_link
-		if(source && action == NOTIFY_ORBIT)
-			orbit_link = " <a href='?src=[REF(ghost)];follow=[REF(source)]'>(Orbit)</a>"
-		to_chat(ghost, span_ghostalert("[message][(enter_link) ? " [enter_link]" : ""][orbit_link]"))
-		if(ghost_sound)
-			SEND_SOUND(ghost, sound(ghost_sound, volume = notify_volume))
+
+		viewers += ghost // This mob will see the alert
+
 		if(flashwindow)
 			window_flash(ghost.client)
-		if(!source)
-			continue
-		var/atom/movable/screen/alert/notify_action/alert = ghost.throw_alert("[REF(source)]_notify_action", /atom/movable/screen/alert/notify_action)
-		if(!alert)
-			continue
-		var/ui_style = ghost.client?.prefs?.read_preference(/datum/preference/choiced/ui_style)
-		if(ui_style)
-			alert.icon = ui_style2icon(ui_style)
-		if (header)
-			alert.name = header
-		alert.desc = message
-		alert.action = action
-		alert.target = source
-		if(!alert_overlay)
-			alert_overlay = new(source)
-			var/icon/size_check = icon(source.icon, source.icon_state)
-			var/scale = 1
-			var/width = size_check.Width()
-			var/height = size_check.Height()
-			if(width > world.icon_size || height > world.icon_size)
-				if(width >= height)
-					scale = world.icon_size / width
-				else
-					scale = world.icon_size / height
-			alert_overlay.transform = alert_overlay.transform.Scale(scale)
-			alert_overlay.appearance_flags |= TILE_BOUND
-		alert_overlay.layer = FLOAT_LAYER
-		alert_overlay.plane = FLOAT_PLANE
-		alert.add_overlay(alert_overlay)
 
-/**
- * Heal a robotic body part on a mob
- */
+		if(isnull(source))
+			continue
+
+		var/atom/movable/screen/alert/notify_action/toast = ghost.throw_alert(
+			category = "[REF(source)]_notify_action",
+			type = /atom/movable/screen/alert/notify_action,
+			new_master = source,
+		)
+		toast.action = action
+		toast.desc = "Click to [action]."
+		toast.name = header
+		toast.target = source
+
+	var/orbit_link
+	if(source && action == NOTIFY_ORBIT)
+		orbit_link = " <a href='?src=[REF(usr)];follow=[REF(source)]'>(Orbit)</a>"
+
+	var/text = "[message][(enter_link) ? " [enter_link]" : ""][orbit_link]"
+
+	minor_announce(text, title = header, players = viewers, html_encode = FALSE, sound_override = ghost_sound, color_override = "purple")
+
+/// Heals a robotic limb on a mob
 /proc/item_heal_robotic(mob/living/carbon/human/human, mob/user, brute_heal, burn_heal)
 	var/obj/item/bodypart/affecting = human.get_bodypart(check_zone(user.zone_selected))
 	if(!affecting || IS_ORGANIC_LIMB(affecting))
@@ -307,7 +317,7 @@
 		return FALSE
 	var/brute_damage = brute_heal > burn_heal //changes repair text based on how much brute/burn was supplied
 	if((brute_heal > 0 && affecting.brute_dam > 0) || (burn_heal > 0 && affecting.burn_dam > 0))
-		if(affecting.heal_damage(brute_heal, burn_heal, BODYTYPE_ROBOTIC))
+		if(affecting.heal_damage(brute_heal, burn_heal, required_bodytype = BODYTYPE_ROBOTIC))
 			human.update_damage_overlays()
 		user.visible_message(span_notice("[user] fixes some of the [brute_damage ? "dents on" : "burnt wires in"] [human]'s [affecting.name]."), \
 			span_notice("You fix some of the [brute_damage ? "dents on" : "burnt wires in"] [human == user ? "your" : "[human]'s"] [affecting.name]."))
@@ -372,7 +382,7 @@
 /mob/proc/click_random_mob()
 	var/list/nearby_mobs = list()
 	for(var/mob/living/L in range(1, src))
-		if(L!=src)
+		if(L != src)
 			nearby_mobs |= L
 	if(nearby_mobs.len)
 		var/mob/living/T = pick(nearby_mobs)
@@ -403,6 +413,7 @@
 	if(mind)
 		if(mind.assigned_role.policy_index)
 			. += mind.assigned_role.policy_index
+		. += mind.assigned_role.title //A bit redunant, but both title and policy index are used
 		. += mind.special_role //In case there's something special leftover, try to avoid
 		for(var/datum/antagonist/antag_datum as anything in mind.antag_datums)
 			. += "[antag_datum.type]"
@@ -416,10 +427,10 @@
 	return length(held_items)
 
 /// Returns this mob's default lighting alpha
-/mob/proc/default_lighting_alpha()
+/mob/proc/default_lighting_cutoff()
 	if(client?.combo_hud_enabled && client?.prefs?.toggles & COMBOHUD_LIGHTING)
-		return LIGHTING_PLANE_ALPHA_INVISIBLE
-	return initial(lighting_alpha)
+		return LIGHTING_CUTOFF_FULLBRIGHT
+	return initial(lighting_cutoff)
 
 /// Returns a generic path of the object based on the slot
 /proc/get_path_by_slot(slot_id)
@@ -471,3 +482,54 @@
 	if(!istype(player, /client))
 		return
 	return player
+
+/proc/health_percentage(mob/living/mob)
+	var/divided_health = mob.health / mob.maxHealth
+	if(iscyborg(mob) || islarva(mob))
+		divided_health = (mob.health + mob.maxHealth) / (mob.maxHealth * 2)
+	else if(iscarbon(mob) || isAI(mob) || isbrain(mob))
+		divided_health = abs(HEALTH_THRESHOLD_DEAD - mob.health) / abs(HEALTH_THRESHOLD_DEAD - mob.maxHealth)
+	return divided_health * 100
+
+/**
+ * Generates a log message when a user manually changes their targeted zone.
+ * Only need to one of new_target or old_target, and the other will be auto populated with the current selected zone.
+ */
+/mob/proc/log_manual_zone_selected_update(source, new_target, old_target)
+	if(!new_target && !old_target)
+		CRASH("Called log_manual_zone_selected_update without specifying a new or old target")
+
+	old_target ||= zone_selected
+	new_target ||= zone_selected
+	if(old_target == new_target)
+		return
+
+	var/list/data = list(
+		"new_target" = new_target,
+		"old_target" = old_target,
+	)
+
+	if(mind?.assigned_role)
+		data["assigned_role"] = mind.assigned_role.title
+	if(job)
+		data["assigned_job"] = job
+
+	var/atom/handitem = get_active_held_item()
+	if(handitem)
+		data["active_item"] = list(
+			"type" = handitem.type,
+			"name" = handitem.name,
+		)
+
+	var/atom/offhand = get_inactive_held_item()
+	if(offhand)
+		data["offhand_item"] = list(
+			"type" = offhand.type,
+			"name" = offhand.name,
+		)
+
+	logger.Log(
+		LOG_CATEGORY_TARGET_ZONE_SWITCH,
+		"[key_name(src)] manually changed selected zone",
+		data,
+	)

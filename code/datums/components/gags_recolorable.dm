@@ -1,10 +1,10 @@
 /datum/component/gags_recolorable
 
 /datum/component/gags_recolorable/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, PROC_REF(on_attackby))
+	RegisterSignal(parent, COMSIG_ATOM_ATTACKBY, PROC_REF(on_attackby))
 
 /datum/component/gags_recolorable/UnregisterFromParent()
-	UnregisterSignal(parent, COMSIG_PARENT_ATTACKBY)
+	UnregisterSignal(parent, COMSIG_ATOM_ATTACKBY)
 
 /datum/component/gags_recolorable/proc/on_attackby(datum/source, obj/item/attacking_item, mob/user)
 	SIGNAL_HANDLER
@@ -31,7 +31,11 @@
 	allowed_configs += "[config]"
 	if(ispath(atom_parent, /obj/item))
 		var/obj/item/item = atom_parent
-		if(initial(item.greyscale_config_worn))
+		if(initial(item.greyscale_config_worn_bodytypes)) //SKYRAPTOR ADDITION: bodytype-based greyscales
+			var/bconfig
+			for(bconfig in item.greyscale_config_worn_bodytypes)
+				allowed_configs += "[initial(item.greyscale_config_worn_bodytypes[bconfig])]"
+		else if(initial(item.greyscale_config_worn)) //SKYRAPTOR EDIT END
 			allowed_configs += "[initial(item.greyscale_config_worn)]"
 		if(initial(item.greyscale_config_inhand_left))
 			allowed_configs += "[initial(item.greyscale_config_inhand_left)]"
@@ -62,12 +66,3 @@
 		playsound(atom_parent.loc, 'sound/effects/spray.ogg', 5, TRUE, 5)
 
 	atom_parent.set_greyscale(menu.split_colors)
-
-	// If the item is a piece of clothing and is being worn, make sure it updates on the player
-	if(!isclothing(atom_parent))
-		return
-	if(!ishuman(atom_parent.loc))
-		return
-	var/obj/item/clothing/clothing_parent = atom_parent
-	var/mob/living/carbon/human/wearer = atom_parent.loc
-	wearer.update_clothing(clothing_parent.slot_flags)

@@ -6,7 +6,7 @@
 	var/mob/living/carbon/human/lizard = allocate(/mob/living/carbon/human/dummy/consistent)
 	lizard.dna.features["mcolor"] = "#099"
 	lizard.dna.features["tail_lizard"] = "Light Tiger"
-	lizard.dna.features["snout"] = "Sharp + Light"
+	lizard.dna.features["snout_lizard"] = "Sharp + Light"
 	lizard.dna.features["horns"] = "Simple"
 	lizard.dna.features["frills"] = "Aquatic"
 	lizard.dna.features["legs"] = "Normal Legs"
@@ -17,7 +17,7 @@
 	// let me have this
 	var/mob/living/carbon/human/moth = allocate(/mob/living/carbon/human/dummy/consistent)
 	moth.dna.features["moth_antennae"] = "Firewatch"
-	moth.dna.features["moth_markings"] = "None"
+	moth.dna.features["bodymarks_lizard"] = "None"
 	moth.dna.features["moth_wings"] = "Firewatch"
 	moth.set_species(/datum/species/moth)
 	moth.equipOutfit(/datum/outfit/job/cmo, visualsOnly = TRUE)
@@ -26,15 +26,6 @@
 	// The rest of the species
 	for (var/datum/species/species_type as anything in subtypesof(/datum/species) - /datum/species/moth - /datum/species/lizard)
 		test_screenshot("[species_type]", get_flat_icon_for_all_directions(make_dummy(species_type, /datum/outfit/job/assistant/consistent)))
-
-/datum/unit_test/screenshot_humanoids/proc/get_flat_icon_for_all_directions(atom/thing)
-	var/icon/output = icon('icons/effects/effects.dmi', "nothing")
-
-	for (var/direction in GLOB.cardinals)
-		var/icon/partial = getFlatIcon(thing, defdir = direction, no_anim = TRUE)
-		output.Insert(partial, dir = direction)
-
-	return output
 
 /datum/unit_test/screenshot_humanoids/proc/make_dummy(species, job_outfit)
 	var/mob/living/carbon/human/dummy/consistent/dummy = allocate(/mob/living/carbon/human/dummy/consistent)

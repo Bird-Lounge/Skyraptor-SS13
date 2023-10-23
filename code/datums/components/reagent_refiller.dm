@@ -28,6 +28,10 @@
 
 	return ..()
 
+/datum/component/reagent_refiller/Destroy(force, silent)
+	power_draw_callback = null
+	return ..()
+
 /datum/component/reagent_refiller/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ITEM_AFTERATTACK, PROC_REF(refill))
 	RegisterSignal(parent, COMSIG_ATOM_EXITED, PROC_REF(delete_self))
@@ -43,6 +47,8 @@
 /// Preps the reagent container for being refilled
 /datum/component/reagent_refiller/proc/refill()
 	SIGNAL_HANDLER
+
+	. |= COMPONENT_AFTERATTACK_PROCESSED_ITEM
 
 	var/obj/item/reagent_containers/container = parent
 	var/refill = container.reagents.get_master_reagent_id()

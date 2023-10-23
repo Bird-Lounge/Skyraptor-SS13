@@ -128,7 +128,7 @@
 /obj/item/surprise_egg/attack_self(mob/user)
 	..()
 	to_chat(user, span_notice("You unwrap [src] and find a prize inside!"))
-	dispensePrize(get_turf(user))
+	dispensePrize(get_turf(src))
 	qdel(src)
 
 //Easter Recipes + food
@@ -140,6 +140,7 @@
 	foodtypes = SUGAR | GRAIN | BREAKFAST
 	tastes = list("pastry" = 1, "easter" = 1)
 	bite_consumption = 2
+	crafting_complexity = FOOD_COMPLEXITY_1
 
 /datum/crafting_recipe/food/hotcrossbun
 	name = "Hot Cross Bun"
@@ -149,7 +150,7 @@
 	)
 	result = /obj/item/food/hotcrossbun
 
-	subcategory = CAT_BREAD
+	category = CAT_BREAD
 
 /datum/crafting_recipe/food/briochecake
 	name = "Brioche cake"
@@ -158,7 +159,7 @@
 		/datum/reagent/consumable/sugar = 2
 	)
 	result = /obj/item/food/cake/brioche
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /obj/item/food/scotchegg
 	name = "scotch egg"
@@ -167,6 +168,7 @@
 	icon_state = "scotchegg"
 	bite_consumption = 3
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
+	crafting_complexity = FOOD_COMPLEXITY_2
 
 /datum/crafting_recipe/food/scotchegg
 	name = "Scotch egg"
@@ -177,7 +179,7 @@
 		/obj/item/food/meatball = 1
 	)
 	result = /obj/item/food/scotchegg
-	subcategory = CAT_EGG
+	category = CAT_EGG
 
 /datum/crafting_recipe/food/mammi
 	name = "Mammi"
@@ -186,14 +188,15 @@
 		/obj/item/food/chocolatebar = 1,
 		/datum/reagent/consumable/milk = 5
 	)
-	result = /obj/item/food/soup/mammi
-	subcategory = CAT_MISCFOOD
+	result = /obj/item/food/bowled/mammi
+	category = CAT_MISCFOOD
 
 /obj/item/food/chocolatebunny
 	name = "chocolate bunny"
 	desc = "Contains less than 10% real rabbit!"
 	icon_state = "chocolatebunny"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/sugar = 2, /datum/reagent/consumable/coco = 2, /datum/reagent/consumable/nutriment/vitamin = 1)
+	crafting_complexity = FOOD_COMPLEXITY_1
 
 /datum/crafting_recipe/food/chocolatebunny
 	name = "Chocolate bunny"
@@ -202,4 +205,4 @@
 		/obj/item/food/chocolatebar = 1
 	)
 	result = /obj/item/food/chocolatebunny
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD

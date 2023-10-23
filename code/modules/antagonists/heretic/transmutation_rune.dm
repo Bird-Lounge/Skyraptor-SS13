@@ -24,6 +24,9 @@
 	. += span_notice("Allows you to transmute objects by invoking the rune after collecting the prerequisites overhead.")
 	. += span_notice("You can use your <i>Mansus Grasp</i> on the rune to remove it.")
 
+/obj/effect/heretic_rune/attack_paw(mob/living/user, list/modifiers)
+	return attack_hand(user, modifiers)
+
 /obj/effect/heretic_rune/can_interact(mob/living/user)
 	. = ..()
 	if(!.)
@@ -153,7 +156,7 @@
 	// Some rituals may remove atoms from the selected_atoms list, and not consume them.
 	var/list/initial_selected_atoms = selected_atoms.Copy()
 	for(var/atom/to_disappear as anything in selected_atoms)
-		to_disappear.invisibility = INVISIBILITY_ABSTRACT
+		to_disappear.SetInvisibility(INVISIBILITY_ABSTRACT, id=type)
 
 	// All the components have been invisibled, time to actually do the ritual. Call on_finished_recipe
 	// (Note: on_finished_recipe may sleep in the case of some rituals like summons, which expect ghost candidates.)
@@ -167,7 +170,7 @@
 	for(var/atom/to_appear as anything in initial_selected_atoms)
 		if(QDELETED(to_appear))
 			continue
-		to_appear.invisibility = initial(to_appear.invisibility)
+		to_appear.RemoveInvisibility(type)
 
 	// And finally, give some user feedback
 	// No feedback is given on failure here -
@@ -180,6 +183,40 @@
 /// A 3x3 heretic rune. The kind heretics actually draw in game.
 /obj/effect/heretic_rune/big
 	icon = 'icons/effects/96x96.dmi'
-	icon_state = "eldritch_rune1"
-	pixel_x = -32 //So the big ol' 96x96 sprite shows up right
+	icon_state = "transmutation_rune"
+	pixel_x = -33 //So the big ol' 96x96 sprite shows up right
 	pixel_y = -32
+	greyscale_config = /datum/greyscale_config/heretic_rune
+
+/obj/effect/heretic_rune/big/Initialize(mapload, path_colour)
+	. = ..()
+	if (path_colour)
+		set_greyscale(colors = list(path_colour))
+
+/obj/effect/temp_visual/drawing_heretic_rune
+	duration = 30 SECONDS
+	icon = 'icons/effects/96x96.dmi'
+	icon_state = "transmutation_rune"
+	pixel_x = -33
+	pixel_y = -32
+	plane = GAME_PLANE
+	layer = SIGIL_LAYER
+	greyscale_config = /datum/greyscale_config/heretic_rune
+	/// We only set this state after setting the colour, otherwise the animation doesn't colour correctly
+	var/animation_state = "transmutation_rune_draw"
+
+/obj/effect/temp_visual/drawing_heretic_rune/Initialize(mapload, path_colour = COLOR_WHITE)
+	. = ..()
+	set_greyscale(colors = list(path_colour))
+	icon_state = animation_state
+	var/image/silicon_image = image(icon = 'icons/effects/eldritch.dmi', icon_state = null, loc = src)
+	silicon_image.override = TRUE
+	add_alt_appearance(/datum/atom_hud/alternate_appearance/basic/silicons, "heretic_rune", silicon_image)
+
+/obj/effect/temp_visual/drawing_heretic_rune/fast
+	duration = 12 SECONDS
+	animation_state = "transmutation_rune_fast"
+
+/obj/effect/temp_visual/drawing_heretic_rune/fail
+	duration = 0.25 SECONDS
+	animation_state = "transmutation_rune_fail"

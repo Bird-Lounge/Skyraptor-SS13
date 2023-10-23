@@ -1,6 +1,12 @@
+<<<<<<< HEAD:code/modules/antagonists/heretic/mobs/maid_in_mirror.dm
 // A summon which floats around the station incorporeally, and can appear in any mirror
 /mob/living/simple_animal/hostile/heretic_summon/maid_in_the_mirror
 	name = "Maid in the Mirror"
+=======
+/// Scout and assassin who can appear and disappear from glass surfaces. Damaged by being examined.
+/mob/living/basic/heretic_summon/maid_in_the_mirror
+	name = "\improper Maid in the Mirror"
+>>>>>>> fc3e267c574 (Heretic summon name fixes (#79055)):code/modules/mob/living/basic/heretic/maid_in_the_mirror.dm
 	real_name = "Maid in the Mirror"
 	desc = "A floating and flowing wisp of chilled air. Glancing at it causes it to shimmer slightly."
 	icon = 'icons/mob/simple/mob.dmi'
@@ -19,7 +25,7 @@
 	loot = list(
 		/obj/item/shard,
 		/obj/effect/decal/cleanable/ash,
-		/obj/item/clothing/suit/armor,
+		/obj/item/clothing/suit/armor/vest,
 		/obj/item/organ/internal/lungs,
 	)
 	actions_to_add = list(/datum/action/cooldown/spell/jaunt/mirror_walk)

@@ -1,3 +1,7 @@
+/// SKYRAPTOR REMOVAL/EDIT BEGIN
+//#define TESLA_DEFAULT_POWER 6.95304e8
+//#define TESLA_MINI_POWER 3.47652e8
+/// FULL EDIT BEGIN
 #define TESLA_ENGINE_DIVISOR 140 //used to bring tesla output in line with modern power.
 #define TESLA_DEFAULT_POWER 1738260 / TESLA_ENGINE_DIVISOR
 #define TESLA_MINI_POWER 869130 / TESLA_ENGINE_DIVISOR
@@ -5,6 +9,7 @@
 //As such, with divisor 140, this brings power output inline with a standard unupgraded MetaStation SM running on a standard N2 mix with three T1 Emitters and the default 6 T1 Tesla Coils.
 //To surpass the Supermatter, you need T4 Coils, more of them, and a hacked PA (or other source of additional energy for the orb) - which should still cap around 2-3MW.
 //To surpass skilled atmos techs who know how to min-max the SM, the only way up is additional tesla balls - which bring with them risks to containment and attending engineering staff.
+/// SKYRAPTOR EDIT END
 
 //Zap constants, speeds up targeting
 #define BIKE (COIL + 1)
@@ -20,7 +25,7 @@
 /obj/energy_ball
 	name = "energy ball"
 	desc = "An energy ball."
-	icon = 'icons/obj/engine/energy_ball.dmi'
+	icon = 'icons/obj/machines/engine/energy_ball.dmi'
 	icon_state = "energy_ball"
 	anchored = TRUE
 	appearance_flags = LONG_GLIDE
@@ -152,11 +157,10 @@
 	)
 
 	miniball.transform *= pick(0.3, 0.4, 0.5, 0.6, 0.7)
-	var/icon/I = icon(icon, icon_state,dir)
+	var/list/icon_dimensions = get_icon_dimensions(icon)
 
-	var/orbitsize = (I.Width() + I.Height()) * pick(0.4, 0.5, 0.6, 0.7, 0.8)
+	var/orbitsize = (icon_dimensions["width"] + icon_dimensions["height"]) * pick(0.4, 0.5, 0.6, 0.7, 0.8)
 	orbitsize -= (orbitsize / world.icon_size) * (world.icon_size * 0.25)
-
 	miniball.orbit(src, orbitsize, pick(FALSE, TRUE), rand(10, 25), pick(3, 4, 5, 6, 36))
 
 /obj/energy_ball/Bump(atom/A)
@@ -170,7 +174,7 @@
 		return
 	var/mob/living/carbon/jedi = user
 	to_chat(jedi, span_userdanger("That was a shockingly dumb idea."))
-	var/obj/item/organ/internal/brain/rip_u = locate(/obj/item/organ/internal/brain) in jedi.internal_organs
+	var/obj/item/organ/internal/brain/rip_u = locate(/obj/item/organ/internal/brain) in jedi.organs
 	jedi.ghostize(jedi)
 	if(rip_u)
 		qdel(rip_u)
@@ -206,13 +210,13 @@
 	C.investigate_log("has been dusted by an energy ball.", INVESTIGATE_DEATHS)
 	C.dust()
 
-/proc/tesla_zap(atom/source, zap_range = 3, power, zap_flags = ZAP_DEFAULT_FLAGS, list/shocked_targets = list())
+/proc/tesla_zap(atom/source, zap_range = 3, power, cutoff = 4e5, zap_flags = ZAP_DEFAULT_FLAGS, list/shocked_targets = list())
 	if(QDELETED(source))
 		return
 	if(!(zap_flags & ZAP_ALLOW_DUPLICATES))
 		LAZYSET(shocked_targets, source, TRUE) //I don't want no null refs in my list yeah?
 	. = source.dir
-	if(power < 1000)
+	if(power < cutoff)
 		return
 
 	/*
@@ -341,7 +345,7 @@
 		var/mob/living/closest_mob = closest_atom
 		ADD_TRAIT(closest_mob, TRAIT_BEING_SHOCKED, WAS_SHOCKED)
 		addtimer(TRAIT_CALLBACK_REMOVE(closest_mob, TRAIT_BEING_SHOCKED, WAS_SHOCKED), 1 SECONDS)
-		var/shock_damage = (zap_flags & ZAP_MOB_DAMAGE) ? (min(round(power/600), 90) + rand(-5, 5)) : 0
+		var/shock_damage = (zap_flags & ZAP_MOB_DAMAGE) ? (min(round(power/2.4e5), 90) + rand(-5, 5)) : 0
 		closest_mob.electrocute_act(shock_damage, source, 1, SHOCK_TESLA | ((zap_flags & ZAP_MOB_STUN) ? NONE : SHOCK_NOSTUN))
 		if(issilicon(closest_mob))
 			var/mob/living/silicon/S = closest_mob
@@ -371,3 +375,6 @@
 #undef MACHINERY
 #undef BLOB
 #undef STRUCTURE
+
+#undef TESLA_DEFAULT_POWER
+#undef TESLA_MINI_POWER

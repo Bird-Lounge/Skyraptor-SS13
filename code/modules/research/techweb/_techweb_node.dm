@@ -36,6 +36,8 @@
 	var/list/required_experiments = list()
 	/// If completed, these experiments give a specific point amount discount to the node.area
 	var/list/discount_experiments = list()
+	/// When this node is completed, allows these experiments to be performed.
+	var/list/experiments_to_unlock = list()
 	/// Whether or not this node should show on the wiki
 	var/show_on_wiki = TRUE
 
@@ -88,11 +90,12 @@
 			if(actual_costs[booster])
 				var/delta = max(0, actual_costs[booster] - 250)
 				actual_costs[booster] -= min(boostlist[booster], delta)
-	
+
 	return actual_costs
 
 /datum/techweb_node/proc/price_display(datum/techweb/TN)
 	return techweb_point_display_generic(get_price(TN))
 
-/datum/techweb_node/proc/on_research() //new proc, not currently in file
-	return
+///Proc called when the Station (Science techweb specific) researches a node.
+/datum/techweb_node/proc/on_station_research()
+	SHOULD_CALL_PARENT(FALSE)

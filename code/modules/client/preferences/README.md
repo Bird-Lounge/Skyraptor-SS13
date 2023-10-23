@@ -135,14 +135,18 @@ Choiced preferences can generate icons. This is how the clothing/species prefere
 	savefile_key = "favorite_drink"
 	should_generate_icons = TRUE // NEW! This is necessary.
 
-// Instead of returning a flat list, this now returns an assoc list
-// of values to icons.
 /datum/preference/choiced/favorite_drink/init_possible_values()
-	return list(
-		"Milk" = icon('drinks.dmi', "milk"),
-		"Cola" = icon('drinks.dmi', "cola"),
-		"Water" = icon('drinks.dmi', "water"),
-	)
+	return list("Milk", "Cola", "Water")
+
+// New! This proc will get called for every value.
+/datum/preference/choiced/favorite_drink/icon_for(value)
+	switch (value)
+		if ("Milk")
+			return icon('drinks.dmi', "milk")
+		if ("Cola")
+			return icon('drinks.dmi', "cola")
+		if ("Water")
+			return icon('drinks.dmi', "water")
 ```
 
 Then, change your `.tsx` file to look like:
@@ -248,7 +252,7 @@ For example, `/datum/preference/numeric/age` contains:
 
 If your preference is `PREFERENCE_CHARACTER`, it MUST override `apply_to_human`, even if just to immediately `return`.
 
-You can also read preferences directly with `preferences.read_preference(/datum/preference/type/here)`, which will return the stored value.
+You can also read preferences directly with `prefs.read_preference(/datum/preference/type/here)`, which will return the stored value.
 
 ## Categories
 Every preference needs to be in a `category`. These can be found in `code/__DEFINES/preferences.dm`.

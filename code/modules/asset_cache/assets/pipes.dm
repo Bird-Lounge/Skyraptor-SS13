@@ -2,5 +2,6 @@
 	name = "pipes"
 
 /datum/asset/spritesheet/pipes/create_spritesheets()
-	for (var/each in list('icons/obj/atmospherics/pipes/pipe_item.dmi', 'icons/obj/atmospherics/pipes/disposal.dmi', 'icons/obj/atmospherics/pipes/transit_tube.dmi', 'icons/obj/plumbing/fluid_ducts.dmi'))
+	 ///SKYRAPTOR EDIT: pipe_item redir to aestheticsmodule
+	for (var/each in list('modular_skyraptor/modules/aesthetics/moremospherics/icons/pipes/pipe_item.dmi', 'icons/obj/pipes_n_cables/disposal.dmi', 'icons/obj/pipes_n_cables/transit_tube.dmi', 'modular_skyraptor/modules/aesthetics/oldnewsurgery/hydrochem/fluid_ducts.dmi'))
 		InsertAll("", each, GLOB.alldirs)

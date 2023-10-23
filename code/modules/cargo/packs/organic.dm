@@ -47,6 +47,7 @@
 					/obj/item/food/spiderleg,
 					/obj/item/food/fishmeat/carp,
 					/obj/item/food/meat/slab/human,
+					/obj/item/food/meat/slab/grassfed,
 				)
 	crate_name = "food crate"
 
@@ -57,22 +58,24 @@
 
 /datum/supply_pack/organic/exoticseeds
 	name = "Exotic Seeds Crate"
-	desc = "Any entrepreneuring botanist's dream. Contains fourteen different seeds, \
+	desc = "Any entrepreneuring botanist's dream. Contains twelve different seeds, \
 		including one replica-pod seed and two mystery seeds!"
 	cost = CARGO_CRATE_VALUE * 3
 	access_view = ACCESS_HYDROPONICS
-	contains = list(/obj/item/seeds/nettle,
-					/obj/item/seeds/replicapod,
-					/obj/item/seeds/plump,
-					/obj/item/seeds/liberty,
-					/obj/item/seeds/amanita,
-					/obj/item/seeds/reishi,
-					/obj/item/seeds/bamboo,
-					/obj/item/seeds/eggplant/eggy,
-					/obj/item/seeds/rainbow_bunch,
-					/obj/item/seeds/shrub,
-					/obj/item/seeds/random = 2,
-				)
+	contains = list(
+		/obj/item/seeds/amanita,
+		/obj/item/seeds/bamboo,
+		/obj/item/seeds/eggplant/eggy,
+		/obj/item/seeds/liberty,
+		/obj/item/seeds/nettle,
+		/obj/item/seeds/plump,
+		/obj/item/seeds/replicapod,
+		/obj/item/seeds/reishi,
+		/obj/item/seeds/rainbow_bunch,
+		/obj/item/seeds/seedling,
+		/obj/item/seeds/shrub,
+		/obj/item/seeds/random = 2,
+	)
 	crate_name = "exotic seeds crate"
 	crate_type = /obj/structure/closet/crate/hydroponics
 
@@ -143,7 +146,7 @@
 /datum/supply_pack/organic/hydroponics/hydrotank
 	name = "Hydroponics Backpack Crate"
 	desc = "Bring on the flood with this high-capacity backpack crate. \
-		Contains 500 units of life-giving H2O. Requires hydroponics access to open."
+		Contains 500 units of life-giving H2O."
 	cost = CARGO_CRATE_VALUE * 2
 	access = ACCESS_HYDROPONICS
 	contains = list(/obj/item/watertank)
@@ -224,7 +227,7 @@
 
 /// adds a randomized pizza from the pizza list
 /datum/supply_pack/organic/pizza/proc/add_normal_pizza(obj/structure/closet/crate/new_crate, list/rng_pizza_list)
-	var/randomize_pizza = pick_n_take(rng_pizza_list)
+	var/randomize_pizza = pick_weight(rng_pizza_list)
 	rng_pizza_list -= randomize_pizza
 	var/obj/item/pizzabox/new_pizza_box = new(new_crate)
 	new_pizza_box.pizza = new randomize_pizza
@@ -296,10 +299,12 @@
 		ONLY 5000 BUX GET NOW! Contains a grill and fuel."
 	cost = CARGO_CRATE_VALUE * 8
 	crate_type = /obj/structure/closet/crate
-	contains = list(/obj/item/stack/sheet/mineral/coal/five,
-					/obj/machinery/grill/unwrenched,
-					/obj/item/reagent_containers/cup/soda_cans/monkey_energy,
-				)
+	contains = list(
+		/obj/item/stack/sheet/mineral/coal/five,
+		/obj/item/kitchen/tongs,
+		/obj/item/reagent_containers/cup/soda_cans/monkey_energy,
+		/obj/machinery/grill/unwrenched,
+	)
 	crate_name = "grilling starter kit crate"
 
 /datum/supply_pack/organic/grillfuel

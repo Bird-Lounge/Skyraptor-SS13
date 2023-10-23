@@ -33,7 +33,7 @@
 	//Transfer from core or card to mech. Proc is called by mech.
 	switch(interaction)
 		if(AI_TRANS_TO_CARD) //Upload AI from mech to AI card.
-			if(!construction_state) //Mech must be in maint mode to allow carding.
+			if(!(mecha_flags & PANEL_OPEN)) //Mech must be in maint mode to allow carding.
 				to_chat(user, span_warning("[name] must have maintenance protocols active in order to allow a transfer."))
 				return
 			var/list/ai_pilots = list()
@@ -104,24 +104,4 @@
 	AI.remote_control = src
 	to_chat(AI, AI.can_dominate_mechs ? span_greenannounce("Takeover of [name] complete! You are now loaded onto the onboard computer. Do not attempt to leave the station sector!") :\
 		span_notice("You have been uploaded to a mech's onboard computer."))
-	to_chat(AI, "<span class='reallybig boldnotice'>Use Middle-Mouse to toggle equipment safety. Clicks with safety enabled will pass AI commands.</span>")
-
-
-///Handles an actual AI (simple_animal mecha pilot) entering the mech
-/obj/vehicle/sealed/mecha/proc/aimob_enter_mech(mob/living/simple_animal/hostile/syndicate/mecha_pilot/pilot_mob)
-	if(!pilot_mob?.Adjacent(src))
-		return
-	if(LAZYLEN(occupants))
-		return
-	LAZYSET(occupants, pilot_mob, NONE)
-	pilot_mob.mecha = src
-	pilot_mob.forceMove(src)
-	update_appearance()
-
-///Handles an actual AI (simple_animal mecha pilot) exiting the mech
-/obj/vehicle/sealed/mecha/proc/aimob_exit_mech(mob/living/simple_animal/hostile/syndicate/mecha_pilot/pilot_mob)
-	LAZYREMOVE(occupants, pilot_mob)
-	if(pilot_mob.mecha == src)
-		pilot_mob.mecha = null
-	pilot_mob.forceMove(get_turf(src))
-	update_appearance()
+	to_chat(AI, "<span class='reallybig boldnotice'>Use Middle-Mouse or the action button in your HUD to toggle equipment safety. Clicks with safety enabled will pass AI commands.</span>")

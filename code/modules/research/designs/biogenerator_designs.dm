@@ -3,67 +3,67 @@
 ///////////////////////////////////
 
 /datum/design/milk
-	name = "Milk"
+	name = "Synthetic Milk"
 	id = "milk"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.4)
-	make_reagents = list(/datum/reagent/consumable/milk = 1)
+	make_reagent = /datum/reagent/consumable/milk
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/soymilk
-	name = "Soy Milk"
+	name = "Synthetic Soy Milk"
 	id = "soymilk"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.4)
-	make_reagents = list(/datum/reagent/consumable/soymilk = 1)
+	make_reagent = /datum/reagent/consumable/soymilk
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/ethanol
-	name = "Ethanol"
+	name = "Synthetic Ethanol"
 	id = "ethanol"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.6)
-	make_reagents = list(/datum/reagent/consumable/ethanol = 1)
+	make_reagent = /datum/reagent/consumable/ethanol
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/cream
-	name = "Cream"
+	name = "Synthetic Cream"
 	id = "cream"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.6)
-	make_reagents = list(/datum/reagent/consumable/cream = 1)
+	make_reagent = /datum/reagent/consumable/cream
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/black_pepper
-	name = "Black Pepper"
+	name = "Synthetic Black Pepper"
 	id = "black_pepper"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.6)
-	make_reagents = list(/datum/reagent/consumable/blackpepper = 1)
+	make_reagent = /datum/reagent/consumable/blackpepper
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/enzyme
-	name = "Universal Enzyme"
+	name = "Synthetic Enzyme"
 	id = "enzyme"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.6)
-	make_reagents = list(/datum/reagent/consumable/enzyme = 1)
+	make_reagent = /datum/reagent/consumable/enzyme
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/flour
-	name = "Flour"
+	name = "Synthetic Flour"
 	id = "flour_sack"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.6)
-	make_reagents = list(/datum/reagent/consumable/flour = 1)
+	make_reagent = /datum/reagent/consumable/flour
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/sugar
-	name = "Sugar"
+	name = "Synthetic Sugar"
 	id = "sugar"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.6)
-	make_reagents = list(/datum/reagent/consumable/sugar = 1)
+	make_reagent = /datum/reagent/consumable/sugar
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_FOOD)
 
 /datum/design/monkey_cube
@@ -87,7 +87,7 @@
 	id = "ez_nut"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.1)
-	make_reagents = list(/datum/reagent/plantnutriment/eznutriment = 1)
+	make_reagent = /datum/reagent/plantnutriment/eznutriment
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/l4z_nut
@@ -95,7 +95,7 @@
 	id = "l4z_nut"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.1)
-	make_reagents = list(/datum/reagent/plantnutriment/left4zednutriment = 1)
+	make_reagent = /datum/reagent/plantnutriment/left4zednutriment
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/rh_nut
@@ -103,7 +103,7 @@
 	id = "rh_nut"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.2)
-	make_reagents = list(/datum/reagent/plantnutriment/robustharvestnutriment = 1)
+	make_reagent = /datum/reagent/plantnutriment/robustharvestnutriment
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/end_gro
@@ -111,7 +111,7 @@
 	id = "end_gro"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.3)
-	make_reagents = list(/datum/reagent/plantnutriment/endurogrow = 1)
+	make_reagent = /datum/reagent/plantnutriment/endurogrow
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/liq_earth
@@ -119,7 +119,7 @@
 	id = "liq_earth"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.3)
-	make_reagents = list(/datum/reagent/plantnutriment/liquidearthquake = 1)
+	make_reagent = /datum/reagent/plantnutriment/liquidearthquake
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/weed_killer
@@ -127,7 +127,7 @@
 	id = "weed_killer"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.2)
-	make_reagents = list(/datum/reagent/toxin/plantbgone/weedkiller = 1)
+	make_reagent = /datum/reagent/toxin/plantbgone/weedkiller
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/pest_spray
@@ -135,7 +135,7 @@
 	id = "pest_spray"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.4)
-	make_reagents = list(/datum/reagent/toxin/pestkiller = 1)
+	make_reagent = /datum/reagent/toxin/pestkiller
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/org_pest_spray
@@ -143,7 +143,7 @@
 	id = "org_pest_spray"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 0.6)
-	make_reagents = list(/datum/reagent/toxin/pestkiller/organic = 1)
+	make_reagent = /datum/reagent/toxin/pestkiller/organic
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_CHEMICALS)
 
 /datum/design/leather
@@ -184,4 +184,12 @@
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 1)
 	build_path = /obj/item/rollingpaper
+	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_MATERIALS)
+
+/datum/design/candle
+	name = "Candle"
+	id = "candle"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass = 3)
+	build_path = /obj/item/flashlight/flare/candle
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_BIO_MATERIALS)

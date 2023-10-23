@@ -5,48 +5,38 @@
 	for(var/atom/thing_to_consume as anything in tram_contents)
 		Bumped(thing_to_consume)
 
-/obj/machinery/power/supermatter_crystal/bullet_act(obj/projectile/projectile)
+/obj/machinery/power/supermatter_crystal/proc/eat_bullets(datum/source, obj/projectile/projectile)
+	SIGNAL_HANDLER
+
 	var/turf/local_turf = loc
+	if(!istype(local_turf))
+		return NONE
+
 	var/kiss_power = 0
 	switch(projectile.type)
 		if(/obj/projectile/kiss)
 			kiss_power = 60
 		if(/obj/projectile/kiss/death)
 			kiss_power = 20000
-	if(!istype(local_turf))
-		return FALSE
+
 	if(!istype(projectile.firer, /obj/machinery/power/emitter))
 		investigate_log("has been hit by [projectile] fired by [key_name(projectile.firer)]", INVESTIGATE_ENGINE)
 	if(projectile.armor_flag != BULLET || kiss_power)
 		if(kiss_power)
 			psy_coeff = 1
 		external_power_immediate += projectile.damage * bullet_energy + kiss_power
-		if(!has_been_powered)
-			log_activation(cause = projectile.fired_from, source = projectile.firer)
+		log_activation(who = projectile.firer, how = projectile.fired_from)
 	else
-		external_damage_immediate += projectile.damage * bullet_energy
+		external_damage_immediate += projectile.damage * bullet_energy * 0.1
 		// Stop taking damage at emergency point, yell to players at danger point.
 		// This isn't clean and we are repeating [/obj/machinery/power/supermatter_crystal/proc/calculate_damage], sorry for this.
 		var/damage_to_be = damage + external_damage_immediate * clamp((emergency_point - damage) / emergency_point, 0, 1)
 		if(damage_to_be > danger_point)
 			visible_message(span_notice("[src] compresses under stress, resisting further impacts!"))
-	return BULLET_ACT_HIT
+		playsound(src, 'sound/effects/supermatter.ogg', 50, TRUE)
 
-/obj/machinery/power/supermatter_crystal/proc/log_activation(source, cause)
-	var/fired_from_str = cause ? " with [cause]" : ""
-	investigate_log(
-		source \
-			? "has been powered for the first time by [key_name(source)][fired_from_str]." \
-			: "has been powered for the first time.",
-		INVESTIGATE_ENGINE
-	)
-	message_admins(
-		source \
-			? "[src] [ADMIN_JMP(src)] has been powered for the first time by [cause ? ADMIN_FULLMONTY(source) + (fired_from_str) : (cause ? source : "environmental factors")]." \
-			: "[src] [ADMIN_JMP(src)] has been powered for the first time."
-	)
-
-	has_been_powered = TRUE
+	qdel(projectile)
+	return COMPONENT_BULLET_BLOCKED
 
 /obj/machinery/power/supermatter_crystal/singularity_act()
 	var/gain = 100
@@ -69,7 +59,7 @@
 	to_chat(jedi, span_userdanger("That was a really dense idea."))
 	jedi.investigate_log("had [jedi.p_their()] brain dusted by touching [src] with telekinesis.", INVESTIGATE_DEATHS)
 	jedi.ghostize()
-	var/obj/item/organ/internal/brain/rip_u = locate(/obj/item/organ/internal/brain) in jedi.internal_organs
+	var/obj/item/organ/internal/brain/rip_u = locate(/obj/item/organ/internal/brain) in jedi.organs
 	if(rip_u)
 		rip_u.Remove(jedi)
 		qdel(rip_u)
@@ -84,9 +74,9 @@
 		if (scalpel.usesLeft)
 			to_chat(user, span_danger("You extract a sliver from \the [src]. \The [src] begins to react violently!"))
 			new /obj/item/nuke_core/supermatter_sliver(src.drop_location())
+			supermatter_sliver_removed = TRUE
 			external_power_trickle += 800
-			if(!has_been_powered)
-				log_activation(source = scalpel, cause = user)
+			log_activation(who = user, how = scalpel)
 			scalpel.usesLeft--
 			if (!scalpel.usesLeft)
 				to_chat(user, span_notice("A tiny piece of \the [scalpel] falls off, rendering it useless!"))
@@ -112,10 +102,9 @@
 			user.investigate_log("attached [destabilizing_crystal] to a supermatter crystal.", INVESTIGATE_ENGINE)
 			to_chat(user, span_danger("\The [destabilizing_crystal] snaps onto \the [src]."))
 			set_delam(SM_DELAM_PRIO_IN_GAME, /datum/sm_delam/cascade)
-			external_damage_immediate += 100
+			external_damage_immediate += 10
 			external_power_trickle += 500
-			if(!has_been_powered)
-				log_activation(source = destabilizing_crystal, cause = user)
+			log_activation(who = user, how = destabilizing_crystal)
 			qdel(destabilizing_crystal)
 		return
 

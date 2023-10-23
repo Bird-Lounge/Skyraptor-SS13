@@ -37,7 +37,7 @@ After setting it up, optionally navigate your git commandline to the project fol
 
 We have a [list of guides on the wiki](http://www.tgstation13.org/wiki/Guides#Development_and_Contribution_Guides) that will help you get started contributing to /tg/station with Git and Dream Maker. For beginners, it is recommended you work on small projects like bugfixes at first. If you need help learning to program in BYOND, check out this [repository of resources](http://www.byond.com/developer/articles/resources).
 
-There is an open list of approachable issues for [your inspiration here](https://github.com/tgstation/tgstation/issues?q=is%3Aopen+is%3Aissue+label%3A%22Good+First+Issue%22).
+There is an open list of approachable issues for [your inspiration here](https://github.com/Bird-Lounge/Skyraptor-SS13/issues?q=is%3Aopen+is%3Aissue+label%3A%22Good+First+Issue%22).
 
 You can of course, as always, ask for help on the Discord channels or the forums. We're just here to have fun and help out, so please don't expect professional support.
 
@@ -90,6 +90,8 @@ Things you **CAN'T** do:
 * [Close PRs](https://imgur.com/w2RqpX8.png): Only maintainers are allowed to close PRs. Do not hit that button.
 * Close issues purely for breaking a template if the same information is contained without it.
 
+For more information reference the [Issue Manager Guide](.github/guides/ISSUE_MANAGER.md).
+
 </details>
 
 ## Development Guides
@@ -105,13 +107,14 @@ Things you **CAN'T** do:
 
 #### Misc
 
-- [AI Datums](../code/datums/ai/making_your_ai.md)
+- [AI Datums](../code/datums/ai/learn_ai.md)
 - [Embedding TGUI Components in Chat](../tgui/docs/chat-embedded-components.md)
 - [Hard Deletes](./guides/HARDDELETES.md)
 - [MC Tab Guide](./guides/MC_tab.md)
 - [Policy Configuration System](./guides/POLICYCONFIG.md)
-- [Splitting up pull requests, aka atomization](./guides/ATOMIZATION.md)
+- [Quickly setting up a development database with ezdb](./guides/EZDB.md)
 - [Required Tests (Continuous Integration)](./guides/CI.md)
+- [Splitting up pull requests, aka atomization](./guides/ATOMIZATION.md)
 - [UI Development](../tgui/README.md)
 - [Visual Effects and Systems](./guides/VISUALS.md)
 
@@ -166,7 +169,7 @@ Negative GBP increases the likelihood of a maintainer closing your PR. With that
 
 There is no benefit to having a higher positive GBP score, since GBP only comes into consideration when it is negative.
 
-You can see each tag and their GBP values [Here](https://github.com/tgstation/tgstation/blob/master/.github/gbp.toml). 
+You can see each tag and their GBP values [Here](https://github.com/Bird-Lounge/Skyraptor-SS13/blob/master/.github/gbp.toml). 
 
 ## Porting features/sprites/sounds/tools from other codebases
 
@@ -176,8 +179,10 @@ Regarding sprites & sounds, you must credit the artist and possibly the codebase
 
 ## Banned content
 Do not add any of the following in a Pull Request or risk getting the PR closed:
-* National Socialist Party of Germany content, National Socialist Party of Germany related content, or National Socialist Party of Germany references
+* National Socialist Party of Germany content, National Socialist Party of Germany related content, or National Socialist Party of Germany references.
 * Code adding, removing, or updating the availability of alien races/species/human mutants without prior approval. Pull requests attempting to add or remove features from said races/species/mutants require prior approval as well.
+* NSFW or fetish content, in whole or in part without prior approval - this is not an ERP or fetish-focused server.
+* NSFL content, including extreme gore or NSFW depictions of non-anthropomorphic animals - it should be obvious why these are major no-nos.
 * Code which violates GitHub's [terms of service](https://github.com/site/terms).
 
 Just because something isn't on this list doesn't mean that it's acceptable. Use common sense above all else.

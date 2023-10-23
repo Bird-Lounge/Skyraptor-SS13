@@ -68,13 +68,10 @@
 
 /area/shuttle/hunter
 	name = "Hunter Shuttle"
-	static_lighting = FALSE
-	base_lighting_alpha = 255
 
 /area/shuttle/hunter/russian
 	name = "Russian Cargo Hauler"
 	requires_power = TRUE
-	static_lighting = TRUE
 
 ////////////////////////////White Ship////////////////////////////
 
@@ -243,6 +240,13 @@
 
 /area/shuttle/ruin/caravan/freighter3
 	name = "Tiny Freighter"
+
+// ----------- Cyborg Mothership
+
+/area/shuttle/ruin/cyborg_mothership
+	name = "Cyborg Mothership"
+	requires_power = TRUE
+	area_limited_icon_smoothing = /area/shuttle/ruin/cyborg_mothership
 
 // ----------- Arena Shuttle
 /area/shuttle/shuttle_arena

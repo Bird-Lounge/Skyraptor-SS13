@@ -149,7 +149,7 @@
 	var/throwtarget = get_edge_target_turf(src, move_dir)
 	for(var/mob/living/trample_target in T.contents - hit_things - src)
 		hit_things += trample_target
-		if(faction_check_mob(trample_target))
+		if(faction_check_atom(trample_target))
 			continue
 		visible_message(span_boldwarning("[src] tramples and kicks [trample_target]!"))
 		to_chat(trample_target, span_userdanger("[src] tramples you and kicks you away!"))
@@ -269,7 +269,7 @@
 /obj/structure/legionnaire_bonfire
 	name = "bone pile"
 	desc = "A pile of bones which seems to occasionally move a little.  It's probably a good idea to smash them."
-	icon = 'icons/obj/lavaland/legionnaire_bonfire.dmi'
+	icon = 'icons/obj/mining_zones/legionnaire_bonfire.dmi'
 	icon_state = "bonfire"
 	max_integrity = 100
 	move_resist = MOVE_FORCE_EXTREMELY_STRONG
@@ -315,7 +315,7 @@
 /obj/item/crusher_trophy/legionnaire_spine
 	name = "legionnaire spine"
 	desc = "The spine of a legionnaire. With some creativity, you could use it as a crusher trophy. Alternatively, shaking it might do something as well."
-	icon = 'icons/obj/lavaland/elite_trophies.dmi'
+	icon = 'icons/obj/mining_zones/elite_trophies.dmi'
 	icon_state = "legionnaire_spine"
 	denied_type = /obj/item/crusher_trophy/legionnaire_spine
 	bonus_value = 20
@@ -346,3 +346,8 @@
 	LegionSkull.friends += LivingUser
 	LegionSkull.faction = LivingUser.faction.Copy()
 	next_use_time = world.time + 4 SECONDS
+
+#undef LEGIONNAIRE_CHARGE
+#undef HEAD_DETACH
+#undef BONFIRE_TELEPORT
+#undef SPEW_SMOKE

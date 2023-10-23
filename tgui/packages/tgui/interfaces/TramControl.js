@@ -44,10 +44,10 @@ const BrokenTramDimmer = () => {
     <Dimmer>
       <Stack vertical>
         <Stack.Item>
-          <Icon ml={7} color="red" name="exclamation" size={10} />
+          <Icon ml={7} color="red" name="triangle-exclamation" size={10} />
         </Stack.Item>
         <Stack.Item fontSize="14px" color="red">
-          No Tram Detected!
+          Check Tram Controller!
         </Stack.Item>
       </Stack>
     </Dimmer>
@@ -93,12 +93,12 @@ export const TramControl = (props, context) => {
             color={getDestColor(dest)}
             circular
             compact
-            height={5}
-            width={5}
+            height={4.9}
+            width={4.9}
             tooltipPosition="top"
             tooltip={COLOR2BLURB[getDestColor(dest)]}
             onClick={() => setTransitIndex(destinations.indexOf(dest))}>
-            <Icon ml={-2.1} mt={0.55} fontSize="60px" name="circle-o" />
+            <Icon ml={-2.1} fontSize="60px" name="circle-o" />
           </Button>
           {(destinations.length - 1 !== destinations.indexOf(dest) && (
             <Section title=" " mt={-7.3} ml={10} mr={-6.1} />

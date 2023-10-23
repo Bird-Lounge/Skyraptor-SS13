@@ -2,7 +2,8 @@
 #define MAX_ITEMS_PER_RATING 10
 /// How many items are converted per cycle, per rating point of the manipulator used.
 #define PROCESSED_ITEMS_PER_RATING 5
-
+/// Starting purity of reagents made in biogenerator
+#define BIOGEN_REAGENT_PURITY 0.3
 
 /obj/machinery/biogenerator
 	name = "biogenerator"
@@ -44,19 +45,65 @@
 	var/selected_cat
 	/// The sound loop that can be heard when the generator is processing.
 	var/datum/looping_sound/generator/soundloop
-
+	/// Whether the biogen is welded down to the floor disabling unwrenching
+	var/welded_down = FALSE
 
 /obj/machinery/biogenerator/Initialize(mapload)
 	. = ..()
-	stored_research = new /datum/techweb/specialized/autounlocking/biogenerator
+	if(!GLOB.autounlock_techwebs[/datum/techweb/autounlocking/biogenerator])
+		GLOB.autounlock_techwebs[/datum/techweb/autounlocking/biogenerator] = new /datum/techweb/autounlocking/biogenerator
+	stored_research = GLOB.autounlock_techwebs[/datum/techweb/autounlocking/biogenerator]
 	soundloop = new(src, processing)
+	if(mapload)
+		welded_down = TRUE
 
+/obj/machinery/biogenerator/can_be_unfasten_wrench(mob/user, silent)
+	if(welded_down)
+		to_chat(user, span_warning("[src] is welded to the floor!"))
+		return FAILED_UNFASTEN
+	return ..()
+
+/obj/machinery/biogenerator/set_anchored(anchorvalue)
+	. = ..()
+	if(!anchored && welded_down) //make sure they're keep in sync in case it was forcibly unanchored by badmins or by a megafauna.
+		welded_down = FALSE
+
+/obj/machinery/biogenerator/welder_act(mob/living/user, obj/item/tool)
+	..()
+	if(welded_down)
+		if(!tool.tool_start_check(user, amount=2))
+			return TRUE
+		user.visible_message(
+			span_notice("[user.name] starts to cut the [name] free from the floor."),
+			span_notice("You start to cut [src] free from the floor..."),
+			span_hear("You hear welding."),
+		)
+		if(!tool.use_tool(src, user, 10 SECONDS, volume=100))
+			return FALSE
+		welded_down = FALSE
+		to_chat(user, span_notice("You cut [src] free from the floor."))
+		return TRUE
+	if(!anchored)
+		to_chat(user, span_warning("[src] needs to be wrenched to the floor!"))
+		return TRUE
+	if(!tool.tool_start_check(user, amount=2))
+		return TRUE
+	user.visible_message(
+		span_notice("[user.name] starts to weld the [name] to the floor."),
+		span_notice("You start to weld [src] to the floor..."),
+		span_hear("You hear welding."),
+	)
+	if(!tool.use_tool(src, user, 10 SECONDS, volume=100))
+		balloon_alert(user, "cancelled!")
+		return FALSE
+	welded_down = TRUE
+	to_chat(user, span_notice("You weld [src] to the floor."))
+	return TRUE
 
 /obj/machinery/biogenerator/Destroy()
 	QDEL_NULL(beaker)
 	QDEL_NULL(soundloop)
 	return ..()
-
 
 /obj/machinery/biogenerator/contents_explosion(severity, target)
 	. = ..()
@@ -71,14 +118,11 @@
 		if(EXPLODE_LIGHT)
 			SSexplosions.low_mov_atom += beaker
 
-
-/obj/machinery/biogenerator/handle_atom_del(atom/deleting_atom)
+/obj/machinery/biogenerator/Exited(atom/movable/gone, direction)
 	. = ..()
-
-	if(deleting_atom == beaker)
+	if(gone == beaker)
 		beaker = null
 		update_appearance()
-
 
 /obj/machinery/biogenerator/RefreshParts()
 	. = ..()
@@ -88,13 +132,13 @@
 	var/new_max_items = 10
 	var/new_processed_items_per_cycle = 0
 
-	for(var/obj/item/stock_parts/matter_bin/bin in component_parts)
-		new_max_items += MAX_ITEMS_PER_RATING * bin.rating
+	for(var/datum/stock_part/matter_bin/bin in component_parts)
+		new_max_items += MAX_ITEMS_PER_RATING * bin.tier
 
-	for(var/obj/item/stock_parts/manipulator/manipulator in component_parts)
-		new_productivity += manipulator.rating
-		new_efficiency += manipulator.rating
-		new_processed_items_per_cycle += PROCESSED_ITEMS_PER_RATING * manipulator.rating
+	for(var/datum/stock_part/servo/servo in component_parts)
+		new_productivity += servo.tier
+		new_efficiency += servo.tier
+		new_processed_items_per_cycle += PROCESSED_ITEMS_PER_RATING * servo.tier
 
 	max_items = new_max_items
 	efficiency = new_efficiency
@@ -114,6 +158,8 @@
 		. += span_notice(" - Matter consumption at <b>[1 / efficiency * 100]</b>%.")
 		. += span_notice(" - Internal biomass converter capacity at <b>[max_items]</b> pieces of food, and currently holding <b>[current_item_count]</b>.")
 
+	if(welded_down)
+		. += span_info("It's moored firmly to the floor. You can unsecure its moorings with a <b>welder</b>.")
 
 /obj/machinery/biogenerator/update_appearance()
 	. = ..()
@@ -149,6 +195,10 @@
 	. += mutable_appearance(icon, "[icon_state]_o_screen")
 	. += emissive_appearance(icon, "[icon_state]_o_screen", src)
 
+/obj/machinery/biogenerator/wrench_act(mob/living/user, obj/item/tool)
+	. = ..()
+	default_unfasten_wrench(user, tool)
+	return TOOL_ACT_TOOLTYPE_SUCCESS
 
 /obj/machinery/biogenerator/attackby(obj/item/attacking_item, mob/living/user, params)
 	if(user.combat_mode)
@@ -218,30 +268,13 @@
 
 		return TRUE //no afterattack
 
-	else if (istype(attacking_item, /obj/item/disk/design_disk))
-		user.visible_message(
-			span_notice("[user] begins to load \the [attacking_item] in \the [src]..."),
-			span_notice("You begin to load a design from \the [attacking_item]..."),
-			span_hear("You hear the chatter of a floppy drive.")
-		)
-		processing = TRUE
-		var/obj/item/disk/design_disk/design_disk = attacking_item
-
-		if(do_after(user, 1 SECONDS, target = src))
-			for(var/blueprint in design_disk.blueprints)
-				if(blueprint)
-					stored_research.add_design(blueprint)
-
-		processing = FALSE
-		return TRUE
-
 	else
 		to_chat(user, span_warning("You cannot put \the [attacking_item] in \the [src]!"))
 
 
 /obj/machinery/biogenerator/AltClick(mob/living/user)
 	. = ..()
-	if(user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE) && can_interact(user))
+	if(user.can_perform_action(src, FORBID_TELEKINESIS_REACH) && can_interact(user))
 		eject_beaker(user)
 
 
@@ -264,7 +297,7 @@
 	update_appearance()
 
 
-/obj/machinery/biogenerator/process(delta_time)
+/obj/machinery/biogenerator/process(seconds_per_tick)
 	if(!processing)
 		return
 
@@ -284,7 +317,7 @@
 
 		convert_to_biomass(food_to_convert)
 
-	use_power(active_power_usage * delta_time)
+	use_power(active_power_usage * seconds_per_tick)
 
 	if(!current_item_count)
 		stop_process(FALSE)
@@ -344,7 +377,7 @@
 
 
 /obj/machinery/biogenerator/proc/create_product(datum/design/design, amount)
-	if(design.make_reagents.len > 0)
+	if(design.make_reagent)
 		if(!beaker)
 			return FALSE
 
@@ -355,7 +388,7 @@
 		if(!use_biomass(design.materials, amount))
 			return FALSE
 
-		beaker.reagents.add_reagent(design.make_reagents[1], amount)
+		beaker.reagents.add_reagent(design.make_reagent, amount, added_purity = BIOGEN_REAGENT_PURITY)
 
 	if(design.build_path)
 		if(!use_biomass(design.materials, amount))
@@ -485,7 +518,7 @@
 			cat["items"] += list(list(
 				"id" = design.id,
 				"name" = design.name,
-				"is_reagent" = design.make_reagents.len > 0,
+				"is_reagent" = design.make_reagent != null,
 				"cost" = design.materials[GET_MATERIAL_REF(/datum/material/biomass)] / efficiency,
 			))
 		data["categories"] += list(cat)
@@ -518,7 +551,7 @@
 				return
 
 			var/datum/design/design = SSresearch.techweb_design_by_id(id)
-			amount = clamp(amount, 1, (design.make_reagents.len > 0 && beaker ? beaker.reagents.maximum_volume - beaker.reagents.total_volume : max_output))
+			amount = clamp(amount, 1, (design.make_reagent && beaker ? beaker.reagents.maximum_volume - beaker.reagents.total_volume : max_output))
 
 			if(design && !istype(design, /datum/design/error_design))
 				create_product(design, amount)
@@ -536,3 +569,4 @@
 
 #undef MAX_ITEMS_PER_RATING
 #undef PROCESSED_ITEMS_PER_RATING
+#undef BIOGEN_REAGENT_PURITY

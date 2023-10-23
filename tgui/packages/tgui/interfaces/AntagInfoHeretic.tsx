@@ -2,6 +2,7 @@ import { useBackend, useLocalState } from '../backend';
 import { Section, Stack, Box, Tabs, Button, BlockQuote } from '../components';
 import { Window } from '../layouts';
 import { BooleanLike } from 'common/react';
+import { ObjectivePrintout, Objective, ReplaceObjectivesButton } from './common/Objectives';
 
 const hereticRed = {
   color: '#e03c3c',
@@ -43,20 +44,18 @@ type KnowledgeInfo = {
   learnedKnowledge: Knowledge[];
 };
 
-type Objective = {
-  count: number;
-  name: string;
-  explanation: string;
-};
-
 type Info = {
   charges: number;
   total_sacrifices: number;
   ascended: BooleanLike;
   objectives: Objective[];
+  can_change_objective: BooleanLike;
 };
 
-const IntroductionSection = () => {
+const IntroductionSection = (props, context) => {
+  const { data, act } = useBackend<Info>(context);
+  const { objectives, ascended, can_change_objective } = data;
+
   return (
     <Stack justify="space-evenly" height="100%" width="100%">
       <Stack.Item grow>
@@ -64,14 +63,33 @@ const IntroductionSection = () => {
           <Stack vertical>
             <FlavorSection />
             <Stack.Divider />
-
             <GuideSection />
             <Stack.Divider />
-
             <InformationSection />
             <Stack.Divider />
-
-            <ObjectivePrintout />
+            {!ascended && (
+              <Stack.Item>
+                <ObjectivePrintout
+                  fill
+                  titleMessage={
+                    can_change_objective
+                      ? 'In order to ascend, you have these tasks to fulfill'
+                      : 'Use your dark knowledge to fulfil your personal goal'
+                  }
+                  objectives={objectives}
+                  objectiveFollowup={
+                    <ReplaceObjectivesButton
+                      can_change_objective={can_change_objective}
+                      button_title={'Reject Ascension'}
+                      button_colour={'red'}
+                      button_tooltip={
+                        'Turn your back on the Mansus to accomplish a task of your choosing. Selecting this option will prevent you from ascending!'
+                      }
+                    />
+                  }
+                />
+              </Stack.Item>
+            )}
           </Stack>
         </Section>
       </Stack.Item>
@@ -136,17 +154,17 @@ const GuideSection = () => {
         <Stack.Item>
           - Follow your <span style={hereticRed}>Living Heart</span> to find
           your targets. Bring them back to a&nbsp;
-          <span style={hereticGreen}>transmutation rune</span> in critical&nbsp;
-          or worse condition to&nbsp;
+          <span style={hereticGreen}>transmutation rune</span> in critical or
+          worse condition to&nbsp;
           <span style={hereticRed}>sacrifice</span> them for&nbsp;
           <span style={hereticBlue}>knowledge points</span>. The Mansus{' '}
           <b>ONLY</b> accepts targets pointed to by the&nbsp;
           <span style={hereticRed}>Living Heart</span>.
         </Stack.Item>
         <Stack.Item>
-          - Make yourself a <span style={hereticYellow}>focus</span> to be&nbsp;
-          able to cast various advanced spells to assist you in acquire&nbsp;
-          harder and harder sacrifices.
+          - Make yourself a <span style={hereticYellow}>focus</span> to be able
+          to cast various advanced spells to assist you in acquiring harder and
+          harder sacrifices.
         </Stack.Item>
         <Stack.Item>
           - Accomplish all of your objectives to be able to learn the{' '}
@@ -188,28 +206,6 @@ const InformationSection = (props, context) => {
           You have made a total of&nbsp;
           <b>{total_sacrifices || 0}</b>&nbsp;
           <span style={hereticRed}>sacrifices</span>.
-        </Stack.Item>
-      </Stack>
-    </Stack.Item>
-  );
-};
-
-const ObjectivePrintout = (props, context) => {
-  const { data } = useBackend<Info>(context);
-  const { objectives } = data;
-  return (
-    <Stack.Item>
-      <Stack vertical fill>
-        <Stack.Item bold>
-          In order to ascend, you have these tasks to fulfill:
-        </Stack.Item>
-        <Stack.Item>
-          {(!objectives && 'None!') ||
-            objectives.map((objective) => (
-              <Stack.Item key={objective.count}>
-                {objective.count}: {objective.explanation}
-              </Stack.Item>
-            ))}
         </Stack.Item>
       </Stack>
     </Stack.Item>
@@ -310,11 +306,9 @@ export const AntagInfoHeretic = (props, context) => {
   const [currentTab, setTab] = useLocalState(context, 'currentTab', 0);
 
   return (
-    <Window width={675} height={625}>
+    <Window width={675} height={635}>
       <Window.Content
         style={{
-          // 'font-family': 'Times New Roman',
-          // 'fontSize': '20px',
           'background-image': 'none',
           'background': ascended
             ? 'radial-gradient(circle, rgba(24,9,9,1) 54%, rgba(31,10,10,1) 60%, rgba(46,11,11,1) 80%, rgba(47,14,14,1) 100%);'

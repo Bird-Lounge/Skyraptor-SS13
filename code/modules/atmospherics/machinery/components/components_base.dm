@@ -19,6 +19,9 @@
 	///Handles whether the custom reconcilation handling should be used
 	var/custom_reconcilation = FALSE
 
+	/// SKYRAPTOR ADDITION: underlays getting a modular icon
+	var/underlay_icon = 'icons/obj/pipes_n_cables/pipe_underlays.dmi'
+
 /obj/machinery/atmospherics/components/New()
 	parents = new(device_type)
 	airs = new(device_type)
@@ -52,6 +55,10 @@
 /obj/machinery/atmospherics/components/proc/hide_pipe(datum/source, underfloor_accessibility)
 	SIGNAL_HANDLER
 	showpipe = !!underfloor_accessibility
+	if(showpipe)
+		REMOVE_TRAIT(src, TRAIT_UNDERFLOOR, REF(src))
+	else
+		ADD_TRAIT(src, TRAIT_UNDERFLOOR, REF(src))
 	update_appearance()
 
 /obj/machinery/atmospherics/components/update_icon()
@@ -74,14 +81,14 @@
 			continue
 		var/obj/machinery/atmospherics/node = nodes[i]
 		var/node_dir = get_dir(src, node)
-		var/mutable_appearance/pipe_appearance = mutable_appearance('icons/obj/atmospherics/pipes/pipe_underlays.dmi', "intact_[node_dir]_[underlay_pipe_layer]")
+		var/mutable_appearance/pipe_appearance = mutable_appearance(underlay_icon, "intact_[node_dir]_[underlay_pipe_layer]") //SKYRAPTOR EDIT
 		pipe_appearance.color = node.pipe_color
 		underlays += pipe_appearance
 		connected |= node_dir
 
 	for(var/direction in GLOB.cardinals)
 		if((initialize_directions & direction) && !(connected & direction))
-			var/mutable_appearance/pipe_appearance = mutable_appearance('icons/obj/atmospherics/pipes/pipe_underlays.dmi', "exposed_[direction]_[underlay_pipe_layer]")
+			var/mutable_appearance/pipe_appearance = mutable_appearance(underlay_icon, "exposed_[direction]_[underlay_pipe_layer]") //SKYRAPTOR EDIT
 			pipe_appearance.color = pipe_color
 			underlays += pipe_appearance
 
@@ -97,7 +104,7 @@
 	airs[i] = null
 	return ..()
 
-/obj/machinery/atmospherics/components/on_construction()
+/obj/machinery/atmospherics/components/on_construction(mob/user)
 	. = ..()
 	update_parents()
 
@@ -130,6 +137,8 @@
 			parents[i] = null // Disconnects from the machinery side.
 
 	reference.other_atmos_machines -= src
+	if(custom_reconcilation)
+		reference.require_custom_reconcilation -= src
 
 	/**
 	 *  We explicitly qdel pipeline when this particular pipeline

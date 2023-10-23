@@ -17,6 +17,8 @@
 	mob_biotypes = MOB_ORGANIC | MOB_BEAST
 	health = 15
 	maxHealth = 15
+	mob_size = MOB_SIZE_SMALL
+	can_be_held = TRUE
 	density = FALSE
 	gold_core_spawnable = FRIENDLY_SPAWN
 	speak_emote = list("sniffles", "twitches")
@@ -30,7 +32,7 @@
 	response_harm_simple = "kick"
 	attack_verb_continuous = "kicks"
 	attack_verb_simple = "kick"
-	butcher_results = list(/obj/item/food/meat/slab = 1)
+	butcher_results = list(/obj/item/food/meat/slab/grassfed = 1)
 	unsuitable_cold_damage = 0.5 // Cold damage is 0.5 here to account for low health on the rabbit.
 	unsuitable_heat_damage = 0.5 // Heat damage is 0.5 here to account for low health on the rabbit.
 	ai_controller = /datum/ai_controller/basic_controller/rabbit
@@ -39,16 +41,25 @@
 
 /mob/living/basic/rabbit/Initialize(mapload)
 	. = ..()
+	AddElement(/datum/element/ai_retaliate)
 	AddElement(/datum/element/pet_bonus, "hops around happily!")
 	AddElement(/datum/element/animal_variety, icon_prefix, pick("brown", "black", "white"), TRUE)
 	if(prob(20)) // bunny
 		name = "bunny"
 
 /datum/ai_controller/basic_controller/rabbit
+	blackboard = list(
+		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic/ignore_faction(),
+	)
 	ai_traits = STOP_MOVING_WHEN_PULLED
 	ai_movement = /datum/ai_movement/basic_avoidance
 	idle_behavior = /datum/idle_behavior/idle_random_walk
-	planning_subtrees = list(/datum/ai_planning_subtree/random_speech/rabbit)
+	planning_subtrees = list(
+		/datum/ai_planning_subtree/random_speech/rabbit,
+		/datum/ai_planning_subtree/find_nearest_thing_which_attacked_me_to_flee,
+		/datum/ai_planning_subtree/flee_target,
+		)
+
 
 /// The easter subtype of rabbits, will lay eggs and say Eastery catchphrases.
 /mob/living/basic/rabbit/easter
@@ -78,7 +89,12 @@
 	)
 
 /datum/ai_controller/basic_controller/rabbit/easter
-	planning_subtrees = list(/datum/ai_planning_subtree/random_speech/rabbit/easter)
+	planning_subtrees = list(
+		/datum/ai_planning_subtree/random_speech/rabbit/easter,
+		/datum/ai_planning_subtree/find_nearest_thing_which_attacked_me_to_flee,
+		/datum/ai_planning_subtree/flee_target,
+		)
+
 
 /// Same deal as the standard easter subtype, but these ones are able to brave the cold of space with their handy gas mask.
 /mob/living/basic/rabbit/easter/space
@@ -93,4 +109,8 @@
 	unsuitable_cold_damage = 0 // Zero because we are meant to survive in space.
 
 /datum/ai_controller/basic_controller/rabbit/easter/space
-	planning_subtrees = list(/datum/ai_planning_subtree/random_speech/rabbit/easter/space)
+	planning_subtrees = list(
+		/datum/ai_planning_subtree/random_speech/rabbit/easter/space,
+		/datum/ai_planning_subtree/find_nearest_thing_which_attacked_me_to_flee,
+		/datum/ai_planning_subtree/flee_target,
+		)

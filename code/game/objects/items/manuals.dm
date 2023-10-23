@@ -2,7 +2,7 @@
 
 //Oh god what the fuck I am not good at computer
 /obj/item/book/manual
-	icon = 'icons/obj/library.dmi'
+	icon = 'icons/obj/service/library.dmi'
 	due_date = 0 // Game time in 1/10th seconds
 	unique = TRUE   // FALSE - Normal book, TRUE - Should not be treated as normal book, unable to be copied, unable to be modified
 
@@ -431,9 +431,10 @@
 		H.gib_animation()
 		sleep(0.3 SECONDS)
 		H.adjustBruteLoss(1000) //to make the body super-bloody
+		// if we use gib() then the body gets deleted
 		H.spawn_gibs()
-		H.spill_organs()
-		H.spread_bodyparts()
+		H.spill_organs(DROP_ALL_REMAINS)
+		H.spread_bodyparts(DROP_BRAIN)
 	return BRUTELOSS
 
 /obj/item/book/manual/wiki/plumbing
@@ -449,3 +450,10 @@
 	starting_author = "Kryson"
 	starting_title = "Unethically Grown Organics"
 	page_link = "Guide_to_cytology"
+
+/obj/item/book/manual/wiki/tgc
+	name = "Tactical Game Cards - Player's Handbook"
+	icon_state = "tgcbook"
+	starting_author = "Nanotrasen Edu-tainment Division"
+	starting_title = "Tactical Game Cards - Player's Handbook"
+	page_link = "Tactical_Game_Cards"

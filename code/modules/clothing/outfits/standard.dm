@@ -103,6 +103,29 @@
 	head = /obj/item/clothing/head/helmet/redtaghelm
 	shoes = /obj/item/clothing/shoes/sneakers/red
 
+/datum/outfit/traitor_cutout
+	name = "Traitor Cutout"
+
+	uniform = /obj/item/clothing/under/color/grey
+	suit = /obj/item/clothing/suit/armor/vest
+	gloves = /obj/item/clothing/gloves/chief_engineer
+	mask = /obj/item/clothing/mask/gas
+	belt = /obj/item/storage/belt
+	l_hand = /obj/item/melee/energy/sword/saber/red
+	r_hand = /obj/item/gun/energy/recharge/ebow
+	shoes = /obj/item/clothing/shoes/magboots/advance
+
+/datum/outfit/rev_cutout
+	name = "Revolutionary Cutout"
+
+	uniform = /obj/item/clothing/under/color/grey
+	back = /obj/item/storage/backpack
+	gloves = /obj/item/clothing/gloves/color/yellow
+	mask = /obj/item/clothing/mask/gas
+	belt = /obj/item/storage/belt
+	l_hand = /obj/item/melee/baton/security/cattleprod
+	shoes = /obj/item/clothing/shoes/sneakers/black
+
 /datum/outfit/laser_tag/blue
 	name = "Laser Tag Blue"
 
@@ -146,7 +169,7 @@
 	shoes = /obj/item/clothing/shoes/sneakers/white
 	ears = /obj/item/radio/headset
 	glasses = /obj/item/clothing/glasses/thermal/monocle
-	gloves = /obj/item/clothing/gloves/color/latex
+	gloves = /obj/item/clothing/gloves/latex
 	head = /obj/item/clothing/head/utility/welding
 	mask = /obj/item/clothing/mask/surgical
 	l_pocket = /obj/item/knife/kitchen
@@ -154,7 +177,7 @@
 	l_hand = /obj/item/fireaxe
 
 /datum/outfit/psycho/post_equip(mob/living/carbon/human/H)
-	for(var/obj/item/carried_item in H.get_equipped_items(TRUE))
+	for(var/obj/item/carried_item in H.get_equipped_items(include_pockets = TRUE, include_accessories = TRUE))
 		carried_item.add_mob_blood(H)//Oh yes, there will be blood...
 	for(var/obj/item/I in H.held_items)
 		I.add_mob_blood(H)
@@ -165,7 +188,7 @@
 
 	id = /obj/item/card/id/advanced/chameleon/black
 	id_trim = /datum/id_trim/reaper_assassin
-	uniform = /obj/item/clothing/under/suit/black
+	uniform = /obj/item/clothing/under/costume/buttondown/slacks/service
 	neck = /obj/item/clothing/neck/tie/red/hitman/tied
 	belt = /obj/item/modular_computer/pda/heads
 	ears = /obj/item/radio/headset
@@ -194,8 +217,7 @@
 	sec_briefcase.contents += new /obj/item/grenade/c4/x4
 
 	var/obj/item/modular_computer/pda/heads/pda = H.belt
-	pda.saved_identification = H.real_name
-	pda.saved_job = "Reaper"
+	pda.imprint_id(H.real_name, "Reaper")
 
 	var/obj/item/card/id/W = H.wear_id
 	W.registered_name = H.real_name
@@ -248,6 +270,15 @@
 	shoes = /obj/item/clothing/shoes/cult/alt/ghost
 	l_hand = /obj/item/melee/cultblade/ghost
 
+/datum/outfit/cult_cutout
+	name = "Cultist Cutout"
+
+	uniform = /obj/item/clothing/under/rank/civilian/chaplain
+	suit = /obj/item/clothing/suit/hooded/cultrobes/hardened
+	shoes = /obj/item/clothing/shoes/cult/alt
+	back = /obj/item/storage/backpack/cultpack
+	r_hand = /obj/item/melee/cultblade/dagger
+
 /datum/outfit/wizard
 	name = "Blue Wizard"
 
@@ -255,9 +286,9 @@
 	suit = /obj/item/clothing/suit/wizrobe
 	back = /obj/item/storage/backpack
 	backpack_contents = list(
-		/obj/item/storage/box/survival = 1,
 		/obj/item/spellbook = 1,
-)
+	)
+	box = /obj/item/storage/box/survival
 	ears = /obj/item/radio/headset
 	head = /obj/item/clothing/head/wizard
 	shoes = /obj/item/clothing/shoes/sandal/magic
@@ -272,13 +303,20 @@
 	if(new_spellbook)
 		new_spellbook.owner = wizard.mind
 
+/datum/outfit/wizard/bookless
+	name = "Wizard - Bookless"
+	backpack_contents = list()
+
+/datum/outfit/wizard/bookless/post_equip(mob/living/carbon/human/wizard, visualsOnly)
+	return
+
 /datum/outfit/wizard/apprentice
 	name = "Wizard Apprentice"
 
 	r_pocket = /obj/item/teleportation_scroll/apprentice
 	r_hand = null
 	l_hand = null
-	backpack_contents = list(/obj/item/storage/box/survival = 1)
+	backpack_contents = list()
 
 /datum/outfit/wizard/red
 	name = "Red Wizard"
@@ -299,7 +337,7 @@
 	r_hand = null
 	suit = /obj/item/clothing/suit/wizrobe/red
 	head = /obj/item/clothing/head/wizard/red
-	backpack_contents = list(/obj/item/storage/box/survival = 1)
+	backpack_contents = list()
 
 /datum/outfit/centcom/soviet
 	name = "Soviet Admiral"

@@ -5,7 +5,7 @@
 /obj/item/keycard
 	name = "security keycard"
 	desc = "This feels like it belongs to a door."
-	icon = 'icons/obj/puzzle_small.dmi'
+	icon = 'icons/obj/fluff/puzzle_small.dmi'
 	icon_state = "keycard"
 	force = 0
 	throwforce = 0
@@ -40,16 +40,40 @@
 	explosion_block = 3
 	heat_proof = TRUE
 	max_integrity = 600
-	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 100, FIRE = 100, ACID = 100)
+	armor_type = /datum/armor/door_puzzle
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | LAVA_PROOF
 	move_resist = MOVE_FORCE_OVERPOWERING
 	damage_deflection = 70
+	can_open_with_hands = FALSE
 	/// Make sure that the puzzle has the same puzzle_id as the keycard door!
 	var/puzzle_id = null
 	/// Message that occurs when the door is opened
 	var/open_message = "The door beeps, and slides opens."
 
 //Standard Expressions to make keycard doors basically un-cheeseable
+/datum/armor/door_puzzle
+	melee = 100
+	bullet = 100
+	laser = 100
+	energy = 100
+	bomb = 100
+	bio = 100
+	fire = 100
+	acid = 100
+
+/obj/machinery/door/puzzle/Initialize(mapload)
+	. = ..()
+	RegisterSignal(SSdcs, COMSIG_GLOB_PUZZLE_COMPLETED, PROC_REF(try_signal))
+
+/obj/machinery/door/puzzle/Destroy(force)
+	. = ..()
+	UnregisterSignal(SSdcs, COMSIG_GLOB_PUZZLE_COMPLETED)
+
+/obj/machinery/door/puzzle/proc/try_signal(datum/source, try_id)
+	SIGNAL_HANDLER
+
+	INVOKE_ASYNC(src, PROC_REF(try_puzzle_open), try_id)
+
 /obj/machinery/door/puzzle/Bumped(atom/movable/AM)
 	return !density && ..()
 
@@ -100,15 +124,6 @@
 /obj/machinery/door/puzzle/light
 	desc = "This door only opens when a linked mechanism is powered. It looks virtually indestructible."
 
-/obj/machinery/door/puzzle/light/Initialize(mapload)
-	. = ..()
-	RegisterSignal(SSdcs, COMSIG_GLOB_LIGHT_MECHANISM_COMPLETED, PROC_REF(check_mechanism))
-
-/obj/machinery/door/puzzle/light/proc/check_mechanism(datum/source, try_id)
-	SIGNAL_HANDLER
-
-	INVOKE_ASYNC(src, PROC_REF(try_puzzle_open), try_id)
-
 //*************************
 //***Box Pushing Puzzles***
 //*************************
@@ -116,7 +131,7 @@
 /obj/structure/holobox
 	name = "holobox"
 	desc = "A hard-light box, containing a secure decryption key."
-	icon = 'icons/obj/puzzle_small.dmi'
+	icon = 'icons/obj/fluff/puzzle_small.dmi'
 	icon_state = "laserbox"
 	density = TRUE
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | LAVA_PROOF
@@ -125,7 +140,7 @@
 /obj/item/pressure_plate/hologrid
 	name = "hologrid"
 	desc = "A high power, electronic input port for a holobox, which can unlock the hologrid's storage compartment. Safe to stand on."
-	icon = 'icons/obj/puzzle_small.dmi'
+	icon = 'icons/obj/fluff/puzzle_small.dmi'
 	icon_state = "lasergrid"
 	anchored = TRUE
 	trigger_mob = FALSE
@@ -170,11 +185,11 @@
 /obj/structure/light_puzzle
 	name = "light mechanism"
 	desc = "It's a mechanism that seems to power something when all the lights are lit up. It looks virtually indestructible."
-	icon = 'icons/obj/puzzle_small.dmi'
+	icon = 'icons/obj/fluff/puzzle_small.dmi'
 	icon_state = "light_puzzle"
 	anchored = TRUE
 	explosion_block = 3
-	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 100, FIRE = 100, ACID = 100)
+	armor_type = /datum/armor/structure_light_puzzle
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | LAVA_PROOF
 	light_range = MINIMUM_USEFUL_LIGHT_RANGE
 	light_power = 3
@@ -189,7 +204,18 @@
 	/// Banned combinations of the list in decimal
 	var/static/list/banned_combinations = list(-1, 47, 95, 203, 311, 325, 422, 473, 488, 500, 511)
 
+/datum/armor/structure_light_puzzle
+	melee = 100
+	bullet = 100
+	laser = 100
+	energy = 100
+	bomb = 100
+	bio = 100
+	fire = 100
+	acid = 100
+
 /obj/structure/light_puzzle/Initialize(mapload)
+	AddElement(/datum/element/blocks_explosives)
 	. = ..()
 	var/generated_board = -1
 	while(generated_board in banned_combinations)
@@ -204,8 +230,8 @@
 	for(var/i in 1 to 9)
 		if(!light_list[i])
 			continue
-		var/mutable_appearance/lit_image = mutable_appearance('icons/obj/puzzle_small.dmi', "light_lit")
-		var/mutable_appearance/emissive_image = emissive_appearance('icons/obj/puzzle_small.dmi', "light_lit", src)
+		var/mutable_appearance/lit_image = mutable_appearance('icons/obj/fluff/puzzle_small.dmi', "light_lit")
+		var/mutable_appearance/emissive_image = emissive_appearance('icons/obj/fluff/puzzle_small.dmi', "light_lit", src)
 		lit_image.pixel_x = 8 * ((i % 3 || 3 ) - 1)
 		lit_image.pixel_y = -8 * (ROUND_UP(i / 3) - 1)
 		emissive_image.pixel_x = lit_image.pixel_x
@@ -246,5 +272,5 @@
 			return
 	visible_message(span_boldnotice("[src] becomes fully charged!"))
 	powered = TRUE
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_LIGHT_MECHANISM_COMPLETED, puzzle_id)
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_PUZZLE_COMPLETED, puzzle_id)
 	playsound(src, 'sound/machines/synth_yes.ogg', 100, TRUE)

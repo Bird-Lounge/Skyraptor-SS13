@@ -20,15 +20,15 @@
 	harmful = FALSE
 
 /obj/item/ammo_casing/energy/flora/yield
-	projectile_type = /obj/projectile/energy/florayield
+	projectile_type = /obj/projectile/energy/flora/yield
 	select_name = "yield"
 
 /obj/item/ammo_casing/energy/flora/mut
-	projectile_type = /obj/projectile/energy/floramut
+	projectile_type = /obj/projectile/energy/flora/mut
 	select_name = "mutation"
 
 /obj/item/ammo_casing/energy/flora/revolution
-	projectile_type = /obj/projectile/energy/florarevolution
+	projectile_type = /obj/projectile/energy/flora/evolution
 	select_name = "revolution"
 	e_cost = 250
 
@@ -74,3 +74,9 @@
 	select_name = "marksman nanoshot"
 	e_cost = 0
 	fire_sound = 'sound/weapons/gun/revolver/shot_alt.ogg'
+
+/obj/item/ammo_casing/energy/fisher
+	projectile_type = /obj/projectile/energy/fisher
+	select_name = "light-buster"
+	e_cost = 250
+	fire_sound = 'sound/weapons/gun/general/heavy_shot_suppressed.ogg' // fwip fwip fwip fwip

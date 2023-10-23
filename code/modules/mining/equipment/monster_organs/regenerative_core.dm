@@ -25,10 +25,10 @@
 		return
 	SSblackbox.record_feedback("nested tally", "hivelord_core", 1, list("[type]", "inert"))
 
-/obj/item/organ/internal/monster_core/regenerative_core/on_life(delta_time, times_fired)
+/obj/item/organ/internal/monster_core/regenerative_core/on_life(seconds_per_tick, times_fired)
 	. = ..()
 	if (owner.health <= owner.crit_threshold)
-		trigger_organ_action()
+		trigger_organ_action(TRIGGER_FORCE_AVAILABLE)
 
 /obj/item/organ/internal/monster_core/regenerative_core/on_triggered_internal()
 	owner.revive(HEAL_ALL)
@@ -61,5 +61,3 @@
 		This process will trigger automatically if you are badly wounded."
 	button_icon_state = "legion_core_stable"
 	check_flags = NONE
-
-/datum/action/cooldown/monster_core_action/regenerative_core

@@ -24,14 +24,12 @@
 	starting_programs = list(
 		/datum/computer_file/program/records/security,
 		/datum/computer_file/program/records/medical,
-		/datum/computer_file/program/phys_scanner/all,
 	)
 
 /obj/item/computer_disk/command/cmo
 	name = "chief medical officer data disk"
 	desc = "Removable disk used to download essential CMO tablet apps."
 	starting_programs = list(
-		/datum/computer_file/program/phys_scanner/all,
 		/datum/computer_file/program/records/medical,
 	)
 
@@ -39,7 +37,6 @@
 	name = "research director data disk"
 	desc = "Removable disk used to download essential RD tablet apps."
 	starting_programs = list(
-		/datum/computer_file/program/phys_scanner/chemistry,
 		/datum/computer_file/program/signal_commander,
 	)
 
@@ -88,16 +85,7 @@
 	desc = "Removable disk used to download medical-related tablet apps."
 	icon_state = "datadisk7"
 	starting_programs = list(
-		/datum/computer_file/program/phys_scanner/medical,
 		/datum/computer_file/program/records/medical,
-	)
-
-/obj/item/computer_disk/chemistry
-	name = "chemistry data disk"
-	desc = "Removable disk used to download chemistry-related tablet apps."
-	icon_state = "datadisk5"
-	starting_programs = list(
-		/datum/computer_file/program/phys_scanner/chemistry,
 	)
 
 /**
@@ -128,18 +116,13 @@
  * Engineering
  */
 /obj/item/computer_disk/engineering
-	name = "station engineer data disk"
+	name = "engineering data disk"
 	desc = "Removable disk used to download engineering-related tablet apps."
 	icon_state = "datadisk6"
 	starting_programs = list(
+		/datum/computer_file/program/alarm_monitor,
+		/datum/computer_file/program/atmosscan,
 		/datum/computer_file/program/supermatter_monitor,
+		
 	)
 
-/obj/item/computer_disk/atmos
-	name = "atmospheric technician data disk"
-	desc = "Removable disk used to download atmos-related tablet apps."
-	icon_state = "datadisk6"
-	starting_programs = list(
-		/datum/computer_file/program/atmosscan,
-		/datum/computer_file/program/alarm_monitor,
-	)

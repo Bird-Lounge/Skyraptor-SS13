@@ -8,7 +8,7 @@
 	base_icon_state = "coffeemaker"
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	circuit = /obj/item/circuitboard/machine/coffeemaker
-	pixel_y = 4 //needed to make it sit nicely on tables
+	anchored_tabletop_offset = 4
 	var/obj/item/reagent_containers/cup/coffeepot/coffeepot = null
 	var/brewing = FALSE
 	var/brew_time = 20 SECONDS
@@ -56,17 +56,19 @@
 	return ..()
 
 /obj/machinery/coffeemaker/Exited(atom/movable/gone, direction)
+	. = ..()
 	if(gone == coffeepot)
 		coffeepot = null
+		update_appearance(UPDATE_OVERLAYS)
 	if(gone == cartridge)
 		cartridge = null
-	return ..()
+		update_appearance(UPDATE_OVERLAYS)
 
 /obj/machinery/coffeemaker/RefreshParts()
 	. = ..()
 	speed = 0
-	for(var/obj/item/stock_parts/micro_laser/laser in component_parts)
-		speed += laser.rating
+	for(var/datum/stock_part/micro_laser/laser in component_parts)
+		speed += laser.tier
 
 /obj/machinery/coffeemaker/examine(mob/user)
 	. = ..()
@@ -126,7 +128,7 @@
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return
-	if(!can_interact(user) || !user.canUseTopic(src, !issilicon(user), FALSE, no_tk = TRUE))
+	if(!can_interact(user) || !user.can_perform_action(src, ALLOW_SILICON_REACH|FORBID_TELEKINESIS_REACH))
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	if(brewing)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
@@ -138,14 +140,6 @@
 
 /obj/machinery/coffeemaker/attack_ai_secondary(mob/user, list/modifiers)
 	return attack_hand_secondary(user, modifiers)
-
-/obj/machinery/coffeemaker/handle_atom_del(atom/A)
-	. = ..()
-	if(A == coffeepot)
-		coffeepot = null
-	if(A == cartridge)
-		cartridge = null
-	update_appearance(UPDATE_OVERLAYS)
 
 /obj/machinery/coffeemaker/update_overlays()
 	. = ..()
@@ -291,7 +285,7 @@
 /obj/machinery/coffeemaker/ui_interact(mob/user) // The microwave Menu //I am reasonably certain that this is not a microwave //I am positively certain that this is not a microwave
 	. = ..()
 
-	if(brewing || !user.canUseTopic(src, !issilicon(user)))
+	if(brewing || !user.can_perform_action(src, ALLOW_SILICON_REACH))
 		return
 
 	var/list/options = list()
@@ -331,7 +325,7 @@
 		choice = show_radial_menu(user, src, options, require_near = !issilicon(user))
 
 	// post choice verification
-	if(brewing || (isAI(user) && machine_stat & NOPOWER) || !user.canUseTopic(src, !issilicon(user)))
+	if(brewing || (isAI(user) && machine_stat & NOPOWER) || !user.can_perform_action(src, ALLOW_SILICON_REACH))
 		return
 
 	switch(choice)
@@ -427,7 +421,7 @@
 /obj/item/coffee_cartridge
 	name = "coffeemaker cartridge- Caffè Generico"
 	desc = "A coffee cartridge manufactured by Piccionaia Coffee, for use with the Modello 3 system."
-	icon = 'icons/obj/food/food.dmi'
+	icon = 'icons/obj/food/cartridges.dmi'
 	icon_state = "cartridge_basic"
 	var/charges = 4
 	var/list/drink_type = list(/datum/reagent/consumable/coffee = 120)
@@ -477,7 +471,7 @@
 /obj/item/blank_coffee_cartridge
 	name = "blank coffee cartridge"
 	desc = "A blank coffee cartridge, ready to be filled with coffee paste."
-	icon = 'icons/obj/food/food.dmi'
+	icon = 'icons/obj/food/cartridges.dmi'
 	icon_state = "cartridge_blank"
 
 //now, how do you store coffee carts? well, in a rack, of course!
@@ -488,10 +482,10 @@
 	icon_state = "coffee_cartrack4"
 	base_icon_state = "coffee_cartrack"
 	contents_tag = "coffee cartridge"
-	is_open = TRUE
+	open_status = FANCY_CONTAINER_ALWAYS_OPEN
 	spawn_type = /obj/item/coffee_cartridge
 
-/obj/item/storage/fancy/coffee_cart_rack/Initialize()
+/obj/item/storage/fancy/coffee_cart_rack/Initialize(mapload)
 	. = ..()
 	atom_storage.max_slots = 4
 	atom_storage.set_holdable(list(/obj/item/coffee_cartridge))
@@ -525,13 +519,6 @@
 /obj/machinery/coffeemaker/impressa/Destroy()
 	QDEL_NULL(coffeepot)
 	QDEL_NULL(coffee)
-	return ..()
-
-/obj/machinery/coffeemaker/impressa/Exited(atom/movable/gone, direction)
-	if(gone == coffeepot)
-		coffeepot = null
-	if(gone == coffee)
-		coffee = null
 	return ..()
 
 /obj/machinery/coffeemaker/impressa/examine(mob/user)
@@ -571,13 +558,11 @@
 			. += "grinder_full"
 	return .
 
-/obj/machinery/coffeemaker/impressa/handle_atom_del(atom/A)
+/obj/machinery/coffeemaker/impressa/Exited(atom/movable/gone, direction)
 	. = ..()
-	if(A == coffeepot)
-		coffeepot = null
-	if(A == coffee)
-		coffee.Cut()
-	update_appearance(UPDATE_OVERLAYS)
+	if(gone in coffee)
+		coffee -= gone
+		update_appearance(UPDATE_OVERLAYS)
 
 /obj/machinery/coffeemaker/impressa/try_brew()
 	if(coffee_amount <= 0)

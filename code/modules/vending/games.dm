@@ -56,6 +56,7 @@
 				/obj/item/skillchip/sabrage = 2,
 				/obj/item/skillchip/useless_adapter = 5,
 				/obj/item/skillchip/wine_taster = 2,
+				/obj/item/skillchip/master_angler = 2,
 			),
 		),
 		list(
@@ -64,8 +65,8 @@
 			"products" = list(
 				/obj/item/camera = 3,
 				/obj/item/camera_film = 5,
-				/obj/item/cardpack/resin = 10,
-				/obj/item/cardpack/series_one = 10,
+				/obj/item/cardpack/resin = 20, //Both card packs have had their count raised to 20 from 10 until card persistance is implimented.
+				/obj/item/cardpack/series_one = 20,
 				/obj/item/dyespray = 3,
 				/obj/item/hourglass = 2,
 				/obj/item/instrument/piano_synth/headphones = 4,

@@ -3,7 +3,7 @@ import { BooleanLike, classes } from 'common/react';
 import { ComponentType, createComponentVNode, InfernoNode } from 'inferno';
 import { VNodeFlags } from 'inferno-vnode-flags';
 import { sendAct, useBackend, useLocalState } from '../../../../backend';
-import { Box, Button, Dropdown, Input, NumberInput, Stack } from '../../../../components';
+import { Box, Button, Dropdown, Input, NumberInput, Slider, Stack } from '../../../../components';
 import { createSetPreference, PreferencesMenuData } from '../../data';
 import { ServerPreferencesFetcher } from '../../ServerPreferencesFetcher';
 
@@ -79,6 +79,54 @@ export const FeatureColorInput = (props: FeatureValueProps<string>) => {
   );
 };
 
+/* SKYRAPTOR ADDITION: tricolor inputs, ported from Skyrat and Daedalus Dock */
+export const FeatureTriColorInput = (props: FeatureValueProps<string[]>) => {
+  const buttonFromValue = (index) => {
+    return (
+      <Stack.Item>
+        <Button
+          onClick={() => {
+            props.act('set_tricolor_preference', {
+              preference: props.featureId,
+              value: index + 1,
+            });
+          }}>
+          <Stack align="center" fill>
+            <Stack.Item>
+              <Box
+                style={{
+                  background: props.value[index].startsWith('#')
+                    ? props.value[index]
+                    : `#${props.value[index]}`,
+                  border: '2px solid white',
+                  'box-sizing': 'content-box',
+                  height: '11px',
+                  width: '11px',
+                  ...(props.shrink
+                    ? {
+                      'margin': '1px',
+                    }
+                    : {}),
+                }}
+              />
+            </Stack.Item>
+
+            {!props.shrink && <Stack.Item>Change</Stack.Item>}
+          </Stack>
+        </Button>
+      </Stack.Item>
+    );
+  };
+  return (
+    <Stack align="center" fill>
+      {buttonFromValue(0)}
+      {buttonFromValue(1)}
+      {buttonFromValue(2)}
+    </Stack>
+  );
+};
+/* SKYRAPTOR ADDITION END */
+
 export type FeatureToggle = Feature<BooleanLike, boolean>;
 
 export const CheckboxInput = (
@@ -153,12 +201,14 @@ export const StandardizedDropdown = (props: {
   displayNames: Record<string, InfernoNode>;
   onSetValue: (newValue: string) => void;
   value: string;
+  buttons?: boolean;
 }) => {
-  const { choices, disabled, displayNames, onSetValue, value } = props;
+  const { choices, disabled, buttons, displayNames, onSetValue, value } = props;
 
   return (
     <Dropdown
       disabled={disabled}
+      buttons={buttons}
       selected={value}
       onSelected={onSetValue}
       width="100%"
@@ -176,6 +226,7 @@ export const StandardizedDropdown = (props: {
 export const FeatureDropdownInput = (
   props: FeatureValueProps<string, string, FeatureChoicedServerData> & {
     disabled?: boolean;
+    buttons?: boolean;
   }
 ) => {
   const serverData = props.serverData;
@@ -196,6 +247,7 @@ export const FeatureDropdownInput = (
     <StandardizedDropdown
       choices={sortStrings(serverData.choices)}
       disabled={props.disabled}
+      buttons={props.buttons}
       displayNames={displayNames}
       onSetValue={props.handleSetValue}
       value={props.value}
@@ -294,6 +346,27 @@ export const FeatureNumberInput = (
       maxValue={props.serverData.maximum}
       step={props.serverData.step}
       value={props.value}
+    />
+  );
+};
+
+export const FeatureSliderInput = (
+  props: FeatureValueProps<number, number, FeatureNumericData>
+) => {
+  if (!props.serverData) {
+    return <Box>Loading...</Box>;
+  }
+
+  return (
+    <Slider
+      onChange={(e, value) => {
+        props.handleSetValue(value);
+      }}
+      minValue={props.serverData.minimum}
+      maxValue={props.serverData.maximum}
+      step={props.serverData.step}
+      value={props.value}
+      stepPixelSize={10}
     />
   );
 };

@@ -3,7 +3,7 @@
 /obj/item/paper_bin
 	name = "paper bin"
 	desc = "Contains all the paper you'll never need."
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "paper_bin0"
 	inhand_icon_state = "sheet-metal"
 	lefthand_file = 'icons/mob/inhands/items/sheets_lefthand.dmi'
@@ -54,12 +54,26 @@
 		droppoint = drop_location()
 	if(collapse)
 		visible_message(span_warning("The stack of paper collapses!"))
-	for(var/atom/movable/movable_atom in contents)
-		movable_atom.forceMove(droppoint)
-		if(!movable_atom.pixel_y)
-			movable_atom.pixel_y = rand(-3,3)
-		if(!movable_atom.pixel_x)
-			movable_atom.pixel_x = rand(-3,3)
+	for(var/obj/item/paper/stacked_paper in paper_stack) //first, dump all of the paper that already exists
+		stacked_paper.forceMove(droppoint)
+		if(!stacked_paper.pixel_y)
+			stacked_paper.pixel_y = rand(-3,3)
+		if(!stacked_paper.pixel_x)
+			stacked_paper.pixel_x = rand(-3,3)
+		paper_stack -= stacked_paper
+		total_paper -= 1
+	for(var/i in 1 to total_paper) //second, generate new paper for the remainder
+		var/obj/item/paper/new_paper = generate_paper()
+		new_paper.forceMove(droppoint)
+		if(!new_paper.pixel_y)
+			new_paper.pixel_y = rand(-3,3)
+		if(!new_paper.pixel_x)
+			new_paper.pixel_x = rand(-3,3)
+	if(bin_pen)
+		var/obj/item/pen/pen = bin_pen
+		pen.forceMove(droppoint)
+		bin_pen = null
+	total_paper = 0
 	update_appearance()
 
 /obj/item/paper_bin/fire_act(exposed_temperature, exposed_volume)
@@ -176,14 +190,14 @@
 
 			var/mutable_appearance/paper_overlay = mutable_appearance(current_paper.icon, current_paper.icon_state)
 			paper_overlay.color = current_paper.color
-			paper_overlay.pixel_y = paper_number/PAPERS_PER_OVERLAY - PAPER_OVERLAY_PIXEL_SHIFT //gives the illusion of stacking
+			paper_overlay.pixel_z = paper_number/PAPERS_PER_OVERLAY - PAPER_OVERLAY_PIXEL_SHIFT //gives the illusion of stacking
 			. += paper_overlay
 			if(paper_number == total_paper) //this is our top paper
 				. += current_paper.overlays //add overlays only for top paper
 				if(istype(src, /obj/item/paper_bin/bundlenatural))
-					bin_overlay.pixel_y = paper_overlay.pixel_y //keeps binding centred on stack
+					bin_overlay.pixel_z = paper_overlay.pixel_z //keeps binding centred on stack
 				if(bin_pen)
-					pen_overlay.pixel_y = paper_overlay.pixel_y //keeps pen on top of stack
+					pen_overlay.pixel_z = paper_overlay.pixel_z //keeps pen on top of stack
 		. += bin_overlay
 
 	if(bin_pen)
@@ -197,7 +211,7 @@
 /obj/item/paper_bin/bundlenatural
 	name = "natural paper bundle"
 	desc = "A bundle of paper created using traditional methods."
-	icon_state = null
+	icon_state = "paper_stack"
 	papertype = /obj/item/paper/natural
 	resistance_flags = FLAMMABLE
 	bin_overlay_string = "paper_bundle_overlay"
@@ -212,6 +226,8 @@
 
 /obj/item/paper_bin/bundlenatural/dump_contents(atom/droppoint)
 	. = ..()
+	binding_cable.forceMove(droppoint)
+	binding_cable = null
 	qdel(src)
 
 /obj/item/paper_bin/bundlenatural/update_overlays()
@@ -225,7 +241,7 @@
 		deconstruct(FALSE)
 
 /obj/item/paper_bin/bundlenatural/deconstruct(disassembled)
-	dump_contents()
+	dump_contents(drop_location())
 	return ..()
 
 /obj/item/paper_bin/bundlenatural/fire_act(exposed_temperature, exposed_volume)

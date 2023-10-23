@@ -56,8 +56,13 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define IS_PLAYER_COLORABLE_1 (1<<17)
 /// Whether or not this atom has contextual screentips when hovered OVER
 #define HAS_CONTEXTUAL_SCREENTIPS_1 (1<<18)
-// Whether or not this atom is storing contents for a disassociated storage object
+/// Whether or not this atom is storing contents for a disassociated storage object
 #define HAS_DISASSOCIATED_STORAGE_1 (1<<19)
+/// If this atom has experienced a decal element "init finished" sourced appearance update
+/// We use this to ensure stacked decals don't double up appearance updates for no rasin
+/// Flag as an optimization, don't make this a trait without profiling
+/// Yes I know this is a stupid flag, no you can't take him from me
+#define DECAL_INIT_UPDATE_EXPERIENCED_1 (1<<20)
 
 // Update flags for [/atom/proc/update_appearance]
 /// Update the atom's name
@@ -83,7 +88,10 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 //TURF FLAGS
 /// If a turf cant be jaunted through.
 #define NOJAUNT (1<<0)
+/// If a turf is an usused reservation turf awaiting assignment
 #define UNUSED_RESERVATION_TURF (1<<1)
+/// If a turf is a reserved turf
+#define RESERVATION_TURF (1<<2)
 /// Blocks lava rivers being generated on the turf.
 #define NO_LAVA_GEN (1<<3)
 /// Blocks ruins spawning on the turf.
@@ -92,6 +100,8 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define NO_RUST (1<<5)
 /// Is this turf is "solid". Space and lava aren't for instance
 #define IS_SOLID (1<<6)
+/// This turf will never be cleared away by other objects on Initialize.
+#define NO_CLEARING (1<<7)
 
 ////////////////Area flags\\\\\\\\\\\\\\
 /// If it's a valid territory for cult summoning or the CRAB-17 phone to spawn
@@ -120,12 +130,12 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define ABDUCTOR_PROOF (1<<11)
 /// If blood cultists can draw runes or build structures on this AREA.
 #define CULT_PERMITTED (1<<12)
-///Whther this area is iluminated by starlight
-#define AREA_USES_STARLIGHT (1<<13)
 /// If engravings are persistent in this area
-#define PERSISTENT_ENGRAVINGS (1<<14)
+#define PERSISTENT_ENGRAVINGS (1<<13)
 /// Mobs that die in this area don't produce a dead chat message
-#define NO_DEATH_MESSAGE (1<<15)
+#define NO_DEATH_MESSAGE (1<<14)
+/// This area should have extra shielding from certain event effects
+#define EVENT_PROTECTED (1<<15)
 
 /*
 	These defines are used specifically with the atom/pass_flags bitmask
@@ -146,6 +156,8 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define PASSDOORS (1<<10)
 #define PASSVEHICLE (1<<11)
 #define PASSITEM (1<<12)
+/// Do not intercept click attempts during Adjacent() checks. See [turf/proc/ClickCross]. **ONLY MEANINGFUL ON pass_flags_self!**
+#define LETPASSCLICKS (1<<13)
 
 //Movement Types
 #define GROUND (1<<0)
@@ -159,7 +171,9 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define LAVA_PROOF (1<<0)
 /// 100% immune to fire damage (but not necessarily to lava or heat)
 #define FIRE_PROOF (1<<1)
+/// atom is flammable and can have the burning component
 #define FLAMMABLE (1<<2)
+/// currently burning
 #define ON_FIRE (1<<3)
 /// acid can't even appear on it, let alone melt it.
 #define UNACIDABLE (1<<4)
@@ -244,26 +258,12 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 // This skillchip is incompatible with other skillchips from the incompatible_category list.
 #define SKILLCHIP_RESTRICTED_CATEGORIES (1<<1)
 
-//dir macros
-///Returns true if the dir is diagonal, false otherwise
-#define ISDIAGONALDIR(d) (d&(d-1))
-///True if the dir is north or south, false therwise
-#define NSCOMPONENT(d)   (d&(NORTH|SOUTH))
-///True if the dir is east/west, false otherwise
-#define EWCOMPONENT(d)   (d&(EAST|WEST))
-///Flips the dir for north/south directions
-#define NSDIRFLIP(d)     (d^(NORTH|SOUTH))
-///Flips the dir for east/west directions
-#define EWDIRFLIP(d)     (d^(EAST|WEST))
-///Turns the dir by 180 degrees
-#define DIRFLIP(d)       turn(d, 180)
-
 #define MAX_BITFIELD_SIZE 24
 
 /// 33554431 (2^24 - 1) is the maximum value our bitflags can reach.
 #define MAX_BITFLAG_DIGITS 8
 
-// timed_action_flags parameter for `/proc/do_after_mob`, `/proc/do_mob` and `/proc/do_after`
+// timed_action_flags parameter for `/proc/do_after`
 /// Can do the action even if mob moves location
 #define IGNORE_USER_LOC_CHANGE (1<<0)
 /// Can do the action even if the target moves location
@@ -274,7 +274,6 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define IGNORE_INCAPACITATED (1<<3)
 /// Used to prevent important slowdowns from being abused by drugs like kronkaine
 #define IGNORE_SLOWDOWNS (1<<4)
-
 
 // Spacevine-related flags
 /// Is the spacevine / flower bud heat resistant

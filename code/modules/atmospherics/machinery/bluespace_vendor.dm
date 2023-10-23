@@ -1,7 +1,7 @@
 /obj/item/wallframe/bluespace_vendor_mount
 	name = "bluespace vendor wall mount"
 	desc = "Used for placing bluespace vendors."
-	icon = 'icons/obj/atmospherics/components/bluespace_gas_selling.dmi'
+	icon = 'icons/obj/machines/atmospherics/bluespace_gas_selling.dmi'
 	icon_state = "bluespace_vendor_open"
 	result_path = /obj/machinery/bluespace_vendor/built
 	pixel_shift = 30
@@ -13,14 +13,14 @@
 #define BS_MODE_OPEN 4
 
 /obj/machinery/bluespace_vendor
-	icon = 'icons/obj/atmospherics/components/bluespace_gas_selling.dmi'
+	icon = 'icons/obj/machines/atmospherics/bluespace_gas_selling.dmi'
 	icon_state = "bluespace_vendor_off"
 	base_icon_state = "bluespace_vendor"
 	name = "Bluespace Gas Vendor"
 	desc = "Sells gas tanks with custom mixes for all the family!"
 
 	max_integrity = 300
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 100, BOMB = 0, BIO = 0, FIRE = 80, ACID = 30)
+	armor_type = /datum/armor/machinery_bluespace_vendor
 	layer = OBJ_LAYER
 
 	///The bluespace sender that this vendor is connected to
@@ -53,17 +53,23 @@
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/bluespace_vendor, 30)
 
+/datum/armor/machinery_bluespace_vendor
+	energy = 100
+	fire = 80
+	acid = 30
+
 /obj/machinery/bluespace_vendor/New(loc, ndir, nbuild)
 	. = ..()
 
 	if(nbuild)
-		panel_open = TRUE
+		set_panel_open(TRUE)
 
 	update_appearance()
 
 /obj/machinery/bluespace_vendor/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/payment, tank_cost, SSeconomy.get_dep_account(ACCOUNT_ENG), PAYMENT_ANGRY)
+	find_and_hang_on_wall( FALSE)
 
 /obj/machinery/bluespace_vendor/LateInitialize()
 	. = ..()
@@ -163,7 +169,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/bluespace_vendor, 30)
 /obj/machinery/bluespace_vendor/proc/register_machine(machine)
 	connected_machine = machine
 	LAZYADD(connected_machine.vendors, src)
-	RegisterSignal(connected_machine, COMSIG_PARENT_QDELETING, PROC_REF(unregister_machine))
+	RegisterSignal(connected_machine, COMSIG_QDELETING, PROC_REF(unregister_machine))
 	mode = BS_MODE_IDLE
 	update_appearance()
 
@@ -171,7 +177,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/bluespace_vendor, 30)
 /obj/machinery/bluespace_vendor/proc/unregister_machine()
 	SIGNAL_HANDLER
 	if(connected_machine)
-		UnregisterSignal(connected_machine, COMSIG_PARENT_QDELETING)
+		UnregisterSignal(connected_machine, COMSIG_QDELETING)
 		LAZYREMOVE(connected_machine.vendors, src)
 		connected_machine = null
 	mode = BS_MODE_OFF

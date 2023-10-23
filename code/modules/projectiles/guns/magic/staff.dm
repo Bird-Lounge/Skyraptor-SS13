@@ -11,12 +11,14 @@
 	var/allow_intruder_use = FALSE
 
 /obj/item/gun/magic/staff/proc/is_wizard_or_friend(mob/user)
-	if(!user?.mind?.has_antag_datum(/datum/antagonist/wizard) \
-		&& !user.mind.has_antag_datum(/datum/antagonist/survivalist/magic) \
-		&& !user.mind.has_antag_datum(/datum/antagonist/wizard_minion) \
-		&& !allow_intruder_use)
+	if(!HAS_MIND_TRAIT(user, TRAIT_MAGICALLY_GIFTED) && !allow_intruder_use)
 		return FALSE
 	return TRUE
+
+/obj/item/gun/magic/staff/can_trigger_gun(mob/living/user, akimbo_usage)
+	if(akimbo_usage && !is_wizard_or_friend(user))
+		return FALSE
+	return ..()
 
 /obj/item/gun/magic/staff/check_botched(mob/living/user, atom/target)
 	if(!is_wizard_or_friend(user))
@@ -85,6 +87,11 @@
 		to_chat(user, span_hypnophrase("<span style='font-size: 24px'>The staff feels weaker as you touch it</span>"))
 		user.balloon_alert(user, "the staff feels weaker as you touch it")
 
+/obj/item/gun/magic/staff/healing/examine(mob/user)
+	. = ..()
+	if(!is_wizard_or_friend(user))
+		. += span_notice("On the handle you notice a beautiful engraving in High Spaceman, \"Thou shalt not crosseth thy beams.\"")
+
 /obj/item/gun/magic/staff/healing/Initialize(mapload)
 	. = ..()
 	healing_beam = new(src)
@@ -122,9 +129,9 @@
 	no_den_usage = 1
 	school = SCHOOL_FORBIDDEN //this staff is evil. okay? it just is. look at this projectile type list. this is wrong.
 
-	/// Static list of all projectiles we can fire from our staff.
+	/// List of all projectiles we can fire from our staff.
 	/// Doesn't contain all subtypes of magic projectiles, unlike what it looks like
-	var/static/list/allowed_projectile_types = list(
+	var/list/allowed_projectile_types = list(
 		/obj/projectile/magic/animate,
 		/obj/projectile/magic/antimagic,
 		/obj/projectile/magic/arcane_barrage,
@@ -164,6 +171,47 @@
 	process_fire(user, user, FALSE)
 	return FALSE
 
+/**
+ * Staff of chaos given to the wizard upon completing a cheesy grand ritual. Is completely evil and if something
+ * breaks, it's completely intended. Fuck off.
+ * Also can be used by everyone, because why not.
+ */
+/obj/item/gun/magic/staff/chaos/true_wabbajack
+	name = "\proper Wabbajack"
+	desc = "If there is some deity out there, they've definitely skipped their psych appointment before creating this."
+	icon_state = "the_wabbajack"
+	inhand_icon_state = "the_wabbajack"
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF //fuck you
+	max_charges = 999999 //fuck you
+	recharge_rate = 1
+	allow_intruder_use = TRUE
+
+/obj/item/gun/magic/staff/chaos/true_wabbajack/Initialize(mapload)
+	. = ..()
+	allowed_projectile_types |= subtypesof(/obj/projectile/bullet/cannonball)
+	allowed_projectile_types |= subtypesof(/obj/projectile/bullet/rocket)
+	allowed_projectile_types |= subtypesof(/obj/projectile/energy/tesla)
+	allowed_projectile_types |= subtypesof(/obj/projectile/magic)
+	allowed_projectile_types |= subtypesof(/obj/projectile/temp)
+	allowed_projectile_types |= list(
+		/obj/projectile/beam/mindflayer,
+		/obj/projectile/bullet/gyro,
+		/obj/projectile/bullet/honker,
+		/obj/projectile/bullet/mime,
+		/obj/projectile/curse_hand,
+		/obj/projectile/energy/declone,
+		/obj/projectile/energy/electrode,
+		/obj/projectile/energy/net,
+		/obj/projectile/energy/nuclear_particle,
+		/obj/projectile/gravityattract,
+		/obj/projectile/gravitychaos,
+		/obj/projectile/gravityrepulse,
+		/obj/projectile/ion,
+		/obj/projectile/meteor,
+		/obj/projectile/neurotoxin,
+		/obj/projectile/plasma,
+	) //if you ever try to expand this list, avoid adding bullets/energy projectiles, this ain't supposed to be a gun... unless it's funny
+
 /obj/item/gun/magic/staff/door
 	name = "staff of door creation"
 	desc = "An artefact that spits bolts of transformative magic that can create doors in walls."
@@ -197,6 +245,7 @@
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	hitsound = 'sound/weapons/rapierhit.ogg'
+	block_sound = 'sound/weapons/parry.ogg'
 	force = 20
 	armour_penetration = 75
 	block_chance = 50
@@ -213,7 +262,7 @@
 		butcher_sound = hitsound, \
 	)
 
-/obj/item/gun/magic/staff/spellblade/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
+/obj/item/gun/magic/staff/spellblade/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
 	if(attack_type == PROJECTILE_ATTACK)
 		final_block_chance = 0
 	return ..()
