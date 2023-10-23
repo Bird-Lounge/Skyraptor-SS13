@@ -19,6 +19,9 @@
 ///Turf we want a mob to move to
 #define BB_TRAVEL_DESTINATION "BB_travel_destination"
 
+///Turf we want a mob to move to
+#define BB_TRAVEL_DESTINATION "BB_travel_destination"
+
 ///song instrument blackboard, set by instrument subtrees
 #define BB_SONG_INSTRUMENT "BB_SONG_INSTRUMENT"
 ///song lines blackboard, set by default on controllers
