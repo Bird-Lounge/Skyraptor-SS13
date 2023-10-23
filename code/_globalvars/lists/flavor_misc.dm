@@ -30,7 +30,7 @@ GLOBAL_LIST_EMPTY(animated_spines_list)
 	//Mutant Human bits
 GLOBAL_LIST_EMPTY(tails_list_human)
 GLOBAL_LIST_EMPTY(tails_list_lizard)
-GLOBAL_LIST_EMPTY(tails_list_monkey)
+GLOBAL_LIST_EMPTY(tails_list)	/// SKYRAPTOR EDIT: we already implement monkey tails, we need a general tails list for backwards compatibility too
 GLOBAL_LIST_EMPTY(ears_list)
 GLOBAL_LIST_EMPTY(wings_list)
 GLOBAL_LIST_EMPTY(wings_open_list)
