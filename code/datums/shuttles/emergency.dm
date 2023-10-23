@@ -347,8 +347,8 @@
 	description = "Developed by a member of Nanotrasen's R&D crew that claims to have travelled from the year 2028. \
 	He says this shuttle is based off an old entertainment complex from the 1990s, though our database has no records on anything pertaining to that decade."
 	admin_notes = "ONLY NINETIES KIDS REMEMBER. Uses the fun balloon and drone from the Emergency Bar."
-	occupancy_limit = "5"
 	credit_cost = CARGO_CRATE_VALUE * 30
+	occupancy_limit = "5"
 
 /datum/map_template/shuttle/emergency/basketball
 	suffix = "bballhooper"

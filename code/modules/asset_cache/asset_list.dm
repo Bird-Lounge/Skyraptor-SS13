@@ -12,7 +12,7 @@ GLOBAL_LIST_EMPTY(asset_datums)
 	return GLOB.asset_datums[type] || new type()
 
 /proc/get_asset_datum(type)
-	RETURN_TYPE(/datum/asset)
+	RETURN_TYPE(/datum/asset)  /// SKYRAPTOR ADDITION: Avoids fuckery when loading tooltip icons
 	var/datum/asset/loaded_asset = GLOB.asset_datums[type] || new type()
 	return loaded_asset.ensure_ready()
 

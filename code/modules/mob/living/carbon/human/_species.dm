@@ -487,7 +487,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	else if(old_species.exotic_bloodtype && !exotic_bloodtype)
 		human_who_gained_species.dna.blood_type = random_blood_type()
 
-	//Resets blood if it is excessively high for some reason
+	//Resets blood if it is excessively high so they don't gib
 	normalize_blood(human_who_gained_species)
 
 	if(ishuman(human_who_gained_species))
@@ -636,8 +636,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 					eye_overlay.pixel_y += height_offset
 					standing += eye_overlay
 
-		// organic body markings
-		if(TRAIT_HAS_MARKINGS in inherent_traits)
+		// organic body markings (oh my god this is terrible please rework this to be done on the limbs themselves i beg you)
+		if(HAS_TRAIT(species_human, TRAIT_HAS_MARKINGS))
 			var/obj/item/bodypart/chest/chest = species_human.get_bodypart(BODY_ZONE_CHEST)
 			var/obj/item/bodypart/arm/right/right_arm = species_human.get_bodypart(BODY_ZONE_R_ARM)
 			var/obj/item/bodypart/arm/left/left_arm = species_human.get_bodypart(BODY_ZONE_L_ARM)
@@ -765,16 +765,12 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			switch(bodypart)
 				if("ears")
 					accessory = GLOB.ears_list[source.dna.features["ears"]]
-					//source_id = "standard ears: [bodypart]"
-				if("bodymarks_lizard")
-					accessory = GLOB.bodymarks_list_lizard[source.dna.features["bodymarks_lizard"]]
-					//source_id = "standard bodymarks: [bodypart]"
+				if("body_markings")
+					accessory = GLOB.body_markings_list[source.dna.features["body_markings"]]
 				if("legs")
 					accessory = GLOB.legs_list[source.dna.features["legs"]]
-					//source_id = "standard legs: [bodypart]"
 				if("caps")
 					accessory = GLOB.caps_list[source.dna.features["caps"]]
-					//source_id = "standard caps: [bodypart]"
 			/// SKYRAPTOR EDIT BEGIN: modular_chargen
 			//Custom mutant bodyparts go brrr
 			for(var/spath in subtypesof(/datum/mutant_newmutantpart))
@@ -820,7 +816,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 							accessory_overlay.color = source.facial_hair_color
 						if(EYE_COLOR)
 							accessory_overlay.color = source.eye_color_left
-						if(SPRITE_ACC_SCRIPTED_COLOR) /// Skyraptor addition
+						if(SPRITE_ACC_SCRIPTED_COLOR) /// SKYRAPTOR ADDITION
 							accessory_overlay.color = accessory.color_override(source)
 				else
 					accessory_overlay.color = forced_colour
@@ -1004,7 +1000,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			if(H.num_legs < 2)
 				return FALSE
 			if((H.bodytype & BODYTYPE_DIGITIGRADE) && !(I.item_flags & IGNORE_DIGITIGRADE))
-				if(!(I.supports_variations_flags & (CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON)) && !(BODYTYPE_DIGITIGRADE in I.supported_bodytypes)) //SKYRAPTOR EDIT
+				if(!(I.supports_variations_flags & (CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON)) && !(BODYTYPE_DIGITIGRADE in I.supported_bodytypes)) /// SKYRAPTOR EDIT
 					if(!disable_warning)
 						to_chat(H, span_warning("The footwear around here isn't compatible with your feet!"))
 					return FALSE

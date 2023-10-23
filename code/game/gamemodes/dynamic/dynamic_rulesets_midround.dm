@@ -82,7 +82,10 @@
 		if (length(exclusive_roles) && !(creature.mind.assigned_role.title in exclusive_roles)) // Is the rule exclusive to their job?
 			trimmed_list.Remove(creature)
 			continue
-		if(HAS_TRAIT(creature, TRAIT_MIND_TEMPORARILY_GONE)) // are they in the vdom?
+		if(HAS_TRAIT(creature, TRAIT_MIND_TEMPORARILY_GONE)) // are they out of body?
+			trimmed_list.Remove(creature)
+			continue
+		if(HAS_TRAIT(creature, TRAIT_TEMPORARY_BODY)) // are they an avatar?
 			trimmed_list.Remove(creature)
 			continue
 	return trimmed_list
@@ -727,7 +730,7 @@
 
 /datum/dynamic_ruleset/midround/from_ghosts/revenant/generate_ruleset_body(mob/applicant)
 	var/mob/living/basic/revenant/revenant = new(pick(spawn_locs))
-	applicant.mind.transfer_to(revenant)
+	revenant.key = applicant.key
 	message_admins("[ADMIN_LOOKUPFLW(revenant)] has been made into a revenant by the midround ruleset.")
 	log_game("[key_name(revenant)] was spawned as a revenant by the midround ruleset.")
 	return revenant

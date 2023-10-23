@@ -141,3 +141,4 @@
 /datum/ai_behavior/hunt_target/use_ability_on_target/target_caught(mob/living/hunter, atom/hunted)
 	var/datum/action/cooldown/ability = hunter.ai_controller.blackboard[ability_key]
 	ability.InterceptClickOn(hunter, null, hunted)
+

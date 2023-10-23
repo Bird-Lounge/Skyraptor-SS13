@@ -19,10 +19,13 @@
 		BT.on_death()
 
 /mob/living/carbon/proc/inflate_gib() // Plays an animation that makes mobs appear to inflate before finally gibbing
-	addtimer(CALLBACK(src, PROC_REF(gib), null, null, TRUE, TRUE), 25)
+	/// SKYRAPTOR REMOVAL BEGIN
+	/*addtimer(CALLBACK(src, PROC_REF(gib), DROP_BRAIN|DROP_ORGANS|DROP_ITEMS), 25)
 	var/matrix/M = matrix()
 	M.Scale(1.8, 1.2)
-	animate(src, time = 40, transform = M, easing = SINE_EASING)
+	animate(src, time = 40, transform = M, easing = SINE_EASING)*/
+	/// SKYRAPTOR REMOVAL END
+	gib(DROP_BRAIN|DROP_ORGANS|DROP_ITEMS) /// SKYRAPTOR ADDITION: inflate_Gib just redirects to normal gib.  ideally we remove this function
 
 /mob/living/carbon/gib(drop_bitflags=NONE)
 	add_memory_in_range(src, 7, /datum/memory/witness_gib, protagonist = src)
