@@ -26,7 +26,6 @@
 		diseases = null,\
 	)
 
-
 /obj/item/food/meat/slab
 	name = "meat"
 	desc = "A slab of meat."
@@ -380,6 +379,7 @@
 	tastes = list("bacon" = 1)
 	foodtypes = MEAT | BREAKFAST
 	crafting_complexity = FOOD_COMPLEXITY_1
+	blood_decal_type = null
 
 /obj/item/food/meat/slab/gondola
 	name = "gondola meat"
@@ -442,6 +442,7 @@
 	tastes = list("crab" = 1)
 	foodtypes = SEAFOOD
 	crafting_complexity = FOOD_COMPLEXITY_1
+	blood_decal_type = null
 
 
 /obj/item/food/meat/slab/chicken
@@ -501,6 +502,7 @@
 	foodtypes = MEAT
 	tastes = list("meat" = 1)
 	crafting_complexity = FOOD_COMPLEXITY_1
+	blood_decal_type = null
 
 /obj/item/food/meat/steak/Initialize(mapload)
 	. = ..()
@@ -721,6 +723,7 @@
 	tastes = list("meat" = 1)
 	foodtypes = MEAT
 	crafting_complexity = FOOD_COMPLEXITY_1
+	blood_decal_type = null
 
 /obj/item/food/meat/cutlet/Initialize(mapload)
 	. = ..()
