@@ -20513,16 +20513,6 @@
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/command)
-<<<<<<< HEAD
-"hsX" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/sink/directional/south,
-/obj/item/reagent_containers/cup/bucket,
-/obj/item/mop,
-/turf/open/floor/plating,
-/area/station/maintenance/port/fore)
-=======
->>>>>>> 40a48a76d15 (Adds a holodeck to Birdshot Station (#78548))
 "hsZ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -20533,14 +20523,6 @@
 /obj/structure/barricade/wooden,
 /turf/open/floor/plating,
 /area/station/security/tram)
-<<<<<<< HEAD
-"htt" = (
-/obj/structure/rack,
-/obj/effect/spawner/random/maintenance/two,
-/turf/open/floor/plating,
-/area/station/maintenance/port/fore)
-=======
->>>>>>> 40a48a76d15 (Adds a holodeck to Birdshot Station (#78548))
 "htI" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -20589,15 +20571,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
-<<<<<<< HEAD
-"huc" = (
-/obj/effect/turf_decal/bot_white,
-/obj/structure/rack,
-/obj/item/electronics/apc,
-/turf/open/floor/iron/smooth_large,
-/area/station/cargo/warehouse)
-=======
->>>>>>> 40a48a76d15 (Adds a holodeck to Birdshot Station (#78548))
 "huh" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -24805,16 +24778,6 @@
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/plating,
 /area/station/service/abandoned_gambling_den)
-<<<<<<< HEAD
-"iUG" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Maintenance"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/supply/general,
-/turf/open/floor/plating,
-/area/station/maintenance/port/fore)
-=======
->>>>>>> 40a48a76d15 (Adds a holodeck to Birdshot Station (#78548))
 "iUH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/table/reinforced/titaniumglass,
@@ -28232,14 +28195,6 @@
 	dir = 8
 	},
 /area/station/hallway/secondary/dock)
-<<<<<<< HEAD
-"kfA" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/random/structure/crate,
-/turf/open/floor/plating,
-/area/station/maintenance/port/fore)
-=======
->>>>>>> 40a48a76d15 (Adds a holodeck to Birdshot Station (#78548))
 "kfC" = (
 /obj/effect/spawner/random/engineering/atmospherics_portable,
 /turf/open/floor/plating,
@@ -29394,18 +29349,6 @@
 	},
 /turf/open/floor/iron/small,
 /area/station/hallway/primary/central/fore)
-<<<<<<< HEAD
-"kzF" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/machinery/light/cold/directional/north,
-/obj/structure/sign/poster/official/random/directional/north,
-/turf/open/floor/iron,
-/area/station/cargo/storage)
-=======
->>>>>>> 40a48a76d15 (Adds a holodeck to Birdshot Station (#78548))
 "kzI" = (
 /obj/effect/turf_decal/bot_white,
 /obj/effect/spawner/random/structure/crate_empty,
@@ -30181,13 +30124,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/textured_half,
 /area/station/cargo/miningoffice)
-<<<<<<< HEAD
-"kOA" = (
-/obj/effect/spawner/random/structure/closet_maintenance,
-/turf/open/floor/plating,
-/area/station/maintenance/port/fore)
-=======
->>>>>>> 40a48a76d15 (Adds a holodeck to Birdshot Station (#78548))
 "kOG" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/external{
@@ -32315,19 +32251,6 @@
 /obj/item/wrench,
 /turf/open/floor/iron,
 /area/station/security/tram)
-<<<<<<< HEAD
-"lzn" = (
-/obj/structure/disposalpipe/segment{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/item/radio/intercom/directional/north,
-/turf/open/floor/iron,
-/area/station/cargo/storage)
-=======
->>>>>>> 40a48a76d15 (Adds a holodeck to Birdshot Station (#78548))
 "lzp" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -33395,13 +33318,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/central)
-<<<<<<< HEAD
-"lQq" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/station/maintenance/port/fore)
-=======
->>>>>>> 40a48a76d15 (Adds a holodeck to Birdshot Station (#78548))
 "lQu" = (
 /obj/machinery/light/broken/directional/south,
 /obj/effect/spawner/random/trash/bin,
@@ -36852,7 +36768,9 @@
 /turf/open/floor/wood,
 /area/station/maintenance/starboard/greater)
 "ncf" = (
-/obj/machinery/recycler,
+/obj/machinery/recycler{
+	dir = 8
+	},
 /obj/machinery/conveyor{
 	dir = 4;
 	id = "garbage"
@@ -39641,10 +39559,6 @@
 /obj/structure/steam_vent,
 /turf/open/floor/plating/rust,
 /area/station/maintenance/fore/greater)
-"odN" = (
-/obj/machinery/rnd/bepis,
-/turf/open/floor/iron,
-/area/station/cargo/storage)
 "odP" = (
 /obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/dark/small,
@@ -56318,10 +56232,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/command/captain,
 /turf/open/floor/plating,
 /area/station/maintenance/hallway/abandoned_command)
-"tyv" = (
-/obj/machinery/lapvend,
-/turf/open/floor/iron/white,
-/area/station/hallway/primary/starboard)
 "tyx" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -58781,17 +58691,6 @@
 /obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
-<<<<<<< HEAD
-"unz" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/structure/extinguisher_cabinet/directional/north,
-/turf/open/floor/iron,
-/area/station/cargo/storage)
-=======
->>>>>>> 40a48a76d15 (Adds a holodeck to Birdshot Station (#78548))
 "unK" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plating,
@@ -83846,7 +83745,7 @@ uzJ
 mQh
 nJU
 ppk
-odN
+uzJ
 ovQ
 oRr
 poM
@@ -84091,21 +83990,12 @@ slY
 ueX
 slY
 ueX
-<<<<<<< HEAD
-slY
-ueX
-slY
-slY
-slY
-slY
-=======
 nFo
 oCG
 nFo
 nFo
 nFo
 nFo
->>>>>>> 40a48a76d15 (Adds a holodeck to Birdshot Station (#78548))
 lxy
 hzm
 jTA
@@ -84355,17 +84245,6 @@ slY
 gOK
 slY
 hfc
-<<<<<<< HEAD
-slY
-hsX
-jBb
-kPW
-kwY
-lQq
-kOA
-slY
-lzn
-=======
 jBb
 iNE
 nFo
@@ -84375,7 +84254,6 @@ ylH
 nEl
 ejq
 tvN
->>>>>>> 40a48a76d15 (Adds a holodeck to Birdshot Station (#78548))
 lRc
 moz
 kee
@@ -84624,17 +84502,7 @@ slY
 gPN
 gZk
 iNE
-ueX
-htt
 kwY
-<<<<<<< HEAD
-slY
-slY
-kwY
-slY
-slY
-kzF
-=======
 kPW
 nFo
 tPZ
@@ -84643,7 +84511,6 @@ cvP
 rWP
 bCh
 jWA
->>>>>>> 40a48a76d15 (Adds a holodeck to Birdshot Station (#78548))
 lTv
 oem
 oem
@@ -84892,16 +84759,6 @@ slY
 gPN
 slY
 hff
-<<<<<<< HEAD
-jCo
-hff
-jCo
-slY
-kfA
-lQq
-kPW
-iUG
-=======
 kPW
 hfc
 nFo
@@ -84910,7 +84767,6 @@ lbF
 lLq
 nyf
 ejq
->>>>>>> 40a48a76d15 (Adds a holodeck to Birdshot Station (#78548))
 jkS
 lTN
 mRD
@@ -85162,15 +85018,6 @@ slY
 jCo
 slY
 slY
-<<<<<<< HEAD
-jCi
-slY
-slY
-slY
-slY
-slY
-unz
-=======
 nFo
 nFo
 nFo
@@ -85178,7 +85025,6 @@ nFo
 nFo
 nFo
 kZB
->>>>>>> 40a48a76d15 (Adds a holodeck to Birdshot Station (#78548))
 lUz
 ohj
 ohj
@@ -85427,13 +85273,8 @@ sjq
 sNz
 hyO
 roi
-<<<<<<< HEAD
-slY
-huc
-=======
 jCi
 nPX
->>>>>>> 40a48a76d15 (Adds a holodeck to Birdshot Station (#78548))
 hAN
 jMb
 kzI
@@ -85443,11 +85284,7 @@ iUN
 jlv
 sRR
 odX
-<<<<<<< HEAD
-odX
-=======
 fts
->>>>>>> 40a48a76d15 (Adds a holodeck to Birdshot Station (#78548))
 nyE
 uzJ
 axj
@@ -112714,7 +112551,7 @@ rVX
 stP
 wbu
 tbD
-tyv
+ygu
 xdc
 ugC
 xSZ

@@ -452,18 +452,16 @@
 /turf/open/misc/asteroid,
 /area/station/asteroid)
 "abN" = (
-/obj/effect/turf_decal/delivery,
-/obj/machinery/navbeacon{
-	codes_txt = "delivery;dir=1";
-	location = "QM #6"
+/obj/machinery/firealarm/directional/south,
+/obj/effect/turf_decal/trimline/brown/line,
+/obj/effect/turf_decal/stripes,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
 	},
-/obj/effect/turf_decal/tile/brown/fourcorners,
-/mob/living/simple_animal/bot/mulebot{
-	home_destination = "QM #6";
-	suffix = "#6"
-	},
-/turf/open/floor/iron,
-/area/station/cargo/storage)
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/bitrunning/den)
 "abO" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -3835,6 +3833,10 @@
 "axF" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 8
+	},
+/obj/effect/landmark/start/bitrunner,
+/obj/structure/chair{
+	dir = 4
 	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
@@ -9464,8 +9466,6 @@
 /obj/effect/turf_decal/tile/brown/fourcorners,
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
-<<<<<<< HEAD
-=======
 "cfC" = (
 /obj/effect/turf_decal/trimline/brown/line,
 /obj/effect/turf_decal/stripes,
@@ -9484,7 +9484,6 @@
 /obj/structure/tram,
 /turf/open/indestructible/tram/plate,
 /area/station/hallway/primary/tram/center)
->>>>>>> 7626c3bd6ca (Tram v6/Transport Subsystem (#78230))
 "cga" = (
 /obj/effect/turf_decal/trimline/neutral/filled/corner{
 	dir = 8
@@ -10085,22 +10084,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/cafeteria,
 /area/station/command/heads_quarters/rd)
-<<<<<<< HEAD
-"csn" = (
-/obj/machinery/elevator_control_panel{
-	layer = 3.1;
-	linked_elevator_id = "tram_xeno_lift";
-	pixel_y = 2;
-<<<<<<< HEAD
-	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
-=======
-	preset_destination_names = list("2"="Lower                                                                Deck","3"="Upper                                                                Deck")
->>>>>>> b0a4ace2f77 (Relocates a garbage spawner on Tramstation that was causing rng CI failures (#78883))
-	},
-/turf/closed/wall,
-/area/station/science/xenobiology)
-=======
->>>>>>> 7626c3bd6ca (Tram v6/Transport Subsystem (#78230))
 "csA" = (
 /turf/closed/wall,
 /area/station/solars/starboard/fore)
@@ -15487,6 +15470,11 @@
 /mob/living/simple_animal/bot/cleanbot,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat_interior)
+"esr" = (
+/obj/machinery/netpod,
+/obj/item/radio/intercom/directional/north,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/station/bitrunning/den)
 "esA" = (
 /obj/machinery/iv_drip,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -15604,18 +15592,8 @@
 /turf/open/floor/wood,
 /area/station/service/theater)
 "euR" = (
-/obj/effect/turf_decal/delivery,
-/obj/machinery/navbeacon{
-	codes_txt = "delivery;dir=2";
-	location = "QM #3"
-	},
-/obj/effect/turf_decal/tile/brown/fourcorners,
-/mob/living/simple_animal/bot/mulebot{
-	home_destination = "QM #3";
-	suffix = "#3"
-	},
-/turf/open/floor/iron,
-/area/station/cargo/storage)
+/turf/closed/wall,
+/area/station/bitrunning/den)
 "euS" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -16242,6 +16220,15 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
+"eGU" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/navbeacon{
+	codes_txt = "delivery;dir=1";
+	location = "QM #4"
+	},
+/obj/effect/turf_decal/tile/brown/fourcorners,
+/turf/open/floor/iron,
+/area/station/cargo/warehouse)
 "eHj" = (
 /obj/machinery/vending/tool,
 /obj/machinery/airalarm/directional/east,
@@ -17935,8 +17922,19 @@
 /area/station/science/ordnance)
 "foU" = (
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
+"foV" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/navbeacon{
+	codes_txt = "delivery;dir=1";
+	location = "QM #5"
+	},
+/obj/effect/turf_decal/tile/brown/fourcorners,
+/turf/open/floor/iron,
+/area/station/cargo/warehouse)
 "foY" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -18553,6 +18551,15 @@
 /obj/machinery/light/warm/directional/west,
 /turf/open/floor/iron,
 /area/station/cargo/miningdock/cafeteria)
+"fDd" = (
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 8
+	},
+/obj/structure/chair{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/cargo/storage)
 "fDg" = (
 /obj/structure/table,
 /obj/item/clothing/gloves/boxing,
@@ -19180,6 +19187,19 @@
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/iron/freezer,
 /area/station/commons/toilet)
+"fNG" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/navbeacon{
+	codes_txt = "delivery;dir=2";
+	location = "QM #1"
+	},
+/obj/effect/turf_decal/tile/brown/fourcorners,
+/mob/living/simple_animal/bot/mulebot{
+	home_destination = "QM #1";
+	suffix = "#1"
+	},
+/turf/open/floor/iron,
+/area/station/cargo/warehouse)
 "fNR" = (
 /obj/structure/closet/lasertag/blue,
 /obj/effect/landmark/start/hangover/closet,
@@ -19585,21 +19605,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/processing)
-<<<<<<< HEAD
-"fWK" = (
-/obj/machinery/computer/atmos_control/oxygen_tank{
-<<<<<<< HEAD
-	atmos_chambers = list("o2ordance"="Oxygen        Supply")
-=======
-	atmos_chambers = list("o2ordance"="Oxygen                                                                Supply")
->>>>>>> b0a4ace2f77 (Relocates a garbage spawner on Tramstation that was causing rng CI failures (#78883))
-	},
-/obj/effect/turf_decal/stripes/line,
-/obj/machinery/airalarm/directional/north,
-/turf/open/floor/iron/dark,
-/area/station/science/ordnance/storage)
-=======
->>>>>>> 7626c3bd6ca (Tram v6/Transport Subsystem (#78230))
 "fWM" = (
 /obj/effect/turf_decal/trimline/red/filled/line,
 /obj/item/kirbyplants/random,
@@ -20172,27 +20177,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/tram/right)
-<<<<<<< HEAD
-"giW" = (
-/obj/effect/turf_decal/trimline/dark_red/warning{
-	dir = 9
-	},
-/obj/structure/industrial_lift/public,
-/obj/structure/railing{
-	dir = 9
-	},
-/obj/machinery/elevator_control_panel/directional/west{
-	linked_elevator_id = "tram_sci_lift";
-<<<<<<< HEAD
-	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
-=======
-	preset_destination_names = list("2"="Lower                                                                Deck","3"="Upper                                                                Deck")
->>>>>>> b0a4ace2f77 (Relocates a garbage spawner on Tramstation that was causing rng CI failures (#78883))
-	},
-/turf/open/floor/plating/elevatorshaft,
-/area/station/science/lower)
-=======
->>>>>>> 7626c3bd6ca (Tram v6/Transport Subsystem (#78230))
 "giZ" = (
 /obj/structure/bed,
 /obj/effect/spawner/random/contraband/prison,
@@ -22303,6 +22287,8 @@
 "gUL" = (
 /obj/effect/landmark/event_spawn,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "gUO" = (
@@ -22551,6 +22537,15 @@
 	},
 /turf/open/floor/iron,
 /area/station/command/teleporter)
+"haq" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron,
+/area/station/cargo/storage)
 "hay" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -23927,7 +23922,6 @@
 /obj/effect/turf_decal/siding/thinplating/corner{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "hDZ" = (
@@ -24720,8 +24714,6 @@
 /obj/machinery/telecomms/server/presets/command,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
-<<<<<<< HEAD
-=======
 "hSM" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/navbeacon{
@@ -24752,7 +24744,6 @@
 /obj/machinery/transport/destination_sign/indicator/directional/north,
 /turf/open/floor/iron,
 /area/station/hallway/primary/tram/left)
->>>>>>> 7626c3bd6ca (Tram v6/Transport Subsystem (#78230))
 "hTa" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line,
 /turf/open/floor/iron,
@@ -28617,15 +28608,10 @@
 /turf/open/floor/iron,
 /area/station/security/checkpoint/supply)
 "jnL" = (
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 1
+/obj/structure/railing{
+	layer = 3.1;
+	dir = 4
 	},
-<<<<<<< HEAD
-/obj/effect/turf_decal/trimline/brown/filled/line,
-/obj/machinery/light/small/directional/west,
-/turf/open/floor/iron,
-/area/station/cargo/storage)
-=======
 /obj/machinery/netpod,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/bitrunning/den)
@@ -28647,7 +28633,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/pharmacy)
->>>>>>> 7626c3bd6ca (Tram v6/Transport Subsystem (#78230))
 "jnR" = (
 /obj/structure/bed{
 	dir = 8
@@ -29134,34 +29119,6 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/lockers)
-<<<<<<< HEAD
-"jwP" = (
-/obj/effect/landmark/lift_id{
-	specific_lift_id = "tram_cargo_lift"
-	},
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/dark_red/warning{
-	dir = 8
-	},
-/obj/structure/industrial_lift/public,
-/obj/machinery/elevator_control_panel/directional/west{
-	linked_elevator_id = "tram_cargo_lift";
-<<<<<<< HEAD
-	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck");
-=======
-	preset_destination_names = list("2"="Lower                                                                Deck","3"="Upper                                                                Deck");
->>>>>>> b0a4ace2f77 (Relocates a garbage spawner on Tramstation that was causing rng CI failures (#78883))
-	req_access = list("mining")
-	},
-/obj/effect/abstract/elevator_music_zone{
-	linked_elevator_id = "tram_cargo_lift"
-	},
-/turf/open/floor/plating/elevatorshaft,
-/area/station/cargo/miningdock)
-=======
->>>>>>> 7626c3bd6ca (Tram v6/Transport Subsystem (#78230))
 "jwT" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -30381,12 +30338,13 @@
 /turf/open/floor/iron,
 /area/station/construction/mining/aux_base)
 "jTQ" = (
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/trimline/brown/filled/line,
-/turf/open/floor/iron,
-/area/station/cargo/storage)
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/landmark/start/bitrunner,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/bitrunning/den)
 "jUa" = (
 /obj/effect/turf_decal/trimline/purple/filled/corner{
 	dir = 4
@@ -32118,6 +32076,19 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/grimy,
 /area/station/security/detectives_office)
+"kyw" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/navbeacon{
+	codes_txt = "delivery;dir=2";
+	location = "QM #3"
+	},
+/obj/effect/turf_decal/tile/brown/fourcorners,
+/mob/living/simple_animal/bot/mulebot{
+	home_destination = "QM #3";
+	suffix = "#3"
+	},
+/turf/open/floor/iron,
+/area/station/cargo/warehouse)
 "kyF" = (
 /obj/structure/table,
 /obj/item/storage/backpack/duffelbag/sec{
@@ -34967,25 +34938,8 @@
 /obj/structure/fluff/tram_rail/electric/anchor{
 	dir = 1
 	},
-<<<<<<< HEAD
-/obj/structure/industrial_lift/public,
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/machinery/elevator_control_panel/directional/west{
-	linked_elevator_id = "tram_perma_lift";
-<<<<<<< HEAD
-	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
-=======
-	preset_destination_names = list("2"="Lower                                                                Deck","3"="Upper                                                                Deck")
->>>>>>> b0a4ace2f77 (Relocates a garbage spawner on Tramstation that was causing rng CI failures (#78883))
-	},
-/turf/open/floor/plating/elevatorshaft,
-/area/station/security/execution/transfer)
-=======
 /turf/open/openspace,
 /area/station/hallway/primary/tram/center)
->>>>>>> 7626c3bd6ca (Tram v6/Transport Subsystem (#78230))
 "lvH" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 1
@@ -36362,6 +36316,9 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "lTP" = (
@@ -37501,6 +37458,8 @@
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 1
 	},
+/obj/structure/table,
+/obj/machinery/light/dim/directional/north,
 /turf/open/floor/iron,
 /area/station/cargo/warehouse)
 "mng" = (
@@ -37700,14 +37659,26 @@
 /turf/open/floor/iron/white,
 /area/station/medical/storage)
 "mrg" = (
-/obj/effect/turf_decal/delivery,
-/obj/machinery/navbeacon{
-	codes_txt = "delivery;dir=1";
-	location = "QM #4"
+/obj/effect/turf_decal/trimline/brown/line,
+/obj/effect/turf_decal/stripes,
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/cup/glass/mug/coco{
+	pixel_x = -7;
+	pixel_y = 7
 	},
-/obj/effect/turf_decal/tile/brown/fourcorners,
-/turf/open/floor/iron,
-/area/station/cargo/storage)
+/obj/item/reagent_containers/cup/glass/mug/coco{
+	pixel_x = -6;
+	pixel_y = -1
+	},
+/obj/item/folder/yellow{
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/obj/item/pen{
+	pixel_x = 6
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/station/bitrunning/den)
 "mrr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/trimline/neutral/filled/line,
@@ -39079,27 +39050,6 @@
 /obj/item/storage/secure/safe/directional/north,
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/hop)
-<<<<<<< HEAD
-"mUc" = (
-/obj/structure/railing{
-	dir = 1
-	},
-/obj/machinery/elevator_control_panel/directional/north{
-	linked_elevator_id = "tram_upper_center_lift";
-<<<<<<< HEAD
-	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
-=======
-	preset_destination_names = list("2"="Lower                                                                Deck","3"="Upper                                                                Deck")
->>>>>>> b0a4ace2f77 (Relocates a garbage spawner on Tramstation that was causing rng CI failures (#78883))
-	},
-/obj/effect/turf_decal/trimline/dark_red/warning{
-	dir = 1
-	},
-/obj/structure/industrial_lift/public,
-/turf/open/floor/plating/elevatorshaft,
-/area/station/maintenance/tram/mid)
-=======
->>>>>>> 7626c3bd6ca (Tram v6/Transport Subsystem (#78230))
 "mUd" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/high_volume/siphon/monitored/air_output{
 	dir = 1
@@ -39673,14 +39623,15 @@
 /turf/open/floor/iron,
 /area/station/maintenance/tram/right)
 "nfZ" = (
-/obj/effect/turf_decal/delivery,
-/obj/machinery/navbeacon{
-	codes_txt = "delivery;dir=1";
-	location = "QM #5"
+/obj/effect/turf_decal/trimline/brown/line,
+/obj/effect/turf_decal/stripes,
+/obj/effect/turf_decal/siding/thinplating_new/dark/corner{
+	dir = 1
 	},
-/obj/effect/turf_decal/tile/brown/fourcorners,
-/turf/open/floor/iron,
-/area/station/cargo/storage)
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/bitrunning/den)
 "ngg" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /obj/effect/spawner/structure/window/reinforced,
@@ -40655,6 +40606,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/tram/left)
+"nvF" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/bitrunning/den)
 "nvH" = (
 /obj/effect/turf_decal/trimline/neutral/filled/corner{
 	dir = 4
@@ -42047,30 +42002,6 @@
 /obj/effect/turf_decal/trimline/purple/filled/line,
 /turf/open/floor/iron/white,
 /area/station/science/lobby)
-<<<<<<< HEAD
-"nUF" = (
-<<<<<<< HEAD
-/obj/effect/turf_decal/delivery,
-/obj/machinery/navbeacon{
-	codes_txt = "delivery;dir=2";
-	location = "QM #1"
-	},
-/obj/effect/turf_decal/tile/brown/fourcorners,
-/mob/living/simple_animal/bot/mulebot{
-	home_destination = "QM #1";
-	suffix = "#1"
-	},
-/turf/open/floor/iron,
-/area/station/cargo/storage)
-=======
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/light/directional/north,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/bitrunning/den)
->>>>>>> 235ebba7e0b (Bitrunning hotfix 3 (#78818))
-=======
->>>>>>> 7626c3bd6ca (Tram v6/Transport Subsystem (#78230))
 "nUM" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -42225,7 +42156,6 @@
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "nXn" = (
@@ -43145,6 +43075,13 @@
 	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
+"ooe" = (
+/obj/machinery/computer/quantum_console{
+	dir = 1
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/dark/smooth_corner,
+/area/station/bitrunning/den)
 "oog" = (
 /obj/machinery/disposal/bin,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
@@ -43730,6 +43667,19 @@
 /obj/effect/turf_decal/sand/plating,
 /turf/open/floor/catwalk_floor,
 /area/station/solars/starboard/fore)
+"oAi" = (
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 8
+	},
+/obj/machinery/door/airlock/mining/glass{
+	name = "MULE Storage"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/turf/open/floor/iron,
+/area/station/cargo/warehouse)
 "oAn" = (
 /obj/machinery/airlock_sensor/incinerator_ordmix{
 	pixel_x = 23;
@@ -44112,22 +44062,6 @@
 /obj/structure/grille,
 /turf/open/space/openspace,
 /area/space/nearstation)
-<<<<<<< HEAD
-"oKn" = (
-/obj/machinery/elevator_control_panel{
-	layer = 3.1;
-	linked_elevator_id = "tram_xeno_lift";
-	pixel_y = 2;
-<<<<<<< HEAD
-	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
-=======
-	preset_destination_names = list("2"="Lower                                                                Deck","3"="Upper                                                                Deck")
->>>>>>> b0a4ace2f77 (Relocates a garbage spawner on Tramstation that was causing rng CI failures (#78883))
-	},
-/turf/closed/wall/r_wall,
-/area/station/science/xenobiology)
-=======
->>>>>>> 7626c3bd6ca (Tram v6/Transport Subsystem (#78230))
 "oKZ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -44278,6 +44212,15 @@
 	},
 /turf/open/space/openspace,
 /area/station/solars/port)
+"oOP" = (
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/cargo/warehouse)
 "oOT" = (
 /obj/structure/table/wood,
 /obj/item/food/grown/poppy{
@@ -44942,6 +44885,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/security/courtroom)
+"pcI" = (
+/obj/machinery/quantum_server,
+/obj/effect/turf_decal/bot/left,
+/turf/open/floor/iron/dark/smooth_corner{
+	dir = 4
+	},
+/area/station/bitrunning/den)
 "pcO" = (
 /obj/effect/turf_decal/bot_white,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -45442,33 +45392,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/commons/vacant_room)
-<<<<<<< HEAD
-"plH" = (
-<<<<<<< HEAD
-/obj/effect/turf_decal/delivery,
-/obj/machinery/navbeacon{
-	codes_txt = "delivery;dir=2";
-	location = "QM #2"
-	},
-/obj/effect/turf_decal/tile/brown/fourcorners,
-/mob/living/simple_animal/bot/mulebot{
-	home_destination = "QM #2";
-	suffix = "#2"
-	},
-/turf/open/floor/iron,
-/area/station/cargo/storage)
-=======
-/obj/effect/decal/cleanable/oil/streak,
-/obj/structure/sign/poster/random/directional/north,
-/obj/machinery/power/apc/auto_name/directional/west,
-/obj/structure/cable,
-/obj/machinery/byteforge,
-/obj/effect/turf_decal/box,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/bitrunning/den)
->>>>>>> 235ebba7e0b (Bitrunning hotfix 3 (#78818))
-=======
->>>>>>> 7626c3bd6ca (Tram v6/Transport Subsystem (#78230))
 "plQ" = (
 /obj/effect/turf_decal/trimline/red/filled/corner,
 /obj/structure/disposalpipe/segment{
@@ -45979,6 +45902,16 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/security/courtroom/holding)
+"puo" = (
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 8
+	},
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/iron,
+/area/station/cargo/warehouse)
 "pur" = (
 /obj/effect/turf_decal/trimline/white/line{
 	dir = 9
@@ -47269,8 +47202,6 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table,
-/obj/machinery/light/dim/directional/north,
 /turf/open/floor/iron,
 /area/station/cargo/warehouse)
 "pOQ" = (
@@ -51831,6 +51762,9 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 8
 	},
+/obj/machinery/computer/order_console/bitrunning{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "rws" = (
@@ -52251,15 +52185,6 @@
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/engineering/supermatter/room)
-<<<<<<< HEAD
-"rFW" = (
-/obj/effect/turf_decal/delivery/white,
-/obj/structure/holosign/barrier/atmos/tram,
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/noslip/tram_platform,
-/area/station/hallway/primary/tram/center)
-=======
 "rEX" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/navbeacon{
@@ -52273,7 +52198,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/warehouse)
->>>>>>> 7626c3bd6ca (Tram v6/Transport Subsystem (#78230))
 "rGj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/cafeteria,
@@ -55771,7 +55695,7 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 1
 	},
-/obj/machinery/lapvend,
+/obj/machinery/vending/robotics,
 /turf/open/floor/iron/white,
 /area/station/science/lobby)
 "sSH" = (
@@ -57284,7 +57208,9 @@
 /turf/open/floor/iron/freezer,
 /area/station/security/prison/shower)
 "tte" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "tth" = (
@@ -60379,30 +60305,6 @@
 /obj/effect/spawner/random/maintenance/five,
 /turf/open/floor/iron,
 /area/station/cargo/warehouse)
-<<<<<<< HEAD
-"uud" = (
-/obj/effect/turf_decal/siding/thinplating{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/dark_red/warning{
-	dir = 4
-	},
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/structure/industrial_lift/public,
-/obj/machinery/elevator_control_panel/directional/east{
-	linked_elevator_id = "tram_lower_center_lift";
-<<<<<<< HEAD
-	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
-=======
-	preset_destination_names = list("2"="Lower                                                                Deck","3"="Upper                                                                Deck")
->>>>>>> b0a4ace2f77 (Relocates a garbage spawner on Tramstation that was causing rng CI failures (#78883))
-	},
-/turf/open/floor/plating/elevatorshaft,
-/area/station/maintenance/tram/mid)
-=======
->>>>>>> 7626c3bd6ca (Tram v6/Transport Subsystem (#78230))
 "uue" = (
 /obj/machinery/power/turbine/turbine_outlet{
 	dir = 4
@@ -61914,29 +61816,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/security/checkpoint/arrivals)
-<<<<<<< HEAD
-"uSl" = (
-/obj/effect/turf_decal/trimline/dark_red/warning,
-/obj/structure/industrial_lift/public,
-/obj/machinery/elevator_control_panel/directional/south{
-	linked_elevator_id = "tram_dorm_lift";
-<<<<<<< HEAD
-	preset_destination_names = list("2"="Lower        Deck","3"="Upper        Deck")
-=======
-	preset_destination_names = list("2"="Lower                                                                Deck","3"="Upper                                                                Deck")
->>>>>>> b0a4ace2f77 (Relocates a garbage spawner on Tramstation that was causing rng CI failures (#78883))
-	},
-/obj/structure/railing,
-/turf/open/floor/plating/elevatorshaft,
-/area/station/maintenance/tram/left)
-"uSL" = (
-/obj/effect/turf_decal/delivery/white,
-/obj/structure/fluff/tram_rail/floor,
-/obj/structure/holosign/barrier/atmos/tram,
-/turf/open/floor/noslip/tram_platform,
-/area/station/hallway/primary/tram/left)
-=======
->>>>>>> 7626c3bd6ca (Tram v6/Transport Subsystem (#78230))
 "uSP" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -65365,6 +65244,16 @@
 /obj/structure/sign/calendar/directional/east,
 /turf/open/floor/iron/cafeteria,
 /area/station/science/breakroom)
+"wdw" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/generic,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/bitrunning/den)
 "wdC" = (
 /obj/effect/turf_decal/sand/plating,
 /turf/open/floor/plating,
@@ -67420,6 +67309,11 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/engineering/atmos/pumproom)
+"wUA" = (
+/obj/machinery/netpod,
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/station/bitrunning/den)
 "wUL" = (
 /obj/machinery/status_display/evac/directional/north,
 /obj/machinery/fax{
@@ -69130,30 +69024,19 @@
 /turf/closed/wall,
 /area/station/security/processing)
 "xDW" = (
-/obj/machinery/door/airlock/mining/glass{
-	name = "MULE Storage"
-	},
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/brown/filled/line,
-/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/mining/glass{
+	name = "Bitrunning Den"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/supply/bit_den,
 /turf/open/floor/iron,
-<<<<<<< HEAD
-/area/station/cargo/storage)
-"xDY" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/dark_red/warning{
-	dir = 8
-	},
-/obj/structure/industrial_lift/public,
-/turf/open/floor/plating/elevatorshaft,
-/area/station/maintenance/tram/mid)
-=======
 /area/station/bitrunning/den)
->>>>>>> 7626c3bd6ca (Tram v6/Transport Subsystem (#78230))
 "xEo" = (
 /turf/closed/wall/r_wall,
 /area/station/command/heads_quarters/captain)
@@ -69714,6 +69597,17 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/checkpoint/supply)
+"xPI" = (
+/obj/effect/turf_decal/trimline/brown/line,
+/obj/effect/turf_decal/stripes,
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 1
+	},
+/obj/structure/extinguisher_cabinet/directional/west,
+/obj/effect/decal/cleanable/oil/streak,
+/obj/effect/landmark/start/bitrunner,
+/turf/open/floor/iron/dark/textured_large,
+/area/station/bitrunning/den)
 "xPN" = (
 /obj/structure/closet/lasertag/blue,
 /obj/effect/turf_decal/tile/blue/full,
@@ -178991,10 +178885,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+euR
+euR
+euR
+euR
 cTU
 cTU
 cTU
@@ -179248,10 +179142,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+euR
+wUA
+xPI
+ooe
 cTU
 vSI
 vSI
@@ -179504,11 +179398,11 @@ aac
 aaa
 aaa
 aaa
-cTU
-cTU
-cTU
-cTU
-cTU
+aaa
+euR
+esr
+cfC
+pcI
 cTU
 vSI
 vSI
@@ -179761,7 +179655,7 @@ aaa
 aaa
 aaa
 aaa
-cTU
+euR
 euR
 jnL
 abN
@@ -180018,15 +179912,9 @@ aac
 aaa
 aaa
 aaa
-<<<<<<< HEAD
-cTU
-plH
-jTQ
-=======
 euR
 iox
 wdw
->>>>>>> 7626c3bd6ca (Tram v6/Transport Subsystem (#78230))
 nfZ
 cTU
 exr
@@ -180281,13 +180169,8 @@ aac
 aac
 aaa
 aaa
-<<<<<<< HEAD
-cTU
-nUF
-=======
 euR
 rCO
->>>>>>> 7626c3bd6ca (Tram v6/Transport Subsystem (#78230))
 jTQ
 mrg
 cTU
@@ -180543,10 +180426,10 @@ aac
 aaa
 aaa
 cTU
-cTU
-ohS
+euR
+nvF
 xDW
-ohS
+nvF
 cTU
 nnb
 pZA
@@ -180804,7 +180687,7 @@ blx
 tAJ
 lTM
 axF
-axF
+fDd
 rwo
 dij
 uax
@@ -181059,11 +180942,11 @@ aaa
 akr
 tjS
 hFV
-gDr
-uax
-uax
-uax
-uax
+haq
+dzw
+dzw
+dzw
+dzw
 gUL
 foU
 dzw
@@ -183626,10 +183509,10 @@ aac
 aac
 aac
 aac
-cTU
-cTU
-cTU
-cTU
+udQ
+udQ
+udQ
+udQ
 udQ
 mmX
 pxD
@@ -183883,10 +183766,10 @@ aac
 aac
 aac
 aac
-aac
-aac
-aaa
-aaa
+udQ
+hSM
+foV
+eGU
 udQ
 fBJ
 pxD
@@ -184140,11 +184023,11 @@ aac
 aac
 aac
 aac
-aac
-aaa
-aaa
-aaa
 udQ
+puo
+oOP
+oOP
+oAi
 pOL
 kXr
 aye
@@ -184397,10 +184280,10 @@ aac
 aac
 aac
 aac
-aaa
-aaa
-aaa
-aaa
+udQ
+rEX
+kyw
+fNG
 udQ
 kSa
 cDP
@@ -184654,10 +184537,10 @@ aac
 aac
 aac
 aac
-aac
-aaa
-aaa
-aaa
+udQ
+udQ
+udQ
+udQ
 udQ
 aWL
 tft

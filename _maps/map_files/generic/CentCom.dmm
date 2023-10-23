@@ -9123,7 +9123,9 @@
 /obj/machinery/door/airlock/vault{
 	req_access = list("cent_captain")
 	},
-/obj/machinery/door/poddoor/shutters/indestructible,
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "XCCadminstore"
+	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/admin/storage)
 "Rk" = (
@@ -9443,7 +9445,9 @@
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/supplypod/loading/one)
 "ST" = (
-/obj/machinery/door/poddoor/ert,
+/obj/machinery/door/poddoor/ert{
+	id = "XCCertstore"
+	},
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
@@ -10089,7 +10093,9 @@
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
 "VO" = (
-/obj/machinery/door/poddoor/ert,
+/obj/machinery/door/poddoor/ert{
+	id = "XCCertstore"
+	},
 /obj/effect/turf_decal/delivery,
 /obj/structure/cable,
 /turf/open/floor/iron,
