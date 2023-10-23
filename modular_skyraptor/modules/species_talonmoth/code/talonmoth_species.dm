@@ -45,7 +45,7 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/digitigrade/talonmoth,
 	)
 
-/datum/species/talonmoth/random_name(gender,unique,lastname)
+/datum/species/moth/talonmoth/random_name(gender,unique,lastname)
 	if(unique)
 		return random_unique_moth_name()
 
@@ -56,25 +56,24 @@
 
 	return randname
 
-/datum/species/talonmoth/randomize_features(mob/living/carbon/human/human_mob)
+/datum/species/moth/talonmoth/randomize_features(mob/living/carbon/human/human_mob)
 	human_mob.undershirt = random_undershirt(human_mob.gender)
 	human_mob.underwear = random_underwear(human_mob.gender)
 	human_mob.socks = random_socks(human_mob.gender)
 	human_mob.hairstyle = random_hairstyle(human_mob.gender)
-	randomize_external_organs(human_mob)
 
-/datum/species/talonmoth/get_scream_sound(mob/living/carbon/human/lizard)
+/datum/species/moth/talonmoth/get_scream_sound(mob/living/carbon/human/lizard)
 	return pick(
 		'sound/voice/moth/scream_moth.ogg',
 	)
 
-/datum/species/talonmoth/on_species_gain(mob/living/carbon/carbon_being, datum/species/old_species, pref_load)
+/datum/species/moth/talonmoth/on_species_gain(mob/living/carbon/carbon_being, datum/species/old_species, pref_load)
 	// so far i don't think they need any special abilities here
 	return ..()
 
 
 /// Pretty UI stuff goes here.
-/datum/species/talonmoth/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
+/datum/species/moth/talonmoth/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	/*human_for_preview.hairstyle = "Messy"
 	human_for_preview.hair_color = "#365904"
 	human_for_preview.dna.features["mcolor"] = "#87a629"
@@ -85,12 +84,12 @@
 		snout_tmp.bodypart_overlay.set_appearance(/datum/sprite_accessory/snouts/talonmoth/long)
 		snout_tmp.bodypart_overlay.sprite_datum = new /datum/sprite_accessory/snouts/talonmoth/long() //do NOT do this this is bad and ugly
 
-/datum/species/talonmoth/get_species_description()
+/datum/species/moth/talonmoth/get_species_description()
 	return "Old explorers from a forgotten part of the Moffic Fleet, abandoned on Talon IV and left to evolve and mutate over generations, \
 		the Tal4 Moths are sturdier and more beastlike in appearance than their ship-dwelling kin, while still retaining their vibrant wings and \
 		all-enveloping fluffiness that standard moths have long been known for."
 
-/datum/species/talonmoth/get_species_lore()
+/datum/species/moth/talonmoth/get_species_lore()
 	return list(
 		"Long ago, the Moffic Fleet passed through the Talon system, and set about exploring the jungle world of Talon IV, whilst choosing to keep a \
 			safe distance from Talon III and its developing civilizations.  Talon IV is a varied world, with just about every kind of biome and lifeform \
@@ -113,7 +112,7 @@
 			of both worlds worked together to find a solution to the problems they faced.",
 	)
 
-/datum/species/talonmoth/create_pref_unique_perks()
+/datum/species/moth/talonmoth/create_pref_unique_perks()
 	var/list/to_add = list()
 
 	to_add += list(

@@ -113,6 +113,21 @@
 /datum/action/item_action/chameleon/change/proc/update_look(obj/item/picked_item)
 	var/obj/item/chameleon_item = target
 
+	/// SKYRAPTOR EDIT BEGIN
+	if(isitem(picked_item)) //extra casting safety check
+		var/obj/item/item_target = picked_item
+		if(initial(picked_item.greyscale_config_worn_bodytypes) && initial(picked_item.greyscale_colors))
+			if(ishuman(item_target.loc))
+				var/mob/living/carbon/human/H = item_target.loc
+				var/N
+				var/altbody
+				for(N in picked_item.supported_bodytypes)
+					if(H.bodytype & N)
+						altbody = picked_item.greyscale_config_worn_bodytypes["[N]"]
+				if(altbody)
+					item_target.worn_icon = SSgreyscale.GetColoredIconByType(initial(altbody), initial(picked_item.greyscale_colors))
+	/// SKYRAPTOR EDIT END
+
 	update_item(picked_item)
 	build_all_button_icons()
 	active_type = picked_item
