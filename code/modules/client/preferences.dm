@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	/// Ensures that we always load the last used save, QOL
 	var/default_slot = 1
 	/// The maximum number of slots we're allowed to contain
-	var/max_save_slots = 3
+	var/max_save_slots = 6 /// SKYRAPTOR EDIT: 6 slots for non-byong members, up from 3
 
 	/// Bitflags for communications that are muted
 	var/muted = NONE
@@ -107,7 +107,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			try_savefile_type_migration()
 		unlock_content = !!parent.IsByondMember()
 		if(unlock_content)
-			max_save_slots = 8
+			max_save_slots = 15 /// SKYRAPTOR EDIT: 15 slots for byong members, up from 8
 	else
 		CRASH("attempted to create a preferences datum without a client or mock!")
 	load_savefile()
@@ -524,7 +524,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 /// Sanitizes the preferences, applies the randomization prefs, and then applies the preference to the human mob.
 /datum/preferences/proc/safe_transfer_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE, is_antag = FALSE)
 	apply_character_randomization_prefs(is_antag)
-	INVOKE_ASYNC(src, PROC_REF(apply_prefs_to_sleepy), character, icon_updates) /// SKYRAPTOR EDIT: delaying this slightly to resolve some wacky timing bugs that eat charprefs
+	apply_prefs_to(character, icon_updates)
+	//INVOKE_ASYNC(src, PROC_REF(apply_prefs_to_sleepy), character, icon_updates) /// SKYRAPTOR ADDITION: for a small set of usecases you need to run apply_prefs after a delay to avoid random prefs overwriting the loaded ones
 
 /// SKYRAPTOR ADDITION: A wrapper function for apply_prefs_to to use asynchronously when timing wonkiness happens.
 /datum/preferences/proc/apply_prefs_to_sleepy(mob/living/carbon/human/character, icon_updates = TRUE, visuals_only = FALSE, delay = 1)
@@ -547,6 +548,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		character.icon_render_keys = list()
 		character.update_body(is_creating = TRUE)
 
+	SEND_SIGNAL(character, COMSIG_HUMAN_PREFS_APPLIED)
 
 /// Returns whether the parent mob should have the random hardcore settings enabled. Assumes it has a mind.
 /datum/preferences/proc/should_be_random_hardcore(datum/job/job, datum/mind/mind)
