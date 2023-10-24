@@ -694,3 +694,109 @@
       rune.
   Treach:
   - bugfix: Skeleton Keys now fit in the Explorer's Webbing.
+2023-10-24:
+  CliffracerX:
+  - rscadd: MAJOR ADDITION - PrairieOutpost map
+  - rscadd: plasma storm weather type for prairie worlds
+  - rscadd: PrairieOutpost arrivals and cargo shuttles
+  - refactor: modularized weather code
+  - config: added PrairieOutpost to maps.txt rotation
+  Jolly:
+  - image: Colored labcoats have been GAGSed! Please report any weird oddities on
+      Github.
+  - bugfix: The coroners lab coat is no longer offset by one pixel.
+  NaakaKo:
+  - rscadd: Adds Bitrunning to supply department- a semi-offstation role that rewards
+      teamwork.
+  - rscadd: Adds new machines to complement the job- net pod, quantum server, quantum
+      consoles, and the nexacache vendor.
+  - rscadd: Adds several new maps which can be loaded and unloaded at will.
+  - rscadd: Some flair for the new bitrunning vendor.
+  - rscadd: Adds a new antagonist for the virtual domain only. Short lived ghost role
+      that fights bitrunners.
+  - rscdel: Removes the BEPIS machine, moves its tech into the Bitrunning vendor.
+  - rscadd: heretic knock path and its respective items and award
+  - bugfix: Images are once more displayed as images in vv instead of as an appearance
+  - rscadd: Quantum servers now talk over supply channel when they're done cooling
+      off. Go outside!
+  - bugfix: You can no longer use dragon swoop to bypass cordons.
+  - bugfix: Netpod brain damage is now properly reduced upon server upgrades.
+  - bugfix: Fixed an bug where swapping bodies in vdom prevented you from disconnecting.
+  - bugfix: Fixed a bug where a quantum server could get locked out of loading new
+      domains.
+  - bugfix: Changed quantum console UI to display "no bandwidth" rather than "none"
+  - rscadd: Netpods and quantum servers now have more examination info
+  - bugfix: You no longer lose antag status if you receive it in the vdom.
+  - bugfix: Beach bar shouldn't have visible atmos piping anymore.
+  - bugfix: Adds more lighting to the vaporwave vdom level.
+  - balance: Buffed vdom megafauna health to compensate for new ability disks.
+  - refactor: Rust Walkers, Ash Spirits, Flesh Stalkers, and The Maid in the Mirror
+      now use the basic mob framework. Please report any unusual behaviour.
+  - image: new chaplain outfit
+  - bugfix: If two cosmic heretics ascend in the same round, their star gazer survival
+      will be linked to each individual heretic and not shared by just one of them.
+  - bugfix: You can't click the Knock heretic portal to join as a mob while already
+      signed up to become a mob.
+  - balance: Cosmic heretics can't order the Star Gazer around while jaunting.
+  - balance: The Knock Heretic portal cannot summon Flesh Worms, but can summon Fire
+      Sharks.
+  - balance: The Knock Heretic portal will disperse if its creator is killed.
+  - qol: You can now see what drones and gorillas are holding by examining them.
+  - admin: It's now easier to give handless mobs hands by applying the "dextrous"
+      element.
+  - balance: Spiders and Bears can now climb railings (you know if... they'd rather
+      do that than destroy them).
+  - qol: The Command intercom now has a High-Volume setting like command headsets
+  - qol: A memo telling frequencies of station radio channels are now present near
+      the Command intercom and T-Comms room
+  - image: Station, Command, and Prison intercoms have received new sprites
+  - spellcheck: Station and Command intercom descriptions have been changed to tell
+      about their functionality
+  - rscadd: Wizards who complete the grand ritual can now gift everyone with eternal
+      life
+  - bugfix: plastic sheet produces 4 tiles via the tiles option without using the
+      crafting menu
+  - bugfix: Blob spores will respond to rallies more reliably (it won't runtime every
+      time they try and pathfind).
+  - bugfix: Blobbernaut pain animation overlays should align with the direction the
+      mob is facing instead of always facing South
+  - refactor: Blob spores, zombies, and blobbernauts now all use the basic mob framework.
+      They should work the same, but please report any issues.
+  - bugfix: surgical trays no longer animate when opened
+  - rscadd: Heretic Rebalance
+  - balance: Researching the Main Knowledge paths that unlock Side Paths will grant
+      one Side Point that can be used only on those side paths. You can still spend
+      normal knowledge points on them if you wish.
+  - balance: Rune drawing time has been reduced from 30->20 seconds. Codex drawing
+      time has been reduced from 15->8.
+  - balance: 'Codex Cicatrix is now a roundstart knowledge, works as an amber focus
+      when held in-hand and opened, and has had its recipe changed to: 1 of any non-standard
+      pen (literally anything that isn''t the base pen), any book, and either animal
+      hide OR a corpse, any kind.'
+  - code_imp: Added support for using a list inside ritual requirements and a special
+      'snowflake check' rituals can utilize.
+  - balance: The first non-path knowledge, the Mansus Hand Mark, has had its cost
+      reduced from 2->1 points.
+  - code_imp: Bitrunner domains can now have spells or items from disks disabled if
+      the domain maker wants such a thing
+  - balance: CQC legsweeps now cause knockdown instead of paralysis.
+  - balance: CQC kicks now knockout a target on the floor for ten seconds if they
+      reach stam crit. Helmet protection shortens the knockout length.
+  - bugfix: Food created by mixing chemicals once again has a reagent purity based
+      on the component chemicals.
+  - bugfix: Replaced error spaghetti in thunderdome kitchen with regular cooked spaghetti
+  - bugfix: hallucination announcements use new announcement style
+  - bugfix: The polymorphic belt shouldn't work on animated objects. Logically wouldn't
+      have DNA.
+  - bugfix: Your heart will no longer be deleted if an admin heals you while you have
+      corazargh in your system.
+  - refactor: The cursed heart has been streamlined a bit, and now gives you a visual
+      cooldown for when you can beat your heart again.
+  - rscadd: Added the BEPIS' minor rewards as purchasable products to the bitrunning
+      order console.
+  - rscdel: Removed the base BEPIS disk from the bitrunner console
+  Wallem:
+  - rscadd: Adds The Hand of Midas, an ancient Egyptian matchlock pistol.
+  ninjanomnom:
+  - rscadd: Pipes now have a colored visual display that shows their contents at a
+      glance.
