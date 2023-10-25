@@ -135,12 +135,8 @@
 			var/hair_gradient_style = LAZYACCESS(gradient_styles, GRADIENT_HAIR_KEY)
 			if(hair_gradient_style)
 				var/hair_gradient_color = LAZYACCESS(gradient_colors, GRADIENT_HAIR_KEY)
-<<<<<<< HEAD
-				var/image/hair_gradient_overlay = get_gradient_overlay(hair_sprite_accessory.icon, hair_sprite_accessory.icon_state, -HAIR_LAYER, GLOB.hair_gradients_list[hair_gradient_style], hair_gradient_color)
-=======
 				var/image/hair_gradient_overlay = get_gradient_overlay(hair_sprite_accessory.icon, hair_sprite_accessory.icon_state, -HAIR_LAYER, GLOB.hair_gradients_list[hair_gradient_style], hair_gradient_color, image_dir)
 				hair_gradient_overlay.pixel_y = hair_sprite_accessory.y_offset
->>>>>>> f145e239454 (Fixed hair gradients not applying properly on dismembered heads (#79231))
 				. += hair_gradient_overlay
 
 	if(show_debrained && (head_flags & HEAD_DEBRAIN))
