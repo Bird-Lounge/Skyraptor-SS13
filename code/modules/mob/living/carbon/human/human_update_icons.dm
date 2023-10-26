@@ -661,7 +661,11 @@ generate/load female uniform sprites matching all previously decided variables
 	female_uniform = NO_FEMALE_UNIFORM,
 	override_state = null,
 	override_file = null,
+<<<<<<< HEAD
 	bodytype = 0, //SKYRAPTOR ADDITION
+=======
+	use_height_offset = TRUE,
+>>>>>>> 6f128a0e9fe (Fix wigs being offset too far by mob height (#79262))
 )
 
 	//Find a valid icon_state from variables+arguments
@@ -701,7 +705,7 @@ generate/load female uniform sprites matching all previously decided variables
 	//eg: ammo counters, primed grenade flashes, etc.
 	var/list/worn_overlays = worn_overlays(standing, isinhands, file2use)
 	if(worn_overlays?.len)
-		if(!isinhands && default_layer && ishuman(loc))
+		if(!isinhands && default_layer && ishuman(loc) && use_height_offset)
 			var/mob/living/carbon/human/human_loc = loc
 			if(human_loc.get_mob_height() != HUMAN_HEIGHT_MEDIUM)
 				var/string_form_layer = num2text(default_layer)
