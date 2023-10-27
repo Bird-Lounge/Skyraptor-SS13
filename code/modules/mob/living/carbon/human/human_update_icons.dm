@@ -661,11 +661,8 @@ generate/load female uniform sprites matching all previously decided variables
 	female_uniform = NO_FEMALE_UNIFORM,
 	override_state = null,
 	override_file = null,
-<<<<<<< HEAD
 	bodytype = 0, //SKYRAPTOR ADDITION
-=======
 	use_height_offset = TRUE,
->>>>>>> 6f128a0e9fe (Fix wigs being offset too far by mob height (#79262))
 )
 
 	//Find a valid icon_state from variables+arguments
