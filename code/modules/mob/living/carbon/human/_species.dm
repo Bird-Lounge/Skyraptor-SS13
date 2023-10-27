@@ -1386,17 +1386,10 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		attacking_item = weapon,
 	)
 
-<<<<<<< HEAD
-
-	var/attack_direction = get_dir(user, human)
-	apply_damage(weapon.force * weakness, weapon.damtype, def_zone, armor_block, human, wound_bonus = Iwound_bonus, bare_wound_bonus = weapon.bare_wound_bonus, sharpness = weapon.get_sharpness(), attack_direction = attack_direction, attacking_item = weapon)
 	if(weapon.stamina_damage) /// SKYRAPTOR ADDITION
 		human.stamina.adjust(-weapon.stamina_damage * (prob(weapon.stamina_critical_chance) ? weapon.stamina_critical_modifier : 1))
 
-	if(!weapon.force)
-=======
 	if(damage_dealt <= 0)
->>>>>>> 5bf6d09903d (Cuts the number of `apply_damage` copypaste procs from 3(.5) to 1, fixing a few bugs along the way (#79207))
 		return FALSE //item force is zero
 	var/bloody = FALSE
 	if(weapon.damtype != BRUTE)
