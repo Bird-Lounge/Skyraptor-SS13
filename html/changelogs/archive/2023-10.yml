@@ -694,3 +694,183 @@
       rune.
   Treach:
   - bugfix: Skeleton Keys now fit in the Explorer's Webbing.
+2023-10-24:
+  CliffracerX:
+  - rscadd: MAJOR ADDITION - PrairieOutpost map
+  - rscadd: plasma storm weather type for prairie worlds
+  - rscadd: PrairieOutpost arrivals and cargo shuttles
+  - refactor: modularized weather code
+  - config: added PrairieOutpost to maps.txt rotation
+  Jolly:
+  - image: Colored labcoats have been GAGSed! Please report any weird oddities on
+      Github.
+  - bugfix: The coroners lab coat is no longer offset by one pixel.
+  NaakaKo:
+  - rscadd: Adds Bitrunning to supply department- a semi-offstation role that rewards
+      teamwork.
+  - rscadd: Adds new machines to complement the job- net pod, quantum server, quantum
+      consoles, and the nexacache vendor.
+  - rscadd: Adds several new maps which can be loaded and unloaded at will.
+  - rscadd: Some flair for the new bitrunning vendor.
+  - rscadd: Adds a new antagonist for the virtual domain only. Short lived ghost role
+      that fights bitrunners.
+  - rscdel: Removes the BEPIS machine, moves its tech into the Bitrunning vendor.
+  - rscadd: heretic knock path and its respective items and award
+  - bugfix: Images are once more displayed as images in vv instead of as an appearance
+  - rscadd: Quantum servers now talk over supply channel when they're done cooling
+      off. Go outside!
+  - bugfix: You can no longer use dragon swoop to bypass cordons.
+  - bugfix: Netpod brain damage is now properly reduced upon server upgrades.
+  - bugfix: Fixed an bug where swapping bodies in vdom prevented you from disconnecting.
+  - bugfix: Fixed a bug where a quantum server could get locked out of loading new
+      domains.
+  - bugfix: Changed quantum console UI to display "no bandwidth" rather than "none"
+  - rscadd: Netpods and quantum servers now have more examination info
+  - bugfix: You no longer lose antag status if you receive it in the vdom.
+  - bugfix: Beach bar shouldn't have visible atmos piping anymore.
+  - bugfix: Adds more lighting to the vaporwave vdom level.
+  - balance: Buffed vdom megafauna health to compensate for new ability disks.
+  - refactor: Rust Walkers, Ash Spirits, Flesh Stalkers, and The Maid in the Mirror
+      now use the basic mob framework. Please report any unusual behaviour.
+  - image: new chaplain outfit
+  - bugfix: If two cosmic heretics ascend in the same round, their star gazer survival
+      will be linked to each individual heretic and not shared by just one of them.
+  - bugfix: You can't click the Knock heretic portal to join as a mob while already
+      signed up to become a mob.
+  - balance: Cosmic heretics can't order the Star Gazer around while jaunting.
+  - balance: The Knock Heretic portal cannot summon Flesh Worms, but can summon Fire
+      Sharks.
+  - balance: The Knock Heretic portal will disperse if its creator is killed.
+  - qol: You can now see what drones and gorillas are holding by examining them.
+  - admin: It's now easier to give handless mobs hands by applying the "dextrous"
+      element.
+  - balance: Spiders and Bears can now climb railings (you know if... they'd rather
+      do that than destroy them).
+  - qol: The Command intercom now has a High-Volume setting like command headsets
+  - qol: A memo telling frequencies of station radio channels are now present near
+      the Command intercom and T-Comms room
+  - image: Station, Command, and Prison intercoms have received new sprites
+  - spellcheck: Station and Command intercom descriptions have been changed to tell
+      about their functionality
+  - rscadd: Wizards who complete the grand ritual can now gift everyone with eternal
+      life
+  - bugfix: plastic sheet produces 4 tiles via the tiles option without using the
+      crafting menu
+  - bugfix: Blob spores will respond to rallies more reliably (it won't runtime every
+      time they try and pathfind).
+  - bugfix: Blobbernaut pain animation overlays should align with the direction the
+      mob is facing instead of always facing South
+  - refactor: Blob spores, zombies, and blobbernauts now all use the basic mob framework.
+      They should work the same, but please report any issues.
+  - bugfix: surgical trays no longer animate when opened
+  - rscadd: Heretic Rebalance
+  - balance: Researching the Main Knowledge paths that unlock Side Paths will grant
+      one Side Point that can be used only on those side paths. You can still spend
+      normal knowledge points on them if you wish.
+  - balance: Rune drawing time has been reduced from 30->20 seconds. Codex drawing
+      time has been reduced from 15->8.
+  - balance: 'Codex Cicatrix is now a roundstart knowledge, works as an amber focus
+      when held in-hand and opened, and has had its recipe changed to: 1 of any non-standard
+      pen (literally anything that isn''t the base pen), any book, and either animal
+      hide OR a corpse, any kind.'
+  - code_imp: Added support for using a list inside ritual requirements and a special
+      'snowflake check' rituals can utilize.
+  - balance: The first non-path knowledge, the Mansus Hand Mark, has had its cost
+      reduced from 2->1 points.
+  - code_imp: Bitrunner domains can now have spells or items from disks disabled if
+      the domain maker wants such a thing
+  - balance: CQC legsweeps now cause knockdown instead of paralysis.
+  - balance: CQC kicks now knockout a target on the floor for ten seconds if they
+      reach stam crit. Helmet protection shortens the knockout length.
+  - bugfix: Food created by mixing chemicals once again has a reagent purity based
+      on the component chemicals.
+  - bugfix: Replaced error spaghetti in thunderdome kitchen with regular cooked spaghetti
+  - bugfix: hallucination announcements use new announcement style
+  - bugfix: The polymorphic belt shouldn't work on animated objects. Logically wouldn't
+      have DNA.
+  - bugfix: Your heart will no longer be deleted if an admin heals you while you have
+      corazargh in your system.
+  - refactor: The cursed heart has been streamlined a bit, and now gives you a visual
+      cooldown for when you can beat your heart again.
+  - rscadd: Added the BEPIS' minor rewards as purchasable products to the bitrunning
+      order console.
+  - rscdel: Removed the base BEPIS disk from the bitrunner console
+  Wallem:
+  - rscadd: Adds The Hand of Midas, an ancient Egyptian matchlock pistol.
+  ninjanomnom:
+  - rscadd: Pipes now have a colored visual display that shows their contents at a
+      glance.
+2023-10-25:
+  Melbert:
+  - refactor: Refactored zombies to use the regenerator component. Now they'll have
+      a slight glow/animation when the regeneration actually kicks in.
+  - qol: Monkey cubes have a slight animation associated now.
+  - bugfix: Cooking Deserts 101 grants all intended recipes
+  NaakaKo:
+  - bugfix: '[Tramstation] fixed a missing Scrubber in the Civilian Radiation Shelter'
+  - qol: improves blackout drunk character gameplay
+  - bugfix: fixed improper prob() placement that caused blackout character to be forced
+      sleep
+  - sound: added hiccup sound
+  - rscadd: New automatic weapon for the crew - Disabler SMG. Capable of rapidly firing
+      weak disabler beams.
+  - refactor: Hostile Nanotrasen mobs now use the basic mob framework. This should
+      make them a little smarter and more dangerous. Please report any bugs.
+  - bugfix: Russian mobs will now actually use those knives they're holding.
+  - bugfix: Ghost alerts have been tuned down a bit.
+  - bugfix: you may not enter knock path caretakers last refuge with the nuke disk
+  - bugfix: you can no longer cuff knock heretics in refuge
+  - qol: Railings now have Examine hints for how to deconstruct them
+  - rscadd: Anomaly-locked MODsuit modules can now be varedited to have unremovable
+      cores, or can be spawned with this functionality by using the /prebuilt/locked
+      subtype.
+  - qol: Universal scanners are now capable of recognizing the account owners and
+      assigned profit splits on barcodes. Cargo technicians are asked to do their
+      due diligence when matters call for it.
+  - bugfix: The Infected Domain should no longer fill up with smelly, poisonous gas
+      over time.
+  - bugfix: You will no longer be asked to construct meteor shields on stations which
+      cannot be hit by meteors.
+  - bugfix: The nanites inside of thermal pistols are once again angry, and aggressively
+      want to burn/puncture people.
+  - image: resprites air alarms
+  - image: Muzzle flashes got a new sprite, each direction included!
+  - image: Temperature Gun "BAKE" beams are now lava colored
+  - refactor: Hostile skeleton NPCs now use the basic mob framework. They're a little
+      smarter, and they also have a slightly improved set of attack effects and sounds.
+      They love to drink milk, but will be harmed greatly if any heartless spaceman
+      tricks them into drinking soymilk instead. Please report any bugs.
+  - refactor: Juggernaut constructs now use the basic mob framework. Please report
+      any bugs.
+2023-10-26:
+  NaakaKo:
+  - refactor: Adds charges to omens and omen smiting rather than only being permanent
+      or one-use. Mirrors now grant seven bad luckers.
+  - qol: Reduces omen bad luck if nobody's nearby to witness the funny. (Ghosts are
+      included in the check!)
+  - bugfix: Fixed an issue where a monkey check in doorcrushing was never actually
+      able to pass. Also they screech now.
+  - bugfix: fixed hair gradients not applying properly on dismembered heads.
+  - bugfix: Fixed gorilla attack cooldown. Now attacking speed to mobs is the same
+      as attacking speed to objects.
+  - qol: Add smoke particles to burning fireplace
+  - bugfix: fixed hair gradients not applying correctly to huge afros
+2023-10-27:
+  NaakaKo:
+  - qol: Examining an ammo box (incl. magazines) now tells you the top loaded round,
+      so if you have different ammo types in different magazines, you can at least
+      try to figure out which one is which.
+  - spellcheck: Ammo boxes (incl. magazines) can now be set to use different phrasing
+      for their ammunition (e.g. cartridges, shells, etc. instead of just mixing "rounds"
+      and "shells").
+  - rscadd: Reworked the colour schemes for the minor and major announcements as well
+      as their layout
+  - rscdel: Rolled back changes to deadchat notifications
+  - admin: Admins can now select the colour of their announcements as well as the
+      subheader when creating a command report.
+  - bugfix: Dying when using (most) shapeshift spells will now kill you rather than
+      having you pop out of the corpse of your previous form.
+  - bugfix: Damage will now be accurately carried between forms rather than being
+      slightly reduced upon each transformation.
+  - bugfix: Wigs now properly follow your head when you're any non-standard height
+  - bugfix: venus human traps no longer die when on weeds

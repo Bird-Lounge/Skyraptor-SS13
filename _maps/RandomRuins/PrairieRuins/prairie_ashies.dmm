@@ -1,0 +1,814 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aC" = (
+/obj/item/pickaxe,
+/turf/open/misc/asteroid/prairie_grass/planetary/do_not_chasm,
+/area/ruin/unpowered/ash_walkers)
+"aM" = (
+/obj/structure/bonfire/dense,
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"bi" = (
+/obj/structure/stone_tile/block{
+	dir = 8
+	},
+/obj/structure/stone_tile,
+/obj/structure/stone_tile{
+	dir = 1
+	},
+/turf/open/indestructible/boss,
+/area/ruin/unpowered/ash_walkers)
+"bH" = (
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 4
+	},
+/obj/structure/stone_tile/center,
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 8
+	},
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 1
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"cz" = (
+/obj/item/flashlight/flare/torch,
+/turf/open/misc/asteroid/prairie_grass/planetary/do_not_chasm,
+/area/ruin/unpowered/ash_walkers)
+"do" = (
+/obj/structure/stone_tile/block{
+	dir = 4
+	},
+/obj/structure/stone_tile/block/cracked{
+	dir = 8
+	},
+/obj/structure/fans/tiny/invisible,
+/obj/structure/necropolis_gate,
+/turf/open/indestructible/boss,
+/area/ruin/unpowered/ash_walkers)
+"eq" = (
+/obj/structure/stone_tile/block{
+	dir = 4
+	},
+/obj/structure/stone_tile{
+	dir = 8
+	},
+/obj/structure/stone_tile{
+	dir = 4
+	},
+/turf/open/indestructible/boss,
+/area/ruin/unpowered/ash_walkers)
+"eP" = (
+/obj/structure/table/wood,
+/obj/machinery/reagentgrinder/constructed{
+	active_power_usage = 0;
+	idle_power_usage = 9;
+	use_power = 9
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"is" = (
+/obj/structure/stone_tile/block/cracked{
+	dir = 8
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"jp" = (
+/obj/structure/stone_tile/surrounding_tile/cracked,
+/obj/structure/stone_tile/center,
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 8
+	},
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 1
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"jM" = (
+/obj/structure/stone_tile/block/cracked{
+	dir = 4
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"jN" = (
+/obj/structure/table/wood,
+/obj/item/kitchen/rollingpin,
+/obj/item/knife/combat/bone,
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"jX" = (
+/obj/structure/ore_box,
+/turf/open/misc/asteroid/prairie_grass/planetary/do_not_chasm,
+/area/ruin/unpowered/ash_walkers)
+"lx" = (
+/obj/machinery/hydroponics/soil,
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"oH" = (
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 8
+	},
+/obj/structure/stone_tile/center,
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 4
+	},
+/obj/structure/stone_tile/surrounding_tile/cracked,
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"oR" = (
+/obj/structure/stone_tile/block/cracked{
+	dir = 8
+	},
+/obj/structure/stone_tile/cracked{
+	dir = 1
+	},
+/obj/structure/stone_tile,
+/mob/living/simple_animal/hostile/asteroid/gutlunch/gubbuck,
+/turf/open/indestructible/boss,
+/area/ruin/unpowered/ash_walkers)
+"qw" = (
+/obj/structure/stone_tile/block{
+	dir = 4
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"qE" = (
+/obj/structure/stone_tile/block/cracked{
+	dir = 1
+	},
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"qJ" = (
+/obj/machinery/grill{
+	active_power_usage = 0;
+	idle_power_usage = 0
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"rw" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/cup/beaker/large{
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/cup/beaker/large,
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"rA" = (
+/obj/structure/stone_tile,
+/obj/structure/stone_tile{
+	dir = 1
+	},
+/obj/structure/stone_tile/cracked{
+	dir = 4
+	},
+/obj/structure/stone_tile/cracked{
+	dir = 8
+	},
+/obj/item/flashlight/flare/torch,
+/turf/open/indestructible/boss,
+/area/ruin/unpowered/ash_walkers)
+"sR" = (
+/obj/structure/stone_tile,
+/obj/structure/stone_tile{
+	dir = 8
+	},
+/obj/structure/stone_tile{
+	dir = 1
+	},
+/obj/structure/stone_tile{
+	dir = 4
+	},
+/obj/item/flashlight/flare/torch,
+/turf/open/indestructible/boss,
+/area/ruin/unpowered/ash_walkers)
+"ta" = (
+/obj/structure/stone_tile,
+/obj/structure/stone_tile{
+	dir = 8
+	},
+/obj/structure/stone_tile{
+	dir = 1
+	},
+/obj/structure/stone_tile/cracked{
+	dir = 4
+	},
+/obj/item/flashlight/flare/torch,
+/turf/open/indestructible/boss,
+/area/ruin/unpowered/ash_walkers)
+"tb" = (
+/turf/closed/indestructible/riveted/boss,
+/area/ruin/unpowered/ash_walkers)
+"uY" = (
+/obj/structure/necropolis_gate,
+/obj/structure/fans/tiny/invisible,
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"vm" = (
+/obj/item/storage/bag/plants/portaseeder,
+/obj/item/cultivator/rake,
+/obj/item/reagent_containers/cup/bucket/wooden,
+/obj/item/hatchet/wooden,
+/obj/item/shovel,
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"xd" = (
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"xe" = (
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 4
+	},
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 1
+	},
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 8
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"xf" = (
+/obj/structure/stone_tile/block{
+	dir = 8
+	},
+/obj/structure/stone_tile/cracked{
+	dir = 1
+	},
+/obj/structure/stone_tile,
+/turf/open/indestructible/boss,
+/area/ruin/unpowered/ash_walkers)
+"yh" = (
+/obj/structure/stone_tile/block/cracked{
+	dir = 4
+	},
+/obj/structure/stone_tile/cracked{
+	dir = 4
+	},
+/obj/structure/stone_tile{
+	dir = 8
+	},
+/turf/open/indestructible/boss,
+/area/ruin/unpowered/ash_walkers)
+"zw" = (
+/obj/structure/stone_tile/surrounding_tile,
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 4
+	},
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 1
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"zC" = (
+/obj/machinery/oven/range{
+	use_power = 0;
+	active_power_usage = 0;
+	idle_power_usage = 0
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"zY" = (
+/obj/structure/stone_tile/surrounding_tile,
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 1
+	},
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 8
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"Al" = (
+/obj/structure/stone_tile/surrounding_tile,
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 4
+	},
+/obj/structure/stone_tile/surrounding_tile{
+	dir = 8
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"At" = (
+/obj/structure/water_source/puddle,
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"BD" = (
+/obj/structure/stone_tile/block,
+/obj/structure/stone_tile/cracked{
+	dir = 1
+	},
+/obj/structure/stone_tile{
+	dir = 4
+	},
+/turf/open/indestructible/boss,
+/area/ruin/unpowered/ash_walkers)
+"Cy" = (
+/obj/structure/chair/wood,
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"Df" = (
+/obj/structure/table/wood,
+/obj/item/storage/belt/utility,
+/obj/item/storage/box/rxglasses,
+/turf/open/misc/asteroid/prairie_grass/planetary/do_not_chasm,
+/area/ruin/unpowered/ash_walkers)
+"Dy" = (
+/obj/structure/lavaland/ash_walker,
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"ER" = (
+/obj/structure/table/wood,
+/obj/item/spear,
+/obj/item/clothing/head/helmet/roman/legionnaire,
+/turf/open/misc/asteroid/prairie_grass/planetary/do_not_chasm,
+/area/ruin/unpowered/ash_walkers)
+"FB" = (
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 1
+	},
+/obj/structure/stone_tile/center,
+/obj/structure/stone_tile/surrounding_tile/cracked{
+	dir = 4
+	},
+/obj/structure/stone_tile/surrounding_tile/cracked,
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"GU" = (
+/obj/structure/stone_tile/block,
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"Hk" = (
+/obj/structure/table/wood,
+/obj/item/spear,
+/obj/item/scythe,
+/turf/open/misc/asteroid/prairie_grass/planetary/do_not_chasm,
+/area/ruin/unpowered/ash_walkers)
+"HY" = (
+/obj/structure/stone_tile/block/cracked,
+/turf/open/lava/smooth/lava_land_surface,
+/area/ruin/unpowered/ash_walkers)
+"IM" = (
+/obj/item/flashlight/flare/torch,
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"Jk" = (
+/obj/structure/table/wood,
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"KN" = (
+/obj/structure/stone_tile{
+	dir = 4
+	},
+/obj/structure/closet/crate/hydroponics,
+/obj/item/seeds/glowshroom,
+/obj/item/seeds/glowshroom,
+/obj/item/seeds/lavaland/porcini,
+/obj/item/seeds/lavaland/porcini,
+/obj/item/seeds/tower,
+/obj/item/seeds/tower,
+/obj/item/seeds/korta_nut,
+/obj/item/seeds/tomato,
+/obj/item/seeds/potato,
+/obj/item/seeds/olive,
+/obj/item/seeds/garlic,
+/obj/item/seeds/eggplant/eggy,
+/obj/item/seeds/wheat/meat,
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"Lx" = (
+/obj/structure/stone_tile/block{
+	dir = 1
+	},
+/obj/structure/stone_tile/cracked,
+/obj/structure/stone_tile{
+	dir = 8
+	},
+/turf/open/indestructible/boss,
+/area/ruin/unpowered/ash_walkers)
+"LS" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/flare/candle/infinite,
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"Mb" = (
+/obj/structure/stone_tile/block/cracked{
+	dir = 1
+	},
+/obj/structure/stone_tile{
+	dir = 8
+	},
+/obj/structure/stone_tile,
+/turf/open/indestructible/boss,
+/area/ruin/unpowered/ash_walkers)
+"Pg" = (
+/obj/structure/stone_tile/block{
+	dir = 1
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"Pr" = (
+/obj/structure/stone_tile/block{
+	dir = 8
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"Pw" = (
+/obj/machinery/processor,
+/obj/structure/table/wood,
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"Qo" = (
+/turf/closed/indestructible/wood,
+/area/ruin/unpowered/ash_walkers)
+"RF" = (
+/obj/structure/stone_tile/block{
+	dir = 4
+	},
+/obj/structure/stone_tile{
+	dir = 8
+	},
+/obj/structure/stone_tile{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/asteroid/gutlunch/guthen,
+/turf/open/indestructible/boss,
+/area/ruin/unpowered/ash_walkers)
+"Sx" = (
+/obj/structure/table/wood,
+/obj/item/storage/toolbox/syndicate,
+/turf/open/misc/asteroid/prairie_grass/planetary/do_not_chasm,
+/area/ruin/unpowered/ash_walkers)
+"Ug" = (
+/obj/structure/stone_tile,
+/obj/structure/stone_tile{
+	dir = 8
+	},
+/obj/structure/stone_tile/cracked{
+	dir = 4
+	},
+/obj/structure/stone_tile/cracked{
+	dir = 1
+	},
+/obj/item/flashlight/flare/torch,
+/turf/open/indestructible/boss,
+/area/ruin/unpowered/ash_walkers)
+"Wt" = (
+/obj/structure/stone_tile/slab/cracked,
+/turf/open/indestructible/boss,
+/area/ruin/unpowered/ash_walkers)
+"Xc" = (
+/turf/open/misc/asteroid/prairie_grass/planetary/do_not_chasm,
+/area/ruin/unpowered/ash_walkers)
+"XH" = (
+/obj/structure/stone_tile/block,
+/obj/structure/stone_tile{
+	dir = 1
+	},
+/obj/structure/stone_tile{
+	dir = 4
+	},
+/turf/open/indestructible/boss,
+/area/ruin/unpowered/ash_walkers)
+"ZD" = (
+/obj/machinery/griddle,
+/turf/open/misc/sandy_dirt/prairie,
+/area/ruin/unpowered/ash_walkers)
+"ZY" = (
+/obj/structure/table/wood,
+/obj/item/spear,
+/turf/open/misc/asteroid/prairie_grass/planetary/do_not_chasm,
+/area/ruin/unpowered/ash_walkers)
+
+(1,1,1) = {"
+Qo
+Qo
+Qo
+Qo
+Qo
+Qo
+Qo
+Qo
+Qo
+Qo
+Qo
+Qo
+Qo
+Qo
+"}
+(2,1,1) = {"
+Qo
+Df
+Sx
+Hk
+ER
+ZY
+Qo
+zC
+xd
+jN
+xd
+Cy
+Jk
+Qo
+"}
+(3,1,1) = {"
+Qo
+Xc
+Xc
+Xc
+Xc
+Xc
+Qo
+qJ
+xd
+rw
+xd
+Cy
+LS
+Qo
+"}
+(4,1,1) = {"
+Qo
+aC
+Xc
+cz
+Xc
+Xc
+Qo
+ZD
+xd
+eP
+xd
+Cy
+Jk
+Qo
+"}
+(5,1,1) = {"
+Qo
+jX
+Xc
+Xc
+Xc
+Xc
+Qo
+Pw
+xd
+xd
+xd
+xd
+IM
+Qo
+"}
+(6,1,1) = {"
+Qo
+Qo
+Xc
+xd
+Xc
+Qo
+Qo
+Qo
+Xc
+Xc
+xd
+Xc
+Qo
+Qo
+"}
+(7,1,1) = {"
+Qo
+Xc
+Xc
+xd
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+xd
+Xc
+Xc
+tb
+"}
+(8,1,1) = {"
+Qo
+Xc
+Xc
+xd
+xd
+xd
+xd
+xd
+xd
+xd
+xd
+xd
+xd
+uY
+"}
+(9,1,1) = {"
+Qo
+Xc
+Xc
+xd
+Xc
+Xc
+Xc
+Xc
+Xc
+Xc
+xd
+Xc
+Xc
+tb
+"}
+(10,1,1) = {"
+Qo
+Qo
+Xc
+xd
+Xc
+Qo
+Qo
+Xc
+Xc
+Xc
+xd
+Xc
+Xc
+Qo
+"}
+(11,1,1) = {"
+Qo
+At
+xd
+xd
+xd
+lx
+Qo
+cz
+Xc
+Xc
+xd
+Xc
+cz
+Qo
+"}
+(12,1,1) = {"
+Qo
+vm
+xd
+IM
+xd
+lx
+Qo
+Xc
+Xc
+Xc
+xd
+Xc
+Xc
+Qo
+"}
+(13,1,1) = {"
+Qo
+KN
+xd
+xd
+xd
+xd
+Qo
+Xc
+Xc
+Xc
+xd
+Xc
+Xc
+Qo
+"}
+(14,1,1) = {"
+Qo
+lx
+lx
+lx
+lx
+lx
+Qo
+xd
+Xc
+Xc
+xd
+Xc
+Xc
+Qo
+"}
+(15,1,1) = {"
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+xd
+Xc
+Xc
+xd
+Xc
+Xc
+Qo
+"}
+(16,1,1) = {"
+tb
+Ug
+yh
+eq
+RF
+sR
+tb
+xd
+xd
+xd
+xd
+xd
+xd
+Qo
+"}
+(17,1,1) = {"
+tb
+XH
+jp
+jM
+FB
+Lx
+tb
+xd
+xd
+zY
+qw
+zw
+xd
+Qo
+"}
+(18,1,1) = {"
+tb
+XH
+HY
+Dy
+qE
+Wt
+do
+xd
+xd
+GU
+aM
+Pg
+xd
+Qo
+"}
+(19,1,1) = {"
+tb
+BD
+oH
+is
+bH
+Mb
+tb
+xd
+xd
+Al
+Pr
+xe
+xd
+Qo
+"}
+(20,1,1) = {"
+tb
+rA
+oR
+bi
+xf
+ta
+tb
+xd
+xd
+xd
+xd
+xd
+xd
+Qo
+"}
+(21,1,1) = {"
+tb
+tb
+tb
+tb
+tb
+tb
+tb
+Qo
+Qo
+Qo
+Qo
+Qo
+Qo
+Qo
+"}
