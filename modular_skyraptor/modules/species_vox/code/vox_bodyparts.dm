@@ -26,14 +26,14 @@
 	worn_face_offset = new(
 		attached_part = src,
 		feature_key = OFFSET_FACE,
-		offset_x = list("north" = 0, "south" = 0, "east" = -1, "west" = -1),
-		offset_y = list("north" = 0, "south" = 0, "east" = 3, "west" = -3),
+		offset_y = list("north" = 0, "south" = 0, "east" = -1, "west" = -1),
+		offset_x = list("north" = 0, "south" = 0, "east" = 3, "west" = -3),
 	)
 	worn_mask_offset = new(
 		attached_part = src,
 		feature_key = OFFSET_FACEMASK,
-		offset_x = list("north" = 0, "south" = 0, "east" = -1, "west" = -1),
-		offset_y = list("north" = 0, "south" = 0, "east" = 3, "west" = -3),
+		offset_y = list("north" = 0, "south" = 0, "east" = -1, "west" = -1),
+		offset_x = list("north" = 0, "south" = 0, "east" = 3, "west" = -3),
 	)
 	return ..()
 
