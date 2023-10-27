@@ -18,7 +18,6 @@
 			"Mining": true,
 			"Linkage": null,
 			"Gravity": true,
-			"Weather_PlasmaStorm": false,
 			"No Parallax": true,
 			"Prairie Ruins": true,
 			"Baseturf": "/turf/open/misc/sandy_dirt/prairie"
