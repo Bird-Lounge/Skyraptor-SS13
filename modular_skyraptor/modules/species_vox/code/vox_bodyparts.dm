@@ -8,32 +8,32 @@
 	worn_ears_offset = new(
 		attached_part = src,
 		feature_key = OFFSET_EARS,
-		offset_x = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
-		offset_y = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
+		offset_x = list("north" = 0, "south" = 0, "east" = 4, "west" = -4),
+		//offset_y = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
 	)
 	worn_glasses_offset = new(
 		attached_part = src,
 		feature_key = OFFSET_GLASSES,
-		offset_x = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
-		offset_y = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
+		offset_x = list("north" = 0, "south" = 0, "east" = 5, "west" = -5),
+		//offset_y = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
 	)
 	worn_head_offset = new(
 		attached_part = src,
 		feature_key = OFFSET_HEAD,
-		offset_x = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
-		offset_y = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
+		offset_x = list("north" = 0, "south" = 0, "east" = 3, "west" = -3),
+		offset_y = list("north" = 0, "south" = 1, "east" = 1, "west" = 1),
 	)
 	worn_face_offset = new(
 		attached_part = src,
 		feature_key = OFFSET_FACE,
-		offset_x = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
-		offset_y = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
+		offset_x = list("north" = 0, "south" = 0, "east" = -1, "west" = -1),
+		offset_y = list("north" = 0, "south" = 0, "east" = 3, "west" = -3),
 	)
 	worn_mask_offset = new(
 		attached_part = src,
 		feature_key = OFFSET_FACEMASK,
-		offset_x = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
-		offset_y = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
+		offset_x = list("north" = 0, "south" = 0, "east" = -1, "west" = -1),
+		offset_y = list("north" = 0, "south" = 0, "east" = 3, "west" = -3),
 	)
 	return ..()
 
@@ -47,33 +47,33 @@
 	worn_belt_offset = new(
 		attached_part = src,
 		feature_key = OFFSET_BELT,
-		offset_x = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
-		offset_y = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
+		offset_x = list("north" = 0, "south" = 0, "east" = 2, "west" = -2),
+		//offset_y = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
 	)
 	worn_back_offset = new(
 		attached_part = src,
 		feature_key = OFFSET_BACK,
-		offset_x = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
-		offset_y = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
+		offset_x = list("north" = 0, "south" = 0, "east" = 1, "west" = -1),
+		//offset_y = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
 	)
-	worn_suit_offset = new(
+	/*worn_suit_offset = new(
 		attached_part = src,
 		feature_key = OFFSET_SUIT,
 		offset_x = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
 		offset_y = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
-	)
-	worn_suit_storage_offset = new(
+	)*/
+	/*worn_suit_storage_offset = new(
 		attached_part = src,
 		feature_key = OFFSET_SUIT,
 		offset_x = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
 		offset_y = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
-	)
-	worn_uniform_offset = new(
+	)*/
+	/*worn_uniform_offset = new(
 		attached_part = src,
 		feature_key = OFFSET_UNIFORM,
 		offset_x = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
 		offset_y = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
-	)
+	)*/
 	return ..()
 
 /obj/item/bodypart/arm/left/vox
@@ -89,8 +89,8 @@
 	held_hand_offset =  new(
 		attached_part = src,
 		feature_key = OFFSET_HELD,
-		offset_x = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
-		offset_y = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
+		offset_x = list("north" = -1, "south" = 1, "east" = 1, "west" = -4),
+		offset_y = list("north" = -6, "south" = -6, "east" = -4, "west" = -6),
 	)
 	return ..()
 
@@ -107,8 +107,8 @@
 	held_hand_offset =  new(
 		attached_part = src,
 		feature_key = OFFSET_HELD,
-		offset_x = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
-		offset_y = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
+		offset_x = list("north" = 1, "south" = -1, "east" = 4, "west" = -1),
+		offset_y = list("north" = -6, "south" = -6, "east" = -6, "west" = -4),
 	)
 	return ..()
 
