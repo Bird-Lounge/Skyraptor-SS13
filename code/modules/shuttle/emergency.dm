@@ -515,12 +515,8 @@
 				mode = SHUTTLE_ESCAPE
 				launch_status = ENDGAME_LAUNCHED
 				setTimer(SSshuttle.emergency_escape_time * engine_coeff)
-<<<<<<< HEAD
-				priority_announce("The Emergency Shuttle has left the station. Estimate [timeLeft(600)] minutes until the shuttle docks at Central Command.", null, null, ANNOUNCEMENT_TYPE_PRIORITY)
-				//bolt_all_doors() /// SKYRAPTOR ADDITION - SOON(TM)
-=======
 				priority_announce("The Emergency Shuttle has left the station. Estimate [timeLeft(600)] minutes until the shuttle docks at Central Command.", null, null, ANNOUNCEMENT_TYPE_PRIORITY, color_override = "orange")
->>>>>>> 9dcef290ec2 (Reworks the styling of the announcements and expands major announcements to also be colourable. (#79236))
+				//bolt_all_doors() /// SKYRAPTOR ADDITION - SOON(TM)
 				INVOKE_ASYNC(SSticker, TYPE_PROC_REF(/datum/controller/subsystem/ticker, poll_hearts))
 				SSmapping.mapvote() //If no map vote has been run yet, start one.
 
