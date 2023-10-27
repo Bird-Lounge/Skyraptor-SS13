@@ -47,7 +47,7 @@
 	target.dna.features["snout_vox"] = value
 
 /datum/preference/choiced/vox_snout/create_default_value()
-	var/datum/sprite_accessory/snouts/vox/fullsnout/snout = /datum/sprite_accessory/snouts/vox/fullsnout
+	var/datum/sprite_accessory/snouts/vox/standard/snout = /datum/sprite_accessory/snouts/vox/standard
 	return initial(snout.name)
 
 
@@ -81,7 +81,7 @@
 	target.dna.features["tail_vox"] = value
 
 /datum/preference/choiced/vox_tail/create_default_value()
-	var/datum/sprite_accessory/tails/vox/shark/tail = /datum/sprite_accessory/tails/vox/shark
+	var/datum/sprite_accessory/tails/vox/talon/tail = /datum/sprite_accessory/tails/vox/talon
 	return initial(tail.name)
 
 

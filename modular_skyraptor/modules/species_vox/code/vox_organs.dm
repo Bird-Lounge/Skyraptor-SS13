@@ -1,3 +1,12 @@
+/obj/item/organ/internal/eyes/vox
+	name = "vox eyes"
+	desc = "Hey, why's there three of them?"
+	eye_icon_file = 'modular_skyraptor/modules/species_vox/icons/vox_external.dmi'
+	eye_icon_state = "voxeyes"
+	icon_state = "eyeballs-moth"
+
+
+
 // SNOUT
 /obj/item/organ/external/snout/vox
 	name = "vox snout"

@@ -1,6 +1,6 @@
 /datum/species/vox
 	// Slugcats from Rain World, revamped to fit into
-	name = "\improper VOx"
+	name = "\improper Vox"
 	plural_form = "\improper Vox"
 	id = SPECIES_VOX
 	//old traits as we migrate to the new setup
@@ -28,13 +28,13 @@
 		/obj/item/organ/external/snout/vox = "Standard",
 		/obj/item/organ/external/tail/vox = "Talon",
 	)
-	//mutanteyes = /obj/item/organ/internal/eyes/slugcat
+	mutanteyes = /obj/item/organ/internal/eyes/vox
 
 	coldmod = 0.5
 	heatmod = 1.5
 
 	bodytemp_normal = BODYTEMP_NORMAL - 30
-	bodytemp_heat_damage_limit = BODYTEMP_NORM	L + 10
+	bodytemp_heat_damage_limit = BODYTEMP_NORMAL + 10
 	bodytemp_cold_damage_limit = BODYTEMP_NORMAL - 70
 
 	payday_modifier = 1 //we're going to be doing a master_files override to universally set payday mod to 1 bcuz it's still some serious wtfery
