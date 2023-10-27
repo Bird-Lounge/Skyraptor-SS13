@@ -9,12 +9,10 @@
 /datum/reagent/medicine
 	taste_description = "bitterness"
 
-/datum/reagent/medicine/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
-	current_cycle++
-	if(length(reagent_removal_skip_list))
-		return
-	if(holder)
-		holder.remove_reagent(type, metabolization_rate * seconds_per_tick / affected_mob.metabolism_efficiency) //medicine reagents stay longer if you have a better metabolism
+/datum/reagent/medicine/New()
+	. = ..()
+	// All medicine metabolizes out slower / stay longer if you have a better metabolism
+	chemical_flags |= REAGENT_REVERSE_METABOLISM
 
 /datum/reagent/medicine/leporazine
 	name = "Leporazine"
@@ -71,12 +69,7 @@
 	affected_mob.heal_bodypart_damage(brute = 5 * REM * seconds_per_tick, burn = 5 * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
 	affected_mob.adjustToxLoss(-5 * REM * seconds_per_tick, updating_health = FALSE, forced = TRUE, required_biotype = affected_biotype)
 	// Heal everything! That we want to. But really don't heal reagents. Otherwise we'll lose ... us.
-<<<<<<< HEAD
-	affected_mob.fully_heal(full_heal_flags & ~HEAL_ALL_REAGENTS)
-	return ..()
-=======
 	affected_mob.fully_heal(full_heal_flags & ~HEAL_ALL_REAGENTS) // there is no need to return UPDATE_MOB_HEALTH because this proc calls updatehealth()
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/medicine/adminordrazine/quantum_heal
 	name = "Quantum Medicine"
@@ -143,10 +136,6 @@
 		to_chat(affected_mob, "You feel confused and disoriented.")
 		if(prob(30))
 			SEND_SOUND(affected_mob, sound('sound/weapons/flash_ring.ogg'))
-<<<<<<< HEAD
-	..()
-=======
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/medicine/cryoxadone
 	name = "Cryoxadone"
@@ -370,7 +359,7 @@
 	color = "#6D6374"
 	metabolization_rate = 0.4 * REAGENTS_METABOLISM
 	ph = 2.6
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_AFFECTS_WOUNDS
 
 /datum/reagent/medicine/mine_salve/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -405,6 +394,10 @@
 /datum/reagent/medicine/mine_salve/on_mob_end_metabolize(mob/living/affected_mob)
 	. = ..()
 	affected_mob.remove_status_effect(/datum/status_effect/grouped/screwy_hud/fake_healthy, type)
+
+/datum/reagent/medicine/mine_salve/on_burn_wound_processing(datum/wound/burn/flesh/burn_wound)
+	burn_wound.sanitization += 0.3
+	burn_wound.flesh_healing += 0.5
 
 /datum/reagent/medicine/omnizine
 	name = "Omnizine"
@@ -522,17 +515,10 @@
 	REMOVE_TRAIT(affected_mob, TRAIT_HALT_RADIATION_EFFECTS, "[type]")
 
 /datum/reagent/medicine/potass_iodide/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
-<<<<<<< HEAD
-	if (HAS_TRAIT(affected_mob, TRAIT_IRRADIATED))
-		affected_mob.adjustToxLoss(-1 * REM * seconds_per_tick, required_biotype = affected_biotype)
-
-	..()
-=======
 	. = ..()
 	if(HAS_TRAIT(affected_mob, TRAIT_IRRADIATED))
 		if(affected_mob.adjustToxLoss(-1 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype))
 			return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/medicine/pen_acid
 	name = "Pentetic Acid"
@@ -770,12 +756,8 @@
 	var/obj/item/organ/internal/eyes/eyes = affected_mob.get_organ_slot(ORGAN_SLOT_EYES)
 	if(eyes)
 		// Healing eye damage will cure nearsightedness and blindness from ... eye damage
-<<<<<<< HEAD
-		eyes.apply_organ_damage(-2 * REM * seconds_per_tick * normalise_creation_purity(), required_organ_flag = affected_organ_flags)
-=======
 		if(eyes.apply_organ_damage(-2 * REM * seconds_per_tick * normalise_creation_purity(), required_organ_flag = affected_organ_flags))
 			. = UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 		// If our eyes are seriously damaged, we have a probability of causing eye blur while healing depending on purity
 		if(eyes.damaged && IS_ORGANIC_ORGAN(eyes) && SPT_PROB(16 - min(normalized_purity * 6, 12), seconds_per_tick))
 			// While healing, gives some eye blur
@@ -785,11 +767,6 @@
 			else if(affected_mob.is_nearsighted_from(EYE_DAMAGE))
 				to_chat(affected_mob, span_warning("The blackness in your peripheral vision begins to fade."))
 				affected_mob.adjust_eye_blur(5 SECONDS)
-<<<<<<< HEAD
-
-	return ..()
-=======
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/medicine/oculine/on_mob_delete(mob/living/affected_mob)
 	. = ..()
@@ -829,11 +806,7 @@
 	if(!ears)
 		return
 	ears.adjustEarDamage(-4 * REM * seconds_per_tick * normalise_creation_purity(), -4 * REM * seconds_per_tick * normalise_creation_purity())
-<<<<<<< HEAD
-	..()
-=======
 	return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/medicine/inacusiate/on_mob_delete(mob/living/affected_mob)
 	. = ..()
@@ -906,16 +879,11 @@
 		holder.remove_reagent(/datum/reagent/medicine/epinephrine, 1 * REM * seconds_per_tick)
 		if(SPT_PROB(10, seconds_per_tick))
 			holder.add_reagent(/datum/reagent/toxin/histamine, 4)
-<<<<<<< HEAD
-		..()
-		return
-=======
 		return ..()
 
 	. = ..()
 
 	var/need_mob_update
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 	if(affected_mob.health <= affected_mob.crit_threshold)
 		need_mob_update = affected_mob.adjustToxLoss(-0.5 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
 		need_mob_update += affected_mob.adjustBruteLoss(-0.5 * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
@@ -933,17 +901,9 @@
 	need_mob_update += affected_mob.adjustStaminaLoss(-0.5 * REM * seconds_per_tick, updating_stamina = FALSE)
 	if(SPT_PROB(10, seconds_per_tick))
 		affected_mob.AdjustAllImmobility(-20)
-<<<<<<< HEAD
-	..()
-<<<<<<< HEAD
-=======
-	return TRUE
->>>>>>> 480d5ddb03c (Fixes Epinephrine Healing (#78479))
-=======
 		need_mob_update = TRUE
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/medicine/epinephrine/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -1060,17 +1020,11 @@
 /datum/reagent/medicine/strange_reagent/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	var/damage_at_random = rand(0, 250)/100 //0 to 2.5
-<<<<<<< HEAD
-	affected_mob.adjustBruteLoss(damage_at_random * REM * seconds_per_tick, FALSE, required_bodytype = affected_bodytype)
-	affected_mob.adjustFireLoss(damage_at_random * REM * seconds_per_tick, FALSE, required_bodytype = affected_bodytype)
-	return ..()
-=======
 	var/need_mob_update
 	need_mob_update = affected_mob.adjustBruteLoss(damage_at_random * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
 	need_mob_update += affected_mob.adjustFireLoss(damage_at_random * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/medicine/mannitol
 	name = "Mannitol"
@@ -1085,14 +1039,9 @@
 	inverse_chem_val = 0.45
 
 /datum/reagent/medicine/mannitol/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
-<<<<<<< HEAD
-	affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, -2 * REM * seconds_per_tick * normalise_creation_purity(), required_organ_flag = affected_organ_flags)
-	..()
-=======
 	. = ..()
 	if(affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, -2 * REM * seconds_per_tick * normalise_creation_purity(), required_organ_flag = affected_organ_flags))
 		return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 //Having mannitol in you will pause the brain damage from brain tumor (so it heals an even 2 brain damage instead of 1.8)
 /datum/reagent/medicine/mannitol/on_mob_metabolize(mob/living/carbon/affected_mob)
@@ -1669,6 +1618,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/medicine/silibinin/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+	. = ..()
 	if(affected_mob.adjustOrganLoss(ORGAN_SLOT_LIVER, -2 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)) // Add a chance to cure liver trauma once implemented.
 		return UPDATE_MOB_HEALTH
 
@@ -1713,6 +1663,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/medicine/granibitaluri/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+	. = ..()
 	var/healamount = max(0.5 - round(0.01 * (affected_mob.getBruteLoss() + affected_mob.getFireLoss()), 0.1), 0) //base of 0.5 healing per cycle and loses 0.1 healing for every 10 combined brute/burn damage you have
 	var/need_mob_update
 	need_mob_update = affected_mob.adjustBruteLoss(-healamount * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
@@ -1850,15 +1801,8 @@
 /datum/reagent/medicine/ondansetron/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	if(SPT_PROB(8, seconds_per_tick))
-<<<<<<< HEAD
-		M.adjust_drowsiness(2 SECONDS * REM * seconds_per_tick)
-	if(SPT_PROB(15, seconds_per_tick) && !M.getStaminaLoss())
-		M.adjustStaminaLoss(10)
-	M.adjust_disgust(-10 * REM * seconds_per_tick)
-=======
 		affected_mob.adjust_drowsiness(2 SECONDS * REM * seconds_per_tick)
 	if(SPT_PROB(15, seconds_per_tick) && !affected_mob.getStaminaLoss())
 		if(affected_mob.adjustStaminaLoss(10 * REM * seconds_per_tick, updating_stamina = FALSE))
 			. = UPDATE_MOB_HEALTH
 	affected_mob.adjust_disgust(-10 * REM * seconds_per_tick)
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))

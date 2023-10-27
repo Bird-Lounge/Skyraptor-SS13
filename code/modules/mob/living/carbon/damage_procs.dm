@@ -104,14 +104,9 @@
 		amount = min(amount, 0)
 	return ..()
 
-<<<<<<< HEAD
-/mob/living/carbon/adjustStaminaLoss(amount, updating_stamina, forced = FALSE, required_biotype = MOB_ORGANIC) //SKYRAPTOR EDIT: these need to be unkerscrunkled
+/mob/living/carbon/adjustStaminaLoss(amount, updating_stamina, forced, required_biotype = ALL) //SKYRAPTOR EDIT: these need to be unkerscrunkled
 	/// SKYRAPTOR REMOVAL BEGIN: we're torching default stamina for carbons and later other mobtypes.
 	/*. = ..()
-=======
-/mob/living/carbon/adjustStaminaLoss(amount, updating_stamina, forced, required_biotype = ALL)
-	. = ..()
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 	if(amount > 0)
 		stam_regen_start_time = world.time + STAMINA_REGEN_BLOCK_TIME*/
 	/// SKYRAPTOR REMOVAL ENDS, REWRITE BEGINS.

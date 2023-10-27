@@ -359,17 +359,11 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		if(DNA_LIZARD_MARKINGS_BLOCK) //SKYRAPTOR EDIT: bodymarks_lizard specifically
 			set_uni_feature_block(blocknumber, construct_block(GLOB.bodymarks_list_lizard.Find(features["bodymarks_lizard"]), GLOB.bodymarks_list_lizard.len))
 		if(DNA_TAIL_BLOCK)
-<<<<<<< HEAD
-			set_uni_feature_block(blocknumber, construct_block(GLOB.tails_list.Find(features["tail_lizard"]), GLOB.tails_list.len))
-		if(DNA_SNOUT_BLOCK) //SKYRAPTOR EDIT: snout to snout_lizard
-			set_uni_feature_block(blocknumber, construct_block(GLOB.snouts_list.Find(features["snout_lizard"]), GLOB.snouts_list.len))
-=======
 			set_uni_feature_block(blocknumber, construct_block(GLOB.tails_list_human.Find(features["tail_cat"]), GLOB.tails_list_human.len))
 		if(DNA_LIZARD_TAIL_BLOCK)
 			set_uni_feature_block(blocknumber, construct_block(GLOB.tails_list_lizard.Find(features["tail_lizard"]), GLOB.tails_list_lizard.len))
 		if(DNA_SNOUT_BLOCK)
 			set_uni_feature_block(blocknumber, construct_block(GLOB.snouts_list.Find(features["snout"]), GLOB.snouts_list.len))
->>>>>>> 9e1c71f794a (Reworks transformation sting to be temporarily in living mobs, forever in dead mobs (#78502))
 		if(DNA_HORNS_BLOCK)
 			set_uni_feature_block(blocknumber, construct_block(GLOB.horns_list.Find(features["horns"]), GLOB.horns_list.len))
 		if(DNA_FRILLS_BLOCK)
@@ -835,6 +829,8 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 /proc/scramble_dna(mob/living/carbon/M, ui=FALSE, se=FALSE, uf=FALSE, probability)
 	if(!M.has_dna())
 		CRASH("[M] does not have DNA")
+	if(HAS_TRAIT(M, TRAIT_NO_DNA_SCRAMBLE))
+		return
 	if(se)
 		for(var/i=1, i <= DNA_MUTATION_BLOCKS, i++)
 			if(prob(probability))

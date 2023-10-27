@@ -868,14 +868,10 @@
 	if(heal_flags & HEAL_BURN)
 		setFireLoss(0, updating_health = FALSE, forced = TRUE)
 	if(heal_flags & HEAL_STAM)
-<<<<<<< HEAD
-		setStaminaLoss(0, FALSE, TRUE)
-		/// Skyraptor small edits
+		setStaminaLoss(0, updating_stamina = FALSE, forced = TRUE)
+		/// SKYRAPTOR EDIT: Small tweaks to ensure stamina is reset
 		stamina.adjust(INFINITY)
 		exit_stamina_stun()
-=======
-		setStaminaLoss(0, updating_stamina = FALSE, forced = TRUE)
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 	// I don't really care to keep this under a flag
 	set_nutrition(NUTRITION_LEVEL_FED + 50)
@@ -1251,7 +1247,7 @@
 	return
 
 /mob/living/can_hold_items(obj/item/I)
-	return usable_hands && ..()
+	return ..() && HAS_TRAIT(src, TRAIT_CAN_HOLD_ITEMS) && usable_hands
 
 /mob/living/can_perform_action(atom/movable/target, action_bitflags)
 	if(!istype(target))
@@ -1422,6 +1418,7 @@
 			var/picked_animal = pick(
 				/mob/living/basic/bat,
 				/mob/living/basic/bear,
+				/mob/living/basic/blob_minion/blobbernaut,
 				/mob/living/basic/butterfly,
 				/mob/living/basic/carp,
 				/mob/living/basic/carp/magic,
@@ -1449,11 +1446,6 @@
 				/mob/living/basic/statue,
 				/mob/living/basic/stickman,
 				/mob/living/basic/stickman/dog,
-<<<<<<< HEAD
-				/mob/living/simple_animal/hostile/blob/blobbernaut/independent,
-				/mob/living/simple_animal/hostile/gorilla,
-=======
->>>>>>> 504e6acfa35 (Basic Mob Gorillas (#78918))
 				/mob/living/simple_animal/hostile/megafauna/dragon/lesser,
 				/mob/living/simple_animal/parrot,
 				/mob/living/simple_animal/pet/cat,

@@ -779,7 +779,7 @@
 			if(tgui_alert(usr, "Note, respawning is only allowed as another character. If you don't have another free slot you may not be able to respawn.", "Respawn", list("Ok", "Nevermind")) != "Ok")
 				return
 
-		if(RESPAWN_FLAG_DISABLED)
+		if(RESPAWN_FLAG_FREE)
 			pass() // Normal respawn
 
 		if(RESPAWN_FLAG_DISABLED)
@@ -937,10 +937,45 @@
 /// Performs the actual ritual of swapping hands, such as setting the held index variables
 /mob/proc/perform_hand_swap(held_index)
 	PROTECTED_PROC(TRUE)
+	if (!HAS_TRAIT(src, TRAIT_CAN_HOLD_ITEMS))
+		return FALSE
+
+	if(!held_index)
+		held_index = (active_hand_index % held_items.len) + 1
+
+	if(!isnum(held_index))
+		CRASH("You passed [held_index] into swap_hand instead of a number. WTF man")
+
+	var/previous_index = active_hand_index
+	active_hand_index = held_index
+	if(hud_used)
+		var/atom/movable/screen/inventory/hand/held_location
+		held_location = hud_used.hand_slots["[previous_index]"]
+		if(!isnull(held_location))
+			held_location.update_appearance()
+		held_location = hud_used.hand_slots["[held_index]"]
+		if(!isnull(held_location))
+			held_location.update_appearance()
 	return TRUE
 
-/mob/proc/activate_hand(selhand)
-	return
+/mob/proc/activate_hand(selected_hand)
+	if (!HAS_TRAIT(src, TRAIT_CAN_HOLD_ITEMS))
+		return
+
+	if(!selected_hand)
+		selected_hand = (active_hand_index % held_items.len)+1
+
+	if(istext(selected_hand))
+		selected_hand = lowertext(selected_hand)
+		if(selected_hand == "right" || selected_hand == "r")
+			selected_hand = 2
+		if(selected_hand == "left" || selected_hand == "l")
+			selected_hand = 1
+
+	if(selected_hand != active_hand_index)
+		swap_hand(selected_hand)
+	else
+		mode()
 
 /mob/proc/assess_threat(judgement_criteria, lasercolor = "", datum/callback/weaponcheck=null) //For sec bot threat assessment
 	return 0

@@ -77,7 +77,7 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "syndbeacon"
 	spawn_text = "warps in from"
-	mob_types = list(/mob/living/basic/syndicate/ranged)
+	mob_types = list(/mob/living/basic/trooper/syndicate/ranged)
 	faction = list(ROLE_SYNDICATE)
 	mob_gps_id = "SYN" // syndicate
 	spawner_gps_id = "Hostile Warp Beacon"
@@ -90,7 +90,7 @@
 	max_integrity = 150
 	max_mobs = 15
 	spawn_time = 15 SECONDS
-	mob_types = list(/mob/living/simple_animal/hostile/skeleton)
+	mob_types = list(/mob/living/basic/skeleton)
 	spawn_text = "climbs out of"
 	faction = list(FACTION_SKELETON)
 	mob_gps_id = "SKL" // skeletons
@@ -133,12 +133,8 @@
 		/mob/living/basic/mining/basilisk,
 		/mob/living/basic/mining/goldgrub,
 		/mob/living/basic/mining/goliath/ancient,
-<<<<<<< HEAD
-=======
 		/mob/living/basic/mining/hivelord,
->>>>>>> 0ff97e28fe3 (Tendril Tagging - scanning necropolis tendrils with a mining analyzer updates its GPS tag (#78738))
 		/mob/living/basic/wumborian_fugu,
-		/mob/living/simple_animal/hostile/asteroid/hivelord,
 	)
 	faction = list(FACTION_MINING)
 
@@ -157,12 +153,8 @@
 /obj/structure/spawner/mining/hivelord
 	name = "hivelord den"
 	desc = "A den housing a nest of hivelords."
-<<<<<<< HEAD
-	mob_types = list(/mob/living/simple_animal/hostile/asteroid/hivelord)
-=======
 	mob_types = list(/mob/living/basic/mining/hivelord)
 	mob_gps_id = "HL"
->>>>>>> 0ff97e28fe3 (Tendril Tagging - scanning necropolis tendrils with a mining analyzer updates its GPS tag (#78738))
 
 /obj/structure/spawner/mining/basilisk
 	name = "basilisk den"

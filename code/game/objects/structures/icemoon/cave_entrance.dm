@@ -109,12 +109,8 @@ GLOBAL_LIST_INIT(ore_probability, list(
 	mob_gps_id = "ID|W" // ice drake | whelp
 
 /obj/structure/spawner/ice_moon/demonic_portal/snowlegion
-<<<<<<< HEAD
-	mob_types = list(/mob/living/simple_animal/hostile/asteroid/hivelord/legion/snow/portal)
-=======
 	mob_types = list(/mob/living/basic/mining/legion/snow/spawner_made)
 	mob_gps_id = "LG|S" // legion | snow
->>>>>>> 0ff97e28fe3 (Tendril Tagging - scanning necropolis tendrils with a mining analyzer updates its GPS tag (#78738))
 
 /obj/effect/collapsing_demonic_portal
 	name = "collapsing demonic portal"

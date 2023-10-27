@@ -14,7 +14,6 @@
 		"basic_matter_bin",
 		"basic_micro_laser",
 		"basic_scanning",
-		"bepis",
 		"blast",
 		"bounced_radio",
 		"bowl",
@@ -1600,6 +1599,7 @@
 	design_ids = list(
 		"pin_testing",
 		"tele_shield",
+		"lasershell",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 20000)
 	discount_experiments = list(/datum/experiment/ordnance/explosive/pressurebomb = 10000)

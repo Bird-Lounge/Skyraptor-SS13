@@ -117,8 +117,6 @@
 	if(body_damage_patched && prob(35)) // healing is called every few seconds, not every tick
 		owner.visible_message(span_warning("[owner]'s body twitches a bit."), span_notice("You feel like something is patching your injured body."))
 
-	if(body_damage_patched && prob(35)) // healing is called every few seconds, not every tick
-		owner.visible_message(span_warning("[owner]'s body twitches a bit."), span_notice("You feel like something is patching your injured body."))
 
 /obj/item/organ/internal/cyberimp/chest/reviver/proc/revive_dead()
 	owner.grab_ghost()
@@ -131,6 +129,7 @@
 	owner.set_jitter_if_lower(200 SECONDS)
 	SEND_SIGNAL(owner, COMSIG_LIVING_MINOR_SHOCK)
 	log_game("[owner] been revived by [src]")
+
 
 /obj/item/organ/internal/cyberimp/chest/reviver/emp_act(severity)
 	. = ..()

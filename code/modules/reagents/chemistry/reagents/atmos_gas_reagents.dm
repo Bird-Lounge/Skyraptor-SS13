@@ -48,13 +48,6 @@
 	breather.SetSleeping(1 SECONDS)
 
 /datum/reagent/healium/on_mob_life(mob/living/breather, seconds_per_tick, times_fired)
-<<<<<<< HEAD
-	breather.SetSleeping(30 SECONDS)
-	breather.adjustFireLoss(-2 * REM * seconds_per_tick, FALSE, required_bodytype = affected_bodytype)
-	breather.adjustToxLoss(-5 * REM * seconds_per_tick, FALSE, required_biotype = affected_biotype)
-	breather.adjustBruteLoss(-2 * REM * seconds_per_tick, FALSE, required_bodytype = affected_bodytype)
-	return ..()
-=======
 	. = ..()
 	breather.SetSleeping(30 SECONDS)
 	var/need_mob_update
@@ -63,7 +56,6 @@
 	need_mob_update += breather.adjustBruteLoss(-2 * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/hypernoblium
 	name = "Hyper-Noblium"
@@ -99,18 +91,12 @@
 	REMOVE_TRAIT(breather, TRAIT_SLEEPIMMUNE, type)
 
 /datum/reagent/nitrium_high_metabolization/on_mob_life(mob/living/carbon/breather, seconds_per_tick, times_fired)
-<<<<<<< HEAD
-	breather.adjustStaminaLoss(-2 * REM * seconds_per_tick, FALSE, required_biotype = affected_biotype)
-	breather.adjustToxLoss(0.1 * current_cycle * REM * seconds_per_tick, FALSE, required_biotype = affected_biotype) // 1 toxin damage per cycle at cycle 10
-	return ..()
-=======
 	. = ..()
 	var/need_mob_update
 	need_mob_update = breather.adjustStaminaLoss(-2 * REM * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
 	need_mob_update += breather.adjustToxLoss(0.1 * (current_cycle-1) * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype) // 1 toxin damage per cycle at cycle 10
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/nitrium_low_metabolization
 	name = "Nitrium"
@@ -144,18 +130,13 @@
 	if(!HAS_TRAIT(breather, TRAIT_KNOCKEDOUT))
 		return
 
+	. = ..()
 	for(var/obj/item/organ/organ_being_healed as anything in breather.organs)
 		if(!organ_being_healed.damage)
 			continue
 
-<<<<<<< HEAD
-		organ_being_healed.apply_organ_damage(-0.5 * REM * seconds_per_tick, required_organ_flag = ORGAN_ORGANIC)
-
-	return ..()
-=======
 		if(organ_being_healed.apply_organ_damage(-0.5 * REM * seconds_per_tick, required_organ_flag = ORGAN_ORGANIC))
 			return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/zauker
 	name = "Zauker"
@@ -169,13 +150,6 @@
 	affected_respiration_type = ALL
 
 /datum/reagent/zauker/on_mob_life(mob/living/breather, seconds_per_tick, times_fired)
-<<<<<<< HEAD
-	breather.adjustBruteLoss(6 * REM * seconds_per_tick, FALSE, required_bodytype = affected_bodytype)
-	breather.adjustOxyLoss(1 * REM * seconds_per_tick, FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
-	breather.adjustFireLoss(2 * REM * seconds_per_tick, FALSE, required_bodytype = affected_bodytype)
-	breather.adjustToxLoss(2 * REM * seconds_per_tick, FALSE, required_biotype = affected_biotype)
-	return ..()
-=======
 	. = ..()
 	var/need_mob_update
 	need_mob_update = breather.adjustBruteLoss(6 * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
@@ -184,4 +158,3 @@
 	need_mob_update += breather.adjustToxLoss(2 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))

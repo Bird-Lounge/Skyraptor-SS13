@@ -71,13 +71,12 @@
 		user.mob.dropItemToGround(I)
 	return TRUE
 
-<<<<<<< HEAD
 /datum/keybinding/mob/toggle_move_intent
 	hotkey_keys = list("C")
 	name = "toggle_move_intent"
 	full_name = "Hold to toggle move intent"
 	description = "Held down to cycle to the other move intent, release to cycle back"
-	keybind_signal = COMSIG_KB_MOB_TOGGLEMOVEINTENT_DOWN
+	keybind_signal = COMSIG_KB_LIVING_TOGGLEMOVEINTENT_DOWN
 
 /datum/keybinding/mob/toggle_move_intent/down(client/user)
 	. = ..()
@@ -107,7 +106,7 @@
 	name = "toggle_move_intent_alt"
 	full_name = "press to cycle move intent"
 	description = "Pressing this cycle to the opposite move intent, does not cycle back"
-	keybind_signal = COMSIG_KB_MOB_TOGGLEMOVEINTENTALT_DOWN
+	keybind_signal = COMSIG_KB_LIVING_TOGGLEMOVEINTENTALT_DOWN
 
 /datum/keybinding/mob/toggle_move_intent_alternative/down(client/user)
 	. = ..()
@@ -122,8 +121,6 @@
 			L.set_move_intent(MOVE_INTENT_RUN)
 	return TRUE
 
-=======
->>>>>>> b021f291722 (Fix a runtime in toggle_move_intent keybindings (#78384))
 /datum/keybinding/mob/target/down(client/user)
 	. = ..()
 	if(.)

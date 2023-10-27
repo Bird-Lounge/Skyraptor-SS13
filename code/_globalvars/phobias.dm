@@ -72,7 +72,6 @@ GLOBAL_LIST_INIT(phobia_mobs, list(
 	"doctors" = typecacheof(list(/mob/living/simple_animal/bot/medbot)),
 	"heresy" = typecacheof(list(
 		/mob/living/basic/heretic_summon,
-		/mob/living/simple_animal/hostile/heretic_summon,
 	)),
 	"insects" = typecacheof(list(
 		/mob/living/basic/cockroach,
@@ -87,7 +86,7 @@ GLOBAL_LIST_INIT(phobia_mobs, list(
 	)),
 	"security" = typecacheof(list(/mob/living/simple_animal/bot/secbot)),
 	"spiders" = typecacheof(list(/mob/living/basic/spider/giant)),
-	"skeletons" = typecacheof(list(/mob/living/simple_animal/hostile/skeleton)),
+	"skeletons" = typecacheof(list(/mob/living/basic/skeleton)),
 	"snakes" = typecacheof(list(/mob/living/basic/snake)),
 	"the supernatural" = typecacheof(list(
 		/mob/dead/observer,
@@ -97,12 +96,11 @@ GLOBAL_LIST_INIT(phobia_mobs, list(
 		/mob/living/basic/faithless,
 		/mob/living/basic/ghost,
 		/mob/living/basic/heretic_summon,
+		/mob/living/basic/skeleton,
 		/mob/living/basic/revenant,
 		/mob/living/simple_animal/bot/mulebot/paranormal,
 		/mob/living/simple_animal/hostile/construct,
 		/mob/living/simple_animal/hostile/dark_wizard,
-		/mob/living/simple_animal/hostile/heretic_summon,
-		/mob/living/simple_animal/hostile/skeleton,
 		/mob/living/simple_animal/hostile/wizard,
 		/mob/living/simple_animal/hostile/zombie,
 		/mob/living/simple_animal/shade,
@@ -367,8 +365,10 @@ GLOBAL_LIST_INIT(phobia_objs, list(
 	"heresy" = typecacheof(list(
 		/obj/effect/floating_blade,
 		/obj/effect/forcefield/cosmic_field,
-		/obj/effect/heretic_rune,
+		/obj/effect/forcefield/wizard/heretic,
 		/obj/effect/heretic_influence,
+		/obj/effect/heretic_rune,
+		/obj/effect/knock_portal,
 		/obj/effect/visible_heretic_influence,
 		/obj/item/ammo_box/strilka310/lionhunter,
 		/obj/item/ammo_casing/strilka310/lionhunter,
@@ -380,6 +380,7 @@ GLOBAL_LIST_INIT(phobia_objs, list(
 		/obj/item/codex_cicatrix,
 		/obj/item/coin/eldritch,
 		/obj/item/gun/ballistic/rifle/lionhunter,
+		/obj/item/heretic_lintel,
 		/obj/item/melee/rune_carver,
 		/obj/item/melee/sickly_blade,
 		/obj/item/melee/touch_attack/mansus_fist,
@@ -388,6 +389,7 @@ GLOBAL_LIST_INIT(phobia_objs, list(
 		/obj/item/toy/reality_pierce,
 		/obj/projectile/curse_hand,
 		/obj/structure/destructible/eldritch_crucible,
+		/obj/structure/knock_tear,
 	)),
 	"insects" = typecacheof(list(
 		/obj/item/clothing/mask/animal/small/bee,

@@ -123,6 +123,12 @@
 
 	AddElement(/datum/element/weather_listener, /datum/weather/ash_storm, ZTRAIT_ASHSTORM, GLOB.ash_storm_sounds)
 
+	/// SKYRAPTOR ADDITION: modular weather sounds
+	for(var/spath in subtypesof(/datum/mapping_weather_handler))
+		var/datum/mapping_weather_handler/S = new spath()
+		S.add_weathertype(src)
+	/// SKYRAPTOR ADDITION END
+
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MOB_LOGGED_IN, src)
 
 	return TRUE

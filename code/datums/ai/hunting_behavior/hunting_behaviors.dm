@@ -93,13 +93,7 @@
 	var/mob/living/hunter = controller.pawn
 	var/atom/hunted = controller.blackboard[hunting_target_key]
 
-<<<<<<< HEAD
-	if(isnull(hunted))
-		//Target is gone for some reason. forget about this task!
-		controller[hunting_target_key] = null
-=======
 	if(QDELETED(hunted))
->>>>>>> 032419f30f7 (ice demon basic mobs (#78539))
 		finish_action(controller, FALSE, hunting_target_key)
 	else
 		target_caught(hunter, hunted)

@@ -7,12 +7,14 @@
 
 [![resentment](.github/images/badges/built-with-resentment.svg)](.github/images/comics/131-bug-free.png) [![technical debt](.github/images/badges/contains-technical-debt.svg)](.github/images/comics/106-tech-debt-modified.png) [![forinfinityandbyond](.github/images/badges/made-in-byond.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
 
-* **Website:** N/A
-* **Code:** https://github.com/Bird-Lounge/Skyraptor-SS13
-* **Wiki:** N/A
-* **Codedocs:** N/A
-* **/tg/station Discord:** N/A
-* **Coderbus Discord:** N/A
+| Website                   | Link                                           |
+|---------------------------|------------------------------------------------|
+| Website                   | N/A          |
+| Code                      | [https://github.com/Bird-Lounge/Skyraptor-SS13](https://github.com/Bird-Lounge/Skyraptor-SS13)    |
+| Wiki                      | N/A   |
+| Codedocs                  | N/A       |
+| /tg/station Discord       | N/A |
+| Coderbus Discord          | N/A               |
 
 This is the codebase for a nightmare amalgamation built on top of the original /tg/station flavoured fork of SpaceStation 13.
 

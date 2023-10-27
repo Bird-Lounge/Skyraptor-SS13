@@ -192,10 +192,6 @@
 	var/hp_percent_to_dismemberable = 0.8
 	/// If true, we will use [hp_percent_to_dismemberable] even if we are dismemberable via wounds. Useful for things with extreme wound resistance.
 	var/use_alternate_dismemberment_calc_even_if_mangleable = FALSE
-	/// If false, no wound that can be applied to us can mangle our flesh. Used for determining if we should use [hp_percent_to_dismemberable] instead of normal dismemberment.
-	var/any_existing_wound_can_mangle_our_flesh
-	/// If false, no wound that can be applied to us can mangle our bone. Used for determining if we should use [hp_percent_to_dismemberable] instead of normal dismemberment.
-	var/any_existing_wound_can_mangle_our_bone
 	/// If false, no wound that can be applied to us can mangle our exterior. Used for determining if we should use [hp_percent_to_dismemberable] instead of normal dismemberment.
 	var/any_existing_wound_can_mangle_our_exterior
 	/// If false, no wound that can be applied to us can mangle our interior. Used for determining if we should use [hp_percent_to_dismemberable] instead of normal dismemberment.
@@ -457,7 +453,7 @@
 /obj/item/bodypart/proc/receive_damage(brute = 0, burn = 0, blocked = 0, updating_health = TRUE, forced = FALSE, required_bodytype = null, wound_bonus = 0, bare_wound_bonus = 0, sharpness = NONE, attack_direction = null, damage_source)
 	SHOULD_CALL_PARENT(TRUE)
 
-	var/hit_percent = (100-blocked)/100
+	var/hit_percent = forced ? 1 : (100-blocked)/100
 	if((!brute && !burn) || hit_percent <= 0)
 		return FALSE
 	if (!forced)

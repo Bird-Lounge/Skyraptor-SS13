@@ -778,8 +778,6 @@
 	to_chat(target, span_userdanger("You're no longer identified as a nuclear operative! You are free to follow any valid goals you wish, even continuing to secure the disk. Just make sure neither any turrets nor operatives kill you on sight."))
 	return TRUE
 
-<<<<<<< HEAD
-=======
 /obj/item/storage/box/syndie_kit/poster_box
 	name = "syndicate poster pack"
 	desc = "Contains a variety of demotivational posters to ensure minimum productivity for the crew of any Nanotrasen station."
@@ -806,7 +804,6 @@
 		/obj/item/food/grown/apple = 1,
 	), src)
 
->>>>>>> 62edfdf85b9 (Adds a cowboy bundle to the nuclear ops uplink (#78874))
 #undef KIT_RECON
 #undef KIT_BLOODY_SPAI
 #undef KIT_STEALTHY

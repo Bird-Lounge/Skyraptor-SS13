@@ -1,11 +1,7 @@
 /datum/ai_controller/basic_controller/mega_arachnid
 	blackboard = list(
 		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic,
-<<<<<<< HEAD
-		BB_BASIC_MOB_FLEEING = TRUE,
-=======
 		BB_BASIC_MOB_FLEE_DISTANCE = 5,
->>>>>>> ed907096e30 (Fixes fleeing behaviour (#78821))
 	)
 
 	ai_movement = /datum/ai_movement/basic_avoidance
@@ -51,7 +47,6 @@
 
 /datum/ai_behavior/run_away_from_target/mega_arachnid
 	clear_failed_targets = FALSE
-	run_distance = 5
 
 ///only engage in melee combat against cuffed targets, otherwise keep throwing restraints at them
 /datum/ai_planning_subtree/basic_melee_attack_subtree/mega_arachnid

@@ -84,7 +84,6 @@
 			CRASH("limbs is empty and the chest is blacklisted. this may not be intended!")
 	return (((chest_blacklisted && !base_zone) || even_weights) ? pick_weight(limbs) : ran_zone(base_zone, base_probability, limbs))
 
-
 ///Would this zone be above the neck
 /proc/above_neck(zone)
 	var/list/zones = list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_EYES)
@@ -268,7 +267,7 @@
 	flashwindow = TRUE,
 	ignore_mapload = TRUE,
 	ignore_key,
-	header,
+	header = "",
 	notify_suiciders = TRUE,
 	notify_volume = 100
 )
@@ -276,20 +275,26 @@
 	if(ignore_mapload && SSatoms.initialized != INITIALIZATION_INNEW_REGULAR) //don't notify for objects created during a map load
 		return
 
-	var/list/viewers = list()
 	for(var/mob/dead/observer/ghost in GLOB.player_list)
 		if(!notify_suiciders && HAS_TRAIT(ghost, TRAIT_SUICIDED))
 			continue
 		if(ignore_key && (ghost.ckey in GLOB.poll_ignore[ignore_key]))
 			continue
 
-		viewers += ghost // This mob will see the alert
-
 		if(flashwindow)
 			window_flash(ghost.client)
 
+		if(ghost_sound)
+			SEND_SOUND(ghost, sound(ghost_sound, volume = notify_volume))
+
 		if(isnull(source))
+			to_chat(ghost, span_ghostalert(message))
 			continue
+
+		var/custom_link = enter_link ? " [enter_link]" : ""
+		var/link = " <a href='?src=[REF(ghost)];[action]=[REF(source)]'>([capitalize(action)])</a>"
+
+		to_chat(ghost, span_ghostalert("[message][custom_link][link]"))
 
 		var/atom/movable/screen/alert/notify_action/toast = ghost.throw_alert(
 			category = "[REF(source)]_notify_action",
@@ -300,14 +305,6 @@
 		toast.desc = "Click to [action]."
 		toast.name = header
 		toast.target = source
-
-	var/orbit_link
-	if(source && action == NOTIFY_ORBIT)
-		orbit_link = " <a href='?src=[REF(usr)];follow=[REF(source)]'>(Orbit)</a>"
-
-	var/text = "[message][(enter_link) ? " [enter_link]" : ""][orbit_link]"
-
-	minor_announce(text, title = header, players = viewers, html_encode = FALSE, sound_override = ghost_sound, color_override = "purple")
 
 /// Heals a robotic limb on a mob
 /proc/item_heal_robotic(mob/living/carbon/human/human, mob/user, brute_heal, burn_heal)
@@ -533,3 +530,33 @@
 		"[key_name(src)] manually changed selected zone",
 		data,
 	)
+
+/**
+ * Returns an associative list of the logs of a certain amount of lines spoken recently by this mob
+ * copy_amount - number of lines to return
+ * line_chance - chance to return a line, if you don't want just the most recent x lines
+ */
+/mob/proc/copy_recent_speech(copy_amount = LING_ABSORB_RECENT_SPEECH, line_chance = 100)
+	var/list/recent_speech = list()
+	var/list/say_log = list()
+	var/log_source = logging
+	for(var/log_type in log_source)
+		var/nlog_type = text2num(log_type)
+		if(nlog_type & LOG_SAY)
+			var/list/reversed = log_source[log_type]
+			if(islist(reversed))
+				say_log = reverse_range(reversed.Copy())
+				break
+
+	for(var/spoken_memory in say_log)
+		if(recent_speech.len >= copy_amount)
+			break
+		if(!prob(line_chance))
+			continue
+		recent_speech[spoken_memory] = splittext(say_log[spoken_memory], "\"", 1, 0, TRUE)[3]
+
+	var/list/raw_lines = list()
+	for (var/key as anything in recent_speech)
+		raw_lines += recent_speech[key]
+
+	return raw_lines

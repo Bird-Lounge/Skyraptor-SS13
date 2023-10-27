@@ -1,0 +1,388 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/mineral/random/prairie_dirt/rich,
+/area/prairie_world/surface)
+"d" = (
+/obj/structure/stone_tile{
+	dir = 4
+	},
+/obj/structure/stone_tile{
+	dir = 1
+	},
+/turf/open/lava/plasma/prairie,
+/area/prairie_world/surface)
+"e" = (
+/obj/structure/stone_tile{
+	dir = 4
+	},
+/obj/structure/stone_tile/cracked,
+/turf/open/misc/sandy_dirt/prairie,
+/area/prairie_world/surface)
+"g" = (
+/obj/structure/stone_tile/cracked{
+	dir = 4
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/prairie_world/surface)
+"i" = (
+/obj/structure/stone_tile/cracked{
+	dir = 8
+	},
+/obj/structure/stone_tile{
+	dir = 1
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/prairie_world/surface)
+"j" = (
+/obj/structure/stone_tile,
+/obj/structure/stone_tile{
+	dir = 4
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/prairie_world/surface)
+"k" = (
+/obj/structure/stone_tile,
+/obj/structure/stone_tile/block/cracked{
+	dir = 8
+	},
+/turf/open/lava/plasma/prairie,
+/area/prairie_world/surface)
+"l" = (
+/obj/structure/stone_tile/block,
+/turf/open/misc/sandy_dirt/prairie,
+/area/prairie_world/surface)
+"m" = (
+/obj/structure/stone_tile{
+	dir = 8
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/prairie_world/surface)
+"n" = (
+/obj/structure/stone_tile/block{
+	dir = 4
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/prairie_world/surface)
+"o" = (
+/obj/structure/stone_tile/cracked{
+	dir = 1
+	},
+/turf/open/misc/asteroid/prairie_grass/planetary/do_not_chasm,
+/area/prairie_world/surface)
+"p" = (
+/obj/structure/stone_tile{
+	dir = 1
+	},
+/obj/structure/stone_tile/block/cracked,
+/turf/open/lava/plasma/prairie,
+/area/prairie_world/surface)
+"s" = (
+/obj/structure/stone_tile,
+/turf/open/misc/sandy_dirt/prairie,
+/area/prairie_world/surface)
+"u" = (
+/obj/structure/stone_tile/block,
+/obj/structure/stone_tile/cracked{
+	dir = 4
+	},
+/turf/open/lava/plasma/prairie,
+/area/prairie_world/surface)
+"w" = (
+/obj/structure/stone_tile/block{
+	dir = 1
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/prairie_world/surface)
+"D" = (
+/obj/structure/stone_tile/cracked,
+/turf/open/misc/sandy_dirt/prairie,
+/area/prairie_world/surface)
+"E" = (
+/obj/structure/stone_tile/block{
+	dir = 8
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/prairie_world/surface)
+"F" = (
+/obj/structure/stone_tile{
+	dir = 4
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/prairie_world/surface)
+"H" = (
+/obj/structure/stone_tile/block,
+/turf/open/misc/asteroid/prairie_grass/planetary/do_not_chasm,
+/area/prairie_world/surface)
+"I" = (
+/turf/open/misc/sandy_dirt/prairie,
+/area/prairie_world/surface)
+"K" = (
+/obj/structure/stone_tile/block{
+	dir = 8
+	},
+/turf/open/misc/asteroid/prairie_grass/planetary/do_not_chasm,
+/area/prairie_world/surface)
+"L" = (
+/obj/structure/stone_tile/block/cracked{
+	dir = 1
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/prairie_world/surface)
+"M" = (
+/turf/template_noop,
+/area/template_noop)
+"O" = (
+/obj/structure/stone_tile/block/cracked{
+	dir = 4
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/prairie_world/surface)
+"Q" = (
+/obj/structure/stone_tile/cracked{
+	dir = 8
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/prairie_world/surface)
+"R" = (
+/obj/structure/stone_tile{
+	dir = 8
+	},
+/obj/structure/stone_tile/block{
+	dir = 1
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/prairie_world/surface)
+"U" = (
+/obj/structure/stone_tile/surrounding/cracked{
+	dir = 6
+	},
+/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner{
+	dir = 1
+	},
+/turf/open/lava/plasma/prairie,
+/area/prairie_world/surface)
+"V" = (
+/obj/structure/stone_tile/cracked,
+/turf/open/misc/asteroid/prairie_grass/planetary/do_not_chasm,
+/area/prairie_world/surface)
+"W" = (
+/turf/open/misc/asteroid/prairie_grass/planetary/do_not_chasm,
+/area/prairie_world/surface)
+"X" = (
+/turf/closed/mineral/random/prairie_dirt/trapped,
+/area/prairie_world/surface)
+"Z" = (
+/obj/structure/stone_tile/cracked{
+	dir = 1
+	},
+/turf/open/misc/sandy_dirt/prairie,
+/area/prairie_world/surface)
+
+(1,1,1) = {"
+M
+M
+M
+a
+a
+X
+a
+X
+a
+M
+M
+M
+M
+M
+"}
+(2,1,1) = {"
+M
+M
+a
+a
+W
+W
+a
+a
+a
+a
+a
+a
+M
+M
+"}
+(3,1,1) = {"
+a
+a
+a
+W
+K
+W
+W
+a
+X
+a
+X
+a
+a
+M
+"}
+(4,1,1) = {"
+a
+X
+W
+W
+g
+l
+W
+W
+W
+W
+a
+a
+a
+X
+"}
+(5,1,1) = {"
+a
+W
+K
+Q
+I
+L
+I
+e
+I
+W
+W
+W
+a
+a
+"}
+(6,1,1) = {"
+a
+W
+I
+n
+j
+m
+u
+s
+I
+E
+m
+W
+W
+a
+"}
+(7,1,1) = {"
+X
+W
+I
+I
+I
+d
+U
+k
+R
+D
+L
+m
+W
+a
+"}
+(8,1,1) = {"
+a
+W
+m
+F
+i
+s
+p
+m
+I
+Z
+E
+V
+W
+a
+"}
+(9,1,1) = {"
+X
+W
+o
+s
+I
+w
+I
+H
+W
+W
+W
+W
+a
+X
+"}
+(10,1,1) = {"
+a
+a
+W
+W
+I
+l
+W
+W
+a
+a
+W
+a
+X
+a
+"}
+(11,1,1) = {"
+a
+X
+a
+W
+O
+W
+W
+a
+X
+a
+a
+a
+X
+M
+"}
+(12,1,1) = {"
+M
+a
+a
+W
+W
+W
+a
+a
+X
+a
+a
+M
+M
+M
+"}
+(13,1,1) = {"
+M
+M
+a
+X
+a
+a
+X
+M
+M
+M
+M
+M
+M
+M
+"}

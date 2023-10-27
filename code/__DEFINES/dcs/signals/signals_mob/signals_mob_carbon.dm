@@ -83,6 +83,7 @@
 #define COMSIG_CARBON_EMBED_REMOVAL "item_embed_remove_safe"
 ///Called when someone attempts to cuff a carbon
 #define COMSIG_CARBON_CUFF_ATTEMPTED "carbon_attempt_cuff"
+	#define COMSIG_CARBON_CUFF_PREVENT (1<<0)
 ///Called when a carbon mutates (source = dna, mutation = mutation added)
 #define COMSIG_CARBON_GAIN_MUTATION "carbon_gain_mutation"
 ///Called when a carbon loses a mutation (source = dna, mutation = mutation lose)
@@ -162,4 +163,4 @@
 
 /// SKYRAPTOR ADDITION: used to interrupt sprinting
 #define COMSIG_CARBON_PRE_SPRINT "carbon_pre_sprint"
-	#define INTERRUPT_SPRINT (1<<0)
+#define INTERRUPT_SPRINT (1<<0)

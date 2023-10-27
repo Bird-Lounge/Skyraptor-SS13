@@ -83,15 +83,12 @@ GLOBAL_LIST_EMPTY(current_living_antags)
 /// All observers with clients that joined as observers.
 GLOBAL_LIST_EMPTY(current_observers_list)
 
-<<<<<<< HEAD
-=======
 /// All living mobs which can hear blob telepathy
 GLOBAL_LIST_EMPTY(blob_telepathy_mobs)
 
 /// All "living" (because revenants are in between mortal planes or whatever) mobs that can hear revenants
 GLOBAL_LIST_EMPTY(revenant_relay_mobs)
 
->>>>>>> 3415828c6bc (Refactors Revenants into Basic Mobs (#78782))
 ///underages who have been reported to security for trying to buy things they shouldn't, so they can't spam
 GLOBAL_LIST_EMPTY(narcd_underages)
 

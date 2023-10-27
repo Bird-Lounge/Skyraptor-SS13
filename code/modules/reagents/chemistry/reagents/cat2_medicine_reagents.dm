@@ -575,12 +575,8 @@
 		affected_mob.emote("scream")
 		affected_mob.set_heartattack(TRUE)
 		volume = 0
-<<<<<<< HEAD
-	. = ..()
-=======
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
 
 /datum/reagent/medicine/c2/penthrite/on_mob_end_metabolize(mob/living/affected_mob)
 	. = ..()

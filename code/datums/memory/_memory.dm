@@ -246,6 +246,7 @@
 	var/static/list/something_pool = list(
 		/mob/living/basic/bat,
 		/mob/living/basic/bear,
+		/mob/living/basic/blob_minion/blobbernaut,
 		/mob/living/basic/butterfly,
 		/mob/living/basic/carp,
 		/mob/living/basic/carp/magic,
@@ -274,11 +275,6 @@
 		/mob/living/basic/statue,
 		/mob/living/basic/stickman,
 		/mob/living/basic/stickman/dog,
-<<<<<<< HEAD
-		/mob/living/simple_animal/hostile/blob/blobbernaut/independent,
-		/mob/living/simple_animal/hostile/gorilla,
-=======
->>>>>>> 504e6acfa35 (Basic Mob Gorillas (#78918))
 		/mob/living/simple_animal/hostile/megafauna/dragon/lesser,
 		/mob/living/simple_animal/parrot,
 		/mob/living/simple_animal/pet/cat,

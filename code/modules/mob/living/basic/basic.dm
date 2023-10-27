@@ -286,8 +286,6 @@
 		return last_icon_state
 	return null
 
-<<<<<<< HEAD
-=======
 /mob/living/basic/put_in_hands(obj/item/I, del_on_fail = FALSE, merge_stacks = TRUE, ignore_animation = TRUE)
 	. = ..()
 	if (.)
@@ -304,7 +302,6 @@
 		held.screen_loc = ui_hand_position(index)
 		client.screen |= held
 
->>>>>>> 504e6acfa35 (Basic Mob Gorillas (#78918))
 /mob/living/basic/get_body_temp_heat_damage_limit()
 	return maximum_survivable_temperature
 

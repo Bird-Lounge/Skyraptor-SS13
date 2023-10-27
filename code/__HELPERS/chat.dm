@@ -81,8 +81,6 @@ it will be sent to all connected chats.
 
 /// Handles text formatting for item use hints in examine text
 #define EXAMINE_HINT(text) ("<b>" + text + "</b>")
-<<<<<<< HEAD
-=======
 
 /// Sends a message to all dead and observing players, if a source is provided a follow link will be attached.
 /proc/send_to_observers(message, source)
@@ -99,4 +97,3 @@ it will be sent to all connected chats.
 	for(var/mob/creature as anything in mob_list)
 		to_chat(creature, message)
 	send_to_observers(message, source)
->>>>>>> 3415828c6bc (Refactors Revenants into Basic Mobs (#78782))

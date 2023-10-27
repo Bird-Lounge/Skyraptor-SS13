@@ -328,6 +328,8 @@
 /atom/proc/CanPass(atom/movable/mover, border_dir)
 	SHOULD_CALL_PARENT(TRUE)
 	SHOULD_BE_PURE(TRUE)
+	if(SEND_SIGNAL(src, COMSIG_ATOM_TRIED_PASS, mover, border_dir) & COMSIG_COMPONENT_PERMIT_PASSAGE)
+		return TRUE
 	if(mover.movement_type & PHASING)
 		return TRUE
 	. = CanAllowThrough(mover, border_dir)
@@ -691,7 +693,7 @@
 					. += "It contains <b>[round(reagents.total_volume, 0.01)]</b> units of various reagents[user_sees_reagents ? ":" : "."]"
 					if(user_sees_reagents) //Show each individual reagent for detailed examination
 						for(var/datum/reagent/current_reagent as anything in reagents.reagent_list)
-							. += "&bull; [FLOOR(current_reagent.volume, CHEMICAL_QUANTISATION_LEVEL)] units of [current_reagent.name]"
+							. += "&bull; [round(current_reagent.volume, 0.01)] units of [current_reagent.name]"
 						if(reagents.is_reacting)
 							. += span_warning("It is currently reacting!")
 						. += span_notice("The solution's pH is [round(reagents.ph, 0.01)] and has a temperature of [reagents.chem_temp]K.")

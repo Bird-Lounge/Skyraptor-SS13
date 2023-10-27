@@ -116,7 +116,7 @@
 /datum/reagent/consumable/banana/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	var/obj/item/organ/internal/liver/liver = affected_mob.get_organ_slot(ORGAN_SLOT_LIVER)
-	if((liver && HAS_TRAIT(liver, TRAIT_COMEDY_METABOLISM)) || ismonkey(affected_mob))
+	if((liver && HAS_TRAIT(liver, TRAIT_COMEDY_METABOLISM)) || is_simian(affected_mob))
 		if(affected_mob.heal_bodypart_damage(brute = 1 * REM * seconds_per_tick, burn = 1 * REM * seconds_per_tick, updating_health = FALSE))
 			return UPDATE_MOB_HEALTH
 
@@ -298,12 +298,6 @@
 	affected_mob.adjust_jitter(-6 SECONDS * REM * seconds_per_tick)
 	affected_mob.AdjustSleeping(-20 * REM * seconds_per_tick)
 	if(affected_mob.getToxLoss() && SPT_PROB(10, seconds_per_tick))
-<<<<<<< HEAD
-		affected_mob.adjustToxLoss(-1, FALSE, required_biotype = affected_biotype)
-	affected_mob.adjust_bodytemperature(20 * REM * TEMPERATURE_DAMAGE_COEFFICIENT * seconds_per_tick, 0, affected_mob.get_body_temp_normal())
-	..()
-	. = TRUE
-=======
 		if(affected_mob.adjustToxLoss(-1 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype))
 			. = UPDATE_MOB_HEALTH
 	affected_mob.adjust_bodytemperature(20 * REM * TEMPERATURE_DAMAGE_COEFFICIENT * seconds_per_tick, 0, affected_mob.get_body_temp_normal())
@@ -315,7 +309,28 @@
 			if(!to_chatted && helped)
 				to_chat(affected_mob, span_notice("A calm, relaxed feeling suffuses you. Your wounds feel a little healthier."))
 			to_chatted = TRUE
->>>>>>> 68b798efa05 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
+
+// Different handling, different name.
+// Returns FALSE by default so broken bones and 'loss' wounds don't give a false message
+/datum/wound/proc/tea_life_process()
+	return FALSE
+
+// Slowly increase (gauzed) clot rate
+/datum/wound/pierce/bleed/tea_life_process()
+	gauzed_clot_rate += 0.1
+	return TRUE
+
+// Slowly increase clot rate
+/datum/wound/slash/flesh/tea_life_process()
+	clot_rate += 0.2
+	return TRUE
+
+// There's a designated burn process, but I felt this would be better for consistency with the rest of the reagent's procs
+/datum/wound/burn/flesh/tea_life_process()
+	// Sanitizes and heals, but with a limit
+	flesh_healing = (flesh_healing > 0.1) ? flesh_healing : flesh_healing + 0.02
+	infestation_rate = max(infestation_rate - 0.005, 0)
+	return TRUE
 
 /datum/reagent/consumable/lemonade
 	name = "Lemonade"
@@ -655,7 +670,7 @@
 
 /datum/reagent/consumable/monkey_energy/on_mob_metabolize(mob/living/affected_mob)
 	. = ..()
-	if(ismonkey(affected_mob))
+	if(is_simian(affected_mob))
 		affected_mob.add_movespeed_modifier(/datum/movespeed_modifier/reagent/monkey_energy)
 
 /datum/reagent/consumable/monkey_energy/on_mob_end_metabolize(mob/living/affected_mob)
