@@ -13,7 +13,7 @@
 /obj/machinery/telecomms/bus/prairie/preset_two
 	id = "PrairieOutpost Bus 2"
 	network = "tcommsat"
-	freq_listening = list(FREQ_ENGINEERING, FREQ_SUPPLY, FREQ_SERVICE)
+	freq_listening = list(FREQ_COMMON, FREQ_ENGINEERING, FREQ_SUPPLY, FREQ_SERVICE)
 	autolinkers = list("processor2", "common", "engineering", "supply", "service", "messaging")
 
 /obj/machinery/telecomms/server/pairie_presets/civvie
@@ -40,7 +40,7 @@
 	id = "Receiver"
 	network = "tcommsat"
 	autolinkers = list("receiverA") // link to relay
-	freq_listening = list(FREQ_COMMAND, FREQ_ENGINEERING, FREQ_SECURITY, FREQ_MEDICAL, FREQ_SCIENCE, FREQ_SUPPLY, FREQ_SERVICE)
+	freq_listening = list(FREQ_COMMON, FREQ_COMMAND, FREQ_ENGINEERING, FREQ_SECURITY, FREQ_MEDICAL, FREQ_SCIENCE, FREQ_SUPPLY, FREQ_SERVICE)
 
 /obj/machinery/telecomms/receiver/preset_prairie/Initialize(mapload)
 	. = ..()
