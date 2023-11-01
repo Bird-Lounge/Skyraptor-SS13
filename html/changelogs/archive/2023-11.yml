@@ -1,0 +1,21 @@
+2023-11-01:
+  Data_:
+  - bugfix: The detective's curtains can be closed again in Birdshot.
+  NaakaKo:
+  - bugfix: Bitrunners can no longer get mass-mindswapped out of their avatar when
+      the wizard does the event. Something about machinery and magic not going well
+      together.
+  - refactor: Traders are basic mobs now. Please alert us of any strange behaviours!
+  - code_imp: If there is only one option, radial lists will autopick it. This behaviour
+      can be turned off via a new argument.
+  - bugfix: Obsessed's moodlets (Both positive and negative) go away when the trauma
+      is cured or the antag status is removed.
+  - spellcheck: Changed candy description to read better
+  - rscadd: Added a new ruin to Ice Box Station, Lizard Gas Station
+  - bugfix: Cargo will remove/cancel orders from its cart if that order exceeds the
+      available budget (both private or cargo) and the player cannot cancel this order
+      manually. All order costs are rounded up to integer values
+  - bugfix: Galactic material market will deny appending stacks to your existing order
+      if it exceeds the available (private or cargo depending on the mode of ordering)
+      budget & if it exceeds the available materials on the market. Galactic material
+      market UI is overall improved.
