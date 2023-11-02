@@ -5,7 +5,6 @@
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS, /// SKYRAPTOR ADDITION: we're forcing this to the top of the stack to try and avoid fuckery...
 		TRAIT_HAS_MARKINGS,
-		TRAIT_CAN_USE_FLIGHT_POTION,
 		TRAIT_TACKLING_WINGED_ATTACKER,
 		TRAIT_ANTENNAE,
 		USE_TRICOLOR_ALPHA, /// SKYRAPTOR ADDITIONS AFTER HERE
@@ -21,7 +20,6 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	species_language_holder = /datum/language_holder/moth
 	death_sound = 'sound/voice/moth/moth_death.ogg'
-	wing_types = list(/obj/item/organ/external/wings/functional/moth/megamoth, /obj/item/organ/external/wings/functional/moth/mothra)
 	payday_modifier = 1.0
 	family_heirlooms = list(/obj/item/flashlight/lantern/heirloom_moth)
 
