@@ -1,5 +1,0 @@
-author: "NaakaKo"
-delete-after: True
-changes:
-  - bugfix: "Fixes tesla zaps being weird."
-  - admin: "Logs explosions from explosive zaps."

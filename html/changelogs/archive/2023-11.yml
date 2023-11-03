@@ -67,3 +67,54 @@
       .dmi
   - bugfix: The fire visual on mobs should no longer persist after the fire has been
       extinguished.
+2023-11-03:
+  LT3:
+  - code_imp: Changing security levels will only trigger the nightshift subsystem
+      if lighting changes are required
+  NaakaKo:
+  - rscdel: Remove duplicate light in battlecruiser starfury
+  - spellcheck: basic mobs getting shoved by humans now display the mob's disarm response
+  - bugfix: Non-human mobs can hallucinate their mothers without causing a runtime
+      error
+  - bugfix: Modular shield generator modules no longer lose linkage when riding a
+      shuttle
+  - bugfix: Modular shield generators now gracefully turn off when being moved by
+      a shuttle rather than leaving their projections behind, the generator's description
+      was updated to advertise this behavior.
+  - qol: The RPD now accepts upgrade disks inserted by hand, as well as their original
+      method of hitting the disk with the RPD
+  - bugfix: Lethal ballistic pellet-based shotgun shells no longer instantly delete.
+  - bugfix: Fixes tesla zaps being weird.
+  - admin: Logs explosions from explosive zaps.
+  - bugfix: plumbing bottler now only deals with bottles, beakers similar stuff but
+      not pills, patches, syringes or anything than can hold reagents. That & slime
+      extracts, slime industrial extract & shotgun shell
+  - refactor: Proteon constructs now use the basic mob framework. The ones encountered
+      in ruins are a bit flightier now, and will briefly flee combat if attacked -
+      only so that they can return and menace you again soon after. Please report
+      any bugs.
+  - rscdel: Remove duplicate machinery from russian derelict
+  - qol: There is now a more convenient way to prompt surrender to emote - the Security
+      Pen. Each officer is equipped with one in their PDA. Simply click someone with
+      it to prompt a 30-second surrender. They are printable at Security Techfab as
+      well.
+  - qol: Penlights now are printable at Medical Techfab.
+  - image: Penlights got a new cleaner sprite to replace its ancient one
+  - code_imp: The code for Penlight's holographic sign has been improved.
+  - rscdel: Remove duplicate space heater from snowcabin ruin
+  - refactor: The wings you get from a flight potion (if any) are now determined by
+      your chest bodypart, not your species.
+  - qol: Functional wings can now be ground up to get the flight potion back, if you
+      want to get a different wing variant.
+  - bugfix: plumbing reaction chamber will attempt to balance the ph of the solution
+      a maximum of 5 times before giving up and thus preventing infinite loops, high
+      tick usage
+  - rscdel: Remove duplicate atmos fire alarm, cargo air alarm, and chemistry shutter
+      from icebox.
+  - rscdel: Remove duplicate HoP shutter from birdshot
+  - rscdel: Remove duplicate syndi turret on waystation ruin
+  - rscdel: Removed extra consoles from birdshot's bitrunners
+  - rscdel: Removed duplicate northstar message monitor computer
+  - qol: Steam vents in maintenance now have tooltips.
+  - rscadd: ctrlclicking the knock path eldritch id card will toggle whether it creates
+      inverted portals or not
