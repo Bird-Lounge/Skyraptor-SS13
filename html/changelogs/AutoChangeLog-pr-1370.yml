@@ -1,0 +1,4 @@
+author: "NaakaKo"
+delete-after: True
+changes:
+  - bugfix: "Possessed blades can attempt to channel spirits again"
