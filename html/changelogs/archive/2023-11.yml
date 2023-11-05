@@ -169,3 +169,7 @@
   - bugfix: Bounties - Virus bounties work once more
   ninjanomnom:
   - bugfix: Fixes turrets being invisible when they shouldn't be
+2023-11-05:
+  NaakaKo:
+  - bugfix: lab coats no longer have directional sprites when thrown
+  - admin: Holobarrier creation now adds player fingerprint data
