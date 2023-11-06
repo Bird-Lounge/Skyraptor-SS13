@@ -358,18 +358,14 @@
 	else
 		SSshuttle.emergency_last_call_loc = null
 
-<<<<<<< HEAD
 	if(!silent) /// SKYRAPTOR ADDITION: silent mode
-		priority_announce("The emergency shuttle has been called. [red_alert ? "Red Alert state confirmed: Dispatching priority shuttle. " : "" ]It will arrive in [timeLeft(600)] minutes.[reason][SSshuttle.emergency_last_call_loc ? "\n\nCall signal traced. Results can be viewed on any communications console." : "" ][SSshuttle.admin_emergency_no_recall ? "\n\nWarning: Shuttle recall subroutines disabled; Recall not possible." : ""]", null, ANNOUNCER_SHUTTLECALLED, ANNOUNCEMENT_TYPE_PRIORITY, color_override = "orange")
-=======
-	priority_announce(
-		text = "The emergency shuttle has been called. [red_alert ? "Red Alert state confirmed: Dispatching priority shuttle. " : "" ]It will arrive in [(timeLeft(60 SECONDS))] minutes.[reason][SSshuttle.emergency_last_call_loc ? "\n\nCall signal traced. Results can be viewed on any communications console." : "" ][SSshuttle.admin_emergency_no_recall ? "\n\nWarning: Shuttle recall subroutines disabled; Recall not possible." : ""]",
-		title = "Emergency Shuttle Dispatched",
-		sound = ANNOUNCER_SHUTTLECALLED,
-		sender_override = "Emergency Shuttle Uplink Alert",
-		color_override = "orange",
-		)
->>>>>>> 312cd8880d9 (Station announcements cleanup (#79315))
+		priority_announce(
+			text = "The emergency shuttle has been called. [red_alert ? "Red Alert state confirmed: Dispatching priority shuttle. " : "" ]It will arrive in [(timeLeft(60 SECONDS))] minutes.[reason][SSshuttle.emergency_last_call_loc ? "\n\nCall signal traced. Results can be viewed on any communications console." : "" ][SSshuttle.admin_emergency_no_recall ? "\n\nWarning: Shuttle recall subroutines disabled; Recall not possible." : ""]",
+			title = "Emergency Shuttle Dispatched",
+			sound = ANNOUNCER_SHUTTLECALLED,
+			sender_override = "Emergency Shuttle Uplink Alert",
+			color_override = "orange",
+			)
 
 /obj/docking_port/mobile/emergency/cancel(area/signalOrigin)
 	if(mode != SHUTTLE_CALL)
@@ -537,17 +533,13 @@
 				mode = SHUTTLE_ESCAPE
 				launch_status = ENDGAME_LAUNCHED
 				setTimer(SSshuttle.emergency_escape_time * engine_coeff)
-<<<<<<< HEAD
-				priority_announce("The Emergency Shuttle has left the station. Estimate [timeLeft(600)] minutes until the shuttle docks at Central Command.", null, null, ANNOUNCEMENT_TYPE_PRIORITY, color_override = "orange")
-				//bolt_all_doors() /// SKYRAPTOR ADDITION - SOON(TM)
-=======
 				priority_announce(
 					text = "The emergency shuttle has left the station. Estimate [timeLeft(60 SECONDS)] minutes until the shuttle docks at [command_name()].",
 					title = "Emergency Shuttle Departure",
 					sender_override = "Emergency Shuttle Uplink Alert",
 					color_override = "orange",
 				)
->>>>>>> 312cd8880d9 (Station announcements cleanup (#79315))
+				//bolt_all_doors() /// SKYRAPTOR ADDITION - SOON(TM)
 				INVOKE_ASYNC(SSticker, TYPE_PROC_REF(/datum/controller/subsystem/ticker, poll_hearts))
 				SSmapping.mapvote() //If no map vote has been run yet, start one.
 

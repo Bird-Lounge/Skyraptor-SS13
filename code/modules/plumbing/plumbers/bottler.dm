@@ -101,7 +101,3 @@
 			reagents.trans_to(AM, wanted_amount, transferred_by = src, methods = INJECT)
 		else if(istype(AM, /obj/item/slimecross/industrial)) ///no need to move slimecross industrial things
 			reagents.trans_to(AM, wanted_amount, transferred_by = src, methods = INJECT)
-<<<<<<< HEAD
-			return
-=======
->>>>>>> a16d6039fe8 (Plumbing Bottler deals with specific container types (#79375))

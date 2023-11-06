@@ -630,13 +630,7 @@
 
 	if(QDELETED(eye_owner) || !ishuman(eye_owner)) //Other carbon mobs don't have eye color.
 		return
-<<<<<<< HEAD
-	
-	if(!eye.on)
-=======
-
 	if(!eye.light_on)
->>>>>>> 5f923b097fc (Light-Eaten objects can no longer emit light after being turned off and then back on (#79240))
 		eye_icon_state = initial(eye_icon_state)
 		overlay_ignore_lighting = FALSE
 	else

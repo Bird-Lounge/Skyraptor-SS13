@@ -226,10 +226,5 @@
 		else
 			return FALSE
 
-<<<<<<< HEAD
-
-#undef HEATER_COEFFICIENT
-=======
 #undef HEATER_COEFFICIENT
 #undef MAX_PH_ADJUSTMENTS
->>>>>>> c3bbf4d9a09 ([NO GBP] Limits plumbing reaction chamber ph balance attempts (#79429))
