@@ -1,0 +1,201 @@
+2023-11-01:
+  Data_:
+  - bugfix: The detective's curtains can be closed again in Birdshot.
+  NaakaKo:
+  - bugfix: Bitrunners can no longer get mass-mindswapped out of their avatar when
+      the wizard does the event. Something about machinery and magic not going well
+      together.
+  - refactor: Traders are basic mobs now. Please alert us of any strange behaviours!
+  - code_imp: If there is only one option, radial lists will autopick it. This behaviour
+      can be turned off via a new argument.
+  - bugfix: Obsessed's moodlets (Both positive and negative) go away when the trauma
+      is cured or the antag status is removed.
+  - spellcheck: Changed candy description to read better
+  - rscadd: Added a new ruin to Ice Box Station, Lizard Gas Station
+  - bugfix: Cargo will remove/cancel orders from its cart if that order exceeds the
+      available budget (both private or cargo) and the player cannot cancel this order
+      manually. All order costs are rounded up to integer values
+  - bugfix: Galactic material market will deny appending stacks to your existing order
+      if it exceeds the available (private or cargo depending on the mode of ordering)
+      budget & if it exceeds the available materials on the market. Galactic material
+      market UI is overall improved.
+2023-11-02:
+  Melbert:
+  - qol: Clicking on an adjacent dense object (or mob) with Spray Cleaner will now
+      spritz it rather than doing nothing. This means you can use Spray Cleaner to
+      clean bloodied windows, as the janitor gods intended. It also means you can
+      fill a spray bottle with Napalm, I guess.
+  - refactor: Any cleaning object can now clean a microwave.
+  NaakaKo:
+  - bugfix: The Syndicate Revolver now has a Syndicate Firing Pin on the Nuke Ops
+      uplink.
+  - rscdel: Remove duplicate power computer on oldstation ruin
+  - balance: Operatives can once again read about the basics of CQC at a reasonable
+      price of 14 TC.
+  - qol: All Syndicate MODsuits come with the potent ability to wear hats on their
+      helmets FOR FREE. No longer does any operative need be shamed by their bald
+      helmet's unhatted state when they spot the captain, in their MODsuit, wearing
+      a hat on their helmet. The embarrassment has resulted in more than a few operatives
+      prematurely detonating their implants! BUT NO LONGER! FASHION IS YOURS!
+  - qol: There is now a Core Gear Box, containing a few essential pieces of gear for
+      success as an operative. This is right at the top of the uplink, you can't miss
+      it! Great for those operatives just starting out, or operatives who need all
+      their baseline equipment NOW.
+  - balance: Malf Ability "Robotics Factory" can now be purchased multiple times.
+  - rscadd: Added Abnormal Eggs
+  - rscadd: Added Two new spiders
+  - rscdel: Some Tarantula abilities
+  - balance: Spiders speed are now connected to health
+  - balance: Spiders now take more brute damage
+  - balance: All egg laying now has a cooldown
+  - rscdel: Remove duplicate pipe on pirate ship
+  - qol: To avoid poor magazine discipline, most combat-ready personnel have instructed
+      _not_ to put magazines into the gun loops on their armor vests.
+  - bugfix: Bluespace launchpads no longer work on shuttles
+  - bugfix: signals in circuits now actually function
+  - bugfix: Paraplegics can now enter netpods.
+  - bugfix: Fixes an exploit caused by teleporting out of a netpod.
+  - bugfix: Outfit selection at netpods shouldn't give armor bonuses any longer.
+  - bugfix: chameleon projector now can copy icon for storage items(backpacks, box,
+      holsters etc) using right-click on it.
+  - bugfix: Practice laser carbines can no longer be used to rapidly fire regular
+      laser guns.
+  - bugfix: Plumbing IV Drip has full control over its injection/draining rate. No
+      longer displays the message controlled by plumbing system
+  - bugfix: Plumbing IV Drip can be plunged by plunger again
+  - code_imp: mod reskins now properly shows their icon when skins loaded from different
+      .dmi
+  - bugfix: The fire visual on mobs should no longer persist after the fire has been
+      extinguished.
+2023-11-03:
+  LT3:
+  - code_imp: Changing security levels will only trigger the nightshift subsystem
+      if lighting changes are required
+  NaakaKo:
+  - rscdel: Remove duplicate light in battlecruiser starfury
+  - spellcheck: basic mobs getting shoved by humans now display the mob's disarm response
+  - bugfix: Non-human mobs can hallucinate their mothers without causing a runtime
+      error
+  - bugfix: Modular shield generator modules no longer lose linkage when riding a
+      shuttle
+  - bugfix: Modular shield generators now gracefully turn off when being moved by
+      a shuttle rather than leaving their projections behind, the generator's description
+      was updated to advertise this behavior.
+  - qol: The RPD now accepts upgrade disks inserted by hand, as well as their original
+      method of hitting the disk with the RPD
+  - bugfix: Lethal ballistic pellet-based shotgun shells no longer instantly delete.
+  - bugfix: Fixes tesla zaps being weird.
+  - admin: Logs explosions from explosive zaps.
+  - bugfix: plumbing bottler now only deals with bottles, beakers similar stuff but
+      not pills, patches, syringes or anything than can hold reagents. That & slime
+      extracts, slime industrial extract & shotgun shell
+  - refactor: Proteon constructs now use the basic mob framework. The ones encountered
+      in ruins are a bit flightier now, and will briefly flee combat if attacked -
+      only so that they can return and menace you again soon after. Please report
+      any bugs.
+  - rscdel: Remove duplicate machinery from russian derelict
+  - qol: There is now a more convenient way to prompt surrender to emote - the Security
+      Pen. Each officer is equipped with one in their PDA. Simply click someone with
+      it to prompt a 30-second surrender. They are printable at Security Techfab as
+      well.
+  - qol: Penlights now are printable at Medical Techfab.
+  - image: Penlights got a new cleaner sprite to replace its ancient one
+  - code_imp: The code for Penlight's holographic sign has been improved.
+  - rscdel: Remove duplicate space heater from snowcabin ruin
+  - refactor: The wings you get from a flight potion (if any) are now determined by
+      your chest bodypart, not your species.
+  - qol: Functional wings can now be ground up to get the flight potion back, if you
+      want to get a different wing variant.
+  - bugfix: plumbing reaction chamber will attempt to balance the ph of the solution
+      a maximum of 5 times before giving up and thus preventing infinite loops, high
+      tick usage
+  - rscdel: Remove duplicate atmos fire alarm, cargo air alarm, and chemistry shutter
+      from icebox.
+  - rscdel: Remove duplicate HoP shutter from birdshot
+  - rscdel: Remove duplicate syndi turret on waystation ruin
+  - rscdel: Removed extra consoles from birdshot's bitrunners
+  - rscdel: Removed duplicate northstar message monitor computer
+  - qol: Steam vents in maintenance now have tooltips.
+  - rscadd: ctrlclicking the knock path eldritch id card will toggle whether it creates
+      inverted portals or not
+2023-11-04:
+  Melbert:
+  - admin: Admins without `R_POLL` no longer have access to "Server Poll Management",
+      not that they could have used it anyways.
+  - balance: Changelings gutted by Megafauna now take 8x as long to finalize revival
+      stasis (~5 minutes).
+  NaakaKo:
+  - bugfix: Basic mobs will no longer randomly walk into terrain that harms or kills
+      them.
+  - spellcheck: The Mothic Rations Chart poster description now mentions Sparkweed
+      Cigarettes rather than Windgrass
+  - bugfix: Space carp that arrive via rifts are no longer stricken with rift travel
+      related sickness that causes them to become weaker.
+  - bugfix: Added feedback for both extractor and extractee while using fulton extraction
+      packs.
+  - qol: Extraction packs now have better exam text.
+  - bugfix: You can no longer eavesdrop on nearby borgs' radio comms if they're using
+      encryption keys
+  - bugfix: Gorilla and dexterity holoparasite can now take things out of the backpack
+      while holding it in his hand.
+  - rscadd: Added a new fishing map to bitrunning.
+  - rscadd: You are no longer limited to pina coladas on the beach bar domain. Cheers!
+  - refactor: Shades now use the basic mob framework. Please report any bugs.
+  - bugfix: Softspoken quirk will no longer be applied to sign language
+  - code_imp: creatures in cowboy boots will retaliate properly
+  - bugfix: Possessed blades can attempt to channel spirits again
+  - qol: Character preferences now have descriptions as tooltips - hover over their
+      names to see them
+  - rscadd: Added some clarity to the range of netpods (4 tiles) in their exam text.
+  - rscdel: Removed a extra coffee pot in birdshot's security breakroom
+  - bugfix: Bubblegum should no longer teleport out of the simulation when threatened
+  - rscdel: Chamber of Echoes map removed as it conflicts with the actual Legion
+  - bugfix: Heretics won't lose their living heart while bitrunning anymore.
+  - rscdel: 'Remove duplicate machinery from Metastation: morgue disposal bin, medical
+      break room air alarm, and IV drip in permabrig medroom'
+  - refactor: The way mobs get specialized actions (like revenants shocking lights
+      or regal rats summoning rats to their side when you slap them) have been modified,
+      please report any bugs.
+  - bugfix: Fixes midround selection for observers
+  - bugfix: Fix fireplace smoke particles to work properly with all directions
+  - bugfix: venus human traps heal in kudzu again
+  - balance: Gorillas, Seedlings, Gold Grubs, Mooks, Constructs, Ascended Knock Heretics,
+      Fugu and mobs subject to a Fugu Gland now rip up walls in a slightly slower
+      but more cinematic way.
+  Tattle:
+  - bugfix: you should now be able to scrub through the library without lagging the
+      server
+  Zergspower:
+  - bugfix: Bounties - Virus bounties work once more
+  ninjanomnom:
+  - bugfix: Fixes turrets being invisible when they shouldn't be
+2023-11-05:
+  NaakaKo:
+  - bugfix: lab coats no longer have directional sprites when thrown
+  - admin: Holobarrier creation now adds player fingerprint data
+2023-11-06:
+  LT3:
+  - code_imp: Emergency shuttle announcements no longer use hardcoded values
+  - code_imp: Central Command announcements now correctly use its new name when changed
+  - spellcheck: Consistency pass on event announcements
+  - qol: Holobarriers will match the spray paint colour of their projector
+  NaakaKo:
+  - bugfix: Basic mobs using JPS can move again
+  - bugfix: Fugu can correctly destroy walls when they get big.
+  - bugfix: Mafia games can now start properly.
+  - rscdel: Remove duplicate lighting from beach bar domain
+  - bugfix: reagent volumes should be consistent & non breaking across plumbing &
+      chemistry as a whole
+  - bugfix: plumbing reaction chambers are more proactive. Will attempt to take in
+      reagents more frequently
+  - bugfix: The HFR will not print out a piece of paper every time you multitool it,
+      saving any desired energy to use for more useful processes.
+  Rhials:
+  - code_imp: The notify_ghosts proc has been cleaned up. Please report any abnormal
+      changes in deadchat notification behavior.
+  - qol: The on-screen deadchat popups now contain the notification blurb when hovered
+      with your mouse again.
+  Tattle:
+  - bugfix: paintings can once again be filtered
+  timothymtorres, Rahlzel:
+  - sound: Port salute emote sound from Colonial Marines SS13 attributed to Rahlzel

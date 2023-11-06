@@ -5,7 +5,6 @@
 	id = SPECIES_TALONMOTH
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
-		TRAIT_CAN_USE_FLIGHT_POTION,
 		TRAIT_TACKLING_WINGED_ATTACKER,
 		TRAIT_TACKLING_TAILED_DEFENDER,
 		TRAIT_ANTENNAE,
@@ -25,7 +24,6 @@
 	//UGH WE NEED TO SUBTYPE THIS
 	mutanttongue = /obj/item/organ/internal/tongue/moth
 	mutanteyes = /obj/item/organ/internal/eyes/talonmoth
-	wing_types = list(/obj/item/organ/external/wings/functional/moth/megamoth, /obj/item/organ/external/wings/functional/moth/mothra)
 
 	payday_modifier = 1 //we're going to be doing a master_files override to universally set payday mod to 1 bcuz it's still some serious wtfery
 
