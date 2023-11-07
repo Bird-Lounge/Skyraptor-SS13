@@ -1,4 +1,0 @@
-author: "NaakaKo"
-delete-after: True
-changes:
-  - bugfix: "fixes synthflesh not dealing and in fact healing toxin damage."
