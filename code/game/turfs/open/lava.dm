@@ -393,7 +393,7 @@
 	var/list/transform_parts = list() // Parts we want to transform
 
 	for(var/obj/item/bodypart/burn_limb as anything in burn_human.bodyparts)
-		if(!IS_ORGANIC_LIMB(burn_limb) || !burn_limb.can_dismember())
+		if(!IS_ORGANIC_LIMB(burn_limb) || !burn_limb.can_dismember() && burn_limb.bodytype | BODYTYPE_HUMANOID) /// SKYRAPTOR EDIT: only transform humanoid limbs
 			immune_parts += burn_limb
 			continue
 		if(burn_limb.limb_id == SPECIES_PLASMAMAN)
