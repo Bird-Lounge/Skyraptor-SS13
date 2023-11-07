@@ -372,29 +372,6 @@
 		return FALSE
 
 	var/mob/living/burn_living = burn_target
-<<<<<<< HEAD
-	burn_living.adjustFireLoss(2)
-	if(QDELETED(burn_living))
-		return
-	burn_living.adjust_fire_stacks(20) //dipping into a stream of plasma would probably make you more flammable than usual
-	burn_living.adjust_bodytemperature(-rand(50,65)) //its cold, man
-	if(!ishuman(burn_living) || SPT_PROB(65, seconds_per_tick))
-		return
-	var/mob/living/carbon/human/burn_human = burn_living
-	var/datum/species/burn_species = burn_human.dna.species
-	if(istype(burn_species, /datum/species/plasmaman) || istype(burn_species, /datum/species/android)) //ignore plasmamen/robotic species
-		return
-
-	var/list/plasma_parts = list()//a list of the organic parts to be turned into plasma limbs
-	var/list/robo_parts = list()//keep a reference of robotic parts so we know if we can turn them into a plasmaman
-	for(var/obj/item/bodypart/burn_limb as anything in burn_human.bodyparts)
-		if(IS_ORGANIC_LIMB(burn_limb) && burn_limb.limb_id != SPECIES_PLASMAMAN && burn_limb.bodytype | BODYTYPE_HUMANOID) //getting every organic, non-plasmaman limb (augments/androids are immune to this) - SKYRAPTOR EDIT: nonhumanoid limbs check
-			plasma_parts += burn_limb
-		if(IS_ROBOTIC_LIMB(burn_limb))
-			robo_parts += burn_limb
-
-=======
->>>>>>> 1189b22dc2d (Golems cannot turn into Plasmamen (#79249))
 	var/need_mob_update
 	// This is from plasma, so it should obey plasma biotype requirements
 	need_mob_update += burn_living.adjustToxLoss(15, updating_health = FALSE, required_biotype = MOB_ORGANIC)
