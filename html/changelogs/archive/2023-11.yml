@@ -237,3 +237,14 @@
   - bugfix: Fix refresh button in log viewer
   - bugfix: Reagent lookup in chem dispensers now shows correct reagent metabolization
       rates
+2023-11-08:
+  NaakaKo:
+  - bugfix: The screen alert should no longer break ghost UI when it's huge
+  - bugfix: Slimes now need to be on an open turf to reproduce and split into more
+      slimy slimes, instead of getting away with using phasing powers in pipes.
+  - bugfix: Nuclear operative induction implants now work correctly on antagonists
+      and fail on non-antagonists
+  - bugfix: All vehicles (such as VIMs operated by a mouse or a lizard) will no longer
+      be able to phase through containment fields.
+  - config: The bitrunner job now has a default config for server owners.
+  - balance: sets the leaper move and pull forces to strong
