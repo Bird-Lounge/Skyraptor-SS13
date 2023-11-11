@@ -324,3 +324,20 @@
   - bugfix: Ripley MK-I and MK-II mechs no longer qdel their stored items when destroyed.
   zergspower:
   - balance: NPC Syndicate Shotgunners range requirement returned
+2023-11-11:
+  NaakaKo:
+  - bugfix: Fix mapping linter not identifying duplicate blacklisted objects on a
+      turf
+  - code_imp: Add a mapping linter to check for stacked machinery
+  - qol: Ordnance burn, freezing and supermatter chamber air alarms now show the air
+      contents on the tile of the connected sensor inside the chamber.
+  - spellcheck: Renamed Knock to Locks, and changed most of the flavor text of knowledge
+      gain, and renamed some items and knowledges from the path.
+  - bugfix: fixed engi crossbow being able to be used onehanded + ability to craft
+      with sci inducers
+  - rscadd: 4 new space ruins
+  - balance: Snails no longer receive blunt wounds, meaning sharp weapons can dismember
+      them more easily
+  - balance: Slimes can no longer receive dislocations
+  - image: Adds yet another bar sign, this one mining themed
+  - rscdel: Remove duplicate windows from birdshot, delta, and anomaly research ruin.
