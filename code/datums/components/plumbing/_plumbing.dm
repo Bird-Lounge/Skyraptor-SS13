@@ -103,7 +103,7 @@
 	//find the duct to take from
 	var/datum/ductnet/net
 	if(!ducts.Find(num2text(dir)))
-		return
+		return FALSE
 	net = ducts[num2text(dir)]
 
 	//find all valid suppliers in the duct
@@ -113,7 +113,7 @@
 			valid_suppliers += supplier
 	var/suppliersLeft = valid_suppliers.len
 	if(!suppliersLeft)
-		return
+		return FALSE
 
 	//take an equal amount from each supplier
 	var/currentRequest
@@ -122,6 +122,7 @@
 		currentRequest = (target_volume - reagents.total_volume) / suppliersLeft
 		give.transfer_to(src, currentRequest, reagent, net)
 		suppliersLeft--
+	return TRUE
 
 ///returns TRUE when they can give the specified amount and reagent. called by process request
 /datum/component/plumbing/proc/can_give(amount, reagent, datum/ductnet/net)
@@ -217,8 +218,11 @@
 
 	STOP_PROCESSING(SSplumbing, src)
 
-	for(var/duct_dir in ducts)
-		var/datum/ductnet/duct = ducts[duct_dir]
+	//remove_plumber() can remove all ducts at once if they all belong to the same pipenet
+	//for e.g. in case of circular connections
+	//so we check if we have ducts to remove after each iteration
+	while(ducts.len)
+		var/datum/ductnet/duct = ducts[ducts[1]] //for maps index 1 will return the 1st key
 		duct.remove_plumber(src)
 
 	active = FALSE
@@ -396,6 +400,10 @@
 /datum/component/plumbing/manifold
 	demand_connects = NORTH
 	supply_connects = SOUTH
+
+/datum/component/plumbing/iv_drip
+	demand_connects = SOUTH
+	supply_connects = NORTH
 
 /datum/component/plumbing/manifold/change_ducting_layer(obj/caller, obj/changer, new_layer)
 	return
