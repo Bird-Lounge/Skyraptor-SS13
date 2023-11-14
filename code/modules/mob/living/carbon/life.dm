@@ -26,12 +26,19 @@
 
 	if(stat == DEAD)
 		stop_sound_channel(CHANNEL_HEARTBEAT)
+<<<<<<< HEAD
 	/// SKYRAPTOR REMOVAL: byebye oldstam
 	/*else
 		if(getStaminaLoss() > 0 && stam_regen_start_time <= world.time)
 			adjustStaminaLoss(-INFINITY)*/
 
 	handle_bodyparts(seconds_per_tick, times_fired)
+=======
+	else
+		if(getStaminaLoss() > 0 && stam_regen_start_time <= world.time)
+			adjustStaminaLoss(-INFINITY)
+		handle_bodyparts(seconds_per_tick, times_fired)
+>>>>>>> 3e165641509 ([NO GBP] Fixes handle_bodyparts running needlessly when stat == DEAD (#79716))
 
 	if(. && mind) //. == not dead
 		for(var/key in mind.addiction_points)
