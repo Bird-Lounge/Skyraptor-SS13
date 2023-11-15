@@ -447,3 +447,31 @@
       (empty) mining carts.
   Vishenka0704:
   - bugfix: Now you can refuse the pirates request.
+2023-11-15:
+  LT3:
+  - bugfix: Bad luck omen again raises your chance of getting shocked by the tram
+      plate
+  - bugfix: Tram plate checks and energizes when the tram is moving
+  - code_imp: Omen component now applies the cursed trait
+  Melbert:
+  - bugfix: Fixes hallucination and encrypted announcements printing to the Newscaster.
+  NaakaKo:
+  - qol: looms will now attempt to loop through stackable items (cotton as an example)
+  - bugfix: bileworms will now attack
+  - qol: You will no longer be added to the list for ghost-orbit role polls if you
+      have opted out of getting antag ghost roles in your preferences.
+  - qol: You will get a tgui_alert to accept the ghost role if you were selected via
+      the orbit poll, instead of it just throwing you intot he role.
+  - balance: Sapient brimdemons can't hurt themselves with their own beams
+  - refactor: Destructive Analyzers now have a TGUI menu.
+  - bugfix: Safeties in the code have been added to prevent things in disposals going
+      into nullspace whenever they get ejected from a pipe - you will just magically
+      spawn at the turf that you were meant to be flung towards.
+  - spellcheck: hopefully changed all instances of the word 'mjolnir' to 'mjollnir'
+  - bugfix: The plaguebearer can no longer depower virology on Tramstation
+  TwistedSilicon:
+  - bugfix: invisimin verb now makes you invisible to all HUDs too! No more floating
+      healthbars or job identifiers giving you away while you sneak around.
+  san7890, Ghommie:
+  - bugfix: The Blessing of Insanity now grants no damage slowdown and free hyperspace
+      movement correctly.
