@@ -6,7 +6,7 @@
 @use 'sass:color';
 @use 'sass:meta';
 
-$nanotrasen: #384e68;
+$nanotrasen: #95cc29;
 
 @use '../colors.scss' with (
   $fg-map-keys: (),
@@ -22,7 +22,7 @@ $nanotrasen: #384e68;
     '../components/Button.scss',
     $with: (
       'color-default': $nanotrasen,
-      'color-transparent-text': rgba(227, 240, 255, 0.75)
+      'color-transparent-text': #f9ffd9
     )
   );
   @include meta.load-css(

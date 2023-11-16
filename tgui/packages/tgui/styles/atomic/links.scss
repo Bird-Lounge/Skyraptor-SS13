@@ -3,10 +3,12 @@
 a {
   &:link,
   &:visited {
-    color: colors.$blue;
+    color: colors.$olive;
   }
-  &:hover,
-  &:active {
+  &:hover {
     color: colors.$primary;
+  }
+  &:active {
+    color: colors.$good;
   }
 }

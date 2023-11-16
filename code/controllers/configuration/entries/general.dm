@@ -322,7 +322,7 @@
 	default = "http://www.tgstation13.org/wiki/Rules"
 
 /datum/config_entry/string/githuburl
-	default = "https://www.github.com/tgstation/tgstation"
+	default = "https://github.com/Bird-Lounge/Skyraptor-SS13"
 
 /datum/config_entry/string/discordbotcommandprefix
 	default = "?"

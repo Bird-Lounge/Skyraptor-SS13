@@ -25,9 +25,8 @@ export const Signaler = (props, context) => {
 export const SignalerContent = (props, context) => {
   const { act, data } = useBackend<Data>(context);
   const { code, frequency, cooldown, minFrequency, maxFrequency } = data;
-
-  const color = 'rgba(13, 13, 213, 0.7)';
-  const backColor = 'rgba(0, 0, 69, 0.5)';
+  const color = 'rgba(170, 255, 0, 0.7)';
+  const backColor = 'rgba(85, 127, 0, 0.5)';
   return (
     <Section>
       <Stack>

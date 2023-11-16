@@ -28,6 +28,10 @@
 /// Smallest size. (ie: whisper runechat) - Size options: 6pt 12pt 18pt.
 #define MAPTEXT_SPESSFONT(text) {"<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'>[##text]</span>"}
 
+/// SKYRAPTOR ADDITION: Mars Needs Cunnilingus, to be used on things that primarily output numbers (e.g, ammo counters, bag storage) - Size options: 6pt 12pt
+#define MAPTEXT_MNC(text) {"<span style='font-family: \"Mars Needs Cunnilingus\"; font-size: 6pt; -dm-text-outline: 1px black; color: white; line-height: 1.0;'>[##text]</span>"}
+#define MAPTEXT_MNC_BIG(text) {"<span style='font-family: \"Mars Needs Cunnilingus\"; font-size: 12pt; -dm-text-outline: 1px black; color: white; line-height: 1.0;'>[##text]</span>"}
+
 /**
  * Prepares a text to be used for maptext, using a variable size font.
  *

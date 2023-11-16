@@ -27,15 +27,15 @@ img.icon {
 }
 
 a {
-  color: #397ea5;
+  color: #aaff00;
 }
 
 a.visited {
-  color: #7c00e6;
+  color: #70bf00;
 }
 
 a:visited {
-  color: #7c00e6;
+  color: #70bf00;
 }
 
 a.popt {
@@ -199,7 +199,7 @@ a.popt {
 /* MOTD */
 
 .motd {
-  color: #a4bad6;
+  color: #e2f2c2;
   font-family: Verdana, sans-serif;
   white-space: normal;
 }
@@ -210,7 +210,7 @@ a.popt {
 .motd h4,
 .motd h5,
 .motd h6 {
-  color: #a4bad6;
+  color: #e2f2c2;
   text-decoration: underline;
 }
 
@@ -219,7 +219,7 @@ a.popt {
 .motd a:visited,
 .motd a:active,
 .motd a:hover {
-  color: #a4bad6;
+  color: #e2f2c2;
 }
 
 /* ADD HERE FOR BOLD */
@@ -255,13 +255,13 @@ h3,
 h4,
 h5,
 h6 {
-  color: #a4bad6;
+  color: #e2f2c2;
   font-family: Georgia, Verdana, sans-serif;
 }
 
 h1.alert,
 h2.alert {
-  color: #a4bad6;
+  color: #e2f2c2;
 }
 
 em {
@@ -290,7 +290,7 @@ em {
 }
 
 .admin {
-  color: #5975da;
+  color: #8cd921;
   font-weight: bold;
 }
 
@@ -476,31 +476,31 @@ em {
 }
 
 .info {
-  color: #9ab0ff;
+  color: #c9e673;
 }
 
 .notice {
-  color: #6685f5;
+  color: #b6f23d;
 }
 
 .tinynotice {
-  color: #6685f5;
+  color: #b6f23d;
   font-size: 85%;
 }
 
 .tinynoticeital {
-  color: #6685f5;
+  color: #b6f23d;
   font-style: italic;
   font-size: 85%;
 }
 
 .smallnotice {
-  color: #6685f5;
+  color: #b6f23d;
   font-size: 90%;
 }
 
 .smallnoticeital {
-  color: #6685f5;
+  color: #b6f23d;
   font-style: italic;
   font-size: 90%;
 }
@@ -511,17 +511,17 @@ em {
 }
 
 .boldnotice {
-  color: #6685f5;
+  color: #b6f23d;
   font-weight: bold;
 }
 
 .hear {
-  color: #6685f5;
+  color: #b6f23d;
   font-style: italic;
 }
 
 .adminnotice {
-  color: #6685f5;
+  color: #b6f23d;
 }
 
 .adminhelp {
@@ -530,7 +530,7 @@ em {
 }
 
 .unconscious {
-  color: #a4bad6;
+  color: #e2f2c2;
   font-weight: bold;
 }
 
@@ -946,7 +946,7 @@ em {
 
 .examine_block {
   background: #1b1c1e;
-  border: 1px solid #a4bad6;
+  border: 1px solid #e2f2c2;
   margin: 0.5em;
   padding: 0.5em 0.75em;
 }

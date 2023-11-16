@@ -180,7 +180,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/ticket_machine, 32)
 			maptext_x = 6
 		if(100)
 			maptext_x = 4
-	maptext = MAPTEXT(current_number) //Finally, apply the maptext
+	maptext = MAPTEXT_MNC(current_number) //Finally, apply the maptext /// SKYRAPTOR EDIT: MNC maptext subtype
 
 /obj/machinery/ticket_machine/attackby(obj/item/I, mob/user, params)
 	..()
@@ -256,7 +256,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/ticket_machine, 32)
 	number = num
 	if(!isnull(num))
 		name += " #[num]"
-		saved_maptext = MAPTEXT(num)
+		saved_maptext = MAPTEXT_MNC(num) /// SKYRAPTOR EDIT: MNC maptext subtype
 		maptext = saved_maptext
 
 /obj/item/ticket_machine_ticket/examine(mob/user)

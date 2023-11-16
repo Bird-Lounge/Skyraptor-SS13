@@ -2,10 +2,10 @@
 @use '../colors.scss';
 @use '../functions.scss' as *;
 
-$color-danger: colors.bg(colors.$red) !default;
-$color-caution: colors.bg(colors.$yellow) !default;
+$color-danger: colors.bg(colors.$bad) !default;
+$color-caution: colors.bg(colors.$average) !default;
 
-$background-beige: #e8e4c9;
+$background-beige: colors.bg(colors.$primary) !default;
 
 .NuclearBomb__displayBox {
   background-color: #002003;
@@ -33,9 +33,9 @@ $background-beige: #e8e4c9;
 }
 
 .NuclearBomb__Button--1 {
-  background-color: #d3cfb7 !important;
-  border-color: #d3cfb7 !important;
-  color: #a9a692 !important;
+  background-color: colors.$good !important;
+  border-color: colors.$good !important;
+  color: colors.$black !important;
 }
 
 .NuclearBomb__Button--E {

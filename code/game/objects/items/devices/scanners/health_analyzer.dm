@@ -1,3 +1,4 @@
+/// SKYRAPTOR EDITS THROUGHOUT: changing colors to match our medkits
 // Describes the three modes of scanning available for health analyzers
 #define SCANMODE_HEALTH 0
 #define SCANMODE_WOUND 1
@@ -65,8 +66,8 @@
 		user.visible_message(span_warning("[user] analyzes the floor's vitals!"), \
 							span_notice("You stupidly try to analyze the floor's vitals!"))
 		to_chat(user, "[span_info("Analyzing results for The floor:\n\tOverall status: <b>Healthy</b>")]\
-				\n[span_info("Key: <font color='#00cccc'>Suffocation</font>/<font color='#00cc66'>Toxin</font>/<font color='#ffcc33'>Burn</font>/<font color='#ff3333'>Brute</font>")]\
-				\n[span_info("\tDamage specifics: <font color='#66cccc'>0</font>-<font color='#00cc66'>0</font>-<font color='#ff9933'>0</font>-<font color='#ff3333'>0</font>")]\
+				\n[span_info("Key: <font color='#0066ff'>Suffocation</font>/<font color='#aaff00'>Toxin</font>/<font color='#ff6600'>Burn</font>/<font color='#6600ff'>Brute</font>")]\
+				\n[span_info("\tDamage specifics: <font color='#0066ff'>0</font>-<font color='#aaff00'>0</font>-<font color='#ff6600'>0</font>-<font color='#6600ff'>0</font>")]\
 				\n[span_info("Body temperature: ???")]")
 		return
 
@@ -238,24 +239,24 @@
 			var/dmgreport = "<span class='info ml-1'>General status:</span>\
 							<table class='ml-2'><tr><font face='Verdana'>\
 							<td style='width:7em;'><font color='#ff0000'><b>Damage:</b></font></td>\
-							<td style='width:5em;'><font color='#ff3333'><b>Brute</b></font></td>\
-							<td style='width:4em;'><font color='#ff9933'><b>Burn</b></font></td>\
-							<td style='width:4em;'><font color='#00cc66'><b>Toxin</b></font></td>\
-							<td style='width:8em;'><font color='#00cccc'><b>Suffocation</b></font></td></tr>\
-							<tr><td><font color='#ff3333'><b>Overall:</b></font></td>\
-							<td><font color='#ff3333'><b>[CEILING(brute_loss,1)]</b></font></td>\
-							<td><font color='#ff9933'><b>[CEILING(fire_loss,1)]</b></font></td>\
-							<td><font color='#00cc66'><b>[CEILING(tox_loss,1)]</b></font></td>\
-							<td><font color='#33ccff'><b>[CEILING(oxy_loss,1)]</b></font></td></tr>"
+							<td style='width:5em;'><font color='#6600ff'><b>Brute</b></font></td>\
+							<td style='width:4em;'><font color='#ff6600'><b>Burn</b></font></td>\
+							<td style='width:4em;'><font color='#aaff00'><b>Toxin</b></font></td>\
+							<td style='width:8em;'><font color='#0066ff'><b>Suffocation</b></font></td></tr>\
+							<tr><td><font color='#ff0000'><b>Overall:</b></font></td>\
+							<td><font color='#6600ff'><b>[CEILING(brute_loss,1)]</b></font></td>\
+							<td><font color='#ff6600'><b>[CEILING(fire_loss,1)]</b></font></td>\
+							<td><font color='#aaff00'><b>[CEILING(tox_loss,1)]</b></font></td>\
+							<td><font color='#0066ff'><b>[CEILING(oxy_loss,1)]</b></font></td></tr>"
 
 			if(mode == SCANNER_VERBOSE)
 				for(var/obj/item/bodypart/limb as anything in damaged)
 					if(limb.bodytype & BODYTYPE_ROBOTIC)
-						dmgreport += "<tr><td><font color='#cc3333'>[capitalize(limb.name)]:</font></td>"
+						dmgreport += "<tr><td><font color='#ff0000'>[capitalize(limb.name)]:</font></td>"
 					else
-						dmgreport += "<tr><td><font color='#cc3333'>[capitalize(limb.plaintext_zone)]:</font></td>"
-					dmgreport += "<td><font color='#cc3333'>[(limb.brute_dam > 0) ? "[CEILING(limb.brute_dam,1)]" : "0"]</font></td>"
-					dmgreport += "<td><font color='#ff9933'>[(limb.burn_dam > 0) ? "[CEILING(limb.burn_dam,1)]" : "0"]</font></td></tr>"
+						dmgreport += "<tr><td><font color='#ff0000'>[capitalize(limb.plaintext_zone)]:</font></td>"
+					dmgreport += "<td><font color='#6600ff'>[(limb.brute_dam > 0) ? "[CEILING(limb.brute_dam,1)]" : "0"]</font></td>"
+					dmgreport += "<td><font color='#ff6600'>[(limb.burn_dam > 0) ? "[CEILING(limb.burn_dam,1)]" : "0"]</font></td></tr>"
 			dmgreport += "</font></table>"
 			render_list += dmgreport // tables do not need extra linebreak
 		for(var/obj/item/bodypart/limb as anything in carbontarget.bodyparts)
@@ -278,8 +279,8 @@
 				var/status = organ.get_status_text()
 				if (status != "")
 					render = TRUE
-					toReport += "<tr><td><font color='#cc3333'>[organ.name]:</font></td>\
-						[advanced ? "<td><font color='#ff3333'>[CEILING(organ.damage,1)]</font></td>" : ""]\
+					toReport += "<tr><td><font color='#ff0000'>[organ.name]:</font></td>\
+						[advanced ? "<td><font color='#ff0000'>[CEILING(organ.damage,1)]</font></td>" : ""]\
 						<td>[status]</td></tr>"
 
 			var/missing_organs = list()
@@ -303,9 +304,9 @@
 			if(length(missing_organs))
 				render = TRUE
 				for(var/organ in missing_organs)
-					toReport += "<tr><td><font color='#cc3333'>[organ]:</font></td>\
-						[advanced ? "<td><font color='#ff3333'>["-"]</font></td>" : ""]\
-						<td><font color='#cc3333'>["Missing"]</font></td></tr>"
+					toReport += "<tr><td><font color='#ff0000'>[organ]:</font></td>\
+						[advanced ? "<td><font color='#ff0000'>["-"]</font></td>" : ""]\
+						<td><font color='#ff0000'>["Missing"]</font></td></tr>"
 
 			if(render)
 				render_list += toReport + "</table>" // tables do not need extra linebreak

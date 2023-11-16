@@ -1,8 +1,14 @@
-#define STYLE_DULL 1
-#define STYLE_COOL 2
-#define STYLE_BRUTAL 3
-#define STYLE_ABSOLUTE 4
-#define STYLE_SPACED 5
+/// SKYRAPTOR EDIT: completely redoing the style list, up to 9 tiers
+#define STYLE_FADED 1
+#define STYLE_ECLIPSED 2
+#define STYLE_DIM 3
+#define STYLE_COSMIC 4
+#define STYLE_BINARY 5
+#define STYLE_AURORA 6
+#define STYLE_SPACED 7
+#define STYLE_SPACEDPLUS 8
+#define STYLE_SPACEDPLUSPLUS 9
+/// SKYRAPTOR EDIT END
 
 #define ACTION_KILL "KILL"
 #define ACTION_MINOR_KILL "MINOR KILL"
@@ -25,8 +31,14 @@
 	var/style_points = -1
 	/// Our style point multiplier.
 	var/point_multiplier = 1
+	
+	/// SKYRAPTOR ADDITION: when this is above 0, you won't lose style points.  do really stylish stuff to get periods of style-loss immunity!
+	var/styleloss_cooldown = -1
+	/// SKYRAPTOR ADDITION: used so that cumulatively stylish things (e.g, managing to ace a swarm with gibtonite) can count
+	var/style_gained_this_tick
+	
 	/// The current rank we have.
-	var/rank = STYLE_DULL
+	var/rank = STYLE_FADED
 	/// The last point affecting actions we've done
 	var/list/actions = list()
 	/// The style meter shown on screen.
@@ -40,7 +52,7 @@
 	/// Weakref to the added projectile parry component
 	var/datum/weakref/projectile_parry
 	/// What rank, minimum, the user needs to be to hotswap items
-	var/hotswap_rank = STYLE_BRUTAL
+	var/hotswap_rank = STYLE_COSMIC
 	/// If this is multitooled, making it make funny noises on the user's rank going up
 	var/multitooled = FALSE
 	/// A static list of lists of all the possible sounds to play when multitooled, in numerical order
@@ -81,7 +93,7 @@
 	meter = new()
 	meter_image = new()
 	meter.vis_contents += meter_image
-	meter_image.add_filter("meter_mask", 1, list(type = "alpha", icon = icon('icons/hud/style_meter.dmi', "style_meter"), flags = MASK_INVERSE))
+	meter_image.add_filter("meter_mask", 1, list(type = "alpha", icon = icon('modular_skyraptor/modules/aesthetics/ui_greenened/hud/style_meter.dmi', "style_meter"), flags = MASK_INVERSE)) /// SKYRAPTOR EDIT: style meter *Weh
 	meter.update_appearance()
 	meter_image.update_appearance()
 
@@ -155,13 +167,21 @@
 
 /datum/component/style/process(seconds_per_tick)
 	point_multiplier = round(max(point_multiplier - 0.2 * seconds_per_tick, 1), 0.1)
-	change_points(-5 * seconds_per_tick * ROUND_UP((style_points + 1) / 200), use_multiplier = FALSE)
+	if(styleloss_cooldown > 0) /// SKYRAPTOR ADDITION: styleloss cooldown system
+		styleloss_cooldown -= seconds_per_tick
+	else
+		change_points(-4 * seconds_per_tick * ROUND_UP((style_points + 1) / 200), use_multiplier = FALSE)
+	if(style_gained_this_tick > 120) // equivalent to 3 ores simultaneously, or about 5 rocks, at lowest rank.
+		if(styleloss_cooldown < 0)
+			styleloss_cooldown = 0
+		styleloss_cooldown += style_gained_this_tick / 240 //3 ores would grant 1/2 a second of cooldown immunity at lowest rank.
+	style_gained_this_tick = 0 /// SKYRAPTOR ADDITION END
 	update_screen()
 
 
 
 /datum/component/style/proc/add_action(action, amount)
-	if(length(actions) > 9)
+	if(length(actions) > 8) /// SKYRAPTOR EDIT: 9 actions is too much, it'll clip off-screen
 		actions.Cut(1, 2)
 	if(length(actions))
 		var/last_action = actions[length(actions)]
@@ -183,6 +203,8 @@
 		return
 
 	var/modified_amount = amount * (amount > 0 ? 1 - 0.1 * rank : 1) * (use_multiplier ? point_multiplier : 1)
+	if(modified_amount > 0)
+		style_gained_this_tick += modified_amount + (amount / 2) //reduces the loss of scaling due to higher ranks/point mults
 	style_points = max(style_points + modified_amount, -1)
 	update_screen()
 
@@ -209,7 +231,8 @@
 
 			if(multitooled && (rank_changed > rank)) // make funny noises
 				var/mob/mob_parent = parent
-				mob_parent.playsound_local(get_turf(mob_parent), pick(rankup_sounds[rank_changed]), 70, vary = FALSE)
+				// TODO: we need to make new rankup sounds for the new ranks
+				//mob_parent.playsound_local(get_turf(mob_parent), pick(rankup_sounds[rank_changed]), 70, vary = FALSE)
 
 			if((rank < hotswap_rank) && (rank_changed >= hotswap_rank))
 				var/mob/mob_parent = parent
@@ -220,8 +243,8 @@
 				mob_parent.balloon_alert(mob_parent, "hotswapping disabled")
 
 			rank = rank_changed
-	meter.maptext = "[format_rank_string(rank)][generate_multiplier()][generate_actions()]"
-	meter.maptext_y = 100 - 9 * length(actions)
+	meter.maptext = "[format_rank_string(rank)][generate_multiplier(rank)][generate_actions()]"
+	//meter.maptext_y = 80 - 10 * length(actions) /// SKYRAPTOR EDIT: adjusting for new fonts
 	update_meter(point_to_rank(), go_back)
 
 /datum/component/style/proc/update_meter(new_rank, go_back)
@@ -233,92 +256,136 @@
 
 /datum/component/style/proc/rank_to_color(new_rank)
 	switch(new_rank)
-		if(STYLE_DULL)
+		if(STYLE_FADED)
+			return "#FFFFFF"
+		if(STYLE_ECLIPSED)
+			return "#333333"
+		if(STYLE_DIM)
 			return "#aaaaaa"
-		if(STYLE_COOL)
-			return "#aaaaff"
-		if(STYLE_BRUTAL)
-			return "#aaffff"
-		if(STYLE_ABSOLUTE)
-			return "#66ffff"
+		if(STYLE_COSMIC)
+			return "#6600FF"
+		if(STYLE_BINARY)
+			return "#00AAFF"
+		if(STYLE_AURORA)
+			return "#FF0066"
 		if(STYLE_SPACED)
-			return "#ffaa00"
+			return "#FF0000"
+		if(STYLE_SPACEDPLUS)
+			return "#FF6600"
+		if(STYLE_SPACEDPLUSPLUS)
+			return "#AAFF00"
 
 /datum/component/style/proc/point_to_rank()
 	switch(style_points)
 		if(-1 to 99)
-			return STYLE_DULL
+			return STYLE_FADED
 		if(100 to 199)
-			return STYLE_COOL
+			return STYLE_ECLIPSED
 		if(200 to 299)
-			return STYLE_BRUTAL
+			return STYLE_DIM
 		if(300 to 399)
-			return STYLE_ABSOLUTE
-		if(400 to INFINITY)
+			return STYLE_COSMIC
+		if(400 to 499)
+			return STYLE_BINARY
+		if(500 to 599)
+			return STYLE_AURORA
+		if(600 to 699)
 			return STYLE_SPACED
+		if(700 to 799)
+			return STYLE_SPACEDPLUS
+	return STYLE_SPACEDPLUSPLUS
+
+/datum/component/style/proc/rank_to_oremult(new_rank)
+	switch(new_rank)
+		if(STYLE_FADED)
+			return 0.75
+		if(STYLE_ECLIPSED)
+			return 0.8
+		if(STYLE_DIM)
+			return 0.9
+		if(STYLE_COSMIC)
+			return 1.05
+		if(STYLE_BINARY)
+			return 1.25
+		if(STYLE_AURORA)
+			return 1.5
+		if(STYLE_SPACED)
+			return 1.8
+		if(STYLE_SPACEDPLUS)
+			return 2.15
+		if(STYLE_SPACEDPLUSPLUS)
+			return 2.45
 
 
 /datum/component/style/proc/rank_to_string(new_rank)
 	switch(new_rank)
-		if(STYLE_DULL)
-			return "DULL"
-		if(STYLE_COOL)
-			return "COOL"
-		if(STYLE_BRUTAL)
-			return "BRUTAL"
-		if(STYLE_ABSOLUTE)
-			return "ABSOLUTE"
+		if(STYLE_FADED)
+			return "FADED"
+		if(STYLE_ECLIPSED)
+			return "ECLIPSED"
+		if(STYLE_DIM)
+			return "DIM"
+		if(STYLE_COSMIC)
+			return "COSMIC"
+		if(STYLE_BINARY)
+			return "BINARY"
+		if(STYLE_AURORA)
+			return "AURORA"
 		if(STYLE_SPACED)
 			return "SPACED!"
+		if(STYLE_SPACEDPLUS)
+			return "SPACED!!"
+		if(STYLE_SPACEDPLUSPLUS)
+			return "SPACED!!!"
 
 /datum/component/style/proc/format_rank_string(new_rank)
 	var/rank_string = rank_to_string(new_rank)
 	var/final_string = ""
-	final_string += "<span class='maptext' style='font-size: 8px'><font color='[rank_to_color(new_rank)]'><b>[rank_string[1]]</b>"
-	final_string += "<span style='font-size: 7px'>[copytext(rank_string, 2)]</span></font></span>"
+	final_string += "<span class='context' valign='top'><font color='[rank_to_color(new_rank)]'><b>[rank_string[1]]</b>" /// SKYRAPTOR EDIT: using context instead of maptext on these because the end result is bad otherwise
+	final_string += "<span class='context' valign='top'>[copytext(rank_string, 2)]</span></font></span>" /// SKYRAPTOR EDIT: using context instead of maptext on these because the end result is bad otherwise
 	return final_string
 
-/datum/component/style/proc/generate_multiplier()
-	return "<br><span class='maptext' style='font-size: 7px'>MULTIPLIER: [point_multiplier]X</span>"
+/datum/component/style/proc/generate_multiplier(new_rank)
+	return "<span class='maptext' valign='top'>, [point_multiplier]x/[rank_to_oremult(new_rank)*100]%</span>" /// SKYRAPTOR EDIT: shifted to be part of the main style meter
 
 /datum/component/style/proc/generate_actions()
 	var/action_string = ""
 	for(var/action in actions)
-		action_string += "<br><span class='maptext'>+ <font color='[action_to_color(actions[action])]'>[actions[action]]</font></span>"
+		action_string += "<br><span class='maptext' valign='top'>+ <font color='[action_to_color(actions[action])]'>[actions[action]]</font></span>"
 	return action_string
 
 /datum/component/style/proc/action_to_color(action)
 	switch(action)
 		if(ACTION_KILL)
-			return "#ff0000"
+			return "#CC0000"
 		if(ACTION_MINOR_KILL)
-			return "#ff6666"
+			return "#AA3333"
 		if(ACTION_MAJOR_KILL)
-			return "#ffaa00"
+			return "#FF1100"
 		if(ACTION_DISRESPECT)
-			return "#990000"
+			return "#FF6600"
 		if(ACTION_MELEED)
-			return "#660033"
+			return "#CC3366"
 		if(ACTION_ROCK_MINED)
-			return "#664433"
+			return "#AAAAAA"
 		if(ACTION_ORE_MINED)
-			return "#663366"
+			return "#AAFF00"
 		if(ACTION_TRAPPER)
-			return "#363366"
+			return "#993300"
 		if(ACTION_PARRIED)
-			return "#591324"
+			return "#66FF00"
 		if(ACTION_PROJECTILE_BOOST)
-			return "#80112c"
+			return "#00FFAA"
 		if(ACTION_GIBTONITE_HIT)
-			return "#201d40"
+			return "#112244"
 		if(ACTION_GIBTONITE_BOOM)
-			return "#1e176e"
+			return "#FF00FF"
 		if(ACTION_GIBTONITE_DEFUSED)
-			return "#2b2573"
+			return "#6600FF"
 		if(ACTION_MARK_DETONATED)
-			return "#ac870e"
+			return "#AA6633"
 		if(ACTION_GEYSER_MARKED)
-			return "#364866"
+			return "#00AAFF"
 
 /// A proc that lets a user, when their rank >= `hotswap_rank`, swap items in storage with what's in their hands, simply by clicking on the stored item with a held item
 /datum/component/style/proc/hotswap(mob/living/source, atom/target, obj/item/weapon, proximity_flag, click_parameters)
@@ -395,7 +462,7 @@
 	if(rock.mineralType)
 		if(give_exp)
 			add_action(ACTION_ORE_MINED, 40)
-		rock.mineralAmt = ROUND_UP(rock.mineralAmt * (1 + ((rank * 0.1) - 0.3))) // You start out getting 20% less ore, but it goes up to 20% more at S-tier
+		rock.mineralAmt = ROUND_UP(rock.mineralAmt * rank_to_oremult(point_to_rank())) // You start out getting 20% less ore, but it goes up to 20% more at S-tier
 
 	else if(give_exp)
 		add_action(ACTION_ROCK_MINED, 25)
@@ -468,20 +535,29 @@
 		return
 	else if(faction_check(mob_parent.faction, died.faction) || !(FACTION_MINING in died.faction) || (died.z != mob_parent.z) || !(died in view(mob_parent.client?.view, get_turf(mob_parent))))
 		return
+	if(styleloss_cooldown < 0)
+		styleloss_cooldown = 0
 	if(ismegafauna(died))
 		add_action(ACTION_MAJOR_KILL, 350)
+		styleloss_cooldown += 15
 
 	else if(died.maxHealth >= 75) //at least legions
 		add_action(ACTION_KILL, 125)
+		styleloss_cooldown += 7
 
 	else if(died.maxHealth >= 30) //at least goliath children, dont count legion skulls
 		add_action(ACTION_MINOR_KILL, 75)
+		styleloss_cooldown += 3
 
-#undef STYLE_DULL
-#undef STYLE_COOL
-#undef STYLE_BRUTAL
-#undef STYLE_ABSOLUTE
+#undef STYLE_FADED
+#undef STYLE_ECLIPSED
+#undef STYLE_DIM
+#undef STYLE_COSMIC
+#undef STYLE_BINARY
+#undef STYLE_AURORA
 #undef STYLE_SPACED
+#undef STYLE_SPACEDPLUS
+#undef STYLE_SPACEDPLUSPLUS
 
 #undef ACTION_KILL
 #undef ACTION_MINOR_KILL

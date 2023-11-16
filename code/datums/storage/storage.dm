@@ -940,7 +940,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 			var/obj/item/display_sample = numberdisplay.sample_object
 			display_sample.mouse_opacity = MOUSE_OPACITY_OPAQUE
 			display_sample.screen_loc = "[current_x]:[screen_pixel_x],[current_y]:[screen_pixel_y]"
-			display_sample.maptext = MAPTEXT("<font color='white'>[(numberdisplay.number > 1)? "[numberdisplay.number]" : ""]</font>")
+			display_sample.maptext = MAPTEXT_MNC("<font color='white'>[(numberdisplay.number > 1)? "[numberdisplay.number]" : ""]</font>")
 			SET_PLANE(display_sample, ABOVE_HUD_PLANE, our_turf)
 
 			current_x++

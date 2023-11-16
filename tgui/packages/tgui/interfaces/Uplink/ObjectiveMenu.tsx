@@ -520,8 +520,8 @@ export const ObjectiveElement = (props: ObjectiveElementProps, context) => {
                       height="100%"
                       backgroundColor={
                         objectiveFailed
-                          ? 'rgba(255, 0, 0, 0.1)'
-                          : 'rgba(0, 255, 0, 0.1)'
+                          ? 'rgba(255, 102, 0, 0.1)'
+                          : 'rgba(170, 255, 0, 0.1)'
                       }
                       position="absolute"
                       left={0}
