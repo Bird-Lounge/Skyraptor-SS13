@@ -719,3 +719,15 @@
       once friendly. Being rather large dogs, they also have access to most of the
       pet commands you'd expect, such as fetching things, and violently mauling people
       their owners point at.
+2023-11-22:
+  LT3:
+  - bugfix: Cursed/bad luck omen will now stick with the player for more than 1 incident
+  NaakaKo:
+  - bugfix: removes a duplicate bookcase in icebox permabrig library
+  - bugfix: '[Icebox] Atmos techs have access to the Engineering front desk windoor.'
+  - qol: '[Icebox] Security''s lower floor is not as easily cut off from the powernet
+      anymore.'
+  - bugfix: Emag overlay on lockers fixed
+  - image: New locker sprites
+  - image: Added new lockers
+  - spellcheck: Examining a human mob as an observer displays "Quirks", not "Traits"
