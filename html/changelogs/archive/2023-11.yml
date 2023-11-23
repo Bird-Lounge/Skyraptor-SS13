@@ -731,3 +731,51 @@
   - image: New locker sprites
   - image: Added new lockers
   - spellcheck: Examining a human mob as an observer displays "Quirks", not "Traits"
+2023-11-23:
+  Bumtickley00:
+  - balance: The CMO's hypospray now holds 60u, and can be set to inject smaller amounts
+      of reagents
+  Jane:
+  - rscadd: Bargonia Bar Sign for Cargo Bar Enjoyers
+  NaakaKo:
+  - bugfix: Skillsoft's skillchip stations are now ADA-compliant (Astronauts with
+      Disabilities Act). Paraplegic characters can now implant themselves with skillchips,
+      the same as anyone else.
+  - rscadd: Certain types of pens now function like you expect they would when inserted
+      into a foam dart
+  - qol: Examining a foam dart closely will show you how to modify it, or what it
+      is modified with
+  - balance: Judo Joe, archnemesis of Maint Khan, has begun re-airing his midnight
+      infomercials shilling his extremely expensive Tackle Supreme Judo Karate Training
+      video tapes. Unable to pass up a 'bargain', Nanotrasen has purchased these tapes
+      en masse. Tackling techniques have started to improve, as well as Nanotrasen's
+      tackling instructional algorithms within tackle gloves.
+  - balance: The outcomes for tackling are more equalized. It isn't as feast or famine,
+      and should be somewhat more controllable without becoming too severe.
+  - rscadd: Blocking successfully against a tackle will force the tackle to be a neutral
+      outcome.
+  - rscadd: Unarmed effectiveness from arms now contributes to attacking with and
+      defending from tackles.
+  - rscadd: Those who refuse to use firearms (like Sleeping Carp users and insane
+      unholy berzerkers) are better at tackling others.
+  - rscadd: Riot specialized armor, and not just riot armor, now contributes meaningfully
+      to tackling effectiveness.
+  - balance: MK.1 Swat Suits, the ones that come in SWAT crates, now functions similarly
+      to riot armor.
+  - rscadd: Settlers from the outer rims have noticed they aren't very good at protecting
+      themselves against Judo Joe's clearly discriminatory tackling techniques.
+  - rscadd: Security lockers come with gripper gloves, security vendors now sell them
+      as standard items, and the HoS' garment bag now has a pair of gorilla gloves.
+      Gripper gloves have a positive skill bonus to tackling.
+  - rscadd: Being insane also makes you INSANELY good at tackling but also INSANELY
+      likely to eat shit on a whiff. DO OR DIE, BITCH.
+  - refactor: Shoving slowdown and all its implementations now use a status effect,
+      Staggered.
+  - rscadd: Cyborg inducer for engineering borgs
+  - balance: The borg RPED can hold as many part as the BSRPED now
+  - balance: Cyborg chargers now draw from the power net as cell chargers do
+  - qol: Allergy Dogtags (and any other dogtags, really) are now actually whitelisted
+      to fit into wallets.
+  - bugfix: Androids cannot have overdose effect by any chems.
+  - bugfix: fullupgrade chem dispensers will now spawn with all their chems
+  - qol: adds pixel perfect 4x, 4.5x, and 5x
