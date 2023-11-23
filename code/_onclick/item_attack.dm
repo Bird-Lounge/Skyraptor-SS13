@@ -286,6 +286,9 @@
 	var/wounding = attacking_item.wound_bonus
 	if((attacking_item.item_flags & SURGICAL_TOOL) && !user.combat_mode && body_position == LYING_DOWN && (LAZYLEN(surgeries) > 0))
 		wounding = CANT_WOUND
+	
+	if(attacking_item.stamina_damage) /// SKYRAPTOR ADDITION
+		adjustStaminaLoss(attacking_item.stamina_damage * (prob(attacking_item.stamina_critical_chance) ? attacking_item.stamina_critical_modifier : 1))
 
 	if(user != src)
 		// This doesn't factor in armor, or most damage modifiers (physiology). Your mileage may vary

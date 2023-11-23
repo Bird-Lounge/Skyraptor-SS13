@@ -100,8 +100,4 @@
 			AM.forceMove(goodspot)
 			reagents.trans_to(AM, wanted_amount, methods = INJECT)
 		else if(istype(AM, /obj/item/slimecross/industrial)) ///no need to move slimecross industrial things
-<<<<<<< HEAD
-			reagents.trans_to(AM, wanted_amount, transferred_by = src, methods = INJECT)
-=======
 			reagents.trans_to(AM, wanted_amount, methods = INJECT)
->>>>>>> 130b3dfa64e (Code compression for reagent holder. Lowers plumbing reaction chamber tick usage (#79686))

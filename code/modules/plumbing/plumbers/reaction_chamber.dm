@@ -224,7 +224,3 @@
 			return FALSE
 
 #undef HEATER_COEFFICIENT
-<<<<<<< HEAD
-#undef MAX_PH_ADJUSTMENTS
-=======
->>>>>>> 130b3dfa64e (Code compression for reagent holder. Lowers plumbing reaction chamber tick usage (#79686))
