@@ -159,17 +159,9 @@ This is also still a requirement if your pull request has a corresponding design
 
 ## Good Boy Points
 
-Each GitHub account has a score known as Good Boy Points, or GBP. This is a system we use to ensure that the codebase stays maintained and that contributors fix bugs as well as add features.
+Good Boy Points is a *deprecated system* that's featured on our upstream, [tgstation](https://github.com/tgstation/tgstation/blob/master/.github/CONTRIBUTING.md#good-boy-points) used to encourage devs to focus on polish over feature creep.  Skyraptor (and all SS13 flavours the Bird Lounge maintains) *do not use* GBP - it ultimately encourages poor behaviour on the part of contribs (you *have* to game the bot or grind through low-point PRs before you can get anything interesting done) and especially maintainers, who are more likely to judge a PR by its author's GBP than its actual contribution to the game.  We retain the underlying systems for Github Actions (and the GBP toml) to avoid merge conflicts, but the requisite Github Actions are disabled & any attempts to justify (or end) a PR over GBP on this or any other repo will be frowned upon.
 
-The GBP gain or loss for a PR depends on the type of changes the PR makes, represented by the tags assigned to the PR by the tgstation github bot or maintainers. Generally speaking, fixing bugs, updating sprites, or improving maps increases your GBP score, while adding mechanics, or rebalancing things will cost you GBP.
-
-The GBP change of a PR is the sum of greatest positive and lowest negative values it has. For example, a PR that has tags worth +10, +4, -1, -7, will net 3 GBP (10 - 7).
-
-Negative GBP increases the likelihood of a maintainer closing your PR. With that chance being higher the lower your GBP is. Be sure to use the proper tags in the changelog to prevent unnecessary GBP loss. Maintainers reserve the right to change tags as they deem appropriate.
-
-There is no benefit to having a higher positive GBP score, since GBP only comes into consideration when it is negative.
-
-You can see each tag and their GBP values [Here](https://github.com/Bird-Lounge/Skyraptor-SS13/blob/master/.github/gbp.toml). 
+For legacy purposes, you can view each tag and their GBP values [Here](https://github.com/Bird-Lounge/Skyraptor-SS13/blob/master/.github/gbp.toml). 
 
 ## Porting features/sprites/sounds/tools from other codebases
 
