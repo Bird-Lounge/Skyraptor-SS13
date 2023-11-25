@@ -779,3 +779,27 @@
   - bugfix: Androids cannot have overdose effect by any chems.
   - bugfix: fullupgrade chem dispensers will now spawn with all their chems
   - qol: adds pixel perfect 4x, 4.5x, and 5x
+2023-11-25:
+  NaakaKo:
+  - qol: gives roundstart prisoners a key memory of what their crime is
+  - qol: Mafia panel no longer shows vote buttons if you're on stand, shows the roles
+      of revealed players, and list out who is on the stand, if any.
+  - bugfix: RCD can build directional windows on top of existing grills & without
+      them.
+  - rscadd: Adds an arctangent2 component to circuitry!
+  - rscadd: A new skill chip can be found in maintenance or purchased from the vendor,
+      allowing you to experience food in new and exciting ways.
+  - rscadd: Abductors also have access to this incredible power, simply using their
+      genius level brains.
+  - code_imp: removes & merges `expose_multiple()` proc into `expose()` proc inside
+      reagent holder
+  - code_imp: removes `conditonal_update()` proc & `on_update()` proc inside reagent
+      holder and reagent
+  - refactor: Reagent code has been trimmed and split into multiple files. report
+      bugs on github
+  - admin: Remove "Make AI" from VV dropdown
+  Rhials:
+  - qol: Gives Cargo areas its own wire layout, instead of having it use the same
+      wires as Service areas.
+  TwistedSilicon:
+  - bugfix: Window damage overlays have been fixed.
