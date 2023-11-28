@@ -24,6 +24,7 @@
 	usr.reset_perspective(O)
 	usr.control_object = O
 	O.AddElement(/datum/element/weather_listener, /datum/weather/ash_storm, ZTRAIT_ASHSTORM, GLOB.ash_storm_sounds)
+<<<<<<< HEAD
 
 	/// SKYRAPTOR ADDITION: modular weather sounds
 	for(var/spath in subtypesof(/datum/mapping_weather_handler))
@@ -32,6 +33,9 @@
 	/// SKYRAPTOR ADDITION END
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Possess Object") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+=======
+	BLACKBOX_LOG_ADMIN_VERB("Possess Object")
+>>>>>>> 566c7ba9c23 (Removes some code soul (`IF YOU ARE COPY PASTING THIS...`), replaces it with a macro (#79935))
 
 /proc/release()
 	set name = "Release Obj"
@@ -59,7 +63,7 @@
 	usr.forceMove(get_turf(usr.control_object))
 	usr.reset_perspective()
 	usr.control_object = null
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Release Object") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+	BLACKBOX_LOG_ADMIN_VERB("Release Object")
 
 /proc/givetestverbs(mob/M in GLOB.mob_list)
 	set desc = "Give this guy possess/release verbs"
@@ -67,4 +71,4 @@
 	set name = "Give Possessing Verbs"
 	add_verb(M, GLOBAL_PROC_REF(possess))
 	add_verb(M, GLOBAL_PROC_REF(release))
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Give Possessing Verbs") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+	BLACKBOX_LOG_ADMIN_VERB("Give Possessing Verbs")

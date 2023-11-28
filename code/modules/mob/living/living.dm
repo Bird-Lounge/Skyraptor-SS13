@@ -2608,6 +2608,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 		qdel(old_mob)
 	message_admins(span_adminnotice("[key_name_admin(admin)] gave a guardian spirit controlled by [guardian_client || "AI"] to [src]."))
 	log_admin("[key_name(admin)] gave a guardian spirit controlled by [guardian_client] to [src].")
+<<<<<<< HEAD
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Give Guardian Spirit")
 
 
@@ -2622,3 +2623,6 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 /mob/living/proc/pre_stamina_change(diff as num, forced)
 	return diff
 /// SKYRAPTOR ADDITIONS END
+=======
+	BLACKBOX_LOG_ADMIN_VERB("Give Guardian Spirit")
+>>>>>>> 566c7ba9c23 (Removes some code soul (`IF YOU ARE COPY PASTING THIS...`), replaces it with a macro (#79935))
