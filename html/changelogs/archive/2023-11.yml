@@ -888,3 +888,6 @@
   itseasytosee:
   - bugfix: staggered targets now have the correct chance for escaping grapples.
   - spellcheck: changed attack verb for punching a grappled target
+2023-11-30:
+  NaakaKo:
+  - bugfix: Fix bitrunning triggering claustrophobia
