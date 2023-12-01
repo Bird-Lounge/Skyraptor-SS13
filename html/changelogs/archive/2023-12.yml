@@ -1,0 +1,25 @@
+2023-12-01:
+  GoldenAlpharex:
+  - bugfix: The Radioactive Nebula station trait will now respect its upper intensity
+      cap set at one hour and forty minutes, no longer scaling past that, as was initially
+      intended.
+  MidoriWroth:
+  - bugfix: Icebox chemistry lab shutters are controlled by the button in the chemistry
+      lab and not in the pharmacy again.
+  NaakaKo:
+  - rscadd: Instead of teaming up random people together, blood brothers will now
+      start out with one player and let them convert a single other person over to
+      blood brother using a flash.
+  - rscadd: Heterochromatic, Signer, Spacer, and Voracious quirks are now properly
+      accounted for in medical records.
+  - bugfix: Cyber cops are now equipped with the correct outfit.
+  - refactor: cats are now basic pets. please report any bugs.
+  - rscadd: the cake cat and bread cat can now help the chef around in the kitchen
+  - rscadd: turns triple ai mode into a station trait
+  - balance: The Meat Hook will now "ground" you whenever you fire it out at someone.
+      You get a very small immobilization every time you fire, which "upgrades" to
+      a full immobilization whenever you actually hit an atom and start to drag it
+      in.
+  - bugfix: A chain should now show up as you drag in something with the meat hooks.
+  - bugfix: Meat hooks should no longer play the "magical gun" suicide if you were
+      to use it, but instead do their own unique thing.
