@@ -290,7 +290,7 @@
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/human_user = user
-	if(human_user.dna.species.id == SPECIES_HUMAN && !HAS_MIND_TRAIT(human_user, TRAIT_MIMING))
+	if(!HAS_MIND_TRAIT(human_user, TRAIT_MIMING)) /// SKYRAPTOR EDIT: EVERYONE CAN LAUGH YOU FUCKWITS
 		if(human_user.gender == FEMALE)
 			return 'sound/voice/human/womanlaugh.ogg'
 		else
