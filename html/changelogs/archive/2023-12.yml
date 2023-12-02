@@ -23,3 +23,43 @@
   - bugfix: A chain should now show up as you drag in something with the meat hooks.
   - bugfix: Meat hooks should no longer play the "magical gun" suicide if you were
       to use it, but instead do their own unique thing.
+2023-12-02:
+  NaakaKo:
+  - bugfix: Fixed an issue with the offsets of ridden vehicles on tables, and another
+      when buckled to a bed.
+  - spellcheck: fixed typo in one of spacer's moodlets
+  - rscadd: Slimepeople can now get wings from flight potions.
+  - rscadd: Instead of punished sect healing people like the normal bibble- you take
+      their burdens on instead!
+  - bugfix: Sign Language action properly toggles between an active/inactive background
+      again.
+  - code_imp: The singularity processing is a bit more important than the other subsystems.
+  - rscadd: Added a new modular bitrunning domain - Starfront Saloon.
+  - balance: Psyker shuffle domain was made slightly easier and has been given more
+      rewards.
+  - rscadd: Agent IDs once more trick Beepsky into treating you more leniently.
+  - rscadd: Prisoner IDs make Beepsky treat you somewhat more suspiciously, as do
+      Syndicate IDs. Wearing a Centcomm ID means that Beepsky is aware that you are
+      above the law.
+  - rscadd: Player-controlled security bots can view someone's assessed threat level
+      by examining them.
+  - sound: Added human laughter to felinids
+  - bugfix: Changelings will no longer get an objective to impersonate crew without
+      absorbable DNA.
+  - bugfix: Changelings will no longer start without an escape objective.
+  - bugfix: shield wall gens actually use power now
+  - qol: shield wall gens may now be rebuilt and use some balloon alerts, and have
+      wiring
+  - admin: The Player Panel should now contain the unique mob tag associated to a
+      certain mob that a player might inhabit at one time, which is stored on their
+      player details datum on their client (which is guaranteed to always exist).
+  - admin: The "Old Names" details of a player is now visible in their own personal
+      per-player player panel.
+  - admin: A new debug verb to turn yourself into an MMI(almost the funniest thing)
+  - bugfix: MMI's inside mechs can now properly open doors like there posibrain counterparts
+  - bugfix: fix parrots not appearing dead sometimes
+  Vekter:
+  - rscdel: Replaced the "monkey cube" in Birdshot's tool storage with a different
+      "monkey cube".
+  - rscadd: Added a fun surprise item to Birdshot's tool storage to compensate for
+      the above change.
