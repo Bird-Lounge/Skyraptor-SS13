@@ -511,42 +511,42 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 					return ..()
 				playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
 				if (recipe.type == /datum/pipe_info/meter)
-					if(do_after(user, atmos_build_speed, target = attack_target))
-						playsound(get_turf(src), RPD_USE_SOUND, 50, TRUE)
-						var/obj/item/pipe_meter/new_meter = new /obj/item/pipe_meter(get_turf(attack_target))
-						new_meter.setAttachLayer(piping_layer)
-						if(mode & WRENCH_MODE)
-							new_meter.wrench_act(user, src)
+					//if(do_after(user, atmos_build_speed, target = attack_target)) /// SKYRAPTOR EDIT BEGIN
+					playsound(get_turf(src), RPD_USE_SOUND, 50, TRUE)
+					var/obj/item/pipe_meter/new_meter = new /obj/item/pipe_meter(get_turf(attack_target))
+					new_meter.setAttachLayer(piping_layer)
+					if(mode & WRENCH_MODE)
+						new_meter.wrench_act(user, src) /// SKYRAPTOR EDIT END
 				else
 					if(recipe.all_layers == FALSE && (piping_layer == 1 || piping_layer == 5))
 						balloon_alert(user, "can't build on this layer!")
 						return ..()
-					if(do_after(user, atmos_build_speed, target = attack_target))
-						if(recipe.all_layers == FALSE && (piping_layer == 1 || piping_layer == 5))//double check to stop cheaters (and to not waste time waiting for something that can't be placed)
-							balloon_alert(user, "can't build on this layer!")
-							return ..()
-						playsound(get_turf(src), RPD_USE_SOUND, 50, TRUE)
-						var/obj/machinery/atmospherics/path = queued_p_type
-						var/pipe_item_type = initial(path.construction_type) || /obj/item/pipe
-						var/obj/item/pipe/pipe_type = new pipe_item_type(
-							get_turf(attack_target),
-							queued_p_type,
-							queued_p_dir,
-							null,
-							GLOB.pipe_paint_colors[paint_color],
-							ispath(queued_p_type, /obj/machinery/atmospherics/pipe/smart) ? p_init_dir : null,
-						)
-						if(queued_p_flipped && istype(pipe_type, /obj/item/pipe/trinary/flippable))
-							var/obj/item/pipe/trinary/flippable/new_flippable_pipe = pipe_type
-							new_flippable_pipe.flipped = queued_p_flipped
+					//if(do_after(user, atmos_build_speed, target = attack_target)) /// SKYRAPTOR EDIT BEGIN
+					if(recipe.all_layers == FALSE && (piping_layer == 1 || piping_layer == 5))//double check to stop cheaters (and to not waste time waiting for something that can't be placed)
+						balloon_alert(user, "can't build on this layer!")
+						return ..()
+					playsound(get_turf(src), RPD_USE_SOUND, 50, TRUE)
+					var/obj/machinery/atmospherics/path = queued_p_type
+					var/pipe_item_type = initial(path.construction_type) || /obj/item/pipe
+					var/obj/item/pipe/pipe_type = new pipe_item_type(
+						get_turf(attack_target),
+						queued_p_type,
+						queued_p_dir,
+						null,
+						GLOB.pipe_paint_colors[paint_color],
+						ispath(queued_p_type, /obj/machinery/atmospherics/pipe/smart) ? p_init_dir : null,
+					)
+					if(queued_p_flipped && istype(pipe_type, /obj/item/pipe/trinary/flippable))
+						var/obj/item/pipe/trinary/flippable/new_flippable_pipe = pipe_type
+						new_flippable_pipe.flipped = queued_p_flipped
 
-						pipe_type.update()
-						pipe_type.add_fingerprint(usr)
-						pipe_type.set_piping_layer(piping_layer)
-						if(ispath(queued_p_type, /obj/machinery/atmospherics) && !ispath(queued_p_type, /obj/machinery/atmospherics/pipe/color_adapter))
-							pipe_type.add_atom_colour(GLOB.pipe_paint_colors[paint_color], FIXED_COLOUR_PRIORITY)
-						if(mode & WRENCH_MODE)
-							pipe_type.wrench_act(user, src)
+					pipe_type.update()
+					pipe_type.add_fingerprint(usr)
+					pipe_type.set_piping_layer(piping_layer)
+					if(ispath(queued_p_type, /obj/machinery/atmospherics) && !ispath(queued_p_type, /obj/machinery/atmospherics/pipe/color_adapter))
+						pipe_type.add_atom_colour(GLOB.pipe_paint_colors[paint_color], FIXED_COLOUR_PRIORITY)
+					if(mode & WRENCH_MODE)
+						pipe_type.wrench_act(user, src) /// SKYRAPTOR EDIT END
 
 			if(DISPOSALS_CATEGORY) //Making disposals pipes
 				if(!can_make_pipe)
@@ -556,21 +556,21 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 					balloon_alert(user, "target is blocked!")
 					return
 				playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
-				if(do_after(user, disposal_build_speed, target = attack_target))
-					var/obj/structure/disposalconstruct/new_disposals_segment = new (attack_target, queued_p_type, queued_p_dir, queued_p_flipped)
+				//if(do_after(user, disposal_build_speed, target = attack_target)) /// SKYRAPTOR EDIT BEGIN
+				var/obj/structure/disposalconstruct/new_disposals_segment = new (attack_target, queued_p_type, queued_p_dir, queued_p_flipped)
 
-					if(!new_disposals_segment.can_place())
-						balloon_alert(user, "not enough room!")
-						qdel(new_disposals_segment)
-						return
-
-					playsound(get_turf(src), RPD_USE_SOUND, 50, TRUE)
-
-					new_disposals_segment.add_fingerprint(usr)
-					new_disposals_segment.update_appearance()
-					if(mode & WRENCH_MODE)
-						new_disposals_segment.wrench_act(user, src)
+				if(!new_disposals_segment.can_place())
+					balloon_alert(user, "not enough room!")
+					qdel(new_disposals_segment)
 					return
+
+				playsound(get_turf(src), RPD_USE_SOUND, 50, TRUE)
+
+				new_disposals_segment.add_fingerprint(usr)
+				new_disposals_segment.update_appearance()
+				if(mode & WRENCH_MODE)
+					new_disposals_segment.wrench_act(user, src)
+				return /// SKYRAPTOR EDIT END
 
 			if(TRANSIT_CATEGORY) //Making transit tubes
 				if(!can_make_pipe)
@@ -586,26 +586,26 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 					return
 
 				playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
-				if(do_after(user, transit_build_speed, target = attack_target))
-					playsound(get_turf(src), RPD_USE_SOUND, 50, TRUE)
-					if(queued_p_type == /obj/structure/c_transit_tube_pod)
-						var/obj/structure/c_transit_tube_pod/pod = new /obj/structure/c_transit_tube_pod(attack_target)
-						pod.add_fingerprint(usr)
-						if(mode & WRENCH_MODE)
-							pod.wrench_act(user, src)
+				//if(do_after(user, transit_build_speed, target = attack_target)) /// SKYRAPTOR EDIT BEGIN
+				playsound(get_turf(src), RPD_USE_SOUND, 50, TRUE)
+				if(queued_p_type == /obj/structure/c_transit_tube_pod)
+					var/obj/structure/c_transit_tube_pod/pod = new /obj/structure/c_transit_tube_pod(attack_target)
+					pod.add_fingerprint(usr)
+					if(mode & WRENCH_MODE)
+						pod.wrench_act(user, src)
 
-					else
-						var/obj/structure/c_transit_tube/tube = new queued_p_type(attack_target)
-						tube.setDir(queued_p_dir)
+				else
+					var/obj/structure/c_transit_tube/tube = new queued_p_type(attack_target)
+					tube.setDir(queued_p_dir)
 
-						if(queued_p_flipped)
-							tube.setDir(turn(queued_p_dir, 45 + ROTATION_FLIP))
-							tube.AfterRotation(user, ROTATION_FLIP)
+					if(queued_p_flipped)
+						tube.setDir(turn(queued_p_dir, 45 + ROTATION_FLIP))
+						tube.AfterRotation(user, ROTATION_FLIP)
 
-						tube.add_fingerprint(usr)
-						if(mode & WRENCH_MODE)
-							tube.wrench_act(user, src)
-					return
+					tube.add_fingerprint(usr)
+					if(mode & WRENCH_MODE)
+						tube.wrench_act(user, src)
+				return /// SKYRAPTOR EDIT END
 			else
 				return ..()
 
