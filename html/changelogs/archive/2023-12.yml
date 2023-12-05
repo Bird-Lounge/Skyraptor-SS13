@@ -116,3 +116,21 @@
   - spellcheck: Fixes a typo in the Factory Quartermaster outfit name.
   Vekter:
   - bugfix: Fixes hole in Birdshot hallway
+2023-12-05:
+  NaakaKo:
+  - bugfix: SecTech restocking units are now actually named SecTech restocking units,
+      and not Generic restocking units.
+  - rscdel: Removed clone damage.
+  - rscdel: Removed the decloner gun.
+  - rscdel: "Removed clonexadone.\n/\U0001F191"
+  - bugfix: Heretics can no longer cast all of their spells while in jaunt
+  - bugfix: Fixed some oopsie whoopsie with elevation, trams and beds causing people
+      to visually ascend or descend to heaven or hell.
+  - bugfix: Rebirthing from headslug properly reapplys void adaptation
+  - admin: Removed the "Turn Target into MMI" right click context menu verb entirely,
+      and instead added the same command as a VV dropdown on human mobs.
+  - bugfix: 'Janitors rejoice (or lament): Floors should now be dirty shift-start.
+
+      / \:cl:'
+  - rscadd: Added new roast dinners, able to be cut into smaller portions hopefully
+      in time for the Christmas season.
