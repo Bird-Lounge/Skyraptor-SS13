@@ -7,22 +7,31 @@ import { useState } from 'react';
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { useBackend, useLocalState } from '../backend';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Box, Button, Dimmer, Divider, Icon, Input, NumberInput, Section, Stack, Tabs } from '../components';
 =======
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Box,
   Button,
   Dimmer,
   Divider,
   Icon,
+<<<<<<< HEAD
   Image,
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
   Input,
   NumberInput,
   Section,
   Stack,
   Tabs,
 } from '../components';
+<<<<<<< HEAD
 >>>>>>> 8971e067b99 (Typescript image component (#80291))
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 const buttonWidth = 2;
@@ -76,13 +85,13 @@ const ShoppingTab = (props) => {
   const { credit_type, order_categories, order_datums, item_amts } = data;
   const [shopCategory, setShopCategory] = useLocalState(
     'shopCategory',
-    order_categories[0]
+    order_categories[0],
   );
   const [condensed] = useLocalState('condensed', false);
   const [searchItem, setSearchItem] = useLocalState('searchItem', '');
   const search = createSearch<OrderDatum>(
     searchItem,
-    (order_datums) => order_datums.name
+    (order_datums) => order_datums.name,
   );
   let goods =
     searchItem.length > 0
@@ -103,7 +112,8 @@ const ShoppingTab = (props) => {
                   if (searchItem.length > 0) {
                     setSearchItem('');
                   }
-                }}>
+                }}
+              >
                 {category}
               </Tabs.Tab>
             ))}
@@ -218,7 +228,7 @@ const CheckoutTab = (props) => {
   } = data;
   const total_cargo_cost = Math.floor(total_cost * cargo_cost_multiplier);
   const checkout_list = order_datums.filter(
-    (food) => food && (findAmount(item_amts, food.name) || 0)
+    (food) => food && (findAmount(item_amts, food.name) || 0),
   );
   return (
     <Stack vertical fill>

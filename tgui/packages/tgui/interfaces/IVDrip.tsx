@@ -2,6 +2,7 @@ import { BooleanLike } from 'common/react';
 
 import { useBackend } from '../backend';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Tooltip, Box, Slider, ProgressBar, NoticeBox, Button, LabeledList, Section } from '../components';
 =======
 import {
@@ -15,6 +16,18 @@ import {
   Tooltip,
 } from '../components';
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+import {
+  Tooltip,
+  Box,
+  Slider,
+  ProgressBar,
+  NoticeBox,
+  Button,
+  LabeledList,
+  Section,
+} from '../components';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 type IVDripData = {
@@ -91,7 +104,8 @@ export const IVDrip = (props) => {
                     }
                   />
                 </Box>
-              }>
+              }
+            >
               <Slider
                 step={transferStep}
                 my={1}
@@ -121,7 +135,8 @@ export const IVDrip = (props) => {
                   icon={mode ? 'syringe' : 'droplet'}
                   onClick={() => act('changeMode')}
                 />
-              }>
+              }
+            >
               {mode
                 ? hasInternalStorage
                   ? 'Reagents from network'
@@ -144,16 +159,19 @@ export const IVDrip = (props) => {
                       onClick={() => act('eject')}
                     />
                   )
-                }>
+                }
+              >
                 <ProgressBar
                   value={containerCurrentVolume}
                   minValue={0}
                   maxValue={containerMaxVolume}
-                  color={containerReagentColor}>
+                  color={containerReagentColor}
+                >
                   <span
                     style={{
                       textShadow: '1px 1px 0 black',
-                    }}>
+                    }}
+                  >
                     {`${containerCurrentVolume} of ${containerMaxVolume} units`}
                   </span>
                 </ProgressBar>
@@ -179,7 +197,8 @@ export const IVDrip = (props) => {
                     content="Disconnect"
                     onClick={() => act('detach')}
                   />
-                }>
+                }
+              >
                 <Box maxHeight={'45px'} overflow={'hidden'}>
                   {objectName}
                 </Box>

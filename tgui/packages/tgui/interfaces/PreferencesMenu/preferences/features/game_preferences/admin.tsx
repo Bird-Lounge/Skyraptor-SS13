@@ -1,5 +1,15 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { CheckboxInput, FeatureColorInput, Feature, FeatureDropdownInput, FeatureToggle } from '../base';
+=======
+import {
+  CheckboxInput,
+  FeatureColorInput,
+  Feature,
+  FeatureDropdownInput,
+  FeatureToggle,
+} from '../base';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { multiline } from 'common/string';
 =======
 import { multiline } from 'common/string';

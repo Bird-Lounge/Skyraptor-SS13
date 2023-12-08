@@ -10,7 +10,23 @@ import { render } from 'react-dom';
 import { Tooltip } from 'tgui/components';
 import { createLogger } from 'tgui/logging';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { COMBINE_MAX_MESSAGES, COMBINE_MAX_TIME_WINDOW, IMAGE_RETRY_DELAY, IMAGE_RETRY_LIMIT, IMAGE_RETRY_MESSAGE_AGE, MAX_PERSISTED_MESSAGES, MAX_VISIBLE_MESSAGES, MESSAGE_PRUNE_INTERVAL, MESSAGE_TYPES, MESSAGE_TYPE_INTERNAL, MESSAGE_TYPE_UNKNOWN } from './constants';
+=======
+import {
+  COMBINE_MAX_MESSAGES,
+  COMBINE_MAX_TIME_WINDOW,
+  IMAGE_RETRY_DELAY,
+  IMAGE_RETRY_LIMIT,
+  IMAGE_RETRY_MESSAGE_AGE,
+  MAX_PERSISTED_MESSAGES,
+  MAX_VISIBLE_MESSAGES,
+  MESSAGE_PRUNE_INTERVAL,
+  MESSAGE_TYPES,
+  MESSAGE_TYPE_INTERNAL,
+  MESSAGE_TYPE_UNKNOWN,
+} from './constants';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { render } from 'react-dom';
 =======
 
@@ -45,8 +61,8 @@ export const TGUI_CHAT_COMPONENTS = {
 // List of injectable attibute names mapped to their proper prop
 // We need this because attibutes don't support lowercase names
 export const TGUI_CHAT_ATTRIBUTES_TO_PROPS = {
-  'position': 'position',
-  'content': 'content',
+  position: 'position',
+  content: 'content',
 };
 
 const findNearestScrollableParent = (startingNode) => {
@@ -223,7 +239,7 @@ class ChatRenderer {
             // Must be alphanumeric (with some punctuation)
             allowedRegex.test(str) &&
             // Reset lastIndex so it does not mess up the next word
-            ((allowedRegex.lastIndex = 0) || true)
+            ((allowedRegex.lastIndex = 0) || true),
         );
       let highlightWords;
       let highlightRegex;
@@ -263,7 +279,7 @@ class ChatRenderer {
           highlightRegex = new RegExp('(' + regexStr + ')', flags);
         } else {
           const pattern = `${matchWord ? '\\b' : ''}(${highlightWords.join(
-            '|'
+            '|',
           )})${matchWord ? '\\b' : ''}`;
           highlightRegex = new RegExp(pattern, flags);
         }
@@ -423,7 +439,7 @@ class ChatRenderer {
             <Element {...outputProps}>
               <span dangerouslySetInnerHTML={oldHtml} />
             </Element>,
-            childNode
+            childNode,
           );
           /* eslint-enable react/no-danger */
         }
@@ -435,7 +451,7 @@ class ChatRenderer {
               node,
               parser.highlightRegex,
               parser.highlightWords,
-              (text) => createHighlightNode(text, parser.highlightColor)
+              (text) => createHighlightNode(text, parser.highlightColor),
             );
             if (highlighted && parser.highlightWholeMessage) {
               node.className += ' ChatMessage--highlighted';
@@ -534,7 +550,7 @@ class ChatRenderer {
     {
       const fromIndex = Math.max(
         0,
-        this.messages.length - MAX_PERSISTED_MESSAGES
+        this.messages.length - MAX_PERSISTED_MESSAGES,
       );
       if (fromIndex > 0) {
         this.messages = this.messages.slice(fromIndex);
@@ -550,7 +566,7 @@ class ChatRenderer {
     // Make a copy of messages
     const fromIndex = Math.max(
       0,
-      this.messages.length - MAX_PERSISTED_MESSAGES
+      this.messages.length - MAX_PERSISTED_MESSAGES,
     );
     const messages = this.messages.slice(fromIndex);
     // Remove existing nodes

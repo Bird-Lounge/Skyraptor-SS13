@@ -2,6 +2,7 @@ import { BooleanLike } from 'common/react';
 
 import { useBackend } from '../backend';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Button, LabeledList, Section, Box, Modal, ProgressBar, NumberInput } from '../components';
 =======
 import {
@@ -14,6 +15,17 @@ import {
   Section,
 } from '../components';
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+import {
+  Button,
+  LabeledList,
+  Section,
+  Box,
+  Modal,
+  ProgressBar,
+  NumberInput,
+} from '../components';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 type TurbineInfo = {
@@ -38,7 +50,8 @@ export const TurbineComputer = (props) => {
         style={{ margin: 'auto' }}
         width="200px"
         textAlign="center"
-        minHeight="39px">
+        minHeight="39px"
+      >
         {
           'Parts not connected, use a multitool on the core rotor before trying again'
         }
@@ -51,7 +64,8 @@ export const TurbineComputer = (props) => {
         style={{ margin: 'auto' }}
         width="200px"
         textAlign="center"
-        minHeight="39px">
+        minHeight="39px"
+      >
         {
           'Some parts have open maintenance hatchet, please close them before starting'
         }
@@ -71,7 +85,8 @@ export const TurbineComputer = (props) => {
               disabled={!!(data.rpm >= 1000) || !data.parts_linked}
               onClick={() => act('toggle_power')}
             />
-          }>
+          }
+        >
           {parts_not_connected}
           {parts_not_ready}
           <LabeledList>

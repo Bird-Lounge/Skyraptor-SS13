@@ -6,6 +6,7 @@ import { multiline } from 'common/string';
 
 import { useBackend } from '../backend';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Button, Divider, NumberInput, ProgressBar, Section, Box, LabeledList, Stack } from '../components';
 =======
 import {
@@ -19,6 +20,18 @@ import {
   Stack,
 } from '../components';
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+import {
+  Button,
+  Divider,
+  NumberInput,
+  ProgressBar,
+  Section,
+  Box,
+  LabeledList,
+  Stack,
+} from '../components';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { getGasColor } from '../constants';
 import { Window } from '../layouts';
 
@@ -106,7 +119,8 @@ export const BluespaceSender = (props) => {
                 onClick={() => act('retrieve')}
               />
             </>
-          }>
+          }
+        >
           <Box>{'The vendors have made ' + credits + ' credits so far.'}</Box>
           <Divider />
           <LabeledList>

@@ -4,11 +4,14 @@ import { BooleanLike, classes } from 'common/react';
 import { createSearch } from 'common/string';
 <<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
+<<<<<<< HEAD
 import { Button, ByondUi, Input, NoticeBox, Section, Stack } from '../components';
 =======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Button,
   ByondUi,
@@ -17,7 +20,10 @@ import {
   Section,
   Stack,
 } from '../components';
+<<<<<<< HEAD
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 type Data = {
@@ -39,7 +45,7 @@ type Camera = {
  */
 const prevNextCamera = (
   cameras: Camera[],
-  activeCamera: Camera & { status: BooleanLike }
+  activeCamera: Camera & { status: BooleanLike },
 ) => {
   if (!activeCamera || cameras.length < 2) {
     return [];
@@ -145,7 +151,8 @@ const CameraSelector = (props) => {
                 act('switch_camera', {
                   camera: camera.ref,
                 })
-              }>
+              }
+            >
               {camera.name}
             </div>
           ))}

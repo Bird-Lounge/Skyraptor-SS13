@@ -3,6 +3,7 @@ import { BooleanLike } from 'common/react';
 import { useBackend, useLocalState } from '../backend';
 import { Button, LabeledList, Section, Stack, Tabs } from '../components';
 import { Window } from '../layouts';
+<<<<<<< HEAD
 import { ICON_BY_CATEGORY_NAME, ColorItem, LayerSelect, SmartPipeBlockSection } from './RapidPipeDispenser';
 =======
 import { useState } from 'react';
@@ -17,6 +18,14 @@ import {
   SmartPipeBlockSection,
 } from './RapidPipeDispenser';
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+import {
+  ICON_BY_CATEGORY_NAME,
+  ColorItem,
+  LayerSelect,
+  SmartPipeBlockSection,
+} from './RapidPipeDispenser';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 type Data = {
   // Dynamic
@@ -68,7 +77,7 @@ const PipeTypeSection = (props) => {
   const { categories = [] } = data;
   const [categoryName, setCategoryName] = useLocalState(
     'categoryName',
-    categories[0].cat_name
+    categories[0].cat_name,
   );
   const shownCategory =
     categories.find((category) => category.cat_name === categoryName) ||
@@ -82,7 +91,8 @@ const PipeTypeSection = (props) => {
             key={category.cat_name}
             icon={ICON_BY_CATEGORY_NAME[category.cat_name]}
             selected={category.cat_name === shownCategory.cat_name}
-            onClick={() => setCategoryName(category.cat_name)}>
+            onClick={() => setCategoryName(category.cat_name)}
+          >
             {category.cat_name}
           </Tabs.Tab>
         ))}

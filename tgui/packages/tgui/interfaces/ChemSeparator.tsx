@@ -2,6 +2,7 @@ import { BooleanLike } from 'common/react';
 
 import { useBackend } from '../backend';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Box, ProgressBar, NoticeBox, Button, LabeledList, Section } from '../components';
 =======
 import {
@@ -13,6 +14,16 @@ import {
   Section,
 } from '../components';
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+import {
+  Box,
+  ProgressBar,
+  NoticeBox,
+  Button,
+  LabeledList,
+  Section,
+} from '../components';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 type Data = {
@@ -80,18 +91,21 @@ export const ChemSeparator = (props) => {
                     />
                   )}
                 </Box>
-              }>
+              }
+            >
               <ProgressBar
                 height={2}
                 value={data.own_total_volume}
                 minValue={0}
                 maxValue={data.own_maximum_volume}
-                color={data.own_reagent_color}>
+                color={data.own_reagent_color}
+              >
                 <Box
                   lineHeight={1.9}
                   style={{
                     textShadow: '1px 1px 0 black',
-                  }}>
+                  }}
+                >
                   {`${Math.ceil(data.own_total_volume)} of ${
                     data.own_maximum_volume
                   } units at ${Math.ceil(data.temperature)}°C`}
@@ -127,18 +141,21 @@ export const ChemSeparator = (props) => {
                       onClick={() => act('eject')}
                     />
                   </Box>
-                }>
+                }
+              >
                 <ProgressBar
                   height={2}
                   value={data.beaker_total_volume}
                   minValue={0}
                   maxValue={data.beaker_maximum_volume}
-                  color={data.beaker_reagent_color}>
+                  color={data.beaker_reagent_color}
+                >
                   <Box
                     lineHeight={1.9}
                     style={{
                       textShadow: '1px 1px 0 black',
-                    }}>
+                    }}
+                  >
                     {`${Math.ceil(data.beaker_total_volume)} of ${
                       data.beaker_maximum_volume
                     } units`}

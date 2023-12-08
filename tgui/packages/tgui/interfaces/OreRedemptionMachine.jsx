@@ -2,6 +2,7 @@ import { createSearch, toTitleCase } from 'common/string';
 <<<<<<< HEAD
 <<<<<<< HEAD
 import { useBackend, useLocalState, useSharedState } from '../backend';
+<<<<<<< HEAD
 import { BlockQuote, Box, Button, Table, Tabs, Input, Stack, Icon, Section, LabeledList } from '../components';
 =======
 =======
@@ -9,10 +10,13 @@ import { useState } from 'react';
 
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { useBackend, useSharedState } from '../backend';
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   BlockQuote,
   Box,
   Button,
+<<<<<<< HEAD
   Icon,
   Image,
   Input,
@@ -24,6 +28,16 @@ import {
 } from '../components';
 <<<<<<< HEAD
 >>>>>>> 8971e067b99 (Typescript image component (#80291))
+=======
+  Table,
+  Tabs,
+  Input,
+  Stack,
+  Icon,
+  Section,
+  LabeledList,
+} from '../components';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 import { formatSiUnit } from '../format';
 =======
@@ -117,7 +131,8 @@ export const OreRedemptionMachine = (props) => {
                 if (searchItem.length > 0) {
                   setSearchItem('');
                 }
-              }}>
+              }}
+            >
               Materials
             </Tabs.Tab>
             <Tabs.Tab
@@ -130,7 +145,8 @@ export const OreRedemptionMachine = (props) => {
                 if (searchItem.length > 0) {
                   setSearchItem('');
                 }
-              }}>
+              }}
+            >
               Alloys
             </Tabs.Tab>
             <Input
@@ -190,7 +206,7 @@ const MaterialRow = (props) => {
   const [compact, setCompact] = useLocalState('compact', false);
 
   const display = material_icons.find(
-    (mat_icon) => mat_icon.id === material.id
+    (mat_icon) => mat_icon.id === material.id,
   );
 
   const sheet_amounts = Math.floor(material.amount);

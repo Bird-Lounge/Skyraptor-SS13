@@ -1,6 +1,15 @@
 import { classes } from 'common/react';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { FeatureChoiced, FeatureChoicedServerData, FeatureValueProps, sortChoices } from '../base';
+=======
+import {
+  FeatureChoiced,
+  FeatureChoicedServerData,
+  FeatureValueProps,
+  sortChoices,
+} from '../base';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Box, Dropdown, Stack } from '../../../../../components';
 =======
 
@@ -14,7 +23,7 @@ import {
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 const UIStyleInput = (
-  props: FeatureValueProps<string, string, FeatureChoicedServerData>
+  props: FeatureValueProps<string, string, FeatureChoicedServerData>,
 ) => {
   const { serverData, value } = props;
   if (!serverData) {
@@ -44,7 +53,7 @@ const UIStyleInput = (
           <Stack.Item grow>{name}</Stack.Item>
         </Stack>,
       ];
-    })
+    }),
   );
 
   return (
@@ -60,7 +69,7 @@ const UIStyleInput = (
             displayText: label,
             value: dataValue,
           };
-        }
+        },
       )}
     />
   );

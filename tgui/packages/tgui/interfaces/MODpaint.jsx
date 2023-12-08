@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+=======
+import { useBackend } from '../backend';
+import {
+  Box,
+  Stack,
+  Section,
+  ByondUi,
+  Slider,
+  Flex,
+  Button,
+} from '../components';
+import { Window } from '../layouts';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { capitalize } from 'common/string';
 
 import { useBackend } from '../backend';
@@ -79,7 +93,8 @@ export const MODpaint = (props) => {
             {[0, 1, 2].map((row) => (
               <Section
                 key={row}
-                title={`${displayText(prefixes[row])} turns to:`}>
+                title={`${displayText(prefixes[row])} turns to:`}
+              >
                 {[0, 1, 2].map((col) => (
                   <Flex key={col}>
                     <Flex.Item align="left" width="30%">

@@ -68,7 +68,12 @@ export const DestructiveAnalyzer = (props) => {
               onClick={() => act('eject_item')}
             />
 <<<<<<< HEAD
+<<<<<<< HEAD
           }>
+=======
+          }
+        >
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
           <Box
             as="img"
 =======

@@ -1,8 +1,11 @@
 <<<<<<< HEAD
 import { Loader } from './common/Loader';
 import { useBackend, useLocalState } from '../backend';
+<<<<<<< HEAD
 import { KEY_ENTER, KEY_ESCAPE, KEY_LEFT, KEY_RIGHT, KEY_SPACE, KEY_TAB } from '../../common/keycodes';
 =======
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   KEY_ENTER,
   KEY_ESCAPE,
@@ -11,8 +14,11 @@ import {
   KEY_SPACE,
   KEY_TAB,
 } from '../../common/keycodes';
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Autofocus, Box, Button, Flex, Section, Stack } from '../components';
 import { Window } from '../layouts';
 import { Loader } from './common/Loader';
@@ -78,7 +84,8 @@ export const AlertModal = (props) => {
             e.preventDefault();
             onKey(KEY_INCREMENT);
           }
-        }}>
+        }}
+      >
         <Section fill>
           <Stack fill vertical>
             <Stack.Item grow m={1}>
@@ -113,7 +120,8 @@ const ButtonDisplay = (props) => {
       direction={!swapped_buttons ? 'row-reverse' : 'row'}
       fill
       justify="space-around"
-      wrap>
+      wrap
+    >
       {buttons?.map((button, index) =>
         !!large_buttons && buttons.length < 3 ? (
           <Flex.Item grow key={index}>
@@ -131,7 +139,7 @@ const ButtonDisplay = (props) => {
               selected={selected === index}
             />
           </Flex.Item>
-        )
+        ),
       )}
     </Flex>
   );
@@ -157,7 +165,8 @@ const AlertButton = (props) => {
       pt={large_buttons ? 0.33 : 0}
       selected={selected}
       textAlign="center"
-      width={!large_buttons && buttonWidth}>
+      width={!large_buttons && buttonWidth}
+    >
       {!large_buttons ? button : button.toUpperCase()}
     </Button>
   );

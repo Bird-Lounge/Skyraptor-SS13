@@ -30,10 +30,15 @@ const FishingRodSlot = (props: Props) => {
 <<<<<<< HEAD
           <Button
             fluid
+<<<<<<< HEAD
             onClick={() => act('slot_action', { slot: props.slot })}>
 =======
           <Button fluid onClick={() => act('slot_action', { slot: slot })}>
 >>>>>>> 8971e067b99 (Typescript image component (#80291))
+=======
+            onClick={() => act('slot_action', { slot: props.slot })}
+          >
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
             <Flex>
               <Flex.Item>
                 {!!current_item_icon && (

@@ -63,7 +63,8 @@ export const Section = forwardRef(
         className,
         computeBoxClassName(rest),
       ])}
-      {...computeBoxProps(rest)}>
+      {...computeBoxProps(rest)}
+    >
       {hasTitle && (
         <div className="Section__title">
           <span className="Section__titleText">{title}</span>

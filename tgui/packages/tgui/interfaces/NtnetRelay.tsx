@@ -2,16 +2,25 @@ import { BooleanLike } from 'common/react';
 
 import { useBackend } from '../backend';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Box, Button, ProgressBar, Section, AnimatedNumber } from '../components';
 =======
 import {
   AnimatedNumber,
+=======
+import {
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
   Box,
   Button,
   ProgressBar,
   Section,
+<<<<<<< HEAD
 } from '../components';
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+  AnimatedNumber,
+} from '../components';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 type Data = {
@@ -44,12 +53,14 @@ export const NtnetRelay = (props) => {
               content={enabled ? 'ENABLED' : 'DISABLED'}
               onClick={() => act('toggle')}
             />
-          }>
+          }
+        >
           {!dos_crashed ? (
             <ProgressBar
               value={dos_overload}
               minValue={0}
-              maxValue={dos_capacity}>
+              maxValue={dos_capacity}
+            >
               <AnimatedNumber value={dos_overload} /> GQ
               {' / '}
               {dos_capacity} GQ

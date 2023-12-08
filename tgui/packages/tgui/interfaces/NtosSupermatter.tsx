@@ -41,7 +41,8 @@ export const NtosSupermatter = (props) => {
                 content="Refresh"
                 onClick={() => act('PRG_refresh')}
               />
-            }>
+            }
+          >
             <Table>
               {sm_data.map((sm) => (
                 <Table.Row key={sm.uid}>
@@ -63,7 +64,7 @@ export const NtosSupermatter = (props) => {
                     <Button
                       icon="bell"
                       color={focus_uid === sm.uid && 'yellow'}
-                      onClick={() => act('PRG_focus', { 'focus_uid': sm.uid })}
+                      onClick={() => act('PRG_focus', { focus_uid: sm.uid })}
                     />
                   </Table.Cell>
                   <Table.Cell collapsing>

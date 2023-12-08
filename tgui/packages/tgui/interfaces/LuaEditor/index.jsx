@@ -1,3 +1,29 @@
+<<<<<<< HEAD
+=======
+import { useBackend, useLocalState } from '../../backend';
+import {
+  Box,
+  Button,
+  Flex,
+  Section,
+  Tabs,
+  TextArea,
+  Modal,
+  Stack,
+  ProgressBar,
+  NoticeBox,
+} from '../../components';
+import { Window } from '../../layouts';
+import { CallModal } from './CallModal';
+import { ChunkViewModal } from './ChunkViewModal';
+import { StateSelectModal } from './StateSelectModal';
+import { ListMapper } from './ListMapper';
+import { Log } from './Log';
+import { TaskManager } from './TaskManager';
+import { sanitizeText } from '../../sanitize';
+import { marked } from 'marked';
+import { Component, createRef } from 'react';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import hljs from 'highlight.js/lib/core';
 import lua from 'highlight.js/lib/languages/lua';
 import { marked } from 'marked';
@@ -59,7 +85,7 @@ export class LuaEditor extends Component {
     };
 
     window.addEventListener('resize', () =>
-      this.forceUpdate(this.handleSectionScroll)
+      this.forceUpdate(this.handleSectionScroll),
     );
   }
 
@@ -119,7 +145,7 @@ export class LuaEditor extends Component {
 
     const [modal, setModal] = useLocalState(
       'modal',
-      noStateYet ? 'states' : null
+      noStateYet ? 'states' : null,
     );
     const { activeTab, showJumpToBottomButton, scriptInput } = this.state;
     let tabContent;
@@ -172,7 +198,8 @@ export class LuaEditor extends Component {
               width="100%"
               height="100%"
               align="center"
-              justify="space-around">
+              justify="space-around"
+            >
               <h1>Please select or create a lua state to get started.</h1>
             </Flex>
           ) : (
@@ -188,14 +215,16 @@ export class LuaEditor extends Component {
                         onSelectFiles={(file) =>
                           this.setState({ scriptInput: file })
                         }
-                        accept=".lua,.luau">
+                        accept=".lua,.luau"
+                      >
                         Import
                       </Button.File>
                       <Button onClick={() => setModal('documentation')}>
                         Help
                       </Button>
                     </>
-                  }>
+                  }
+                >
                   <TextArea
                     fluid
                     width="100%"
@@ -234,7 +263,8 @@ export class LuaEditor extends Component {
                         : 'calc(100% - 32px)'
                       : '100%'
                   }
-                  width="100%">
+                  width="100%"
+                >
                   <Stack justify="space-between">
                     <Stack.Item>
                       <Tabs>
@@ -243,13 +273,15 @@ export class LuaEditor extends Component {
                             selected={activeTab === 'globals'}
                             onClick={() => {
                               this.setState({ activeTab: 'globals' });
-                            }}>
+                            }}
+                          >
                             Globals
                           </Tabs.Tab>
                         )}
                         <Tabs.Tab
                           selected={activeTab === 'tasks'}
-                          onClick={() => this.setState({ activeTab: 'tasks' })}>
+                          onClick={() => this.setState({ activeTab: 'tasks' })}
+                        >
                           Tasks
                         </Tabs.Tab>
                         <Tabs.Tab
@@ -257,7 +289,8 @@ export class LuaEditor extends Component {
                           onClick={() => {
                             this.setState({ activeTab: 'log' });
                             setTimeout(this.handleSectionScroll, 0);
-                          }}>
+                          }}
+                        >
                           Log
                         </Tabs.Tab>
                       </Tabs>
@@ -272,7 +305,8 @@ export class LuaEditor extends Component {
                             this.setState({ activeTab: 'tasks' });
                           }
                           act('toggleShowGlobalTable');
-                        }}>
+                        }}
+                      >
                         Show Global Table
                       </Button.Checkbox>
                     </Stack.Item>
@@ -283,7 +317,8 @@ export class LuaEditor extends Component {
                     scrollable
                     scrollableHorizontal
                     onScroll={this.handleSectionScroll}
-                    width="100%">
+                    width="100%"
+                  >
                     {tabContent}
                   </Section>
                   {activeTab === 'log' && (
@@ -304,7 +339,8 @@ export class LuaEditor extends Component {
                           <Stack.Item width="50%">
                             <ProgressBar
                               width="100%"
-                              value={page / (pageCount - 1)}>
+                              value={page / (pageCount - 1)}
+                            >
                               <Box width="100%" align="center">
                                 {`Page ${page + 1}/${pageCount}`}
                               </Box>
@@ -332,7 +368,8 @@ export class LuaEditor extends Component {
                               sectionCurrent.scrollableRef.current;
                             scrollableCurrent.scrollTop =
                               scrollableCurrent.scrollHeight;
-                          }}>
+                          }}
+                        >
                           Jump to Bottom
                         </Button>
                       )}
@@ -353,14 +390,16 @@ export class LuaEditor extends Component {
               icon="window-close"
               onClick={() => {
                 setModal(null);
-              }}>
+              }}
+            >
               Close
             </Button>
             <Section
               height={`${window.innerHeight * 0.8}px`}
               width={`${window.innerWidth * 0.5}px`}
               fill
-              scrollable>
+              scrollable
+            >
               <Box
                 dangerouslySetInnerHTML={{
                   __html: marked(sanitizeText(documentation), {

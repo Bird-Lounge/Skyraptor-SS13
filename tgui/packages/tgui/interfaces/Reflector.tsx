@@ -1,5 +1,6 @@
 import { useBackend } from '../backend';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Box, Button, Stack, Icon, LabeledControls, Section, NumberInput, Table } from '../components';
 =======
 import {
@@ -13,6 +14,18 @@ import {
   Table,
 } from '../components';
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+import {
+  Box,
+  Button,
+  Stack,
+  Icon,
+  LabeledControls,
+  Section,
+  NumberInput,
+  Table,
+} from '../components';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 type Data = {

@@ -1,7 +1,15 @@
 import { filter, map, reduce, sortBy } from 'common/collections';
 <<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, NoticeBox, Section, Collapsible, Table } from '../components';
+import {
+  Box,
+  Button,
+  Input,
+  NoticeBox,
+  Section,
+  Collapsible,
+  Table,
+} from '../components';
 import { Window } from '../layouts';
 import { clamp } from 'common/math';
 import { flow } from 'common/fp';
@@ -78,7 +86,7 @@ function isRecipeList(value: Recipe | RecipeList): value is RecipeList {
  */
 const filterRecipeList = (
   list: RecipeList,
-  keyFilter: (key: string) => boolean
+  keyFilter: (key: string) => boolean,
 ) => {
   const filteredList: RecipeList = flow([
     map((entry: RecipeListEntry): RecipeListFilterableEntry => {
@@ -132,7 +140,8 @@ export const StackCrafting = (_props) => {
                 mx={1}
               />
             </>
-          }>
+          }
+        >
           {filteredRecipes ? (
             <RecipeListBox recipes={filteredRecipes} />
           ) : (
@@ -182,7 +191,7 @@ const Multipliers = (props: MultiplierProps) => {
 
   const maxM = Math.min(
     maxMultiplier,
-    Math.floor(recipe.max_res_amount / recipe.res_amount)
+    Math.floor(recipe.max_res_amount / recipe.res_amount),
   );
 
   const multipliers = [5, 10, 25];
@@ -200,7 +209,7 @@ const Multipliers = (props: MultiplierProps) => {
               multiplier: multiplier,
             })
           }
-        />
+        />,
       );
     }
   }
@@ -215,7 +224,7 @@ const Multipliers = (props: MultiplierProps) => {
             multiplier: maxM,
           })
         }
-      />
+      />,
     );
   }
 

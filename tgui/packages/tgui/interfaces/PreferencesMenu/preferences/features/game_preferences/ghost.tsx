@@ -2,7 +2,18 @@ import { binaryInsertWith } from 'common/collections';
 import { classes } from 'common/react';
 import { multiline } from 'common/string';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { CheckboxInput, FeatureChoiced, FeatureChoicedServerData, FeatureDropdownInput, FeatureToggle, FeatureValueProps } from '../base';
+=======
+import {
+  CheckboxInput,
+  FeatureChoiced,
+  FeatureChoicedServerData,
+  FeatureDropdownInput,
+  FeatureToggle,
+  FeatureValueProps,
+} from '../base';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Box, Dropdown, Flex } from '../../../../../components';
 import { classes } from 'common/react';
 import { ReactNode } from 'react';
@@ -38,7 +49,7 @@ const insertGhostForm = binaryInsertWith<{
 }>(({ value }) => value);
 
 const GhostFormInput = (
-  props: FeatureValueProps<string, string, FeatureChoicedServerData>
+  props: FeatureValueProps<string, string, FeatureChoicedServerData>,
 ) => {
   const { data } = useBackend<PreferencesMenuData>();
 
@@ -120,7 +131,7 @@ export const ghost_orbit: FeatureChoiced = {
     Requires BYOND membership.
   `,
   component: (
-    props: FeatureValueProps<string, string, FeatureChoicedServerData>
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
     const { data } = useBackend<PreferencesMenuData>();
 

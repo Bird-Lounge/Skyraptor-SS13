@@ -2,7 +2,18 @@ import { capitalizeAll } from 'common/string';
 
 import { useBackend, useLocalState } from '../backend';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Box, Button, Input, LabeledList, NumberInput, Section } from '../components';
+=======
+import {
+  Box,
+  Button,
+  Input,
+  LabeledList,
+  NumberInput,
+  Section,
+} from '../components';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { capitalizeAll } from 'common/string';
 =======
 import {
@@ -49,7 +60,7 @@ export const ChemPress = (props) => {
   } = data;
   const [categoryName, setCategoryName] = useLocalState(
     'categoryName',
-    packaging_category
+    packaging_category,
   );
   const shownCategory =
     packaging_types.find((category) => category.cat_name === categoryName) ||
@@ -106,7 +117,8 @@ export const ChemPress = (props) => {
                     act('change_product', {
                       ref: design.ref,
                     })
-                  }>
+                  }
+                >
                   <Box
                     className={design.class_name}
                     style={{

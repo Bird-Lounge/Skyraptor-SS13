@@ -30,7 +30,7 @@ export const Safe = (properties) => {
               className="Safe__dial"
               src={resolveAsset('safe_dial.png')}
               style={{
-                'transform': 'rotate(-' + 3.6 * dial + 'deg)',
+                transform: 'rotate(-' + 3.6 * dial + 'deg)',
               }}
             />
           )}
@@ -94,7 +94,12 @@ const Contents = (properties) => {
                 index: index + 1,
               })
 <<<<<<< HEAD
+<<<<<<< HEAD
             }>
+=======
+            }
+          >
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
             <Box
               as="img"
 =======
@@ -120,7 +125,8 @@ const Help = (properties) => {
   return (
     <Section
       className="Safe__help"
-      title="Safe opening instructions (because you all keep forgetting)">
+      title="Safe opening instructions (because you all keep forgetting)"
+    >
       <Box>
         1. Turn the dial left to the first number.
         <br />

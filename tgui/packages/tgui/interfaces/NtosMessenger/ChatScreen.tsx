@@ -1,8 +1,23 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Stack, Section, Button, Box, Input, Modal, Tooltip, Icon } from '../../components';
 =======
 =======
+=======
+import {
+  Stack,
+  Section,
+  Button,
+  Box,
+  Input,
+  Modal,
+  Tooltip,
+  Icon,
+} from '../../components';
+import { Component, RefObject, createRef } from 'react';
+import { NtMessage, NtMessenger, NtPicture } from './types';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { BooleanLike } from 'common/react';
 import { decodeHtmlEntities } from 'common/string';
 import { Component, createRef, RefObject } from 'react';
@@ -81,7 +96,7 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
   componentDidUpdate(
     prevProps: ChatScreenProps,
     _prevState: ChatScreenState,
-    _snapshot: any
+    _snapshot: any,
   ) {
     if (prevProps.messages.length !== this.props.messages.length) {
       this.scrollToBottom();
@@ -214,7 +229,7 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
                 : undefined
             }
           />
-        </Stack.Item>
+        </Stack.Item>,
       );
     }
 
@@ -238,7 +253,12 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
               act('PDA_selectPhoto', { uid: photo.uid });
               this.setState({ selectingPhoto: false });
 <<<<<<< HEAD
+<<<<<<< HEAD
             }}>
+=======
+            }}
+          >
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
             <Box as="img" src={photo.path} maxHeight={10} />
 =======
             }}
@@ -308,7 +328,12 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
                   onClick={() => act('PDA_clearPhoto')}
                   tooltip="Remove attachment"
 <<<<<<< HEAD
+<<<<<<< HEAD
                   tooltipPosition="auto-end">
+=======
+                  tooltipPosition="auto-end"
+                >
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
                   <Box as="img" src={selectedPhoto} />
 =======
                   tooltipPosition="auto-end"
@@ -373,11 +398,16 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
             fitted
             title={`${recipient.name} (${recipient.job})`}
 <<<<<<< HEAD
+<<<<<<< HEAD
             scrollableRef={this.scrollRef}>
 =======
             ref={this.scrollRef}
           >
 >>>>>>> 623a6ecc998 (Fixes stamps [NO GBP] (#80255))
+=======
+            scrollableRef={this.scrollRef}
+          >
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
             <Stack vertical className="NtosChatLog">
               {!!(messages.length > 0 && canReply) && (
                 <>
@@ -406,7 +436,12 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
                   onClick={() => this.setState({ previewingImage: undefined })}
                 />
 <<<<<<< HEAD
+<<<<<<< HEAD
               }>
+=======
+              }
+            >
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
               <Box as="img" src={previewingImage} />
 =======
               }
@@ -457,7 +492,12 @@ const ChatMessage = (props: ChatMessageProps) => {
           className="NtosChatMessage__image"
           color="transparent"
 <<<<<<< HEAD
+<<<<<<< HEAD
           onClick={onPreviewImage}>
+=======
+          onClick={onPreviewImage}
+        >
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
           <Box as="img" src={photoPath} mt={1} />
 =======
           onClick={onPreviewImage}

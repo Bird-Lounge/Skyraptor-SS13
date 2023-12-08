@@ -1,5 +1,6 @@
 import { useBackend, useLocalState } from '../../backend';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { ByondUi, Stack, Button, Section, ProgressBar, LabeledList } from '../../components';
 =======
 import {
@@ -11,6 +12,16 @@ import {
   Stack,
 } from '../../components';
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+import {
+  ByondUi,
+  Stack,
+  Button,
+  Section,
+  ProgressBar,
+  LabeledList,
+} from '../../components';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { formatSiUnit } from '../../format';
 import { Window } from '../../layouts';
 import { AccessConfig } from '../common/AccessConfig';
@@ -57,7 +68,8 @@ export const Content = (props) => {
                   tooltipPosition="left"
                   onClick={() => act('changename')}
                 />
-              }>
+              }
+            >
               <Stack fill vertical>
                 <Stack.Item>
                   <ByondUi
@@ -160,16 +172,17 @@ const PowerBar = (props) => {
         }}
         style={{
           textShadow: '1px 1px 0 black',
-        }}>
+        }}
+      >
         {power_max === null
           ? 'Power cell missing'
           : power_level === 1e31
             ? 'Infinite'
             : `${formatSiUnit(power_level * 1000, 0, 'J')} of ${formatSiUnit(
-              power_max * 1000,
-              0,
-              'J'
-            )}`}
+                power_max * 1000,
+                0,
+                'J',
+              )}`}
       </ProgressBar>
     </LabeledList.Item>
   );
@@ -189,7 +202,8 @@ const IntegrityBar = (props) => {
         }}
         style={{
           textShadow: '1px 1px 0 black',
-        }}>
+        }}
+      >
         {!scanmod_rating ? 'Unknown' : `${integrity} of ${integrity_max}`}
       </ProgressBar>
     </LabeledList.Item>
@@ -272,7 +286,8 @@ const CabinSeal = (props) => {
             />
           </>
         )
-      }>
+      }
+    >
       <Button
         icon={cabin_sealed ? 'mask-ventilator' : 'wind'}
         content={cabin_sealed ? 'Sealed' : 'Exposed'}

@@ -4,6 +4,7 @@ import { useBackend } from '../backend';
 import { Icon, Section, Stack } from '../components';
 import { Window } from '../layouts';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { ObjectivePrintout, Objective, ReplaceObjectivesButton } from './common/Objectives';
 =======
 import {
@@ -12,6 +13,13 @@ import {
   ReplaceObjectivesButton,
 } from './common/Objectives';
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+import {
+  ObjectivePrintout,
+  Objective,
+  ReplaceObjectivesButton,
+} from './common/Objectives';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 const ninja_emphasis = {
   color: 'red',

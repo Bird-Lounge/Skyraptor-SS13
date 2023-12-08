@@ -173,7 +173,8 @@ export class Dropdown extends Component<Props, State> {
           ])}
           onClick={() => {
             this.setSelected(value);
-          }}>
+          }}
+        >
           {displayText}
         </div>
       );
@@ -326,7 +327,8 @@ export class Dropdown extends Component<Props, State> {
                 onClick(event);
               }
             }}
-            {...rest}>
+            {...rest}
+          >
             {icon && (
               <Icon
                 name={icon}
@@ -340,7 +342,12 @@ export class Dropdown extends Component<Props, State> {
               style={{
                 overflow: clipSelectedText ? 'hidden' : 'visible',
 <<<<<<< HEAD
+<<<<<<< HEAD
               }}>
+=======
+              }}
+            >
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
               {displayText || this.state.selected}
 =======
               }}

@@ -51,7 +51,7 @@ class SurgeryInitiatorInner extends Component<
 
   findSelectedSurgeryAfter(after: number): number | undefined {
     const foundIndex = this.props.surgeries.findIndex(
-      (surgery, index) => index > after && !surgery.blocked
+      (surgery, index) => index > after && !surgery.blocked,
     );
 
     return foundIndex === -1 ? undefined : foundIndex;
@@ -98,7 +98,8 @@ class SurgeryInitiatorInner extends Component<
                       surgery.blocked ? 'Their body is covered!' : undefined
                     }
                     key={surgery.name}
-                    fluid>
+                    fluid
+                  >
                     {surgery.name}
                   </Button>
                 ))}
@@ -117,7 +118,7 @@ class SurgeryInitiatorInner extends Component<
                     return {
                       selectedSurgeryIndex:
                         this.findSelectedSurgeryAfter(
-                          state.selectedSurgeryIndex
+                          state.selectedSurgeryIndex,
                         ) ||
                         this.findSelectedSurgeryAfter(-1) ||
                         0,
@@ -130,10 +131,10 @@ class SurgeryInitiatorInner extends Component<
                     return {
                       selectedSurgeryIndex:
                         this.findSelectedSurgeryBefore(
-                          state.selectedSurgeryIndex - 1
+                          state.selectedSurgeryIndex - 1,
                         ) ??
                         this.findSelectedSurgeryBefore(
-                          this.props.surgeries.length - 1
+                          this.props.surgeries.length - 1,
                         ) ??
                         0,
                     };

@@ -45,7 +45,8 @@ export const PaintingAdminPanel = (props) => {
             title="Painting Information"
             buttons={
               <Button onClick={() => setChosenPaintingRef(null)}>Close</Button>
-            }>
+            }
+          >
             <img
               src={resolveAsset(`paintings_${chosenPainting.md5}`)}
               height="96px"
@@ -133,7 +134,12 @@ export const PaintingAdminPanel = (props) => {
                   setChosenPaintingRef(null);
                   act('delete', { ref: chosenPainting.ref });
 <<<<<<< HEAD
+<<<<<<< HEAD
                 }}>
+=======
+                }}
+              >
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
                 Delete
               </Button.Confirm>
 =======
@@ -142,7 +148,8 @@ export const PaintingAdminPanel = (props) => {
               />
 >>>>>>> a6c6eb84023 (Fixes invisible delete button in admin painting manager. (#80423))
               <Button
-                onClick={() => act('dumpit', { ref: chosenPainting.ref })}>
+                onClick={() => act('dumpit', { ref: chosenPainting.ref })}
+              >
                 Reset Patronage
               </Button>
             </Section>

@@ -8,7 +8,17 @@ import { storage } from 'common/storage';
 
 import { setClientTheme } from '../themes';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { loadSettings, updateSettings, addHighlightSetting, removeHighlightSetting, updateHighlightSetting } from './actions';
+=======
+import {
+  loadSettings,
+  updateSettings,
+  addHighlightSetting,
+  removeHighlightSetting,
+  updateHighlightSetting,
+} from './actions';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { selectSettings } from './selectors';
 =======
 import {

@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Collapsible, LabeledList, NoticeBox, Section, Stack, Tooltip } from 'tgui/components';
 =======
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Collapsible,
   LabeledList,
@@ -9,8 +12,11 @@ import {
   Stack,
   Tooltip,
 } from 'tgui/components';
+<<<<<<< HEAD
 
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { getColor } from './helpers';
 import { Threshold } from './types';
 

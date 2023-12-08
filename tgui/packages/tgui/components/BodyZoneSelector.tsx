@@ -86,7 +86,12 @@ export class BodyZoneSelector extends Component<
           height: `${32 * scale}px`,
           position: 'relative',
 <<<<<<< HEAD
+<<<<<<< HEAD
         }}>
+=======
+        }}
+      >
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
         <Box
           as="img"
 =======

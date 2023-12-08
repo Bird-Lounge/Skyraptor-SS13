@@ -1,5 +1,16 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { BlockQuote, Collapsible, Modal, Section, Stack, Tabs } from '../components';
+=======
+import {
+  BlockQuote,
+  Collapsible,
+  Modal,
+  Section,
+  Stack,
+  Tabs,
+} from '../components';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { useBackend } from '../backend';
 import { useLocalState } from '../backend';
 import { Window } from '../layouts';
@@ -58,12 +69,14 @@ export const AccountingConsole = (props) => {
             <Tabs fluid textAlign="center">
               <Tabs.Tab
                 selected={screenmode === SCREENS.users}
-                onClick={() => setScreenmode(SCREENS.users)}>
+                onClick={() => setScreenmode(SCREENS.users)}
+              >
                 Users
               </Tabs.Tab>
               <Tabs.Tab
                 selected={screenmode === SCREENS.audit}
-                onClick={() => setScreenmode(SCREENS.audit)}>
+                onClick={() => setScreenmode(SCREENS.audit)}
+              >
                 Audit
               </Tabs.Tab>
             </Tabs>
@@ -88,7 +101,8 @@ const UsersScreen = (props) => {
         <Collapsible
           fill
           key={account.index}
-          title={account.name + ' the ' + account.job}>
+          title={account.name + ' the ' + account.job}
+        >
           <Stack vertical>
             <BlockQuote>
               <Stack.Item textColor={'green'}>

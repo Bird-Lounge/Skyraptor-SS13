@@ -2,6 +2,7 @@ import { decodeHtmlEntities } from 'common/string';
 
 import { useBackend } from '../../backend';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { BlockQuote, Button, LabeledList, NoticeBox, Section, Stack } from '../../components';
 import { decodeHtmlEntities } from 'common/string';
 import { RequestMessage, RequestPriority, RequestsData, RequestType } from './types';
@@ -14,13 +15,27 @@ import {
   Section,
   Stack,
 } from '../../components';
+=======
+import {
+  BlockQuote,
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Stack,
+} from '../../components';
+import { decodeHtmlEntities } from 'common/string';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   RequestMessage,
   RequestPriority,
   RequestsData,
   RequestType,
 } from './types';
+<<<<<<< HEAD
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 export const MessageViewTab = (props) => {
   const { act, data } = useBackend<RequestsData>();
@@ -51,7 +66,8 @@ const MessageDisplay = (props: { message: RequestMessage }) => {
           message.sender_department +
           ', ' +
           message.received_time
-        }>
+        }
+      >
         {message.priority === RequestPriority.HIGH && (
           <NoticeBox warning>High Priority</NoticeBox>
         )}

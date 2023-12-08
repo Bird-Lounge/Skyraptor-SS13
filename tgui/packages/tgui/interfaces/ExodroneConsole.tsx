@@ -5,15 +5,21 @@ import { resolveAsset } from '../assets';
 import nt_logo from '../assets/bg-nanotrasen.svg';
 import { useBackend, useLocalState } from '../backend';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { BlockQuote, Box, Button, Dimmer, Icon, LabeledList, Modal, ProgressBar, Section, Stack } from '../components';
 =======
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   BlockQuote,
   Box,
   Button,
   Dimmer,
   Icon,
+<<<<<<< HEAD
   Image,
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
   LabeledList,
   Modal,
   ProgressBar,
@@ -21,7 +27,10 @@ import {
   Stack,
 } from '../components';
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 8971e067b99 (Typescript image component (#80291))
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 import { resolveAsset } from '../assets';
 =======
@@ -175,7 +184,7 @@ export const ExodroneConsole = (props) => {
 
   const [choosingTools, setChoosingTools] = useLocalState(
     'choosingTools',
-    false
+    false,
   );
 
   return (
@@ -198,13 +207,15 @@ const SignalLostModal = (props) => {
       width={30}
       height={22}
       p={0}
-      style={{ borderRadius: '5%' }}>
+      style={{ borderRadius: '5%' }}
+    >
       <img src={nt_logo} width={64} height={64} />
       <Box
         backgroundColor="black"
         textColor="red"
         fontSize={2}
-        style={{ borderRadius: '-10%' }}>
+        style={{ borderRadius: '-10%' }}
+      >
         CONNECTION LOST
       </Box>
       <Box p={2} italic>
@@ -251,8 +262,9 @@ const DroneSelectionSection = (props: {
                     <Button
                       icon="plug"
                       onClick={() =>
-                        act('select_drone', { 'drone_ref': drone.ref })
-                      }>
+                        act('select_drone', { drone_ref: drone.ref })
+                      }
+                    >
                       Assume Control
                     </Button>
                   )}
@@ -273,7 +285,7 @@ const ToolSelectionModal = (props) => {
 
   const [choosingTools, setChoosingTools] = useLocalState(
     'choosingTools',
-    false
+    false,
   );
 
   const toolData = Object.keys(all_tools);
@@ -293,7 +305,8 @@ const ToolSelectionModal = (props) => {
                     }}
                     width={6}
                     height={6}
-                    tooltip={all_tools[tool_name].description}>
+                    tooltip={all_tools[tool_name].description}
+                  >
                     <Stack vertical>
                       <Stack.Item>{capitalize(tool_name)}</Stack.Item>
                       <Stack.Item ml={2.5}>
@@ -330,7 +343,8 @@ const EquipmentBox = (props: { cargo: CargoData; drone: DroneData }) => {
                 width={4.7}
                 tooltip={capitalize(cargo.name)}
                 tooltipPosition="right"
-                color="transparent">
+                color="transparent"
+              >
                 <Icon
                   color="white"
                   name={all_tools[cargo.name].icon}
@@ -363,7 +377,8 @@ const EquipmentBox = (props: { cargo: CargoData; drone: DroneData }) => {
                 width={4.7}
                 tooltip={capitalize(cargo.name)}
                 tooltipPosition="right"
-                color="transparent">
+                color="transparent"
+              >
                 <Icon color="white" name="box" size={3} pl={2.2} pt={2} />
               </Button>
             </Stack.Item>
@@ -387,7 +402,8 @@ const EquipmentBox = (props: { cargo: CargoData; drone: DroneData }) => {
       width={5}
       height={5}
       style={{ border: '2px solid black' }}
-      textAlign="center">
+      textAlign="center"
+    >
       {boxContents(cargo)}
     </Box>
   );
@@ -398,7 +414,7 @@ const EquipmentGrid = (props: { drone: ActiveDrone & DroneData }) => {
   const { cargo, configurable } = props.drone;
   const [choosingTools, setChoosingTools] = useLocalState(
     'choosingTools',
-    false
+    false,
   );
   return (
     <Stack vertical fill>
@@ -528,16 +544,16 @@ const TravelTargetSelectionScreen = (props: {
   };
   const [choosingTools, setChoosingTools] = useLocalState(
     'choosingTools',
-    false
+    false,
   );
   const [TravelDimmerShown, setTravelDimmerShown] = useLocalState(
     'TravelDimmerShown',
-    false
+    false,
   );
 
   const travel_to = (ref) => {
     setTravelDimmerShown(false);
-    act('start_travel', { 'target_site': ref });
+    act('start_travel', { target_site: ref });
   };
 
   const non_empty_bands = (dest: SiteData) => {
@@ -573,7 +589,8 @@ const TravelTargetSelectionScreen = (props: {
               />
             </Box>
           </>
-        }>
+        }
+      >
         {sites && !sites.length && !choosingTools && <NoSiteDimmer />}
         {site && (
           <Section
@@ -607,7 +624,8 @@ const TravelTargetSelectionScreen = (props: {
                   disabled={!can_travel}
                 />
               </>
-            }>
+            }
+          >
             <LabeledList>
               <LabeledList.Item label="Location">
                 {destination.coordinates}
@@ -673,7 +691,7 @@ const ExplorationScreen = (props: { drone: DroneExploration & DroneData }) => {
 
   const [TravelDimmerShown, setTravelDimmerShown] = useLocalState(
     'TravelDimmerShown',
-    false
+    false,
   );
 
   if (TravelDimmerShown) {
@@ -688,7 +706,8 @@ const ExplorationScreen = (props: { drone: DroneExploration & DroneData }) => {
           drone_integrity={drone.drone_integrity}
           drone_max_integrity={drone.drone_max_integrity}
         />
-      }>
+      }
+    >
       <Stack vertical fill>
         <Stack.Item grow>
           <LabeledList>
@@ -733,7 +752,8 @@ const EventScreen = (props: { drone: DroneData; event: FullEventData }) => {
           drone_integrity={drone.drone_integrity}
           drone_max_integrity={drone.drone_max_integrity}
         />
-      }>
+      }
+    >
       <Stack vertical fill textAlign="center">
         <Stack.Item>
           <Stack fill>
@@ -797,7 +817,8 @@ export const AdventureScreen = (props: {
             drone_max_integrity={drone_max_integrity}
           />
         )
-      }>
+      }
+    >
       <Stack>
         <Stack.Item>
           <BlockQuote preserveWhitespace>

@@ -2,17 +2,27 @@ import { BooleanLike } from 'common/react';
 
 import { useBackend } from '../backend';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Button, Flex, Knob, NumberInput, LabeledControls, Section } from '../components';
 =======
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Button,
   Flex,
   Knob,
+<<<<<<< HEAD
   LabeledControls,
   NumberInput,
   Section,
 } from '../components';
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+  NumberInput,
+  LabeledControls,
+  Section,
+} from '../components';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 type Data = {

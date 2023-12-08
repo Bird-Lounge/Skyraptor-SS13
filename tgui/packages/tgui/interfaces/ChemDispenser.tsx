@@ -3,11 +3,14 @@ import { BooleanLike } from 'common/react';
 import { toTitleCase } from 'common/string';
 <<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
+<<<<<<< HEAD
 import { Box, Button, Icon, LabeledList, ProgressBar, Section } from '../components';
 =======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Box,
   Button,
@@ -16,7 +19,10 @@ import {
   ProgressBar,
   Section,
 } from '../components';
+<<<<<<< HEAD
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 import { Beaker, BeakerDisplay } from './common/BeakerDisplay';
 
@@ -86,7 +92,8 @@ export const ChemDispenser = (props) => {
                 onClick={() => setHasCol(!hasCol)}
               />
             </>
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Energy">
               <ProgressBar value={data.energy / data.maxEnergy}>
@@ -133,7 +140,8 @@ export const ChemDispenser = (props) => {
                 />
               )}
             </>
-          }>
+          }
+        >
           <Box mr={-1}>
             {Object.keys(recipes).map((recipe) => (
               <Button
@@ -166,7 +174,8 @@ export const ChemDispenser = (props) => {
                 })
               }
             />
-          ))}>
+          ))}
+        >
           <Box mr={-1}>
             {data.chemicals.map((chemical) => (
               <Button
@@ -204,7 +213,8 @@ export const ChemDispenser = (props) => {
               content={amount}
               onClick={() => act('remove', { amount })}
             />
-          ))}>
+          ))}
+        >
           <BeakerDisplay
             beaker={beaker}
             title_label={recording && 'Virtual beaker'}

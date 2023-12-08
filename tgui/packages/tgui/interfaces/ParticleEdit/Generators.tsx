@@ -1,19 +1,30 @@
 import { useBackend } from '../../backend';
 <<<<<<< HEAD
 import { NumberInput, Dropdown, Stack } from '../../components';
+<<<<<<< HEAD
 import { GeneratorProps, GeneratorTypes, GeneratorTypesNoVectors, ParticleUIData, P_DATA_GENERATOR, RandToNumber, RandTypes } from './data';
 =======
 import { Dropdown, NumberInput, Stack } from '../../components';
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   GeneratorProps,
   GeneratorTypes,
   GeneratorTypesNoVectors,
+<<<<<<< HEAD
   P_DATA_GENERATOR,
   ParticleUIData,
   RandToNumber,
   RandTypes,
 } from './data';
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+  ParticleUIData,
+  P_DATA_GENERATOR,
+  RandToNumber,
+  RandTypes,
+} from './data';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 export const GeneratorListEntry = (props: GeneratorProps) => {
   const { act, data } = useBackend<ParticleUIData>();

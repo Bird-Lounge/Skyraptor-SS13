@@ -2,6 +2,7 @@ import { BooleanLike } from 'common/react';
 
 import { useBackend, useLocalState } from '../backend';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Section, Stack, Input, Button, Table, NoticeBox, Box } from '../components';
 =======
 import {
@@ -14,6 +15,17 @@ import {
   Table,
 } from '../components';
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+import {
+  Section,
+  Stack,
+  Input,
+  Button,
+  Table,
+  NoticeBox,
+  Box,
+} from '../components';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 enum Screen {
@@ -68,7 +80,8 @@ const RequestLogsScreen = (props) => {
               icon="home"
               onClick={() => act('return_home')}
             />
-          }>
+          }
+        >
           <Table>
             <Table.Row header>
               <Table.Cell>Delete</Table.Cell>
@@ -115,7 +128,8 @@ const MessageLogsScreen = (props) => {
               icon="home"
               onClick={() => act('return_home')}
             />
-          }>
+          }
+        >
           <Table>
             <Table.Row header>
               <Table.Cell>Delete</Table.Cell>
@@ -167,7 +181,7 @@ const MainScreenAuth = (props) => {
   const { status, is_malf, password } = data;
   const [auth_password, setPassword] = useLocalState(
     'input_password',
-    password
+    password,
   );
   return (
     <>
@@ -267,7 +281,7 @@ const MainScreenNotAuth = (props) => {
   const { status, is_malf, password } = data;
   const [auth_password, setPassword] = useLocalState(
     'input_password',
-    password
+    password,
   );
 
   return (

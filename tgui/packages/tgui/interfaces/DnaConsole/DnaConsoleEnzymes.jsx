@@ -1,6 +1,21 @@
 import { useBackend } from '../../backend';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Box, Button, Collapsible, Dimmer, Divider, Icon, LabeledList, NumberInput, Section, Stack } from '../../components';
+=======
+import {
+  Box,
+  Button,
+  Collapsible,
+  Dimmer,
+  Divider,
+  Icon,
+  LabeledList,
+  NumberInput,
+  Section,
+  Stack,
+} from '../../components';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { GeneticMakeupInfo } from './GeneticMakeupInfo';
 =======
 import {
@@ -55,7 +70,8 @@ const GeneticMakeupBufferInfo = (props) => {
                 index,
                 type: 'ue',
               })
-            }>
+            }
+          >
             Transfer
             {!isViableSubject && ' (Delayed)'}
           </Button>
@@ -79,7 +95,8 @@ const GeneticMakeupBufferInfo = (props) => {
                 index,
                 type: 'ui',
               })
-            }>
+            }
+          >
             Transfer
             {!isViableSubject && ' (Delayed)'}
           </Button>
@@ -103,7 +120,8 @@ const GeneticMakeupBufferInfo = (props) => {
                 index,
                 type: 'uf',
               })
-            }>
+            }
+          >
             Transfer
             {!isViableSubject && ' (Delayed)'}
           </Button>
@@ -127,7 +145,8 @@ const GeneticMakeupBufferInfo = (props) => {
                 index,
                 type: 'mixed',
               })
-            }>
+            }
+          >
             Transfer
             {!isViableSubject && ' (Delayed)'}
           </Button>
@@ -200,7 +219,8 @@ const GeneticMakeupBuffers = (props) => {
               }
             />
           </>
-        }>
+        }
+      >
         <GeneticMakeupBufferInfo index={i} makeup={makeup} />
       </Collapsible>
     );

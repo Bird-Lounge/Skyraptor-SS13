@@ -1,6 +1,17 @@
 import { sortStrings } from 'common/collections';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Box, Button, Dropdown, Section, Stack, TextArea } from '../../components';
+=======
+import {
+  Box,
+  Button,
+  Dropdown,
+  Section,
+  Stack,
+  TextArea,
+} from '../../components';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { RequestsData, RequestType, RequestPriority } from './types';
 =======
 
@@ -39,11 +50,11 @@ export const MessageWriteTab = (props) => {
   const [messageText, setMessageText] = useLocalState('messageText', '');
   const [requestType, setRequestType] = useLocalState(
     'requestType',
-    RequestType.ASSISTANCE
+    RequestType.ASSISTANCE,
   );
   const [priority, setPriority] = useLocalState(
     'priority',
-    RequestPriority.NORMAL
+    RequestPriority.NORMAL,
   );
   const [recipient, setRecipient] = useLocalState('recipient', '');
   return (

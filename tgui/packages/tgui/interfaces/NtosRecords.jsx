@@ -49,10 +49,11 @@ export const NtosRecords = (props) => {
                       ' ' +
                       record.age +
                       ' ' +
-                      record.fingerprint
+                      record.fingerprint,
                   )
                 )
-              }>
+              }
+            >
               <Box bold>
                 <Icon name="user" mr={1} />
                 {record.name}
@@ -86,10 +87,11 @@ export const NtosRecords = (props) => {
                       ' ' +
                       record.mental_status +
                       ' ' +
-                      record.physical_status
+                      record.physical_status,
                   )
                 )
-              }>
+              }
+            >
               <Box bold>
                 <Icon name="user" mr={1} />
                 {record.name}

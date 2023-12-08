@@ -6,8 +6,11 @@
 
 import { useDispatch, useSelector } from 'tgui/backend';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Button, Collapsible, Divider, Input, Section, Stack } from 'tgui/components';
 =======
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Button,
   Collapsible,
@@ -16,8 +19,11 @@ import {
   Section,
   Stack,
 } from 'tgui/components';
+<<<<<<< HEAD
 
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { removeChatPage, toggleAcceptedType, updateChatPage } from './actions';
 import { MESSAGE_TYPES } from './constants';
 import { selectCurrentChatPage } from './selectors';
@@ -37,7 +43,7 @@ export const ChatPageSettings = (props) => {
                 updateChatPage({
                   pageId: page.id,
                   name: value,
-                })
+                }),
               )
             }
           />
@@ -50,9 +56,10 @@ export const ChatPageSettings = (props) => {
               dispatch(
                 removeChatPage({
                   pageId: page.id,
-                })
+                }),
               )
-            }>
+            }
+          >
             Remove
           </Button>
         </Stack.Item>
@@ -60,7 +67,7 @@ export const ChatPageSettings = (props) => {
       <Divider />
       <Section title="Messages to display" level={2}>
         {MESSAGE_TYPES.filter(
-          (typeDef) => !typeDef.important && !typeDef.admin
+          (typeDef) => !typeDef.important && !typeDef.admin,
         ).map((typeDef) => (
           <Button.Checkbox
             key={typeDef.type}
@@ -70,15 +77,16 @@ export const ChatPageSettings = (props) => {
                 toggleAcceptedType({
                   pageId: page.id,
                   type: typeDef.type,
-                })
+                }),
               )
-            }>
+            }
+          >
             {typeDef.name}
           </Button.Checkbox>
         ))}
         <Collapsible mt={1} color="transparent" title="Admin stuff">
           {MESSAGE_TYPES.filter(
-            (typeDef) => !typeDef.important && typeDef.admin
+            (typeDef) => !typeDef.important && typeDef.admin,
           ).map((typeDef) => (
             <Button.Checkbox
               key={typeDef.type}
@@ -88,9 +96,10 @@ export const ChatPageSettings = (props) => {
                   toggleAcceptedType({
                     pageId: page.id,
                     type: typeDef.type,
-                  })
+                  }),
                 )
-              }>
+              }
+            >
               {typeDef.name}
             </Button.Checkbox>
           ))}

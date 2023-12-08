@@ -5,19 +5,30 @@
  */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { addChatPage, changeChatPage, loadChat, removeChatPage, toggleAcceptedType, updateChatPage, updateMessageCount, changeScrollTracking } from './actions';
 =======
 import {
   addChatPage,
   changeChatPage,
   changeScrollTracking,
+=======
+import {
+  addChatPage,
+  changeChatPage,
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
   loadChat,
   removeChatPage,
   toggleAcceptedType,
   updateChatPage,
   updateMessageCount,
+<<<<<<< HEAD
 } from './actions';
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+  changeScrollTracking,
+} from './actions';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { canPageAcceptType, createMainPage } from './model';
 
 const mainPage = createMainPage();

@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
+<<<<<<< HEAD
 import { Section, Stack, Input, Button, Table, LabeledList, NoticeBox } from '../components';
 =======
 import { useState } from 'react';
@@ -15,6 +16,17 @@ import {
   Table,
 } from '../components';
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+import {
+  Section,
+  Stack,
+  Input,
+  Button,
+  Table,
+  LabeledList,
+  NoticeBox,
+} from '../components';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 enum Screen {
@@ -59,7 +71,8 @@ const MachineScreen = (props) => {
               icon="home"
               onClick={() => act('return_home')}
             />
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Network">{network}</LabeledList.Item>
             <LabeledList.Item label="Network Entity">
@@ -129,7 +142,8 @@ const MainScreen = (props) => {
               disabled={machinery.length === 0}
               onClick={() => act('flush_buffer')}
             />
-          }>
+          }
+        >
           <Table>
             <Table.Row header>
               <Table.Cell>Address</Table.Cell>

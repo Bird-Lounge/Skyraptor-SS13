@@ -5,9 +5,12 @@ import { useBackend } from '../../backend';
 <<<<<<< HEAD
 import { Box, Button, Section, Stack, Image } from '../../components';
 import { MutationInfo } from './MutationInfo';
+<<<<<<< HEAD
 import { CLEAR_GENE, GENE_COLORS, MUT_NORMAL, NEXT_GENE, PREV_GENE, SUBJECT_DEAD, SUBJECT_TRANSFORMING } from './constants';
 =======
 import { Box, Button, Image, Section, Stack } from '../../components';
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   CLEAR_GENE,
   GENE_COLORS,
@@ -17,8 +20,11 @@ import {
   SUBJECT_DEAD,
   SUBJECT_TRANSFORMING,
 } from './constants';
+<<<<<<< HEAD
 import { MutationInfo } from './MutationInfo';
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 const GenomeImage = (props) => {
   const { url, selected, onClick } = props;
@@ -75,7 +81,8 @@ const GeneCycler = (props) => {
           pulseAction: PREV_GENE,
           alias: alias,
         });
-      }}>
+      }}
+    >
       {gene}
     </Button>
   );
@@ -144,7 +151,7 @@ const GenomeSequencer = (props) => {
           width="8px"
           height="2px"
           backgroundColor="label"
-        />
+        />,
       );
     }
 
@@ -167,7 +174,7 @@ export const DnaConsoleSequencer = (props) => {
   const { isJokerReady, isMonkey, jokerSeconds, subjectStatus } = data;
   const { sequencerMutation, jokerActive } = data.view;
   const mutation = mutations.find(
-    (mutation) => mutation.Alias === sequencerMutation
+    (mutation) => mutation.Alias === sequencerMutation,
   );
   return (
     <>
@@ -176,7 +183,8 @@ export const DnaConsoleSequencer = (props) => {
           <Section
             title="Sequences"
             height="214px"
-            overflowY={mutations.length > 8 && 'scroll'}>
+            overflowY={mutations.length > 8 && 'scroll'}
+          >
             {mutations.map((mutation) => (
               <GenomeImage
                 key={mutation.Alias}
@@ -249,7 +257,8 @@ export const DnaConsoleSequencer = (props) => {
                   }
                 />
               )
-            }>
+            }
+          >
             <GenomeSequencer mutation={mutation} />
           </Section>
         )}

@@ -49,7 +49,8 @@ const TilePreview = (props) => {
       style={{
         width: '50px',
         height: '50px',
-      }}>
+      }}
+    >
       <Box
         className={classes(['rtd32x32', selected_icon])}
         style={{
@@ -107,7 +108,7 @@ const TileDesignSection = (props) => {
   const { categories = [], selected_category, selected_recipe } = data;
   const [categoryName, setCategoryName] = useLocalState(
     'categoryName',
-    selected_category
+    selected_category,
   );
   const shownCategory =
     categories.find((category) => category.category_name === categoryName) ||
@@ -120,7 +121,8 @@ const TileDesignSection = (props) => {
             fluid
             key={category.category_name}
             selected={category.category_name === categoryName}
-            onClick={() => setCategoryName(category.category_name)}>
+            onClick={() => setCategoryName(category.category_name)}
+          >
             {category.category_name}
           </Tabs.Tab>
         ))}
@@ -142,7 +144,8 @@ const TileDesignSection = (props) => {
               category_name: shownCategory.category_name,
               id: i + 1,
             })
-          }>
+          }
+        >
           <Box
             inline
             verticalAlign="middle"

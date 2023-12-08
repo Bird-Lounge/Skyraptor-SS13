@@ -26,10 +26,11 @@ export const TrophyAdminPanel = (props) => {
                   style={{
                     wordBreak: 'break-all',
                     wordWrap: 'break-word',
-                    'color': !trophy.is_valid
+                    color: !trophy.is_valid
                       ? 'rgba(255, 0, 0, 0.5)'
                       : 'inherit',
-                  }}>
+                  }}
+                >
                   {decodeHtmlEntities(trophy.path)}
                 </Table.Cell>
                 <Table.Cell>
@@ -44,7 +45,8 @@ export const TrophyAdminPanel = (props) => {
                   style={{
                     wordBreak: 'break-all',
                     wordWrap: 'break-word',
-                  }}>
+                  }}
+                >
                   {decodeHtmlEntities(trophy.message)}
                 </Table.Cell>
                 <Table.Cell>
@@ -59,7 +61,8 @@ export const TrophyAdminPanel = (props) => {
                   style={{
                     wordBreak: 'break-all',
                     wordWrap: 'break-word',
-                  }}>
+                  }}
+                >
                   {decodeHtmlEntities(trophy.placer_key)}
                 </Table.Cell>
                 <Table.Cell>

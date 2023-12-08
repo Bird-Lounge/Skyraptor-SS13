@@ -3,18 +3,29 @@ import { flow } from 'common/fp';
 
 import { useBackend } from '../backend';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Box, Button, Dropdown, Section, Knob, LabeledControls, LabeledList } from '../components';
 =======
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Box,
   Button,
   Dropdown,
+<<<<<<< HEAD
   Knob,
   LabeledControls,
   LabeledList,
   Section,
 } from '../components';
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+  Section,
+  Knob,
+  LabeledControls,
+  LabeledList,
+} from '../components';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 export const Jukebox = (props) => {
@@ -33,7 +44,8 @@ export const Jukebox = (props) => {
               selected={active}
               onClick={() => act('toggle')}
             />
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Track Selected">
               <Dropdown

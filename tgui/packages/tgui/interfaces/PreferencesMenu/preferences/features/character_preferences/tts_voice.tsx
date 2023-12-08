@@ -1,5 +1,16 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { FeatureChoiced, FeatureChoicedServerData, FeatureDropdownInput, FeatureValueProps, FeatureNumeric, FeatureSliderInput } from '../base';
+=======
+import {
+  FeatureChoiced,
+  FeatureChoicedServerData,
+  FeatureDropdownInput,
+  FeatureValueProps,
+  FeatureNumeric,
+  FeatureSliderInput,
+} from '../base';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Stack, Button } from '../../../../../components';
 =======
 import { Button, Stack } from '../../../../../components';
@@ -14,7 +25,7 @@ import {
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 const FeatureTTSDropdownInput = (
-  props: FeatureValueProps<string, string, FeatureChoicedServerData>
+  props: FeatureValueProps<string, string, FeatureChoicedServerData>,
 ) => {
   return (
     <Stack>

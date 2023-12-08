@@ -5,6 +5,7 @@ import { Window } from '../../layouts';
 import { ParticleUIData } from './data';
 <<<<<<< HEAD
 import { ShowDesc } from './Tutorial';
+<<<<<<< HEAD
 import { EntryFloat, EntryCoord, EntryGradient, EntryTransform, EntryIcon, EntryIconState } from './EntriesBasic';
 import { FloatGenerator, FloatGeneratorColor, EntryGeneratorNumbersList } from './EntriesGenerators';
 =======
@@ -23,6 +24,21 @@ import {
 } from './EntriesGenerators';
 import { ShowDesc } from './Tutorial';
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+import {
+  EntryFloat,
+  EntryCoord,
+  EntryGradient,
+  EntryTransform,
+  EntryIcon,
+  EntryIconState,
+} from './EntriesBasic';
+import {
+  FloatGenerator,
+  FloatGeneratorColor,
+  EntryGeneratorNumbersList,
+} from './EntriesGenerators';
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 export const ParticleEdit = (props) => {
   const { act, data } = useBackend<ParticleUIData>();
@@ -83,7 +99,8 @@ export const ParticleEdit = (props) => {
                   tooltip={'Delete and close UI'}
                 />
               </>
-            }>
+            }
+          >
             <EntryFloat name={'Width'} var_name={'width'} float={width} />
             <EntryFloat name={'Height'} var_name={'height'} float={height} />
             <EntryFloat name={'Count'} var_name={'count'} float={count} />

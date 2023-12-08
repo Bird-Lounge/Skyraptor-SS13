@@ -1,10 +1,13 @@
 <<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
+<<<<<<< HEAD
 import { Button, Collapsible, Input, NoticeBox, Section, Stack } from '../components';
 =======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Button,
   Collapsible,
@@ -13,7 +16,10 @@ import {
   Section,
   Stack,
 } from '../components';
+<<<<<<< HEAD
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+>>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 type LogViewerData = {
@@ -49,7 +55,7 @@ export const LogViewer = (_: any) => {
 
   const [activeCategory, setActiveCategory] = useLocalState(
     'activeCategory',
-    ''
+    '',
   );
 
   let viewerData: LogViewerCategoryData = {
@@ -99,7 +105,7 @@ const CategoryBar = (props: CategoryBarProps) => {
   const sorted = [...props.options].sort();
   const [categorySearch, setCategorySearch] = useLocalState(
     'categorySearch',
-    ''
+    '',
   );
 
   return (
@@ -113,7 +119,8 @@ const CategoryBar = (props: CategoryBarProps) => {
           value={categorySearch}
           onChange={(_, value) => setCategorySearch(value)}
         />
-      }>
+      }
+    >
       <Stack scrollableHorizontal>
         {/** these are not in stack items to have them directly next to eachother */}
         <Button
@@ -233,7 +240,8 @@ const CategoryViewer = (props: CategoryViewerProps) => {
             }}
           />
         </>
-      }>
+      }
+    >
       <Stack vertical>
         {!searchRegex || regexValidation === true ? (
           props.data?.entries.map((entry) => {
@@ -263,7 +271,8 @@ const CategoryViewer = (props: CategoryViewerProps) => {
                 <Collapsible
                   fitted
                   tooltip={entry.timestamp}
-                  title={`[${entry.id}] - ${entry.message}`}>
+                  title={`[${entry.id}] - ${entry.message}`}
+                >
                   <Stack vertical fill>
                     <Stack.Item>
                       <p font-family="Courier">{entry.message}</p>
