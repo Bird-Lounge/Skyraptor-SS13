@@ -227,3 +227,8 @@
   itseasytosee:
   - rscadd: Sleeping carp/cqc users can now snap peoples necks by punching them in
       the head while they are in a kill grab.
+2023-12-10:
+  NaakaKo:
+  - refactor: 'TGUI V5: The UI has had its entire engine replaced with React v18.2.
+      This might cause obvious or laughably broken UIs in places you wouldn''t expect.
+      Please report any issues you find to the repo!'
