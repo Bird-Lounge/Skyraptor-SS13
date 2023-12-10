@@ -15,10 +15,6 @@ import { ReconnectButton } from './reconnect';
 import { SettingsPanel, useSettings } from './settings';
 
 export const Panel = (props) => {
-  // IE8-10: Needs special treatment due to missing Flex support
-  if (Byond.IS_LTE_IE10) {
-    return <HoboPanel />;
-  }
   const audio = useAudio();
   const settings = useSettings();
   const game = useGame();
@@ -29,6 +25,7 @@ export const Panel = (props) => {
       return <KitchenSink panel />;
     }
   }
+
   return (
     <Pane theme={settings.theme}>
       <Stack fill vertical>
@@ -102,6 +99,7 @@ export const Panel = (props) => {
     </Pane>
   );
 };
+<<<<<<< HEAD:tgui/packages/tgui-panel/Panel.jsx
 
 const HoboPanel = (props) => {
   const settings = useSettings();
@@ -126,3 +124,5 @@ const HoboPanel = (props) => {
     </Pane>
   );
 };
+=======
+>>>>>>> 6b30843774f (Converts some of tgui-panel to typescript (#80057)):tgui/packages/tgui-panel/Panel.tsx
