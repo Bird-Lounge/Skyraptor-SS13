@@ -7,9 +7,16 @@ export const JOB2ICON = {
   'Atmospheric Technician': 'fan',
   'Bartender': 'cocktail',
   'Bit Avatar': 'code',
+<<<<<<< HEAD
   'Bitrunner': 'gamepad',
   'Botanist': 'seedling',
   'Captain': 'crown',
+=======
+  Bitrunner: 'gamepad',
+  Botanist: 'seedling',
+  Captain: 'crown',
+  'Cargo Gorilla': 'paw',
+>>>>>>> 90b974071de (Sign up for Cargorilla from the lobby (#79776))
   'Cargo Technician': 'box',
   'CentCom Commander': 'star',
   'CentCom Head Intern': 'pen-fancy',
