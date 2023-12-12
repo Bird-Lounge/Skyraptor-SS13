@@ -338,7 +338,12 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
             fill
             fitted
             title={`${recipient.name} (${recipient.job})`}
+<<<<<<< HEAD
             scrollableRef={this.scrollRef}>
+=======
+            ref={this.scrollRef}
+          >
+>>>>>>> 623a6ecc998 (Fixes stamps [NO GBP] (#80255))
             <Stack vertical className="NtosChatLog">
               {!!(messages.length > 0 && canReply) && (
                 <>
