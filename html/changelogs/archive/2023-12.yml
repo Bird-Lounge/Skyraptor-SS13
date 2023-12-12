@@ -275,3 +275,24 @@
       any implant with the IMPLANT_TYPE_SECURITY flag and an associated sprite.
   - spellcheck: Modifies various implant pad readouts, removing false information
       and rewriting some sections.
+2023-12-12:
+  Melbert:
+  - bugfix: When using an item on a mob, you will always attempt to fix wounds AFTER
+      surgery, BUT BEFORE the item's own interactions. As an example, this means using
+      a mesh on a mob will attempt to progress surgery first, then attempt to fix
+      any burn wounds, then heal burn damage.
+  NaakaKo:
+  - image: The Head of Security's "Sturdy Shako" hat now uses the same gold color
+      as his other hat
+  - bugfix: fixed outdated item description
+  - bugfix: no runtime when unwrenching Atmos components
+  - spellcheck: fixed typo in attack chain define comment
+  - bugfix: fixes some AI runtimes that were caused by the pawn becoming null
+  - bugfix: 'DNA Sequencer UI: You should be able to cycle in reverse with RMB again.'
+  - bugfix: Goldgrubs no longer block death bolts, even while alive.
+  Rhials:
+  - bugfix: Sunset Saloon virtual domain should no longer sometimes spawn with holes
+      in the floor.
+  - qol: Blackout drunkard personalities will now recieve a "you are about to sober
+      up" warning at the 60/40/20 second mark, instead of repeatedly at the 50 second
+      mark.
