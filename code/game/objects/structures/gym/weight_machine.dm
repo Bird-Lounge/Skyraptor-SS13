@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+#define WORKOUT_XP 5
+#define EXERCISE_STATUS_DURATION 15 SECONDS
+#define SAFE_DRUNK_LEVEL 39
+
+>>>>>>> 536381d308c (Fitness rebalance and improvements - mood, fireman carry, and longer workouts (#79584))
 /obj/structure/weightmachine
 	name = "chest press machine"
 	desc = "Just looking at this thing makes you feel tired."
@@ -15,6 +22,15 @@
 	///The weight action we give to people that buckle themselves to us.
 	var/datum/action/push_weights/weight_action
 
+<<<<<<< HEAD
+=======
+	///message when drunk user fails to use the machine
+	var/drunk_message = "You try for a new record and pull through! Through a muscle that is."
+
+	// the total reps you can do before you hit stamcrit based on fitness level
+	var/static/list/total_workout_reps = list(3, 4, 4, 5, 6, 6, 7)
+
+>>>>>>> 536381d308c (Fitness rebalance and improvements - mood, fireman carry, and longer workouts (#79584))
 	///List of messages picked when using the machine.
 	var/static/list/more_weight = list(
 		"pushing it to the limit!",
@@ -98,14 +114,28 @@
 			user.balloon_alert(user, pick(finished_silicon_message))
 		else
 			user.balloon_alert(user, pick(finished_message))
+<<<<<<< HEAD
 		user.add_mood_event("exercise", /datum/mood_event/exercise)
 		user.apply_status_effect(/datum/status_effect/exercised)
+=======
+
+		user.adjust_nutrition(-5) // feel the burn
+
+		if(iscarbon(user))
+			// remember the real xp gain is from sleeping after working out
+			user.mind.adjust_experience(/datum/skill/fitness, WORKOUT_XP)
+			user.apply_status_effect(/datum/status_effect/exercised, EXERCISE_STATUS_DURATION)
+
+>>>>>>> 536381d308c (Fitness rebalance and improvements - mood, fireman carry, and longer workouts (#79584))
 	end_workout()
 
 /obj/structure/weightmachine/proc/end_workout()
 	playsound(src, 'sound/machines/click.ogg', 60, TRUE)
 	STOP_PROCESSING(SSobj, src)
 	icon_state = initial(icon_state)
+
+/// roughly 8 seconds for 1 workout rep
+#define WORKOUT_LENGTH 8
 
 /obj/structure/weightmachine/process(seconds_per_tick)
 	if(!has_buckled_mobs())
@@ -116,10 +146,25 @@
 	flick_overlay_view(workout, 0.8 SECONDS)
 	flick("[base_icon_state]-u", src)
 	var/mob/living/user = buckled_mobs[1]
-	animate(user, pixel_y = pixel_shift_y, time = 4)
+	animate(user, pixel_y = pixel_shift_y, time = WORKOUT_LENGTH * 0.5)
 	playsound(user, 'sound/machines/creak.ogg', 60, TRUE)
+<<<<<<< HEAD
 	animate(pixel_y = user.base_pixel_y, time = 4)
+=======
+	animate(pixel_y = user.base_pixel_y, time = WORKOUT_LENGTH * 0.5)
+
+	if(!iscarbon(user) || isnull(user.mind))
+		return TRUE
+	// the amount of workouts you can do before you hit stamcrit
+	var/workout_reps = total_workout_reps[user.mind.get_skill_level(/datum/skill/fitness)]
+	// total stamina drain of 1 workout calculated based on the workout length
+	var/stamina_exhaustion = FLOOR(user.maxHealth / workout_reps / WORKOUT_LENGTH, 0.1)
+	user.adjustStaminaLoss(stamina_exhaustion * seconds_per_tick)
+
+>>>>>>> 536381d308c (Fitness rebalance and improvements - mood, fireman carry, and longer workouts (#79584))
 	return TRUE
+
+#undef WORKOUT_LENGTH
 
 /**
  * Weight lifter subtype
