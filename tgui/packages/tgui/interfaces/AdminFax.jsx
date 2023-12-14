@@ -122,7 +122,7 @@ export const FaxMainPanel = (props) => {
             placeholder="Your message here..."
             height="200px"
             value={rawText}
-            onInput={(e, value) => {
+            onChange={(e, value) => {
               setRawText(value);
             }}
           />
