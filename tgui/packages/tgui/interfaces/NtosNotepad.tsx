@@ -302,9 +302,9 @@ class NotePadTextArea extends Component<NotePadTextAreaProps> {
 
     return (
       <TextArea
-        innerRef={this.innerRef}
-        onInput={(_, value) => setText(value)}
-        className={'NtosNotepad__textarea'}
+        ref={this.innerRef}
+        onChange={(_, value) => setText(value)}
+        className="NtosNotepad__textarea"
         scroll
         nowrap={!wordWrap}
         value={text}
