@@ -162,13 +162,19 @@ const ReportText = (props) => {
         <Stack.Item>
           <Button.Checkbox
             fluid
+<<<<<<< HEAD
             checked={announce_contents}
             onClick={() => act('toggle_announce')}>
+=======
+            checked={!!announce_contents}
+            onClick={() => act('toggle_announce')}
+          >
+>>>>>>> a53f0631353 (Converts button to typescript (#80194))
             Announce Contents
           </Button.Checkbox>
           <Button.Checkbox
             fluid
-            checked={print_report || !announce_contents}
+            checked={!!print_report || !announce_contents}
             disabled={!announce_contents}
             onClick={() => act('toggle_printing')}
             tooltip={
