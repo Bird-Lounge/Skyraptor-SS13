@@ -913,6 +913,7 @@ class PresetsPage extends Component {
         )}
         {presets
           ? presets.map((preset, i) => (
+<<<<<<< HEAD
             <Button
               key={i}
               width="100%"
@@ -931,6 +932,26 @@ class PresetsPage extends Component {
               }
             />
           ))
+=======
+              <Button
+                key={i}
+                width="100%"
+                backgroundColor={`hsl(${preset.hue}, 50%, 50%)`}
+                onClick={() => setSelectedPreset(preset.id)}
+                onDoubleClick={() => this.loadDataFromPreset(preset.id)}
+                content={preset.title}
+                style={
+                  presetIndex === preset.id
+                    ? {
+                        borderWidth: '1px',
+                        borderStyle: 'solid',
+                        borderColor: `hsl(${preset.hue}, 80%, 80%)`,
+                      }
+                    : ''
+                }
+              />
+            ))
+>>>>>>> 58148508545 (Fix double-clicking in various UIs (#80284))
           : ''}
         <span style={pod_grey}>
           <br />
