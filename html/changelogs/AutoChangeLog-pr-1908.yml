@@ -1,0 +1,4 @@
+author: "NaakaKo"
+delete-after: True
+changes:
+  - bugfix: "Admin interview panel should feel snappier."
