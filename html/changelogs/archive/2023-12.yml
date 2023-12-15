@@ -322,3 +322,42 @@
   - admin: Updates the admin smite "Ocky icky phobia" with some new words
   - bugfix: You should be able to move stamps on paper again.
   - bugfix: Dropdowns should show what you've selected again.
+2023-12-15:
+  LemonInTheDark, Donglesplonge:
+  - image: Redoes fov "mask" sprites. They're clean, have a very pleasant dithering
+      effect, and look real fuckin good!
+  - rscdel: Changed FOV, it no longer hides mobs, instead it blurs the hidden area,
+      and makes it a bit darker/oversaturated
+  NaakaKo:
+  - bugfix: Tram controls should work again.
+  - qol: For admins, in the "Spawn Atom" window where you pick atoms to spawn-by-type,
+      anything that is a subtype of `/mob/living/basic` should now be replaced with
+      the `BASIC` tag instead (like with carbons, reagent containers, turfs, etc.).
+      So, instead of having to scroll through and try and figure out what that weird
+      subtype of Poly is, it should now be easier to read in that smaller screen.
+  - bugfix: fixes a bug which was causing certain mutations to only get partially
+      removed
+  - bugfix: Fix double-clicking in various UIs
+  - bugfix: Newscaster shouldn't bluescreen anymore.
+  - rscadd: Adds a new discount experiment for unlocking the combat exosuit nodes
+      - complete it by scanning two exosuits with equipment in the left and right
+      hand slots. This replaces the prior discount experiment about destroying exosuits.
+  - server: The TGS -> Discord Relay Warning that detects if a cliented mob has a
+      null loc should now be plaintext instead of being fully screwed up with useless
+      codestuffs.
+  - bugfix: mobs that have the `TRAIT_PERMANENTLY_ONFIRE` trait cannot be extinguished
+      by anything.
+  - bugfix: stuff thrown into lava should not runtime. it currently does not but if
+      there is a slight chance it does not happen
+  - bugfix: Advanced Plastic Surgery is now unavailable shiftstart
+  - bugfix: The clown car once again obtains the accesses of kidnapped crew within
+      the car. Supermatter crystals beware!
+  - bugfix: Admin interview panel should feel snappier.
+  - bugfix: Crabs will properly only target Tiny creatures
+  - balance: Light Footed now makes stepping on glass Knockdown instead of Paralyze
+  - code_imp: Fixes some single letter variable usage in caltrop.dm
+  - bugfix: Away lathes can now print robot navigational beacons
+  - bugfix: Chemicals are now no longer less effective at curing advanced viruses
+      than they used to be.
+  - bugfix: fixes zombie tumor not reviving
+  - qol: The asteroid on Tramstation can now have areas expanded into or created within.
