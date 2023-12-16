@@ -170,7 +170,7 @@ const IdCardPage = (props) => {
               <Input
                 width="100%"
                 value={id_owner}
-                onInput={(e, value) =>
+                onChange={(e, value) =>
                   act('PRG_edit', {
                     name: value,
                   })
@@ -198,7 +198,7 @@ const IdCardPage = (props) => {
                 fluid
                 mt={1}
                 value={id_rank}
-                onInput={(e, value) =>
+                onChange={(e, value) =>
                   act('PRG_assign', {
                     assignment: value,
                   })
