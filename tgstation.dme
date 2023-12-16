@@ -5534,11 +5534,15 @@
 #include "code\modules\shuttle\shuttle_events\meteors.dm"
 #include "code\modules\shuttle\shuttle_events\misc.dm"
 #include "code\modules\shuttle\shuttle_events\player_controlled.dm"
+<<<<<<< HEAD
 #include "code\modules\skyraptor_goonstam\disorient_effect.dm"
 #include "code\modules\skyraptor_goonstam\goonstam_newvalues.dm"
 #include "code\modules\skyraptor_goonstam\sprint_component.dm"
 #include "code\modules\skyraptor_goonstam\stamina_configs.dm"
 #include "code\modules\skyraptor_goonstam\stamina_holder.dm"
+=======
+#include "code\modules\shuttle\shuttle_events\turbulence.dm"
+>>>>>>> 2ce6a702217 (Shuttle event "Turbulence" (#80358))
 #include "code\modules\spatial_grid\cell_tracker.dm"
 #include "code\modules\spells\spell.dm"
 #include "code\modules\spells\spell_types\madness_curse.dm"
