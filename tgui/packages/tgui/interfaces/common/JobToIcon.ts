@@ -14,6 +14,7 @@ export const JOB2ICON = {
 =======
   Bitrunner: 'gamepad',
   Botanist: 'seedling',
+  'Bridge Assistant': 'building-shield',
   Captain: 'crown',
   'Cargo Gorilla': 'paw',
 >>>>>>> 90b974071de (Sign up for Cargorilla from the lobby (#79776))
