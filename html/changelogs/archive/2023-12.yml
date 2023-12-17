@@ -361,3 +361,25 @@
       than they used to be.
   - bugfix: fixes zombie tumor not reviving
   - qol: The asteroid on Tramstation can now have areas expanded into or created within.
+2023-12-17:
+  LT3:
+  - bugfix: Internal action buttons on computer consoles should work again
+  NaakaKo:
+  - bugfix: 'Bitrunners can now access the Northstar ORM
+
+      :cl:'
+  - bugfix: Motorized wheelchairs will no longer spawn in a bugged state where they
+      have no parts and can't be upgraded.
+  - bugfix: Motorized wheelchairs will drop their power cell when destroyed or deconstructed.
+  - qol: Power cells are now inserted into motorized wheelchairs as part of the crafting
+      recipe, instead of as an extra step afterwards.
+  - bugfix: Keybindings in prefs are able to be set again.
+  - bugfix: Fixed the weird spacing on buttons.
+  - balance: '"Scarves" and "Wallets!" are now neutral traits.'
+  - balance: Emagged and Hacked APCs now occasionally flicker a blue effect, and the
+      effect is not visible with cameras.
+  - bugfix: Confirmation buttons should be usable again. Bitrunning domains, command
+      reports, etc.
+  - balance: Delamination variants no longer change once the explosion point has been
+      reached.
+  - qol: Anesthetics tank description now mentions a rare quirk of anesthetic.
