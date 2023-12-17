@@ -115,6 +115,7 @@ const CategoryBar = (props: CategoryBarProps) => {
           selected={props.active === CATEGORY_ALL}
           onClick={() => props.setActive(CATEGORY_ALL)}
         />
+<<<<<<< HEAD
         {sorted.map((category) => {
           if (!category.toLowerCase().includes(categorySearch.toLowerCase())) {
             return null;
@@ -130,6 +131,24 @@ const CategoryBar = (props: CategoryBarProps) => {
             </Stack.Item>
           );
         })}
+=======
+        {sorted
+          .filter((cat) =>
+            cat.toLowerCase().includes(categorySearch.toLowerCase()),
+          )
+          .map((category) => {
+            return (
+              <Stack.Item key={category}>
+                <Button
+                  textAlign="left"
+                  content={category}
+                  selected={category === props.active}
+                  onClick={() => props.setActive(category)}
+                />
+              </Stack.Item>
+            );
+          })}
+>>>>>>> ac1f4719dc3 (Fix search categories in log viewer (#80388))
       </Stack>
     </Section>
   );
