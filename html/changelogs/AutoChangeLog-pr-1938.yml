@@ -1,0 +1,4 @@
+author: "NaakaKo"
+delete-after: True
+changes:
+  - bugfix: "coffee cartridge racks start with a coffee cartridge in them"
