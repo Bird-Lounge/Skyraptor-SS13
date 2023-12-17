@@ -1073,6 +1073,12 @@
 
 	return DEFIB_POSSIBLE
 
+<<<<<<< HEAD
+=======
+/mob/living/carbon/proc/can_defib_client()
+	return (client || get_ghost(FALSE, TRUE)) && (can_defib() & DEFIB_REVIVABLE_STATES)
+
+>>>>>>> 467ee6b11cc (Fix false positive morgue alarms (#80344))
 /mob/living/carbon/harvest(mob/living/user)
 	if(QDELETED(src))
 		return
