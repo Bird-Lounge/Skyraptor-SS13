@@ -383,3 +383,36 @@
   - balance: Delamination variants no longer change once the explosion point has been
       reached.
   - qol: Anesthetics tank description now mentions a rare quirk of anesthetic.
+2023-12-18:
+  Melbert:
+  - bugfix: Fixes PAI health scan software
+  - bugfix: Fixes Laughter demons deleting the bodies of their friends.
+  NaakaKo:
+  - bugfix: coffee cartridge racks start with a coffee cartridge in them
+  - bugfix: fixed the oversight with martian food complexity.
+  - balance: Exosuit Materials 1 now only requires one mech.
+  - qol: "Exosuit Materials 1 is much more lenient on the percentage it requires.\n\
+      /\U0001F191"
+  - bugfix: ED-209s can no longer be crafted with most instances of helmet, you need
+      security ones just like Beepsky.
+  - balance: Last Resort can now be used while unconscious or dead.
+  - balance: Last Resort stuns bystanders for slightly longer.
+  - bugfix: Fixed runtime regarding thanking non-existent clown car drivers
+  - image: 'New Security clothing: Security High-Vis jacket!'
+  - bugfix: Fixes losing HARS nullspacing your brain
+  - bugfix: Fixes AIize and borgize gibbing you
+  - bugfix: Aivime, Lentslurri, Eigenswap and Libitoil can now be cooked again.
+  - balance: Aivime now can stack blur effects for the soapiest game ever.
+  - spellcheck: Lenturri description become more actual
+  - rscadd: If you throw a bee at someone it will hit them sting-first and inject
+      that bee's reagent
+  - balance: Thick clothing can now protect you from the venom of bees, snakes, frogs,
+      and (small) spiders
+  - bugfix: Fix search categories in log viewer
+  - bugfix: Fixed a rare false positive with morgue tray alarms.
+  - bugfix: Fire alarms no longer cause pitch blackness, instead creating a dark but
+      not black red light.
+  - rscadd: Adds a new shuttle event, where space shuttles can experience minor turbulance.
+      Keep your belt on while the appropriate cabin light is lit.
+  Tattle:
+  - admin: obsession targets are logged
