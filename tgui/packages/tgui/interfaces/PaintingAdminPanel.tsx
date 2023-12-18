@@ -127,9 +127,15 @@ export const PaintingAdminPanel = (props) => {
                 onClick={() => {
                   setChosenPaintingRef(null);
                   act('delete', { ref: chosenPainting.ref });
+<<<<<<< HEAD
                 }}>
                 Delete
               </Button.Confirm>
+=======
+                }}
+                content="Delete"
+              />
+>>>>>>> a6c6eb84023 (Fixes invisible delete button in admin painting manager. (#80423))
               <Button
                 onClick={() => act('dumpit', { ref: chosenPainting.ref })}>
                 Reset Patronage
