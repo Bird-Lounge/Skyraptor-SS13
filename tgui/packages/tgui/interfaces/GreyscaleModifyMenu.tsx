@@ -1,5 +1,22 @@
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { Box, Button, ColorBox, Flex, Stack, Icon, Input, LabeledList, Section, Table, Divider } from '../components';
+=======
+import {
+  Box,
+  Button,
+  ColorBox,
+  Flex,
+  Stack,
+  Icon,
+  Input,
+  LabeledList,
+  Section,
+  Table,
+  Divider,
+  Image,
+} from '../components';
+>>>>>>> 8971e067b99 (Typescript image component (#80291))
 import { Window } from '../layouts';
 
 type ColorEntry = {
@@ -201,13 +218,7 @@ const PreviewDisplay = (props) => {
           </Table.Cell>
           {data.sprites?.finished ? (
             <Table.Cell>
-              <Box
-                as="img"
-                m={0}
-                mx="10%"
-                src={data.sprites.finished}
-                width="75%"
-              />
+              <Image m={0} mx="10%" src={data.sprites.finished} width="75%" />
             </Table.Cell>
           ) : (
             <Table.Cell>
@@ -258,14 +269,7 @@ const PreviewDisplay = (props) => {
 
 const SingleSprite = (props) => {
   const { source } = props;
-  return (
-    <Box
-      as="img"
-      src={source}
-      width="100%"
-      style={{ '-ms-interpolation-mode': 'nearest-neighbor' }}
-    />
-  );
+  return <Image src={source} />;
 };
 
 const LoadingAnimation = () => {

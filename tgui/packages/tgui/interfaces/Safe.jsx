@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
-import { Box, Button, Icon, Section } from '../components';
+import { Box, Button, Icon, Section, Image } from '../components';
 import { Window } from '../layouts';
 
 export const Safe = (properties) => {
@@ -25,8 +25,7 @@ export const Safe = (properties) => {
           {open ? (
             <Contents />
           ) : (
-            <Box
-              as="img"
+            <Image
               className="Safe__dial"
               src={resolveAsset('safe_dial.png')}
               style={{
@@ -93,9 +92,15 @@ const Contents = (properties) => {
               act('retrieve', {
                 index: index + 1,
               })
+<<<<<<< HEAD
             }>
             <Box
               as="img"
+=======
+            }
+          >
+            <Image
+>>>>>>> 8971e067b99 (Typescript image component (#80291))
               src={item.sprite + '.png'}
               verticalAlign="middle"
               ml="-6px"

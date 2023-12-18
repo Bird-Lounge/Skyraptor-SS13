@@ -1,6 +1,11 @@
 import { resolveAsset } from '../assets';
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
 import { Box, Button, NoticeBox, Section, Stack, Input } from '../components';
+=======
+import { useBackend } from '../backend';
+import { Button, NoticeBox, Section, Stack, Image, Input } from '../components';
+>>>>>>> 8971e067b99 (Typescript image component (#80291))
 import { NtosWindow } from '../layouts';
 
 export const NtosPortraitPrinter = (props) => {
@@ -52,8 +57,7 @@ export const NtosPortraitPrinter = (props) => {
                 {got_paintings ? (
                   <>
                     <Stack.Item>
-                      <Box
-                        as="img"
+                      <Image
                         src={resolveAsset(current_portrait_asset_name)}
                         height="128px"
                         width={`${Math.round(128 * current_portrait_ratio)}px`}

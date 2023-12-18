@@ -1,7 +1,23 @@
 import { BooleanLike } from 'common/react';
 import { capitalize, createSearch } from 'common/string';
 import { useBackend, useLocalState } from '../backend';
+<<<<<<< HEAD
 import { Box, Button, Dimmer, Divider, Icon, Input, NumberInput, Section, Stack, Tabs } from '../components';
+=======
+import {
+  Box,
+  Button,
+  Dimmer,
+  Divider,
+  Icon,
+  Input,
+  NumberInput,
+  Section,
+  Image,
+  Stack,
+  Tabs,
+} from '../components';
+>>>>>>> 8971e067b99 (Typescript image component (#80291))
 import { Window } from '../layouts';
 
 const buttonWidth = 2;
@@ -115,8 +131,7 @@ const ShoppingTab = (props) => {
                   />{' '}
                   {!condensed && (
                     <Stack.Item>
-                      <Box
-                        as="img"
+                      <Image
                         src={`data:image/jpeg;base64,${item.product_icon}`}
                         height="34px"
                         width="34px"
