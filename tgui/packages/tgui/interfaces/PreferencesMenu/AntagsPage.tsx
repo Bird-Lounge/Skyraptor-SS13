@@ -1,5 +1,6 @@
 import { binaryInsertWith } from 'common/collections';
 import { classes } from 'common/react';
+
 import { useBackend, useLocalState } from '../../backend';
 import { Box, Button, Divider, Flex, Section, Stack, Tooltip } from '../../components';
 import { Antagonist, Category } from './antagonists/base';

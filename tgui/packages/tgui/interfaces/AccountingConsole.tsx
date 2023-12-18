@@ -1,8 +1,24 @@
+<<<<<<< HEAD
 import { BlockQuote, Collapsible, Modal, Section, Stack, Tabs } from '../components';
 import { useBackend } from '../backend';
 import { useLocalState } from '../backend';
 import { Window } from '../layouts';
 import { BooleanLike } from 'common/react';
+=======
+import { BooleanLike } from 'common/react';
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import {
+  BlockQuote,
+  Collapsible,
+  Modal,
+  Section,
+  Stack,
+  Tabs,
+} from '../components';
+import { Window } from '../layouts';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type Data = {
   PlayerAccounts: PlayerAccount[];

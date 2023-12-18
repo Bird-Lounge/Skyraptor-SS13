@@ -1,5 +1,18 @@
 import { useBackend, useSharedState } from '../backend';
+<<<<<<< HEAD
 import { Box, Button, LabeledList, NoticeBox, Icon, Section, Stack, Tabs } from '../components';
+=======
+import {
+  Box,
+  Button,
+  Icon,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Stack,
+  Tabs,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { NtosWindow } from '../layouts';
 
 export const NtosNetMonitor = (props) => {

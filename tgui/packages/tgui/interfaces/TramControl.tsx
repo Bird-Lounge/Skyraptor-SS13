@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
 import { Box, Button, Dimmer, Icon, Section, Stack } from '../components';
 import { Window } from '../layouts';
@@ -5,6 +6,14 @@ import { Window } from '../layouts';
 =======
 import { useState } from 'react';
 import { BooleanLike } from 'common/react';
+=======
+import { BooleanLike } from 'common/react';
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import { Box, Button, Dimmer, Icon, Section, Stack } from '../components';
+import { Window } from '../layouts';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type Data = {
   broken: BooleanLike;

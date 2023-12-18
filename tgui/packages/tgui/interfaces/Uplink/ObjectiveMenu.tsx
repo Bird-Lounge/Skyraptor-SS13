@@ -1,7 +1,27 @@
 import { BooleanLike, classes } from 'common/react';
 import { Component } from 'react';
+<<<<<<< HEAD
 import { Section, Stack, Box, Button, Flex, Tooltip, NoticeBox, Dimmer, Icon } from '../../components';
 import { calculateProgression, getDangerLevel, Rank } from './calculateDangerLevel';
+=======
+
+import {
+  Box,
+  Button,
+  Dimmer,
+  Flex,
+  Icon,
+  NoticeBox,
+  Section,
+  Stack,
+  Tooltip,
+} from '../../components';
+import {
+  calculateProgression,
+  getDangerLevel,
+  Rank,
+} from './calculateDangerLevel';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { ObjectiveState } from './constants';
 
 export type Objective = {

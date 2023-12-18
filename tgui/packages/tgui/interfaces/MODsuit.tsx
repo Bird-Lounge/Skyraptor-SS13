@@ -1,7 +1,31 @@
 import { BooleanLike } from 'common/react';
+<<<<<<< HEAD
 import { formatSiUnit } from '../format';
 import { useBackend, useLocalState } from '../backend';
 import { Button, ColorBox, LabeledList, ProgressBar, Section, Collapsible, Box, Icon, Stack, Table, Dimmer, NumberInput, AnimatedNumber, Dropdown, NoticeBox } from '../components';
+=======
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import {
+  AnimatedNumber,
+  Box,
+  Button,
+  Collapsible,
+  ColorBox,
+  Dimmer,
+  Dropdown,
+  Icon,
+  LabeledList,
+  NoticeBox,
+  NumberInput,
+  ProgressBar,
+  Section,
+  Stack,
+  Table,
+} from '../components';
+import { formatSiUnit } from '../format';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 type MODsuitData = {

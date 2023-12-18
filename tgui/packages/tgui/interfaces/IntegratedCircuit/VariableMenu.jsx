@@ -1,7 +1,27 @@
+<<<<<<< HEAD
 import { Box, Stack, Section, Button, Input, Dropdown, Icon } from '../../components';
 import { Component } from 'react';
 import { shallowDiffers } from 'common/react';
 import { VARIABLE_ASSOC_LIST, VARIABLE_LIST, VARIABLE_NOT_A_LIST } from './constants';
+=======
+import { shallowDiffers } from 'common/react';
+import { Component } from 'react';
+
+import {
+  Box,
+  Button,
+  Dropdown,
+  Icon,
+  Input,
+  Section,
+  Stack,
+} from '../../components';
+import {
+  VARIABLE_ASSOC_LIST,
+  VARIABLE_LIST,
+  VARIABLE_NOT_A_LIST,
+} from './constants';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 export class VariableMenu extends Component {
   constructor(props) {

@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
 import { SupermatterContent, SupermatterData } from './Supermatter';
 import { Button, ProgressBar, Section, Table } from '../components';
+=======
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import { Button, ProgressBar, Section, Table } from '../components';
+import { NtosWindow } from '../layouts';
+import { SupermatterContent, SupermatterData } from './Supermatter';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type NtosSupermatterData = SupermatterData & { focus_uid?: number };
 

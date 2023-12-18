@@ -1,7 +1,22 @@
 import { BooleanLike } from 'common/react';
-import { FakeTerminal } from '../components/FakeTerminal';
+
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { Box, Button, Flex, Grid, Icon, LabeledList, Modal, NoticeBox, Section } from '../components';
+=======
+import {
+  Box,
+  Button,
+  Flex,
+  Grid,
+  Icon,
+  LabeledList,
+  Modal,
+  NoticeBox,
+  Section,
+} from '../components';
+import { FakeTerminal } from '../components/FakeTerminal';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { NtosWindow } from '../layouts';
 
 const CONTRACT_STATUS_INACTIVE = 1;

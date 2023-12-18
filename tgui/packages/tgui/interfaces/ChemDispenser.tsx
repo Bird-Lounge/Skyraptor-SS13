@@ -1,8 +1,22 @@
 import { toFixed } from 'common/math';
 import { BooleanLike } from 'common/react';
 import { toTitleCase } from 'common/string';
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
 import { Box, Button, Icon, LabeledList, ProgressBar, Section } from '../components';
+=======
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import {
+  Box,
+  Button,
+  Icon,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 import { Beaker, BeakerDisplay } from './common/BeakerDisplay';
 

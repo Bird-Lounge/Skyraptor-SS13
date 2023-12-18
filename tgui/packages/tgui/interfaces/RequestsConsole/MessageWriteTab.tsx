@@ -1,7 +1,20 @@
-import { useBackend, useLocalState } from '../../backend';
 import { sortStrings } from 'common/collections';
+<<<<<<< HEAD
 import { Box, Button, Dropdown, Section, Stack, TextArea } from '../../components';
 import { RequestsData, RequestType, RequestPriority } from './types';
+=======
+
+import { useBackend, useLocalState } from '../../backend';
+import {
+  Box,
+  Button,
+  Dropdown,
+  Section,
+  Stack,
+  TextArea,
+} from '../../components';
+import { RequestPriority, RequestsData, RequestType } from './types';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 export const MessageWriteTab = (props) => {
   const { act, data } = useBackend<RequestsData>();

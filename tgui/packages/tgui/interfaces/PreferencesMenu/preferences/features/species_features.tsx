@@ -1,4 +1,15 @@
+<<<<<<< HEAD
 import { FeatureColorInput, Feature, FeatureChoiced, FeatureDropdownInput, FeatureValueProps, FeatureChoicedServerData } from './base';
+=======
+import {
+  Feature,
+  FeatureChoiced,
+  FeatureChoicedServerData,
+  FeatureColorInput,
+  FeatureDropdownInput,
+  FeatureValueProps,
+} from './base';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 export const eye_color: Feature<string> = {
   name: 'Eye color',

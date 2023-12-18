@@ -1,6 +1,7 @@
 import { map, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { capitalize } from 'common/string';
+
 import { useBackend, useLocalState } from '../backend';
 import { Box, Button, Dropdown, Input, NoticeBox, Section, Stack, Table, TextArea } from '../components';
 import { Window } from '../layouts';

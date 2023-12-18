@@ -1,14 +1,35 @@
-import { useBackend } from '../../backend';
-import { Window } from '../../layouts';
-import { GenericUplink, Item } from './GenericUplink';
-import { Component, Fragment } from 'react';
-import { fetchRetry } from '../../http';
-import { resolveAsset } from '../../assets';
 import { BooleanLike } from 'common/react';
+<<<<<<< HEAD
 import { Box, Tabs, Button, Stack, Section, Tooltip, Dimmer } from '../../components';
 import { PrimaryObjectiveMenu } from './PrimaryObjectiveMenu';
 import { Objective, ObjectiveMenu } from './ObjectiveMenu';
 import { calculateProgression, calculateDangerLevel, dangerDefault, dangerLevelsTooltip } from './calculateDangerLevel';
+=======
+import { Component, Fragment } from 'react';
+
+import { resolveAsset } from '../../assets';
+import { useBackend } from '../../backend';
+import {
+  Box,
+  Button,
+  Dimmer,
+  Section,
+  Stack,
+  Tabs,
+  Tooltip,
+} from '../../components';
+import { fetchRetry } from '../../http';
+import { Window } from '../../layouts';
+import {
+  calculateDangerLevel,
+  calculateProgression,
+  dangerDefault,
+  dangerLevelsTooltip,
+} from './calculateDangerLevel';
+import { GenericUplink, Item } from './GenericUplink';
+import { Objective, ObjectiveMenu } from './ObjectiveMenu';
+import { PrimaryObjectiveMenu } from './PrimaryObjectiveMenu';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type UplinkItem = {
   id: string;

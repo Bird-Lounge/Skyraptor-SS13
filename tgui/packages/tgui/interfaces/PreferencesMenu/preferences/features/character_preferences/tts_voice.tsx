@@ -1,5 +1,17 @@
+<<<<<<< HEAD
 import { FeatureChoiced, FeatureChoicedServerData, FeatureDropdownInput, FeatureValueProps, FeatureNumeric, FeatureSliderInput } from '../base';
 import { Stack, Button } from '../../../../../components';
+=======
+import { Button, Stack } from '../../../../../components';
+import {
+  FeatureChoiced,
+  FeatureChoicedServerData,
+  FeatureDropdownInput,
+  FeatureNumeric,
+  FeatureSliderInput,
+  FeatureValueProps,
+} from '../base';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 const FeatureTTSDropdownInput = (
   props: FeatureValueProps<string, string, FeatureChoicedServerData>

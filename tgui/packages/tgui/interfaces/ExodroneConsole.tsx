@@ -1,3 +1,8 @@
+import { capitalize } from 'common/string';
+import { Fragment } from 'react';
+
+import { resolveAsset } from '../assets';
+import nt_logo from '../assets/bg-nanotrasen.svg';
 import { useBackend, useLocalState } from '../backend';
 <<<<<<< HEAD
 import { BlockQuote, Box, Button, Dimmer, Icon, LabeledList, Modal, ProgressBar, Section, Stack } from '../components';
@@ -15,13 +20,14 @@ import {
   Section,
   Stack,
 } from '../components';
+<<<<<<< HEAD
 >>>>>>> 8971e067b99 (Typescript image component (#80291))
 import { Window } from '../layouts';
 import { resolveAsset } from '../assets';
+=======
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { formatTime } from '../format';
-import { capitalize } from 'common/string';
-import nt_logo from '../assets/bg-nanotrasen.svg';
-import { Fragment } from 'react';
+import { Window } from '../layouts';
 
 type ExplorationEventData = {
   name: string;

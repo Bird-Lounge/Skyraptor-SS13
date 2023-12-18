@@ -1,10 +1,26 @@
 import { sortBy } from 'common/collections';
 import { capitalize } from 'common/string';
+
 import { useBackend, useLocalState } from '../backend';
+<<<<<<< HEAD
 import { Blink, Box, Button, Dimmer, Flex, Icon, Modal, Section, TextArea } from '../components';
 import { StatusDisplayControls } from './common/StatusDisplayControls';
+=======
+import {
+  Blink,
+  Box,
+  Button,
+  Dimmer,
+  Flex,
+  Icon,
+  Modal,
+  Section,
+  TextArea,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 import { sanitizeText } from '../sanitize';
+import { StatusDisplayControls } from './common/StatusDisplayControls';
 
 const STATE_BUYING_SHUTTLE = 'buying_shuttle';
 const STATE_CHANGING_STATUS = 'changing_status';

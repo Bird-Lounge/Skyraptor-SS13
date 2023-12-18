@@ -1,3 +1,4 @@
+import { resolveAsset } from '../../assets';
 import { useLocalState } from '../../backend';
 <<<<<<< HEAD
 import { Box, Button, LabeledList, Section, Modal, Stack } from '../../components';
@@ -5,14 +6,17 @@ import { Box, Button, LabeledList, Section, Modal, Stack } from '../../component
 import {
   Box,
   Button,
-  LabeledList,
-  Section,
-  Modal,
-  Stack,
   Image,
+  LabeledList,
+  Modal,
+  Section,
+  Stack,
 } from '../../components';
+<<<<<<< HEAD
 >>>>>>> 8971e067b99 (Typescript image component (#80291))
 import { resolveAsset } from '../../assets';
+=======
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 export const ShowDesc = (props) => {
   const [desc, setdesc] = useLocalState('desc', '');

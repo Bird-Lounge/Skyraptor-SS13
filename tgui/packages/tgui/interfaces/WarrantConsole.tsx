@@ -1,7 +1,24 @@
+import { sortBy } from 'common/collections';
+
 import { useBackend, useLocalState } from '../backend';
+<<<<<<< HEAD
 import { Window } from '../layouts';
 import { BlockQuote, Button, Collapsible, LabeledList, NoticeBox, RestrictedInput, Section, Stack, Tabs } from '../components';
 import { sortBy } from 'common/collections';
+=======
+import {
+  BlockQuote,
+  Button,
+  Collapsible,
+  LabeledList,
+  NoticeBox,
+  RestrictedInput,
+  Section,
+  Stack,
+  Tabs,
+} from '../components';
+import { Window } from '../layouts';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type Data = {
   records: WarrantRecord[];

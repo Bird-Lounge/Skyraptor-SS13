@@ -1,7 +1,30 @@
+<<<<<<< HEAD
 import { useLocalState, useBackend } from 'tgui/backend';
 import { SECURETAB, Crime, SecurityRecordsData } from './types';
 import { getSecurityRecord } from './helpers';
 import { BlockQuote, Box, Button, Collapsible, Icon, Input, LabeledList, NoticeBox, RestrictedInput, Section, Stack, Tabs, TextArea, Tooltip } from 'tgui/components';
+=======
+import { useBackend, useLocalState } from 'tgui/backend';
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Collapsible,
+  Icon,
+  Input,
+  LabeledList,
+  NoticeBox,
+  RestrictedInput,
+  Section,
+  Stack,
+  Tabs,
+  TextArea,
+  Tooltip,
+} from 'tgui/components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+
+import { getSecurityRecord } from './helpers';
+import { Crime, SECURETAB, SecurityRecordsData } from './types';
 
 /** Displays a list of crimes and allows to add new ones. */
 export const CrimeWatcher = (props) => {

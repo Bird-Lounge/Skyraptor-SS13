@@ -1,18 +1,22 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Button, TextArea, Section, BlockQuote, NoticeBox } from '../components';
 =======
+=======
+import { ReactNode, useState } from 'react';
+
+import { useBackend } from '../backend';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import {
-  Button,
-  TextArea,
-  Section,
   BlockQuote,
-  NoticeBox,
   Box,
+  Button,
+  NoticeBox,
+  Section,
+  TextArea,
 } from '../components';
 >>>>>>> 74c6e74b1f3 (Fixes interview panel [NO GBP] (#80395))
 import { Window } from '../layouts';
-import { useBackend } from '../backend';
-import { ReactNode, useState } from 'react';
 
 type Data = {
   connected: boolean;

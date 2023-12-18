@@ -1,5 +1,20 @@
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
 import { Section, Stack, Input, Button, Table, LabeledList, NoticeBox } from '../components';
+=======
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import {
+  Button,
+  Input,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Stack,
+  Table,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 enum Screen {

@@ -1,8 +1,22 @@
 import { BooleanLike } from 'common/react';
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
 import { Button, LabeledList, Section, Stack, Tabs } from '../components';
 import { Window } from '../layouts';
 import { ICON_BY_CATEGORY_NAME, ColorItem, LayerSelect, SmartPipeBlockSection } from './RapidPipeDispenser';
+=======
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import { Button, LabeledList, Section, Stack, Tabs } from '../components';
+import { Window } from '../layouts';
+import {
+  ColorItem,
+  ICON_BY_CATEGORY_NAME,
+  LayerSelect,
+  SmartPipeBlockSection,
+} from './RapidPipeDispenser';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type Data = {
   // Dynamic

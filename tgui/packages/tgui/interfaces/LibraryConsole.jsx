@@ -1,8 +1,26 @@
 import { map, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { classes } from 'common/react';
+
 import { useBackend, useLocalState } from '../backend';
+<<<<<<< HEAD
 import { Box, Button, Dropdown, Input, Modal, NoticeBox, NumberInput, LabeledList, Section, Stack, Flex, Table } from '../components';
+=======
+import {
+  Box,
+  Button,
+  Dropdown,
+  Flex,
+  Input,
+  LabeledList,
+  Modal,
+  NoticeBox,
+  NumberInput,
+  Section,
+  Stack,
+  Table,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 import { sanitizeText } from '../sanitize';
 

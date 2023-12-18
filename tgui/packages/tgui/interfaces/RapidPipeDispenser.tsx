@@ -1,8 +1,24 @@
 import { BooleanLike, classes } from 'common/react';
 import { multiline } from 'common/string';
 import { capitalizeAll } from 'common/string';
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
 import { Box, Button, ColorBox, LabeledList, Section, Stack, Tabs, Table } from '../components';
+=======
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import {
+  Box,
+  Button,
+  ColorBox,
+  LabeledList,
+  Section,
+  Stack,
+  Table,
+  Tabs,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 const ROOT_CATEGORIES = ['Atmospherics', 'Disposals', 'Transit Tubes'];

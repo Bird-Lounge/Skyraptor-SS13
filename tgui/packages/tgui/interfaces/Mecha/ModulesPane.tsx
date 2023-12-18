@@ -1,10 +1,29 @@
+import { toFixed } from 'common/math';
+import { classes } from 'common/react';
+import { GasmixParser } from 'tgui/interfaces/common/GasmixParser';
+
 import { useBackend } from '../../backend';
+<<<<<<< HEAD
 import { Icon, NumberInput, ProgressBar, Box, Button, Section, Stack, LabeledList, NoticeBox, Collapsible } from '../../components';
 import { MainData, MechModule } from './data';
 import { classes } from 'common/react';
 import { toFixed } from 'common/math';
+=======
+import {
+  Box,
+  Button,
+  Collapsible,
+  Icon,
+  LabeledList,
+  NoticeBox,
+  NumberInput,
+  ProgressBar,
+  Section,
+  Stack,
+} from '../../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { formatPower } from '../../format';
-import { GasmixParser } from 'tgui/interfaces/common/GasmixParser';
+import { MainData, MechModule } from './data';
 
 const moduleSlotIcon = (param) => {
   switch (param) {

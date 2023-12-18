@@ -1,11 +1,22 @@
-import { Window } from '../../layouts';
 import { useBackend, useLocalState } from '../../backend';
+<<<<<<< HEAD
 import { ByondUi, Stack, Button, Section, ProgressBar, LabeledList } from '../../components';
+=======
+import {
+  Button,
+  ByondUi,
+  LabeledList,
+  ProgressBar,
+  Section,
+  Stack,
+} from '../../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { formatSiUnit } from '../../format';
-import { ModulesPane } from './ModulesPane';
-import { AlertPane } from './AlertPane';
+import { Window } from '../../layouts';
 import { AccessConfig } from '../common/AccessConfig';
+import { AlertPane } from './AlertPane';
 import { MainData } from './data';
+import { ModulesPane } from './ModulesPane';
 
 export const Mecha = (props) => {
   const { data } = useBackend<MainData>();

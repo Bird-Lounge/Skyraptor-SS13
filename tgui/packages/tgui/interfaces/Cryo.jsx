@@ -1,7 +1,18 @@
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { AnimatedNumber, Button, LabeledList, ProgressBar, Section } from '../components';
 import { BeakerContents } from './common/BeakerContents';
+=======
+import {
+  AnimatedNumber,
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
+import { BeakerContents } from './common/BeakerContents';
 
 const damageTypes = [
   {

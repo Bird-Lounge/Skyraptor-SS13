@@ -1,9 +1,24 @@
+<<<<<<< HEAD
 import { Box, Button, Icon, Knob, LabeledControls, LabeledList, NumberInput, Section, Tooltip } from 'tgui/components';
 import { HelpDummy, HoverHelp } from './helpers';
-
+=======
 import { BooleanLike } from 'common/react';
-import { HypertorusFilter } from '.';
 import { useBackend } from 'tgui/backend';
+import {
+  Box,
+  Button,
+  Icon,
+  Knob,
+  LabeledControls,
+  LabeledList,
+  NumberInput,
+  Section,
+  Tooltip,
+} from 'tgui/components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+
+import { HypertorusFilter } from '.';
+import { HelpDummy, HoverHelp } from './helpers';
 
 type ComboProps = {
   color?: string | BooleanLike;

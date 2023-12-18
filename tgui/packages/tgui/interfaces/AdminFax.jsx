@@ -1,5 +1,20 @@
 import { useBackend, useLocalState } from '../backend';
+<<<<<<< HEAD
 import { Section, Box, Dropdown, Button, Input, TextArea, Divider, NumberInput, Tooltip, Knob } from '../components';
+=======
+import {
+  Box,
+  Button,
+  Divider,
+  Dropdown,
+  Input,
+  Knob,
+  NumberInput,
+  Section,
+  TextArea,
+  Tooltip,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 export const AdminFax = (props) => {

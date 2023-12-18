@@ -1,6 +1,21 @@
-import { NtosWindow } from '../layouts';
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { Stack, Section, Box, Button, Input, Table, Tooltip, NoticeBox, Divider, RestrictedInput } from '../components';
+=======
+import {
+  Box,
+  Button,
+  Divider,
+  Input,
+  NoticeBox,
+  RestrictedInput,
+  Section,
+  Stack,
+  Table,
+  Tooltip,
+} from '../components';
+import { NtosWindow } from '../layouts';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type Data = {
   name: string;

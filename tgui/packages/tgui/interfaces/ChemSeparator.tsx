@@ -1,6 +1,18 @@
 import { BooleanLike } from 'common/react';
+
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { Box, ProgressBar, NoticeBox, Button, LabeledList, Section } from '../components';
+=======
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  ProgressBar,
+  Section,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 type Data = {

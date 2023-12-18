@@ -6,12 +6,19 @@
  */
 
 import { decodeHtmlEntities } from 'common/string';
+<<<<<<< HEAD
 import { useBackend, useSharedState, useLocalState } from '../backend';
 import { BountyBoardContent } from './BountyBoard';
 import { UserDetails } from './Vending';
 <<<<<<< HEAD
 import { BlockQuote, Box, Button, Divider, LabeledList, Modal, Section, Stack, Tabs, TextArea } from '../components';
 =======
+=======
+import { marked } from 'marked';
+import { useState } from 'react';
+
+import { useBackend, useSharedState } from '../backend';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import {
   BlockQuote,
   Box,
@@ -25,9 +32,15 @@ import {
   Tabs,
   TextArea,
 } from '../components';
+<<<<<<< HEAD
 >>>>>>> 8971e067b99 (Typescript image component (#80291))
 import { marked } from 'marked';
 import { sanitizeText } from '../sanitize';
+=======
+import { sanitizeText } from '../sanitize';
+import { BountyBoardContent } from './BountyBoard';
+import { UserDetails } from './Vending';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 const CENSOR_MESSAGE =
   'This channel has been deemed as threatening to \

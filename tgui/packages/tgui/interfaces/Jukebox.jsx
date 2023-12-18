@@ -1,7 +1,20 @@
 import { sortBy } from 'common/collections';
 import { flow } from 'common/fp';
+
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { Box, Button, Dropdown, Section, Knob, LabeledControls, LabeledList } from '../components';
+=======
+import {
+  Box,
+  Button,
+  Dropdown,
+  Knob,
+  LabeledControls,
+  LabeledList,
+  Section,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 export const Jukebox = (props) => {

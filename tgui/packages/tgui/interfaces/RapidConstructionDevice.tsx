@@ -1,8 +1,16 @@
-import { Window } from '../layouts';
 import { BooleanLike, classes } from 'common/react';
 import { capitalizeAll } from 'common/string';
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
 import { LabeledList, Section, Button, Tabs, Stack, Box } from '../components';
+import { AirLockMainSection } from './AirlockElectronics';
+=======
+import { useState } from 'react';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+
+import { useBackend } from '../backend';
+import { Box, Button, LabeledList, Section, Stack, Tabs } from '../components';
+import { Window } from '../layouts';
 import { AirLockMainSection } from './AirlockElectronics';
 
 type Data = {

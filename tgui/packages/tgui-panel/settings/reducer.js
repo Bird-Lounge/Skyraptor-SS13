@@ -4,9 +4,22 @@
  * @license MIT
  */
 
+<<<<<<< HEAD
 import { changeSettingsTab, loadSettings, openChatSettings, toggleSettings, updateSettings, addHighlightSetting, removeHighlightSetting, updateHighlightSetting } from './actions';
+=======
+import {
+  addHighlightSetting,
+  changeSettingsTab,
+  loadSettings,
+  openChatSettings,
+  removeHighlightSetting,
+  toggleSettings,
+  updateHighlightSetting,
+  updateSettings,
+} from './actions';
+import { FONTS, MAX_HIGHLIGHT_SETTINGS, SETTINGS_TABS } from './constants';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { createDefaultHighlightSetting } from './model';
-import { SETTINGS_TABS, FONTS, MAX_HIGHLIGHT_SETTINGS } from './constants';
 
 const defaultHighlightSetting = createDefaultHighlightSetting();
 

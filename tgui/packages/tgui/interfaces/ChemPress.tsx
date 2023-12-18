@@ -1,6 +1,19 @@
+import { capitalizeAll } from 'common/string';
+
 import { useBackend, useLocalState } from '../backend';
+<<<<<<< HEAD
 import { Box, Button, Input, LabeledList, NumberInput, Section } from '../components';
 import { capitalizeAll } from 'common/string';
+=======
+import {
+  Box,
+  Button,
+  Input,
+  LabeledList,
+  NumberInput,
+  Section,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 type Product = {

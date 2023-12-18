@@ -1,6 +1,17 @@
 import { classes } from 'common/react';
+<<<<<<< HEAD
 import { FeatureChoiced, FeatureChoicedServerData, FeatureValueProps, sortChoices } from '../base';
 import { Box, Dropdown, Stack } from '../../../../../components';
+=======
+
+import { Box, Dropdown, Stack } from '../../../../../components';
+import {
+  FeatureChoiced,
+  FeatureChoicedServerData,
+  FeatureValueProps,
+  sortChoices,
+} from '../base';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 const UIStyleInput = (
   props: FeatureValueProps<string, string, FeatureChoicedServerData>

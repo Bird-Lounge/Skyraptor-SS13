@@ -1,10 +1,24 @@
+<<<<<<< HEAD
 import { Box, Button, LabeledList, NumberInput, ProgressBar, Section } from '../components';
 
 import { BooleanLike } from 'common/react';
 import { Window } from '../layouts';
-import { getGasColor } from '../constants';
+=======
 import { toFixed } from 'common/math';
+import { BooleanLike } from 'common/react';
+
 import { useBackend } from '../backend';
+import {
+  Box,
+  Button,
+  LabeledList,
+  NumberInput,
+  ProgressBar,
+  Section,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+import { getGasColor } from '../constants';
+import { Window } from '../layouts';
 
 type Data = {
   on: BooleanLike;

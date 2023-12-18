@@ -1,6 +1,23 @@
 import { BooleanLike } from 'common/react';
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
 import { Box, Button, Dimmer, Icon, NoticeBox, Section, Stack, Tabs, Tooltip } from '../components';
+=======
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import {
+  Box,
+  Button,
+  Dimmer,
+  Icon,
+  NoticeBox,
+  Section,
+  Stack,
+  Tabs,
+  Tooltip,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 // 15x crate value

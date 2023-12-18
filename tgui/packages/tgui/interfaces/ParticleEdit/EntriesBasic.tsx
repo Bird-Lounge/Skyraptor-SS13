@@ -1,6 +1,33 @@
 import { useBackend, useLocalState } from '../../backend';
+<<<<<<< HEAD
 import { Box, Button, LabeledList, NumberInput, ColorBox, Input, Dropdown, Stack } from '../../components';
 import { EntryCoordProps, EntryFloatProps, EntryGradientProps, EntryIconStateProps, EntryTransformProps, MatrixTypes, ParticleUIData, P_DATA_ICON_ADD, P_DATA_ICON_REMOVE, P_DATA_ICON_WEIGHT, SpaceToNum, SpaceTypes } from './data';
+=======
+import {
+  Box,
+  Button,
+  ColorBox,
+  Dropdown,
+  Input,
+  LabeledList,
+  NumberInput,
+  Stack,
+} from '../../components';
+import {
+  EntryCoordProps,
+  EntryFloatProps,
+  EntryGradientProps,
+  EntryIconStateProps,
+  EntryTransformProps,
+  MatrixTypes,
+  P_DATA_ICON_ADD,
+  P_DATA_ICON_REMOVE,
+  P_DATA_ICON_WEIGHT,
+  ParticleUIData,
+  SpaceToNum,
+  SpaceTypes,
+} from './data';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { editKeyOf, editWeightOf, setGradientSpace } from './helpers';
 
 export const EntryFloat = (props: EntryFloatProps) => {

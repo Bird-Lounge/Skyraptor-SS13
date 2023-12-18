@@ -1,11 +1,25 @@
 import { useBackend, useLocalState } from 'tgui/backend';
+<<<<<<< HEAD
 import { Box, Button, LabeledList, NoticeBox, RestrictedInput, Section, Stack, Table } from 'tgui/components';
+=======
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  RestrictedInput,
+  Section,
+  Stack,
+  Table,
+} from 'tgui/components';
+
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { CharacterPreview } from '../common/CharacterPreview';
 import { EditableText } from '../common/EditableText';
-import { CrimeWatcher } from './CrimeWatcher';
-import { RecordPrint } from './RecordPrint';
 import { CRIMESTATUS2COLOR, CRIMESTATUS2DESC } from './constants';
+import { CrimeWatcher } from './CrimeWatcher';
 import { getSecurityRecord } from './helpers';
+import { RecordPrint } from './RecordPrint';
 import { SecurityRecordsData } from './types';
 
 /** Views a selected record. */

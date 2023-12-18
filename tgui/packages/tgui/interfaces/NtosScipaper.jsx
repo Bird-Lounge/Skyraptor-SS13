@@ -1,5 +1,24 @@
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { BlockQuote, Button, Collapsible, Dropdown, Input, LabeledList, Section, Stack, Tabs, Box, Table, NoticeBox, Tooltip, Icon } from '../components';
+=======
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Collapsible,
+  Dropdown,
+  Icon,
+  Input,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Stack,
+  Table,
+  Tabs,
+  Tooltip,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { TableCell, TableRow } from '../components/Table';
 import { NtosWindow } from '../layouts';
 

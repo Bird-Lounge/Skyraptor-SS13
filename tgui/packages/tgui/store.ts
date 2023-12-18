@@ -4,13 +4,26 @@
  * @license MIT
  */
 
+<<<<<<< HEAD
 import { Middleware, Reducer, Store, applyMiddleware, combineReducers, createStore } from 'common/redux';
 import { backendMiddleware, backendReducer } from './backend';
 import { debugMiddleware, debugReducer, relayMiddleware } from './debug';
+=======
+import { flow } from 'common/fp';
+import {
+  applyMiddleware,
+  combineReducers,
+  createStore,
+  Middleware,
+  Reducer,
+  Store,
+} from 'common/redux';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 import { assetMiddleware } from './assets';
+import { backendMiddleware, backendReducer } from './backend';
+import { debugMiddleware, debugReducer, relayMiddleware } from './debug';
 import { createLogger } from './logging';
-import { flow } from 'common/fp';
 
 type ConfigureStoreOptions = {
   sideEffects?: boolean;

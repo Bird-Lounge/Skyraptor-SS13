@@ -1,6 +1,19 @@
 import { BooleanLike } from 'common/react';
+
 import { useBackend, useLocalState } from '../backend';
+<<<<<<< HEAD
 import { Section, Stack, Input, Button, Table, NoticeBox, Box } from '../components';
+=======
+import {
+  Box,
+  Button,
+  Input,
+  NoticeBox,
+  Section,
+  Stack,
+  Table,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 enum Screen {

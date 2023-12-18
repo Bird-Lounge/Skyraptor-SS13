@@ -1,5 +1,12 @@
 import { Box, Button, Flex } from '../../components';
+<<<<<<< HEAD
 import { FUNDAMENTAL_DATA_TYPES, DATATYPE_DISPLAY_HANDLERS } from './FundamentalTypes';
+=======
+import {
+  DATATYPE_DISPLAY_HANDLERS,
+  FUNDAMENTAL_DATA_TYPES,
+} from './FundamentalTypes';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 export const DisplayName = (props) => {
   const { port, isOutput, componentId, portIndex, act, ...rest } = props;

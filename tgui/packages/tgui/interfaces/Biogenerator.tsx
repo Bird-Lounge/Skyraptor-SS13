@@ -1,8 +1,25 @@
 import { BooleanLike } from 'common/react';
 import { classes } from 'common/react';
+
 import { useBackend, useLocalState } from '../backend';
+<<<<<<< HEAD
 import { Window } from '../layouts';
 import { Box, Section, NumberInput, Table, Tabs, LabeledList, NoticeBox, Button, ProgressBar, Stack } from '../components';
+=======
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  NumberInput,
+  ProgressBar,
+  Section,
+  Stack,
+  Table,
+  Tabs,
+} from '../components';
+import { Window } from '../layouts';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type BiogeneratorData = {
   processing: BooleanLike;

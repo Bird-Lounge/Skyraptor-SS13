@@ -1,9 +1,20 @@
+<<<<<<< HEAD
 import { Loader } from './common/Loader';
 import { InputButtons } from './common/InputButtons';
 import { useBackend, useLocalState } from '../backend';
 import { KEY_ENTER, KEY_ESCAPE } from '../../common/keycodes';
 import { Box, Section, Stack, TextArea } from '../components';
 import { Window } from '../layouts';
+=======
+import { KEY } from 'common/keys';
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import { Box, Section, Stack, TextArea } from '../components';
+import { Window } from '../layouts';
+import { InputButtons } from './common/InputButtons';
+import { Loader } from './common/Loader';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type TextInputData = {
   large_buttons: boolean;
