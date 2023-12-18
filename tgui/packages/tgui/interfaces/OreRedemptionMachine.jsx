@@ -1,6 +1,23 @@
 import { createSearch, toTitleCase } from 'common/string';
+<<<<<<< HEAD
 import { useBackend, useLocalState, useSharedState } from '../backend';
 import { BlockQuote, Box, Button, Table, Tabs, Input, Stack, Icon, Section, LabeledList } from '../components';
+=======
+import { useBackend, useSharedState } from '../backend';
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Table,
+  Tabs,
+  Input,
+  Stack,
+  Image,
+  Icon,
+  Section,
+  LabeledList,
+} from '../components';
+>>>>>>> 8971e067b99 (Typescript image component (#80291))
 import { Window } from '../layouts';
 import { formatSiUnit } from '../format';
 
@@ -174,8 +191,7 @@ const MaterialRow = (props) => {
     <Table.Row className="candystripe" collapsing>
       {!compact && (
         <Table.Cell collapsing>
-          <Box
-            as="img"
+          <Image
             m={1}
             src={`data:image/jpeg;base64,${display.product_icon}`}
             height="18px"

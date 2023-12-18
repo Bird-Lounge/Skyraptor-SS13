@@ -1,6 +1,6 @@
 import { BooleanLike } from 'common/react';
 import { useBackend } from '../backend';
-import { Button, Box, Section, NoticeBox } from '../components';
+import { Button, Box, Section, NoticeBox, Image } from '../components';
 import { Window } from '../layouts';
 
 type Data = {
@@ -66,15 +66,19 @@ export const DestructiveAnalyzer = (props) => {
               tooltip="Ejects the item currently inside the machine."
               onClick={() => act('eject_item')}
             />
+<<<<<<< HEAD
           }>
           <Box
             as="img"
+=======
+          }
+        >
+          <Image
+>>>>>>> 8971e067b99 (Typescript image component (#80291))
             src={`data:image/jpeg;base64,${item_icon}`}
             height="64px"
             width="64px"
-            style={{
-              verticalAlign: 'middle',
-            }}
+            verticalAlign="middle"
           />
         </Section>
         <Section title="Deconstruction Methods">

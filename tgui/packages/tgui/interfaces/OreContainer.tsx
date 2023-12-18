@@ -1,6 +1,12 @@
 import { createSearch, toTitleCase } from 'common/string';
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
 import { Box, Button, Input, Stack, Flex, Section } from '../components';
+=======
+import { useState } from 'react';
+import { useBackend } from '../backend';
+import { Image, Button, Input, Stack, Flex, Section } from '../components';
+>>>>>>> 8971e067b99 (Typescript image component (#80291))
 import { Window } from '../layouts';
 
 type Ores = {
@@ -96,8 +102,7 @@ const RetrieveIcon = (props) => {
   }
 
   return (
-    <Box
-      as="img"
+    <Image
       m={1}
       src={`data:image/jpeg;base64,${icon_display.icon}`}
       height="64px"

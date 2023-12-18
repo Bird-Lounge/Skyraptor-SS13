@@ -1,5 +1,21 @@
 import { useBackend, useLocalState } from '../backend';
+<<<<<<< HEAD
 import { BlockQuote, Box, Button, Dimmer, Icon, LabeledList, Modal, ProgressBar, Section, Stack } from '../components';
+=======
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Dimmer,
+  Icon,
+  Image,
+  LabeledList,
+  Modal,
+  ProgressBar,
+  Section,
+  Stack,
+} from '../components';
+>>>>>>> 8971e067b99 (Typescript image component (#80291))
 import { Window } from '../layouts';
 import { resolveAsset } from '../assets';
 import { formatTime } from '../format';
@@ -716,8 +732,7 @@ const EventScreen = (props: { drone: DroneData; event: FullEventData }) => {
         <Stack.Item>
           <Stack fill>
             <Stack.Item>
-              <Box
-                as="img"
+              <Image
                 src={resolveAsset(event.image)}
                 height="125px"
                 width="250px"
@@ -785,7 +800,7 @@ export const AdventureScreen = (props: {
         </Stack.Item>
         <Stack.Divider />
         <Stack.Item>
-          <Box as="img" src={imgSource} height="100px" width="200px" />
+          <Image src={imgSource} height="100px" width="200px" />
           <Stack vertical>
             <Stack.Divider />
             <Stack.Item grow />
