@@ -1,5 +1,17 @@
 import { useBackend, useSharedState } from '../backend';
+<<<<<<< HEAD
 import { Button, Icon, Modal, Section, Stack, LabeledList, Box } from '../components';
+=======
+import {
+  Box,
+  Button,
+  Icon,
+  LabeledList,
+  Modal,
+  Section,
+  Stack,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 import { GasmixParser } from './common/GasmixParser';
 

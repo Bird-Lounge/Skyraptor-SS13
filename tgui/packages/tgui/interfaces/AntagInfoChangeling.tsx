@@ -1,9 +1,29 @@
 import { BooleanLike } from 'common/react';
 import { multiline } from 'common/string';
+<<<<<<< HEAD
 import { useBackend, useSharedState } from '../backend';
 import { Button, Dimmer, Dropdown, Section, Stack, NoticeBox } from '../components';
 import { Window } from '../layouts';
 import { ObjectivePrintout, Objective, ReplaceObjectivesButton } from './common/Objectives';
+=======
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import {
+  Button,
+  Dimmer,
+  Dropdown,
+  NoticeBox,
+  Section,
+  Stack,
+} from '../components';
+import { Window } from '../layouts';
+import {
+  Objective,
+  ObjectivePrintout,
+  ReplaceObjectivesButton,
+} from './common/Objectives';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 const hivestyle = {
   fontWeight: 'bold',

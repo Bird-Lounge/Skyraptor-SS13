@@ -1,15 +1,28 @@
-import { useBackend } from '../../backend';
-import { Input, InfinitePlane, Stack, Box, Button } from '../../components';
 import { Component } from 'react';
-import { Window } from '../../layouts';
+
 import { resolveAsset } from '../../assets';
+import { useBackend } from '../../backend';
+import { Box, Button, InfinitePlane, Input, Stack } from '../../components';
+import { Window } from '../../layouts';
+import { Connections } from '../common/Connections';
 import { CircuitInfo } from './CircuitInfo';
+<<<<<<< HEAD
 import { ABSOLUTE_Y_OFFSET, MOUSE_BUTTON_LEFT, TIME_UNTIL_PORT_RELEASE_WORKS, VARIABLE_ASSOC_LIST, VARIABLE_LIST } from './constants';
 import { Connections } from '../common/Connections';
 import { ObjectComponent } from './ObjectComponent';
-import { DisplayComponent } from './DisplayComponent';
-import { VariableMenu } from './VariableMenu';
+=======
 import { ComponentMenu } from './ComponentMenu';
+import {
+  ABSOLUTE_Y_OFFSET,
+  MOUSE_BUTTON_LEFT,
+  TIME_UNTIL_PORT_RELEASE_WORKS,
+  VARIABLE_ASSOC_LIST,
+  VARIABLE_LIST,
+} from './constants';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+import { DisplayComponent } from './DisplayComponent';
+import { ObjectComponent } from './ObjectComponent';
+import { VariableMenu } from './VariableMenu';
 
 export class IntegratedCircuit extends Component {
   constructor(props) {

@@ -1,5 +1,18 @@
 import { useBackend } from 'tgui/backend';
+<<<<<<< HEAD
 import { Box, Button, Icon, ProgressBar, Section, Table, Tooltip } from 'tgui/components';
+=======
+import {
+  Box,
+  Button,
+  Icon,
+  ProgressBar,
+  Section,
+  Table,
+  Tooltip,
+} from 'tgui/components';
+
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { SOFTWARE_DESC } from './constants';
 import { PaiData } from './types';
 

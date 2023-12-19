@@ -1,6 +1,21 @@
 import { toFixed } from 'common/math';
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
 import { Button, Flex, LabeledControls, NoticeBox, RoundGauge, Section, Stack } from '../components';
+=======
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import {
+  Button,
+  Flex,
+  LabeledControls,
+  NoticeBox,
+  RoundGauge,
+  Section,
+  Stack,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 const TAB2NAME = [

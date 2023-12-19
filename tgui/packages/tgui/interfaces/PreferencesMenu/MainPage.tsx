@@ -1,15 +1,46 @@
+import { filterMap, sortBy } from 'common/collections';
 import { classes } from 'common/react';
+
 import { sendAct, useBackend, useLocalState } from '../../backend';
+<<<<<<< HEAD
 import { Autofocus, Box, Button, Flex, LabeledList, Popper, Stack, TrackOutsideClicks } from '../../components';
 import { createSetPreference, PreferencesMenuData, RandomSetting, ServerData } from './data';
 import { CharacterPreview } from '../common/CharacterPreview';
 import { RandomizationButton } from './RandomizationButton';
 import { ServerPreferencesFetcher } from './ServerPreferencesFetcher';
+=======
+import {
+  Autofocus,
+  Box,
+  Button,
+  Flex,
+  LabeledList,
+  Popper,
+  Stack,
+  TrackOutsideClicks,
+} from '../../components';
+import { CharacterPreview } from '../common/CharacterPreview';
+import {
+  createSetPreference,
+  PreferencesMenuData,
+  RandomSetting,
+  ServerData,
+} from './data';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { MultiNameInput, NameInput } from './names';
-import { Gender, GENDERS } from './preferences/gender';
 import features from './preferences/features';
+<<<<<<< HEAD
 import { FeatureChoicedServerData, FeatureValueInput } from './preferences/features/base';
 import { filterMap, sortBy } from 'common/collections';
+=======
+import {
+  FeatureChoicedServerData,
+  FeatureValueInput,
+} from './preferences/features/base';
+import { Gender, GENDERS } from './preferences/gender';
+import { RandomizationButton } from './RandomizationButton';
+import { ServerPreferencesFetcher } from './ServerPreferencesFetcher';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { useRandomToggleState } from './useRandomToggleState';
 
 const CLOTHING_CELL_SIZE = 64;

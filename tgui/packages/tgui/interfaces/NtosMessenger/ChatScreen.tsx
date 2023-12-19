@@ -1,23 +1,31 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Stack, Section, Button, Box, Input, Modal, Tooltip, Icon } from '../../components';
 =======
+=======
+import { BooleanLike } from 'common/react';
+import { decodeHtmlEntities } from 'common/string';
+import { Component, createRef, RefObject } from 'react';
+
+import { useBackend } from '../../backend';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import {
-  Stack,
-  Section,
-  Button,
   Box,
-  Input,
-  Modal,
-  Tooltip,
+  Button,
   Icon,
   Image,
+  Input,
+  Modal,
+  Section,
+  Stack,
+  Tooltip,
 } from '../../components';
+<<<<<<< HEAD
 >>>>>>> 8971e067b99 (Typescript image component (#80291))
 import { Component, RefObject, createRef } from 'react';
+=======
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { NtMessage, NtMessenger, NtPicture } from './types';
-import { BooleanLike } from 'common/react';
-import { useBackend } from '../../backend';
-import { decodeHtmlEntities } from 'common/string';
 
 type ChatScreenProps = {
   canReply: BooleanLike;

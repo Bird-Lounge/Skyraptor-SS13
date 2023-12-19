@@ -1,9 +1,28 @@
+import { sortBy } from 'common/collections';
+import { flow } from 'common/fp';
 import { classes } from 'common/react';
 import { createSearch } from 'common/string';
+<<<<<<< HEAD
 import { flow } from 'common/fp';
 import { sortBy } from 'common/collections';
 import { useBackend, useLocalState } from '../backend';
 import { Input, Tooltip, Box, ProgressBar, Button, Section, Table, NoticeBox, Icon } from '../components';
+=======
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import {
+  Box,
+  Button,
+  Icon,
+  Input,
+  NoticeBox,
+  ProgressBar,
+  Section,
+  Table,
+  Tooltip,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 type TraitData = {

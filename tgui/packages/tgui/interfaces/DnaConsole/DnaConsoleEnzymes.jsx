@@ -1,7 +1,23 @@
 import { useBackend } from '../../backend';
+<<<<<<< HEAD
 import { Box, Button, Collapsible, Dimmer, Divider, Icon, LabeledList, NumberInput, Section, Stack } from '../../components';
 import { GeneticMakeupInfo } from './GeneticMakeupInfo';
+=======
+import {
+  Box,
+  Button,
+  Collapsible,
+  Dimmer,
+  Divider,
+  Icon,
+  LabeledList,
+  NumberInput,
+  Section,
+  Stack,
+} from '../../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { PULSE_DURATION_MAX, PULSE_STRENGTH_MAX } from './constants';
+import { GeneticMakeupInfo } from './GeneticMakeupInfo';
 
 const GeneticMakeupBufferInfo = (props) => {
   const { index, makeup } = props;

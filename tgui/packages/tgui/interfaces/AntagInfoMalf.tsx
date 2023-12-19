@@ -1,10 +1,27 @@
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
 import { multiline } from 'common/string';
 import { GenericUplink, Item } from './Uplink/GenericUplink';
 import { BlockQuote, Button, Section, Stack, Tabs } from '../components';
+=======
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { BooleanLike } from 'common/react';
+import { multiline } from 'common/string';
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import { BlockQuote, Button, Section, Stack, Tabs } from '../components';
 import { Window } from '../layouts';
+<<<<<<< HEAD
 import { ObjectivePrintout, Objective, ReplaceObjectivesButton } from './common/Objectives';
+=======
+import {
+  Objective,
+  ObjectivePrintout,
+  ReplaceObjectivesButton,
+} from './common/Objectives';
+import { GenericUplink, Item } from './Uplink/GenericUplink';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 const allystyle = {
   fontWeight: 'bold',

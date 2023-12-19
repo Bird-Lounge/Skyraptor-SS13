@@ -1,6 +1,23 @@
+<<<<<<< HEAD
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
 import { Button, Section, Icon, Input, Stack, LabeledList, Box, NoticeBox } from '../components';
+=======
+import { useState } from 'react';
+
+import { BooleanLike } from '../../common/react';
+import { useBackend } from '../backend';
+import {
+  Box,
+  Button,
+  Icon,
+  Input,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Stack,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 type typePath = string;

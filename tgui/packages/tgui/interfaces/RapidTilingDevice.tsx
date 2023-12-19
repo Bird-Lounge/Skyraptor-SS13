@@ -1,9 +1,18 @@
 import { classes } from 'common/react';
 import { capitalizeAll } from 'common/string';
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
 import { Box, Button, Section, Tabs, Stack } from '../components';
 import { InfoSection } from './RapidConstructionDevice';
 import { Window } from '../layouts';
+=======
+import { useState } from 'react';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+
+import { useBackend } from '../backend';
+import { Box, Button, Section, Stack, Tabs } from '../components';
+import { Window } from '../layouts';
+import { InfoSection } from './RapidConstructionDevice';
 
 type Data = {
   selected_icon: string;

@@ -1,11 +1,25 @@
 import { filter, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { useBackend, useLocalState } from 'tgui/backend';
+<<<<<<< HEAD
 import { Stack, Input, Section, Tabs, NoticeBox, Box, Icon, Button } from 'tgui/components';
+=======
+import {
+  Box,
+  Button,
+  Icon,
+  Input,
+  NoticeBox,
+  Section,
+  Stack,
+  Tabs,
+} from 'tgui/components';
+
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { JOB2ICON } from '../common/JobToIcon';
 import { CRIMESTATUS2COLOR } from './constants';
 import { isRecordMatch } from './helpers';
-import { SecurityRecordsData, SecurityRecord } from './types';
+import { SecurityRecord, SecurityRecordsData } from './types';
 
 /** Tabs on left, with search bar */
 export const SecurityRecordTabs = (props) => {

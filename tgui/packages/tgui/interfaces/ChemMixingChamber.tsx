@@ -1,8 +1,25 @@
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
 import { AnimatedNumber, Box, Button, NumberInput, Section, Stack } from '../components';
 import { Window } from '../layouts';
 import { round, toFixed } from 'common/math';
 import { BooleanLike } from 'common/react';
+=======
+import { round, toFixed } from 'common/math';
+import { BooleanLike } from 'common/react';
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import {
+  AnimatedNumber,
+  Box,
+  Button,
+  NumberInput,
+  Section,
+  Stack,
+} from '../components';
+import { Window } from '../layouts';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type Reagent = {
   name: string;

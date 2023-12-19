@@ -1,8 +1,25 @@
+<<<<<<< HEAD
 import { Button, Divider, Input, NoticeBox, Section, Stack, Tabs } from '../components';
 import { useBackend, useLocalState } from '../backend';
 
 import { Window } from '../layouts';
 import { createSearch } from '../../common/string';
+=======
+import { useState } from 'react';
+
+import { createSearch } from '../../common/string';
+import { useBackend } from '../backend';
+import {
+  Button,
+  Divider,
+  Input,
+  NoticeBox,
+  Section,
+  Stack,
+  Tabs,
+} from '../components';
+import { Window } from '../layouts';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type Data = {
   netsuit: string;

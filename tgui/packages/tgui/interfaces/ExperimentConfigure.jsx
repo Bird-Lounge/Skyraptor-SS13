@@ -1,7 +1,22 @@
-import { Window } from '../layouts';
+import { sortBy } from 'common/collections';
+
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { Section, Box, Button, Flex, Icon, LabeledList, Table, Tooltip } from '../components';
 import { sortBy } from 'common/collections';
+=======
+import {
+  Box,
+  Button,
+  Flex,
+  Icon,
+  LabeledList,
+  Section,
+  Table,
+  Tooltip,
+} from '../components';
+import { Window } from '../layouts';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 const ExperimentStages = (props) => {
   return (

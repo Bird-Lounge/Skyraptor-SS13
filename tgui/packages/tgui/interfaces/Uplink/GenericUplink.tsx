@@ -1,6 +1,20 @@
 import { BooleanLike } from 'common/react';
+<<<<<<< HEAD
 import { useLocalState, useSharedState } from '../../backend';
 import { Box, Button, Input, Section, Tabs, NoticeBox, Stack } from '../../components';
+=======
+import { useState } from 'react';
+
+import {
+  Box,
+  Button,
+  Input,
+  NoticeBox,
+  Section,
+  Stack,
+  Tabs,
+} from '../../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type GenericUplinkProps = {
   currency?: string | JSX.Element;

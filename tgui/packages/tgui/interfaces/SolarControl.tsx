@@ -1,7 +1,22 @@
 import { BooleanLike } from 'common/react';
-import { formatPower } from '../format';
+
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { Box, Button, LabeledList, NumberInput, ProgressBar, Chart, Section, Stack, Icon } from '../components';
+=======
+import {
+  Box,
+  Button,
+  Chart,
+  Icon,
+  LabeledList,
+  NumberInput,
+  ProgressBar,
+  Section,
+  Stack,
+} from '../components';
+import { formatPower } from '../format';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 type Data = {

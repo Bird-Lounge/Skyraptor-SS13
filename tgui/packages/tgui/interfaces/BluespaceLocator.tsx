@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
+=======
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Icon, ProgressBar, Tabs } from '../components';
 import { Window } from '../layouts';
 

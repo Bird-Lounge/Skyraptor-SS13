@@ -1,4 +1,9 @@
 import { decodeHtmlEntities } from 'common/string';
+<<<<<<< HEAD
+=======
+import { useState } from 'react';
+
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { resolveAsset } from '../assets';
 import { useBackend, useLocalState } from '../backend';
 import { Box, Button, LabeledList, Section, Table } from '../components';

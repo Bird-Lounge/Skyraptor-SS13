@@ -1,13 +1,29 @@
+import { range, sortBy } from 'common/collections';
+import { KEY } from 'common/keys';
 import { Component } from 'react';
+<<<<<<< HEAD
 import { Box, Button, KeyListener, Stack, Tooltip, TrackOutsideClicks } from '../../components';
 import { resolveAsset } from '../../assets';
 import { PreferencesMenuData } from './data';
 import { useBackend } from '../../backend';
 import { range, sortBy } from 'common/collections';
+=======
+
+import { resolveAsset } from '../../assets';
+import { useBackend } from '../../backend';
+import {
+  Box,
+  Button,
+  KeyListener,
+  Stack,
+  Tooltip,
+  TrackOutsideClicks,
+} from '../../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { KeyEvent } from '../../events';
-import { TabbedMenu } from './TabbedMenu';
 import { fetchRetry } from '../../http';
-import { KEY } from 'common/keys';
+import { PreferencesMenuData } from './data';
+import { TabbedMenu } from './TabbedMenu';
 
 type Keybinding = {
   name: string;

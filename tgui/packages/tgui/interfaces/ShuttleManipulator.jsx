@@ -1,5 +1,11 @@
 import { map } from 'common/collections';
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
+=======
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Button, Flex, LabeledList, Section, Table, Tabs } from '../components';
 import { Window } from '../layouts';
 

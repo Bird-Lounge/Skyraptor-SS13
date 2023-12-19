@@ -1,6 +1,21 @@
 import { multiline } from 'common/string';
 import { useBackend, useLocalState } from 'tgui/backend';
+<<<<<<< HEAD
 import { BlockQuote, Box, Button, Icon, LabeledList, Section, Tabs, TextArea, Tooltip } from 'tgui/components';
+=======
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Icon,
+  LabeledList,
+  Section,
+  Tabs,
+  TextArea,
+  Tooltip,
+} from 'tgui/components';
+
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { getMedicalRecord } from './helpers';
 import { MedicalNote, MedicalRecordData } from './types';
 

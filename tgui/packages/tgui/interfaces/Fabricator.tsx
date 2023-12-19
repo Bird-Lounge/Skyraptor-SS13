@@ -1,11 +1,24 @@
-import { useBackend } from '../backend';
-import { Stack, Section, Icon, Dimmer, Box, Tooltip, Button } from '../components';
-import { Window } from '../layouts';
-import { MaterialCostSequence } from './Fabrication/MaterialCostSequence';
-import { MaterialAccessBar } from './Fabrication/MaterialAccessBar';
-import { FabricatorData, Design, MaterialMap } from './Fabrication/Types';
 import { classes } from 'common/react';
+
+import { useBackend } from '../backend';
+<<<<<<< HEAD
+import { Stack, Section, Icon, Dimmer, Box, Tooltip, Button } from '../components';
+=======
+import {
+  Box,
+  Button,
+  Dimmer,
+  Icon,
+  Section,
+  Stack,
+  Tooltip,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+import { Window } from '../layouts';
 import { DesignBrowser } from './Fabrication/DesignBrowser';
+import { MaterialAccessBar } from './Fabrication/MaterialAccessBar';
+import { MaterialCostSequence } from './Fabrication/MaterialCostSequence';
+import { Design, FabricatorData, MaterialMap } from './Fabrication/Types';
 
 export const Fabricator = (props) => {
   const { act, data } = useBackend<FabricatorData>();

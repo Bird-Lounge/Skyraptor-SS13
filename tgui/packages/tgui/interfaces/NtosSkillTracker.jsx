@@ -1,5 +1,16 @@
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { Button, Section, Table, BlockQuote, ProgressBar, AnimatedNumber } from '../components';
+=======
+import {
+  AnimatedNumber,
+  BlockQuote,
+  Button,
+  ProgressBar,
+  Section,
+  Table,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { NtosWindow } from '../layouts';
 
 export const NtosSkillTracker = (props) => {

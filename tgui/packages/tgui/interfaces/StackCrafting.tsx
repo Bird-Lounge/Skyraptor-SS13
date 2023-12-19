@@ -1,10 +1,28 @@
-import { createSearch } from 'common/string';
 import { filter, map, reduce, sortBy } from 'common/collections';
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
 import { Box, Button, Input, NoticeBox, Section, Collapsible, Table } from '../components';
 import { Window } from '../layouts';
 import { clamp } from 'common/math';
 import { flow } from 'common/fp';
+=======
+import { flow } from 'common/fp';
+import { clamp } from 'common/math';
+import { createSearch } from 'common/string';
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import {
+  Box,
+  Button,
+  Collapsible,
+  Input,
+  NoticeBox,
+  Section,
+  Table,
+} from '../components';
+import { Window } from '../layouts';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type Recipe = {
   ref: unknown | null;

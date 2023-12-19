@@ -1,10 +1,26 @@
 import { BooleanLike, classes } from 'common/react';
 import { decodeHtmlEntities } from 'common/string';
 import { multiline } from 'common/string';
+
 import { useBackend, useLocalState } from '../backend';
+<<<<<<< HEAD
 import { Box, Button, Collapsible, Flex, NoticeBox, Section, Stack, Tabs, TextArea } from '../components';
 import { Window } from '../layouts';
+=======
+import {
+  Box,
+  Button,
+  Collapsible,
+  Flex,
+  NoticeBox,
+  Section,
+  Stack,
+  Tabs,
+  TextArea,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { formatTime } from '../format';
+import { Window } from '../layouts';
 
 type RoleInfo = {
   role_theme: string;

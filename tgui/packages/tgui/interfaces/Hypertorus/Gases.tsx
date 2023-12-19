@@ -1,12 +1,26 @@
+<<<<<<< HEAD
 import { Box, Button, LabeledList, NumberInput, ProgressBar, Section } from 'tgui/components';
 import { HelpDummy, HoverHelp } from './helpers';
 import { HypertorusFuel, HypertorusGas } from '.';
 import { filter, sortBy } from 'common/collections';
-import { getGasColor, getGasLabel } from 'tgui/constants';
-
+=======
+import { filter, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { toFixed } from 'common/math';
 import { useBackend } from 'tgui/backend';
+import {
+  Box,
+  Button,
+  LabeledList,
+  NumberInput,
+  ProgressBar,
+  Section,
+} from 'tgui/components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+import { getGasColor, getGasLabel } from 'tgui/constants';
+
+import { HypertorusFuel, HypertorusGas } from '.';
+import { HelpDummy, HoverHelp } from './helpers';
 
 type GasListProps = {
   input_max: number;

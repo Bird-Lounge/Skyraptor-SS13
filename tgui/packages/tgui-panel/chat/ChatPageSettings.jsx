@@ -5,7 +5,19 @@
  */
 
 import { useDispatch, useSelector } from 'tgui/backend';
+<<<<<<< HEAD
 import { Button, Collapsible, Divider, Input, Section, Stack } from 'tgui/components';
+=======
+import {
+  Button,
+  Collapsible,
+  Divider,
+  Input,
+  Section,
+  Stack,
+} from 'tgui/components';
+
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { removeChatPage, toggleAcceptedType, updateChatPage } from './actions';
 import { MESSAGE_TYPES } from './constants';
 import { selectCurrentChatPage } from './selectors';

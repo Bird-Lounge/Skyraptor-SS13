@@ -3,8 +3,22 @@ import { flow } from 'common/fp';
 import { toFixed } from 'common/math';
 import { BooleanLike } from 'common/react';
 import { multiline } from 'common/string';
+
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { Button, Divider, NumberInput, ProgressBar, Section, Box, LabeledList, Stack } from '../components';
+=======
+import {
+  Box,
+  Button,
+  Divider,
+  LabeledList,
+  NumberInput,
+  ProgressBar,
+  Section,
+  Stack,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { getGasColor } from '../constants';
 import { Window } from '../layouts';
 

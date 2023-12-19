@@ -1,7 +1,16 @@
 import { useBackend, useLocalState } from 'tgui/backend';
-import { PRINTOUT, SecurityRecordsData } from './types';
 import { Box, Button, Input, Section, Stack } from 'tgui/components';
+<<<<<<< HEAD
 import { getSecurityRecord, getDefaultPrintDescription, getDefaultPrintHeader } from './helpers';
+=======
+
+import {
+  getDefaultPrintDescription,
+  getDefaultPrintHeader,
+  getSecurityRecord,
+} from './helpers';
+import { PRINTOUT, SecurityRecordsData } from './types';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 /** Handles printing posters and rapsheets */
 export const RecordPrint = (props) => {

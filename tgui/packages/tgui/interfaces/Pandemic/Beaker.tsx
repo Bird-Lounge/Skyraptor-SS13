@@ -1,6 +1,18 @@
 import { capitalizeFirst } from 'common/string';
 import { useBackend } from 'tgui/backend';
+<<<<<<< HEAD
 import { Button, LabeledList, NoticeBox, ProgressBar, Section, Stack } from 'tgui/components';
+=======
+import {
+  Button,
+  LabeledList,
+  NoticeBox,
+  ProgressBar,
+  Section,
+  Stack,
+} from 'tgui/components';
+
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Data } from './types';
 
 /** Displays loaded container info, if it exists */

@@ -1,5 +1,10 @@
 import { BooleanLike } from 'common/react';
 import { capitalize, createSearch } from 'common/string';
+<<<<<<< HEAD
+=======
+import { useState } from 'react';
+
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { useBackend, useLocalState } from '../backend';
 <<<<<<< HEAD
 import { Box, Button, Dimmer, Divider, Icon, Input, NumberInput, Section, Stack, Tabs } from '../components';
@@ -10,10 +15,10 @@ import {
   Dimmer,
   Divider,
   Icon,
+  Image,
   Input,
   NumberInput,
   Section,
-  Image,
   Stack,
   Tabs,
 } from '../components';

@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { useBackend, useLocalState } from '../backend';
 import { Box, Flex, Icon, Table, Tabs, Tooltip } from '../components';
 import { Window } from '../layouts';

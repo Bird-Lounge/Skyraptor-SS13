@@ -1,5 +1,17 @@
 import { multiline } from 'common/string';
+<<<<<<< HEAD
 import { CheckboxInput, FeatureChoiced, FeatureDropdownInput, FeatureToggle, Feature, FeatureSliderInput } from '../base';
+=======
+
+import {
+  CheckboxInput,
+  Feature,
+  FeatureChoiced,
+  FeatureDropdownInput,
+  FeatureSliderInput,
+  FeatureToggle,
+} from '../base';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 export const sound_ambience: FeatureToggle = {
   name: 'Enable ambience',

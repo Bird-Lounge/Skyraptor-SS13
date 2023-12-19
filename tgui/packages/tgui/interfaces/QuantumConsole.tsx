@@ -1,9 +1,26 @@
-import { Window } from '../layouts';
+import { BooleanLike } from 'common/react';
+
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { Button, Collapsible, Icon, NoticeBox, ProgressBar, Section, Stack, Table, Tooltip } from '../components';
 import { BooleanLike } from 'common/react';
 import { LoadingScreen } from './common/LoadingToolbox';
+=======
+import {
+  Button,
+  Collapsible,
+  Icon,
+  NoticeBox,
+  ProgressBar,
+  Section,
+  Stack,
+  Table,
+  Tooltip,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { TableCell, TableRow } from '../components/Table';
+import { Window } from '../layouts';
+import { LoadingScreen } from './common/LoadingToolbox';
 
 type Data =
   | {

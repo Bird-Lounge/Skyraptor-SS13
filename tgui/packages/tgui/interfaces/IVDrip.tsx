@@ -1,6 +1,20 @@
 import { BooleanLike } from 'common/react';
+
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { Tooltip, Box, Slider, ProgressBar, NoticeBox, Button, LabeledList, Section } from '../components';
+=======
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  ProgressBar,
+  Section,
+  Slider,
+  Tooltip,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 type IVDripData = {

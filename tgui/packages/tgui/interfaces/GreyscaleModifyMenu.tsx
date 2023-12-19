@@ -6,15 +6,15 @@ import {
   Box,
   Button,
   ColorBox,
+  Divider,
   Flex,
-  Stack,
   Icon,
+  Image,
   Input,
   LabeledList,
   Section,
+  Stack,
   Table,
-  Divider,
-  Image,
 } from '../components';
 >>>>>>> 8971e067b99 (Typescript image component (#80291))
 import { Window } from '../layouts';

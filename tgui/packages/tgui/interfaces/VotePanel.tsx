@@ -1,7 +1,21 @@
 import { BooleanLike } from 'common/react';
+<<<<<<< HEAD
 import { Box, Icon, Stack, Button, Section, NoticeBox, LabeledList, Collapsible } from '../components';
-import { Window } from '../layouts';
+=======
+
 import { useBackend } from '../backend';
+import {
+  Box,
+  Button,
+  Collapsible,
+  Icon,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Stack,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+import { Window } from '../layouts';
 
 enum VoteConfig {
   None = -1,

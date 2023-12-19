@@ -1,5 +1,18 @@
 import { useBackend, useLocalState } from '../backend';
+<<<<<<< HEAD
 import { NoticeBox, Section, Tabs, Input, Button, NumberInput, Stack, Collapsible } from '../components';
+=======
+import {
+  Button,
+  Collapsible,
+  Input,
+  NoticeBox,
+  NumberInput,
+  Section,
+  Stack,
+  Tabs,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 type PthData = {

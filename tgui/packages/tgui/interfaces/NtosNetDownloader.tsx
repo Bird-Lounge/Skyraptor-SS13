@@ -1,10 +1,31 @@
-import { BooleanLike } from 'common/react';
+import { filter, sortBy } from 'common/collections';
+import { flow } from 'common/fp';
 import { scale, toFixed } from 'common/math';
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
 import { createSearch } from 'common/string';
 import { Box, Button, Stack, Icon, Input, LabeledList, NoticeBox, ProgressBar, Section, Tabs } from '../components';
 import { flow } from 'common/fp';
 import { filter, sortBy } from 'common/collections';
+=======
+import { BooleanLike } from 'common/react';
+import { createSearch } from 'common/string';
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import {
+  Box,
+  Button,
+  Icon,
+  Input,
+  LabeledList,
+  NoticeBox,
+  ProgressBar,
+  Section,
+  Stack,
+  Tabs,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { NtosWindow } from '../layouts';
 
 type Data = {

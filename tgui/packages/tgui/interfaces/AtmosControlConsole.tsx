@@ -1,5 +1,20 @@
+<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
 import { Box, Button, LabeledList, NumberInput, Dropdown, Section, Stack } from '../components';
+=======
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import {
+  Box,
+  Button,
+  Dropdown,
+  LabeledList,
+  NumberInput,
+  Section,
+  Stack,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 import { AtmosHandbookContent, atmosHandbookHooks } from './common/AtmosHandbook';
 import { Gasmix, GasmixParser } from './common/GasmixParser';

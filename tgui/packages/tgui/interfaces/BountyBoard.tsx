@@ -1,8 +1,23 @@
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { UserDetails } from './Vending';
 import { BlockQuote, Box, Button, Collapsible, Flex, NumberInput, Section, Stack, TextArea } from '../components';
+=======
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Collapsible,
+  Flex,
+  NumberInput,
+  Section,
+  Stack,
+  TextArea,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { formatMoney } from '../format';
 import { Window } from '../layouts';
+import { UserDetails } from './Vending';
 
 type Data = {
   accountName: string;

@@ -1,9 +1,25 @@
+import { filter, sortBy } from 'common/collections';
+import { flow } from 'common/fp';
 import { BooleanLike, classes } from 'common/react';
 import { createSearch } from 'common/string';
-import { flow } from 'common/fp';
-import { filter, sortBy } from 'common/collections';
+
 import { useBackend, useLocalState } from '../backend';
+<<<<<<< HEAD
 import { Divider, Button, Section, Tabs, Stack, Box, Input, Icon, Tooltip, NoticeBox } from '../components';
+=======
+import {
+  Box,
+  Button,
+  Divider,
+  Icon,
+  Input,
+  NoticeBox,
+  Section,
+  Stack,
+  Tabs,
+  Tooltip,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 import { Food } from './PreferencesMenu/data';
 

@@ -1,7 +1,20 @@
 import { clamp } from 'common/math';
 import { BooleanLike } from 'common/react';
+
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { Box, Blink, Button, Dimmer, Icon, Section, Stack } from '../components';
+=======
+import {
+  Blink,
+  Box,
+  Button,
+  Dimmer,
+  Icon,
+  Section,
+  Stack,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 type FloorData = {

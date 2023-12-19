@@ -1,25 +1,35 @@
 import { createSearch, toTitleCase } from 'common/string';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useBackend, useLocalState, useSharedState } from '../backend';
 import { BlockQuote, Box, Button, Table, Tabs, Input, Stack, Icon, Section, LabeledList } from '../components';
 =======
+=======
+import { useState } from 'react';
+
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { useBackend, useSharedState } from '../backend';
 import {
   BlockQuote,
   Box,
   Button,
+  Icon,
+  Image,
+  Input,
+  LabeledList,
+  Section,
+  Stack,
   Table,
   Tabs,
-  Input,
-  Stack,
-  Image,
-  Icon,
-  Section,
-  LabeledList,
 } from '../components';
+<<<<<<< HEAD
 >>>>>>> 8971e067b99 (Typescript image component (#80291))
 import { Window } from '../layouts';
 import { formatSiUnit } from '../format';
+=======
+import { formatSiUnit } from '../format';
+import { Window } from '../layouts';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 export const OreRedemptionMachine = (props) => {
   const { act, data } = useBackend();

@@ -1,7 +1,22 @@
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { BlockQuote, Box, Button, Icon, Modal, Section, LabeledList, NoticeBox, Stack } from '../components';
 import { Window } from '../layouts';
+=======
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Icon,
+  LabeledList,
+  Modal,
+  NoticeBox,
+  Section,
+  Stack,
+} from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { formatTime } from '../format';
+import { Window } from '../layouts';
 
 type SiteData = {
   name: string;

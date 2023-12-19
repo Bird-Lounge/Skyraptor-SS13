@@ -4,9 +4,14 @@ import { useBackend, useLocalState } from '../backend';
 import { Box, Button, Input, Stack, Flex, Section } from '../components';
 =======
 import { useState } from 'react';
+
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { Image, Button, Input, Stack, Flex, Section } from '../components';
 >>>>>>> 8971e067b99 (Typescript image component (#80291))
+=======
+import { Button, Flex, Image, Input, Section, Stack } from '../components';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 type Ores = {

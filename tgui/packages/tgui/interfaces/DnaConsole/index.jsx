@@ -1,11 +1,24 @@
 import { useBackend } from '../../backend';
 import { Box, Button, Dimmer, Icon, LabeledList, Section, Stack } from '../../components';
 import { Window } from '../../layouts';
+<<<<<<< HEAD
+=======
+import {
+  CONSOLE_MODE_ENZYMES,
+  CONSOLE_MODE_FEATURES,
+  CONSOLE_MODE_SEQUENCER,
+  CONSOLE_MODE_STORAGE,
+  STORAGE_MODE_CONSOLE,
+} from './constants';
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { DnaConsoleEnzymes } from './DnaConsoleEnzymes';
 import { DnaConsoleSequencer } from './DnaConsoleSequencer';
 import { DnaConsoleStorage } from './DnaConsoleStorage';
 import { DnaScanner } from './DnaScanner';
+<<<<<<< HEAD
 import { CONSOLE_MODE_ENZYMES, CONSOLE_MODE_FEATURES, CONSOLE_MODE_SEQUENCER, CONSOLE_MODE_STORAGE, STORAGE_MODE_CONSOLE } from './constants';
+=======
+>>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 export const DnaConsole = (props) => {
   const { data } = useBackend();
