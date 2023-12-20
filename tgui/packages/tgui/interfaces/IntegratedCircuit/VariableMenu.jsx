@@ -21,7 +21,11 @@ import {
   VARIABLE_LIST,
   VARIABLE_NOT_A_LIST,
 } from './constants';
+<<<<<<< HEAD
 >>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
+=======
+import { multiline } from 'common/string';
+>>>>>>> f113b3d4bbe (Fixes circuit variable UI (#80410))
 
 export class VariableMenu extends Component {
   constructor(props) {
