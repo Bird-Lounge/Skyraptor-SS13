@@ -464,3 +464,6 @@
       tendril again.
   - bugfix: Ashwalker tendrils no longer break hooded suits and modsuits.
   - bugfix: Ashwalkers can sacrifice silicons, it wont give anything though.
+2023-12-20:
+  NaakaKo:
+  - bugfix: Fixes runtime from augments not unregistering a signal.
