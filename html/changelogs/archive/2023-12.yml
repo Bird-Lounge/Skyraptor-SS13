@@ -467,3 +467,23 @@
 2023-12-20:
   NaakaKo:
   - bugfix: Fixes runtime from augments not unregistering a signal.
+2023-12-21:
+  LT3:
+  - admin: Server wide admin announcements now use an alert box like other announcements
+  MrMelbert, Ghommie:
+  - bugfix: Alien nests, and some other stuff, can be physically attacked again.
+  - balance: x-mas trees (the ones with presents), are indestructibles. Truly protected
+      by a yuletide spirit.
+  NaakaKo:
+  - bugfix: Fixed a bluescreen while inputting a global variable in the circuit UI.
+  - bugfix: Examine text on disconnected players is no longer accidentally subtle
+  - balance: Disallows siphoning credits outside of station
+  - balance: Roundstart AIs are now made of positronic cubes, rather than brains inside
+      MMIs
+  - bugfix: Emojipedia should copy the text on click properly, now
+  - image: cyborg tools became animated
+  Rhials:
+  - bugfix: Disease Outbreak events will only select players on the station/lavaland
+      as patient zero.
+  - bugfix: Icebox escape pods will now land randomly on the surface, instead of only
+      in certain ruins.

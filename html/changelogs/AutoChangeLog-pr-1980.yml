@@ -1,4 +1,0 @@
-author: "NaakaKo"
-delete-after: True
-changes:
-  - balance: "Disallows siphoning credits outside of station"
