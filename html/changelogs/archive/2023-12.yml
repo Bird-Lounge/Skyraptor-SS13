@@ -487,3 +487,20 @@
       as patient zero.
   - bugfix: Icebox escape pods will now land randomly on the surface, instead of only
       in certain ruins.
+2023-12-22:
+  LT3:
+  - qol: Roundstart intercept report and security level announcements are combined
+      into a single announcement
+  Melbert:
+  - qol: When you place a beaker in a chem-master, you no longer thwack it.
+  - bugfix: Crewmembers immune to viruses won't be picked by the fake virus event.
+  NaakaKo:
+  - bugfix: Name input in character setup should work properly now.
+  - bugfix: Many inputs should feel more responsive.
+  - qol: The bitrunning equipment vending machine now has a unique description for
+      each of the bitrunning disks
+  - bugfix: Feature manipulation surgery will now properly update the patient's appearance.
+  - refactor: The tail portion of lizard spines will no longer draw on people who
+      do not have a tail.
+  - rscadd: 'Added new quirk: Cyborg Lover!'
+  - bugfix: fixes some dropdowns not displaying the right text after selecting something
