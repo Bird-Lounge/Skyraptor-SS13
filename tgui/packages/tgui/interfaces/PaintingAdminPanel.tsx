@@ -1,11 +1,8 @@
 import { decodeHtmlEntities } from 'common/string';
-<<<<<<< HEAD
-=======
 import { useState } from 'react';
 
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { resolveAsset } from '../assets';
-import { useBackend, useLocalState } from '../backend';
+import { useBackend } from '../backend';
 import { Box, Button, LabeledList, Section, Table } from '../components';
 import { Window } from '../layouts';
 
@@ -32,11 +29,12 @@ type PaintingData = {
 
 export const PaintingAdminPanel = (props) => {
   const { act, data } = useBackend<PaintingAdminPanelData>();
-  const [chosenPaintingRef, setChosenPaintingRef] = useLocalState<
-    string | null
-  >('chosenPainting', null);
+  const [chosenPaintingRef, setChosenPaintingRef] = useState<
+    string | undefined
+  >();
   const { paintings } = data;
   const chosenPainting = paintings.find((p) => p.ref === chosenPaintingRef);
+
   return (
     <Window title="Painting Admin Panel" width={800} height={600}>
       <Window.Content scrollable>
@@ -44,8 +42,11 @@ export const PaintingAdminPanel = (props) => {
           <Section
             title="Painting Information"
             buttons={
-              <Button onClick={() => setChosenPaintingRef(null)}>Close</Button>
-            }>
+              <Button onClick={() => setChosenPaintingRef(undefined)}>
+                Close
+              </Button>
+            }
+          >
             <img
               src={resolveAsset(`paintings_${chosenPainting.md5}`)}
               height="96px"
@@ -130,19 +131,14 @@ export const PaintingAdminPanel = (props) => {
             <Section title="Actions">
               <Button.Confirm
                 onClick={() => {
-                  setChosenPaintingRef(null);
+                  setChosenPaintingRef(undefined);
                   act('delete', { ref: chosenPainting.ref });
-<<<<<<< HEAD
-                }}>
-                Delete
-              </Button.Confirm>
-=======
                 }}
                 content="Delete"
               />
->>>>>>> a6c6eb84023 (Fixes invisible delete button in admin painting manager. (#80423))
               <Button
-                onClick={() => act('dumpit', { ref: chosenPainting.ref })}>
+                onClick={() => act('dumpit', { ref: chosenPainting.ref })}
+              >
                 Reset Patronage
               </Button>
             </Section>

@@ -1,7 +1,4 @@
 import { multiline } from 'common/string';
-<<<<<<< HEAD
-import { CheckboxInput, FeatureColorInput, FeatureToggle, Feature, FeatureChoiced, FeatureDropdownInput } from '../base';
-=======
 
 import {
   CheckboxInput,
@@ -11,7 +8,6 @@ import {
   FeatureDropdownInput,
   FeatureToggle,
 } from '../base';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 export const screentip_color: Feature<string> = {
   name: 'Screentips: Screentips color',

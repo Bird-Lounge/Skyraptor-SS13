@@ -6,9 +6,6 @@
 
 import { classes } from 'common/react';
 import { RefObject } from 'react';
-<<<<<<< HEAD
-import { computeFlexClassName, computeFlexItemClassName, computeFlexItemProps, computeFlexProps, FlexItemProps, FlexProps } from './Flex';
-=======
 
 import {
   computeFlexClassName,
@@ -18,7 +15,6 @@ import {
   FlexItemProps,
   FlexProps,
 } from './Flex';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type Props = Partial<{
   vertical: boolean;

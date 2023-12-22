@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import { Button, Divider, Input, NoticeBox, Section, Stack, Tabs } from '../components';
-import { useBackend, useLocalState } from '../backend';
-
-import { Window } from '../layouts';
-import { createSearch } from '../../common/string';
-=======
 import { useState } from 'react';
 
 import { createSearch } from '../../common/string';
@@ -19,7 +12,6 @@ import {
   Tabs,
 } from '../components';
 import { Window } from '../layouts';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type Data = {
   netsuit: string;
@@ -41,11 +33,8 @@ type Outfit = {
 export const NetpodOutfits = (props) => {
   const { act, data } = useBackend<Data>();
   const { netsuit, collections = [] } = data;
-  const [selectedType, setSelectedType] = useLocalState<Collection>(
-    'selectedType',
-    collections[0]
-  );
-  const [search, setSearch] = useLocalState<string>('outfitSearch', '');
+  const [selectedType, setSelectedType] = useState(collections[0]);
+  const [search, setSearch] = useState('');
 
   const searchFn = createSearch(search, (outfit: Outfit) => outfit.name);
 
@@ -72,7 +61,8 @@ export const NetpodOutfits = (props) => {
                   placeholder="Search"
                   value={search}
                 />
-              }>
+              }
+            >
               <Stack fill>
                 <Stack.Item grow>
                   <Tabs vertical>
@@ -81,7 +71,8 @@ export const NetpodOutfits = (props) => {
                         <Tabs.Tab
                           key={collection.name}
                           onClick={() => setSelectedType(collection)}
-                          selected={selectedType === collection}>
+                          selected={selectedType === collection}
+                        >
                           {collection.name}
                         </Tabs.Tab>
                         {index > 0 && <Divider />}
@@ -97,9 +88,8 @@ export const NetpodOutfits = (props) => {
                         <Button
                           selected={netsuit === path}
                           color="transparent"
-                          onClick={() =>
-                            act('select_outfit', { outfit: path })
-                          }>
+                          onClick={() => act('select_outfit', { outfit: path })}
+                        >
                           {name}
                         </Button>
                       </Stack.Item>

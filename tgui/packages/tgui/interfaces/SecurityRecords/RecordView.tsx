@@ -1,7 +1,4 @@
 import { useBackend, useLocalState } from 'tgui/backend';
-<<<<<<< HEAD
-import { Box, Button, LabeledList, NoticeBox, RestrictedInput, Section, Stack, Table } from 'tgui/components';
-=======
 import {
   Box,
   Button,
@@ -13,7 +10,6 @@ import {
   Table,
 } from 'tgui/components';
 
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { CharacterPreview } from '../common/CharacterPreview';
 import { EditableText } from '../common/EditableText';
 import { CRIMESTATUS2COLOR, CRIMESTATUS2DESC } from './constants';
@@ -86,7 +82,8 @@ const RecordInfo = (props) => {
                   height="1.7rem"
                   icon="print"
                   onClick={() => setOpen(true)}
-                  tooltip="Print a rapsheet or poster.">
+                  tooltip="Print a rapsheet or poster."
+                >
                   Print
                 </Button>
               </Stack.Item>
@@ -106,7 +103,8 @@ const RecordInfo = (props) => {
               {name}
             </Table.Cell>
           }
-          wrap>
+          wrap
+        >
           <LabeledList>
             <LabeledList.Item
               buttons={available_statuses.map((button, index) => {
@@ -125,12 +123,14 @@ const RecordInfo = (props) => {
                     }
                     pl={!isSelected ? '1.8rem' : 1}
                     tooltip={CRIMESTATUS2DESC[button] || ''}
-                    tooltipPosition="bottom-start">
+                    tooltipPosition="bottom-start"
+                  >
                     {button[0]}
                   </Button>
                 );
               })}
-              label="Status">
+              label="Status"
+            >
               <Box color={CRIMESTATUS2COLOR[wanted_status]}>
                 {wanted_status}
               </Box>

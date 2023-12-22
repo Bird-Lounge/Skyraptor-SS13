@@ -1,11 +1,6 @@
 import { BooleanLike } from 'common/react';
 
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-import { Button, Collapsible, Icon, NoticeBox, ProgressBar, Section, Stack, Table, Tooltip } from '../components';
-import { BooleanLike } from 'common/react';
-import { LoadingScreen } from './common/LoadingToolbox';
-=======
 import {
   Button,
   Collapsible,
@@ -17,7 +12,6 @@ import {
   Table,
   Tooltip,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { TableCell, TableRow } from '../components/Table';
 import { Window } from '../layouts';
 import { LoadingScreen } from './common/LoadingToolbox';
@@ -145,7 +139,8 @@ const AccessView = (props) => {
                 icon="random"
                 onClick={() => act('random_domain')}
                 mr={1}
-                tooltip="Get a random domain for more rewards. Weighted towards your current points. Minimum: 1 point.">
+                tooltip="Get a random domain for more rewards. Weighted towards your current points. Minimum: 1 point."
+              >
                 Randomize
               </Button>
               <Tooltip content="Accrued points for purchasing domains.">
@@ -156,7 +151,8 @@ const AccessView = (props) => {
           }
           fill
           scrollable
-          title="Virtual Domains">
+          title="Virtual Domains"
+        >
           {sorted.map((domain) => (
             <DomainEntry key={domain.id} domain={domain} />
           ))}
@@ -218,7 +214,8 @@ const DomainEntry = (props: DomainEntryProps) => {
           disabled={!!generated_domain || !ready || occupied || points < cost}
           icon={buttonIcon}
           onClick={() => act('set_domain', { id })}
-          tooltip={!!generated_domain && 'Stop current domain first.'}>
+          tooltip={!!generated_domain && 'Stop current domain first.'}
+        >
           {buttonName}
         </Button>
       }
@@ -229,7 +226,8 @@ const DomainEntry = (props: DomainEntryProps) => {
           {difficulty === Difficulty.High && <Icon name="skull" ml={1} />}
           {!!is_modular && name !== '???' && <Icon name="cubes" ml={1} />}
         </>
-      }>
+      }
+    >
       <Stack height={5}>
         <Stack.Item color="label" grow={4}>
           {desc}
@@ -283,12 +281,14 @@ const AvatarDisplay = (props) => {
             <Button
               icon="sync"
               onClick={() => act('refresh')}
-              tooltip="Refresh avatar data.">
+              tooltip="Refresh avatar data."
+            >
               Refresh
             </Button>
           </Stack.Item>
         </Stack>
-      }>
+      }
+    >
       <Table>
         {avatars.map(({ health, name, pilot, brute, burn, tox, oxy }) => (
           <TableRow key={name}>

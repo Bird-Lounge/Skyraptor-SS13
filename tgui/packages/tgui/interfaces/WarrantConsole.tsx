@@ -1,11 +1,6 @@
 import { sortBy } from 'common/collections';
 
 import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-import { Window } from '../layouts';
-import { BlockQuote, Button, Collapsible, LabeledList, NoticeBox, RestrictedInput, Section, Stack, Tabs } from '../components';
-import { sortBy } from 'common/collections';
-=======
 import {
   BlockQuote,
   Button,
@@ -18,7 +13,6 @@ import {
   Tabs,
 } from '../components';
 import { Window } from '../layouts';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type Data = {
   records: WarrantRecord[];
@@ -43,7 +37,7 @@ type Citation = {
 export const WarrantConsole = (props) => {
   const [selectedRecord] = useLocalState<WarrantRecord | undefined>(
     'warrantRecord',
-    undefined
+    undefined,
   );
 
   return (
@@ -94,7 +88,8 @@ const RecordList = (props) => {
       }
       fill
       scrollable
-      title="Citations">
+      title="Citations"
+    >
       <Stack fill vertical>
         {!records?.length ? (
           <NoticeBox>No citations issued.</NoticeBox>
@@ -105,7 +100,8 @@ const RecordList = (props) => {
                 className="candystripe"
                 key={index}
                 onClick={() => selectHandler(record)}
-                selected={selectedRecord?.crew_ref === record.crew_ref}>
+                selected={selectedRecord?.crew_ref === record.crew_ref}
+              >
                 {record.crew_name}: {record.citations.length}
               </Tabs.Tab>
             ))}
@@ -158,12 +154,14 @@ const CitationManager = (props) => {
           icon="print"
           onClick={() =>
             act('print', { crew_ref: crew_ref, fine_ref: fine_ref })
-          }>
+          }
+        >
           Print
         </Button>
       }
       color={getFineColor(fine)}
-      title={fine_name}>
+      title={fine_name}
+    >
       <LabeledList>
         <LabeledList.Item label="Details">
           <BlockQuote>{details}</BlockQuote>
@@ -201,13 +199,13 @@ const CitationManager = (props) => {
 export const getCurrentRecord = () => {
   const [selectedRecord] = useLocalState<WarrantRecord | undefined>(
     'warrantRecord',
-    undefined
+    undefined,
   );
   if (!selectedRecord) return;
   const { data } = useBackend<Data>();
   const { records = [] } = data;
   const foundRecord = records.find(
-    (record) => record.crew_ref === selectedRecord.crew_ref
+    (record) => record.crew_ref === selectedRecord.crew_ref,
   );
   if (!foundRecord) return;
 

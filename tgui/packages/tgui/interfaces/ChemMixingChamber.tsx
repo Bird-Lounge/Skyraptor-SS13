@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-import { AnimatedNumber, Box, Button, NumberInput, Section, Stack } from '../components';
-import { Window } from '../layouts';
-import { round, toFixed } from 'common/math';
-import { BooleanLike } from 'common/react';
-=======
 import { round, toFixed } from 'common/math';
 import { BooleanLike } from 'common/react';
 import { useState } from 'react';
@@ -19,7 +12,6 @@ import {
   Stack,
 } from '../components';
 import { Window } from '../layouts';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type Reagent = {
   name: string;
@@ -37,14 +29,11 @@ export type MixingData = {
 export const ChemMixingChamber = (props) => {
   const { act, data } = useBackend<MixingData>();
 
-  const [reagentName, setReagentName] = useLocalState('reagentName', '');
-  const [reagentQuantity, setReagentQuantity] = useLocalState(
-    'reagentQuantity',
-    1
-  );
+  const [reagentQuantity, setReagentQuantity] = useState(1);
 
   const { emptying, temperature, targetTemp, isReacting } = data;
   const reagents = data.reagents || [];
+
   return (
     <Window width={290} height={400}>
       <Window.Content>
@@ -72,7 +61,8 @@ export const ChemMixingChamber = (props) => {
                     />
                   </Stack.Item>
                 </Stack>
-              }>
+              }
+            >
               <Stack vertical>
                 <Stack.Item>
                   <Stack fill>
@@ -105,11 +95,13 @@ export const ChemMixingChamber = (props) => {
                     fontSize="16px"
                     inline
                     bold
-                    color={emptying ? 'bad' : 'good'}>
+                    color={emptying ? 'bad' : 'good'}
+                  >
                     {emptying ? 'Emptying' : 'Filling'}
                   </Box>
                 )
-              }>
+              }
+            >
               <Stack vertical fill>
                 <Stack.Item>
                   <Stack fill>

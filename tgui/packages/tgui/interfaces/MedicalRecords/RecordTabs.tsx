@@ -1,9 +1,6 @@
 import { filter, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { useBackend, useLocalState } from 'tgui/backend';
-<<<<<<< HEAD
-import { Stack, Input, Section, Tabs, NoticeBox, Box, Icon, Button } from 'tgui/components';
-=======
 import {
   Box,
   Button,
@@ -15,7 +12,6 @@ import {
   Tabs,
 } from 'tgui/components';
 
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { JOB2ICON } from '../common/JobToIcon';
 import { isRecordMatch } from '../SecurityRecords/helpers';
 import { MedicalRecord, MedicalRecordData } from './types';
@@ -64,7 +60,8 @@ export const MedicalRecordTabs = (props) => {
             <Button
               disabled
               icon="plus"
-              tooltip="Add new records by inserting a 1 by 1 meter photo into the terminal. You do not need this screen open.">
+              tooltip="Add new records by inserting a 1 by 1 meter photo into the terminal. You do not need this screen open."
+            >
               Create
             </Button>
           </Stack.Item>
@@ -109,7 +106,8 @@ const CrewTab = (props: { record: MedicalRecord }) => {
       className="candystripe"
       label={name}
       onClick={() => selectRecord(record)}
-      selected={selectedRecord?.crew_ref === crew_ref}>
+      selected={selectedRecord?.crew_ref === crew_ref}
+    >
       <Box wrap>
         <Icon name={JOB2ICON[rank] || 'question'} /> {name}
       </Box>

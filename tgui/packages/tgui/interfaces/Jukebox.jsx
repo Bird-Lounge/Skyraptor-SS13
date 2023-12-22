@@ -2,9 +2,6 @@ import { sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-import { Box, Button, Dropdown, Section, Knob, LabeledControls, LabeledList } from '../components';
-=======
 import {
   Box,
   Button,
@@ -14,7 +11,6 @@ import {
   LabeledList,
   Section,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 export const Jukebox = (props) => {
@@ -33,7 +29,8 @@ export const Jukebox = (props) => {
               selected={active}
               onClick={() => act('toggle')}
             />
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Track Selected">
               <Dropdown

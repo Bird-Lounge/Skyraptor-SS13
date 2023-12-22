@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Button, TextArea, Section, BlockQuote, NoticeBox } from '../components';
-=======
-=======
 import { ReactNode, useState } from 'react';
 
 import { useBackend } from '../backend';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import {
   BlockQuote,
   Box,
@@ -15,7 +9,6 @@ import {
   Section,
   TextArea,
 } from '../components';
->>>>>>> 74c6e74b1f3 (Fixes interview panel [NO GBP] (#80395))
 import { Window } from '../layouts';
 
 type Data = {
@@ -79,7 +72,8 @@ export const Interview = (props) => {
     <Window
       width={500}
       height={600}
-      canClose={is_admin || status === 'interview_approved'}>
+      canClose={is_admin || status === 'interview_approved'}
+    >
       <Window.Content scrollable>
         {(!read_only && (
           <Section title="Welcome!">
@@ -116,7 +110,8 @@ export const Interview = (props) => {
                 </span>
               )}
             </span>
-          }>
+          }
+        >
           {!read_only && (
             <>
               <Box as="p" color="label">

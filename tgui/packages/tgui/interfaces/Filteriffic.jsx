@@ -3,8 +3,19 @@ import { toFixed } from 'common/math';
 import { useState } from 'react';
 
 import { numberOfDecimalDigits } from '../../common/math';
-import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Collapsible, ColorBox, Dropdown, Input, LabeledList, NoticeBox, NumberInput, Section } from '../components';
+import { useBackend } from '../backend';
+import {
+  Box,
+  Button,
+  Collapsible,
+  ColorBox,
+  Dropdown,
+  Input,
+  LabeledList,
+  NoticeBox,
+  NumberInput,
+  Section,
+} from '../components';
 import { Window } from '../layouts';
 
 const FilterIntegerEntry = (props) => {
@@ -32,7 +43,8 @@ const FilterIntegerEntry = (props) => {
 const FilterFloatEntry = (props) => {
   const { value, name, filterName } = props;
   const { act } = useBackend();
-  const [step, setStep] = useLocalState(`${filterName}-${name}`, 0.01);
+  const [step, setStep] = useState(0.01);
+
   return (
     <>
       <NumberInput
@@ -207,7 +219,7 @@ const FilterEntry = (props) => {
   const filterDefaults = data['filter_info'];
 
   const targetFilterPossibleKeys = Object.keys(
-    filterDefaults[type]['defaults']
+    filterDefaults[type]['defaults'],
   );
 
   return (
@@ -242,7 +254,8 @@ const FilterEntry = (props) => {
             onClick={() => act('remove_filter', { name: name })}
           />
         </>
-      }>
+      }
+    >
       <Section level={2}>
         <LabeledList>
           {targetFilterPossibleKeys.map((entryName) => {
@@ -272,8 +285,9 @@ export const Filteriffic = (props) => {
   const filters = data.target_filter_data || {};
   const hasFilters = Object.keys(filters).length !== 0;
   const filterDefaults = data['filter_info'];
-  const [massApplyPath, setMassApplyPath] = useLocalState('massApplyPath', '');
-  const [hiddenSecret, setHiddenSecret] = useLocalState('hidden', false);
+  const [massApplyPath, setMassApplyPath] = useState('');
+  const [hiddenSecret, setHiddenSecret] = useState(false);
+
   return (
     <Window title="Filteriffic" width={500} height={500}>
       <Window.Content scrollable>
@@ -319,7 +333,8 @@ export const Filteriffic = (props) => {
                 })
               }
             />
-          }>
+          }
+        >
           {!hasFilters ? (
             <Box>No filters</Box>
           ) : (

@@ -1,9 +1,6 @@
 import { BooleanLike } from 'common/react';
 
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-import { Box, Button, LabeledList, NumberInput, ProgressBar, Chart, Section, Stack, Icon } from '../components';
-=======
 import {
   Box,
   Button,
@@ -16,7 +13,6 @@ import {
   Stack,
 } from '../components';
 import { formatPower } from '../format';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 type Data = {
@@ -62,7 +58,8 @@ export const SolarControl = (props) => {
             position="relative"
             overflow="visible"
             height="64px"
-            backgroundColor={'black'}>
+            backgroundColor={'black'}
+          >
             <Chart.Line
               p={1}
               fillPositionedParent
@@ -94,22 +91,25 @@ export const SolarControl = (props) => {
                       good: [0.66, Infinity],
                       average: [0.33, 0.66],
                       bad: [-Infinity, 0.33],
-                    }}>
+                    }}
+                  >
                     {capacity > 0
                       ? `${formatPower(supply)} of ${formatPower(
-                        capacity
-                      )} (${Math.round((100 * supply) / capacity)}%)`
+                          capacity,
+                        )} (${Math.round((100 * supply) / capacity)}%)`
                       : formatPower(0)}
                   </ProgressBar>
                 </LabeledList.Item>
                 <LabeledList.Item
                   label="Solar panels"
-                  color={connected_panels > 0 ? 'good' : 'bad'}>
+                  color={connected_panels > 0 ? 'good' : 'bad'}
+                >
                   {connected_panels}
                 </LabeledList.Item>
                 <LabeledList.Item
                   label="Solar tracker"
-                  color={connected_tracker ? 'good' : 'bad'}>
+                  color={connected_tracker ? 'good' : 'bad'}
+                >
                   {connected_tracker ? 'OK' : 'N/A'}
                 </LabeledList.Item>
               </LabeledList>
@@ -124,7 +124,8 @@ export const SolarControl = (props) => {
               content="Scan for new hardware"
               onClick={() => act('refresh')}
             />
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Tracking">
               <Button

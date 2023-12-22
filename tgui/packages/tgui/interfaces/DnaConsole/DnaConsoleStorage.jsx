@@ -1,12 +1,6 @@
 import { uniqBy } from 'common/collections';
 
 import { useBackend } from '../../backend';
-<<<<<<< HEAD
-import { Box, Button, Collapsible, Stack, LabeledList, Section, Tabs } from '../../components';
-import { GeneticMakeupInfo } from './GeneticMakeupInfo';
-import { MutationInfo } from './MutationInfo';
-import { STORAGE_CONS_SUBMODE_CHROMOSOMES, STORAGE_CONS_SUBMODE_MUTATIONS, STORAGE_DISK_SUBMODE_ENZYMES, STORAGE_DISK_SUBMODE_MUTATIONS, STORAGE_MODE_ADVINJ, STORAGE_MODE_CONSOLE, STORAGE_MODE_DISK } from './constants';
-=======
 import {
   Box,
   Button,
@@ -27,7 +21,6 @@ import {
 } from './constants';
 import { GeneticMakeupInfo } from './GeneticMakeupInfo';
 import { MutationInfo } from './MutationInfo';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 export const DnaConsoleStorage = (props) => {
   const { data, act } = useBackend();
@@ -101,11 +94,12 @@ const DnaConsoleAdvancedInjectors = (props) => {
                 }
               />
             </>
-          }>
+          }
+        >
           <StorageMutations
             mutations={injector.mutations}
             customMode={`advinj${advInjectors.findIndex(
-              (e) => injector.name === e.name
+              (e) => injector.name === e.name,
             )}`}
           />
         </Collapsible>
@@ -235,7 +229,8 @@ const StorageChromosomes = (props) => {
                   act('set_view', {
                     storageChromoName: chromo.Name,
                   })
-                }>
+                }
+              >
                 {chromo.Name}
               </Tabs.Tab>
             ))}
@@ -283,7 +278,7 @@ const StorageMutations = (props) => {
   const mode = data.view.storageMode + customMode;
   let mutationRef = data.view[`storage${mode}MutationRef`];
   let mutation = mutations.find(
-    (mutation) => mutation.ByondRef === mutationRef
+    (mutation) => mutation.ByondRef === mutationRef,
   );
   // If no mutation is selected but there are stored mutations, pick the first
   // mutation and set that as the currently showed one.
@@ -306,7 +301,8 @@ const StorageMutations = (props) => {
                   act('set_view', {
                     [`storage${mode}MutationRef`]: mutation.ByondRef,
                   })
-                }>
+                }
+              >
                 {mutation.Name}
               </Tabs.Tab>
             ))}

@@ -1,11 +1,4 @@
 import { filter, map, reduce, sortBy } from 'common/collections';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, NoticeBox, Section, Collapsible, Table } from '../components';
-import { Window } from '../layouts';
-import { clamp } from 'common/math';
-import { flow } from 'common/fp';
-=======
 import { flow } from 'common/fp';
 import { clamp } from 'common/math';
 import { createSearch } from 'common/string';
@@ -22,7 +15,6 @@ import {
   Table,
 } from '../components';
 import { Window } from '../layouts';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type Recipe = {
   ref: unknown | null;
@@ -78,7 +70,7 @@ function isRecipeList(value: Recipe | RecipeList): value is RecipeList {
  */
 const filterRecipeList = (
   list: RecipeList,
-  keyFilter: (key: string) => boolean
+  keyFilter: (key: string) => boolean,
 ) => {
   const filteredList: RecipeList = flow([
     map((entry: RecipeListEntry): RecipeListFilterableEntry => {
@@ -111,7 +103,7 @@ export const StackCrafting = (_props) => {
   const { data } = useBackend<StackCraftingProps>();
   const { amount, recipes = {} } = data;
 
-  const [searchText, setSearchText] = useLocalState('searchText', '');
+  const [searchText, setSearchText] = useState('');
   const testSearch = createSearch(searchText, (item: string) => item);
   const filteredRecipes = filterRecipeList(recipes, testSearch);
 
@@ -132,7 +124,8 @@ export const StackCrafting = (_props) => {
                 mx={1}
               />
             </>
-          }>
+          }
+        >
           {filteredRecipes ? (
             <RecipeListBox recipes={filteredRecipes} />
           ) : (
@@ -182,7 +175,7 @@ const Multipliers = (props: MultiplierProps) => {
 
   const maxM = Math.min(
     maxMultiplier,
-    Math.floor(recipe.max_res_amount / recipe.res_amount)
+    Math.floor(recipe.max_res_amount / recipe.res_amount),
   );
 
   const multipliers = [5, 10, 25];
@@ -200,7 +193,7 @@ const Multipliers = (props: MultiplierProps) => {
               multiplier: multiplier,
             })
           }
-        />
+        />,
       );
     }
   }
@@ -215,7 +208,7 @@ const Multipliers = (props: MultiplierProps) => {
             multiplier: maxM,
           })
         }
-      />
+      />,
     );
   }
 

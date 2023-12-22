@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Stack, Section, Button, Box, Input, Modal, Tooltip, Icon } from '../../components';
-=======
-=======
 import { BooleanLike } from 'common/react';
 import { decodeHtmlEntities } from 'common/string';
 import { Component, createRef, RefObject } from 'react';
 
 import { useBackend } from '../../backend';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import {
   Box,
   Button,
@@ -20,11 +14,6 @@ import {
   Stack,
   Tooltip,
 } from '../../components';
-<<<<<<< HEAD
->>>>>>> 8971e067b99 (Typescript image component (#80291))
-import { Component, RefObject, createRef } from 'react';
-=======
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { NtMessage, NtMessenger, NtPicture } from './types';
 
 type ChatScreenProps = {
@@ -81,7 +70,7 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
   componentDidUpdate(
     prevProps: ChatScreenProps,
     _prevState: ChatScreenState,
-    _snapshot: any
+    _snapshot: any,
   ) {
     if (prevProps.messages.length !== this.props.messages.length) {
       this.scrollToBottom();
@@ -214,7 +203,7 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
                 : undefined
             }
           />
-        </Stack.Item>
+        </Stack.Item>,
       );
     }
 
@@ -237,14 +226,9 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
             onClick={() => {
               act('PDA_selectPhoto', { uid: photo.uid });
               this.setState({ selectingPhoto: false });
-<<<<<<< HEAD
-            }}>
-            <Box as="img" src={photo.path} maxHeight={10} />
-=======
             }}
           >
             <Image src={photo.path} maxHeight={10} />
->>>>>>> 8971e067b99 (Typescript image component (#80291))
           </Button>
         </Stack.Item>
       ));
@@ -307,14 +291,9 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
                   pt={1}
                   onClick={() => act('PDA_clearPhoto')}
                   tooltip="Remove attachment"
-<<<<<<< HEAD
-                  tooltipPosition="auto-end">
-                  <Box as="img" src={selectedPhoto} />
-=======
                   tooltipPosition="auto-end"
                 >
                   <Image src={selectedPhoto} />
->>>>>>> 8971e067b99 (Typescript image component (#80291))
                 </Button>
               </Stack.Item>
             )}
@@ -372,12 +351,8 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
             fill
             fitted
             title={`${recipient.name} (${recipient.job})`}
-<<<<<<< HEAD
-            scrollableRef={this.scrollRef}>
-=======
             ref={this.scrollRef}
           >
->>>>>>> 623a6ecc998 (Fixes stamps [NO GBP] (#80255))
             <Stack vertical className="NtosChatLog">
               {!!(messages.length > 0 && canReply) && (
                 <>
@@ -405,14 +380,9 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
                   tooltipPosition="left"
                   onClick={() => this.setState({ previewingImage: undefined })}
                 />
-<<<<<<< HEAD
-              }>
-              <Box as="img" src={previewingImage} />
-=======
               }
             >
               <Image src={previewingImage} />
->>>>>>> 8971e067b99 (Typescript image component (#80291))
             </Section>
           </Modal>
         )}
@@ -456,14 +426,9 @@ const ChatMessage = (props: ChatMessageProps) => {
           tooltip="View image"
           className="NtosChatMessage__image"
           color="transparent"
-<<<<<<< HEAD
-          onClick={onPreviewImage}>
-          <Box as="img" src={photoPath} mt={1} />
-=======
           onClick={onPreviewImage}
         >
           <Image src={photoPath} mt={1} />
->>>>>>> 8971e067b99 (Typescript image component (#80291))
         </Button>
       )}
     </Box>

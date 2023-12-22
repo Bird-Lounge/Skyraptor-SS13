@@ -4,13 +4,19 @@ import { PropsWithChildren, ReactNode } from 'react';
 
 import { useBackend } from '../../backend';
 import { Box, Button, Dropdown, Stack, Tooltip } from '../../components';
-import { createSetPreference, Job, JoblessRole, JobPriority, PreferencesMenuData } from './data';
+import {
+  createSetPreference,
+  Job,
+  JoblessRole,
+  JobPriority,
+  PreferencesMenuData,
+} from './data';
 import { ServerPreferencesFetcher } from './ServerPreferencesFetcher';
 
 const sortJobs = (entries: [string, Job][], head?: string) =>
   sortBy<[string, Job]>(
     ([key, _]) => (key === head ? -1 : 1),
-    ([key, _]) => key
+    ([key, _]) => key,
   )(entries);
 
 const PRIORITY_BUTTON_SIZE = '18px';
@@ -48,7 +54,7 @@ type CreateSetPriority = (priority: JobPriority | null) => () => void;
 const createSetPriorityCache: Record<string, CreateSetPriority> = {};
 
 const createCreateSetPriorityFromName = (
-  jobName: string
+  jobName: string,
 ): CreateSetPriority => {
   if (createSetPriorityCache[jobName] !== undefined) {
     return createSetPriorityCache[jobName];
@@ -112,7 +118,8 @@ const PriorityButtons = (props: {
         height: '100%',
         justifyContent: 'flex-end',
         paddingLeft: '0.3em',
-      }}>
+      }}
+    >
       {isOverflow ? (
         <>
           <PriorityButton
@@ -227,7 +234,8 @@ const JobRow = (props: { className?: string; job: Job; name: string }) => {
             width="50%"
             style={{
               paddingLeft: '0.3em',
-            }}>
+            }}
+          >
             {name}
           </Stack.Item>
         </Tooltip>
@@ -264,7 +272,7 @@ const Department = (props: { department: string } & PropsWithChildren) => {
 
         const jobsForDepartment = sortJobs(
           Object.entries(jobs).filter(([_, job]) => job.department === name),
-          department.head
+          department.head,
         );
 
         return (

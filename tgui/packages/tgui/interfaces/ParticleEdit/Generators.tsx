@@ -1,8 +1,4 @@
 import { useBackend } from '../../backend';
-<<<<<<< HEAD
-import { NumberInput, Dropdown, Stack } from '../../components';
-import { GeneratorProps, GeneratorTypes, GeneratorTypesNoVectors, ParticleUIData, P_DATA_GENERATOR, RandToNumber, RandTypes } from './data';
-=======
 import { Dropdown, NumberInput, Stack } from '../../components';
 import {
   GeneratorProps,
@@ -13,7 +9,6 @@ import {
   RandToNumber,
   RandTypes,
 } from './data';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 export const GeneratorListEntry = (props: GeneratorProps) => {
   const { act, data } = useBackend<ParticleUIData>();

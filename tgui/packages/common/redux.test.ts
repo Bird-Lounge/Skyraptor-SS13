@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import { Action, Reducer, applyMiddleware, combineReducers, createAction, createStore } from './redux';
-=======
 import {
   Action,
   applyMiddleware,
@@ -9,7 +6,6 @@ import {
   createStore,
   Reducer,
 } from './redux';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 // Dummy Reducer
 const counterReducer: Reducer<number, Action<string>> = (state = 0, action) => {
@@ -42,7 +38,7 @@ describe('Redux implementation tests', () => {
   test('createStore with applyMiddleware works', () => {
     const store = createStore(
       counterReducer,
-      applyMiddleware(loggingMiddleware)
+      applyMiddleware(loggingMiddleware),
     );
     expect(store.getState()).toBe(0);
   });

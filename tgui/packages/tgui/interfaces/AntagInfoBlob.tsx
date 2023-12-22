@@ -1,9 +1,4 @@
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-import { Box, Collapsible, Divider, LabeledList, Section, Stack } from '../components';
-import { Objective } from './common/Objectives';
-
-=======
 import {
   Box,
   Collapsible,
@@ -12,7 +7,6 @@ import {
   Section,
   Stack,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 import { Objective } from './common/Objectives';
 
@@ -71,7 +65,8 @@ const Overview = (props) => {
         <span
           style={{
             color,
-          }}>
+          }}
+        >
           {name}
         </span>
       </Stack.Item>
@@ -80,7 +75,8 @@ const Overview = (props) => {
         <span
           style={{
             color,
-          }}>
+          }}
+        >
           {name}
         </span>{' '}
         reagent {description}
@@ -91,7 +87,8 @@ const Overview = (props) => {
           <span
             style={{
               color,
-            }}>
+            }}
+          >
             {name}
           </span>{' '}
           reagent {effects}
@@ -196,7 +193,8 @@ const ObjectiveDisplay = (props) => {
           <LabeledList.Item
             color={color ?? 'white'}
             key={index}
-            label={(index + 1).toString()}>
+            label={(index + 1).toString()}
+          >
             {explanation}
           </LabeledList.Item>
         ))}

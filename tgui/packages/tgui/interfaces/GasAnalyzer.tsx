@@ -1,11 +1,4 @@
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-import { GasmixParser } from './common/GasmixParser';
-import type { Gasmix } from './common/GasmixParser';
-import { AtmosHandbookContent, atmosHandbookHooks } from './common/AtmosHandbook';
-import { Window } from '../layouts';
-import { Section } from '../components';
-=======
 import { Section } from '../components';
 import { Window } from '../layouts';
 import {
@@ -14,7 +7,6 @@ import {
 } from './common/AtmosHandbook';
 import type { Gasmix } from './common/GasmixParser';
 import { GasmixParser } from './common/GasmixParser';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 export type GasAnalyzerData = {
   gasmixes: Gasmix[];

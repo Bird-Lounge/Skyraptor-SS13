@@ -221,7 +221,7 @@ export const backendMiddleware = (store) => {
         if (process.env.NODE_ENV !== 'production') {
           logger.log(
             'visible in',
-            perf.measure('render/finish', 'resume/finish')
+            perf.measure('render/finish', 'resume/finish'),
           );
         }
       });
@@ -317,10 +317,11 @@ type StateWithSetter<T> = [T, (nextState: T) => void];
  * @param context React context.
  * @param key Key which uniquely identifies this state in Redux store.
  * @param initialState Initializes your global variable with this value.
+ * @deprecated Use useState and useEffect when you can. Pass the state as a prop.
  */
 export const useLocalState = <T>(
   key: string,
-  initialState: T
+  initialState: T,
 ): StateWithSetter<T> => {
   const state = globalStore?.getState()?.backend;
   const sharedStates = state?.shared ?? {};
@@ -335,7 +336,7 @@ export const useLocalState = <T>(
             typeof nextState === 'function'
               ? nextState(sharedState)
               : nextState,
-        })
+        }),
       );
     },
   ];
@@ -357,7 +358,7 @@ export const useLocalState = <T>(
  */
 export const useSharedState = <T>(
   key: string,
-  initialState: T
+  initialState: T,
 ): StateWithSetter<T> => {
   const state = globalStore?.getState()?.backend;
   const sharedStates = state?.shared ?? {};
@@ -370,7 +371,9 @@ export const useSharedState = <T>(
         key,
         value:
           JSON.stringify(
-            typeof nextState === 'function' ? nextState(sharedState) : nextState
+            typeof nextState === 'function'
+              ? nextState(sharedState)
+              : nextState,
           ) || '',
       });
     },

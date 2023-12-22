@@ -1,7 +1,4 @@
 import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-import { Section, Box, Dropdown, Button, Input, TextArea, Divider, NumberInput, Tooltip, Knob } from '../components';
-=======
 import {
   Box,
   Button,
@@ -14,7 +11,6 @@ import {
   TextArea,
   Tooltip,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 export const AdminFax = (props) => {
@@ -55,11 +51,13 @@ export const FaxMainPanel = (props) => {
                 act('follow', {
                   faxName: fax,
                 })
-              }>
+              }
+            >
               Follow
             </Button>
           </Box>
-        }>
+        }
+      >
         <Box fontSize="13px">
           <Dropdown
             textAlign="center"
@@ -82,10 +80,12 @@ export const FaxMainPanel = (props) => {
               act('preview', {
                 faxName: fax,
               })
-            }>
+            }
+          >
             Preview
           </Button>
-        }>
+        }
+      >
         <Box fontSize="14px">
           <Input
             mb="5px"
@@ -98,13 +98,15 @@ export const FaxMainPanel = (props) => {
             icon="n"
             mr="7px"
             width="49%"
-            onClick={() => setPaperName('Nanotrasen Official Report')}>
+            onClick={() => setPaperName('Nanotrasen Official Report')}
+          >
             Nanotrasen
           </Button>
           <Button
             icon="s"
             width="49%"
-            onClick={() => setPaperName('Syndicate Report')}>
+            onClick={() => setPaperName('Syndicate Report')}
+          >
             Syndicate
           </Button>
         </Box>
@@ -124,7 +126,8 @@ export const FaxMainPanel = (props) => {
             icon="n"
             mr="7px"
             width="49%"
-            onClick={() => setFromWho('Nanotrasen')}>
+            onClick={() => setFromWho('Nanotrasen')}
+          >
             Nanotrasen
           </Button>
           <Button icon="s" width="49%" onClick={() => setFromWho('Syndicate')}>
@@ -205,7 +208,8 @@ export const FaxMainPanel = (props) => {
               act('send', {
                 faxName: fax,
               })
-            }>
+            }
+          >
             Send
           </Button>
           <Button
@@ -224,7 +228,8 @@ export const FaxMainPanel = (props) => {
                 stampAngle: stampAngle,
                 fromWho: fromWho,
               });
-            }}>
+            }}
+          >
             Save
           </Button>
           <Button
@@ -234,7 +239,8 @@ export const FaxMainPanel = (props) => {
               act('createPaper', {
                 faxName: fax,
               })
-            }>
+            }
+          >
             Create paper
           </Button>
         </Box>

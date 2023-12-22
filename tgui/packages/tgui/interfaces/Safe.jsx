@@ -30,7 +30,7 @@ export const Safe = (properties) => {
               className="Safe__dial"
               src={resolveAsset('safe_dial.png')}
               style={{
-                'transform': 'rotate(-' + 3.6 * dial + 'deg)',
+                transform: 'rotate(-' + 3.6 * dial + 'deg)',
               }}
             />
           )}
@@ -93,15 +93,9 @@ const Contents = (properties) => {
               act('retrieve', {
                 index: index + 1,
               })
-<<<<<<< HEAD
-            }>
-            <Box
-              as="img"
-=======
             }
           >
             <Image
->>>>>>> 8971e067b99 (Typescript image component (#80291))
               src={item.sprite + '.png'}
               verticalAlign="middle"
               ml="-6px"
@@ -120,7 +114,8 @@ const Help = (properties) => {
   return (
     <Section
       className="Safe__help"
-      title="Safe opening instructions (because you all keep forgetting)">
+      title="Safe opening instructions (because you all keep forgetting)"
+    >
       <Box>
         1. Turn the dial left to the first number.
         <br />

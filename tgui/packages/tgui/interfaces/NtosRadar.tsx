@@ -53,7 +53,8 @@ export const NtosRadarContent = (props) => {
         position="relative"
         m={1.5}
         width={45}
-        height={45}>
+        height={45}
+      >
         <TargetDisplay />
       </Stack.Item>
     </Stack>
@@ -92,7 +93,8 @@ const ObjectDisplay = (props) => {
                 act('selecttarget', {
                   ref: object.ref,
                 });
-              }}>
+              }}
+            >
               {object.name}
             </div>
           ))}
@@ -117,7 +119,8 @@ const TargetDisplay = (props) => {
         left={1.35}
         width={42}
         fontSize="30px"
-        textAlign="center">
+        textAlign="center"
+      >
         Signal Lost
       </NoticeBox>
     );

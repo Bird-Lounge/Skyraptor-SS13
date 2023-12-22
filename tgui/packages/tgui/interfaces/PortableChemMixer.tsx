@@ -23,7 +23,7 @@ export const PortableChemMixer = (props) => {
   const { beaker } = data;
   const beakerTransferAmounts = beaker ? beaker.transferAmounts : [];
   const chemicals = sortBy((chem: DispensableReagent) => chem.id)(
-    data.chemicals
+    data.chemicals,
   );
   return (
     <Window width={500} height={500}>
@@ -42,7 +42,8 @@ export const PortableChemMixer = (props) => {
                 })
               }
             />
-          ))}>
+          ))}
+        >
           <Box>
             {chemicals.map((chemical) => (
               <Button
@@ -70,7 +71,8 @@ export const PortableChemMixer = (props) => {
               content={amount}
               onClick={() => act('remove', { amount })}
             />
-          ))}>
+          ))}
+        >
           <BeakerDisplay beaker={beaker} showpH />
         </Section>
       </Window.Content>

@@ -1,10 +1,6 @@
 import { toFixed } from 'common/math';
 import { BooleanLike } from 'common/react';
 import { toTitleCase } from 'common/string';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Icon, LabeledList, ProgressBar, Section } from '../components';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
@@ -16,7 +12,6 @@ import {
   ProgressBar,
   Section,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 import { Beaker, BeakerDisplay } from './common/BeakerDisplay';
 
@@ -43,7 +38,7 @@ export const ChemDispenser = (props) => {
   const { act, data } = useBackend<Data>();
   const recording = !!data.recordingRecipe;
   const { recipeReagents = [], recipes = [], beaker } = data;
-  const [hasCol, setHasCol] = useLocalState('has_col', false);
+  const [hasCol, setHasCol] = useState(false);
 
   const beakerTransferAmounts = beaker ? beaker.transferAmounts : [];
   const recordedContents =
@@ -53,6 +48,7 @@ export const ChemDispenser = (props) => {
       name: toTitleCase(id.replace(/_/, ' ')),
       volume: data.recordingRecipe[id],
     }));
+
   return (
     <Window width={565} height={620}>
       <Window.Content scrollable>
@@ -86,7 +82,8 @@ export const ChemDispenser = (props) => {
                 onClick={() => setHasCol(!hasCol)}
               />
             </>
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Energy">
               <ProgressBar value={data.energy / data.maxEnergy}>
@@ -133,7 +130,8 @@ export const ChemDispenser = (props) => {
                 />
               )}
             </>
-          }>
+          }
+        >
           <Box mr={-1}>
             {Object.keys(recipes).map((recipe) => (
               <Button
@@ -166,7 +164,8 @@ export const ChemDispenser = (props) => {
                 })
               }
             />
-          ))}>
+          ))}
+        >
           <Box mr={-1}>
             {data.chemicals.map((chemical) => (
               <Button
@@ -204,7 +203,8 @@ export const ChemDispenser = (props) => {
               content={amount}
               onClick={() => act('remove', { amount })}
             />
-          ))}>
+          ))}
+        >
           <BeakerDisplay
             beaker={beaker}
             title_label={recording && 'Virtual beaker'}

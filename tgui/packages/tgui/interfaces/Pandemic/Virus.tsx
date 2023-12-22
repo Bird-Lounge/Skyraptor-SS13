@@ -1,8 +1,5 @@
 import { capitalizeFirst, decodeHtmlEntities } from 'common/string';
 import { useBackend } from 'tgui/backend';
-<<<<<<< HEAD
-import { Box, Input, LabeledList, Section, Stack, Tooltip } from 'tgui/components';
-=======
 import {
   Box,
   Input,
@@ -12,7 +9,6 @@ import {
   Tooltip,
 } from 'tgui/components';
 
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { getColor } from './helpers';
 import { Data } from './types';
 
@@ -106,7 +102,8 @@ const Traits = (props) => {
         <Tooltip content="Decides the spread type.">
           <LabeledList.Item
             color={getColor(transmission)}
-            label="Transmissibility">
+            label="Transmissibility"
+          >
             {transmission}
           </LabeledList.Item>
         </Tooltip>

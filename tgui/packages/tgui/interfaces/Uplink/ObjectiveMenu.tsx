@@ -1,9 +1,5 @@
 import { BooleanLike, classes } from 'common/react';
 import { Component } from 'react';
-<<<<<<< HEAD
-import { Section, Stack, Box, Button, Flex, Tooltip, NoticeBox, Dimmer, Icon } from '../../components';
-import { calculateProgression, getDangerLevel, Rank } from './calculateDangerLevel';
-=======
 
 import {
   Box,
@@ -21,7 +17,6 @@ import {
   getDangerLevel,
   Rank,
 } from './calculateDangerLevel';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { ObjectiveState } from './constants';
 
 export type Objective = {
@@ -168,7 +163,8 @@ export class ObjectiveMenu extends Component<
                           <Box
                             color="label"
                             className="UplinkObjective__EmptyObjective"
-                            onMouseUp={this.handleObjectiveAdded}>
+                            onMouseUp={this.handleObjectiveAdded}
+                          >
                             <Stack textAlign="center" fill align="center">
                               <Stack.Item textAlign="center" width="100%">
                                 Empty Objective, drop objectives here to take
@@ -188,11 +184,11 @@ export class ObjectiveMenu extends Component<
                           handleObjectiveAction,
                           handleObjectiveCompleted,
                           handleObjectiveAbort,
-                          true
+                          true,
                         )}
                       </Stack.Item>
                     );
-                  }
+                  },
                 )}
               </Stack>
             </Section>
@@ -202,7 +198,8 @@ export class ObjectiveMenu extends Component<
               title="Potential Objectives"
               textAlign="center"
               fill
-              scrollable>
+              scrollable
+            >
               <Flex wrap="wrap" justify="space-evenly">
                 {potentialObjectives.map((objective) => {
                   return (
@@ -214,7 +211,8 @@ export class ObjectiveMenu extends Component<
                       mx="0.5%"
                       onMouseDown={(event) => {
                         this.handleObjectiveClick(event, objective);
-                      }}>
+                      }}
+                    >
                       {(objective.id !== draggingObjective?.id &&
                         ObjectiveFunction(
                           objective,
@@ -222,7 +220,7 @@ export class ObjectiveMenu extends Component<
                           undefined,
                           undefined,
                           undefined,
-                          true
+                          true,
                         )) || (
                         <Box
                           style={{
@@ -250,7 +248,8 @@ export class ObjectiveMenu extends Component<
                         align="center"
                         height="100%"
                         width="100%"
-                        textAlign="center">
+                        textAlign="center"
+                      >
                         <Stack.Item width="100%">
                           <Button
                             content="Request More Objectives"
@@ -274,7 +273,8 @@ export class ObjectiveMenu extends Component<
             top={`${objectiveY}px`}
             style={{
               pointerEvents: 'none',
-            }}>
+            }}
+          >
             {ObjectiveFunction(draggingObjective, false)}
           </Box>
         )}
@@ -289,7 +289,7 @@ const ObjectiveFunction = (
   handleObjectiveAction?: (objective: Objective, action: string) => void,
   handleCompletion?: (objective: Objective) => void,
   handleAbort?: (objective: Objective) => void,
-  grow: boolean = false
+  grow: boolean = false,
 ) => {
   const dangerLevel = getDangerLevel(objective.progression_minimum);
   return (
@@ -413,7 +413,8 @@ export const ObjectiveElement = (props: ObjectiveElementProps) => {
             dangerLevel.gradient,
           ])}
           width="100%"
-          height="100%">
+          height="100%"
+        >
           <Stack>
             <Stack.Item grow={1}>
               {name}{' '}
@@ -465,7 +466,8 @@ export const ObjectiveElement = (props: ObjectiveElementProps) => {
                     className={dangerLevel.gradient}
                     py={0.5}
                     width="100%"
-                    textAlign="center">
+                    textAlign="center"
+                  >
                     {telecrystalReward} TC,
                     <Box ml={1} as="span">
                       {calculateProgression(progressionReward)} Threat Level
@@ -484,7 +486,8 @@ export const ObjectiveElement = (props: ObjectiveElementProps) => {
                                       : 'orange'
                                     : 'green'
                                 }
-                                as="span">
+                                as="span"
+                              >
                                 {Math.abs(progressionDiff)}%
                               </Box>
                               {progressionDiff > 0 ? 'less' : 'more'} threat
@@ -493,7 +496,8 @@ export const ObjectiveElement = (props: ObjectiveElementProps) => {
                               {progressionDiff > 0 ? 'ahead ' : 'behind '}
                               where it normally should be at.
                             </Box>
-                          }>
+                          }
+                        >
                           <Box
                             ml={1}
                             color={
@@ -503,7 +507,8 @@ export const ObjectiveElement = (props: ObjectiveElementProps) => {
                                   : 'orange'
                                 : 'green'
                             }
-                            as="span">
+                            as="span"
+                          >
                             ({progressionDiff > 0 ? '-' : '+'}
                             {Math.abs(progressionDiff)}%)
                           </Box>
@@ -525,7 +530,8 @@ export const ObjectiveElement = (props: ObjectiveElementProps) => {
                     position="relative"
                     width="100%"
                     textAlign="center"
-                    bold>
+                    bold
+                  >
                     <Box
                       width="100%"
                       height="100%"
@@ -544,7 +550,8 @@ export const ObjectiveElement = (props: ObjectiveElementProps) => {
                       style={{
                         border: '1px solid rgba(0, 0, 0, 0.65)',
                       }}
-                      my={1}>
+                      my={1}
+                    >
                       TURN IN
                     </Button>
                   </Box>

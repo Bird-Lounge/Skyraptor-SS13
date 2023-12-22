@@ -1,13 +1,8 @@
 import { BooleanLike } from 'common/react';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-import { TextArea, Stack, Button, NoticeBox, Input, Box } from '../components';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
 import { Box, Button, Input, NoticeBox, Stack, TextArea } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 type AdminhelpData = {
@@ -25,15 +20,9 @@ export const Adminhelp = (props) => {
     bannedFromUrgentAhelp,
     urgentAhelpPromptMessage,
   } = data;
-  const [requestForAdmin, setRequestForAdmin] = useLocalState(
-    'request_for_admin',
-    false
-  );
-  const [currentlyInputting, setCurrentlyInputting] = useLocalState(
-    'confirm_request',
-    false
-  );
-  const [ahelpMessage, setAhelpMessage] = useLocalState('ahelp_message', '');
+  const [requestForAdmin, setRequestForAdmin] = useState(false);
+  const [currentlyInputting, setCurrentlyInputting] = useState(false);
+  const [ahelpMessage, setAhelpMessage] = useState('');
 
   const confirmationText = 'alert admins';
   return (
@@ -41,7 +30,8 @@ export const Adminhelp = (props) => {
       <Window.Content
         style={{
           backgroundImage: 'none',
-        }}>
+        }}
+      >
         <Stack vertical fill>
           <Stack.Item grow>
             <TextArea
@@ -64,7 +54,8 @@ export const Adminhelp = (props) => {
                     backgroundColor="grey"
                     style={{
                       fontStyle: 'normal',
-                    }}>
+                    }}
+                  >
                     Input &apos;{confirmationText}&apos; to proceed.
                     <Input
                       placeholder="Confirmation Prompt"

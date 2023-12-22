@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import { KeyEvent, addScrollableNode, canStealFocus, removeScrollableNode, setupGlobalEvents } from './events';
-=======
 import {
   addScrollableNode,
   canStealFocus,
@@ -8,7 +5,6 @@ import {
   removeScrollableNode,
   setupGlobalEvents,
 } from './events';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 describe('focusEvents', () => {
   afterEach(() => {

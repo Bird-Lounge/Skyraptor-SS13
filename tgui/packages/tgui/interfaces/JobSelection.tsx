@@ -3,9 +3,6 @@ import { Color } from 'common/color';
 import { BooleanLike } from 'common/react';
 
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-import { Box, Button, StyleableSection, Icon, Stack, NoticeBox } from '../components';
-=======
 import {
   Box,
   Button,
@@ -14,7 +11,6 @@ import {
   Stack,
   StyleableSection,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 import { JOB2ICON } from './common/JobToIcon';
 
@@ -62,14 +58,10 @@ export const JobEntry = (data: {
           ? '#949494' // Grey background
           : job.prioritized
             ? '#16fc0f' // Bright green background
-            : Color.fromHex(department.color)
-              .darken(10)
-              .toString(),
+            : Color.fromHex(department.color).darken(10).toString(),
         color: job.unavailable_reason
           ? '#616161' // Dark grey font
-          : Color.fromHex(department.color)
-            .darken(90)
-            .toString(),
+          : Color.fromHex(department.color).darken(90).toString(),
         fontSize: '1.1rem',
         cursor: job.unavailable_reason ? 'initial' : 'pointer',
       }}
@@ -88,7 +80,8 @@ export const JobEntry = (data: {
       }
       onClick={() => {
         !job.unavailable_reason && data.onClick();
-      }}>
+      }}
+    >
       <>
         {jobIcon && <Icon name={jobIcon} />}
         {job.command ? <b>{jobName}</b> : jobName}
@@ -97,7 +90,8 @@ export const JobEntry = (data: {
             whiteSpace: 'nowrap',
             position: 'absolute',
             right: '0.5em',
-          }}>
+          }}
+        >
           {job.used_slots} / {job.open_slots}
         </span>
       </>
@@ -112,13 +106,14 @@ export const JobSelection = (props) => {
   }
   const departments: Record<string, Department> = deepMerge(
     data.departments,
-    data.departments_static
+    data.departments_static,
   );
 
   return (
     <Window
       width={1012}
-      height={data.shuttle_status ? 690 : 666 /* Hahahahahaha */}>
+      height={data.shuttle_status ? 690 : 666 /* Hahahahahaha */}
+    >
       <Window.Content scrollable>
         <StyleableSection
           title={
@@ -137,7 +132,8 @@ export const JobSelection = (props) => {
               />
             </>
           }
-          titleStyle={{ minHeight: '3.4em' }}>
+          titleStyle={{ minHeight: '3.4em' }}
+        >
           <Box wrap="wrap" style={{ columns: '20em' }}>
             {Object.entries(departments).map((departmentEntry) => {
               const departmentName = departmentEntry[0];
@@ -157,7 +153,8 @@ export const JobSelection = (props) => {
                             color: Color.fromHex(entry.color)
                               .darken(60)
                               .toString(),
-                          }}>
+                          }}
+                        >
                           {entry.open_slots +
                             (entry.open_slots === 1 ? ' slot' : ' slots') +
                             ' available'}
@@ -175,10 +172,9 @@ export const JobSelection = (props) => {
                         .toString(),
                     }}
                     textStyle={{
-                      color: Color.fromHex(entry.color)
-                        .darken(80)
-                        .toString(),
-                    }}>
+                      color: Color.fromHex(entry.color).darken(80).toString(),
+                    }}
+                  >
                     <Stack vertical>
                       {Object.entries(entry.jobs).map((job) => (
                         <Stack.Item key={job[0]}>

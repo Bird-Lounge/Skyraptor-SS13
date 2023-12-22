@@ -1,9 +1,6 @@
 import { capitalize } from 'common/string';
 
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-import { Box, Stack, Section, ByondUi, Slider, Flex, Button } from '../components';
-=======
 import {
   Box,
   Button,
@@ -13,7 +10,6 @@ import {
   Slider,
   Stack,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 const colorToMatrix = (param) => {
@@ -79,7 +75,8 @@ export const MODpaint = (props) => {
             {[0, 1, 2].map((row) => (
               <Section
                 key={row}
-                title={`${displayText(prefixes[row])} turns to:`}>
+                title={`${displayText(prefixes[row])} turns to:`}
+              >
                 {[0, 1, 2].map((col) => (
                   <Flex key={col}>
                     <Flex.Item align="left" width="30%">

@@ -1,7 +1,4 @@
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-import { Box, Button, ColorBox, Flex, Stack, Icon, Input, LabeledList, Section, Table, Divider } from '../components';
-=======
 import {
   Box,
   Button,
@@ -16,7 +13,6 @@ import {
   Stack,
   Table,
 } from '../components';
->>>>>>> 8971e067b99 (Typescript image component (#80291))
 import { Window } from '../layouts';
 
 type ColorEntry = {
@@ -113,7 +109,8 @@ const ColorDisplay = (props) => {
           <LabeledList.Item
             key={`colorgroup${item.index}${item.value}`}
             label={`Color Group ${item.index}`}
-            color={item.value}>
+            color={item.value}
+          >
             <ColorBox color={item.value} />{' '}
             <Button
               icon="palette"

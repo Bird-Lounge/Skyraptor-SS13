@@ -1,15 +1,6 @@
 import { binaryInsertWith } from 'common/collections';
 import { classes } from 'common/react';
 import { multiline } from 'common/string';
-<<<<<<< HEAD
-import { CheckboxInput, FeatureChoiced, FeatureChoicedServerData, FeatureDropdownInput, FeatureToggle, FeatureValueProps } from '../base';
-import { Box, Dropdown, Flex } from '../../../../../components';
-import { classes } from 'common/react';
-import { ReactNode } from 'react';
-import { binaryInsertWith } from 'common/collections';
-import { useBackend } from '../../../../../backend';
-import { PreferencesMenuData } from '../../../data';
-=======
 import { ReactNode } from 'react';
 
 import { useBackend } from '../../../../../backend';
@@ -23,7 +14,6 @@ import {
   FeatureToggle,
   FeatureValueProps,
 } from '../base';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 export const ghost_accs: FeatureChoiced = {
   name: 'Ghost accessories',
@@ -38,7 +28,7 @@ const insertGhostForm = binaryInsertWith<{
 }>(({ value }) => value);
 
 const GhostFormInput = (
-  props: FeatureValueProps<string, string, FeatureChoicedServerData>
+  props: FeatureValueProps<string, string, FeatureChoicedServerData>,
 ) => {
   const { data } = useBackend<PreferencesMenuData>();
 
@@ -120,7 +110,7 @@ export const ghost_orbit: FeatureChoiced = {
     Requires BYOND membership.
   `,
   component: (
-    props: FeatureValueProps<string, string, FeatureChoicedServerData>
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
     const { data } = useBackend<PreferencesMenuData>();
 

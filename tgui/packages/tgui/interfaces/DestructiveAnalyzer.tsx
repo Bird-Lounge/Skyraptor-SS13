@@ -67,15 +67,9 @@ export const DestructiveAnalyzer = (props) => {
               tooltip="Ejects the item currently inside the machine."
               onClick={() => act('eject_item')}
             />
-<<<<<<< HEAD
-          }>
-          <Box
-            as="img"
-=======
           }
         >
           <Image
->>>>>>> 8971e067b99 (Typescript image component (#80291))
             src={`data:image/jpeg;base64,${item_icon}`}
             height="64px"
             width="64px"

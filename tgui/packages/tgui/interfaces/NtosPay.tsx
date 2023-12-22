@@ -1,7 +1,4 @@
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-import { Stack, Section, Box, Button, Input, Table, Tooltip, NoticeBox, Divider, RestrictedInput } from '../components';
-=======
 import {
   Box,
   Button,
@@ -15,7 +12,6 @@ import {
   Tooltip,
 } from '../components';
 import { NtosWindow } from '../layouts';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type Data = {
   name: string;
@@ -98,7 +94,8 @@ const TransferSection = (props) => {
           <Box>
             <Tooltip
               content="Enter the pay token of the account you want to transfer credits to."
-              position="top">
+              position="top"
+            >
               <Input
                 placeholder="Pay Token"
                 width="190px"
@@ -108,7 +105,8 @@ const TransferSection = (props) => {
           </Box>
           <Tooltip
             content="Enter amount of credits to transfer."
-            position="top">
+            position="top"
+          >
             <RestrictedInput
               width="83px"
               minValue={1}
@@ -166,7 +164,8 @@ const TransactionHistory = (props) => {
             <Table.Row
               key={log}
               className="candystripe"
-              color={log.adjusted_money < 1 ? 'red' : 'green'}>
+              color={log.adjusted_money < 1 ? 'red' : 'green'}
+            >
               <Table.Cell width="100px">
                 {log.adjusted_money > 1 ? '+' : ''}
                 {log.adjusted_money}

@@ -1,17 +1,13 @@
 import { createSearch } from 'common/string';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Box, Icon, Input, Section } from '../components';
 import { NtosWindow } from '../layouts';
 
 export const NtosRecords = (props) => {
   const { act, data } = useBackend();
-  const [searchTerm, setSearchTerm] = useLocalState('search', '');
+  const [searchTerm, setSearchTerm] = useState('');
   const { mode, records } = data;
 
   const isMatchingSearchTerms = createSearch(searchTerm);
@@ -49,10 +45,11 @@ export const NtosRecords = (props) => {
                       ' ' +
                       record.age +
                       ' ' +
-                      record.fingerprint
+                      record.fingerprint,
                   )
                 )
-              }>
+              }
+            >
               <Box bold>
                 <Icon name="user" mr={1} />
                 {record.name}
@@ -86,10 +83,11 @@ export const NtosRecords = (props) => {
                       ' ' +
                       record.mental_status +
                       ' ' +
-                      record.physical_status
+                      record.physical_status,
                   )
                 )
-              }>
+              }
+            >
               <Box bold>
                 <Icon name="user" mr={1} />
                 {record.name}

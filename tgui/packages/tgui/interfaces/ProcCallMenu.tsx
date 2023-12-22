@@ -1,9 +1,6 @@
 import { BooleanLike } from 'common/react';
 
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-import { Stack, Section, Input, Button, Dropdown, NoticeBox } from '../components';
-=======
 import {
   Button,
   Dropdown,
@@ -12,7 +9,6 @@ import {
   Section,
   Stack,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 type Port = {

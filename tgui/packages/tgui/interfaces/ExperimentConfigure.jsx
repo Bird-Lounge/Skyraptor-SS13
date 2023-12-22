@@ -1,10 +1,6 @@
 import { sortBy } from 'common/collections';
 
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-import { Section, Box, Button, Flex, Icon, LabeledList, Table, Tooltip } from '../components';
-import { sortBy } from 'common/collections';
-=======
 import {
   Box,
   Button,
@@ -16,7 +12,6 @@ import {
   Tooltip,
 } from '../components';
 import { Window } from '../layouts';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 const ExperimentStages = (props) => {
   return (
@@ -49,11 +44,13 @@ const ExperimentStageRow = (props) => {
   return (
     <Table.Row
       className={`ExperimentStage__StageContainer
-        ${completion ? 'complete' : 'incomplete'}`}>
+        ${completion ? 'complete' : 'incomplete'}`}
+    >
       <Table.Cell
         collapsing
         className={`ExperimentStage__Indicator ${type}`}
-        color={completion ? 'good' : 'bad'}>
+        color={completion ? 'good' : 'bad'}
+      >
         {(type === 'bool' && <Icon name={value ? 'check' : 'times'} />) ||
           (type === 'integer' && `${value}/${altValue}`) ||
           (type === 'float' && `${value * 100}%`) ||
@@ -75,7 +72,8 @@ export const TechwebServer = (props) => {
       <Flex
         align="center"
         justify="space-between"
-        className="ExperimentTechwebServer__WebHeader">
+        className="ExperimentTechwebServer__WebHeader"
+      >
         <Flex.Item className="ExperimentTechwebServer__WebName">
           {server.web_id} / {server.web_org}
         </Flex.Item>
@@ -84,7 +82,7 @@ export const TechwebServer = (props) => {
             onClick={() =>
               server.selected
                 ? act('clear_server')
-                : act('select_server', { 'ref': server.ref })
+                : act('select_server', { ref: server.ref })
             }
             content={server.selected ? 'Disconnect' : 'Connect'}
             backgroundColor={server.selected ? 'good' : 'rgba(0, 0, 0, 0.4)'}
@@ -145,7 +143,8 @@ export const ExperimentConfigure = (props) => {
             {techwebs.some((e) => e.selected) && (
               <Section
                 title="Experiments"
-                className="ExperimentConfigure__ExperimentsContainer">
+                className="ExperimentConfigure__ExperimentsContainer"
+              >
                 <Flex.Item mb={1}>
                   {(experiments.length &&
                     always_active &&
@@ -170,7 +169,8 @@ export const ExperimentConfigure = (props) => {
                 className="ExperimentConfigure__PerformExperiment"
                 onClick={() => act('start_experiment_callback')}
                 disabled={!experiments.some((e) => e.selected)}
-                icon="flask">
+                icon="flask"
+              >
                 Perform Experiment
               </Button>
             </Flex.Item>
@@ -194,10 +194,11 @@ export const Experiment = (props) => {
         onClick={() =>
           selected
             ? act('clear_experiment')
-            : act('select_experiment', { 'ref': ref })
+            : act('select_experiment', { ref: ref })
         }
         backgroundColor={selected ? 'good' : '#40628a'}
-        className="ExperimentConfigure__ExperimentName">
+        className="ExperimentConfigure__ExperimentName"
+      >
         <Flex align="center" justify="space-between">
           <Flex.Item color={'white'}>{name}</Flex.Item>
           <Flex.Item color={'rgba(255, 255, 255, 0.5)'}>

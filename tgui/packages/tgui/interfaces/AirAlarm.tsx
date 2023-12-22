@@ -2,9 +2,22 @@ import { BooleanLike } from 'common/react';
 import { Fragment } from 'react';
 
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, LabeledList, Modal, NumberInput, Section, Table } from '../components';
+import {
+  Box,
+  Button,
+  LabeledList,
+  Modal,
+  NumberInput,
+  Section,
+  Table,
+} from '../components';
 import { Window } from '../layouts';
-import { Scrubber, ScrubberProps, Vent, VentProps } from './common/AtmosControls';
+import {
+  Scrubber,
+  ScrubberProps,
+  Vent,
+  VentProps,
+} from './common/AtmosControls';
 import { InterfaceLockNoticeBox } from './common/InterfaceLockNoticeBox';
 
 type AirAlarmData = {
@@ -87,7 +100,8 @@ const AirAlarmStatus = (props) => {
                 <LabeledList.Item
                   key={entry.name}
                   label={entry.name}
-                  color={status.color}>
+                  color={status.color}
+                >
                   {entry.value}
                 </LabeledList.Item>
               );
@@ -97,7 +111,8 @@ const AirAlarmStatus = (props) => {
             </LabeledList.Item>
             <LabeledList.Item
               label="Area status"
-              color={data.atmosAlarm || data.fireAlarm ? 'bad' : 'good'}>
+              color={data.atmosAlarm || data.fireAlarm ? 'bad' : 'good'}
+            >
               {(data.atmosAlarm && 'Atmosphere Alarm') ||
                 (data.fireAlarm && 'Fire Alarm') ||
                 'Nominal'}
@@ -158,7 +173,8 @@ const AirAlarmControl = (props) => {
             onClick={() => setScreen('home')}
           />
         )
-      }>
+      }
+    >
       <Component />
     </Section>
   );
@@ -323,7 +339,8 @@ const EditingModal = (props: EditingModalProps) => {
     <Modal>
       <Section
         title={'Threshold Value Editor'}
-        buttons={<Button onClick={() => finish()} icon="times" color="red" />}>
+        buttons={<Button onClick={() => finish()} icon="times" color="red" />}
+      >
         <Box mb={1.5}>
           {`Editing the ${typeName.toLowerCase()} value for ${name.toLowerCase()}...`}
         </Box>
@@ -335,7 +352,8 @@ const EditingModal = (props: EditingModalProps) => {
                 threshold_type: type,
                 value: 0,
               })
-            }>
+            }
+          >
             {'Enable'}
           </Button>
         ) : (
@@ -361,7 +379,8 @@ const EditingModal = (props: EditingModalProps) => {
                   threshold_type: type,
                   value: -1,
                 })
-              }>
+              }
+            >
               {'Disable'}
             </Button>
           </>
@@ -413,7 +432,8 @@ const AirAlarmControlThresholds = (props) => {
                     unit: tlv.unit,
                     finish: () => setActiveModal(null),
                   })
-                }>
+                }
+              >
                 {tlv.hazard_min === -1
                   ? 'Disabled'
                   : tlv.hazard_min + ' ' + tlv.unit}
@@ -432,7 +452,8 @@ const AirAlarmControlThresholds = (props) => {
                     unit: tlv.unit,
                     finish: () => setActiveModal(null),
                   })
-                }>
+                }
+              >
                 {tlv.warning_min === -1
                   ? 'Disabled'
                   : tlv.warning_min + ' ' + tlv.unit}
@@ -451,7 +472,8 @@ const AirAlarmControlThresholds = (props) => {
                     unit: tlv.unit,
                     finish: () => setActiveModal(null),
                   })
-                }>
+                }
+              >
                 {tlv.warning_max === -1
                   ? 'Disabled'
                   : tlv.warning_max + ' ' + tlv.unit}
@@ -470,7 +492,8 @@ const AirAlarmControlThresholds = (props) => {
                     unit: tlv.unit,
                     finish: () => setActiveModal(null),
                   })
-                }>
+                }
+              >
                 {tlv.hazard_max === -1
                   ? 'Disabled'
                   : tlv.hazard_max + ' ' + tlv.unit}

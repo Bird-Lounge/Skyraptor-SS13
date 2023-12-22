@@ -3,15 +3,11 @@ import { BooleanLike } from 'common/react';
 import { useBackend } from '../backend';
 import { Icon, Section, Stack } from '../components';
 import { Window } from '../layouts';
-<<<<<<< HEAD
-import { ObjectivePrintout, Objective, ReplaceObjectivesButton } from './common/Objectives';
-=======
 import {
   Objective,
   ObjectivePrintout,
   ReplaceObjectivesButton,
 } from './common/Objectives';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 const ninja_emphasis = {
   color: 'red',

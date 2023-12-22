@@ -4,9 +4,6 @@
  * @license MIT
  */
 
-<<<<<<< HEAD
-import { addChatPage, changeChatPage, loadChat, removeChatPage, toggleAcceptedType, updateChatPage, updateMessageCount, changeScrollTracking } from './actions';
-=======
 import {
   addChatPage,
   changeChatPage,
@@ -17,7 +14,6 @@ import {
   updateChatPage,
   updateMessageCount,
 } from './actions';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { canPageAcceptType, createMainPage } from './model';
 
 const mainPage = createMainPage();

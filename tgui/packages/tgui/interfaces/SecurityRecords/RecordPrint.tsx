@@ -1,8 +1,5 @@
 import { useBackend, useLocalState } from 'tgui/backend';
 import { Box, Button, Input, Section, Stack } from 'tgui/components';
-<<<<<<< HEAD
-import { getSecurityRecord, getDefaultPrintDescription, getDefaultPrintHeader } from './helpers';
-=======
 
 import {
   getDefaultPrintDescription,
@@ -10,7 +7,6 @@ import {
   getSecurityRecord,
 } from './helpers';
 import { PRINTOUT, SecurityRecordsData } from './types';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 /** Handles printing posters and rapsheets */
 export const RecordPrint = (props) => {
@@ -26,7 +22,7 @@ export const RecordPrint = (props) => {
 
   const [printType, setPrintType] = useLocalState<PRINTOUT>(
     'printType',
-    PRINTOUT.Missing
+    PRINTOUT.Missing,
   );
   const [header, setHeader] = useLocalState<string>('printHeader', '');
   const [description, setDescription] = useLocalState<string>('printDesc', '');
@@ -87,7 +83,8 @@ export const RecordPrint = (props) => {
             onClick={() => swapTabs(PRINTOUT.Missing)}
             selected={printType === PRINTOUT.Missing}
             tooltip="Prints a poster with mugshot and description."
-            tooltipPosition="bottom">
+            tooltipPosition="bottom"
+          >
             Missing
           </Button>
           <Button
@@ -98,7 +95,8 @@ export const RecordPrint = (props) => {
             tooltip={`Prints a standard paper with the record on it.${
               innocent ? ' (Requires crimes)' : ''
             }`}
-            tooltipPosition="bottom">
+            tooltipPosition="bottom"
+          >
             Rapsheet
           </Button>
           <Button
@@ -109,7 +107,8 @@ export const RecordPrint = (props) => {
             tooltip={`Prints a poster with mugshot and crimes.${
               innocent ? ' (Requires crimes)' : ''
             }`}
-            tooltipPosition="bottom">
+            tooltipPosition="bottom"
+          >
             Wanted
           </Button>
           <Button color="bad" icon="times" onClick={reset} />
@@ -117,7 +116,8 @@ export const RecordPrint = (props) => {
       }
       fill
       scrollable
-      title="Print Record">
+      title="Print Record"
+    >
       <Stack color="label" fill vertical>
         <Stack.Item>
           <Box>Enter a Header:</Box>

@@ -100,30 +100,3 @@ export const Panel = (props) => {
     </Pane>
   );
 };
-<<<<<<< HEAD:tgui/packages/tgui-panel/Panel.jsx
-
-const HoboPanel = (props) => {
-  const settings = useSettings();
-  return (
-    <Pane theme={settings.theme}>
-      <Pane.Content scrollable>
-        <Button
-          style={{
-            position: 'fixed',
-            top: '1em',
-            right: '2em',
-            zIndex: 1000,
-          }}
-          selected={settings.visible}
-          onClick={() => settings.toggle()}>
-          Settings
-        </Button>
-        {(settings.visible && <SettingsPanel />) || (
-          <ChatPanel lineHeight={settings.lineHeight} />
-        )}
-      </Pane.Content>
-    </Pane>
-  );
-};
-=======
->>>>>>> 6b30843774f (Converts some of tgui-panel to typescript (#80057)):tgui/packages/tgui-panel/Panel.tsx

@@ -1,7 +1,4 @@
 import { toFixed } from 'common/math';
-<<<<<<< HEAD
-import { Box, Stack, Section, ByondUi, NumberInput, Button } from '../components';
-=======
 
 import { useBackend } from '../backend';
 import {
@@ -12,7 +9,6 @@ import {
   Section,
   Stack,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 type Data = {

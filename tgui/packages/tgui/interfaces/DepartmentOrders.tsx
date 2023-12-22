@@ -1,8 +1,4 @@
 import { BooleanLike } from 'common/react';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Dimmer, Icon, NoticeBox, Section, Stack, Tabs, Tooltip } from '../components';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
@@ -17,7 +13,6 @@ import {
   Tabs,
   Tooltip,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 // 15x crate value
@@ -114,7 +109,8 @@ const CooldownDimmer = (props) => {
             fontSize="14px"
             color="red"
             disabled={!can_override}
-            onClick={() => act('override_order')}>
+            onClick={() => act('override_order')}
+          >
             <Box fontSize="22px">Override</Box>
           </Button>
         </Stack.Item>
@@ -126,7 +122,8 @@ const CooldownDimmer = (props) => {
 const DepartmentCatalog = (props) => {
   const { act, data } = useBackend<Info>();
   const { supplies } = data;
-  const [tabCategory, setTabCategory] = useLocalState('tabName', supplies[0]);
+  const [tabCategory, setTabCategory] = useState(supplies[0]);
+
   return (
     <Stack vertical fill>
       <Stack.Item>
@@ -135,7 +132,8 @@ const DepartmentCatalog = (props) => {
             <Tabs.Tab
               key={cat.name}
               selected={tabCategory === cat}
-              onClick={() => setTabCategory(cat)}>
+              onClick={() => setTabCategory(cat)}
+            >
               {cat.name}
             </Tabs.Tab>
           ))}
@@ -153,7 +151,8 @@ const DepartmentCatalog = (props) => {
                         as="span"
                         style={{
                           borderBottom: '2px dotted rgba(255, 255, 255, 0.8)',
-                        }}>
+                        }}
+                      >
                         {pack.name}
                       </Box>
                     </Tooltip>
@@ -166,7 +165,8 @@ const DepartmentCatalog = (props) => {
                         act('order', {
                           id: pack.id,
                         })
-                      }>
+                      }
+                    >
                       Order
                     </Button>
                   </Stack.Item>

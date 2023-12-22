@@ -1,7 +1,4 @@
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-import { Box, Button, Stack, Icon, LabeledControls, Section, NumberInput, Table } from '../components';
-=======
 import {
   Box,
   Button,
@@ -12,7 +9,6 @@ import {
   Stack,
   Table,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 type Data = {

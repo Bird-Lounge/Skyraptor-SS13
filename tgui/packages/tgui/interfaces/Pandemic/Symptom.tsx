@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import { Collapsible, LabeledList, NoticeBox, Section, Stack, Tooltip } from 'tgui/components';
-=======
 import {
   Collapsible,
   LabeledList,
@@ -10,7 +7,6 @@ import {
   Tooltip,
 } from 'tgui/components';
 
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { getColor } from './helpers';
 import { Threshold } from './types';
 

@@ -1,8 +1,5 @@
 import { capitalizeFirst } from 'common/string';
 import { useBackend } from 'tgui/backend';
-<<<<<<< HEAD
-import { Button, LabeledList, NoticeBox, ProgressBar, Section, Stack } from 'tgui/components';
-=======
 import {
   Button,
   LabeledList,
@@ -12,7 +9,6 @@ import {
   Stack,
 } from 'tgui/components';
 
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Data } from './types';
 
 /** Displays loaded container info, if it exists */
@@ -65,7 +61,8 @@ export const BeakerDisplay = (props) => {
             onClick={() => act('eject_beaker')}
           />
         </>
-      }>
+      }
+    >
       {content}
     </Section>
   );
@@ -100,9 +97,9 @@ const Info = (props) => {
               minValue={0}
               maxValue={beaker.capacity}
               ranges={{
-                'good': [beaker.capacity * 0.85, beaker.capacity],
-                'average': [beaker.capacity * 0.25, beaker.capacity * 0.85],
-                'bad': [0, beaker.capacity * 0.25],
+                good: [beaker.capacity * 0.85, beaker.capacity],
+                average: [beaker.capacity * 0.25, beaker.capacity * 0.85],
+                bad: [0, beaker.capacity * 0.25],
               }}
             />
           </LabeledList.Item>
@@ -126,21 +123,22 @@ const Antibodies = (props) => {
         {!resistances.length
           ? 'None'
           : resistances.map((resistance) => {
-            return (
-              <Button
-                key={resistance.name}
-                icon="eye-dropper"
-                disabled={!is_ready}
-                tooltip="Creates a vaccine bottle."
-                onClick={() =>
-                  act('create_vaccine_bottle', {
-                    index: resistance.id,
-                  })
-                }>
-                {`${resistance.name}`}
-              </Button>
-            );
-          })}
+              return (
+                <Button
+                  key={resistance.name}
+                  icon="eye-dropper"
+                  disabled={!is_ready}
+                  tooltip="Creates a vaccine bottle."
+                  onClick={() =>
+                    act('create_vaccine_bottle', {
+                      index: resistance.id,
+                    })
+                  }
+                >
+                  {`${resistance.name}`}
+                </Button>
+              );
+            })}
       </LabeledList.Item>
     </LabeledList>
   );

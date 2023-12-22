@@ -7,15 +7,6 @@
 import { toFixed } from 'common/math';
 import { useLocalState } from 'tgui/backend';
 import { useDispatch, useSelector } from 'tgui/backend';
-<<<<<<< HEAD
-import { Box, Button, ColorBox, Divider, Dropdown, Flex, Input, LabeledList, NumberInput, Section, Stack, Tabs, TextArea } from 'tgui/components';
-import { ChatPageSettings } from '../chat';
-import { rebuildChat, saveChatToDisk } from '../chat/actions';
-import { THEMES } from '../themes';
-import { changeSettingsTab, updateSettings, addHighlightSetting, removeHighlightSetting, updateHighlightSetting } from './actions';
-import { SETTINGS_TABS, FONTS, MAX_HIGHLIGHT_SETTINGS } from './constants';
-import { selectActiveTab, selectSettings, selectHighlightSettings, selectHighlightSettingById } from './selectors';
-=======
 import {
   Box,
   Button,
@@ -49,7 +40,6 @@ import {
   selectHighlightSettings,
   selectSettings,
 } from './selectors';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 export const SettingsPanel = (props) => {
   const activeTab = useSelector(selectActiveTab);
@@ -67,9 +57,10 @@ export const SettingsPanel = (props) => {
                   dispatch(
                     changeSettingsTab({
                       tabId: tab.id,
-                    })
+                    }),
                   )
-                }>
+                }
+              >
                 {tab.name}
               </Tabs.Tab>
             ))}
@@ -101,7 +92,7 @@ export const SettingsGeneral = (props) => {
               dispatch(
                 updateSettings({
                   theme: value,
-                })
+                }),
               )
             }
           />
@@ -117,7 +108,7 @@ export const SettingsGeneral = (props) => {
                     dispatch(
                       updateSettings({
                         fontFamily: value,
-                      })
+                      }),
                     )
                   }
                 />
@@ -128,7 +119,7 @@ export const SettingsGeneral = (props) => {
                     dispatch(
                       updateSettings({
                         fontFamily: value,
-                      })
+                      }),
                     )
                   }
                 />
@@ -161,7 +152,7 @@ export const SettingsGeneral = (props) => {
               dispatch(
                 updateSettings({
                   fontSize: value,
-                })
+                }),
               )
             }
           />
@@ -179,7 +170,7 @@ export const SettingsGeneral = (props) => {
               dispatch(
                 updateSettings({
                   lineHeight: value,
-                })
+                }),
               )
             }
           />
@@ -257,7 +248,7 @@ const TextHighlightSetting = (props) => {
               dispatch(
                 removeHighlightSetting({
                   id: id,
-                })
+                }),
               )
             }
           />
@@ -273,7 +264,7 @@ const TextHighlightSetting = (props) => {
                 updateHighlightSetting({
                   id: id,
                   highlightWholeMessage: !highlightWholeMessage,
-                })
+                }),
               )
             }
           />
@@ -289,7 +280,7 @@ const TextHighlightSetting = (props) => {
                 updateHighlightSetting({
                   id: id,
                   matchWord: !matchWord,
-                })
+                }),
               )
             }
           />
@@ -304,7 +295,7 @@ const TextHighlightSetting = (props) => {
                 updateHighlightSetting({
                   id: id,
                   matchCase: !matchCase,
-                })
+                }),
               )
             }
           />
@@ -321,7 +312,7 @@ const TextHighlightSetting = (props) => {
                 updateHighlightSetting({
                   id: id,
                   highlightColor: value,
-                })
+                }),
               )
             }
           />
@@ -336,7 +327,7 @@ const TextHighlightSetting = (props) => {
             updateHighlightSetting({
               id: id,
               highlightText: value,
-            })
+            }),
           )
         }
       />

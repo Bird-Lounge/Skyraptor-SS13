@@ -36,7 +36,8 @@ export const BeakerDisplay = (props: BeakerProps) => {
           !!beaker && (
             <Button icon="eject" content="Eject" onClick={() => act('eject')} />
           )
-        }>
+        }
+      >
         {title_label ||
           (!!beaker && (
             <>

@@ -1,9 +1,6 @@
 import { BooleanLike } from 'common/react';
 
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-import { Box, Button, Flex, Grid, Icon, LabeledList, Modal, NoticeBox, Section } from '../components';
-=======
 import {
   Box,
   Button,
@@ -16,7 +13,6 @@ import {
   Section,
 } from '../components';
 import { FakeTerminal } from '../components/FakeTerminal';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { NtosWindow } from '../layouts';
 
 const CONTRACT_STATUS_INACTIVE = 1;
@@ -206,7 +202,8 @@ export const StatusPane = (props) => {
             onClick={() => act('PRG_toggle_info')}
           />
         </>
-      }>
+      }
+    >
       <Grid>
         <Grid.Column size={0.85}>
           <LabeledList>
@@ -218,7 +215,8 @@ export const StatusPane = (props) => {
                   disabled={redeemable_tc <= 0}
                   onClick={() => act('PRG_redeem_TC')}
                 />
-              }>
+              }
+            >
               {String(redeemable_tc)}
             </LabeledList.Item>
             <LabeledList.Item label="TC Earned">
@@ -254,7 +252,8 @@ const ContractsTab = (props) => {
             disabled={!ongoing_contract || extraction_enroute}
             onClick={() => act('PRG_call_extraction')}
           />
-        }>
+        }
+      >
         {contracts.map((contract) => {
           if (ongoing_contract && contract.status !== CONTRACT_STATUS_ACTIVE) {
             return;
@@ -287,7 +286,8 @@ const ContractsTab = (props) => {
                     }
                   />
                 </>
-              }>
+              }
+            >
               <Grid>
                 <Grid.Column>{contract.message}</Grid.Column>
                 <Grid.Column size={0.5}>
@@ -304,7 +304,8 @@ const ContractsTab = (props) => {
       <Section
         title="Dropoff Locator"
         textAlign="center"
-        opacity={ongoing_contract ? 100 : 0}>
+        opacity={ongoing_contract ? 100 : 0}
+      >
         <Box bold>{dropoff_direction}</Box>
       </Section>
     </>

@@ -1,8 +1,4 @@
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-import { AnimatedNumber, Button, LabeledList, ProgressBar, Section } from '../components';
-import { BeakerContents } from './common/BeakerContents';
-=======
 import {
   AnimatedNumber,
   Button,
@@ -10,7 +6,6 @@ import {
   ProgressBar,
   Section,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 import { BeakerContents } from './common/BeakerContents';
 
@@ -59,14 +54,16 @@ const CryoContent = (props) => {
               </LabeledList.Item>
               <LabeledList.Item
                 label="Temperature"
-                color={data.occupant.temperaturestatus}>
+                color={data.occupant.temperaturestatus}
+              >
                 <AnimatedNumber value={data.occupant.bodyTemperature} />
                 {' K'}
               </LabeledList.Item>
               <LabeledList.Item label="Health">
                 <ProgressBar
                   value={data.occupant.health / data.occupant.maxHealth}
-                  color={data.occupant.health > 0 ? 'good' : 'average'}>
+                  color={data.occupant.health > 0 ? 'good' : 'average'}
+                >
                   <AnimatedNumber value={data.occupant.health} />
                 </ProgressBar>
               </LabeledList.Item>
@@ -88,7 +85,8 @@ const CryoContent = (props) => {
               icon={data.isOperating ? 'power-off' : 'times'}
               disabled={data.isOpen}
               onClick={() => act('power')}
-              color={data.isOperating && 'green'}>
+              color={data.isOperating && 'green'}
+            >
               {data.isOperating ? 'On' : 'Off'}
             </Button>
           </LabeledList.Item>
@@ -118,7 +116,8 @@ const CryoContent = (props) => {
             onClick={() => act('ejectbeaker')}
             content="Eject"
           />
-        }>
+        }
+      >
         <BeakerContents
           beakerLoaded={data.isBeakerLoaded}
           beakerContents={data.beakerContents}

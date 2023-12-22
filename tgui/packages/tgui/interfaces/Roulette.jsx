@@ -1,11 +1,7 @@
 import { classes } from 'common/react';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Box, Button, Grid, NumberInput, Table } from '../components';
 import { Window } from '../layouts';
 
@@ -39,11 +35,13 @@ export const RouletteNumberCell = (props) => {
         cellClass,
       ])}
       colspan={colspan}
-      rowspan={rowspan}>
+      rowspan={rowspan}
+    >
       <Button
         color={color}
         className={classes(['Roulette__board-button', buttonClass])}
-        onClick={() => act('ChangeBetType', { type: value })}>
+        onClick={() => act('ChangeBetType', { type: value })}
+      >
         <span className="Roulette__board-button-text">{text}</span>
       </Button>
     </Table.Cell>
@@ -157,7 +155,7 @@ export const RouletteBoard = () => {
 export const RouletteBetTable = (props) => {
   const { act, data } = useBackend();
 
-  const [customBet, setCustomBet] = useLocalState('customBet', 500);
+  const [customBet, setCustomBet] = useState(500);
 
   let { BetType } = data;
 
@@ -173,7 +171,8 @@ export const RouletteBetTable = (props) => {
             'Roulette',
             'Roulette__lowertable--cell',
             'Roulette__lowertable--header',
-          ])}>
+          ])}
+        >
           Last Spin:
         </Table.Cell>
         <Table.Cell
@@ -181,7 +180,8 @@ export const RouletteBetTable = (props) => {
             'Roulette',
             'Roulette__lowertable--cell',
             'Roulette__lowertable--header',
-          ])}>
+          ])}
+        >
           Current Bet:
         </Table.Cell>
       </Table.Row>
@@ -192,7 +192,8 @@ export const RouletteBetTable = (props) => {
             'Roulette__lowertable--cell',
             'Roulette__lowertable--spinresult',
             'Roulette__lowertable--spinresult-' + getNumberColor(data.LastSpin),
-          ])}>
+          ])}
+        >
           {data.LastSpin}
         </Table.Cell>
         <Table.Cell
@@ -200,7 +201,8 @@ export const RouletteBetTable = (props) => {
             'Roulette',
             'Roulette__lowertable--cell',
             'Roulette__lowertable--betscell',
-          ])}>
+          ])}
+        >
           <Box bold mt={1} mb={1} fontSize="20px" textAlign="center">
             {data.BetAmount} cr on {BetType}
           </Box>

@@ -173,7 +173,8 @@ export class Dropdown extends Component<Props, State> {
           ])}
           onClick={() => {
             this.setSelected(value);
-          }}>
+          }}
+        >
           {displayText}
         </div>
       );
@@ -326,7 +327,8 @@ export class Dropdown extends Component<Props, State> {
                 onClick(event);
               }
             }}
-            {...rest}>
+            {...rest}
+          >
             {icon && (
               <Icon
                 name={icon}
@@ -339,18 +341,9 @@ export class Dropdown extends Component<Props, State> {
               className="Dropdown__selected-text"
               style={{
                 overflow: clipSelectedText ? 'hidden' : 'visible',
-<<<<<<< HEAD
-              }}>
-              {displayText || this.state.selected}
-=======
               }}
             >
-<<<<<<< HEAD
-              {this.state.selected || displayText}
->>>>>>> d016daaa089 (Dropdown selection fix (#80249))
-=======
               {displayText || this.state.selected}
->>>>>>> 0e63a93cb3a (Fixes dropdowns not rendering the selection's displayText post-selection (#80464))
             </span>
             {nochevron || (
               <span className="Dropdown__arrow-button">

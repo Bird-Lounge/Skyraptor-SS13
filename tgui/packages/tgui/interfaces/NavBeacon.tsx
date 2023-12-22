@@ -1,7 +1,14 @@
 import { BooleanLike } from 'common/react';
 
 import { useBackend } from '../backend';
-import { Box, Button, Dropdown, LabeledList, Section, Stack } from '../components';
+import {
+  Box,
+  Button,
+  Dropdown,
+  LabeledList,
+  Section,
+  Stack,
+} from '../components';
 import { Window } from '../layouts';
 import { InterfaceLockNoticeBox } from './common/InterfaceLockNoticeBox';
 

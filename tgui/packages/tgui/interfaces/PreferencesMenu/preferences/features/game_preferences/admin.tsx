@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import { CheckboxInput, FeatureColorInput, Feature, FeatureDropdownInput, FeatureToggle } from '../base';
-import { multiline } from 'common/string';
-=======
 import { multiline } from 'common/string';
 
 import {
@@ -11,7 +7,6 @@ import {
   FeatureDropdownInput,
   FeatureToggle,
 } from '../base';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 export const asaycolor: Feature<string> = {
   name: 'Admin chat color',

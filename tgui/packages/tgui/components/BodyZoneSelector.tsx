@@ -85,15 +85,9 @@ export class BodyZoneSelector extends Component<
           width: `${32 * scale}px`,
           height: `${32 * scale}px`,
           position: 'relative',
-<<<<<<< HEAD
-        }}>
-        <Box
-          as="img"
-=======
         }}
       >
         <Image
->>>>>>> 8971e067b99 (Typescript image component (#80291))
           src={resolveAsset(`body_zones.base_${theme}.png`)}
           onClick={() => {
             const onClick = this.props.onClick;

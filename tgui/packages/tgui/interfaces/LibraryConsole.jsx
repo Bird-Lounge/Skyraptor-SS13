@@ -3,9 +3,6 @@ import { flow } from 'common/fp';
 import { classes } from 'common/react';
 
 import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-import { Box, Button, Dropdown, Input, Modal, NoticeBox, NumberInput, LabeledList, Section, Stack, Flex, Table } from '../components';
-=======
 import {
   Box,
   Button,
@@ -20,7 +17,6 @@ import {
   Stack,
   Table,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 import { sanitizeText } from '../sanitize';
 
@@ -32,7 +28,8 @@ export const LibraryConsole = (props) => {
       theme={display_lore ? 'spookyconsole' : ''}
       title="Library Terminal"
       width={880}
-      height={520}>
+      height={520}
+    >
       <Window.Content m="0">
         <Flex height="100%">
           <Flex.Item>
@@ -164,7 +161,8 @@ export const InventoryDetails = (props) => {
                     book_id: book.ref,
                   })
                 }
-                icon="times">
+                icon="times"
+              >
                 Clear Record
               </Button>
             </Table.Cell>
@@ -274,12 +272,12 @@ const CheckoutModal = (props) => {
   const [checkoutBook, setCheckoutBook] = useLocalState('CheckoutBook', false);
   const [bookName, setBookName] = useLocalState(
     'CheckoutBookName',
-    'Insert Book name...'
+    'Insert Book name...',
   );
   const [checkoutee, setCheckoutee] = useLocalState('Checkoutee', 'Recipient');
   const [checkoutPeriod, setCheckoutPeriod] = useLocalState(
     'CheckoutPeriod',
-    5
+    5,
   );
   return (
     <Modal width="500px">
@@ -463,7 +461,8 @@ export const SearchAndDisplay = (props) => {
             textAlign="right"
             onClick={() => act('search')}
             color={params_changed ? 'good' : ''}
-            icon="book">
+            icon="book"
+          >
             Search
           </Button>
           <Button
@@ -471,7 +470,8 @@ export const SearchAndDisplay = (props) => {
             textAlign="right"
             onClick={() => act('clear_data')}
             color="bad"
-            icon="fire">
+            icon="fire"
+          >
             Reset Search
           </Button>
         </Stack.Item>
@@ -492,7 +492,8 @@ export const SearchAndDisplay = (props) => {
                     book_id: record.id,
                   })
                 }
-                icon="print">
+                icon="print"
+              >
                 {record.id}
               </Button>
             </Table.Cell>
@@ -589,7 +590,8 @@ export const Upload = (props) => {
                 scrollable
                 preserveWhitespace
                 fontSize="15px"
-                title="Content:">
+                title="Content:"
+              >
                 <Box dangerouslySetInnerHTML={contentHtml} />
               </Section>
             </Stack.Item>
@@ -605,8 +607,8 @@ export const Upload = (props) => {
                   active_newscaster_cooldown
                     ? "Send your book to the station's newscaster's channel."
                     : 'Please wait ' +
-                    cooldown_string +
-                    ' before sending your book to the newscaster!'
+                      cooldown_string +
+                      ' before sending your book to the newscaster!'
                 }
                 tooltipPosition="top"
                 icon="newspaper"
@@ -696,7 +698,7 @@ export const Print = (props) => {
   const { deity, religion, bible_name, bible_sprite, posters } = data;
   const [selectedPoster, setSelectedPoster] = useLocalState(
     'selected_poster',
-    posters[0]
+    posters[0],
   );
 
   return (
@@ -718,7 +720,8 @@ export const Print = (props) => {
                       poster === selectedPoster &&
                       'Button--selected',
                   ])}
-                  onClick={() => setSelectedPoster(poster)}>
+                  onClick={() => setSelectedPoster(poster)}
+                >
                   {poster}
                 </div>
               ))}
@@ -731,7 +734,8 @@ export const Print = (props) => {
                 fontSize="25px"
                 italic
                 bold
-                textColor="#0b94c4">
+                textColor="#0b94c4"
+              >
                 {bible_name}
               </Stack.Item>
               <Stack.Item textAlign="center" fontSize="22px" textColor="purple">

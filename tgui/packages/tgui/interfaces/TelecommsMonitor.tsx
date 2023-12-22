@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-import { Section, Stack, Input, Button, Table, LabeledList, NoticeBox } from '../components';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
@@ -14,7 +10,6 @@ import {
   Stack,
   Table,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 enum Screen {
@@ -59,7 +54,8 @@ const MachineScreen = (props) => {
               icon="home"
               onClick={() => act('return_home')}
             />
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Network">{network}</LabeledList.Item>
             <LabeledList.Item label="Network Entity">
@@ -98,7 +94,7 @@ const MachineScreen = (props) => {
 const MainScreen = (props) => {
   const { act, data } = useBackend<Data>();
   const { machinery = [], network } = data;
-  const [networkId, setNetworkId] = useLocalState('networkId', network);
+  const [networkId, setNetworkId] = useState(network);
 
   return (
     <Stack fill vertical>
@@ -129,7 +125,8 @@ const MainScreen = (props) => {
               disabled={machinery.length === 0}
               onClick={() => act('flush_buffer')}
             />
-          }>
+          }
+        >
           <Table>
             <Table.Row header>
               <Table.Cell>Address</Table.Cell>

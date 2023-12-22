@@ -6,11 +6,6 @@ import { Box, Button, InfinitePlane, Input, Stack } from '../../components';
 import { Window } from '../../layouts';
 import { Connections } from '../common/Connections';
 import { CircuitInfo } from './CircuitInfo';
-<<<<<<< HEAD
-import { ABSOLUTE_Y_OFFSET, MOUSE_BUTTON_LEFT, TIME_UNTIL_PORT_RELEASE_WORKS, VARIABLE_ASSOC_LIST, VARIABLE_LIST } from './constants';
-import { Connections } from '../common/Connections';
-import { ObjectComponent } from './ObjectComponent';
-=======
 import { ComponentMenu } from './ComponentMenu';
 import {
   ABSOLUTE_Y_OFFSET,
@@ -19,7 +14,6 @@ import {
   VARIABLE_ASSOC_LIST,
   VARIABLE_LIST,
 } from './constants';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { DisplayComponent } from './DisplayComponent';
 import { ObjectComponent } from './ObjectComponent';
 import { VariableMenu } from './VariableMenu';
@@ -515,11 +509,13 @@ export class IntegratedCircuit extends Component {
               )}
             </Stack>
           </Box>
-        }>
+        }
+      >
         <Window.Content
           style={{
             backgroundImage: 'none',
-          }}>
+          }}
+        >
           <InfinitePlane
             width="100%"
             height="100%"
@@ -528,7 +524,8 @@ export class IntegratedCircuit extends Component {
             onZoomChange={this.handleZoomChange}
             onBackgroundMoved={this.handleBackgroundMoved}
             initialLeft={screen_x}
-            initialTop={screen_y}>
+            initialTop={screen_y}
+          >
             {components.map(
               (comp, index) =>
                 comp && (
@@ -543,7 +540,7 @@ export class IntegratedCircuit extends Component {
                     onPortMouseUp={this.handlePortUp}
                     act={act}
                   />
-                )
+                ),
             )}
             {!!draggingComponent && (
               <DisplayComponent
@@ -582,7 +579,8 @@ export class IntegratedCircuit extends Component {
                 backgroundColor: 'rgba(0, 0, 0, 0.3)',
                 '-ms-user-select': 'none',
               }}
-              unselectable="on">
+              unselectable="on"
+            >
               <VariableMenu
                 variables={variables}
                 types={global_basic_types}
@@ -619,7 +617,8 @@ export class IntegratedCircuit extends Component {
                 backgroundColor: 'rgba(0, 0, 0, 0.3)',
                 '-ms-user-select': 'none',
               }}
-              unselectable="on">
+              unselectable="on"
+            >
               <ComponentMenu
                 components={
                   (stored_designs && Object.keys(stored_designs)) || []
