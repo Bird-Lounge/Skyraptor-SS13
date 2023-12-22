@@ -1,11 +1,5 @@
 import { capitalizeFirst } from 'common/string';
 import { useBackend } from 'tgui/backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Button, LabeledList, NoticeBox, ProgressBar, Section, Stack } from 'tgui/components';
-=======
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Button,
   LabeledList,
@@ -14,11 +8,7 @@ import {
   Section,
   Stack,
 } from 'tgui/components';
-<<<<<<< HEAD
 
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Data } from './types';
 
 /** Displays loaded container info, if it exists */

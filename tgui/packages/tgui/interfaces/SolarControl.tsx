@@ -1,10 +1,6 @@
 import { BooleanLike } from 'common/react';
 
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Button, LabeledList, NumberInput, ProgressBar, Chart, Section, Stack, Icon } from '../components';
-=======
 import {
   Box,
   Button,
@@ -17,20 +13,6 @@ import {
   Stack,
 } from '../components';
 import { formatPower } from '../format';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  Box,
-  Button,
-  LabeledList,
-  NumberInput,
-  ProgressBar,
-  Chart,
-  Section,
-  Stack,
-  Icon,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 type Data = {

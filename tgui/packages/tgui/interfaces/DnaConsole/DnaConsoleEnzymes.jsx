@@ -1,8 +1,4 @@
 import { useBackend } from '../../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Button, Collapsible, Dimmer, Divider, Icon, LabeledList, NumberInput, Section, Stack } from '../../components';
-=======
 import {
   Box,
   Button,
@@ -15,22 +11,6 @@ import {
   Section,
   Stack,
 } from '../../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { GeneticMakeupInfo } from './GeneticMakeupInfo';
-=======
-import {
-  Box,
-  Button,
-  Collapsible,
-  Dimmer,
-  Divider,
-  Icon,
-  LabeledList,
-  NumberInput,
-  Section,
-  Stack,
-} from '../../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { PULSE_DURATION_MAX, PULSE_STRENGTH_MAX } from './constants';
 import { GeneticMakeupInfo } from './GeneticMakeupInfo';
 

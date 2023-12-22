@@ -1,41 +1,23 @@
 import { map, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { toFixed } from 'common/math';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-import { Box, Button, Chart, ColorBox, Flex, Icon, LabeledList, ProgressBar, Section, Table, Dimmer, Stack } from '../components';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Box,
   Button,
   Chart,
   ColorBox,
-<<<<<<< HEAD
   Dimmer,
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
   Flex,
   Icon,
   LabeledList,
   ProgressBar,
   Section,
-<<<<<<< HEAD
   Stack,
   Table,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-  Table,
-  Dimmer,
-  Stack,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 const PEAK_DRAW = 500000;
@@ -58,7 +40,7 @@ export const PowerMonitor = () => {
 export const PowerMonitorContent = (props) => {
   const { data } = useBackend();
   const { history = { supply: [], demand: [] } } = data;
-  const [sortByField, setSortByField] = useLocalState('sortByField', null);
+  const [sortByField, setSortByField] = useState(null);
   const supply = history.supply[history.supply.length - 1] || 0;
   const demand = history.demand[history.demand.length - 1] || 0;
   const supplyData = history.supply.map((value, i) => [i, value]);

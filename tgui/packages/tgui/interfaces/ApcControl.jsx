@@ -2,31 +2,16 @@ import { map, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 
 import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Button, Dimmer, Icon, Table, Tabs, Stack, Section } from '../components';
-=======
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Box,
   Button,
   Dimmer,
   Icon,
-<<<<<<< HEAD
   Section,
   Stack,
   Table,
   Tabs,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-  Table,
-  Tabs,
-  Stack,
-  Section,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 import { AreaCharge, powerRank } from './PowerMonitor';
 

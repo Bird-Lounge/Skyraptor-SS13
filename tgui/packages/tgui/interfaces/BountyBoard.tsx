@@ -1,11 +1,4 @@
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-import { UserDetails } from './Vending';
-<<<<<<< HEAD
-import { BlockQuote, Box, Button, Collapsible, Flex, NumberInput, Section, Stack, TextArea } from '../components';
-=======
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   BlockQuote,
   Box,
@@ -17,10 +10,6 @@ import {
   Stack,
   TextArea,
 } from '../components';
-<<<<<<< HEAD
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { formatMoney } from '../format';
 import { Window } from '../layouts';
 import { UserDetails } from './Vending';

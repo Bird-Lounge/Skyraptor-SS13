@@ -1,26 +1,8 @@
-<<<<<<< HEAD
-=======
-import { useBackend } from '../backend';
-import {
-  Box,
-  Button,
-  StyleableSection,
-  Icon,
-  Stack,
-  NoticeBox,
-} from '../components';
-import { Window } from '../layouts';
-import { Color } from 'common/color';
-import { JOB2ICON } from './common/JobToIcon';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { deepMerge } from 'common/collections';
 import { Color } from 'common/color';
 import { BooleanLike } from 'common/react';
 
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-import { Box, Button, StyleableSection, Icon, Stack, NoticeBox } from '../components';
-=======
 import {
   Box,
   Button,
@@ -29,7 +11,6 @@ import {
   Stack,
   StyleableSection,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 import { JOB2ICON } from './common/JobToIcon';
 

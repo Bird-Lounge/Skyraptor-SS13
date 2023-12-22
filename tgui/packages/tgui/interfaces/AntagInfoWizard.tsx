@@ -3,23 +3,11 @@ import { BooleanLike } from 'common/react';
 import { useBackend } from '../backend';
 import { Box, Section, Stack } from '../components';
 import { Window } from '../layouts';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { ObjectivePrintout, Objective, ReplaceObjectivesButton } from './common/Objectives';
-=======
 import {
   Objective,
   ObjectivePrintout,
   ReplaceObjectivesButton,
 } from './common/Objectives';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  ObjectivePrintout,
-  Objective,
-  ReplaceObjectivesButton,
-} from './common/Objectives';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 const teleportstyle = {
   color: 'yellow',

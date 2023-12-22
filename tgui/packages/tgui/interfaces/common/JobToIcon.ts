@@ -7,22 +7,11 @@ export const JOB2ICON = {
   'Atmospheric Technician': 'fan',
   Bartender: 'cocktail',
   'Bit Avatar': 'code',
-<<<<<<< HEAD
-<<<<<<< HEAD
-  'Bitrunner': 'gamepad',
-  'Botanist': 'seedling',
-  'Captain': 'crown',
-=======
   Bitrunner: 'gamepad',
   Botanist: 'seedling',
+  'Bridge Assistant': 'building-shield',
   Captain: 'crown',
   'Cargo Gorilla': 'paw',
->>>>>>> 90b974071de (Sign up for Cargorilla from the lobby (#79776))
-=======
-  Bitrunner: 'gamepad',
-  Botanist: 'seedling',
-  Captain: 'crown',
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
   'Cargo Technician': 'box',
   'CentCom Commander': 'star',
   'CentCom Head Intern': 'pen-fancy',

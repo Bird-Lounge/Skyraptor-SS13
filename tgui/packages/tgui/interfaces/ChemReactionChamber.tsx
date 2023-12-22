@@ -1,24 +1,6 @@
-<<<<<<< HEAD
-=======
-import { useBackend, useLocalState } from '../backend';
-import {
-  AnimatedNumber,
-  Box,
-  Button,
-  LabeledList,
-  NumberInput,
-  Section,
-  RoundGauge,
-  Stack,
-} from '../components';
-import { Window } from '../layouts';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { round, toFixed } from 'common/math';
 
 import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-import { AnimatedNumber, Box, Button, LabeledList, NumberInput, Section, RoundGauge, Stack } from '../components';
-=======
 import {
   AnimatedNumber,
   Box,
@@ -29,7 +11,6 @@ import {
   Section,
   Stack,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 import { MixingData } from './ChemMixingChamber';
 

@@ -9,26 +9,6 @@ import { classes } from 'common/react';
 import { render } from 'react-dom';
 import { Tooltip } from 'tgui/components';
 import { createLogger } from 'tgui/logging';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { COMBINE_MAX_MESSAGES, COMBINE_MAX_TIME_WINDOW, IMAGE_RETRY_DELAY, IMAGE_RETRY_LIMIT, IMAGE_RETRY_MESSAGE_AGE, MAX_PERSISTED_MESSAGES, MAX_VISIBLE_MESSAGES, MESSAGE_PRUNE_INTERVAL, MESSAGE_TYPES, MESSAGE_TYPE_INTERNAL, MESSAGE_TYPE_UNKNOWN } from './constants';
-=======
-import {
-  COMBINE_MAX_MESSAGES,
-  COMBINE_MAX_TIME_WINDOW,
-  IMAGE_RETRY_DELAY,
-  IMAGE_RETRY_LIMIT,
-  IMAGE_RETRY_MESSAGE_AGE,
-  MAX_PERSISTED_MESSAGES,
-  MAX_VISIBLE_MESSAGES,
-  MESSAGE_PRUNE_INTERVAL,
-  MESSAGE_TYPES,
-  MESSAGE_TYPE_INTERNAL,
-  MESSAGE_TYPE_UNKNOWN,
-} from './constants';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { render } from 'react-dom';
-=======
 
 import {
   COMBINE_MAX_MESSAGES,
@@ -43,7 +23,6 @@ import {
   MESSAGE_TYPE_UNKNOWN,
   MESSAGE_TYPES,
 } from './constants';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { canPageAcceptType, createMessage, isSameMessage } from './model';
 import { highlightNode, linkifyNode } from './replaceInTextNode';
 

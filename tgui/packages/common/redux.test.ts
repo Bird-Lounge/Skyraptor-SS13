@@ -1,25 +1,11 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Action, Reducer, applyMiddleware, combineReducers, createAction, createStore } from './redux';
-=======
 import {
   Action,
-=======
-import {
-  Action,
-  Reducer,
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
   applyMiddleware,
   combineReducers,
   createAction,
   createStore,
-<<<<<<< HEAD
   Reducer,
 } from './redux';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-} from './redux';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 // Dummy Reducer
 const counterReducer: Reducer<number, Action<string>> = (state = 0, action) => {

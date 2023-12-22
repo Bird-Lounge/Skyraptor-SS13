@@ -1,10 +1,4 @@
 import { useBackend } from 'tgui/backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Button, Icon, ProgressBar, Section, Table, Tooltip } from 'tgui/components';
-=======
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Box,
   Button,
@@ -14,11 +8,7 @@ import {
   Table,
   Tooltip,
 } from 'tgui/components';
-<<<<<<< HEAD
 
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { SOFTWARE_DESC } from './constants';
 import { PaiData } from './types';
 

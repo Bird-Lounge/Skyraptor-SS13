@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Button, LabeledList, NumberInput, ProgressBar, Section } from 'tgui/components';
-=======
-import {
-  Box,
-  Button,
-  LabeledList,
-  NumberInput,
-  ProgressBar,
-  Section,
-} from 'tgui/components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { HelpDummy, HoverHelp } from './helpers';
-import { HypertorusFuel, HypertorusGas } from '.';
-import { filter, sortBy } from 'common/collections';
-=======
 import { filter, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { toFixed } from 'common/math';
@@ -27,7 +10,6 @@ import {
   ProgressBar,
   Section,
 } from 'tgui/components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { getGasColor, getGasLabel } from 'tgui/constants';
 
 import { HypertorusFuel, HypertorusGas } from '.';

@@ -957,19 +957,9 @@ export class PreviewView extends Component<PreviewViewProps> {
         fill
         fitted
         scrollable
-<<<<<<< HEAD
-        scrollableRef={scrollableRef}
-<<<<<<< HEAD
-        onScroll={handleOnScroll}>
-=======
         ref={scrollableRef}
         onScroll={handleOnScroll}
       >
->>>>>>> 623a6ecc998 (Fixes stamps [NO GBP] (#80255))
-=======
-        onScroll={handleOnScroll}
-      >
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
         <Box
           fillPositionedParent
           position="relative"

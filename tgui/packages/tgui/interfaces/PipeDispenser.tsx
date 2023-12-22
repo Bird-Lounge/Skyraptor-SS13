@@ -1,11 +1,4 @@
 import { BooleanLike } from 'common/react';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-import { Button, LabeledList, Section, Stack, Tabs } from '../components';
-import { Window } from '../layouts';
-<<<<<<< HEAD
-import { ICON_BY_CATEGORY_NAME, ColorItem, LayerSelect, SmartPipeBlockSection } from './RapidPipeDispenser';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
@@ -17,15 +10,6 @@ import {
   LayerSelect,
   SmartPipeBlockSection,
 } from './RapidPipeDispenser';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  ICON_BY_CATEGORY_NAME,
-  ColorItem,
-  LayerSelect,
-  SmartPipeBlockSection,
-} from './RapidPipeDispenser';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 type Data = {
   // Dynamic
@@ -75,13 +59,11 @@ type Recipe = {
 const PipeTypeSection = (props) => {
   const { act, data } = useBackend<Data>();
   const { categories = [] } = data;
-  const [categoryName, setCategoryName] = useLocalState(
-    'categoryName',
-    categories[0].cat_name,
-  );
+  const [categoryName, setCategoryName] = useState(categories[0].cat_name);
   const shownCategory =
     categories.find((category) => category.cat_name === categoryName) ||
     categories[0];
+
   return (
     <Section fill scrollable>
       <Tabs>

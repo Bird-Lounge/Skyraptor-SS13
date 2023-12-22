@@ -2,17 +2,9 @@ import { filter, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { toFixed } from 'common/math';
 import { BooleanLike } from 'common/react';
-<<<<<<< HEAD
-import { ReactNode } from 'react';
-import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-import { Box, Button, LabeledList, ProgressBar, Section, Stack } from '../components';
-=======
 import { ReactNode, useState } from 'react';
 
 import { useBackend } from '../backend';
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Box,
   Button,
@@ -21,10 +13,6 @@ import {
   Section,
   Stack,
 } from '../components';
-<<<<<<< HEAD
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { getGasFromPath } from '../constants';
 import { Window } from '../layouts';
 
@@ -88,7 +76,8 @@ const SupermatterEntry = (props: SupermatterEntryProps) => {
       </Stack.Item>
     );
   }
-  const [activeDetail, setActiveDetail] = useLocalState(title, false);
+  const [activeDetail, setActiveDetail] = useState(false);
+
   return (
     <>
       <Stack.Item>
@@ -133,11 +122,12 @@ export const SupermatterContent = (props: SupermatterProps) => {
     gas_total_moles,
     gas_metadata,
   } = props;
-  const [allGasActive, setAllGasActive] = useLocalState('allGasActive', false);
+  const [allGasActive, setAllGasActive] = useState(false);
   const gas_composition: [gas_path: string, amount: number][] = flow([
     !allGasActive && filter(([gas_path, amount]) => amount !== 0),
     sortBy(([gas_path, amount]) => -amount),
   ])(Object.entries(props.gas_composition));
+
   return (
     <Stack height="100%">
       <Stack.Item grow>

@@ -1,8 +1,4 @@
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Collapsible, Divider, LabeledList, Section, Stack } from '../components';
-=======
 import {
   Box,
   Collapsible,
@@ -11,19 +7,6 @@ import {
   Section,
   Stack,
 } from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { Objective } from './common/Objectives';
-
-=======
-import {
-  Box,
-  Collapsible,
-  Divider,
-  LabeledList,
-  Section,
-  Stack,
-} from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 import { Objective } from './common/Objectives';
 

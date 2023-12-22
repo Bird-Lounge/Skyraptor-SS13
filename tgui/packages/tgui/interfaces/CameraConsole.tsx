@@ -2,16 +2,9 @@ import { filter, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { BooleanLike, classes } from 'common/react';
 import { createSearch } from 'common/string';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-import { Button, ByondUi, Input, NoticeBox, Section, Stack } from '../components';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Button,
   ByondUi,
@@ -20,10 +13,6 @@ import {
   Section,
   Stack,
 } from '../components';
-<<<<<<< HEAD
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 type Data = {
@@ -101,13 +90,15 @@ export const CameraConsole = (props) => {
 };
 
 export const CameraContent = (props) => {
+  const [searchText, setSearchText] = useState('');
+
   return (
     <Stack fill>
       <Stack.Item grow>
-        <CameraSelector />
+        <CameraSelector searchText={searchText} setSearchText={setSearchText} />
       </Stack.Item>
       <Stack.Item grow={3}>
-        <CameraControls />
+        <CameraControls searchText={searchText} />
       </Stack.Item>
     </Stack>
   );
@@ -115,7 +106,7 @@ export const CameraContent = (props) => {
 
 const CameraSelector = (props) => {
   const { act, data } = useBackend<Data>();
-  const [searchText, setSearchText] = useLocalState('searchText', '');
+  const { searchText, setSearchText } = props;
   const { activeCamera } = data;
   const cameras = selectCameras(data.cameras, searchText);
 
@@ -162,10 +153,10 @@ const CameraSelector = (props) => {
   );
 };
 
-const CameraControls = (props) => {
+const CameraControls = (props: { searchText: string }) => {
   const { act, data } = useBackend<Data>();
   const { activeCamera, can_spy, mapRef } = data;
-  const [searchText] = useLocalState('searchText', '');
+  const { searchText } = props;
 
   const cameras = selectCameras(data.cameras, searchText);
 

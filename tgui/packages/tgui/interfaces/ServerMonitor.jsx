@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-import { Section, Stack, Input, Button, Table, LabeledList, Flex, Divider, NoticeBox } from '../components';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
@@ -17,25 +12,12 @@ import {
   Stack,
   Table,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  Section,
-  Stack,
-  Input,
-  Button,
-  Table,
-  LabeledList,
-  Flex,
-  Divider,
-  NoticeBox,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 const PacketInfo = (props) => {
   const { act, data } = useBackend();
   const { packet } = props;
+
   return (
     <Stack.Item>
       <Flex justify="space-between">
@@ -105,7 +87,7 @@ const ServerScreen = (props) => {
 const MainScreen = (props) => {
   const { act, data } = useBackend();
   const { servers, network } = data;
-  const [networkId, setNetworkId] = useLocalState('networkId', network);
+  const [networkId, setNetworkId] = useState(network);
 
   return (
     <Stack fill vertical>

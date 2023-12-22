@@ -1,16 +1,9 @@
 import { toFixed } from 'common/math';
 import { BooleanLike } from 'common/react';
 import { toTitleCase } from 'common/string';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-import { Box, Button, Icon, LabeledList, ProgressBar, Section } from '../components';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Box,
   Button,
@@ -19,10 +12,6 @@ import {
   ProgressBar,
   Section,
 } from '../components';
-<<<<<<< HEAD
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 import { Beaker, BeakerDisplay } from './common/BeakerDisplay';
 
@@ -49,7 +38,7 @@ export const ChemDispenser = (props) => {
   const { act, data } = useBackend<Data>();
   const recording = !!data.recordingRecipe;
   const { recipeReagents = [], recipes = [], beaker } = data;
-  const [hasCol, setHasCol] = useLocalState('has_col', false);
+  const [hasCol, setHasCol] = useState(false);
 
   const beakerTransferAmounts = beaker ? beaker.transferAmounts : [];
   const recordedContents =
@@ -59,6 +48,7 @@ export const ChemDispenser = (props) => {
       name: toTitleCase(id.replace(/_/, ' ')),
       volume: data.recordingRecipe[id],
     }));
+
   return (
     <Window width={565} height={620}>
       <Window.Content scrollable>

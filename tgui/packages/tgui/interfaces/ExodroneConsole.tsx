@@ -4,37 +4,19 @@ import { Fragment } from 'react';
 import { resolveAsset } from '../assets';
 import nt_logo from '../assets/bg-nanotrasen.svg';
 import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { BlockQuote, Box, Button, Dimmer, Icon, LabeledList, Modal, ProgressBar, Section, Stack } from '../components';
-=======
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   BlockQuote,
   Box,
   Button,
   Dimmer,
   Icon,
-<<<<<<< HEAD
   Image,
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
   LabeledList,
   Modal,
   ProgressBar,
   Section,
   Stack,
 } from '../components';
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 8971e067b99 (Typescript image component (#80291))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { Window } from '../layouts';
-import { resolveAsset } from '../assets';
-=======
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { formatTime } from '../format';
 import { Window } from '../layouts';
 

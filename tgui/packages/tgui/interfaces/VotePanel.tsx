@@ -1,22 +1,5 @@
 import { BooleanLike } from 'common/react';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Icon, Stack, Button, Section, NoticeBox, LabeledList, Collapsible } from '../components';
-=======
 
-=======
-import {
-  Box,
-  Icon,
-  Stack,
-  Button,
-  Section,
-  NoticeBox,
-  LabeledList,
-  Collapsible,
-} from '../components';
-import { Window } from '../layouts';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { useBackend } from '../backend';
 import {
   Box,
@@ -28,7 +11,6 @@ import {
   Section,
   Stack,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 enum VoteConfig {

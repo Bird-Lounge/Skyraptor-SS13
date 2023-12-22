@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { KeyEvent, addScrollableNode, canStealFocus, removeScrollableNode, setupGlobalEvents } from './events';
-=======
 import {
   addScrollableNode,
   canStealFocus,
@@ -9,16 +5,6 @@ import {
   removeScrollableNode,
   setupGlobalEvents,
 } from './events';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  KeyEvent,
-  addScrollableNode,
-  canStealFocus,
-  removeScrollableNode,
-  setupGlobalEvents,
-} from './events';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 describe('focusEvents', () => {
   afterEach(() => {

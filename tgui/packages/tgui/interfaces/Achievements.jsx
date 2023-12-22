@@ -96,7 +96,7 @@ const Achievement = (props) => {
 const HighScoreTable = (props) => {
   const { data } = useBackend();
   const { highscore: highscores, user_ckey } = data;
-  const [highScoreIndex, setHighScoreIndex] = useLocalState('highscore', 0);
+  const [highScoreIndex, setHighScoreIndex] = useState(0);
   const highscore = highscores[highScoreIndex];
   if (!highscore) {
     return null;

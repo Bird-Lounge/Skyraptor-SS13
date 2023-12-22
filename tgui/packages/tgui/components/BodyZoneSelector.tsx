@@ -85,20 +85,9 @@ export class BodyZoneSelector extends Component<
           width: `${32 * scale}px`,
           height: `${32 * scale}px`,
           position: 'relative',
-<<<<<<< HEAD
-<<<<<<< HEAD
-        }}>
-=======
-        }}
-      >
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-        <Box
-          as="img"
-=======
         }}
       >
         <Image
->>>>>>> 8971e067b99 (Typescript image component (#80291))
           src={resolveAsset(`body_zones.base_${theme}.png`)}
           onClick={() => {
             const onClick = this.props.onClick;

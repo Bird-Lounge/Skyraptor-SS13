@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-import { useBackend } from '../backend';
-import { Window } from '../layouts';
-<<<<<<< HEAD
-import { Stack, Section, ProgressBar, Button, NumberInput, LabeledList } from '../components';
-=======
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  Stack,
-  Section,
-  ProgressBar,
-  Button,
-  NumberInput,
-  LabeledList,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { BooleanLike } from 'common/react';
 
 import { useBackend } from '../backend';

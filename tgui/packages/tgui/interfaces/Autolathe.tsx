@@ -1,29 +1,7 @@
-<<<<<<< HEAD
-=======
-import { useBackend } from '../backend';
-import {
-  LabeledList,
-  Section,
-  ProgressBar,
-  Collapsible,
-  Stack,
-  Icon,
-  Box,
-  Tooltip,
-  Button,
-} from '../components';
-import { Window } from '../layouts';
-import { capitalize } from 'common/string';
-import { Design, MaterialMap } from './Fabrication/Types';
-import { DesignBrowser } from './Fabrication/DesignBrowser';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { BooleanLike, classes } from 'common/react';
 import { capitalize } from 'common/string';
 
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-import { LabeledList, Section, ProgressBar, Collapsible, Stack, Icon, Box, Tooltip, Button } from '../components';
-=======
 import {
   Box,
   Button,
@@ -35,7 +13,6 @@ import {
   Stack,
   Tooltip,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 import { DesignBrowser } from './Fabrication/DesignBrowser';
 import { MaterialCostSequence } from './Fabrication/MaterialCostSequence';

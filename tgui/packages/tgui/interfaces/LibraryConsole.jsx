@@ -3,17 +3,10 @@ import { flow } from 'common/fp';
 import { classes } from 'common/react';
 
 import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Button, Dropdown, Input, Modal, NoticeBox, NumberInput, LabeledList, Section, Stack, Flex, Table } from '../components';
-=======
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Box,
   Button,
   Dropdown,
-<<<<<<< HEAD
   Flex,
   Input,
   LabeledList,
@@ -24,19 +17,6 @@ import {
   Stack,
   Table,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-  Input,
-  Modal,
-  NoticeBox,
-  NumberInput,
-  LabeledList,
-  Section,
-  Stack,
-  Flex,
-  Table,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 import { sanitizeText } from '../sanitize';
 

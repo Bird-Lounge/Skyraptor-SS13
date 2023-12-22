@@ -1,16 +1,6 @@
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-import { capitalizeAll } from 'common/string';
-import { BooleanLike, classes } from 'common/react';
-import { Window } from '../layouts';
-import { Section, Tabs, Button, Stack, Box } from '../components';
-import { ColorItem, LayerSelect } from './RapidPipeDispenser';
-import { SiloItem, MatterItem } from './RapidConstructionDevice';
-=======
 import { BooleanLike, classes } from 'common/react';
 import { capitalizeAll } from 'common/string';
 import { useState } from 'react';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 import { useBackend } from '../backend';
 import { Box, Button, Section, Stack, Tabs } from '../components';
@@ -41,13 +31,11 @@ type Recipe = {
 const PlumbingTypeSection = (props) => {
   const { act, data } = useBackend<Data>();
   const { categories = [], selected_category, selected_recipe } = data;
-  const [categoryName, setCategoryName] = useLocalState(
-    'categoryName',
-    selected_category,
-  );
+  const [categoryName, setCategoryName] = useState(selected_category);
   const shownCategory =
     categories.find((category) => category.cat_name === categoryName) ||
     categories[0];
+
   return (
     <Section fill scrollable>
       <Tabs>

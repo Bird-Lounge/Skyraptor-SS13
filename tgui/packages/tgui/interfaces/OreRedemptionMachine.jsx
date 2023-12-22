@@ -1,22 +1,11 @@
 import { createSearch, toTitleCase } from 'common/string';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { useBackend, useLocalState, useSharedState } from '../backend';
-<<<<<<< HEAD
-import { BlockQuote, Box, Button, Table, Tabs, Input, Stack, Icon, Section, LabeledList } from '../components';
-=======
-=======
 import { useState } from 'react';
 
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { useBackend, useSharedState } from '../backend';
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   BlockQuote,
   Box,
   Button,
-<<<<<<< HEAD
   Icon,
   Image,
   Input,
@@ -26,36 +15,21 @@ import {
   Table,
   Tabs,
 } from '../components';
-<<<<<<< HEAD
->>>>>>> 8971e067b99 (Typescript image component (#80291))
-=======
-  Table,
-  Tabs,
-  Input,
-  Stack,
-  Icon,
-  Section,
-  LabeledList,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { Window } from '../layouts';
-import { formatSiUnit } from '../format';
-=======
 import { formatSiUnit } from '../format';
 import { Window } from '../layouts';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 export const OreRedemptionMachine = (props) => {
   const { act, data } = useBackend();
   const { disconnected, unclaimedPoints, materials, user } = data;
   const [tab, setTab] = useSharedState('tab', 1);
-  const [searchItem, setSearchItem] = useLocalState('searchItem', '');
-  const [compact, setCompact] = useSharedState('compact', false);
+  const [searchItem, setSearchItem] = useState('');
+  const [compact, setCompact] = useState(false);
   const search = createSearch(searchItem, (materials) => materials.name);
   const material_filtered =
     searchItem.length > 0
       ? data.materials.filter(search)
       : materials.filter((material) => material && material.category === tab);
+
   return (
     <Window title="Ore Redemption Machine" width={435} height={500}>
       <Window.Content>
@@ -173,6 +147,7 @@ export const OreRedemptionMachine = (props) => {
               <Table>
                 {material_filtered.map((material) => (
                   <MaterialRow
+                    compact={compact}
                     key={material.id}
                     material={material}
                     onRelease={(amount) => {
@@ -201,9 +176,9 @@ export const OreRedemptionMachine = (props) => {
 
 const MaterialRow = (props) => {
   const { data } = useBackend();
+  const { compact } = props;
   const { material_icons } = data;
   const { material, onRelease } = props;
-  const [compact, setCompact] = useLocalState('compact', false);
 
   const display = material_icons.find(
     (mat_icon) => mat_icon.id === material.id,

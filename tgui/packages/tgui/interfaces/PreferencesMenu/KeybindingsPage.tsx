@@ -1,24 +1,6 @@
 import { range, sortBy } from 'common/collections';
 import { KEY } from 'common/keys';
 import { Component } from 'react';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Button, KeyListener, Stack, Tooltip, TrackOutsideClicks } from '../../components';
-=======
-import {
-  Box,
-  Button,
-  KeyListener,
-  Stack,
-  Tooltip,
-  TrackOutsideClicks,
-} from '../../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { resolveAsset } from '../../assets';
-import { PreferencesMenuData } from './data';
-import { useBackend } from '../../backend';
-import { range, sortBy } from 'common/collections';
-=======
 
 import { resolveAsset } from '../../assets';
 import { useBackend } from '../../backend';
@@ -30,7 +12,6 @@ import {
   Tooltip,
   TrackOutsideClicks,
 } from '../../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { KeyEvent } from '../../events';
 import { fetchRetry } from '../../http';
 import { PreferencesMenuData } from './data';
@@ -154,22 +135,12 @@ class KeybindingButton extends Component<{
         fluid
         textAlign="center"
         captureKeys={typingHotkey === undefined}
-<<<<<<< HEAD
-        onClick={onClick}
-<<<<<<< HEAD
-        selected={typingHotkey !== undefined}>
-=======
         onClick={(event) => {
           event.stopPropagation();
           onClick?.();
         }}
         selected={typingHotkey !== undefined}
       >
->>>>>>> d3554b39023 (Fixes keybindings page & Button margins [NO GBP] (#80335))
-=======
-        selected={typingHotkey !== undefined}
-      >
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
         {typingHotkey || currentHotkey || 'Unbound'}
       </Button>
     );

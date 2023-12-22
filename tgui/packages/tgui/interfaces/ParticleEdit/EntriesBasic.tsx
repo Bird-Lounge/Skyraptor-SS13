@@ -1,9 +1,4 @@
 import { useBackend, useLocalState } from '../../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Button, LabeledList, NumberInput, ColorBox, Input, Dropdown, Stack } from '../../components';
-import { EntryCoordProps, EntryFloatProps, EntryGradientProps, EntryIconStateProps, EntryTransformProps, MatrixTypes, ParticleUIData, P_DATA_ICON_ADD, P_DATA_ICON_REMOVE, P_DATA_ICON_WEIGHT, SpaceToNum, SpaceTypes } from './data';
-=======
 import {
   Box,
   Button,
@@ -12,16 +7,6 @@ import {
   Input,
   LabeledList,
   NumberInput,
-=======
-import {
-  Box,
-  Button,
-  LabeledList,
-  NumberInput,
-  ColorBox,
-  Input,
-  Dropdown,
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
   Stack,
 } from '../../components';
 import {
@@ -31,7 +16,6 @@ import {
   EntryIconStateProps,
   EntryTransformProps,
   MatrixTypes,
-<<<<<<< HEAD
   P_DATA_ICON_ADD,
   P_DATA_ICON_REMOVE,
   P_DATA_ICON_WEIGHT,
@@ -39,16 +23,6 @@ import {
   SpaceToNum,
   SpaceTypes,
 } from './data';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-  ParticleUIData,
-  P_DATA_ICON_ADD,
-  P_DATA_ICON_REMOVE,
-  P_DATA_ICON_WEIGHT,
-  SpaceToNum,
-  SpaceTypes,
-} from './data';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { editKeyOf, editWeightOf, setGradientSpace } from './helpers';
 
 export const EntryFloat = (props: EntryFloatProps) => {

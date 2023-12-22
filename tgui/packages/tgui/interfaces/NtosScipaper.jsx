@@ -1,8 +1,4 @@
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { BlockQuote, Button, Collapsible, Dropdown, Input, LabeledList, Section, Stack, Tabs, Box, Table, NoticeBox, Tooltip, Icon } from '../components';
-=======
 import {
   BlockQuote,
   Box,
@@ -19,25 +15,6 @@ import {
   Tabs,
   Tooltip,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  BlockQuote,
-  Button,
-  Collapsible,
-  Dropdown,
-  Input,
-  LabeledList,
-  Section,
-  Stack,
-  Tabs,
-  Box,
-  Table,
-  NoticeBox,
-  Tooltip,
-  Icon,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { TableCell, TableRow } from '../components/Table';
 import { NtosWindow } from '../layouts';
 

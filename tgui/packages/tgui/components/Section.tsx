@@ -51,30 +51,6 @@ export const Section = forwardRef(
       return () => {
         if (!ref?.current) return;
 
-<<<<<<< HEAD
-  return (
-    <div
-      className={classes([
-        'Section',
-        fill && 'Section--fill',
-        fitted && 'Section--fitted',
-        scrollable && 'Section--scrollable',
-        scrollableHorizontal && 'Section--scrollableHorizontal',
-        className,
-        computeBoxClassName(rest),
-      ])}
-      {...computeBoxProps(rest)}
-    >
-      {hasTitle && (
-        <div className="Section__title">
-          <span className="Section__titleText">{title}</span>
-          <div className="Section__buttons">{buttons}</div>
-        </div>
-      )}
-      <div className="Section__rest">
-        <div onScroll={onScroll as any} className="Section__content">
-          {children}
-=======
         if (scrollable || scrollableHorizontal) {
           removeScrollableNode(ref.current);
         }
@@ -105,7 +81,6 @@ export const Section = forwardRef(
           <div onScroll={onScroll as any} className="Section__content">
             {children}
           </div>
->>>>>>> 623a6ecc998 (Fixes stamps [NO GBP] (#80255))
         </div>
       </div>
     );

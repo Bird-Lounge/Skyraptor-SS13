@@ -1,8 +1,4 @@
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Button, Input, LabeledList, Section, Table, NoticeBox, NumberInput, LabeledControls, Box } from '../components';
-=======
 import {
   Box,
   Button,
@@ -14,20 +10,6 @@ import {
   Section,
   Table,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  Button,
-  Input,
-  LabeledList,
-  Section,
-  Table,
-  NoticeBox,
-  NumberInput,
-  LabeledControls,
-  Box,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { RADIO_CHANNELS } from '../constants';
 import { Window } from '../layouts';
 

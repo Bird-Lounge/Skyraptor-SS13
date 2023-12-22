@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Button, Icon, Section, Stack, Input, TextArea, Dimmer, Divider } from '../../components';
-=======
-import {
-  Box,
-  Button,
-  Icon,
-  Section,
-  Stack,
-  Input,
-  TextArea,
-  Dimmer,
-  Divider,
-} from '../../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { useBackend, useLocalState } from '../../backend';
-import { createSearch } from 'common/string';
-import { BooleanLike } from 'common/react';
-=======
 import { sortBy } from 'common/collections';
 import { BooleanLike } from 'common/react';
 import { createSearch } from 'common/string';
@@ -34,7 +14,6 @@ import {
   Stack,
   TextArea,
 } from '../../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { NtosWindow } from '../../layouts';
 import { ChatScreen } from './ChatScreen';
 import { NtChat, NtMessenger, NtPicture } from './types';

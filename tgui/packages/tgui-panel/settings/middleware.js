@@ -7,20 +7,6 @@
 import { storage } from 'common/storage';
 
 import { setClientTheme } from '../themes';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { loadSettings, updateSettings, addHighlightSetting, removeHighlightSetting, updateHighlightSetting } from './actions';
-=======
-import {
-  loadSettings,
-  updateSettings,
-  addHighlightSetting,
-  removeHighlightSetting,
-  updateHighlightSetting,
-} from './actions';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { selectSettings } from './selectors';
-=======
 import {
   addHighlightSetting,
   loadSettings,
@@ -28,7 +14,6 @@ import {
   updateHighlightSetting,
   updateSettings,
 } from './actions';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { FONTS_DISABLED } from './constants';
 import { selectSettings } from './selectors';
 

@@ -6,21 +6,6 @@ import { Box, Button, InfinitePlane, Input, Stack } from '../../components';
 import { Window } from '../../layouts';
 import { Connections } from '../common/Connections';
 import { CircuitInfo } from './CircuitInfo';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { ABSOLUTE_Y_OFFSET, MOUSE_BUTTON_LEFT, TIME_UNTIL_PORT_RELEASE_WORKS, VARIABLE_ASSOC_LIST, VARIABLE_LIST } from './constants';
-=======
-import {
-  ABSOLUTE_Y_OFFSET,
-  MOUSE_BUTTON_LEFT,
-  TIME_UNTIL_PORT_RELEASE_WORKS,
-  VARIABLE_ASSOC_LIST,
-  VARIABLE_LIST,
-} from './constants';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { Connections } from '../common/Connections';
-import { ObjectComponent } from './ObjectComponent';
-=======
 import { ComponentMenu } from './ComponentMenu';
 import {
   ABSOLUTE_Y_OFFSET,
@@ -29,7 +14,6 @@ import {
   VARIABLE_ASSOC_LIST,
   VARIABLE_LIST,
 } from './constants';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { DisplayComponent } from './DisplayComponent';
 import { ObjectComponent } from './ObjectComponent';
 import { VariableMenu } from './VariableMenu';

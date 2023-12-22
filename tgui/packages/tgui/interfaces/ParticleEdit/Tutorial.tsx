@@ -1,20 +1,5 @@
-<<<<<<< HEAD
-=======
-import { useLocalState } from '../../backend';
-import {
-  Box,
-  Button,
-  LabeledList,
-  Section,
-  Modal,
-  Stack,
-} from '../../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { resolveAsset } from '../../assets';
 import { useLocalState } from '../../backend';
-<<<<<<< HEAD
-import { Box, Button, LabeledList, Section, Modal, Stack } from '../../components';
-=======
 import {
   Box,
   Button,
@@ -24,11 +9,6 @@ import {
   Section,
   Stack,
 } from '../../components';
-<<<<<<< HEAD
->>>>>>> 8971e067b99 (Typescript image component (#80291))
-import { resolveAsset } from '../../assets';
-=======
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 export const ShowDesc = (props) => {
   const [desc, setdesc] = useLocalState('desc', '');

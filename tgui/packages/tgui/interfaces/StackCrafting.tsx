@@ -1,19 +1,4 @@
 import { filter, map, reduce, sortBy } from 'common/collections';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-import {
-  Box,
-  Button,
-  Input,
-  NoticeBox,
-  Section,
-  Collapsible,
-  Table,
-} from '../components';
-import { Window } from '../layouts';
-import { clamp } from 'common/math';
-import { flow } from 'common/fp';
-=======
 import { flow } from 'common/fp';
 import { clamp } from 'common/math';
 import { createSearch } from 'common/string';
@@ -30,7 +15,6 @@ import {
   Table,
 } from '../components';
 import { Window } from '../layouts';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type Recipe = {
   ref: unknown | null;
@@ -119,7 +103,7 @@ export const StackCrafting = (_props) => {
   const { data } = useBackend<StackCraftingProps>();
   const { amount, recipes = {} } = data;
 
-  const [searchText, setSearchText] = useLocalState('searchText', '');
+  const [searchText, setSearchText] = useState('');
   const testSearch = createSearch(searchText, (item: string) => item);
   const filteredRecipes = filterRecipeList(recipes, testSearch);
 

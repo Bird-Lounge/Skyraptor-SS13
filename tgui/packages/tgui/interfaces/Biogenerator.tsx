@@ -2,11 +2,6 @@ import { BooleanLike } from 'common/react';
 import { classes } from 'common/react';
 
 import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-import { Window } from '../layouts';
-<<<<<<< HEAD
-import { Box, Section, NumberInput, Table, Tabs, LabeledList, NoticeBox, Button, ProgressBar, Stack } from '../components';
-=======
 import {
   Box,
   Button,
@@ -20,21 +15,6 @@ import {
   Tabs,
 } from '../components';
 import { Window } from '../layouts';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  Box,
-  Section,
-  NumberInput,
-  Table,
-  Tabs,
-  LabeledList,
-  NoticeBox,
-  Button,
-  ProgressBar,
-  Stack,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 type BiogeneratorData = {
   processing: BooleanLike;

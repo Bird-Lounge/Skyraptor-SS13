@@ -1,18 +1,11 @@
 import { sortBy } from 'common/collections';
 import { classes } from 'common/react';
 import { ReactNode } from 'react';
-<<<<<<< HEAD
-import { useSharedState } from '../../backend';
-import { Stack, Section, Icon, Dimmer } from '../../components';
-import { Design, MaterialMap } from './Types';
-import { SearchBar } from './SearchBar';
-=======
 
 import { useSharedState } from '../../backend';
 import { Dimmer, Icon, Section, Stack } from '../../components';
 import { SearchBar } from './SearchBar';
 import { Design, MaterialMap } from './Types';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 /**
  * A function that does nothing.

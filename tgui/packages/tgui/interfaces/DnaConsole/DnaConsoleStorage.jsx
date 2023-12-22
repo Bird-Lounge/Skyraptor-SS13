@@ -1,13 +1,6 @@
 import { uniqBy } from 'common/collections';
 
 import { useBackend } from '../../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Button, Collapsible, Stack, LabeledList, Section, Tabs } from '../../components';
-import { GeneticMakeupInfo } from './GeneticMakeupInfo';
-import { MutationInfo } from './MutationInfo';
-import { STORAGE_CONS_SUBMODE_CHROMOSOMES, STORAGE_CONS_SUBMODE_MUTATIONS, STORAGE_DISK_SUBMODE_ENZYMES, STORAGE_DISK_SUBMODE_MUTATIONS, STORAGE_MODE_ADVINJ, STORAGE_MODE_CONSOLE, STORAGE_MODE_DISK } from './constants';
-=======
 import {
   Box,
   Button,
@@ -17,19 +10,6 @@ import {
   Stack,
   Tabs,
 } from '../../components';
-=======
-import {
-  Box,
-  Button,
-  Collapsible,
-  Stack,
-  LabeledList,
-  Section,
-  Tabs,
-} from '../../components';
-import { GeneticMakeupInfo } from './GeneticMakeupInfo';
-import { MutationInfo } from './MutationInfo';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   STORAGE_CONS_SUBMODE_CHROMOSOMES,
   STORAGE_CONS_SUBMODE_MUTATIONS,
@@ -39,12 +19,8 @@ import {
   STORAGE_MODE_CONSOLE,
   STORAGE_MODE_DISK,
 } from './constants';
-<<<<<<< HEAD
 import { GeneticMakeupInfo } from './GeneticMakeupInfo';
 import { MutationInfo } from './MutationInfo';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 export const DnaConsoleStorage = (props) => {
   const { data, act } = useBackend();

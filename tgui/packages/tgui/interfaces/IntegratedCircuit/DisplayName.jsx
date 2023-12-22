@@ -1,19 +1,8 @@
 import { Box, Button, Flex } from '../../components';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { FUNDAMENTAL_DATA_TYPES, DATATYPE_DISPLAY_HANDLERS } from './FundamentalTypes';
-=======
 import {
   DATATYPE_DISPLAY_HANDLERS,
   FUNDAMENTAL_DATA_TYPES,
 } from './FundamentalTypes';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  FUNDAMENTAL_DATA_TYPES,
-  DATATYPE_DISPLAY_HANDLERS,
-} from './FundamentalTypes';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 export const DisplayName = (props) => {
   const { port, isOutput, componentId, portIndex, act, ...rest } = props;

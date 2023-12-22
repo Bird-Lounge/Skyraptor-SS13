@@ -1,19 +1,5 @@
 import { BooleanLike } from 'common/react';
 import { multiline } from 'common/string';
-<<<<<<< HEAD
-import { useBackend, useSharedState } from '../backend';
-import {
-  Button,
-  Dimmer,
-  Dropdown,
-  Section,
-  Stack,
-  NoticeBox,
-} from '../components';
-import { Window } from '../layouts';
-<<<<<<< HEAD
-import { ObjectivePrintout, Objective, ReplaceObjectivesButton } from './common/Objectives';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
@@ -31,14 +17,6 @@ import {
   ObjectivePrintout,
   ReplaceObjectivesButton,
 } from './common/Objectives';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  ObjectivePrintout,
-  Objective,
-  ReplaceObjectivesButton,
-} from './common/Objectives';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 const hivestyle = {
   fontWeight: 'bold',
@@ -235,8 +213,7 @@ const AbilitiesSection = (props) => {
 const MemoriesSection = (props) => {
   const { data } = useBackend<Info>();
   const { memories } = data;
-  const [selectedMemory, setSelectedMemory] = useSharedState(
-    'memory',
+  const [selectedMemory, setSelectedMemory] = useState(
     (!!memories && memories[0]) || null,
   );
   const memoryMap = {};
@@ -244,6 +221,7 @@ const MemoriesSection = (props) => {
     const memory = memories[index];
     memoryMap[memory.name] = memory;
   }
+
   return (
     <Section
       fill

@@ -2,12 +2,6 @@ import { filter, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 
 import { useBackend, useSharedState } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { AnimatedNumber, Box, Button, Flex, Icon, Input, RestrictedInput, LabeledList, NoticeBox, Section, Stack, Table, Tabs } from '../components';
-=======
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   AnimatedNumber,
   Box,
@@ -15,24 +9,14 @@ import {
   Flex,
   Icon,
   Input,
-<<<<<<< HEAD
   LabeledList,
   NoticeBox,
   RestrictedInput,
-=======
-  RestrictedInput,
-  LabeledList,
-  NoticeBox,
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
   Section,
   Stack,
   Table,
   Tabs,
 } from '../components';
-<<<<<<< HEAD
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { formatMoney } from '../format';
 import { Window } from '../layouts';
 
@@ -51,6 +35,7 @@ export const CargoContent = (props) => {
   const [tab, setTab] = useSharedState('tab', 'catalog');
   const { cart = [], requests = [], requestonly } = data;
   const cart_length = cart.reduce((total, entry) => total + entry.amount, 0);
+
   return (
     <Box>
       <CargoStatus />
@@ -115,6 +100,7 @@ const CargoStatus = (props) => {
     requestonly,
     can_send,
   } = data;
+
   return (
     <Section
       title={department}

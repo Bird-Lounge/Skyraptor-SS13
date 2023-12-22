@@ -1,11 +1,5 @@
 import { multiline } from 'common/string';
 import { useBackend, useLocalState } from 'tgui/backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { BlockQuote, Box, Button, Icon, LabeledList, Section, Tabs, TextArea, Tooltip } from 'tgui/components';
-=======
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   BlockQuote,
   Box,
@@ -17,11 +11,7 @@ import {
   TextArea,
   Tooltip,
 } from 'tgui/components';
-<<<<<<< HEAD
 
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { getMedicalRecord } from './helpers';
 import { MedicalNote, MedicalRecordData } from './types';
 

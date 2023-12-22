@@ -1,17 +1,8 @@
 import { createSearch, toTitleCase } from 'common/string';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, Stack, Flex, Section } from '../components';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-import { Image, Button, Input, Stack, Flex, Section } from '../components';
->>>>>>> 8971e067b99 (Typescript image component (#80291))
-=======
 import { Button, Flex, Image, Input, Section, Stack } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 type Ores = {
@@ -33,10 +24,11 @@ type Data = {
 export const OreContainer = (props) => {
   const { act, data } = useBackend<Data>();
   const { ores = [] } = data;
-  const [searchItem, setSearchItem] = useLocalState('searchItem', '');
+  const [searchItem, setSearchItem] = useState('');
   const search = createSearch(searchItem, (ore: Ores) => ore.name);
   const ores_filtered =
     searchItem.length > 0 ? ores.filter((ore) => search(ore)) : ores;
+
   return (
     <Window title="Ore Container" width={550} height={400}>
       <Window.Content>

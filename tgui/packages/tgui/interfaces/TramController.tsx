@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-import { BooleanLike } from 'common/react';
-<<<<<<< HEAD
-import { Stack, Section, LabeledList, ProgressBar, Button, NoticeBox, Dropdown } from '../components';
-=======
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  Stack,
-  Section,
-  LabeledList,
-  ProgressBar,
-  Button,
-  NoticeBox,
-  Dropdown,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { toFixed } from 'common/math';
 import { BooleanLike } from 'common/react';
 

@@ -1,8 +1,4 @@
 import { multiline } from 'common/string';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { CheckboxInput, FeatureChoiced, FeatureDropdownInput, FeatureToggle, Feature, FeatureSliderInput } from '../base';
-=======
 
 import {
   CheckboxInput,
@@ -12,17 +8,6 @@ import {
   FeatureSliderInput,
   FeatureToggle,
 } from '../base';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  CheckboxInput,
-  FeatureChoiced,
-  FeatureDropdownInput,
-  FeatureToggle,
-  Feature,
-  FeatureSliderInput,
-} from '../base';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 export const sound_ambience: FeatureToggle = {
   name: 'Enable ambience',

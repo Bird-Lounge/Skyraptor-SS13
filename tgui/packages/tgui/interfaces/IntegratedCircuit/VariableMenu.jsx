@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Stack, Section, Button, Input, Dropdown, Icon } from '../../components';
-import { Component } from 'react';
-import { shallowDiffers } from 'common/react';
-import { VARIABLE_ASSOC_LIST, VARIABLE_LIST, VARIABLE_NOT_A_LIST } from './constants';
-=======
 import { shallowDiffers } from 'common/react';
 import { Component } from 'react';
 
@@ -17,32 +10,12 @@ import {
   Section,
   Stack,
 } from '../../components';
-=======
-import {
-  Box,
-  Stack,
-  Section,
-  Button,
-  Input,
-  Dropdown,
-  Icon,
-} from '../../components';
-import { Component } from 'react';
-import { shallowDiffers } from 'common/react';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   VARIABLE_ASSOC_LIST,
   VARIABLE_LIST,
   VARIABLE_NOT_A_LIST,
 } from './constants';
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
 import { multiline } from 'common/string';
->>>>>>> f113b3d4bbe (Fixes circuit variable UI (#80410))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 export class VariableMenu extends Component {
   constructor(props) {

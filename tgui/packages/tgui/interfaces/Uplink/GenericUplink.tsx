@@ -1,37 +1,20 @@
 import { BooleanLike } from 'common/react';
-<<<<<<< HEAD
-import { useLocalState, useSharedState } from '../../backend';
-<<<<<<< HEAD
-import { Box, Button, Input, Section, Tabs, NoticeBox, Stack } from '../../components';
-=======
 import { useState } from 'react';
 
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Box,
   Button,
   Input,
-<<<<<<< HEAD
   NoticeBox,
   Section,
   Stack,
   Tabs,
 } from '../../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-  Section,
-  Tabs,
-  NoticeBox,
-  Stack,
-} from '../../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 type GenericUplinkProps = {
   currency?: string | JSX.Element;
   categories: string[];
   items: Item[];
-
   handleBuy: (item: Item) => void;
 };
 
@@ -42,21 +25,16 @@ export const GenericUplink = (props: GenericUplinkProps) => {
 
     handleBuy,
   } = props;
-  const [searchText, setSearchText] = useLocalState('searchText', '');
-  const [selectedCategory, setSelectedCategory] = useLocalState(
-    'category',
-    categories[0],
-  );
-  const [compactMode, setCompactMode] = useSharedState(
-    'compactModeUplink',
-    false,
-  );
+  const [searchText, setSearchText] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+  const [compactMode, setCompactMode] = useState(false);
   let items = props.items.filter((value) => {
     if (searchText.length === 0) {
       return value.category === selectedCategory;
     }
     return value.name.toLowerCase().includes(searchText.toLowerCase());
   });
+
   return (
     <Section
       title={<Box inline>{currency}</Box>}
@@ -113,14 +91,13 @@ export const GenericUplink = (props: GenericUplinkProps) => {
   );
 };
 
-export type Item<ItemData = {}> = {
+export type Item = {
   id: string | number;
   name: string;
   category: string;
   cost: JSX.Element | string;
   desc: JSX.Element | string;
   disabled: BooleanLike;
-  extraData?: ItemData;
 };
 
 export type ItemListProps = {

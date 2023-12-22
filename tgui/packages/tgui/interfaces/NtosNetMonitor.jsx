@@ -1,30 +1,14 @@
 import { useBackend, useSharedState } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Button, LabeledList, NoticeBox, Icon, Section, Stack, Tabs } from '../components';
-=======
 import {
   Box,
   Button,
   Icon,
   LabeledList,
   NoticeBox,
-=======
-import {
-  Box,
-  Button,
-  LabeledList,
-  NoticeBox,
-  Icon,
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
   Section,
   Stack,
   Tabs,
 } from '../components';
-<<<<<<< HEAD
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { NtosWindow } from '../layouts';
 
 export const NtosNetMonitor = (props) => {
@@ -37,6 +21,7 @@ export const NtosNetMonitor = (props) => {
     ntnetlogs = [],
     tablets = [],
   } = data;
+
   return (
     <NtosWindow>
       <NtosWindow.Content scrollable>
@@ -83,6 +68,7 @@ export const NtosNetMonitor = (props) => {
 const MainPage = (props) => {
   const { ntnetrelays, idsalarm, idsstatus, ntnetlogs = [] } = props;
   const { act, data } = useBackend();
+
   return (
     <Section>
       <NoticeBox>

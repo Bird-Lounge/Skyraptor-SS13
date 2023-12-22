@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { FeatureColorInput, Feature, FeatureChoiced, FeatureDropdownInput, FeatureValueProps, FeatureChoicedServerData } from './base';
-=======
 import {
   Feature,
   FeatureChoiced,
@@ -10,17 +6,6 @@ import {
   FeatureDropdownInput,
   FeatureValueProps,
 } from './base';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  FeatureColorInput,
-  Feature,
-  FeatureChoiced,
-  FeatureDropdownInput,
-  FeatureValueProps,
-  FeatureChoicedServerData,
-} from './base';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 export const eye_color: Feature<string> = {
   name: 'Eye color',

@@ -171,19 +171,9 @@ const ReportText = (props) => {
         <Stack.Item>
           <Button.Checkbox
             fluid
-<<<<<<< HEAD
-            checked={announce_contents}
-<<<<<<< HEAD
-            onClick={() => act('toggle_announce')}>
-=======
             checked={!!announce_contents}
             onClick={() => act('toggle_announce')}
           >
->>>>>>> a53f0631353 (Converts button to typescript (#80194))
-=======
-            onClick={() => act('toggle_announce')}
-          >
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
             Announce Contents
           </Button.Checkbox>
           <Button.Checkbox

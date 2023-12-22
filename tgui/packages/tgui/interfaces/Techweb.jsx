@@ -1,26 +1,6 @@
 import { map, sortBy } from 'common/collections';
 
 import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Button, Section, Modal, Tabs, Box, Input, Flex, ProgressBar, Collapsible, Icon, Divider } from '../components';
-=======
-import {
-  Button,
-  Section,
-  Modal,
-  Tabs,
-  Box,
-  Input,
-  Flex,
-  ProgressBar,
-  Collapsible,
-  Icon,
-  Divider,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { Window, NtosWindow } from '../layouts';
-=======
 import {
   Box,
   Button,
@@ -35,7 +15,6 @@ import {
   Tabs,
 } from '../components';
 import { NtosWindow, Window } from '../layouts';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Experiment } from './ExperimentConfigure';
 
 // Data reshaping / ingestion (thanks stylemistake for the help, very cool!)

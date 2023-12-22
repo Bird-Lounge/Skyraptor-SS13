@@ -1,10 +1,4 @@
 import { useBackend, useLocalState } from 'tgui/backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Button, LabeledList, NoticeBox, RestrictedInput, Section, Stack, Table } from 'tgui/components';
-=======
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Box,
   Button,
@@ -15,11 +9,7 @@ import {
   Stack,
   Table,
 } from 'tgui/components';
-<<<<<<< HEAD
 
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { CharacterPreview } from '../common/CharacterPreview';
 import { EditableText } from '../common/EditableText';
 import { CRIMESTATUS2COLOR, CRIMESTATUS2DESC } from './constants';

@@ -1,12 +1,6 @@
 import { BooleanLike } from 'common/react';
 
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Button, Flex, Grid, Icon, LabeledList, Modal, NoticeBox, Section } from '../components';
-=======
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Box,
   Button,
@@ -18,11 +12,7 @@ import {
   NoticeBox,
   Section,
 } from '../components';
-<<<<<<< HEAD
 import { FakeTerminal } from '../components/FakeTerminal';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { NtosWindow } from '../layouts';
 
 const CONTRACT_STATUS_INACTIVE = 1;

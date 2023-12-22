@@ -2,32 +2,6 @@ import { filterMap, sortBy } from 'common/collections';
 import { classes } from 'common/react';
 
 import { sendAct, useBackend, useLocalState } from '../../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Autofocus, Box, Button, Flex, LabeledList, Popper, Stack, TrackOutsideClicks } from '../../components';
-import { createSetPreference, PreferencesMenuData, RandomSetting, ServerData } from './data';
-=======
-import {
-  Autofocus,
-  Box,
-  Button,
-  Flex,
-  LabeledList,
-  Popper,
-  Stack,
-  TrackOutsideClicks,
-} from '../../components';
-import {
-  createSetPreference,
-  PreferencesMenuData,
-  RandomSetting,
-  ServerData,
-} from './data';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { CharacterPreview } from '../common/CharacterPreview';
-import { RandomizationButton } from './RandomizationButton';
-import { ServerPreferencesFetcher } from './ServerPreferencesFetcher';
-=======
 import {
   Autofocus,
   Box,
@@ -45,20 +19,8 @@ import {
   RandomSetting,
   ServerData,
 } from './data';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { MultiNameInput, NameInput } from './names';
 import features from './preferences/features';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { FeatureChoicedServerData, FeatureValueInput } from './preferences/features/base';
-=======
-import {
-  FeatureChoicedServerData,
-  FeatureValueInput,
-} from './preferences/features/base';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { filterMap, sortBy } from 'common/collections';
-=======
 import {
   FeatureChoicedServerData,
   FeatureValueInput,
@@ -66,7 +28,6 @@ import {
 import { Gender, GENDERS } from './preferences/gender';
 import { RandomizationButton } from './RandomizationButton';
 import { ServerPreferencesFetcher } from './ServerPreferencesFetcher';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { useRandomToggleState } from './useRandomToggleState';
 
 const CLOTHING_CELL_SIZE = 64;
@@ -74,7 +35,6 @@ const CLOTHING_SIDEBAR_ROWS = 10;
 
 const CLOTHING_SELECTION_CELL_SIZE = 64;
 const CLOTHING_SELECTION_WIDTH = 6.3;
-const CLOTHING_SELECTION_MULTIPLIER = 5.2;
 
 const CharacterControls = (props: {
   handleRotate: () => void;
@@ -401,11 +361,7 @@ const createSetRandomization =
 
 const sortPreferences = sortBy<[string, unknown]>(([featureId, _]) => {
   const feature = features[featureId];
-  if (feature?.sortingPrefix) {
-    return feature.sortingPrefix + feature.name;
-  } else {
-    return feature?.name;
-  }
+  return feature?.name;
 });
 
 export const PreferenceList = (props: {

@@ -2,13 +2,6 @@ import { sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { classes } from 'common/react';
 import { createSearch } from 'common/string';
-<<<<<<< HEAD
-import { flow } from 'common/fp';
-import { sortBy } from 'common/collections';
-import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-import { Input, Tooltip, Box, ProgressBar, Button, Section, Table, NoticeBox, Icon } from '../components';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
@@ -23,20 +16,6 @@ import {
   Table,
   Tooltip,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  Input,
-  Tooltip,
-  Box,
-  ProgressBar,
-  Button,
-  Section,
-  Table,
-  NoticeBox,
-  Icon,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 type TraitData = {
@@ -82,9 +61,9 @@ type SeedExtractorData = {
 
 export const SeedExtractor = (props) => {
   const { act, data } = useBackend<SeedExtractorData>();
-  const [searchText, setSearchText] = useLocalState('searchText', '');
-  const [sortField, setSortField] = useLocalState('sortField', 'name');
-  const [action, toggleAction] = useLocalState('action', true);
+  const [searchText, setSearchText] = useState('');
+  const [sortField, setSortField] = useState('name');
+  const [action, toggleAction] = useState(true);
   const search = createSearch(searchText, (item: SeedData) => item.name);
   const seeds_filtered =
     searchText.length > 0 ? data.seeds.filter(search) : data.seeds;
@@ -92,6 +71,7 @@ export const SeedExtractor = (props) => {
     sortBy((item: SeedData) => item[sortField as keyof SeedData]),
   ])(seeds_filtered || []);
   sortField !== 'name' && seeds.reverse();
+
   return (
     <Window width={800} height={500}>
       <Window.Content scrollable>

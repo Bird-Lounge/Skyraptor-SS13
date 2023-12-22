@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-import { useBackend, useSharedState } from '../backend';
-<<<<<<< HEAD
-import { AnimatedNumber, Box, Button, Flex, LabeledList, ProgressBar, Section, Slider, Tabs } from '../components';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   AnimatedNumber,
   Box,
@@ -19,10 +12,6 @@ import {
   Slider,
   Tabs,
 } from '../components';
-<<<<<<< HEAD
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { NtosWindow } from '../layouts';
 
 export const NtosRobotact = (props) => {
@@ -37,8 +26,8 @@ export const NtosRobotact = (props) => {
 
 export const NtosRobotactContent = (props) => {
   const { act, data } = useBackend();
-  const [tab_main, setTab_main] = useSharedState('tab_main', 1);
-  const [tab_sub, setTab_sub] = useSharedState('tab_sub', 1);
+  const [tab_main, setTab_main] = useState(1);
+  const [tab_sub, setTab_sub] = useState(1);
   const {
     charge,
     maxcharge,
@@ -64,6 +53,7 @@ export const NtosRobotactContent = (props) => {
   const laws = data.Laws || [];
   const borgLog = data.borgLog || [];
   const borgUpgrades = data.borgUpgrades || [];
+
   return (
     <Flex direction={'column'}>
       <Flex.Item position="relative" mb={1}>

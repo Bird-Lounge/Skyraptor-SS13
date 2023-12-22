@@ -93,20 +93,9 @@ const Contents = (properties) => {
               act('retrieve', {
                 index: index + 1,
               })
-<<<<<<< HEAD
-<<<<<<< HEAD
-            }>
-=======
-            }
-          >
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-            <Box
-              as="img"
-=======
             }
           >
             <Image
->>>>>>> 8971e067b99 (Typescript image component (#80291))
               src={item.sprite + '.png'}
               verticalAlign="middle"
               ml="-6px"

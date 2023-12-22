@@ -1,29 +1,5 @@
 /* eslint-disable react/jsx-no-undef */
 import { useBackend, useLocalState } from '../../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Button, LabeledList, NumberInput, ColorBox, Input, Stack } from '../../components';
-import { EntryGeneratorNumbersListProps, FloatGeneratorColorProps, FloatGeneratorProps, ParticleUIData, P_DATA_GENERATOR, RandToNumber } from './data';
-=======
-import {
-  Button,
-  LabeledList,
-  NumberInput,
-  ColorBox,
-  Input,
-  Stack,
-} from '../../components';
-import {
-  EntryGeneratorNumbersListProps,
-  FloatGeneratorColorProps,
-  FloatGeneratorProps,
-  ParticleUIData,
-  P_DATA_GENERATOR,
-  RandToNumber,
-} from './data';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { isStringArray } from './helpers';
-=======
 import {
   Button,
   ColorBox,
@@ -40,7 +16,6 @@ import {
   ParticleUIData,
   RandToNumber,
 } from './data';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { GeneratorListEntry } from './Generators';
 import { isStringArray } from './helpers';
 

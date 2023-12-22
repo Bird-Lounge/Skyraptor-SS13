@@ -1,38 +1,9 @@
-<<<<<<< HEAD
-=======
-import { useBackend, useLocalState } from '../../backend';
-import {
-  Box,
-  Button,
-  Flex,
-  Section,
-  Tabs,
-  TextArea,
-  Modal,
-  Stack,
-  ProgressBar,
-  NoticeBox,
-} from '../../components';
-import { Window } from '../../layouts';
-import { CallModal } from './CallModal';
-import { ChunkViewModal } from './ChunkViewModal';
-import { StateSelectModal } from './StateSelectModal';
-import { ListMapper } from './ListMapper';
-import { Log } from './Log';
-import { TaskManager } from './TaskManager';
-import { sanitizeText } from '../../sanitize';
-import { marked } from 'marked';
-import { Component, createRef } from 'react';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import hljs from 'highlight.js/lib/core';
 import lua from 'highlight.js/lib/languages/lua';
 import { marked } from 'marked';
 import { Component, createRef } from 'react';
 
 import { useBackend, useLocalState } from '../../backend';
-<<<<<<< HEAD
-import { Box, Button, Flex, Section, Tabs, TextArea, Modal, Stack, ProgressBar, NoticeBox } from '../../components';
-=======
 import {
   Box,
   Button,
@@ -45,7 +16,6 @@ import {
   Tabs,
   TextArea,
 } from '../../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Window } from '../../layouts';
 import { sanitizeText } from '../../sanitize';
 import { CallModal } from './CallModal';

@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Button, Icon, Input, NoticeBox, Section, Stack, Table, Tooltip } from '../components';
-=======
-=======
-import {
-  Button,
-  Icon,
-  Input,
-  NoticeBox,
-  Section,
-  Stack,
-  Table,
-  Tooltip,
-} from '../components';
-import { TableCell, TableRow } from '../components/Table';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { createSearch, decodeHtmlEntities } from 'common/string';
 
 import { useBackend, useLocalState } from '../backend';
@@ -28,7 +11,6 @@ import {
   Table,
   Tooltip,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { TableCell, TableRow } from '../components/Table';
 import { Window } from '../layouts';
 import { InputButtons } from './common/InputButtons';

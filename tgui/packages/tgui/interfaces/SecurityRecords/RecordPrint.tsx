@@ -1,9 +1,5 @@
 import { useBackend, useLocalState } from 'tgui/backend';
 import { Box, Button, Input, Section, Stack } from 'tgui/components';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { getSecurityRecord, getDefaultPrintDescription, getDefaultPrintHeader } from './helpers';
-=======
 
 import {
   getDefaultPrintDescription,
@@ -11,14 +7,6 @@ import {
   getSecurityRecord,
 } from './helpers';
 import { PRINTOUT, SecurityRecordsData } from './types';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  getSecurityRecord,
-  getDefaultPrintDescription,
-  getDefaultPrintHeader,
-} from './helpers';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 /** Handles printing posters and rapsheets */
 export const RecordPrint = (props) => {

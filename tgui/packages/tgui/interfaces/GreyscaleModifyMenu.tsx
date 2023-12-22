@@ -1,15 +1,8 @@
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Button, ColorBox, Flex, Stack, Icon, Input, LabeledList, Section, Table, Divider } from '../components';
-=======
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Box,
   Button,
   ColorBox,
-<<<<<<< HEAD
   Divider,
   Flex,
   Icon,
@@ -20,18 +13,6 @@ import {
   Stack,
   Table,
 } from '../components';
->>>>>>> 8971e067b99 (Typescript image component (#80291))
-=======
-  Flex,
-  Stack,
-  Icon,
-  Input,
-  LabeledList,
-  Section,
-  Table,
-  Divider,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 type ColorEntry = {

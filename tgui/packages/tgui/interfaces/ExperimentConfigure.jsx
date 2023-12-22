@@ -1,23 +1,6 @@
 import { sortBy } from 'common/collections';
 
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Section, Box, Button, Flex, Icon, LabeledList, Table, Tooltip } from '../components';
-=======
-import {
-  Section,
-  Box,
-  Button,
-  Flex,
-  Icon,
-  LabeledList,
-  Table,
-  Tooltip,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { sortBy } from 'common/collections';
-=======
 import {
   Box,
   Button,
@@ -29,7 +12,6 @@ import {
   Tooltip,
 } from '../components';
 import { Window } from '../layouts';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 const ExperimentStages = (props) => {
   return (

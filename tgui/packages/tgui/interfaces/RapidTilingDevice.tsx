@@ -1,13 +1,6 @@
 import { classes } from 'common/react';
 import { capitalizeAll } from 'common/string';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Section, Tabs, Stack } from '../components';
-import { InfoSection } from './RapidConstructionDevice';
-import { Window } from '../layouts';
-=======
 import { useState } from 'react';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 import { useBackend } from '../backend';
 import { Box, Button, Section, Stack, Tabs } from '../components';
@@ -106,13 +99,11 @@ const TileRotateSection = (props) => {
 const TileDesignSection = (props) => {
   const { act, data } = useBackend<Data>();
   const { categories = [], selected_category, selected_recipe } = data;
-  const [categoryName, setCategoryName] = useLocalState(
-    'categoryName',
-    selected_category,
-  );
+  const [categoryName, setCategoryName] = useState(selected_category);
   const shownCategory =
     categories.find((category) => category.category_name === categoryName) ||
     categories[0];
+
   return (
     <Section fill scrollable>
       <Tabs>

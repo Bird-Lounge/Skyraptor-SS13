@@ -1,12 +1,8 @@
 import { BooleanLike } from 'common/react';
 import { multiline } from 'common/string';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { BlockQuote, Button, Dropdown, Section, Stack } from '../components';
 import { Window } from '../layouts';
 
@@ -58,9 +54,10 @@ export const SparringContract = (props) => {
     no_chaplains,
     stakes_holy_match,
   } = data;
-  const [weapon, setWeapon] = useLocalState('weapon', set_weapon);
-  const [area, setArea] = useLocalState('area', set_area);
-  const [stakes, setStakes] = useLocalState('stakes', set_stakes);
+  const [weapon, setWeapon] = useState(set_weapon);
+  const [area, setArea] = useState(set_area);
+  const [stakes, setStakes] = useState(set_stakes);
+
   return (
     <Window width={420} height={380}>
       <Window.Content>

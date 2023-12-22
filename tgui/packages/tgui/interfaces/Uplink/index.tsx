@@ -1,11 +1,4 @@
 import { BooleanLike } from 'common/react';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Tabs, Button, Stack, Section, Tooltip, Dimmer } from '../../components';
-import { PrimaryObjectiveMenu } from './PrimaryObjectiveMenu';
-import { Objective, ObjectiveMenu } from './ObjectiveMenu';
-import { calculateProgression, calculateDangerLevel, dangerDefault, dangerLevelsTooltip } from './calculateDangerLevel';
-=======
 import { Component, Fragment } from 'react';
 
 import { resolveAsset } from '../../assets';
@@ -30,26 +23,6 @@ import {
 import { GenericUplink, Item } from './GenericUplink';
 import { Objective, ObjectiveMenu } from './ObjectiveMenu';
 import { PrimaryObjectiveMenu } from './PrimaryObjectiveMenu';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  Box,
-  Tabs,
-  Button,
-  Stack,
-  Section,
-  Tooltip,
-  Dimmer,
-} from '../../components';
-import { PrimaryObjectiveMenu } from './PrimaryObjectiveMenu';
-import { Objective, ObjectiveMenu } from './ObjectiveMenu';
-import {
-  calculateProgression,
-  calculateDangerLevel,
-  dangerDefault,
-  dangerLevelsTooltip,
-} from './calculateDangerLevel';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 type UplinkItem = {
   id: string;
@@ -114,8 +87,10 @@ type ServerData = {
   categories: string[];
 };
 
-type ItemExtraData = {
-  ref?: string | undefined;
+type ItemExtraData = Item & {
+  extraData: {
+    ref?: string;
+  };
 };
 
 // Cache response so it's only sent once
@@ -223,7 +198,7 @@ export class Uplink extends Component<{}, UplinkState> {
     const { allItems, allCategories, currentTab } = this.state as UplinkState;
 
     const itemsToAdd = [...allItems];
-    const items: Item<ItemExtraData>[] = [];
+    const items: ItemExtraData[] = [];
     itemsToAdd.push(...extra_purchasable);
     for (let i = 0; i < extra_purchasable.length; i++) {
       const item = extra_purchasable[i];
@@ -472,12 +447,11 @@ export class Uplink extends Component<{}, UplinkState> {
                       currency=""
                       categories={allCategories}
                       items={items}
-                      handleBuy={(item) => {
-                        const extraDataItem = item as Item<ItemExtraData>;
-                        if (!extraDataItem.extraData?.ref) {
+                      handleBuy={(item: ItemExtraData) => {
+                        if (!item.extraData?.ref) {
                           act('buy', { path: item.id });
                         } else {
-                          act('buy', { ref: extraDataItem.extraData.ref });
+                          act('buy', { ref: item.extraData.ref });
                         }
                       }}
                     />

@@ -3,27 +3,6 @@ import { classes } from 'common/react';
 import { GasmixParser } from 'tgui/interfaces/common/GasmixParser';
 
 import { useBackend } from '../../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Icon, NumberInput, ProgressBar, Box, Button, Section, Stack, LabeledList, NoticeBox, Collapsible } from '../../components';
-=======
-import {
-  Icon,
-  NumberInput,
-  ProgressBar,
-  Box,
-  Button,
-  Section,
-  Stack,
-  LabeledList,
-  NoticeBox,
-  Collapsible,
-} from '../../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { MainData, MechModule } from './data';
-import { classes } from 'common/react';
-import { toFixed } from 'common/math';
-=======
 import {
   Box,
   Button,
@@ -36,7 +15,6 @@ import {
   Section,
   Stack,
 } from '../../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { formatPower } from '../../format';
 import { MainData, MechModule } from './data';
 

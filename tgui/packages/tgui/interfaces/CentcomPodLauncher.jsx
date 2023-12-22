@@ -929,39 +929,12 @@ class PresetsPage extends Component {
         )}
         {presets
           ? presets.map((preset, i) => (
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <Button
-              key={i}
-              width="100%"
-              backgroundColor={`hsl(${preset.hue}, 50%, 50%)`}
-              onClick={() => setSelectedPreset(preset.id)}
-              onDblClick={() => this.loadDataFromPreset(preset.id)}
-              content={preset.title}
-              style={
-                presetIndex === preset.id
-                  ? {
-                    borderWidth: '1px',
-                    borderStyle: 'solid',
-                    borderColor: `hsl(${preset.hue}, 80%, 80%)`,
-                  }
-                  : ''
-              }
-            />
-          ))
-=======
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
               <Button
                 key={i}
                 width="100%"
                 backgroundColor={`hsl(${preset.hue}, 50%, 50%)`}
                 onClick={() => setSelectedPreset(preset.id)}
-<<<<<<< HEAD
                 onDoubleClick={() => this.loadDataFromPreset(preset.id)}
-=======
-                onDblClick={() => this.loadDataFromPreset(preset.id)}
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
                 content={preset.title}
                 style={
                   presetIndex === preset.id
@@ -974,10 +947,6 @@ class PresetsPage extends Component {
                 }
               />
             ))
-<<<<<<< HEAD
->>>>>>> 58148508545 (Fix double-clicking in various UIs (#80284))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
           : ''}
         <span style={pod_grey}>
           <br />

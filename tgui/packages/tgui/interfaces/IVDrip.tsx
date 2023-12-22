@@ -1,10 +1,6 @@
 import { BooleanLike } from 'common/react';
 
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Tooltip, Box, Slider, ProgressBar, NoticeBox, Button, LabeledList, Section } from '../components';
-=======
 import {
   Box,
   Button,
@@ -15,19 +11,6 @@ import {
   Slider,
   Tooltip,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  Tooltip,
-  Box,
-  Slider,
-  ProgressBar,
-  NoticeBox,
-  Button,
-  LabeledList,
-  Section,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 type IVDripData = {

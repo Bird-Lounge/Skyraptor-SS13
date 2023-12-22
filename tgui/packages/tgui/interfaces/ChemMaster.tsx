@@ -1,20 +1,12 @@
 import { BooleanLike, classes } from 'common/react';
 import { capitalize } from 'common/string';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-import { AnimatedNumber, Box, Button, Section, Table, NumberInput, Tooltip, LabeledList, ColorBox, ProgressBar, Stack, Divider } from '../components';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   AnimatedNumber,
   Box,
   Button,
-<<<<<<< HEAD
   ColorBox,
   Divider,
   LabeledList,
@@ -25,19 +17,6 @@ import {
   Table,
   Tooltip,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-  Section,
-  Table,
-  NumberInput,
-  Tooltip,
-  LabeledList,
-  ColorBox,
-  ProgressBar,
-  Stack,
-  Divider,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 type Data = {
@@ -125,7 +104,7 @@ const ChemMasterContent = (props) => {
     suggestedContainer,
   } = data;
 
-  const [itemCount, setItemCount] = useLocalState('itemCount', 1);
+  const [itemCount, setItemCount] = useState(1);
 
   return (
     <Box>

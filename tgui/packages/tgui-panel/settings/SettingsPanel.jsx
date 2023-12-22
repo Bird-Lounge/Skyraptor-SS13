@@ -7,40 +7,6 @@
 import { toFixed } from 'common/math';
 import { useLocalState } from 'tgui/backend';
 import { useDispatch, useSelector } from 'tgui/backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Button, ColorBox, Divider, Dropdown, Flex, Input, LabeledList, NumberInput, Section, Stack, Tabs, TextArea } from 'tgui/components';
-=======
-import {
-  Box,
-  Button,
-  ColorBox,
-  Divider,
-  Dropdown,
-  Flex,
-  Input,
-  LabeledList,
-  NumberInput,
-  Section,
-  Stack,
-  Tabs,
-  TextArea,
-} from 'tgui/components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { ChatPageSettings } from '../chat';
-import { rebuildChat, saveChatToDisk } from '../chat/actions';
-import { THEMES } from '../themes';
-import {
-  changeSettingsTab,
-  updateSettings,
-  addHighlightSetting,
-  removeHighlightSetting,
-  updateHighlightSetting,
-} from './actions';
-import { SETTINGS_TABS, FONTS, MAX_HIGHLIGHT_SETTINGS } from './constants';
-<<<<<<< HEAD
-import { selectActiveTab, selectSettings, selectHighlightSettings, selectHighlightSettingById } from './selectors';
-=======
 import {
   Box,
   Button,
@@ -74,15 +40,6 @@ import {
   selectHighlightSettings,
   selectSettings,
 } from './selectors';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  selectActiveTab,
-  selectSettings,
-  selectHighlightSettings,
-  selectHighlightSettingById,
-} from './selectors';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 export const SettingsPanel = (props) => {
   const activeTab = useSelector(selectActiveTab);

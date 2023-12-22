@@ -2,28 +2,15 @@ import { clamp } from 'common/math';
 import { BooleanLike } from 'common/react';
 
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Blink, Button, Dimmer, Icon, Section, Stack } from '../components';
-=======
 import {
   Blink,
   Box,
-=======
-import {
-  Box,
-  Blink,
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
   Button,
   Dimmer,
   Icon,
   Section,
   Stack,
 } from '../components';
-<<<<<<< HEAD
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 type FloorData = {

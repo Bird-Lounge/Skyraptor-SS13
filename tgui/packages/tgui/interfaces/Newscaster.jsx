@@ -6,31 +6,16 @@
  */
 
 import { decodeHtmlEntities } from 'common/string';
-<<<<<<< HEAD
-import { useBackend, useSharedState, useLocalState } from '../backend';
-import { BountyBoardContent } from './BountyBoard';
-import { UserDetails } from './Vending';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { BlockQuote, Box, Button, Divider, LabeledList, Modal, Section, Stack, Tabs, TextArea } from '../components';
-=======
-=======
 import { marked } from 'marked';
 import { useState } from 'react';
 
 import { useBackend, useSharedState } from '../backend';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   BlockQuote,
   Box,
   Button,
   Divider,
-<<<<<<< HEAD
   Image,
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
   LabeledList,
   Modal,
   Section,
@@ -38,18 +23,9 @@ import {
   Tabs,
   TextArea,
 } from '../components';
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 8971e067b99 (Typescript image component (#80291))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { marked } from 'marked';
-import { sanitizeText } from '../sanitize';
-=======
 import { sanitizeText } from '../sanitize';
 import { BountyBoardContent } from './BountyBoard';
 import { UserDetails } from './Vending';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 const CENSOR_MESSAGE =
   'This channel has been deemed as threatening to \
@@ -63,6 +39,7 @@ export const Newscaster = (props) => {
     'tab_main',
     NEWSCASTER_SCREEN,
   );
+
   return (
     <>
       <NewscasterChannelCreation />
@@ -99,11 +76,12 @@ export const Newscaster = (props) => {
 /** The modal menu that contains the prompts to making new channels. */
 const NewscasterChannelCreation = (props) => {
   const { act, data } = useBackend();
-  const [lockedmode, setLockedmode] = useLocalState('lockedmode', 1);
+  const [lockedmode, setLockedmode] = useState(true);
   const { creating_channel, name, desc } = data;
   if (!creating_channel) {
     return null;
   }
+
   return (
     <Modal textAlign="center" mr={1.5}>
       <Stack vertical>

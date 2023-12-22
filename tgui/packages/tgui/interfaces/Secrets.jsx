@@ -1,14 +1,7 @@
 import { toFixed } from 'common/math';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-import { Button, Flex, LabeledControls, NoticeBox, RoundGauge, Section, Stack } from '../components';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Button,
   Flex,
@@ -18,10 +11,6 @@ import {
   Section,
   Stack,
 } from '../components';
-<<<<<<< HEAD
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 const TAB2NAME = [
@@ -644,8 +633,9 @@ const FunForYouTab = (props) => {
 export const Secrets = (props) => {
   const { act, data } = useBackend();
   const { is_debugger, is_funmin } = data;
-  const [tabIndex, setTabIndex] = useLocalState('tab-index', 2);
+  const [tabIndex, setTabIndex] = useState(2);
   const TabComponent = TAB2NAME[tabIndex - 1].component();
+
   return (
     <Window title="Secrets Panel" width={500} height={488} theme="admin">
       <Window.Content>

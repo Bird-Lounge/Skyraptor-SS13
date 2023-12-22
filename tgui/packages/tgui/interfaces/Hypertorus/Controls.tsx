@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Button, Icon, Knob, LabeledControls, LabeledList, NumberInput, Section, Tooltip } from 'tgui/components';
-=======
-import {
-  Box,
-  Button,
-  Icon,
-  Knob,
-  LabeledControls,
-  LabeledList,
-  NumberInput,
-  Section,
-  Tooltip,
-} from 'tgui/components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { HelpDummy, HoverHelp } from './helpers';
-=======
 import { BooleanLike } from 'common/react';
 import { useBackend } from 'tgui/backend';
 import {
@@ -29,7 +11,6 @@ import {
   Section,
   Tooltip,
 } from 'tgui/components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 import { HypertorusFilter } from '.';
 import { HelpDummy, HoverHelp } from './helpers';

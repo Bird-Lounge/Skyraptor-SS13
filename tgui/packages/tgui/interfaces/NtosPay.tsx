@@ -1,8 +1,4 @@
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Stack, Section, Box, Button, Input, Table, Tooltip, NoticeBox, Divider, RestrictedInput } from '../components';
-=======
 import {
   Box,
   Button,
@@ -16,21 +12,6 @@ import {
   Tooltip,
 } from '../components';
 import { NtosWindow } from '../layouts';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  Stack,
-  Section,
-  Box,
-  Button,
-  Input,
-  Table,
-  Tooltip,
-  NoticeBox,
-  Divider,
-  RestrictedInput,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 type Data = {
   name: string;

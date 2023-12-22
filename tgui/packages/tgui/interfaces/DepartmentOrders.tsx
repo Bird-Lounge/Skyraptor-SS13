@@ -1,14 +1,7 @@
 import { BooleanLike } from 'common/react';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-import { Box, Button, Dimmer, Icon, NoticeBox, Section, Stack, Tabs, Tooltip } from '../components';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Box,
   Button,
@@ -20,10 +13,6 @@ import {
   Tabs,
   Tooltip,
 } from '../components';
-<<<<<<< HEAD
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 // 15x crate value
@@ -133,7 +122,8 @@ const CooldownDimmer = (props) => {
 const DepartmentCatalog = (props) => {
   const { act, data } = useBackend<Info>();
   const { supplies } = data;
-  const [tabCategory, setTabCategory] = useLocalState('tabName', supplies[0]);
+  const [tabCategory, setTabCategory] = useState(supplies[0]);
+
   return (
     <Stack vertical fill>
       <Stack.Item>

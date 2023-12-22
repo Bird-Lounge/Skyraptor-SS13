@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { BlockQuote, Collapsible, Modal, Section, Stack, Tabs } from '../components';
-=======
-import {
-  BlockQuote,
-  Collapsible,
-  Modal,
-  Section,
-  Stack,
-  Tabs,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { useBackend } from '../backend';
-import { useLocalState } from '../backend';
-import { Window } from '../layouts';
-import { BooleanLike } from 'common/react';
-=======
 import { BooleanLike } from 'common/react';
 import { useState } from 'react';
 
@@ -29,7 +11,6 @@ import {
   Tabs,
 } from '../components';
 import { Window } from '../layouts';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type Data = {
   PlayerAccounts: PlayerAccount[];
@@ -58,7 +39,7 @@ enum SCREENS {
 }
 
 export const AccountingConsole = (props) => {
-  const [screenmode, setScreenmode] = useLocalState('tab_main', SCREENS.users);
+  const [screenmode, setScreenmode] = useState(SCREENS.users);
 
   return (
     <Window width={300} height={360}>

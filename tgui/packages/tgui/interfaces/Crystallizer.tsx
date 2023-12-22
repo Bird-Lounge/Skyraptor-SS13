@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Button, LabeledList, NumberInput, ProgressBar, Section } from '../components';
-=======
-import {
-  Box,
-  Button,
-  LabeledList,
-  NumberInput,
-  ProgressBar,
-  Section,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-
-import { BooleanLike } from 'common/react';
-import { Window } from '../layouts';
-=======
 import { toFixed } from 'common/math';
 import { BooleanLike } from 'common/react';
 
@@ -27,7 +10,6 @@ import {
   ProgressBar,
   Section,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { getGasColor } from '../constants';
 import { Window } from '../layouts';
 

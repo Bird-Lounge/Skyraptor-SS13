@@ -1,19 +1,4 @@
 import { sortStrings } from 'common/collections';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Box, Button, Dropdown, Section, Stack, TextArea } from '../../components';
-=======
-import {
-  Box,
-  Button,
-  Dropdown,
-  Section,
-  Stack,
-  TextArea,
-} from '../../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { RequestsData, RequestType, RequestPriority } from './types';
-=======
 
 import { useBackend, useLocalState } from '../../backend';
 import {
@@ -25,7 +10,6 @@ import {
   TextArea,
 } from '../../components';
 import { RequestPriority, RequestsData, RequestType } from './types';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 export const MessageWriteTab = (props) => {
   const { act, data } = useBackend<RequestsData>();

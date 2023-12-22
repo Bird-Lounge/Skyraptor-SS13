@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-import { Loader } from './common/Loader';
-import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-import { KEY_ENTER, KEY_ESCAPE, KEY_LEFT, KEY_RIGHT, KEY_SPACE, KEY_TAB } from '../../common/keycodes';
-=======
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   KEY_ENTER,
   KEY_ESCAPE,
@@ -14,11 +6,7 @@ import {
   KEY_SPACE,
   KEY_TAB,
 } from '../../common/keycodes';
-<<<<<<< HEAD
 import { useBackend, useLocalState } from '../backend';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Autofocus, Box, Button, Flex, Section, Stack } from '../components';
 import { Window } from '../layouts';
 import { Loader } from './common/Loader';

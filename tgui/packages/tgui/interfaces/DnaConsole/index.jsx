@@ -9,8 +9,6 @@ import {
   Stack,
 } from '../../components';
 import { Window } from '../../layouts';
-<<<<<<< HEAD
-=======
 import {
   CONSOLE_MODE_ENZYMES,
   CONSOLE_MODE_FEATURES,
@@ -18,25 +16,10 @@ import {
   CONSOLE_MODE_STORAGE,
   STORAGE_MODE_CONSOLE,
 } from './constants';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { DnaConsoleEnzymes } from './DnaConsoleEnzymes';
 import { DnaConsoleSequencer } from './DnaConsoleSequencer';
 import { DnaConsoleStorage } from './DnaConsoleStorage';
 import { DnaScanner } from './DnaScanner';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { CONSOLE_MODE_ENZYMES, CONSOLE_MODE_FEATURES, CONSOLE_MODE_SEQUENCER, CONSOLE_MODE_STORAGE, STORAGE_MODE_CONSOLE } from './constants';
-=======
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  CONSOLE_MODE_ENZYMES,
-  CONSOLE_MODE_FEATURES,
-  CONSOLE_MODE_SEQUENCER,
-  CONSOLE_MODE_STORAGE,
-  STORAGE_MODE_CONSOLE,
-} from './constants';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 export const DnaConsole = (props) => {
   const { data } = useBackend();

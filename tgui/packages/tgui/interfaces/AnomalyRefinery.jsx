@@ -1,8 +1,4 @@
 import { useBackend, useSharedState } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Button, Icon, Modal, Section, Stack, LabeledList, Box } from '../components';
-=======
 import {
   Box,
   Button,
@@ -12,23 +8,10 @@ import {
   Section,
   Stack,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  Button,
-  Icon,
-  Modal,
-  Section,
-  Stack,
-  LabeledList,
-  Box,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 import { GasmixParser } from './common/GasmixParser';
 
 export const AnomalyRefinery = (props) => {
-  const { act, data } = useBackend();
   return (
     <Window title="Anomaly Refinery" width={550} height={350}>
       <Window.Content>
@@ -42,6 +25,7 @@ const AnomalyRefineryContent = (props) => {
   const { act, data } = useBackend();
   const [currentTab, changeTab] = useSharedState('exploderTab', 1);
   const { core, valvePresent, active } = data;
+
   return (
     <Stack vertical fill>
       {currentTab === 1 && <CoreCompressorContent />}

@@ -5,12 +5,6 @@
  */
 
 import { useDispatch, useSelector } from 'tgui/backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Button, Collapsible, Divider, Input, Section, Stack } from 'tgui/components';
-=======
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Button,
   Collapsible,
@@ -19,11 +13,7 @@ import {
   Section,
   Stack,
 } from 'tgui/components';
-<<<<<<< HEAD
 
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { removeChatPage, toggleAcceptedType, updateChatPage } from './actions';
 import { MESSAGE_TYPES } from './constants';
 import { selectCurrentChatPage } from './selectors';

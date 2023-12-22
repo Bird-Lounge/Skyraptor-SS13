@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Button, Divider, Input, NoticeBox, Section, Stack, Tabs } from '../components';
-=======
-import {
-  Button,
-  Divider,
-  Input,
-  NoticeBox,
-  Section,
-  Stack,
-  Tabs,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { useBackend, useLocalState } from '../backend';
-
-import { Window } from '../layouts';
-import { createSearch } from '../../common/string';
-=======
 import { useState } from 'react';
 
 import { createSearch } from '../../common/string';
@@ -31,7 +12,6 @@ import {
   Tabs,
 } from '../components';
 import { Window } from '../layouts';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 
 type Data = {
   netsuit: string;
@@ -53,11 +33,8 @@ type Outfit = {
 export const NetpodOutfits = (props) => {
   const { act, data } = useBackend<Data>();
   const { netsuit, collections = [] } = data;
-  const [selectedType, setSelectedType] = useLocalState<Collection>(
-    'selectedType',
-    collections[0],
-  );
-  const [search, setSearch] = useLocalState<string>('outfitSearch', '');
+  const [selectedType, setSelectedType] = useState(collections[0]);
+  const [search, setSearch] = useState('');
 
   const searchFn = createSearch(search, (outfit: Outfit) => outfit.name);
 

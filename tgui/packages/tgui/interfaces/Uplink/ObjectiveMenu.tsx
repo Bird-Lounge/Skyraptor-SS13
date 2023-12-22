@@ -1,10 +1,5 @@
 import { BooleanLike, classes } from 'common/react';
 import { Component } from 'react';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Section, Stack, Box, Button, Flex, Tooltip, NoticeBox, Dimmer, Icon } from '../../components';
-import { calculateProgression, getDangerLevel, Rank } from './calculateDangerLevel';
-=======
 
 import {
   Box,
@@ -16,28 +11,12 @@ import {
   Section,
   Stack,
   Tooltip,
-=======
-import {
-  Section,
-  Stack,
-  Box,
-  Button,
-  Flex,
-  Tooltip,
-  NoticeBox,
-  Dimmer,
-  Icon,
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 } from '../../components';
 import {
   calculateProgression,
   getDangerLevel,
   Rank,
 } from './calculateDangerLevel';
-<<<<<<< HEAD
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { ObjectiveState } from './constants';
 
 export type Objective = {

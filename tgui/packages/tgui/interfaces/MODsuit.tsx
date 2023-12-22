@@ -1,10 +1,4 @@
 import { BooleanLike } from 'common/react';
-<<<<<<< HEAD
-import { formatSiUnit } from '../format';
-import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-import { Button, ColorBox, LabeledList, ProgressBar, Section, Collapsible, Box, Icon, Stack, Table, Dimmer, NumberInput, AnimatedNumber, Dropdown, NoticeBox } from '../components';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
@@ -26,26 +20,6 @@ import {
   Table,
 } from '../components';
 import { formatSiUnit } from '../format';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  Button,
-  ColorBox,
-  LabeledList,
-  ProgressBar,
-  Section,
-  Collapsible,
-  Box,
-  Icon,
-  Stack,
-  Table,
-  Dimmer,
-  NumberInput,
-  AnimatedNumber,
-  Dropdown,
-  NoticeBox,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 type MODsuitData = {
@@ -684,10 +658,8 @@ const ModuleSection = (props) => {
   const { act, data } = useBackend<MODsuitData>();
   const { complexity_max, module_info } = data;
   const { complexity } = data.suit_status;
-  const [configureState, setConfigureState] = useLocalState(
-    'module_configuration',
-    '',
-  );
+  const [configureState, setConfigureState] = useState('');
+
   return (
     <Section
       title="Modules"

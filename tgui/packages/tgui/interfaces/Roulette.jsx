@@ -1,11 +1,7 @@
 import { classes } from 'common/react';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Box, Button, Grid, NumberInput, Table } from '../components';
 import { Window } from '../layouts';
 
@@ -159,7 +155,7 @@ export const RouletteBoard = () => {
 export const RouletteBetTable = (props) => {
   const { act, data } = useBackend();
 
-  const [customBet, setCustomBet] = useLocalState('customBet', 500);
+  const [customBet, setCustomBet] = useState(500);
 
   let { BetType } = data;
 

@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-import { Button, Collapsible, Input, NoticeBox, Section, Stack } from '../components';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Button,
   Collapsible,
@@ -16,10 +9,6 @@ import {
   Section,
   Stack,
 } from '../components';
-<<<<<<< HEAD
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 type LogViewerData = {
@@ -53,10 +42,7 @@ const CATEGORY_ALL = 'all';
 export const LogViewer = (_: any) => {
   const { data, act } = useBackend<LogViewerData>();
 
-  const [activeCategory, setActiveCategory] = useLocalState(
-    'activeCategory',
-    '',
-  );
+  const [activeCategory, setActiveCategory] = useState('');
 
   let viewerData: LogViewerCategoryData = {
     entry_count: 0,
@@ -103,10 +89,7 @@ type CategoryBarProps = {
 
 const CategoryBar = (props: CategoryBarProps) => {
   const sorted = [...props.options].sort();
-  const [categorySearch, setCategorySearch] = useLocalState(
-    'categorySearch',
-    '',
-  );
+  const [categorySearch, setCategorySearch] = useState('');
 
   return (
     <Section
@@ -136,23 +119,6 @@ const CategoryBar = (props: CategoryBarProps) => {
           selected={props.active === CATEGORY_ALL}
           onClick={() => props.setActive(CATEGORY_ALL)}
         />
-<<<<<<< HEAD
-        {sorted.map((category) => {
-          if (!category.toLowerCase().includes(categorySearch.toLowerCase())) {
-            return null;
-          }
-          return (
-            <Stack.Item key={category}>
-              <Button
-                textAlign="left"
-                content={category}
-                selected={category === props.active}
-                onClick={() => props.setActive(category)}
-              />
-            </Stack.Item>
-          );
-        })}
-=======
         {sorted
           .filter((cat) =>
             cat.toLowerCase().includes(categorySearch.toLowerCase()),
@@ -169,7 +135,6 @@ const CategoryBar = (props: CategoryBarProps) => {
               </Stack.Item>
             );
           })}
->>>>>>> ac1f4719dc3 (Fix search categories in log viewer (#80388))
       </Stack>
     </Section>
   );
@@ -190,9 +155,9 @@ const validateRegExp = (str: string) => {
 };
 
 const CategoryViewer = (props: CategoryViewerProps) => {
-  const [search, setSearch] = useLocalState('search', '');
-  let [searchRegex, setSearchRegex] = useLocalState('searchRegex', false);
-  let [caseSensitive, setCaseSensitive] = useLocalState('caseSensitive', false);
+  const [search, setSearch] = useState('');
+  let [searchRegex, setSearchRegex] = useState(false);
+  let [caseSensitive, setCaseSensitive] = useState(false);
   if (!search && searchRegex) {
     setSearchRegex(false);
     searchRegex = false;

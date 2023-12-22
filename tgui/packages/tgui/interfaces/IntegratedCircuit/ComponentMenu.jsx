@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Section, Button, Dropdown, Stack, Input, NoticeBox } from '../../components';
-=======
-import {
-  Section,
-  Button,
-  Dropdown,
-  Stack,
-  Input,
-  NoticeBox,
-} from '../../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { Component } from 'react';
-import { shallowDiffers } from 'common/react';
-=======
 import { shallowDiffers } from 'common/react';
 import { Component } from 'react';
 
@@ -26,7 +10,6 @@ import {
   Section,
   Stack,
 } from '../../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { fetchRetry } from '../../http';
 import { DEFAULT_COMPONENT_MENU_LIMIT } from './constants';
 import { DisplayComponent } from './DisplayComponent';

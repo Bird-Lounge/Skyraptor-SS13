@@ -1,10 +1,6 @@
 import { BooleanLike } from 'common/react';
 
 import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Section, Stack, Input, Button, Table, NoticeBox, Box } from '../components';
-=======
 import {
   Box,
   Button,
@@ -14,18 +10,6 @@ import {
   Stack,
   Table,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  Section,
-  Stack,
-  Input,
-  Button,
-  Table,
-  NoticeBox,
-  Box,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 enum Screen {

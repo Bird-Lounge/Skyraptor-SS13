@@ -4,10 +4,6 @@ import { BooleanLike, classes } from 'common/react';
 import { createSearch } from 'common/string';
 
 import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Divider, Button, Section, Tabs, Stack, Box, Input, Icon, Tooltip, NoticeBox } from '../components';
-=======
 import {
   Box,
   Button,
@@ -20,21 +16,6 @@ import {
   Tabs,
   Tooltip,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  Divider,
-  Button,
-  Section,
-  Tabs,
-  Stack,
-  Box,
-  Input,
-  Icon,
-  Tooltip,
-  NoticeBox,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 import { Food } from './PreferencesMenu/data';
 

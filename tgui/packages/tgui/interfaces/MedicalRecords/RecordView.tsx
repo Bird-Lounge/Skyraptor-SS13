@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-import { NoteKeeper } from './NoteKeeper';
-import {
-  Stack,
-  Section,
-  NoticeBox,
-  Box,
-  LabeledList,
-  Button,
-  RestrictedInput,
-} from 'tgui/components';
-import { CharacterPreview } from '../common/CharacterPreview';
-import { getMedicalRecord, getQuirkStrings } from './helpers';
-import { useBackend } from '../../backend';
-<<<<<<< HEAD
-import { PHYSICALSTATUS2COLOR, PHYSICALSTATUS2DESC, PHYSICALSTATUS2ICON, MENTALSTATUS2COLOR, MENTALSTATUS2DESC, MENTALSTATUS2ICON } from './constants';
-=======
 import {
   Box,
   Button,
@@ -27,17 +10,6 @@ import {
 
 import { useBackend } from '../../backend';
 import { CharacterPreview } from '../common/CharacterPreview';
-=======
-import {
-  PHYSICALSTATUS2COLOR,
-  PHYSICALSTATUS2DESC,
-  PHYSICALSTATUS2ICON,
-  MENTALSTATUS2COLOR,
-  MENTALSTATUS2DESC,
-  MENTALSTATUS2ICON,
-} from './constants';
-import { MedicalRecordData } from './types';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { EditableText } from '../common/EditableText';
 import {
   MENTALSTATUS2COLOR,
@@ -49,7 +21,6 @@ import {
 } from './constants';
 import { getMedicalRecord, getQuirkStrings } from './helpers';
 import { NoteKeeper } from './NoteKeeper';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { MedicalRecordData } from './types';
 
 /** Views a selected record. */

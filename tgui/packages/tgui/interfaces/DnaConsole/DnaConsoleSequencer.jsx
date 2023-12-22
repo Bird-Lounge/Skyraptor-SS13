@@ -2,15 +2,7 @@ import { classes } from 'common/react';
 
 import { resolveAsset } from '../../assets';
 import { useBackend } from '../../backend';
-<<<<<<< HEAD
-import { Box, Button, Section, Stack, Image } from '../../components';
-import { MutationInfo } from './MutationInfo';
-<<<<<<< HEAD
-import { CLEAR_GENE, GENE_COLORS, MUT_NORMAL, NEXT_GENE, PREV_GENE, SUBJECT_DEAD, SUBJECT_TRANSFORMING } from './constants';
-=======
 import { Box, Button, Image, Section, Stack } from '../../components';
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   CLEAR_GENE,
   GENE_COLORS,
@@ -20,11 +12,7 @@ import {
   SUBJECT_DEAD,
   SUBJECT_TRANSFORMING,
 } from './constants';
-<<<<<<< HEAD
 import { MutationInfo } from './MutationInfo';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 
 const GenomeImage = (props) => {
   const { url, selected, onClick } = props;

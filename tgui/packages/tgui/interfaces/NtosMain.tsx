@@ -28,18 +28,9 @@ export const NtosMain = (props) => {
         'NtOS Main Menu'
       }
       width={400}
-<<<<<<< HEAD:tgui/packages/tgui/interfaces/NtosMain.tsx
-<<<<<<< HEAD:tgui/packages/tgui/interfaces/NtosMain.jsx
-      height={500}>
-=======
       height={500}
       z
     >
->>>>>>> 281e82d2237 (Typescript NTOS menus (#80250)):tgui/packages/tgui/interfaces/NtosMain.tsx
-=======
-      height={500}
-    >
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189)):tgui/packages/tgui/interfaces/NtosMain.jsx
       <NtosWindow.Content scrollable>
         {Boolean(
           removable_media.length ||

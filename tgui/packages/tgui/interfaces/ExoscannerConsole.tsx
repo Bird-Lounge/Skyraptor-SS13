@@ -1,22 +1,4 @@
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { BlockQuote, Box, Button, Icon, Modal, Section, LabeledList, NoticeBox, Stack } from '../components';
-=======
-import {
-  BlockQuote,
-  Box,
-  Button,
-  Icon,
-  Modal,
-  Section,
-  LabeledList,
-  NoticeBox,
-  Stack,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { Window } from '../layouts';
-=======
 import {
   BlockQuote,
   Box,
@@ -28,7 +10,6 @@ import {
   Section,
   Stack,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { formatTime } from '../format';
 import { Window } from '../layouts';
 

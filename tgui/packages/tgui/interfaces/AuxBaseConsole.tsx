@@ -1,11 +1,7 @@
 import { BooleanLike } from 'common/react';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { Button, NoticeBox, Section, Table, Tabs } from '../components';
 import { Window } from '../layouts';
 import { ShuttleConsoleContent } from './ShuttleConsole';
@@ -33,9 +29,14 @@ const STATUS_COLOR_KEYS = {
   'All Clear': 'good',
 } as const;
 
+enum TAB {
+  Shuttle = 1,
+  Aux,
+}
+
 export const AuxBaseConsole = (props) => {
   const { data } = useBackend<Data>();
-  const [tab, setTab] = useLocalState('tab', 1);
+  const [tab, setTab] = useState(TAB.Shuttle);
   const { type, blind_drop, turrets = [] } = data;
 
   return (
@@ -62,10 +63,10 @@ export const AuxBaseConsole = (props) => {
             Turrets ({turrets.length})
           </Tabs.Tab>
         </Tabs>
-        {tab === 1 && (
+        {tab === TAB.Shuttle && (
           <ShuttleConsoleContent type={type} blind_drop={blind_drop} />
         )}
-        {tab === 2 && <AuxBaseConsoleContent />}
+        {tab === TAB.Aux && <AuxBaseConsoleContent />}
       </Window.Content>
     </Window>
   );

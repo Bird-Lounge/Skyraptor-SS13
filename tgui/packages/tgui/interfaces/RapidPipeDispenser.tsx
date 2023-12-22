@@ -1,16 +1,9 @@
 import { BooleanLike, classes } from 'common/react';
 import { multiline } from 'common/string';
 import { capitalizeAll } from 'common/string';
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-import { Box, Button, ColorBox, LabeledList, Section, Stack, Tabs, Table } from '../components';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
-=======
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import {
   Box,
   Button,
@@ -18,16 +11,9 @@ import {
   LabeledList,
   Section,
   Stack,
-<<<<<<< HEAD
   Table,
   Tabs,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-  Tabs,
-  Table,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 
 const ROOT_CATEGORIES = ['Atmospherics', 'Disposals', 'Transit Tubes'];
@@ -271,13 +257,11 @@ const PreviewSelect = (props) => {
 const PipeTypeSection = (props) => {
   const { act, data } = useBackend<Data>();
   const { categories = [], selected_category, selected_recipe } = data;
-  const [categoryName, setCategoryName] = useLocalState(
-    'categoryName',
-    selected_category,
-  );
+  const [categoryName, setCategoryName] = useState(selected_category);
   const shownCategory =
     categories.find((category) => category.cat_name === categoryName) ||
     categories[0];
+
   return (
     <Section>
       <Tabs>

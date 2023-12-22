@@ -1,10 +1,6 @@
 import { BooleanLike } from 'common/react';
 
 import { useBackend } from '../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { Button, Collapsible, Icon, NoticeBox, ProgressBar, Section, Stack, Table, Tooltip } from '../components';
-=======
 import {
   Button,
   Collapsible,
@@ -16,22 +12,6 @@ import {
   Table,
   Tooltip,
 } from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
-import { BooleanLike } from 'common/react';
-import { LoadingScreen } from './common/LoadingToolbox';
-=======
-import {
-  Button,
-  Collapsible,
-  Icon,
-  NoticeBox,
-  ProgressBar,
-  Section,
-  Stack,
-  Table,
-  Tooltip,
-} from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
 import { TableCell, TableRow } from '../components/Table';
 import { Window } from '../layouts';
 import { LoadingScreen } from './common/LoadingToolbox';

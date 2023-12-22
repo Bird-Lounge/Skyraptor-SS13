@@ -1,8 +1,4 @@
 import { useBackend, useLocalState } from '../../backend';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { ByondUi, Stack, Button, Section, ProgressBar, LabeledList } from '../../components';
-=======
 import {
   Button,
   ByondUi,
@@ -11,17 +7,6 @@ import {
   Section,
   Stack,
 } from '../../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  ByondUi,
-  Stack,
-  Button,
-  Section,
-  ProgressBar,
-  LabeledList,
-} from '../../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { formatSiUnit } from '../../format';
 import { Window } from '../../layouts';
 import { AccessConfig } from '../common/AccessConfig';

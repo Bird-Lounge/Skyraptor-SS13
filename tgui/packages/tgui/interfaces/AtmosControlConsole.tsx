@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import { useBackend, useLocalState } from '../backend';
-<<<<<<< HEAD
-import { Box, Button, LabeledList, NumberInput, Dropdown, Section, Stack } from '../components';
-=======
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
@@ -15,18 +10,6 @@ import {
   Section,
   Stack,
 } from '../components';
->>>>>>> 6ccb751678c (Updates eslint + sorts imports (#80430))
-=======
-import {
-  Box,
-  Button,
-  LabeledList,
-  NumberInput,
-  Dropdown,
-  Section,
-  Stack,
-} from '../components';
->>>>>>> 2631b0b8ef1 (Replaces prettierx with the normal prettier (#80189))
 import { Window } from '../layouts';
 import {
   AtmosHandbookContent,
@@ -51,7 +34,7 @@ export const AtmosControlConsole = (props) => {
     control: boolean;
   }>();
   const chambers = data.chambers || [];
-  const [chamberId, setChamberId] = useLocalState('chamberId', chambers[0]?.id);
+  const [chamberId, setChamberId] = useState(chambers[0]?.id);
   const selectedChamber =
     chambers.length === 1
       ? chambers[0]
