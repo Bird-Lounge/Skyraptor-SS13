@@ -619,3 +619,14 @@
   - qol: Canisters now have screentips
   - rscadd: You can now look up and down through the IC menu
   - bugfix: fixes a potential mob hard del with cardboard boxes
+2023-12-27:
+  Melbert:
+  - bugfix: Fixed some occasions in which heartbeat SFX will continue on revival for
+      longer than expected
+  NaakaKo:
+  - rscadd: Adds a brown suit jacket to the detective's vendor
+  - image: 'Adds a new sprite for the a brown detective suit jacket
+
+      :cl:'
+  Ryll/Shaps:
+  - balance: Yawns are less likely to propagate
