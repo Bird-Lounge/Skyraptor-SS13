@@ -1,15 +1,33 @@
+import { filterMap, sortBy } from 'common/collections';
 import { classes } from 'common/react';
+
 import { sendAct, useBackend, useLocalState } from '../../backend';
-import { Autofocus, Box, Button, Flex, LabeledList, Popper, Stack, TrackOutsideClicks } from '../../components';
-import { createSetPreference, PreferencesMenuData, RandomSetting, ServerData } from './data';
+import {
+  Autofocus,
+  Box,
+  Button,
+  Flex,
+  LabeledList,
+  Popper,
+  Stack,
+  TrackOutsideClicks,
+} from '../../components';
 import { CharacterPreview } from '../common/CharacterPreview';
+import {
+  createSetPreference,
+  PreferencesMenuData,
+  RandomSetting,
+  ServerData,
+} from './data';
+import { MultiNameInput, NameInput } from './names';
+import features from './preferences/features';
+import {
+  FeatureChoicedServerData,
+  FeatureValueInput,
+} from './preferences/features/base';
+import { Gender, GENDERS } from './preferences/gender';
 import { RandomizationButton } from './RandomizationButton';
 import { ServerPreferencesFetcher } from './ServerPreferencesFetcher';
-import { MultiNameInput, NameInput } from './names';
-import { Gender, GENDERS } from './preferences/gender';
-import features from './preferences/features';
-import { FeatureChoicedServerData, FeatureValueInput } from './preferences/features/base';
-import { filterMap, sortBy } from 'common/collections';
 import { useRandomToggleState } from './useRandomToggleState';
 
 const CLOTHING_CELL_SIZE = 64;
@@ -17,7 +35,6 @@ const CLOTHING_SIDEBAR_ROWS = 10;
 
 const CLOTHING_SELECTION_CELL_SIZE = 64;
 const CLOTHING_SELECTION_WIDTH = 6.3;
-const CLOTHING_SELECTION_MULTIPLIER = 5.2;
 
 const CharacterControls = (props: {
   handleRotate: () => void;
@@ -87,7 +104,8 @@ const ChoicedSelection = (props: {
           CLOTHING_SELECTION_CELL_SIZE * CLOTHING_SELECTION_MULTIPLIER
         }px`,
         width: `${CLOTHING_SELECTION_CELL_SIZE * CLOTHING_SELECTION_WIDTH}px`,
-      }}>
+      }}
+    >
       <Stack vertical fill>
         <Stack.Item>
           <Stack fill>
@@ -106,11 +124,12 @@ const ChoicedSelection = (props: {
             <Stack.Item grow>
               <Box
                 style={{
-                  'border-bottom': '1px solid #888',
-                  'font-weight': 'bold',
-                  'font-size': '14px',
-                  'text-align': 'center',
-                }}>
+                  borderBottom: '1px solid #888',
+                  fontWeight: 'bold',
+                  fontSize: '14px',
+                  textAlign: 'center',
+                }}
+              >
                 Select {props.name.toLowerCase()}
               </Box>
             </Stack.Item>
@@ -133,7 +152,8 @@ const ChoicedSelection = (props: {
                     basis={`${CLOTHING_SELECTION_CELL_SIZE}px`}
                     style={{
                       padding: '5px',
-                    }}>
+                    }}
+                  >
                     <Button
                       onClick={() => {
                         props.onSelect(name);
@@ -144,7 +164,8 @@ const ChoicedSelection = (props: {
                       style={{
                         height: `${CLOTHING_SELECTION_CELL_SIZE}px`,
                         width: `${CLOTHING_SELECTION_CELL_SIZE}px`,
-                      }}>
+                      }}
+                    >
                       <Box
                         className={classes([
                           'preferences32x32',
@@ -170,7 +191,7 @@ const GenderButton = (props: {
 }) => {
   const [genderMenuOpen, setGenderMenuOpen] = useLocalState(
     'genderMenuOpen',
-    false
+    false,
   );
 
   return (
@@ -179,7 +200,7 @@ const GenderButton = (props: {
         placement: 'right-end',
       }}
       popperContent={
-        genderMenuOpen && (
+        genderMenuOpen ? (
           <Stack backgroundColor="white" ml={0.5} p={0.3}>
             {[Gender.Male, Gender.Female, Gender.Other, Gender.Other2].map(
               (gender) => {
@@ -198,11 +219,14 @@ const GenderButton = (props: {
                     />
                   </Stack.Item>
                 );
-              }
+              },
             )}
           </Stack>
+        ) : (
+          <> </>
         )
-      }>
+      }
+    >
       <Button
         onClick={() => {
           setGenderMenuOpen(!genderMenuOpen);
@@ -250,7 +274,7 @@ const MainFeature = (props: {
         placement: 'bottom-start',
       }}
       popperContent={
-        isOpen && (
+        isOpen ? (
           <TrackOutsideClicks onOutsideClick={props.handleClose}>
             <ChoicedSelection
               name={catalog.name}
@@ -267,10 +291,14 @@ const MainFeature = (props: {
               onSelect={handleSelect}
             />
           </TrackOutsideClicks>
+        ) : (
+          <> </>
         )
-      }>
+      }
+    >
       <Button
-        onClick={() => {
+        onClick={(event) => {
+          event.stopPropagation();
           if (isOpen) {
             handleClose();
           } else {
@@ -283,7 +311,8 @@ const MainFeature = (props: {
         }}
         position="relative"
         tooltip={catalog.name}
-        tooltipPosition="right">
+        tooltipPosition="right"
+      >
         <Box
           className={classes([
             'preferences32x32',
@@ -332,11 +361,7 @@ const createSetRandomization =
 
 const sortPreferences = sortBy<[string, unknown]>(([featureId, _]) => {
   const feature = features[featureId];
-  if (feature?.sortingPrefix) {
-    return feature.sortingPrefix + feature.name;
-  } else {
-    return feature?.name;
-  }
+  return feature?.name;
 });
 
 export const PreferenceList = (props: {
@@ -355,7 +380,8 @@ export const PreferenceList = (props: {
       }}
       overflowX="hidden"
       overflowY="auto"
-      maxHeight={props.maxHeight}>
+      maxHeight={props.maxHeight}
+    >
       <LabeledList>
         {sortPreferences(Object.entries(props.preferences)).map(
           ([featureId, value]) => {
@@ -375,7 +401,8 @@ export const PreferenceList = (props: {
                 key={featureId}
                 label={feature.name}
                 tooltip={feature.description}
-                verticalAlign="middle">
+                verticalAlign="middle"
+              >
                 <Stack fill>
                   {randomSetting && (
                     <Stack.Item>
@@ -397,7 +424,7 @@ export const PreferenceList = (props: {
                 </Stack>
               </LabeledList.Item>
             );
-          }
+          },
         )}
       </LabeledList>
     </Stack.Item>
@@ -407,7 +434,7 @@ export const PreferenceList = (props: {
 export const getRandomization = (
   preferences: Record<string, unknown>,
   serverData: ServerData | undefined,
-  randomBodyEnabled: boolean
+  randomBodyEnabled: boolean,
 ): Record<string, RandomSetting> => {
   if (!serverData) {
     return {};
@@ -430,7 +457,7 @@ export const getRandomization = (
         data.character_preferences.randomization[preferenceKey] ||
           RandomSetting.Disabled,
       ];
-    })
+    }),
   );
 };
 
@@ -441,7 +468,7 @@ export const MainPage = (props: { openSpecies: () => void }) => {
   >('currentClothingMenu', null);
   const [multiNameInputOpen, setMultiNameInputOpen] = useLocalState(
     'multiNameInputOpen',
-    false
+    false,
   );
   const [randomToggleEnabled] = useRandomToggleState();
 
@@ -466,7 +493,7 @@ export const MainPage = (props: { openSpecies: () => void }) => {
               return (
                 currentSpeciesData.enabled_features.indexOf(featureName) !== -1
               );
-            }
+            },
           ),
         ];
 
@@ -477,7 +504,7 @@ export const MainPage = (props: { openSpecies: () => void }) => {
         const randomizationOfMainFeatures = getRandomization(
           Object.fromEntries(mainFeatures),
           serverData,
-          randomBodyEnabled
+          randomBodyEnabled,
         );
 
         const nonContextualPreferences = {
@@ -514,7 +541,7 @@ export const MainPage = (props: { openSpecies: () => void }) => {
             )}
 
             <Stack height={`${CLOTHING_SIDEBAR_ROWS * CLOTHING_CELL_SIZE}px`}>
-              <Stack.Item fill>
+              <Stack.Item>
                 <Stack vertical fill>
                   <Stack.Item>
                     <CharacterControls
@@ -542,7 +569,7 @@ export const MainPage = (props: { openSpecies: () => void }) => {
                       name={data.character_preferences.names[data.name_to_use]}
                       handleUpdateName={createSetPreference(
                         act,
-                        data.name_to_use
+                        data.name_to_use,
                       )}
                       openMultiNameInput={() => {
                         setMultiNameInputOpen(true);
@@ -552,7 +579,7 @@ export const MainPage = (props: { openSpecies: () => void }) => {
                 </Stack>
               </Stack.Item>
 
-              <Stack.Item fill width={`${CLOTHING_CELL_SIZE * 2 + 15}px`}>
+              <Stack.Item width={`${CLOTHING_CELL_SIZE * 2 + 15}px`}>
                 <Stack height="100%" vertical wrap>
                   {mainFeatures.map(([clothingKey, clothing]) => {
                     const catalog =
@@ -580,7 +607,7 @@ export const MainPage = (props: { openSpecies: () => void }) => {
                             }
                             setRandomization={createSetRandomization(
                               act,
-                              clothingKey
+                              clothingKey,
                             )}
                           />
                         </Stack.Item>
@@ -597,7 +624,7 @@ export const MainPage = (props: { openSpecies: () => void }) => {
                     randomizations={getRandomization(
                       contextualPreferences,
                       serverData,
-                      randomBodyEnabled
+                      randomBodyEnabled,
                     )}
                     preferences={contextualPreferences}
                     maxHeight="auto"
@@ -608,7 +635,7 @@ export const MainPage = (props: { openSpecies: () => void }) => {
                     randomizations={getRandomization(
                       nonContextualPreferences,
                       serverData,
-                      randomBodyEnabled
+                      randomBodyEnabled,
                     )}
                     preferences={nonContextualPreferences}
                     maxHeight="auto"
