@@ -630,3 +630,9 @@
       :cl:'
   Ryll/Shaps:
   - balance: Yawns are less likely to propagate
+2023-12-28:
+  NaakaKo:
+  - bugfix: Fixed the surgery menu spamming chat messages when on the eyes section
+      of a player with no eyes.
+  - bugfix: NTOS Messenger should search as you type now
+  - qol: Add UI screentips to spraycans
