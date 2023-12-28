@@ -198,10 +198,6 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 	var/disposal_build_speed = 0.5 SECONDS
 	///Speed of building transit devices
 	var/transit_build_speed = 0.5 SECONDS
-	///Speed of removal of unwrenched devices
-	var/destroy_speed = 0.2 SECONDS
-	///Speed of reprogramming connectable directions of smart pipes
-	var/reprogram_speed = 0.2 SECONDS
 	///Category currently active (Atmos, disposal, transit)
 	var/category = ATMOS_CATEGORY
 	///All pipe layers we are going to spawn the atmos devices in
@@ -461,9 +457,8 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 
 	if((mode & DESTROY_MODE) && istype(attack_target, /obj/item/pipe) || istype(attack_target, /obj/structure/disposalconstruct) || istype(attack_target, /obj/structure/c_transit_tube) || istype(attack_target, /obj/structure/c_transit_tube_pod) || istype(attack_target, /obj/item/pipe_meter) || istype(attack_target, /obj/structure/disposalpipe/broken))
 		playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
-		if(do_after(user, destroy_speed, target = attack_target))
-			playsound(get_turf(src), RPD_USE_SOUND, 50, TRUE)
-			qdel(attack_target)
+		playsound(get_turf(src), RPD_USE_SOUND, 50, TRUE)
+		qdel(attack_target)
 		return
 
 	if(mode & REPROGRAM_MODE)
@@ -484,8 +479,6 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 				return
 
 			playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
-			if(!do_after(user, reprogram_speed, target = target_smart_pipe))
-				return
 
 			// Something else could have changed the target's state while we were waiting in do_after
 			// Most of the edge cases don't matter, but atmos components being able to have live connections not described by initializable directions sounds like a headache at best and an exploit at worst
@@ -550,7 +543,8 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 					balloon_alert(user, "target is blocked!")
 					return
 				playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
-				if(do_after(user, disposal_build_speed, target = attack_target))
+				if(TRUE) /// SKYRAPTOR EDIT: trying to get these instant
+				//if(do_after(user, disposal_build_speed, target = attack_target))
 					var/obj/structure/disposalconstruct/new_disposals_segment = new (attack_target, queued_pipe_type, queued_pipe_dir, queued_pipe_flipped)
 
 					if(!new_disposals_segment.can_place())
@@ -580,7 +574,8 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 					return
 
 				playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
-				if(do_after(user, transit_build_speed, target = attack_target))
+				if(TRUE) /// SKYRAPTOR EDIT: see above
+				//if(do_after(user, transit_build_speed, target = attack_target))
 					playsound(get_turf(src), RPD_USE_SOUND, 50, TRUE)
 					if(queued_pipe_type == /obj/structure/c_transit_tube_pod)
 						var/obj/structure/c_transit_tube_pod/pod = new /obj/structure/c_transit_tube_pod(attack_target)
@@ -617,18 +612,18 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 
 	var/can_make_pipe = check_can_make_pipe(atom_to_target)
 	var/list/pipe_layer_numbers = get_active_pipe_layers()
-	var/continued_build = FALSE
+	//var/continued_build = FALSE
 	for(var/pipe_layer_num in 1 to length(pipe_layer_numbers))
 		var/layer_to_build = pipe_layer_numbers[pipe_layer_num]
-		if(layer_to_build != pipe_layer_numbers[1])
-			continued_build = TRUE
+		/*if(layer_to_build != pipe_layer_numbers[1])
+			continued_build = TRUE*/
 		if(!layer_to_build)
 			return FALSE
 		if(!can_make_pipe)
 			return FALSE
 		playsound(get_turf(src), 'sound/machines/click.ogg', 50, vary = TRUE)
-		if(!continued_build && !do_after(user, atmos_build_speed, target = atom_to_target))
-			return FALSE
+		/*if(!continued_build && !do_after(user, atmos_build_speed, target = atom_to_target))
+			return FALSE*/  /// SKYRAPTOR REMOVAL: continued_build is effectively always true, removing the do_after makes this always return false
 		if(!recipe.all_layers && (layer_to_build == 1 || layer_to_build == 5))
 			balloon_alert(user, "can't build on layer [layer_to_build]!")
 			if(multi_layer)
