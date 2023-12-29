@@ -636,3 +636,40 @@
       of a player with no eyes.
   - bugfix: NTOS Messenger should search as you type now
   - qol: Add UI screentips to spraycans
+2023-12-29:
+  NaakaKo:
+  - bugfix: Dear mappers, the light debugger tool no longer deletes dragged wall lights
+  - bugfix: Fixed a lot of missing/broken images, such as emojis, language icons,
+      commendation hearts, icons in R&D menu, etc.
+  - rscadd: Added a "postal workers strike" negative station trait. In the case of
+      holidays and sunday though, it'll be a "postal system overtime" instead.
+  - spellcheck: Fixes a typo in chat message when starting a Death Knell with the
+      Vorpal Scythe
+  - admin: Adds logging for the death knell, both when starts and when it is completed
+      successfully.
+  - balance: Cyborg lover has been replaced with Transhumanist. Transhumanists start
+      with a robotic limb and get mood buffs by being near to silicon-based lifeforms.
+      However, they get mood debuffs by being near organics, so there is a tradeoff
+      to taking this quirk. The cost for this quirk has been reduced from 2 to 0.
+  - spellcheck: changes some let's to lets
+  - balance: Deleting and reprogramming pipes/devices with RPD is now INSTANT!
+  - bugfix: reaction chamber open its UI when inserting/removing beakers from it
+  - bugfix: reaction chamber triggers new reactions & updates UI more often during
+      heating
+  - bugfix: instant and  normal reactions now get triggered more often so for e.g.
+      more plastic sheets from polymer reactions or more reactions occur when there
+      are multiple reagents present
+  - rscadd: basic bots can now display their paths on huds
+  - bugfix: medbots can research healing again
+  - bugfix: Off station ORM's can redeem points again.
+  - bugfix: mercury & lithium will no longer make you randomly move outside of cryotubes
+      or in ground less turfs (space, water, lava etc)
+  - rscadd: Add 50% graffiti speed boost to tagger quirk
+  - bugfix: Fix time duration of large graffiti not applying properly
+  - refactor: Photo albums and photo frames are now more resilient to data loss, especially
+      when a server crashes.
+  - bugfix: ai can now tell if it is in a do_after for resisting and will not interrupt
+      it. monkeys also now don't freeze up when aggressively grabbed and will resist
+      out of those and cuffs.
+  - bugfix: NTOS Messenger should clear on enter now
+  - bugfix: Fixed "was shocked by /datum/component/energized" message.
