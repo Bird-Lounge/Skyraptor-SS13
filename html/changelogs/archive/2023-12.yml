@@ -673,3 +673,11 @@
       out of those and cuffs.
   - bugfix: NTOS Messenger should clear on enter now
   - bugfix: Fixed "was shocked by /datum/component/energized" message.
+2023-12-30:
+  Ghommie, 13spacemen:
+  - bugfix: Signing or removing your candidature from ghost roles now properly updates
+      the screen button for it.
+  NaakaKo:
+  - bugfix: reduces lag in the tgui textarea input boxes
+  ReturnToZender:
+  - bugfix: JSX files, when edited, cause TGUI to recompile on build
