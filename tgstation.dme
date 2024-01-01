@@ -4497,6 +4497,14 @@
 #include "code\modules\mob\living\basic\bots\_bots.dm"
 #include "code\modules\mob\living\basic\bots\bot_ai.dm"
 #include "code\modules\mob\living\basic\bots\bot_hud.dm"
+<<<<<<< HEAD
+=======
+#include "code\modules\mob\living\basic\bots\cleanbot\cleanbot.dm"
+#include "code\modules\mob\living\basic\bots\cleanbot\cleanbot_abilities.dm"
+#include "code\modules\mob\living\basic\bots\cleanbot\cleanbot_ai.dm"
+#include "code\modules\mob\living\basic\bots\hygienebot\hygienebot.dm"
+#include "code\modules\mob\living\basic\bots\hygienebot\hygienebot_ai.dm"
+>>>>>>> 44766894399 (hygeienbots basic bots (#80435))
 #include "code\modules\mob\living\basic\bots\medbot\medbot.dm"
 #include "code\modules\mob\living\basic\bots\medbot\medbot_ai.dm"
 #include "code\modules\mob\living\basic\clown\clown.dm"
@@ -4914,7 +4922,6 @@
 #include "code\modules\mob\living\simple_animal\bot\firebot.dm"
 #include "code\modules\mob\living\simple_animal\bot\floorbot.dm"
 #include "code\modules\mob\living\simple_animal\bot\honkbot.dm"
-#include "code\modules\mob\living\simple_animal\bot\hygienebot.dm"
 #include "code\modules\mob\living\simple_animal\bot\mulebot.dm"
 #include "code\modules\mob\living\simple_animal\bot\secbot.dm"
 #include "code\modules\mob\living\simple_animal\bot\SuperBeepsky.dm"
