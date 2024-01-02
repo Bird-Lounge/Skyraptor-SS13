@@ -40,3 +40,23 @@
   - bugfix: The HFR user interface would close when the machine is shut down.
   - bugfix: Atmospherics machinery will now share air from nodes after being rotated
       and reconnected to pipenet.
+2024-01-02:
+  Melbert:
+  - refactor: Refactored the area transformation colossus crystal effect to use the
+      same system dimensional anomalies use. That means the colossus crystal now has
+      access to some dimensional themes (bamboo, plasma, glass) and the dimensional
+      anomaly now has access to some colossus themes (jungle, alien).
+  NaakaKo:
+  - bugfix: fixed fire extinguisher cabinets not appearing opened after removing the
+      fire extinguisher from them
+  - bugfix: Cyborgs do not deathgasp twice when dying anymore
+  - qol: added screentips to the janicart (pimpin' ride)
+  - bugfix: Dropdowns and pop-up menus have been rewritten. This should fix an issue
+      where dropdown text was accidentally scrolling if hovered. Please report any
+      issues on the repo
+  - bugfix: The sustenance vendor in perma actually serves food now
+  - rscadd: Atmos Holofan projectors can be right-clicked inhand to make their holograms
+      more transparent
+  - refactor: hygeinebots are now basic bots. please report all the bugs
+  - bugfix: fixes hygenebots not being able to patrol
+  - rscadd: hygeinebots can now be controlled by Players
