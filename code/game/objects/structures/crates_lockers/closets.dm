@@ -293,7 +293,7 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 	if(anchorable && !anchored)
 		. += span_notice("It can be [EXAMINE_HINT("bolted")] to the ground.")
 	if(anchored)
-		. += span_notice("Its [EXAMINE_HINT("bolted")] to the ground.")
+		. += span_notice("It's [anchorable ? EXAMINE_HINT("bolted") : "attached firmly"] to the ground.")
 	if(length(paint_jobs))
 		. += span_notice("It can be [EXAMINE_HINT("painted")] another texture.")
 	if(HAS_TRAIT(user, TRAIT_SKITTISH) && divable)
@@ -325,6 +325,7 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 	if(istype(held_item) && held_item.tool_behaviour == TOOL_WELDER)
 		if(opened)
 			context[SCREENTIP_CONTEXT_LMB] = "Deconstruct"
+			screentip_change = TRUE
 		else
 			if(!welded && can_weld_shut)
 				context[SCREENTIP_CONTEXT_LMB] = "Weld"
@@ -333,7 +334,7 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 				context[SCREENTIP_CONTEXT_LMB] = "Unweld"
 				screentip_change = TRUE
 
-	if(istype(held_item) && held_item.tool_behaviour == TOOL_WRENCH)
+	if(istype(held_item) && held_item.tool_behaviour == TOOL_WRENCH && anchorable)
 		context[SCREENTIP_CONTEXT_RMB] = anchored ? "Unanchor" : "Anchor"
 		screentip_change = TRUE
 
