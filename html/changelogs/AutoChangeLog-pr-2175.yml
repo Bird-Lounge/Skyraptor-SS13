@@ -1,0 +1,4 @@
+author: "NaakaKo"
+delete-after: True
+changes:
+  - bugfix: "Having a netpod destroyed will no longer grant you permanent healing."
