@@ -396,8 +396,9 @@
 /turf/open/floor/iron,
 /area/station/escapepodbay)
 "abE" = (
+/obj/structure/sign/warning/electric_shock,
 /turf/closed/wall/r_wall,
-/area/station/hallway/primary/tram/center)
+/area/station/maintenance/port/central)
 "abF" = (
 /obj/effect/turf_decal/tile/bar{
 	dir = 8
@@ -54820,6 +54821,31 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/tram/right)
+<<<<<<< HEAD
+=======
+"swL" = (
+/obj/structure/railing{
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/dark_red/warning{
+	dir = 9
+	},
+/obj/structure/transport/linear/public,
+/obj/machinery/elevator_control_panel/directional/north{
+	linked_elevator_id = "tram_upper_center_lift";
+	preset_destination_names = list("2" = "Lower                                Deck", "3" = "Upper                                Deck")
+	},
+/turf/open/floor/plating/elevatorshaft,
+/area/station/maintenance/tram/mid)
+"swR" = (
+/obj/structure/cable/multilayer/multiz,
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/station/maintenance/port/central)
+>>>>>>> 02bae9fb9f8 (Fix Tramstation sign/missing power cable [NO GBP] (#80938))
 "swX" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/iron/dark/smooth_edge{
@@ -69396,6 +69422,16 @@
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /turf/open/floor/plating,
 /area/station/security/processing)
+"xGM" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Emergency Exit"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor,
+/area/station/hallway/primary/tram/center)
 "xGX" = (
 /obj/effect/turf_decal/siding/thinplating/corner{
 	dir = 8
@@ -86394,9 +86430,15 @@ qQq
 qQq
 qQq
 lQM
+<<<<<<< HEAD
 bgn
 ina
 lQM
+=======
+swR
+pxp
+abE
+>>>>>>> 02bae9fb9f8 (Fix Tramstation sign/missing power cable [NO GBP] (#80938))
 dIy
 pZW
 tUM
@@ -166324,6 +166366,11 @@ eSz
 ago
 blP
 izU
+<<<<<<< HEAD
+=======
+izU
+xGM
+>>>>>>> 02bae9fb9f8 (Fix Tramstation sign/missing power cable [NO GBP] (#80938))
 jyH
 wmy
 iYv
@@ -171195,10 +171242,17 @@ lZW
 aaa
 aaa
 aaa
+<<<<<<< HEAD
 abE
 wYw
 lTg
 tVf
+=======
+izU
+xGn
+gtY
+sXZ
+>>>>>>> 02bae9fb9f8 (Fix Tramstation sign/missing power cable [NO GBP] (#80938))
 vfk
 fhx
 iJl
@@ -171452,9 +171506,15 @@ dcz
 aaa
 aaa
 aaa
+<<<<<<< HEAD
 abE
 seG
 vYA
+=======
+izU
+eKI
+wki
+>>>>>>> 02bae9fb9f8 (Fix Tramstation sign/missing power cable [NO GBP] (#80938))
 izU
 eSz
 nSP
@@ -171709,7 +171769,12 @@ lZW
 aaa
 aaa
 aaa
+<<<<<<< HEAD
 abE
+=======
+izU
+bdX
+>>>>>>> 02bae9fb9f8 (Fix Tramstation sign/missing power cable [NO GBP] (#80938))
 izU
 suw
 izU
@@ -171966,9 +172031,15 @@ lZW
 aaa
 aaa
 aaa
+<<<<<<< HEAD
 abE
 kMs
 qtS
+=======
+izU
+mwN
+wYw
+>>>>>>> 02bae9fb9f8 (Fix Tramstation sign/missing power cable [NO GBP] (#80938))
 izU
 eSz
 nSP
@@ -172223,7 +172294,7 @@ lZW
 aaa
 aaa
 aaa
-abE
+izU
 gEC
 wYw
 nEl
