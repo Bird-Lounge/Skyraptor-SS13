@@ -761,6 +761,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 					accessory = GLOB.body_markings_list[source.dna.features["body_markings"]]
 				if("legs")
 					accessory = GLOB.legs_list[source.dna.features["legs"]]
+<<<<<<< HEAD
 				if("caps")
 					accessory = GLOB.caps_list[source.dna.features["caps"]]
 			/// SKYRAPTOR EDIT BEGIN: modular_chargen
@@ -772,6 +773,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 					accessory = accessory_tmp
 					//source_id = "modularized: [bodypart]"
 			//SKYRAPTOR EDIT END: modular_chargen
+=======
+>>>>>>> ca61d0f8681 (Turns mush cap into an extorgan (#80952))
 
 			if(!accessory || accessory.icon_state == "none")
 				continue
