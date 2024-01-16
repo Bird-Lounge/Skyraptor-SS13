@@ -281,3 +281,59 @@
   - bugfix: Fixed misfiring for firearms like tinkered detective revolvers.
   - bugfix: Ripley MK-Is and Paddys now correctly make incoming projectiles hit the
       pilot again.
+2024-01-16:
+  LT3:
+  - bugfix: Icebox kitchen has its light switch again
+  - bugfix: Icebox medbay hallway now has a fire alarm
+  - bugfix: Tramstation east APC will no longer be destroyed when the tram crashes
+  - qol: Tramstation central power and disposals moved out of the wall
+  Melbert:
+  - bugfix: Blood Drunk Miner (Hunter version) should dash a bit more.
+  - bugfix: Lunar Parade has the potential to break less.
+  - bugfix: Ghost alert for buying a badass balloon should have a proper icon
+  - bugfix: Chameleon Suits will now automatically set your helmet into a hood if
+      using a hooded suit again
+  - bugfix: Fixes some cult spells being unable to heal constructs (blood rites particularly)
+  - bugfix: Anomalies spawned by grand ritual runes sound act more like anomalies
+  - bugfix: Fix Ringleader's Rise not causing as many hallucinations as expected
+  NaakaKo:
+  - bugfix: Healing simplemobs with sutures and other stacks works again
+  - spellcheck: Healing mobs with medical stacks like suture and mesh give better
+      user feedback messages
+  - admin: Added a new admin verb that ends all active weather within the weather
+      subsystem.
+  - bugfix: The deployable component will now actually stop rotating things when the
+      variable to not do that is set
+  - bugfix: Changeling eggs laid by headslugs work again
+  - bugfix: Changeling egg incubation times should feel much more consistent, hatching
+      after 4 minutes
+  - admin: Made logging for BSA targeting and firing easier to find for admins.
+  - bugfix: Dropdowns should be more performant
+  - bugfix: Rat King's abilities no longer require the user to click twice in order
+      to activate them.
+  - image: New liquid plasma sprites from SS14!
+  - qol: ID cards now set their accounts with Alt-Right click.
+  - bugfix: ID cards now once again have contextual screen tips showing what buttons
+      do what actions.
+  - balance: Nightmare's Light Eater can now stun targets under certain conditions.
+  - code_imp: The check that prevents your stuff from dropping when you have robotic
+      parts is now more robust
+  - qol: The heat-proof catwalk made by heat-proof rods will go away when a tile is
+      placed on it, rather than sticking around and needing to be removed manually
+  - bugfix: The lighting will not irreparably break on tiles where plating was placed
+      on lava-proof catwalks
+  - code_imp: Some single letter variables and the structure of the code around placing
+      tiles on lava-proof catwalks has been improved
+  - qol: The combat mode toggle button is now present on the HUD for simple and basic
+      mobs.
+  - bugfix: Fixed round event controller pirate spawns.
+  - bugfix: Animals enlargened by the fugu gland are now visually aligned with the
+      turf they're standing on.
+  - bugfix: Borg tools that hold and use specific items now work correctly again.
+  - code_imp: removed a dupe trait entry in the traits_by_type list
+  - bugfix: chem heater with empty buffers can be refilled again
+  - admin: Confirming that you have read an admin message now uh, works. it's been
+      2 years bros
+  Rhials:
+  - bugfix: Specialty drinks crafted in the crafting menu will now create the intended
+      reagents, instead of containing the reagents used to craft it.
