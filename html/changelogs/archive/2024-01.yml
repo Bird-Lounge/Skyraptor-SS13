@@ -423,3 +423,11 @@
   - bugfix: Immobile shells properly propagate their on/off state after wrenching
       to inner modules.
   - refactor: Refactored Ore Silo Ui.
+2024-01-20:
+  Momo8289, Pepsilawn, Sinsinins, JohnFulpWillard:
+  - bugfix: Clown ops now get a code set for their nuke.
+  NaakaKo:
+  - image: The "One Lean, Mean, Cleaning Machine" achievement now has its own icon.
+  - bugfix: Hub time should be correct again
+  - bugfix: fix a runtime when loading ghosts to a mulebot
+  - bugfix: Monkeys don't get stuck on obstacles as often.
