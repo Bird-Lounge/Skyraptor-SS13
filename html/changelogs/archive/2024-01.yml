@@ -547,3 +547,13 @@
   - bugfix: Moved the curator's treasure hunter fedora up by a single pixel.
   - bugfix: fixes runtime when mineral scanning, passes right argument for scanner
       in golem eyes
+2024-01-28:
+  Melbert:
+  - bugfix: Rush Gland now triggers correctly on being grabbed by a Goliath
+  NaakaKo:
+  - bugfix: Cats can be swabbed for feliform cells again.
+  - sound: Cats have had their mastery of silent walking revoked, and have their pitter-pattering
+      footsteps back again.
+  - refactor: Legions abilities have been changed into actions that can be added to
+      any mob.
+  - bugfix: fixes a hard del with decals
