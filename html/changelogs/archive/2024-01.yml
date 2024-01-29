@@ -557,3 +557,25 @@
   - refactor: Legions abilities have been changed into actions that can be added to
       any mob.
   - bugfix: fixes a hard del with decals
+2024-01-29:
+  LT3:
+  - bugfix: Emergency shuttle console now only works while on the emergency shuttle
+  NaakaKo:
+  - refactor: 'Refactored Telecommunications Monitoring Console UI: added search bar,
+      made UI more compact.'
+  - bugfix: ' The buttons for flashers on birdshot/tramstation now work'
+  - bugfix: Jerry Tramstation can get laid again! (Fixed cat breeding.)
+  - spellcheck: shortened description for the PCM and capitalized some text for its
+      examines.
+  - code_imp: adds sanity checks and removed deprecated `content` tag from PCM UI.
+      Stops hologram items from being inserted.
+  - spellcheck: You no longer fail to find "a anything" when swabbing something for
+      cytology that doesn't have swabbing results.
+  - refactor: Husk icons are now dynamically generated. See if you can identify what
+      species it was!
+  - image: Added an icon to the "My Watchlist Status is Not Important" achievement.
+  - bugfix: Oppenheimer, the nukie medbot, has been reprogrammed to use Airplane Mode
+      as a factory default. The station AI is no longer immediately aware of his presence!
+  - bugfix: auto lathes don't hog local apc supply when printing items
+  - bugfix: Blobs sitting on APCs no longer break them when already broken, and so
+      no longer spam the power down noise.
