@@ -4438,6 +4438,7 @@
 /obj/effect/turf_decal/siding/thinplating/corner{
 	dir = 4
 	},
+/obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron,
 /area/station/hallway/primary/tram/center)
 "aEn" = (
@@ -25084,6 +25085,16 @@
 	},
 /turf/open/floor/glass/reinforced,
 /area/station/science/genetics)
+"hXW" = (
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/neutral/filled/warning{
+	dir = 1
+	},
+/obj/machinery/transport/power_rectifier,
+/turf/open/floor/iron,
+/area/station/hallway/primary/tram/right)
 "hYd" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible,
@@ -48258,6 +48269,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/lockers)
+<<<<<<< HEAD
+=======
+"qfQ" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/machinery/transport/power_rectifier,
+/turf/open/floor/catwalk_floor,
+/area/station/hallway/primary/tram/right)
+>>>>>>> 1c0c0805a2e (Fixes the tram's schrodinger-like power consumption (#81122))
 "qfS" = (
 /obj/machinery/smartfridge/organ,
 /obj/structure/window/reinforced/spawner/directional/west,
@@ -52078,6 +52098,16 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/dorms)
+"rxI" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/transport/power_rectifier,
+/turf/open/floor/iron,
+/area/station/hallway/primary/tram/left)
 "rxN" = (
 /obj/machinery/photocopier,
 /obj/structure/extinguisher_cabinet/directional/north,
@@ -58039,7 +58069,7 @@
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 1
 	},
-/obj/machinery/airalarm/directional/north,
+/obj/machinery/transport/power_rectifier,
 /turf/open/floor/iron,
 /area/station/hallway/primary/tram/center)
 "tBa" = (
@@ -153924,7 +153954,7 @@ aQO
 aQO
 aQO
 aQO
-qhM
+rxI
 nYq
 yiM
 cFs
@@ -167544,7 +167574,7 @@ izU
 izU
 izU
 izU
-hce
+izU
 tAL
 sOD
 izU
@@ -170114,7 +170144,7 @@ izU
 izU
 izU
 izU
-izU
+hce
 aEm
 gnK
 izU
@@ -180652,7 +180682,7 @@ jnJ
 ged
 whL
 vUE
-aEz
+hXW
 yeB
 ipC
 seR
