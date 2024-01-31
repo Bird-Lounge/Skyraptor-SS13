@@ -579,3 +579,30 @@
   - bugfix: auto lathes don't hog local apc supply when printing items
   - bugfix: Blobs sitting on APCs no longer break them when already broken, and so
       no longer spam the power down noise.
+2024-01-31:
+  LT3:
+  - bugfix: Tramstation external atmos ports are now properly connected
+  Melbert:
+  - bugfix: You can build on some niche tables again, such as the Wabbajack Altar.
+  - bugfix: Wizarditis Timestop now has the desired effect.
+  - admin: Admins can now VV Timestop to make the caster not immune to their own Timestop.
+      If they really wanted.
+  NaakaKo:
+  - code_imp: added the code that allows the image overlays to work for the circulator
+      (teg)
+  - image: changed circulator's (teg) fast/slow turbine sprite
+  - image: added an anchor, panel, and flow overlay for the circulator (teg)
+  - bugfix: pesto pizza (cooked) is no longer raw, and cilbir is meat instead of fruit
+  - rscdel: The lathe tax on printing items has been removed from the game for both
+      humans and silicons.
+  - image: Resprited the goldfish and lanternfish as well.
+  - bugfix: Bone daggers and shivs are now longer electrically conductive
+  - bugfix: sets minimum volume of reagent allowed to exist inside anything to 0.01
+      therefore allowing plumbing iv drip small transfer rates to occur without reagents
+      disappearing.
+  - bugfix: Ambient loops will now refresh when entering a mob.
+  - bugfix: fixes a runtime that sometimes happens in ai controllers
+  - bugfix: The construction console drone becomes visible again while its in use
+  Rhials:
+  - bugfix: The encrypted bitrunner cache is now impervious to most conventional means
+      of destruction.
