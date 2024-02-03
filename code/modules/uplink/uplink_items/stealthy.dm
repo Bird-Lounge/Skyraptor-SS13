@@ -99,7 +99,11 @@
 	These shocks are capable of affecting the inner circuitry of most robots as well, applying a short stun. \
 	Has the added benefit of affecting the vocal cords of your victim, causing them to slur as if inebriated."
 	item = /obj/item/melee/baton/telescopic/contractor_baton
+<<<<<<< HEAD
 	cost = 15 /// SKYRAPTOR EDIT: 15, up from 12.  screw contractor batons, even with Goonstam
+=======
+	cost = 7
+>>>>>>> 98a0c13b60a (Lowers contractor baton cost. Baton can only be bought by roundstart traitors, while midroll/latejoin traitors cannot buy a baton (They must buy the contractor kit for one). (#81204))
 	surplus = 50
 	limited_stock = 1
-	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS | UPLINK_INFILTRATORS)
