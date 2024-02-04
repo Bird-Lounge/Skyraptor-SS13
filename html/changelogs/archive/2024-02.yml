@@ -52,3 +52,24 @@
   - rscadd: There's now a small chance to be a smartass when affected by Voice of
       God
   - rscadd: Exosuit-mounted RCDs now have the same functionality as the handheld version.
+2024-02-04:
+  Justavidya:
+  - image: modified the cherry cupcake and blue-cherry cupcake sprites
+  LT3:
+  - bugfix: Fixed alt-click validation for tram interactions
+  NaakaKo:
+  - code_imp: Removes /obj/item/onetankbomb, assembly bombs are now handled by the
+      tank itself.
+  - bugfix: Ash drake's fire breath attack has proper cooldowns again
+  - balance: Contractor baton costs 7 TC (down from 12 TC)
+  - balance: Midroll/Latejoin traitors can no longer buy the baton, they must buy
+      the whole kit
+  - bugfix: Midroll/Latejoin traitors no longer have access to roundstart traitor
+      exclusive items
+  - qol: Increased threshold of trace n2o required to make euphoria and giggles happen.
+  - bugfix: Robotic voicebox actually lets you speak any language again (as long as
+      you know it).
+  - sound: The Guide to Advanced Mimery book series now only make a very faint noise
+      when turning their pages, in order to match their description
+  Rhials:
+  - qol: Spider eggs will now close their spawn menu when you move away from them.
