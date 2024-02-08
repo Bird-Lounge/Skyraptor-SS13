@@ -141,6 +141,7 @@
 
 /datum/martial_art/krav_maga/disarm_act(mob/living/attacker, mob/living/defender)
 	if(check_streak(attacker, defender))
+<<<<<<< HEAD
 		return TRUE
 	var/obj/item/stuff_in_hand = null
 	stuff_in_hand = defender.get_active_held_item()
@@ -153,6 +154,23 @@
 			playsound(defender, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 	log_combat(attacker, defender, "shoved (Krav Maga)", "[stuff_in_hand ? " removing \the [stuff_in_hand]" : ""]")
 	return FALSE
+=======
+		return MARTIAL_ATTACK_SUCCESS
+	var/obj/item/stuff_in_hand = defender.get_active_held_item()
+	if(prob(60) && stuff_in_hand && defender.temporarilyRemoveItemFromInventory(stuff_in_hand))
+		attacker.put_in_hands(stuff_in_hand)
+		defender.visible_message(
+			span_danger("[attacker] disarms [defender]!"),
+			span_userdanger("You're disarmed by [attacker]!"),
+			span_hear("You hear aggressive shuffling!"),
+			COMBAT_MESSAGE_RANGE,
+			attacker,
+		)
+		to_chat(attacker, span_danger("You disarm [defender]!"))
+		playsound(defender, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
+		log_combat(attacker, defender, "disarmed (Krav Maga)", addition = "(disarmed of [stuff_in_hand])")
+	return MARTIAL_ATTACK_INVALID // normal shove
+>>>>>>> 49fc6207f4f (Fix Krav Maga not shoving (#81340))
 
 //Krav Maga Gloves
 
