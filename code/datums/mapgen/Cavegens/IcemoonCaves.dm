@@ -4,7 +4,7 @@
 	weighted_closed_turf_types = list(/turf/closed/mineral/random/snow = 1)
 =======
 	weighted_closed_turf_types = list(
-		/turf/closed/mineral/snowmountain/icemoon = 100,
+		/turf/closed/mineral/random/snow = 100,
 		/turf/closed/mineral/gibtonite/ice/icemoon = 4,
 	)
 >>>>>>> 0705183abba (Removes infinite sources of plasma from icebox (#81091))
@@ -66,7 +66,11 @@
 /datum/map_generator/cave_generator/icemoon/surface/noruins //use this for when you don't want ruins to spawn in a certain area
 
 /datum/map_generator/cave_generator/icemoon/deep
+<<<<<<< HEAD
 	weighted_closed_turf_types = list(/turf/closed/mineral/random/snow/underground = 1)
+=======
+	weighted_closed_turf_types = list(/turf/closed/mineral/random/snow = 1)
+>>>>>>> 0305747692a (Fixes icebox ore generation (#81336))
 	weighted_mob_spawn_list = list(
 		SPAWN_MEGAFAUNA = 1,
 		/mob/living/basic/mining/ice_demon = 100,
