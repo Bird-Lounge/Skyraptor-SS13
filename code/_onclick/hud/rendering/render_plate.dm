@@ -81,11 +81,14 @@
 	. = ..()
 	add_filter("displacer", 1, displacement_map_filter(render_source = OFFSET_RENDER_TARGET(GRAVITY_PULSE_RENDER_TARGET, offset), size = 10))
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	if(check_holidays(HALLOWEEN))
 		// Makes things a tad greyscale (leaning purple) and drops low colors for vibes
 		// We're basically using alpha as better constant here btw
 		add_filter("spook_color", 2, color_matrix_filter(list(0.75,0.13,0.13,0, 0.13,0.7,0.13,0, 0.13,0.13,0.75,0, -0.06,-0.09,-0.08,1, 0,0,0,0)))
+=======
+>>>>>>> 87c270f3ca0 (Removes Halloween Screen Tint (#81355))
 
 /atom/movable/screen/plane_master/rendering_plate/game_plate/show_to(mob/mymob)
 	. = ..()
