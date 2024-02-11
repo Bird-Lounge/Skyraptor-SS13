@@ -199,3 +199,9 @@
       team.
   optimumtact, whomst didn't write this CL entry.:
   - bugfix: Fixed the colorful lights of the ethereal disco ball.
+2024-02-11:
+  Melbert:
+  - refactor: Fire effects get added to mobs in a different way now. Maybe it will
+      get stuck less. Report any oddities.
+  - balance: Rats are now 5x less likely to decide to eat a cable when idling. (1%,
+      down from 5%)
