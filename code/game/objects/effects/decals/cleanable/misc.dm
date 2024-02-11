@@ -485,3 +485,23 @@
 	if(item.ignition_effect(src, user))
 		ignite()
 	return ..()
+<<<<<<< HEAD
+=======
+
+/obj/effect/decal/cleanable/fuel_pool/hivis
+	icon_state = "fuel_pool_hivis"
+
+/obj/effect/decal/cleanable/rubble
+	name = "rubble"
+	desc = "A pile of rubble."
+	icon = 'icons/obj/debris.dmi'
+	icon_state = "rubble"
+	mergeable_decal = FALSE
+	beauty = -10
+
+/obj/effect/decal/cleanable/rubble/Initialize(mapload)
+	. = ..()
+	flick("rubble_bounce", src)
+	icon_state = "rubble"
+	update_appearance(UPDATE_ICON_STATE)
+>>>>>>> fbe6e2ebbae (museum away mission (#81208))
