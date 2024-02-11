@@ -192,6 +192,18 @@
 
 	return ..()
 
+<<<<<<< HEAD
+=======
+/obj/machinery/cryo_cell/on_deconstruction(disassembled)
+	if(occupant)
+		occupant.vis_flags &= ~VIS_INHERIT_PLANE
+		REMOVE_TRAIT(occupant, TRAIT_IMMOBILIZED, CRYO_TRAIT)
+		REMOVE_TRAIT(occupant, TRAIT_FORCED_STANDING, CRYO_TRAIT)
+
+	if(beaker)
+		beaker.forceMove(drop_location())
+
+>>>>>>> 4495ea2e4d0 (Refactors how machines are deconstructed (#81291))
 /obj/machinery/cryo_cell/contents_explosion(severity, target)
 	. = ..()
 	if(!beaker)
