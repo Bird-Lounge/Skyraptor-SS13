@@ -84,10 +84,24 @@
 	return FALSE
 
 /datum/martial_art/krav_maga/proc/leg_sweep(mob/living/attacker, mob/living/defender)
+<<<<<<< HEAD
 	if(defender.stat || defender.IsParalyzed())
 		return FALSE
 	defender.visible_message(span_warning("[attacker] leg sweeps [defender]!"), \
 					span_userdanger("Your legs are sweeped by [attacker]!"), span_hear("You hear a sickening sound of flesh hitting flesh!"), null, attacker)
+=======
+	if(defender.stat != CONSCIOUS || defender.IsParalyzed())
+		return MARTIAL_ATTACK_INVALID
+	if(HAS_TRAIT(attacker, TRAIT_PACIFISM))
+		return MARTIAL_ATTACK_INVALID // Does 5 damage, so we can't let pacifists leg sweep.
+	defender.visible_message(
+		span_warning("[attacker] leg sweeps [defender]!"),
+		span_userdanger("Your legs are sweeped by [attacker]!"),
+		span_hear("You hear a sickening sound of flesh hitting flesh!"),
+		null,
+		attacker,
+	)
+>>>>>>> 39e861cb040 (Fixes Krav Maga allowing pacifism bypasses. (#81447))
 	to_chat(attacker, span_danger("You leg sweep [defender]!"))
 	playsound(get_turf(attacker), 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
 	defender.apply_damage(5, BRUTE, BODY_ZONE_CHEST)
@@ -107,8 +121,21 @@
 	return TRUE
 
 /datum/martial_art/krav_maga/proc/neck_chop(mob/living/attacker, mob/living/defender)
+<<<<<<< HEAD
 	defender.visible_message(span_warning("[attacker] karate chops [defender]'s neck!"), \
 					span_userdanger("Your neck is karate chopped by [attacker], rendering you unable to speak!"), span_hear("You hear a sickening sound of flesh hitting flesh!"), COMBAT_MESSAGE_RANGE, attacker)
+=======
+	if(HAS_TRAIT(attacker, TRAIT_PACIFISM))
+		return MARTIAL_ATTACK_INVALID // Does 10 damage, so we can't let pacifists neck chop.
+	attacker.do_attack_animation(defender)
+	defender.visible_message(
+		span_warning("[attacker] karate chops [defender]'s neck!"),
+		span_userdanger("Your neck is karate chopped by [attacker], rendering you unable to speak!"),
+		span_hear("You hear a sickening sound of flesh hitting flesh!"),
+		COMBAT_MESSAGE_RANGE,
+		attacker,
+	)
+>>>>>>> 39e861cb040 (Fixes Krav Maga allowing pacifism bypasses. (#81447))
 	to_chat(attacker, span_danger("You karate chop [defender]'s neck, rendering [defender.p_them()] unable to speak!"))
 	playsound(get_turf(attacker), 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
 	defender.apply_damage(10, attacker.get_attack_type(), BODY_ZONE_HEAD)
