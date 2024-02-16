@@ -112,19 +112,15 @@
 	INVOKE_ASYNC(baned_target, TYPE_PROC_REF(/mob/living/carbon/human, emote), "scream")
 
 /obj/item/melee/sabre/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
-	if(attack_type == PROJECTILE_ATTACK)
-		final_block_chance = 0 //Don't bring a sword to a gunfight
+	if(attack_type == PROJECTILE_ATTACK || attack_type == LEAP_ATTACK)
+		final_block_chance = 0 //Don't bring a sword to a gunfight, and also you aren't going to really block someone full body tackling you with a sword
 	return ..()
 
 /obj/item/melee/sabre/on_exit_storage(datum/storage/container)
-	var/obj/item/storage/belt/sabre/sabre = container.real_location?.resolve()
-	if(istype(sabre))
-		playsound(sabre, 'sound/items/unsheath.ogg', 25, TRUE)
+	playsound(container.parent, 'sound/items/unsheath.ogg', 25, TRUE)
 
 /obj/item/melee/sabre/on_enter_storage(datum/storage/container)
-	var/obj/item/storage/belt/sabre/sabre = container.real_location?.resolve()
-	if(istype(sabre))
-		playsound(sabre, 'sound/items/sheath.ogg', 25, TRUE)
+	playsound(container.parent, 'sound/items/sheath.ogg', 25, TRUE)
 
 /obj/item/melee/sabre/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] is trying to cut off all [user.p_their()] limbs with [src]! it looks like [user.p_theyre()] trying to commit suicide!"))
@@ -190,6 +186,11 @@
 	attack_verb_simple = list("slash", "sting", "prickle", "poke")
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	block_sound = 'sound/weapons/parry.ogg'
+
+/obj/item/melee/beesword/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
+	if(attack_type == PROJECTILE_ATTACK || attack_type == LEAP_ATTACK)
+		final_block_chance = 0 //Don't bring a sword to a gunfight, and also you aren't going to really block someone full body tackling you with a sword
+	return ..()
 
 /obj/item/melee/beesword/afterattack(atom/target, mob/user, proximity)
 	. = ..()
@@ -482,3 +483,8 @@
 	armour_penetration = 50
 	attack_verb_continuous = list("smacks", "strikes", "cracks", "beats")
 	attack_verb_simple = list("smack", "strike", "crack", "beat")
+
+/obj/item/melee/cleric_mace/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
+	if(attack_type == PROJECTILE_ATTACK || attack_type == LEAP_ATTACK)
+		final_block_chance = 0 //Don't bring a...mace to a gunfight, and also you aren't going to really block someone full body tackling you with a mace
+	return ..()

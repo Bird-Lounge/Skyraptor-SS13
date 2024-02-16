@@ -202,7 +202,7 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 		)
 		use(1)
 		user.put_in_inactive_hand(new_item)
-		return TOOL_ACT_TOOLTYPE_SUCCESS
+		return ITEM_INTERACT_SUCCESS
 
 /obj/item/stack/sheet/iron/welder_act_secondary(mob/living/user, obj/item/tool)
 	if(tool.use_tool(src, user, delay = 0, volume = 40))
@@ -215,7 +215,7 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 		)
 		use(1)
 		user.put_in_inactive_hand(new_item)
-		return TOOL_ACT_TOOLTYPE_SUCCESS
+		return ITEM_INTERACT_SUCCESS
 
 /obj/item/stack/sheet/iron/afterattack_secondary(atom/target, mob/user, proximity_flag, click_parameters)
 	if(isopenturf(target))
@@ -787,7 +787,8 @@ GLOBAL_LIST_INIT(plastic_recipes, list(
 	new /datum/stack_recipe("mannequin", /obj/structure/mannequin/plastic, 25, time = 5 SECONDS, one_per_turf = TRUE, check_density = FALSE, category = CAT_ENTERTAINMENT), \
 	new /datum/stack_recipe("wet floor sign", /obj/item/clothing/suit/caution, 2, check_density = FALSE, category = CAT_EQUIPMENT), \
 	new /datum/stack_recipe("warning cone", /obj/item/clothing/head/cone, 2, check_density = FALSE, category = CAT_EQUIPMENT), \
-	new /datum/stack_recipe("blank wall sign", /obj/item/sign, 1, check_density = FALSE, category = CAT_FURNITURE)))
+	new /datum/stack_recipe("blank wall sign", /obj/item/sign, 1, check_density = FALSE, category = CAT_FURNITURE), \
+	new /datum/stack_recipe("rebellion mask", /obj/item/clothing/mask/rebellion, 1, check_density = FALSE, category = CAT_CLOTHING)))
 
 /obj/item/stack/sheet/plastic
 	name = "plastic"

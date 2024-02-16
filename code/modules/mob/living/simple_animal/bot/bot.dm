@@ -23,7 +23,7 @@
 	bubble_icon = "machine"
 	speech_span = SPAN_ROBOT
 	faction = list(FACTION_NEUTRAL, FACTION_SILICON, FACTION_TURRET)
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 	light_range = 3
 	light_power = 0.9
 	del_on_death = TRUE
@@ -453,12 +453,12 @@
 /mob/living/simple_animal/bot/screwdriver_act(mob/living/user, obj/item/tool)
 	if(bot_cover_flags & BOT_COVER_LOCKED)
 		to_chat(user, span_warning("The maintenance panel is locked!"))
-		return TOOL_ACT_TOOLTYPE_SUCCESS
+		return ITEM_INTERACT_SUCCESS
 
 	tool.play_tool_sound(src)
 	bot_cover_flags ^= BOT_COVER_OPEN
 	to_chat(user, span_notice("The maintenance panel is now [bot_cover_flags & BOT_COVER_OPEN ? "opened" : "closed"]."))
-	return TOOL_ACT_TOOLTYPE_SUCCESS
+	return ITEM_INTERACT_SUCCESS
 
 /mob/living/simple_animal/bot/welder_act(mob/living/user, obj/item/tool)
 	user.changeNext_move(CLICK_CD_MELEE)
@@ -467,15 +467,15 @@
 
 	if(health >= maxHealth)
 		to_chat(user, span_warning("[src] does not need a repair!"))
-		return TOOL_ACT_TOOLTYPE_SUCCESS
+		return ITEM_INTERACT_SUCCESS
 	if(!(bot_cover_flags & BOT_COVER_OPEN))
 		to_chat(user, span_warning("Unable to repair with the maintenance panel closed!"))
-		return TOOL_ACT_TOOLTYPE_SUCCESS
+		return ITEM_INTERACT_SUCCESS
 
 	if(tool.use_tool(src, user, 0 SECONDS, volume=40))
 		adjustHealth(-10)
 		user.visible_message(span_notice("[user] repairs [src]!"),span_notice("You repair [src]."))
-		return TOOL_ACT_TOOLTYPE_SUCCESS
+		return ITEM_INTERACT_SUCCESS
 
 /mob/living/simple_animal/bot/attackby(obj/item/attacking_item, mob/living/user, params)
 	if(attacking_item.GetID())
@@ -1175,7 +1175,7 @@ Pass a positive integer as an argument to override a bot's default speed.
 		hud.remove_atom_from_hud(src)
 
 	var/list/path_images = active_hud_list[DIAG_PATH_HUD]
-	QDEL_LIST(path_images)
+	LAZYCLEARLIST(path_images)
 	if(length(newpath))
 		var/mutable_appearance/path_image = new /mutable_appearance()
 		path_image.icon = path_image_icon
@@ -1230,3 +1230,6 @@ Pass a positive integer as an argument to override a bot's default speed.
 
 /mob/living/simple_animal/bot/rust_heretic_act()
 	adjustBruteLoss(400)
+
+/mob/living/simple_animal/bot/spawn_gibs(drop_bitflags = NONE)
+	new /obj/effect/gibspawner/robot(drop_location(), src)

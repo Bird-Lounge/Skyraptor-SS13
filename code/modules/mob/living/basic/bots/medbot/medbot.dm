@@ -25,6 +25,7 @@
 
 	additional_access = /datum/id_trim/job/paramedic
 	announcement_type = /datum/action/cooldown/bot_announcement/medbot
+	path_image_color = "#d9d9f4"
 
 	///anouncements when we find a target to heal
 	var/static/list/wait_announcements = list(
@@ -135,12 +136,21 @@
 		pre_tipped_callback = CALLBACK(src, PROC_REF(pre_tip_over)), \
 		post_tipped_callback = CALLBACK(src, PROC_REF(after_tip_over)), \
 		post_untipped_callback = CALLBACK(src, PROC_REF(after_righted)))
+
 	var/static/list/hat_offsets = list(4,-9)
-	AddElement(/datum/element/hat_wearer, offsets = hat_offsets)
+	var/static/list/remove_hat = list(SIGNAL_ADDTRAIT(TRAIT_MOB_TIPPED))
+	var/static/list/prevent_checks = list(TRAIT_MOB_TIPPED)
+	AddElement(/datum/element/hat_wearer,\
+		offsets = hat_offsets,\
+		remove_hat_signals = remove_hat,\
+		traits_prevent_checks = prevent_checks,\
+	)
+
 	RegisterSignal(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, PROC_REF(pre_attack))
 
 	if(!HAS_TRAIT(SSstation, STATION_TRAIT_MEDBOT_MANIA) || !mapload || !is_station_level(z))
-		return
+		return INITIALIZE_HINT_LATELOAD
+
 	skin = "advanced"
 	update_appearance(UPDATE_OVERLAYS)
 	damage_type_healer = HEAL_ALL_DAMAGE
@@ -162,10 +172,11 @@
 	if(HAS_TRAIT(src, TRAIT_INCAPACITATED))
 		icon_state = "[base_icon_state]a"
 		return
+	var/stationary_mode = !!(medical_mode_flags & MEDBOT_STATIONARY_MODE)
 	if(mode == BOT_HEALING)
-		icon_state = "[base_icon_state]s[medical_mode_flags & MEDBOT_STATIONARY_MODE]"
+		icon_state = "[base_icon_state]s[stationary_mode]"
 		return
-	icon_state = "[base_icon_state][medical_mode_flags & MEDBOT_STATIONARY_MODE ? 2 : 1]" //Bot has yellow light to indicate stationary mode.
+	icon_state = "[base_icon_state][stationary_mode ? 2 : 1]" //Bot has yellow light to indicate stationary mode.
 
 /mob/living/basic/bot/medbot/update_overlays()
 	. = ..()
@@ -184,7 +195,11 @@
 /mob/living/basic/bot/medbot/multitool_act(mob/living/user, obj/item/multitool/tool)
 	if(!QDELETED(tool.buffer) && istype(tool.buffer, /datum/techweb))
 		linked_techweb = tool.buffer
+<<<<<<< HEAD
 	return TRUE
+=======
+	return ITEM_INTERACT_SUCCESS
+>>>>>>> 10a951b203e (Patches up merge skew (#80197))
 
 // Variables sent to TGUI
 /mob/living/basic/bot/medbot/ui_data(mob/user)
@@ -278,6 +293,12 @@
 	if(prob(10))
 		speak("PSYCH ALERT: Crewmember [user.name] recorded displaying antisocial tendencies torturing bots in [get_area(src)]. Please schedule psych evaluation.", radio_channel)
 
+/mob/living/basic/bot/medbot/explode()
+	var/atom/our_loc = drop_location()
+	drop_part(medkit_type, our_loc)
+	drop_part(health_analyzer, our_loc)
+	return ..()
+
 /*
  * Proc used in a callback for after this medibot is righted, either by themselves or by a mob, by the tippable component.
  *
@@ -320,7 +341,7 @@
 		return
 	var/modified_heal_amount = heal_amount
 	var/done_healing = FALSE
-	if(damage_type_healer == BRUTE && medkit_type == /obj/item/storage/medkit/brute) 
+	if(damage_type_healer == BRUTE && medkit_type == /obj/item/storage/medkit/brute)
 		modified_heal_amount *= 1.1
 	if(bot_access_flags & BOT_COVER_EMAGGED)
 		patient.reagents?.add_reagent(/datum/reagent/toxin/chloralhydrate, 5)
@@ -335,12 +356,12 @@
 		log_combat(src, patient, "tended the wounds of", "internal tools")
 		if(patient.get_current_damage_of_type(damage_type_healer) <= heal_threshold)
 			done_healing = TRUE
+
 	patient.visible_message(span_notice("[src] tends the wounds of [patient]!"), "[span_infoplain(span_green("[src] tends your wounds!"))]")
-	//Go into idle only when we're done
+	update_bot_mode(new_mode = BOT_IDLE)
 	if(done_healing)
 		visible_message(span_infoplain("[src] places its tools back into itself."))
 		to_chat(src, "[patient] is now healthy!")
-		update_bot_mode(new_mode = BOT_IDLE)
 	//If player-controlled, call them to heal again here for continous player healing
 	else if(!isnull(client))
 		melee_attack(patient)
@@ -375,6 +396,7 @@
 	health = 40
 	maxHealth = 40
 	maints_access_required = list(ACCESS_SYNDICATE)
+	bot_mode_flags = parent_type::bot_mode_flags & ~BOT_MODE_REMOTE_ENABLED
 	radio_key = /obj/item/encryptionkey/syndicate
 	radio_channel = RADIO_CHANNEL_SYNDICATE
 	damage_type_healer = HEAL_ALL_DAMAGE

@@ -1,5 +1,7 @@
-import { useBackend, useLocalState } from '../backend';
+import { useState } from 'react';
+
 import { classes } from '../../common/react';
+import { useBackend, useLocalState } from '../backend';
 import { Box, Button, Knob, Section, Slider, Stack, Tabs } from '../components';
 import { Window } from '../layouts';
 
@@ -40,14 +42,8 @@ type Data = {
 export const LightSpawn = (props) => {
   const { act, data } = useBackend<Data>();
   const { templates = [], default_id, default_category, category_ids } = data;
-  const [currentTemplate, setCurrentTemplate] = useLocalState<string>(
-    'currentTemplate',
-    default_id
-  );
-  const [currentCategory, setCurrentCategory] = useLocalState<string>(
-    'currentCategory',
-    default_category
-  );
+  const [currentTemplate, setCurrentTemplate] = useState(default_id);
+  const [currentCategory, setCurrentCategory] = useState(default_category);
 
   const category_keys = category_ids ? Object.keys(category_ids) : [];
 
@@ -65,7 +61,8 @@ export const LightSpawn = (props) => {
                     onClick={() => setCurrentCategory(category)}
                     fontSize="14px"
                     bold
-                    textColor="#eee">
+                    textColor="#eee"
+                  >
                     {category}
                   </Tabs.Tab>
                 ))}
@@ -75,7 +72,8 @@ export const LightSpawn = (props) => {
                   <Tabs.Tab
                     key={id}
                     selected={currentTemplate === id}
-                    onClick={() => setCurrentTemplate(id)}>
+                    onClick={() => setCurrentTemplate(id)}
+                  >
                     <Stack vertical>
                       <Stack.Item
                         align="center"
@@ -112,7 +110,7 @@ const LightInfo = (props: LightInfoProps) => {
   const { light_info } = light;
   const [workingDir, setWorkingDir] = useLocalState<number>(
     'workingDir',
-    Direction.North
+    Direction.North,
   );
   return (
     <Section>
@@ -219,7 +217,7 @@ const DirectionButton = (props: DirectedButtonProps) => {
   const { dir, icon } = props;
   const [workingDir, setWorkingDir] = useLocalState<number>(
     'workingDir',
-    Direction.North
+    Direction.North,
   );
   return (
     <Button

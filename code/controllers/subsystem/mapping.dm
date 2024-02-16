@@ -176,7 +176,7 @@ SUBSYSTEM_DEF(mapping)
 	// Cache for sonic speed
 	var/list/unused_turfs = src.unused_turfs
 	var/list/world_contents = GLOB.areas_by_type[world.area].contents
-	var/list/world_turf_contents = GLOB.areas_by_type[world.area].contained_turfs
+	var/list/world_turf_contents_by_z = GLOB.areas_by_type[world.area].turfs_by_zlevel
 	var/list/lists_to_reserve = src.lists_to_reserve
 	var/index = 0
 	while(index < length(lists_to_reserve))
@@ -192,10 +192,12 @@ SUBSYSTEM_DEF(mapping)
 			LAZYINITLIST(unused_turfs["[T.z]"])
 			unused_turfs["[T.z]"] |= T
 			var/area/old_area = T.loc
-			old_area.turfs_to_uncontain += T
+			LISTASSERTLEN(old_area.turfs_to_uncontain_by_zlevel, T.z, list())
+			old_area.turfs_to_uncontain_by_zlevel[T.z] += T
 			T.turf_flags = UNUSED_RESERVATION_TURF
 			world_contents += T
-			world_turf_contents += T
+			LISTASSERTLEN(world_turf_contents_by_z, T.z, list())
+			world_turf_contents_by_z[T.z] += T
 			packet.len--
 			packetlen = length(packet)
 
@@ -248,12 +250,16 @@ SUBSYSTEM_DEF(mapping)
 	// Generate mining ruins
 	var/list/lava_ruins = levels_by_trait(ZTRAIT_LAVA_RUINS)
 	if (lava_ruins.len)
-		seedRuins(lava_ruins, CONFIG_GET(number/lavaland_budget), list(/area/lavaland/surface/outdoors/unexplored), themed_ruins[ZTRAIT_LAVA_RUINS], clear_below = TRUE)
+		seedRuins(lava_ruins, CONFIG_GET(number/lavaland_budget), list(/area/lavaland/surface/outdoors/unexplored), themed_ruins[ZTRAIT_LAVA_RUINS], clear_below = TRUE, mineral_budget = 15, mineral_budget_update = OREGEN_PRESET_LAVALAND)
 
 	var/list/ice_ruins = levels_by_trait(ZTRAIT_ICE_RUINS)
 	if (ice_ruins.len)
 		// needs to be whitelisted for underground too so place_below ruins work
+<<<<<<< HEAD
 		seedRuins(ice_ruins, CONFIG_GET(number/icemoon_budget), list(/area/icemoon/surface/outdoors/unexplored, /area/icemoon/underground/unexplored), themed_ruins[ZTRAIT_ICE_RUINS], clear_below = TRUE)
+=======
+		seedRuins(ice_ruins, CONFIG_GET(number/icemoon_budget), list(/area/icemoon/surface/outdoors/unexplored, /area/icemoon/underground/unexplored), themed_ruins[ZTRAIT_ICE_RUINS], clear_below = TRUE, mineral_budget = 4, mineral_budget_update = OREGEN_PRESET_TRIPLE_Z)
+>>>>>>> ed31397cc46 (Fixes ore vents spawning without ores on icebox, sets up map specific ore configurations (#81103))
 
 	var/list/ice_ruins_underground = levels_by_trait(ZTRAIT_ICE_RUINS_UNDERGROUND)
 	if (ice_ruins_underground.len)
@@ -869,12 +875,14 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 	// Faster
 	if(space_guaranteed)
 		var/area/global_area = GLOB.areas_by_type[world.area]
-		global_area.contained_turfs += Z_TURFS(z_level)
+		LISTASSERTLEN(global_area.turfs_by_zlevel, z_level, list())
+		global_area.turfs_by_zlevel[z_level] = Z_TURFS(z_level)
 		return
 
 	for(var/turf/to_contain as anything in Z_TURFS(z_level))
 		var/area/our_area = to_contain.loc
-		our_area.contained_turfs += to_contain
+		LISTASSERTLEN(our_area.turfs_by_zlevel, z_level, list())
+		our_area.turfs_by_zlevel[z_level] += to_contain
 
 /datum/controller/subsystem/mapping/proc/update_plane_tracking(datum/space_level/update_with)
 	// We're essentially going to walk down the stack of connected z levels, and set their plane offset as we go
