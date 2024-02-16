@@ -1,3 +1,4 @@
+<<<<<<< HEAD:code/modules/antagonists/traitor/objectives/demoralise_graffiti.dm
 /datum/traitor_objective/demoralise/graffiti
 	name = "Sow doubt among the crew %VIEWS% times using Syndicate graffiti."
 	description = "Use the button below to materialize a seditious spray can, \
@@ -86,6 +87,9 @@
 		UnregisterSignal(rune, COMSIG_TRAITOR_GRAFFITI_SLIPPED)
 		rune = null
 	return ..()
+=======
+#define SYNDIE_DRAW_TIME 3 SECONDS
+>>>>>>> 74375cb84fd (Add 50% graffiti speed boost to tagger quirk (#80567)):code/game/objects/items/syndie_spraycan.dm
 
 // Extending the existing spraycan item was more trouble than it was worth, I don't want or need this to be able to draw arbitrary shapes.
 /obj/item/traitor_spraycan
@@ -168,7 +172,12 @@
 /obj/item/traitor_spraycan/proc/try_draw_step(start_output, mob/living/user, atom/target)
 	drawing_rune = TRUE
 	user.balloon_alert(user, "[start_output]")
-	if (!do_after(user, 3 SECONDS, target))
+	var/wait_time = SYNDIE_DRAW_TIME
+
+	if(HAS_TRAIT(user, TRAIT_TAGGER))
+		wait_time *= 0.5
+
+	if(!do_after(user, wait_time, target))
 		user.balloon_alert(user, "interrupted!")
 		drawing_rune = FALSE
 		return FALSE
@@ -309,6 +318,7 @@
 
 	return ..()
 
+#undef SYNDIE_DRAW_TIME
 #undef RUNE_STAGE_COLOURED
 #undef RUNE_STAGE_COMPLETE
 #undef RUNE_STAGE_OUTLINE

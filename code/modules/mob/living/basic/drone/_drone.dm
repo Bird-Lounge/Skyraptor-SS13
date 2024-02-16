@@ -38,7 +38,7 @@
 	initial_language_holder = /datum/language_holder/drone
 	mob_size = MOB_SIZE_SMALL
 	has_unlimited_silicon_privilege = TRUE
-	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 0, CLONE = 0, STAMINA = 0, OXY = 0)
+	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 0, STAMINA = 0, OXY = 0)
 	hud_possible = list(DIAG_STAT_HUD, DIAG_HUD, ANTAG_HUD)
 	unique_name = TRUE
 	faction = list(FACTION_NEUTRAL,FACTION_SILICON,FACTION_TURRET)
@@ -161,6 +161,12 @@
 		/obj/item/clothing/mask,
 		/obj/item/storage/box/lights,
 		/obj/item/lightreplacer,
+		/obj/item/construction/rcd,
+		/obj/item/rcd_ammo,
+		/obj/item/rcd_upgrade,
+		/obj/item/storage/part_replacer,
+		/obj/item/soap,
+		/obj/item/holosign_creator,
 	)
 	/// machines whitelisted from being shy with
 	var/list/shy_machine_whitelist = list(

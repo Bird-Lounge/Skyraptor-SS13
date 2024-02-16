@@ -63,6 +63,12 @@
 		flashed.balloon_alert(source, "[flashed.p_their()] mind is vacant!")
 		return
 
+	for(var/datum/objective/brother_objective as anything in source.mind.get_all_objectives())
+		// If the objective has a target, are we flashing them?
+		if(flashed == brother_objective.target?.current)
+			flashed.balloon_alert(source, "that's your target!")
+			return
+
 	if (flashed.mind.has_antag_datum(/datum/antagonist/brother))
 		flashed.balloon_alert(source, "[flashed.p_theyre()] loyal to someone else!")
 		return
@@ -72,8 +78,15 @@
 		return
 
 	flashed.mind.add_antag_datum(/datum/antagonist/brother, team)
+	source.log_message("converted [key_name(flashed)] to blood brother", LOG_ATTACK)
+	flashed.log_message("was converted by [key_name(source)] to blood brother", LOG_ATTACK)
+	log_game("[key_name(flashed)] converted [key_name(source)] to blood brother", list(
+		"flashed" = flashed,
+		"victim" = source,
+	))
 
 	flashed.balloon_alert(source, "converted")
+	to_chat(source, span_notice("[span_bold("[flashed]")] has been converted to aide you as your Brother!"))
 	flash.burn_out()
 	flashed.mind.add_memory( \
 		/datum/memory/recruited_by_blood_brother, \
