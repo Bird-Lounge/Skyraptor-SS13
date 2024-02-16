@@ -133,22 +133,16 @@ const CustomPrint = (props: CustomPrintProps) => {
       ])}
     >
       <Button.Input
-        content={'[Max: ' + design.maxmult + ']'}
-        color={'transparent'}
-        maxValue={design.maxmult}
+        color="transparent"
         onCommit={(_e, value: string) =>
           act('build', {
             ref: design.id,
             amount: value,
           })
         }
-<<<<<<< HEAD
-      />
-=======
       >
         [Max: {maxMult}]
       </Button.Input>
->>>>>>> e4b23f2b4b6 (General maintenance for Lathes (#81244))
     </div>
   );
 };

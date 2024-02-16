@@ -188,18 +188,13 @@ const ListDisplay = (props) => {
     props;
 
   return (
-<<<<<<< HEAD
-    <Section fill scrollable tabIndex={0}>
-=======
     <Section fill scrollable>
       <Autofocus />
->>>>>>> 69ba43d5d0a (Makes ListInputModal autofocus (#80647))
       {filteredItems.map((item, index) => {
         return (
           <Button
             color="transparent"
             fluid
-            id={index}
             key={index}
             onClick={() => onClick(index)}
             onDoubleClick={(event) => {

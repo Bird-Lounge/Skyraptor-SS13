@@ -41,12 +41,9 @@ type OptionalProps = Partial<{
   autoSelect: boolean;
   /** The class name of the input */
   className: string;
-<<<<<<< HEAD
-=======
   /** Disables the input */
   disabled: boolean;
   /** Mark this if you want the input to be as wide as possible */
->>>>>>> 8b6b96d4464 (Input changes take XII: Responsive small lists (#80720))
   fluid: boolean;
   /** The maximum length of the input value */
   maxLength: number;
@@ -86,14 +83,12 @@ export function Input(props: Props) {
   const {
     autoFocus,
     autoSelect,
-<<<<<<< HEAD
-=======
     className,
     disabled,
     expensive,
     fluid,
->>>>>>> 8b6b96d4464 (Input changes take XII: Responsive small lists (#80720))
     maxLength,
+    monospace,
     onChange,
     onEnter,
     onEscape,
@@ -101,9 +96,8 @@ export function Input(props: Props) {
     placeholder,
     selfClear,
     value,
-    ...boxProps
+    ...rest
   } = props;
-  const { className, fluid, monospace, ...rest } = boxProps;
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -180,6 +174,7 @@ export function Input(props: Props) {
       <div className="Input__baseline">.</div>
       <input
         className="Input__input"
+        disabled={disabled}
         maxLength={maxLength}
         onBlur={(event) => onChange?.(event, event.target.value)}
         onChange={handleInput}

@@ -95,11 +95,7 @@ const MaterialCounter = (props: MaterialCounterProps) => {
         sheets < 1 && 'MaterialDock--disabled',
       ])}
     >
-<<<<<<< HEAD
-      <Stack vertial direction={'column-reverse'}>
-=======
       <Flex direction="column-reverse">
->>>>>>> 9c2df71dc20 (New Ore Silo UI (#80975))
         <Flex
           direction="column"
           textAlign="center"

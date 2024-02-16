@@ -25,6 +25,7 @@ type Props = Partial<{
   autoSelect: boolean;
   displayedValue: string;
   dontUseTabForIndent: boolean;
+  fluid: boolean;
   maxLength: number;
   noborder: boolean;
   /** Fires when user is 'done typing': Clicked out, blur, enter key (but not shift+enter) */
