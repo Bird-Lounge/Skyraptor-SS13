@@ -16,10 +16,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_FLOORED "floored"
 /// Forces user to stay standing
 #define TRAIT_FORCED_STANDING "forcedstanding"
-
-/// SKYRAPTOR ADDITION: Slows the user, with additional effects based on the source..  part of goonstam
-#define TRAIT_DISORIENTED "disoriented"
-
 /// Prevents usage of manipulation appendages (picking, holding or using items, manipulating storage).
 #define TRAIT_HANDS_BLOCKED "handsblocked"
 /// Inability to access UI hud elements. Turned into a trait from [MOBILITY_UI] to be able to track sources.
@@ -37,18 +33,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 ///Recolored by item/greentext
 #define TRAIT_GREENTEXT_CURSED "greentext_curse"
 #define TRAIT_INCAPACITATED "incapacitated"
-
-/// SKYRAPTOR ADDITION BEGIN
-///User's stamina is over the STAMINA_EXHAUSTION_THRESHOLD
-#define TRAIT_EXHAUSTED "exhausted"
-///User is sprinting, full speed ahead
-#define TRAIT_SPRINTING "sprinting"
-///User cannot sprint
-#define TRAIT_NO_SPRINT "no_sprint"
-/// In softcrit.
-#define TRAIT_SOFT_CRITICAL_CONDITION "soft-critical-condition"
-/// SKYRAPTOR ADDITION END
-
 /// In some kind of critical condition. Is able to succumb.
 #define TRAIT_CRITICAL_CONDITION "critical-condition"
 /// Whitelist for mobs that can read or write
@@ -515,8 +499,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Is the mob standing on an elevated surface? This prevents them from dropping down if not elevated first.
 #define TRAIT_ON_ELEVATED_SURFACE "on_elevated_surface"
 
-<<<<<<< HEAD
-=======
 /// Prevents you from twohanding weapons.
 #define TRAIT_NO_TWOHANDING "no_twohanding"
 
@@ -529,7 +511,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Makes the user handcuff others faster
 #define TRAIT_FAST_CUFFING "fast_cuffing"
 
->>>>>>> cc571582fff (Gloves changes featuring nerfed shove cuffing (#81187))
 // METABOLISMS
 // Various jobs on the station have historically had better reactions
 // to various drinks and foodstuffs. Security liking donuts is a classic
@@ -861,6 +842,9 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Similar trait given to temporary bodies inhabited by players
 #define TRAIT_TEMPORARY_BODY "temporary_body"
 
+/// Trait given to objects with the wallmounted component
+#define TRAIT_WALLMOUNTED "wallmounted"
+
 /// Trait given to mechs that can have orebox functionality on movement
 #define TRAIT_OREBOX_FUNCTIONAL "orebox_functional"
 
@@ -946,6 +930,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define STATION_TRAIT_UNNATURAL_ATMOSPHERE "station_trait_unnatural_atmosphere"
 #define STATION_TRAIT_VENDING_SHORTAGE "station_trait_vending_shortage"
 
+/// This atom is currently spinning.
+#define TRAIT_SPINNING "spinning"
 
 /// This limb can't be torn open anymore
 #define TRAIT_IMMUNE_TO_CRANIAL_FISSURE "immune_to_cranial_fissure"
@@ -1058,8 +1044,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Trait given to foam darts that have an insert in them
 #define TRAIT_DART_HAS_INSERT "dart_has_insert"
 
-<<<<<<< HEAD
-=======
 /// Trait determines if this mob has examined an eldritch painting
 #define TRAIT_ELDRITCH_PAINTING_EXAMINE "eldritch_painting_examine"
 
@@ -1069,7 +1053,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 ///Trait granted by janitor skillchip, allows communication with cleanbots
 #define TRAIT_CLEANBOT_WHISPERER "cleanbot_whisperer"
 
->>>>>>> f88da4bcb9d (Heretic DLC: Path of Moon (#79536))
 /// Trait given when a mob is currently in invisimin mode
 #define TRAIT_INVISIMIN "invisimin"
 
@@ -1081,5 +1064,11 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 /// Trait which means whatever has this is dancing by a dance machine
 #define TRAIT_DISCO_DANCER "disco_dancer"
+
+/// That which allows mobs to instantly break down boulders.
+#define TRAIT_INSTANTLY_PROCESSES_BOULDERS "instantly_processes_boulders"
+
+/// Trait applied to objects and mobs that can attack a boulder and break it down. (See /obj/item/boulder/manual_process())
+#define TRAIT_BOULDER_BREAKER "boulder_breaker"
 
 // END TRAIT DEFINES
