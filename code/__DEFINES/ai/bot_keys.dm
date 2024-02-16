@@ -36,7 +36,14 @@
 ///in crit patient we must alert medbay about
 #define BB_PATIENT_IN_CRIT "patient_in_crit"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+///how much time interval before we clear list
+#define BB_UNREACHABLE_LIST_COOLDOWN "unreachable_list_cooldown"
+///can we clear the list now
+#define	BB_CLEAR_LIST_READY "clear_list_ready"
+>>>>>>> dd5234b401b ([no gbp] fixes ai controller runtime (#81134))
 
 // cleanbots
 ///key that holds the foaming ability

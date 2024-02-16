@@ -258,19 +258,14 @@
 	duration = 11 SECONDS
 
 /datum/hallucination/delusion/preset/heretic/make_delusion_image(mob/over_who)
-<<<<<<< HEAD
-	delusion_icon_file = getFlatIcon(get_dynamic_human_appearance(/datum/outfit/heretic_hallucination, r_hand = NO_REPLACE))
-=======
 	// This code is dummy hot for DUMB reasons so let's not make a mob constantly yeah?
 	var/static/mutable_appearance/heretic_appearance
 	if(isnull(heretic_appearance))
 		heretic_appearance = get_dynamic_human_appearance(/datum/outfit/heretic, r_hand = NO_REPLACE)
 	delusion_appearance = heretic_appearance
->>>>>>> 5acc1a3dcb9 (Yeets Hallucination GFI for Images (#80859))
 	return ..()
 
 /datum/hallucination/delusion/preset/heretic/gate
 	delusion_name = "Mind Gate"
 	duration = 60 SECONDS
 	affects_us = TRUE
-
