@@ -84,10 +84,24 @@
 	return FALSE
 
 /datum/martial_art/krav_maga/proc/leg_sweep(mob/living/attacker, mob/living/defender)
+<<<<<<< HEAD
 	if(defender.stat || defender.IsParalyzed())
 		return FALSE
 	defender.visible_message(span_warning("[attacker] leg sweeps [defender]!"), \
 					span_userdanger("Your legs are sweeped by [attacker]!"), span_hear("You hear a sickening sound of flesh hitting flesh!"), null, attacker)
+=======
+	if(defender.stat != CONSCIOUS || defender.IsParalyzed())
+		return MARTIAL_ATTACK_INVALID
+	if(HAS_TRAIT(attacker, TRAIT_PACIFISM))
+		return MARTIAL_ATTACK_INVALID // Does 5 damage, so we can't let pacifists leg sweep.
+	defender.visible_message(
+		span_warning("[attacker] leg sweeps [defender]!"),
+		span_userdanger("Your legs are sweeped by [attacker]!"),
+		span_hear("You hear a sickening sound of flesh hitting flesh!"),
+		null,
+		attacker,
+	)
+>>>>>>> 39e861cb040 (Fixes Krav Maga allowing pacifism bypasses. (#81447))
 	to_chat(attacker, span_danger("You leg sweep [defender]!"))
 	playsound(get_turf(attacker), 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
 	defender.apply_damage(5, BRUTE, BODY_ZONE_CHEST)
@@ -107,8 +121,21 @@
 	return TRUE
 
 /datum/martial_art/krav_maga/proc/neck_chop(mob/living/attacker, mob/living/defender)
+<<<<<<< HEAD
 	defender.visible_message(span_warning("[attacker] karate chops [defender]'s neck!"), \
 					span_userdanger("Your neck is karate chopped by [attacker], rendering you unable to speak!"), span_hear("You hear a sickening sound of flesh hitting flesh!"), COMBAT_MESSAGE_RANGE, attacker)
+=======
+	if(HAS_TRAIT(attacker, TRAIT_PACIFISM))
+		return MARTIAL_ATTACK_INVALID // Does 10 damage, so we can't let pacifists neck chop.
+	attacker.do_attack_animation(defender)
+	defender.visible_message(
+		span_warning("[attacker] karate chops [defender]'s neck!"),
+		span_userdanger("Your neck is karate chopped by [attacker], rendering you unable to speak!"),
+		span_hear("You hear a sickening sound of flesh hitting flesh!"),
+		COMBAT_MESSAGE_RANGE,
+		attacker,
+	)
+>>>>>>> 39e861cb040 (Fixes Krav Maga allowing pacifism bypasses. (#81447))
 	to_chat(attacker, span_danger("You karate chop [defender]'s neck, rendering [defender.p_them()] unable to speak!"))
 	playsound(get_turf(attacker), 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
 	defender.apply_damage(10, attacker.get_attack_type(), BODY_ZONE_HEAD)
@@ -141,6 +168,7 @@
 
 /datum/martial_art/krav_maga/disarm_act(mob/living/attacker, mob/living/defender)
 	if(check_streak(attacker, defender))
+<<<<<<< HEAD
 		return TRUE
 	var/obj/item/stuff_in_hand = null
 	stuff_in_hand = defender.get_active_held_item()
@@ -153,6 +181,23 @@
 			playsound(defender, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 	log_combat(attacker, defender, "shoved (Krav Maga)", "[stuff_in_hand ? " removing \the [stuff_in_hand]" : ""]")
 	return FALSE
+=======
+		return MARTIAL_ATTACK_SUCCESS
+	var/obj/item/stuff_in_hand = defender.get_active_held_item()
+	if(prob(60) && stuff_in_hand && defender.temporarilyRemoveItemFromInventory(stuff_in_hand))
+		attacker.put_in_hands(stuff_in_hand)
+		defender.visible_message(
+			span_danger("[attacker] disarms [defender]!"),
+			span_userdanger("You're disarmed by [attacker]!"),
+			span_hear("You hear aggressive shuffling!"),
+			COMBAT_MESSAGE_RANGE,
+			attacker,
+		)
+		to_chat(attacker, span_danger("You disarm [defender]!"))
+		playsound(defender, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
+		log_combat(attacker, defender, "disarmed (Krav Maga)", addition = "(disarmed of [stuff_in_hand])")
+	return MARTIAL_ATTACK_INVALID // normal shove
+>>>>>>> 49fc6207f4f (Fix Krav Maga not shoving (#81340))
 
 //Krav Maga Gloves
 

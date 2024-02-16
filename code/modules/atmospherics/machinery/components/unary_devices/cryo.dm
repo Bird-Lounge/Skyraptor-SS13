@@ -192,6 +192,18 @@
 
 	return ..()
 
+<<<<<<< HEAD
+=======
+/obj/machinery/cryo_cell/on_deconstruction(disassembled)
+	if(occupant)
+		occupant.vis_flags &= ~VIS_INHERIT_PLANE
+		REMOVE_TRAIT(occupant, TRAIT_IMMOBILIZED, CRYO_TRAIT)
+		REMOVE_TRAIT(occupant, TRAIT_FORCED_STANDING, CRYO_TRAIT)
+
+	if(beaker)
+		beaker.forceMove(drop_location())
+
+>>>>>>> 4495ea2e4d0 (Refactors how machines are deconstructed (#81291))
 /obj/machinery/cryo_cell/contents_explosion(severity, target)
 	. = ..()
 	if(!beaker)
@@ -239,8 +251,16 @@
 	else
 		. += mutable_appearance('icons/obj/medical/cryogenics.dmi', "cover-off", ABOVE_ALL_MOB_LAYER, src, plane = ABOVE_GAME_PLANE)
 
+<<<<<<< HEAD
 /obj/machinery/cryo_cell/nap_violation(mob/violator)
 	open_machine()
+=======
+/obj/machinery/cryo_cell/dump_inventory_contents(list/subset = list())
+	//only drop mobs when opening the machine
+	for (var/mob/living/living_guy in contents)
+		subset += living_guy
+	return ..(subset)
+>>>>>>> dc50ef274c7 (Cryo tubes will dump legions spawned inside them when opened (#81273))
 
 
 /obj/machinery/cryo_cell/proc/set_on(active)
