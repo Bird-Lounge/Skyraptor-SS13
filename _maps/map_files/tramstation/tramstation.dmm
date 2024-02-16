@@ -4191,8 +4191,7 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 8
 	},
-/obj/machinery/door/window/left/directional/west{
-	dir = 1;
+/obj/machinery/door/window/left/directional/north{
 	name = "Delivery Desk";
 	req_access = list("shipping")
 	},
@@ -5871,8 +5870,7 @@
 /area/station/hallway/secondary/entry)
 "aRE" = (
 /obj/machinery/mass_driver/chapelgun,
-/obj/machinery/door/window{
-	dir = 1;
+/obj/machinery/door/window/left/directional/north{
 	name = "Mass Driver";
 	req_access = list("chapel_office")
 	},
@@ -6611,12 +6609,6 @@
 /turf/open/floor/wood/large,
 /area/station/service/barber)
 "bjb" = (
-/obj/machinery/door/window/left/directional/west{
-	base_state = "right";
-	dir = 4;
-	icon_state = "right";
-	name = "Brig Infirmary"
-	},
 /obj/effect/turf_decal/trimline/red/filled/corner{
 	dir = 4
 	},
@@ -6624,6 +6616,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/window/right/directional/east{
+	name = "Brig Infirmary"
+	},
 /turf/open/floor/iron/white,
 /area/station/security/medical)
 "bje" = (
@@ -7462,7 +7457,7 @@
 /obj/structure/bed{
 	dir = 4
 	},
-/obj/item/bedsheet/dorms{
+/obj/effect/spawner/random/bedsheet{
 	dir = 4
 	},
 /obj/structure/sign/clock/directional/west,
@@ -10151,7 +10146,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/tram/mid)
 "cvf" = (
-/obj/machinery/door/window{
+/obj/machinery/door/window/left/directional/south{
 	name = "Captain's Desk";
 	req_access = list("captain")
 	},
@@ -10162,7 +10157,7 @@
 /area/station/command/heads_quarters/captain)
 "cvg" = (
 /obj/structure/bed/double,
-/obj/item/bedsheet/dorms_double,
+/obj/effect/spawner/random/bedsheet/double,
 /obj/effect/landmark/start/assistant,
 /obj/structure/sign/clock/directional/north,
 /obj/item/pillow/random,
@@ -11408,7 +11403,7 @@
 /obj/structure/bed{
 	dir = 4
 	},
-/obj/item/bedsheet/dorms{
+/obj/effect/spawner/random/bedsheet{
 	dir = 4
 	},
 /obj/effect/landmark/start/assistant,
@@ -11829,7 +11824,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/security/glass{
-	name = "Isolation Cell C"
+	name = "Isolation Cell C";
+	id = "Isolation_C"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -14285,7 +14281,7 @@
 /obj/structure/bed{
 	dir = 4
 	},
-/obj/item/bedsheet/dorms{
+/obj/effect/spawner/random/bedsheet{
 	dir = 4
 	},
 /obj/structure/sign/clock/directional/south,
@@ -17423,11 +17419,7 @@
 	id = "AI";
 	pixel_x = 20
 	},
-/obj/machinery/door/window{
-	atom_integrity = 300;
-	base_state = "rightsecure";
-	dir = 1;
-	icon_state = "rightsecure";
+/obj/machinery/door/window/brigdoor/right/directional/north{
 	name = "Primary AI Core Access";
 	req_access = list("ai_upload")
 	},
@@ -21899,7 +21891,8 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/security/glass{
-	name = "Isolation Cell B"
+	name = "Isolation Cell B";
+	id = "Isolation_B"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -22033,8 +22026,7 @@
 /area/station/medical/treatment_center)
 "gNK" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/brigdoor{
-	dir = 1;
+/obj/machinery/door/window/brigdoor/left/directional/north{
 	name = "Armory Desk";
 	req_access = list("armory")
 	},
@@ -22921,7 +22913,7 @@
 /obj/structure/bed{
 	dir = 8
 	},
-/obj/item/bedsheet/dorms,
+/obj/effect/spawner/random/bedsheet,
 /obj/structure/sign/clock/directional/east,
 /obj/item/pillow/random,
 /turf/open/floor/wood,
@@ -23839,10 +23831,7 @@
 /area/station/maintenance/tram/right)
 "hyK" = (
 /obj/structure/window/reinforced/spawner/directional/north,
-/obj/machinery/door/window/right/directional/east{
-	base_state = "left";
-	dir = 8;
-	icon_state = "left";
+/obj/machinery/door/window/left/directional/west{
 	name = "Fitness Ring"
 	},
 /turf/open/floor/iron/dark/smooth_corner,
@@ -24828,7 +24817,7 @@
 /area/station/security/brig)
 "hRK" = (
 /obj/structure/bed,
-/obj/item/bedsheet/dorms,
+/obj/effect/spawner/random/bedsheet,
 /obj/effect/landmark/start/hangover,
 /obj/structure/sign/clock/directional/south,
 /obj/item/pillow/random,
@@ -24955,8 +24944,7 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 8
 	},
-/obj/machinery/door/window/left/directional/west{
-	dir = 1;
+/obj/machinery/door/window/left/directional/north{
 	name = "Terminal Access";
 	req_access = list("qm")
 	},
@@ -26230,15 +26218,14 @@
 /area/station/hallway/secondary/entry)
 "iuJ" = (
 /obj/structure/bed/double,
-/obj/item/bedsheet/dorms_double,
+/obj/effect/spawner/random/bedsheet/double,
 /obj/structure/sign/clock/directional/north,
 /obj/item/pillow/random,
 /turf/open/floor/carpet,
 /area/station/commons/dorms)
 "iuM" = (
 /obj/structure/table/wood/fancy/royalblue,
-/obj/machinery/door/window{
-	dir = 8;
+/obj/machinery/door/window/left/directional/west{
 	name = "Secure Art Exhibition";
 	req_access = list("library")
 	},
@@ -26742,7 +26729,8 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/security/glass{
-	name = "Isolation Cell D"
+	name = "Isolation Cell D";
+	id = "Isolation_D"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -28740,8 +28728,7 @@
 /turf/open/floor/plating,
 /area/station/cargo/lobby)
 "jnJ" = (
-/obj/machinery/door/window/brigdoor{
-	dir = 4;
+/obj/machinery/door/window/brigdoor/left/directional/east{
 	id = "crgcell";
 	name = "Cargo Cell";
 	req_access = list("security")
@@ -28764,7 +28751,7 @@
 /obj/structure/bed{
 	dir = 8
 	},
-/obj/item/bedsheet/dorms,
+/obj/effect/spawner/random/bedsheet,
 /obj/effect/landmark/start/assistant,
 /obj/structure/sign/clock/directional/east,
 /obj/item/pillow/random,
@@ -31183,10 +31170,7 @@
 	name = "Atmospherics Blast Door"
 	},
 /obj/effect/landmark/navigate_destination/atmos,
-/obj/machinery/door/window/left/directional/west{
-	base_state = "right";
-	dir = 4;
-	icon_state = "right";
+/obj/machinery/door/window/right/directional/east{
 	name = "Atmospherics Front Desk";
 	req_access = list("atmospherics")
 	},
@@ -34148,12 +34132,10 @@
 /area/station/hallway/secondary/exit)
 "lcS" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/right/directional/west{
-	dir = 2;
+/obj/machinery/door/window/right/directional/south{
 	name = "Access Queue"
 	},
-/obj/machinery/door/window/brigdoor/left/directional/east{
-	dir = 1;
+/obj/machinery/door/window/brigdoor/left/directional/north{
 	name = "Access Desk";
 	req_access = list("hop")
 	},
@@ -36077,7 +36059,7 @@
 /obj/structure/bed{
 	dir = 8
 	},
-/obj/item/bedsheet/dorms,
+/obj/effect/spawner/random/bedsheet,
 /obj/effect/landmark/start/assistant,
 /obj/structure/sign/clock/directional/east,
 /obj/item/pillow/random,
@@ -36423,10 +36405,7 @@
 	location = "QM #2"
 	},
 /obj/effect/turf_decal/tile/brown/fourcorners,
-/mob/living/simple_animal/bot/mulebot{
-	home_destination = "QM #2";
-	suffix = "#2"
-	},
+/mob/living/simple_animal/bot/mulebot,
 /turf/open/floor/iron,
 /area/station/cargo/warehouse)
 "lQH" = (
@@ -39394,10 +39373,7 @@
 /area/station/service/chapel)
 "mVS" = (
 /obj/structure/window/reinforced/spawner/directional/south,
-/obj/machinery/door/window/right/directional/east{
-	base_state = "left";
-	dir = 8;
-	icon_state = "left";
+/obj/machinery/door/window/left/directional/west{
 	name = "Fitness Ring"
 	},
 /turf/open/floor/iron/dark/smooth_corner{
@@ -40634,8 +40610,7 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 8
 	},
-/obj/machinery/door/window/left/directional/west{
-	dir = 1;
+/obj/machinery/door/window/left/directional/north{
 	name = "Cargo Desk";
 	req_access = list("cargo")
 	},
@@ -41108,8 +41083,7 @@
 	id = "Xenolab";
 	name = "Test Chamber Blast Door"
 	},
-/obj/machinery/door/window/left/directional/south{
-	dir = 1;
+/obj/machinery/door/window/left/directional/north{
 	name = "Maximum Security Test Chamber";
 	req_access = list("xenobiology")
 	},
@@ -41576,10 +41550,7 @@
 	location = "QM #6"
 	},
 /obj/effect/turf_decal/tile/brown/fourcorners,
-/mob/living/simple_animal/bot/mulebot{
-	home_destination = "QM #6";
-	suffix = "#6"
-	},
+/mob/living/simple_animal/bot/mulebot,
 /turf/open/floor/iron,
 /area/station/cargo/warehouse)
 "nIQ" = (
@@ -43979,9 +43950,7 @@
 /obj/structure/table/wood,
 /obj/item/folder/blue,
 /obj/item/stamp/head/captain,
-/obj/machinery/door/window{
-	base_state = "right";
-	icon_state = "right";
+/obj/machinery/door/window/right/directional/south{
 	name = "Captain's Desk";
 	req_access = list("captain")
 	},
@@ -45232,7 +45201,7 @@
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/warden)
 "pfm" = (
-/obj/item/bedsheet/dorms_double{
+/obj/effect/spawner/random/bedsheet/double{
 	dir = 4
 	},
 /obj/structure/bed/double{
@@ -45370,8 +45339,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/tram/mid)
 "phH" = (
-/obj/machinery/door/window/left/directional/west{
-	dir = 4;
+/obj/machinery/door/window/left/directional/east{
 	name = "Hydroponics Desk";
 	req_access = list("hydroponics")
 	},
@@ -47727,10 +47695,7 @@
 	location = "QM #3"
 	},
 /obj/effect/turf_decal/tile/brown/fourcorners,
-/mob/living/simple_animal/bot/mulebot{
-	home_destination = "QM #3";
-	suffix = "#3"
-	},
+/mob/living/simple_animal/bot/mulebot,
 /turf/open/floor/iron,
 /area/station/cargo/warehouse)
 "pXC" = (
@@ -52356,10 +52321,7 @@
 	location = "QM #1"
 	},
 /obj/effect/turf_decal/tile/brown/fourcorners,
-/mob/living/simple_animal/bot/mulebot{
-	home_destination = "QM #1";
-	suffix = "#1"
-	},
+/mob/living/simple_animal/bot/mulebot,
 /turf/open/floor/iron,
 /area/station/cargo/warehouse)
 "rCL" = (
@@ -54640,8 +54602,7 @@
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
 "srY" = (
-/obj/machinery/door/window/brigdoor{
-	dir = 8;
+/obj/machinery/door/window/brigdoor/left/directional/west{
 	id = "engcell";
 	name = "Engineering Cell";
 	req_access = list("security")
@@ -55394,9 +55355,7 @@
 /turf/open/floor/iron,
 /area/station/cargo/office)
 "sFw" = (
-/obj/machinery/door/window/left/directional/east{
-	dir = 1;
-	icon_state = "right";
+/obj/machinery/door/window/right/directional/north{
 	name = "Incoming Mail";
 	req_access = list("shipping")
 	},
@@ -58582,12 +58541,13 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 4
 	},
-/obj/machinery/door/airlock/security/glass{
-	name = "Isolation Cell A"
-	},
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/security/glass{
+	name = "Isolation Cell A";
+	id = "Isolation_A"
+	},
 /turf/open/floor/iron,
 /area/station/security/execution/transfer)
 "tJR" = (
@@ -59169,7 +59129,7 @@
 /obj/structure/bed{
 	dir = 4
 	},
-/obj/item/bedsheet/dorms{
+/obj/effect/spawner/random/bedsheet{
 	dir = 4
 	},
 /obj/structure/sign/clock/directional/west,
@@ -59786,7 +59746,7 @@
 /obj/structure/bed{
 	dir = 8
 	},
-/obj/item/bedsheet/dorms,
+/obj/effect/spawner/random/bedsheet,
 /obj/structure/sign/clock/directional/east,
 /obj/item/pillow/random,
 /turf/open/floor/carpet,
@@ -60368,7 +60328,7 @@
 /area/station/hallway/secondary/command)
 "upb" = (
 /obj/structure/bed/double,
-/obj/item/bedsheet/dorms_double,
+/obj/effect/spawner/random/bedsheet/double,
 /obj/effect/landmark/start/hangover,
 /obj/structure/sign/clock/directional/north,
 /obj/item/pillow/random,
@@ -61199,8 +61159,7 @@
 	pixel_x = -3;
 	pixel_y = -3
 	},
-/obj/machinery/door/window/left/directional/west{
-	dir = 2;
+/obj/machinery/door/window/left/directional/south{
 	name = "Secure Medical Storage";
 	req_access = list("medical")
 	},
@@ -62813,8 +62772,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/obj/machinery/door/window{
-	dir = 8;
+/obj/machinery/door/window/left/directional/west{
 	name = "Secure Art Exhibition";
 	req_access = list("library")
 	},
@@ -67373,7 +67331,7 @@
 /obj/structure/bed/double{
 	dir = 4
 	},
-/obj/item/bedsheet/dorms_double{
+/obj/effect/spawner/random/bedsheet/double{
 	dir = 4
 	},
 /obj/structure/sign/clock/directional/north,
@@ -68161,8 +68119,7 @@
 	name = "Pharmacy Shutters"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/left/directional/south{
-	dir = 4;
+/obj/machinery/door/window/left/directional/east{
 	name = "Chemistry Desk";
 	req_access = list("pharmacy")
 	},
@@ -68767,7 +68724,9 @@
 /area/station/hallway/primary/tram/center)
 "xog" = (
 /obj/machinery/door/airlock/security/glass{
-	name = "Isolation Wing"
+	name = "Isolation Wing";
+	unres_sensor = 1;
+	unres_sides = 8
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/trimline/red/filled/line,
