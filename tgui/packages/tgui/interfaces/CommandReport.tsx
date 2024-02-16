@@ -1,5 +1,15 @@
-import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Dropdown, Input, Section, Stack, TextArea } from '../components';
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
+import {
+  Box,
+  Button,
+  Dropdown,
+  Input,
+  Section,
+  Stack,
+  TextArea,
+} from '../components';
 import { Window } from '../layouts';
 
 type Data = {
@@ -22,7 +32,8 @@ export const CommandReport = () => {
       title="Create Command Report"
       width={325}
       height={685}
-      theme="admin">
+      theme="admin"
+    >
       <Window.Content>
         <Stack fill vertical>
           <Stack.Item>
@@ -47,17 +58,19 @@ const CentComName = (props) => {
   const { act, data } = useBackend<Data>();
   const { command_name, command_name_presets = [], custom_name } = data;
 
+  const sendName = (value) => {
+    act('update_command_name', {
+      updated_name: value,
+    });
+  };
+
   return (
     <Section title="Set Central Command name" textAlign="center">
       <Dropdown
         width="100%"
         selected={command_name}
         options={command_name_presets}
-        onSelected={(value) =>
-          act('update_command_name', {
-            updated_name: value,
-          })
-        }
+        onSelected={(value) => sendName(value)}
       />
       {!!custom_name && (
         <Input
@@ -65,11 +78,7 @@ const CentComName = (props) => {
           mt={1}
           value={command_name}
           placeholder={command_name}
-          onChange={(_, value) =>
-            act('update_command_name', {
-              updated_name: value,
-            })
-          }
+          onChange={(_, value) => sendName(value)}
         />
       )}
     </Section>
@@ -145,10 +154,7 @@ const AnnouncementSound = (props) => {
 const ReportText = (props) => {
   const { act, data } = useBackend<Data>();
   const { announce_contents, print_report, command_report_content } = data;
-  const [commandReport, setCommandReport] = useLocalState<string>(
-    'textArea',
-    command_report_content
-  );
+  const [commandReport, setCommandReport] = useState(command_report_content);
 
   return (
     <Section title="Set report text" textAlign="center">
@@ -162,14 +168,9 @@ const ReportText = (props) => {
         <Stack.Item>
           <Button.Checkbox
             fluid
-<<<<<<< HEAD
-            checked={announce_contents}
-            onClick={() => act('toggle_announce')}>
-=======
             checked={!!announce_contents}
             onClick={() => act('toggle_announce')}
           >
->>>>>>> a53f0631353 (Converts button to typescript (#80194))
             Announce Contents
           </Button.Checkbox>
           <Button.Checkbox
@@ -181,7 +182,8 @@ const ReportText = (props) => {
               !announce_contents &&
               "Printing the report is required since we aren't announcing its contents."
             }
-            tooltipPosition="top">
+            tooltipPosition="top"
+          >
             Print Report
           </Button.Checkbox>
         </Stack.Item>

@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, ColorBox, Stack, Section, Table } from '../components';
+import { Button, ColorBox, Section, Stack, Table } from '../components';
 import { NtosWindow } from '../layouts';
 import { NTOSData } from '../layouts/NtosWindow';
 
@@ -18,7 +18,7 @@ export const NtosMain = (props) => {
     pai,
   } = data;
   const filtered_programs = programs.filter(
-    (program) => program.header_program
+    (program) => program.header_program,
   );
 
   return (
@@ -28,17 +28,13 @@ export const NtosMain = (props) => {
         'NtOS Main Menu'
       }
       width={400}
-<<<<<<< HEAD:tgui/packages/tgui/interfaces/NtosMain.jsx
-      height={500}>
-=======
       height={500}
       z
     >
->>>>>>> 281e82d2237 (Typescript NTOS menus (#80250)):tgui/packages/tgui/interfaces/NtosMain.tsx
       <NtosWindow.Content scrollable>
         {Boolean(
           removable_media.length ||
-            programs.some((program) => program.header_program)
+            programs.some((program) => program.header_program),
         ) && (
           <Section>
             <Stack>
@@ -107,22 +103,25 @@ export const NtosMain = (props) => {
                 />
               )}
             </>
-          }>
+          }
+        >
           <Table>
             <Table.Row>
               ID Name:{' '}
               {show_imprint
                 ? login.IDName +
-                ' ' +
-                (proposed_login.IDName ? '(' + proposed_login.IDName + ')' : '')
+                  ' ' +
+                  (proposed_login.IDName
+                    ? '(' + proposed_login.IDName + ')'
+                    : '')
                 : proposed_login.IDName ?? ''}
             </Table.Row>
             <Table.Row>
               Assignment:{' '}
               {show_imprint
                 ? login.IDJob +
-                ' ' +
-                (proposed_login.IDJob ? '(' + proposed_login.IDJob + ')' : '')
+                  ' ' +
+                  (proposed_login.IDJob ? '(' + proposed_login.IDJob + ')' : '')
                 : proposed_login.IDJob ?? ''}
             </Table.Row>
           </Table>
@@ -174,7 +173,7 @@ const ProgramsTable = (props) => {
   const { programs = [] } = data;
   // add the program filename to this list to have it excluded from the main menu program list table
   const filtered_programs = programs.filter(
-    (program) => !program.header_program
+    (program) => !program.header_program,
   );
 
   return (

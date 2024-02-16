@@ -1,10 +1,18 @@
-import { Section, Button, Dropdown, Stack, Input, NoticeBox } from '../../components';
-import { Component } from 'react';
 import { shallowDiffers } from 'common/react';
-import { fetchRetry } from '../../http';
+import { Component } from 'react';
+
 import { resolveAsset } from '../../assets';
-import { DisplayComponent } from './DisplayComponent';
+import {
+  Button,
+  Dropdown,
+  Input,
+  NoticeBox,
+  Section,
+  Stack,
+} from '../../components';
+import { fetchRetry } from '../../http';
 import { DEFAULT_COMPONENT_MENU_LIMIT } from './constants';
+import { DisplayComponent } from './DisplayComponent';
 
 // Cache response so it's only sent once
 let fetchServerData;
@@ -26,7 +34,7 @@ export class ComponentMenu extends Component {
   async populateServerData() {
     if (!fetchServerData) {
       fetchServerData = fetchRetry(
-        resolveAsset('circuit_components.json')
+        resolveAsset('circuit_components.json'),
       ).then((response) => response.json());
     }
 
@@ -34,7 +42,7 @@ export class ComponentMenu extends Component {
 
     this.setState({
       componentData: circuitData.sort(
-        (a, b) => a.name.toLowerCase() < b.name.toLowerCase()
+        (a, b) => a.name.toLowerCase() < b.name.toLowerCase(),
       ),
     });
   }
@@ -98,7 +106,8 @@ export class ComponentMenu extends Component {
         onMouseUp={(event) => {
           event.preventDefault();
         }}
-        scrollable>
+        scrollable
+      >
         <Stack vertical>
           <Stack.Item>
             <Dropdown
@@ -145,7 +154,8 @@ export class ComponentMenu extends Component {
                 <Stack.Item
                   key={val.type}
                   mt={1}
-                  onMouseDown={(e) => onMouseDownComponent(e, val)}>
+                  onMouseDown={(e) => onMouseDownComponent(e, val)}
+                >
                   <DisplayComponent component={val} fixedSize />
                 </Stack.Item>
               ))}

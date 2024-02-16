@@ -1,10 +1,22 @@
-import { useBackend } from '../../backend';
-import { Icon, NumberInput, ProgressBar, Box, Button, Section, Stack, LabeledList, NoticeBox, Collapsible } from '../../components';
-import { MainData, MechModule } from './data';
-import { classes } from 'common/react';
 import { toFixed } from 'common/math';
-import { formatPower } from '../../format';
+import { classes } from 'common/react';
 import { GasmixParser } from 'tgui/interfaces/common/GasmixParser';
+
+import { useBackend } from '../../backend';
+import {
+  Box,
+  Button,
+  Collapsible,
+  Icon,
+  LabeledList,
+  NoticeBox,
+  NumberInput,
+  ProgressBar,
+  Section,
+  Stack,
+} from '../../components';
+import { formatPower } from '../../format';
+import { MainData, MechModule } from './data';
 
 const moduleSlotIcon = (param) => {
   switch (param) {
@@ -59,7 +71,8 @@ export const ModulesPane = (props) => {
               : 'Safety Protocols Enabled'
           }
         />
-      }>
+      }
+    >
       <Stack>
         <Stack.Item>
           {modules.map((module, i) =>
@@ -70,7 +83,8 @@ export const ModulesPane = (props) => {
                 pr="8px"
                 fluid
                 key={i}
-                color="transparent">
+                color="transparent"
+              >
                 <Stack>
                   <Stack.Item width="32px" height="32px" textAlign="center">
                     <Icon
@@ -84,9 +98,10 @@ export const ModulesPane = (props) => {
                     lineHeight="32px"
                     style={{
                       textTransform: 'capitalize',
-                      'overflow': 'hidden',
+                      overflow: 'hidden',
                       textOverflow: 'ellipsis',
-                    }}>
+                    }}
+                  >
                     {`${moduleSlotLabel(module.slot)} Slot`}
                   </Stack.Item>
                 </Stack>
@@ -103,7 +118,8 @@ export const ModulesPane = (props) => {
                   act('select_module', {
                     index: i,
                   })
-                }>
+                }
+              >
                 <Stack>
                   <Stack.Item lineHeight="0">
                     <Box
@@ -114,14 +130,15 @@ export const ModulesPane = (props) => {
                     lineHeight="32px"
                     style={{
                       textTransform: 'capitalize',
-                      'overflow': 'hidden',
+                      overflow: 'hidden',
                       textOverflow: 'ellipsis',
-                    }}>
+                    }}
+                  >
                     {module.name}
                   </Stack.Item>
                 </Stack>
               </Button>
-            )
+            ),
           )}
         </Stack.Item>
         <Stack.Item grow pl={1}>
@@ -220,7 +237,8 @@ const ModuleDetailsBasic = (props) => {
                 })
               }
             />
-          }>
+          }
+        >
           <ProgressBar
             ranges={{
               good: [0.75, Infinity],
@@ -291,6 +309,7 @@ const MECHA_SNOWFLAKE_ID_AIR_TANK = 'air_tank_snowflake';
 const MECHA_SNOWFLAKE_ID_WEAPON_BALLISTIC = 'ballistic_weapon_snowflake';
 const MECHA_SNOWFLAKE_ID_GENERATOR = 'generator_snowflake';
 const MECHA_SNOWFLAKE_ID_CLAW = 'lawclaw_snowflake';
+const MECHA_SNOWFLAKE_ID_RCD = 'rcd_snowflake';
 
 export const ModuleDetailsExtra = (props: { module: MechModule }) => {
   const module = props.module;
@@ -311,6 +330,8 @@ export const ModuleDetailsExtra = (props: { module: MechModule }) => {
       return <SnowflakeGeneraor module={module} />;
     case MECHA_SNOWFLAKE_ID_CLAW:
       return <SnowflakeLawClaw module={module} />;
+    case MECHA_SNOWFLAKE_ID_RCD:
+      return <SnowflakeRCD module={module} />;
     default:
       return null;
   }
@@ -346,11 +367,13 @@ const SnowflakeWeaponBallistic = (props) => {
                   ref: ref,
                   gear_action: 'reload',
                 })
-              }>
+              }
+            >
               Reload
             </Button>
           )
-        }>
+        }
+      >
         <ProgressBar value={projectiles / max_magazine}>
           {`${projectiles} of ${max_magazine}`}
         </ProgressBar>
@@ -388,7 +411,8 @@ const SnowflakeSleeper = (props) => {
               })
             }
           />
-        }>
+        }
+      >
         {patient.patientname}
       </LabeledList.Item>
       <LabeledList.Item label={'Health'}>
@@ -499,7 +523,8 @@ const SnowflakeRadio = (props) => {
             })
           }
           selected={microphone}
-          icon={microphone ? 'microphone' : 'microphone-slash'}>
+          icon={microphone ? 'microphone' : 'microphone-slash'}
+        >
           {(microphone ? 'En' : 'Dis') + 'abled'}
         </Button>
       </LabeledList.Item>
@@ -512,7 +537,8 @@ const SnowflakeRadio = (props) => {
             })
           }
           selected={speaker}
-          icon={speaker ? 'volume-up' : 'volume-mute'}>
+          icon={speaker ? 'volume-up' : 'volume-mute'}
+        >
           {(speaker ? 'En' : 'Dis') + 'abled'}
         </Button>
       </LabeledList.Item>
@@ -574,7 +600,8 @@ const SnowflakeAirTank = (props) => {
                   })
                 }
               />
-            }>
+            }
+          >
             <ProgressBar
               ranges={{
                 good: [0.75, Infinity],
@@ -606,7 +633,8 @@ const SnowflakeAirTank = (props) => {
             }
             selected={active}
           />
-        }>
+        }
+      >
         <LabeledList>
           <LabeledList.Item label="Automation">
             <Button
@@ -658,7 +686,8 @@ const SnowflakeAirTank = (props) => {
                 color="transparent"
                 tooltip="Park above atmospherics connector port to connect inernal air tank with a gas network."
               />
-            }>
+            }
+          >
             <Button
               onClick={() =>
                 act('equip_act', {
@@ -666,7 +695,8 @@ const SnowflakeAirTank = (props) => {
                   gear_action: 'toggle_port',
                 })
               }
-              selected={port_connected}>
+              selected={port_connected}
+            >
               {port_connected ? 'Connected' : 'Disconnected'}
             </Button>
           </LabeledList.Item>
@@ -686,7 +716,8 @@ const SnowflakeAirTank = (props) => {
               })
             }
           />
-        }>
+        }
+      >
         <LabeledList.Item label="Direction">
           <Button
             content={tank_pump_direction ? 'Area → Tank' : 'Tank → Area'}
@@ -766,7 +797,8 @@ const SnowflakeOrebox = (props) => {
           }
           disabled={!Object.keys(contents).length}
         />
-      }>
+      }
+    >
       {Object.keys(contents).length ? (
         Object.keys(contents).map((item, i) => (
           <Stack key={i}>
@@ -783,9 +815,10 @@ const SnowflakeOrebox = (props) => {
               lineHeight="24px"
               style={{
                 textTransform: 'capitalize',
-                'overflow': 'hidden',
+                overflow: 'hidden',
                 textOverflow: 'ellipsis',
-              }}>
+              }}
+            >
               {`${contents[item].amount}x ${contents[item].name}`}
             </Stack.Item>
           </Stack>
@@ -805,7 +838,8 @@ const SnowflakeCargo = (props) => {
     <Box>
       <Section
         title="Contents"
-        buttons={`${cargo.length} of ${cargo_capacity}`}>
+        buttons={`${cargo.length} of ${cargo_capacity}`}
+      >
         {!cargo.length ? (
           <NoticeBox info>Compartment is empty</NoticeBox>
         ) : (
@@ -824,7 +858,8 @@ const SnowflakeCargo = (props) => {
               }
               style={{
                 textTransform: 'capitalize',
-              }}>
+              }}
+            >
               {item.name}
             </Button>
           ))
@@ -854,7 +889,8 @@ const SnowflakeExtinguisher = (props) => {
               })
             }
           />
-        }>
+        }
+      >
         <ProgressBar value={reagents} minValue={0} maxValue={total_reagents}>
           {reagents}
         </ProgressBar>
@@ -912,5 +948,51 @@ const SnowflakeLawClaw = (props) => {
         />
       }
     />
+  );
+};
+
+const SnowflakeRCD = (props) => {
+  const { act, data } = useBackend<MainData>();
+  const { ref } = props.module;
+  const { scan_ready, deconstructing, mode } = props.module.snowflake;
+  return (
+    <>
+      <LabeledList.Item label="Destruction Scan">
+        <Button
+          icon="satellite-dish"
+          color={scan_ready ? 'green' : 'transparent'}
+          onClick={() =>
+            act('equip_act', {
+              ref: ref,
+              gear_action: 'rcd_scan',
+            })
+          }
+        />
+      </LabeledList.Item>
+      <LabeledList.Item label="Deconstructing">
+        <Button
+          icon="power-off"
+          content={deconstructing ? 'On' : 'Off'}
+          color={deconstructing ? 'green' : 'blue'}
+          onClick={() =>
+            act('equip_act', {
+              ref: ref,
+              gear_action: 'toggle_deconstruct',
+            })
+          }
+        />
+      </LabeledList.Item>
+      <LabeledList.Item label="Construction Mode">
+        <Button
+          content={mode}
+          onClick={() =>
+            act('equip_act', {
+              ref: ref,
+              gear_action: 'change_mode',
+            })
+          }
+        />
+      </LabeledList.Item>
+    </>
   );
 };
