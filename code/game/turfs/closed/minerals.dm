@@ -6,13 +6,17 @@
 	name = "rock"
 	icon = MAP_SWITCH('icons/turf/smoothrocks.dmi', 'icons/turf/mining.dmi')
 	icon_state = "rock"
+	smoothing_groups = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_MINERAL_WALLS
+	canSmoothWith = SMOOTH_GROUP_MINERAL_WALLS
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	baseturfs = /turf/open/misc/asteroid/airless
 	initial_gas_mix = AIRLESS_ATMOS
 	opacity = TRUE
 	density = TRUE
+	// We're a BIG wall, larger then 32x32, so we need to be on the game plane
+	// Otherwise we'll draw under shit in weird ways
+	plane = GAME_PLANE
 	layer = EDGED_TURF_LAYER
-	plane = WALL_PLANE_UPPER
 	base_icon_state = "smoothrocks"
 
 	// This is static
@@ -35,14 +39,15 @@
 
 
 /turf/closed/mineral/Initialize(mapload)
-	var/static/list/smoothing_groups = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_MINERAL_WALLS
-	var/static/list/canSmoothWith = SMOOTH_GROUP_MINERAL_WALLS
-
-	// The cost of the list() being in the type def is very large for something as common as minerals
-	src.smoothing_groups = smoothing_groups
-	src.canSmoothWith = canSmoothWith
-
-	return ..()
+	. = ..()
+	// Mineral turfs are big, so they need to be on the game plane at a high layer
+	// But they're also turfs, so we need to cut them out from the light mask plane
+	// So we draw them as if they were on the game plane, and then overlay a copy onto
+	// The wall plane (so emissives/light masks behave)
+	// I am so sorry
+	var/static/mutable_appearance/wall_overlay = mutable_appearance('icons/turf/mining.dmi', "rock", appearance_flags = RESET_TRANSFORM)
+	wall_overlay.plane = MUTATE_PLANE(WALL_PLANE, src)
+	overlays += wall_overlay
 
 // Inlined version of the bump click element. way faster this way, the element's nice but it's too much overhead
 /turf/closed/mineral/Bumped(atom/movable/bumped_atom)
@@ -78,6 +83,71 @@
 		var/obj/item/stack/ore/the_ore = ore_type
 		scan_state = initial(the_ore.scan_state) // I SAID. SWITCH. TO. IT.
 		mineralType = ore_type // Everything else assumes that this is typed correctly so don't set it to non-ores thanks.
+<<<<<<< HEAD
+=======
+	if(ispath(ore_type, /obj/item/boulder))
+		scan_state = "rock_Boulder" //Yes even the lowly boulder has a scan state
+		spawned_boulder = /obj/item/boulder/gulag_expanded
+
+/**
+ * Returns the distance to the nearest ore vent, where ore vents are tracked in SSore_generation's possible vents list.
+ * Returns 0 if we're not on lavaland, and as we're using get_dist, our range is limited to 127 tiles.
+ */
+/turf/closed/mineral/proc/prox_to_vent()
+	if(!is_mining_level(z))
+		return 0
+
+	var/distance = 128 // Max distance for a get_dist is 127
+	for(var/obj/structure/ore_vent/vent as anything in SSore_generation.possible_vents)
+		if(vent.z != src.z)
+			continue //Silly
+		var/temp_distance = get_dist(src, vent)
+		if(temp_distance < distance)
+			distance = temp_distance
+	return distance
+
+/**
+ * Returns the chance of ore spawning in this turf, based on proximity to a vent.
+ * See mining defines for the chances and distance defines.
+ */
+/turf/closed/mineral/proc/proximity_ore_chance()
+	var/distance = prox_to_vent()
+	if(distance == 0) //We asked for a random chance but we could not successfully find a vent, so 0.
+		return 0
+
+	if(distance < VENT_PROX_VERY_HIGH)
+		return VENT_CHANCE_VERY_HIGH
+	if(distance < VENT_PROX_HIGH)
+		return VENT_CHANCE_HIGH
+	if(distance < VENT_PROX_MEDIUM)
+		return VENT_CHANCE_MEDIUM
+	if(distance < VENT_PROX_LOW)
+		return VENT_CHANCE_LOW
+	if(distance < VENT_PROX_FAR)
+		return VENT_CHANCE_FAR
+	return 0
+
+/**
+ * Returns the amount of ore to spawn in this turf, based on proximity to a vent.
+ * If for some reason we have a distance of zero (like being off mining Z levels), we return a random amount between 1 and 5 instead.
+ */
+/turf/closed/mineral/proc/scale_ore_to_vent()
+	var/distance = prox_to_vent()
+	if(distance == 0) // We're not on lavaland or similar failure condition
+		return rand(1,5)
+
+	if(distance < VENT_PROX_VERY_HIGH)
+		return 5
+	if(distance < VENT_PROX_HIGH)
+		return 4
+	if(distance < VENT_PROX_MEDIUM)
+		return 3
+	if(distance < VENT_PROX_LOW)
+		return 2
+	if(distance < VENT_PROX_FAR)
+		return 1
+	return 0
+>>>>>>> ed31397cc46 (Fixes ore vents spawning without ores on icebox, sets up map specific ore configurations (#81103))
 
 /turf/closed/mineral/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	if(turf_type)
@@ -470,7 +540,7 @@
 		/obj/item/stack/ore/silver = 20,
 		/obj/item/stack/ore/titanium = 8,
 		/obj/item/stack/ore/uranium = 3,
-		/turf/closed/mineral/gibtonite/volcanic = 2,
+		/turf/closed/mineral/gibtonite/ice/icemoon = 2,
 	)
 
 /turf/closed/mineral/random/labormineral/ice/Change_Ore(ore_type, random = 0)
@@ -684,8 +754,12 @@
 
 /turf/closed/mineral/gibtonite/proc/explosive_reaction(mob/user = null)
 	if(stage == GIBTONITE_UNSTRUCK)
+<<<<<<< HEAD
 		activated_overlay = mutable_appearance('icons/turf/smoothrocks.dmi', "rock_Gibtonite_inactive", ON_EDGED_TURF_LAYER) //shows in gaps between pulses if there are any
 		SET_PLANE(activated_overlay, WALL_PLANE_UPPER, src)
+=======
+		activated_overlay = mutable_appearance('icons/turf/smoothrocks_overlays.dmi', "rock_Gibtonite_inactive", ON_EDGED_TURF_LAYER) //shows in gaps between pulses if there are any
+>>>>>>> f03084c1ca6 (FOV is Dead (Long Live FOV) (#80062))
 		add_overlay(activated_overlay)
 		name = "gibtonite deposit"
 		desc = "An active gibtonite reserve. Run!"

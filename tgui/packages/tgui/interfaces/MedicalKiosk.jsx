@@ -1,6 +1,17 @@
 import { multiline } from 'common/string';
+
 import { useBackend, useSharedState } from '../backend';
-import { AnimatedNumber, Box, Button, Flex, Icon, LabeledList, ProgressBar, Section, Stack } from '../components';
+import {
+  AnimatedNumber,
+  Box,
+  Button,
+  Flex,
+  Icon,
+  LabeledList,
+  ProgressBar,
+  Section,
+  Stack,
+} from '../components';
 import { Window } from '../layouts';
 
 export const MedicalKiosk = (props) => {
@@ -237,6 +248,7 @@ const MedicalKioskScanResults4 = (props) => {
     overdose_list = [],
     addict_list = [],
     hallucinating_status,
+    blood_alcohol,
   } = data;
   return (
     <Section title="Chemical and Psychoactive Analysis">
@@ -269,6 +281,19 @@ const MedicalKioskScanResults4 = (props) => {
         </LabeledList.Item>
         <LabeledList.Item label="Psychoactive Status">
           {hallucinating_status}
+        </LabeledList.Item>
+        <LabeledList.Item label="Blood Alcohol Content">
+          <ProgressBar
+            value={blood_alcohol}
+            minValue={0}
+            maxValue={0.3}
+            ranges={{
+              blue: [-Infinity, 0.23],
+              bad: [0.23, Infinity],
+            }}
+          >
+            <AnimatedNumber value={blood_alcohol} />
+          </ProgressBar>
         </LabeledList.Item>
       </LabeledList>
     </Section>

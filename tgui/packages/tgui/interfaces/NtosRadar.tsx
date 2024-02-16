@@ -1,7 +1,8 @@
 import { BooleanLike, classes } from 'common/react';
+
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
-import { Box, Button, Icon, NoticeBox, Section, Stack } from '../components';
+import { Button, Icon, Image, NoticeBox, Section, Stack } from '../components';
 import { NtosWindow } from '../layouts';
 
 type Data = {
@@ -52,7 +53,8 @@ export const NtosRadarContent = (props) => {
         position="relative"
         m={1.5}
         width={45}
-        height={45}>
+        height={45}
+      >
         <TargetDisplay />
       </Stack.Item>
     </Stack>
@@ -91,7 +93,8 @@ const ObjectDisplay = (props) => {
                 act('selecttarget', {
                   ref: object.ref,
                 });
-              }}>
+              }}
+            >
               {object.name}
             </div>
           ))}
@@ -116,14 +119,14 @@ const TargetDisplay = (props) => {
         left={1.35}
         width={42}
         fontSize="30px"
-        textAlign="center">
+        textAlign="center"
+      >
         Signal Lost
       </NoticeBox>
     );
   }
   return target.userot ? (
-    <Box
-      as="img"
+    <Image
       src={resolveAsset(target.arrowstyle)}
       position="absolute"
       top="20px"

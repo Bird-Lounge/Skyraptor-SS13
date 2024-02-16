@@ -1,4 +1,5 @@
 import { BooleanLike } from 'common/react';
+
 import { useBackend } from '../backend';
 import { Button, LabeledList, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
@@ -36,7 +37,8 @@ export const Electrolyzer = (props) => {
                 onClick={() => act('power')}
               />
             </>
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Cell" color={!hasPowercell ? 'bad' : ''}>
               {(hasPowercell && (

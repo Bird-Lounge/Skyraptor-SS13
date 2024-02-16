@@ -1,4 +1,5 @@
 import { BooleanLike } from 'common/react';
+
 import { useBackend } from '../backend';
 import { Button, Stack, Table } from '../components';
 import { Window } from '../layouts';
@@ -26,7 +27,8 @@ export const CircuitAdminPanel = (props) => {
                 <Button
                   onClick={() => {
                     act('disable_circuit_sound');
-                  }}>
+                  }}
+                >
                   Disable all circuit sound emitters
                 </Button>
               </Stack.Item>

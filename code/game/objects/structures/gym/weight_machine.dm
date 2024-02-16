@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+#define WORKOUT_XP 5
+#define EXERCISE_STATUS_DURATION 20 SECONDS
+#define SAFE_DRUNK_LEVEL 39
+
+>>>>>>> f03084c1ca6 (FOV is Dead (Long Live FOV) (#80062))
 /obj/structure/weightmachine
 	name = "chest press machine"
 	desc = "Just looking at this thing makes you feel tired."
@@ -112,7 +119,6 @@
 		end_workout()
 		return FALSE
 	var/mutable_appearance/workout = mutable_appearance(icon, "[base_icon_state]-o", ABOVE_MOB_LAYER)
-	SET_PLANE_EXPLICIT(workout, GAME_PLANE_UPPER, src)
 	flick_overlay_view(workout, 0.8 SECONDS)
 	flick("[base_icon_state]-u", src)
 	var/mob/living/user = buckled_mobs[1]

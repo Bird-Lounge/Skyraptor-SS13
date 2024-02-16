@@ -1,8 +1,10 @@
-import { useBackend, useLocalState } from '../backend';
+import { paginate, range } from 'common/collections';
+import { multiline } from 'common/string';
+import { useState } from 'react';
+
+import { useBackend } from '../backend';
 import { BlockQuote, Box, Button, Section, Stack, Tabs } from '../components';
 import { Window } from '../layouts';
-import { multiline } from 'common/string';
-import { paginate, range } from 'common/collections';
 
 type Entry = {
   name: string;
@@ -72,13 +74,10 @@ export const InfuserBook = (props) => {
   const { data, act } = useBackend<DnaInfuserData>();
   const { entries } = data;
 
-  const [bookPosition, setBookPosition] = useLocalState<BookPosition>(
-    'bookPosition',
-    {
-      chapter: 0,
-      pageInChapter: 0,
-    }
-  );
+  const [bookPosition, setBookPosition] = useState({
+    chapter: 0,
+    pageInChapter: 0,
+  });
   const { chapter, pageInChapter } = bookPosition;
 
   const paginatedEntries = paginateEntries(entries);
@@ -151,7 +150,8 @@ export const InfuserBook = (props) => {
                         tabIndex === 4
                           ? undefined
                           : () => switchChapter(tabIndex)
-                      }>
+                      }
+                    >
                       <Box color={tabIndex === 4 && 'red'}>{tab}</Box>
                     </Tabs.Tab>
                   );
@@ -183,7 +183,8 @@ export const InfuserBook = (props) => {
                 <Button
                   color={restrictedNext && 'black'}
                   onClick={() => setPage(pageInChapter + 1)}
-                  fluid>
+                  fluid
+                >
                   {restrictedNext ? 'RESTRICTED' : 'Next Page'}
                 </Button>
               </Stack.Item>
@@ -249,7 +250,8 @@ const InfuserEntry = (props: InfuserEntryProps) => {
         <Button tooltip={tierData.desc} icon={tierData.icon}>
           {tierData.name}
         </Button>
-      }>
+      }
+    >
       <Stack vertical fill>
         <Stack.Item>
           <BlockQuote>
