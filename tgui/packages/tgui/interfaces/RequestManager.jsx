@@ -3,11 +3,11 @@
  * @copyright 2021 bobbahbrown (https://github.com/bobbahbrown)
  * @license MIT
  */
-
 import { decodeHtmlEntities } from 'common/string';
+import { useState } from 'react';
+
 import { useBackend, useLocalState } from '../backend';
-import { Button, Input, Section, Table } from '../components';
-import { Popper } from '../components/Popper';
+import { Button, Input, Popper, Section, Table } from '../components';
 import { Window } from '../layouts';
 
 export const RequestManager = (props) => {
@@ -16,14 +16,14 @@ export const RequestManager = (props) => {
   const [filteredTypes, _] = useLocalState(
     'filteredTypes',
     Object.fromEntries(
-      Object.entries(displayTypeMap).map(([type, _]) => [type, true])
-    )
+      Object.entries(displayTypeMap).map(([type, _]) => [type, true]),
+    ),
   );
-  const [searchText, setSearchText] = useLocalState('searchText');
+  const [searchText, setSearchText] = useState('');
 
   // Handle filtering
   let displayedRequests = requests.filter(
-    (request) => filteredTypes[request.req_type]
+    (request) => filteredTypes[request.req_type],
   );
   if (searchText) {
     const filterText = searchText.toLowerCase();
@@ -32,7 +32,7 @@ export const RequestManager = (props) => {
         decodeHtmlEntities(request.message)
           .toLowerCase()
           .includes(filterText) ||
-        request.owner_name.toLowerCase().includes(filterText)
+        request.owner_name.toLowerCase().includes(filterText),
     );
   }
 
@@ -45,13 +45,14 @@ export const RequestManager = (props) => {
             <>
               <Input
                 value={searchText}
-                onInput={(_, value) => setSearchText(value)}
+                onChange={(_, value) => setSearchText(value)}
                 placeholder={'Search...'}
                 mr={1}
               />
               <FilterPanel />
             </>
-          }>
+          }
+        >
           {displayedRequests.map((request) => (
             <div className="RequestManager__row" key={request.id}>
               <div className="RequestManager__rowContents">
@@ -79,12 +80,12 @@ export const RequestManager = (props) => {
 };
 
 const displayTypeMap = {
-  'request_prayer': 'PRAYER',
-  'request_centcom': 'CENTCOM',
-  'request_syndicate': 'SYNDICATE',
-  'request_nuke': 'NUKE CODE',
-  'request_fax': 'FAX',
-  'request_internet_sound': 'INTERNET SOUND',
+  request_prayer: 'PRAYER',
+  request_centcom: 'CENTCOM',
+  request_syndicate: 'SYNDICATE',
+  request_nuke: 'NUKE CODE',
+  request_fax: 'FAX',
+  request_internet_sound: 'INTERNET SOUND',
 };
 
 const RequestType = (props) => {
@@ -129,28 +130,24 @@ const RequestControls = (props) => {
 };
 
 const FilterPanel = (props) => {
-  const [filterVisible, setFilterVisible] = useLocalState(
-    'filterVisible',
-    false
-  );
+  const [filterVisible, setFilterVisible] = useState(false);
   const [filteredTypes, setFilteredTypes] = useLocalState(
     'filteredTypes',
     Object.fromEntries(
-      Object.entries(displayTypeMap).map(([type, _]) => [type, true])
-    )
+      Object.entries(displayTypeMap).map(([type, _]) => [type, true]),
+    ),
   );
 
   return (
     <Popper
-      options={{
-        placement: 'bottom-start',
-      }}
-      popperContent={
+      placement="bottom-end"
+      content={
         <div
           className="RequestManager__filterPanel"
           style={{
             display: filterVisible ? 'block' : 'none',
-          }}>
+          }}
+        >
           <Table width="0">
             {Object.keys(displayTypeMap).map((type) => {
               return (
@@ -173,10 +170,13 @@ const FilterPanel = (props) => {
             })}
           </Table>
         </div>
-      }>
-      <Button icon="cog" onClick={() => setFilterVisible(!filterVisible)}>
-        Type Filter
-      </Button>
+      }
+    >
+      <div>
+        <Button icon="cog" onClick={() => setFilterVisible(!filterVisible)}>
+          Type Filter
+        </Button>
+      </div>
     </Popper>
   );
 };

@@ -148,10 +148,9 @@
 /mob/living/carbon/attack_drone_secondary(mob/living/basic/drone/user)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-//ATTACK HAND IGNORING PARENT RETURN VALUE
 /mob/living/carbon/attack_hand(mob/living/carbon/human/user, list/modifiers)
-	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_HAND, user, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN)
-		. = TRUE
+	. = ..()
+
 	for(var/thing in diseases)
 		var/datum/disease/D = thing
 		if(D.spread_flags & DISEASE_SPREAD_CONTACT_SKIN)
@@ -162,13 +161,8 @@
 		if(D.spread_flags & DISEASE_SPREAD_CONTACT_SKIN)
 			ContactContractDisease(D)
 
-	for(var/datum/surgery/operations as anything in surgeries)
-		if(user.combat_mode)
-			break
-		if(body_position != LYING_DOWN && (operations.surgery_flags & SURGERY_REQUIRE_RESTING))
-			continue
-		if(operations.next_step(user, modifiers))
-			return TRUE
+	if(.)
+		return TRUE
 
 	for(var/datum/wound/wounds as anything in all_wounds)
 		if(wounds.try_handling(user))
@@ -202,28 +196,6 @@
 			ForceContractDisease(D)
 		return TRUE
 
-
-/mob/living/carbon/attack_slime(mob/living/simple_animal/slime/M, list/modifiers)
-	if(..()) //successful slime attack
-		if(M.powerlevel > 0)
-			var/stunprob = M.powerlevel * 7 + 10  // 17 at level 1, 80 at level 10
-			if(prob(stunprob))
-				M.powerlevel -= 3
-				if(M.powerlevel < 0)
-					M.powerlevel = 0
-
-				visible_message(span_danger("The [M.name] shocks [src]!"), \
-				span_userdanger("The [M.name] shocks you!"))
-
-				do_sparks(5, TRUE, src)
-				var/power = M.powerlevel + rand(0,3)
-				Paralyze(power * 2 SECONDS)
-				set_stutter_if_lower(power * 2 SECONDS)
-				if (prob(stunprob) && M.powerlevel >= 8)
-					adjustFireLoss(M.powerlevel * rand(6,10))
-					updatehealth()
-		return 1
-
 /**
  * Really weird proc that attempts to dismebmer the passed zone if it is at max damage
  * Unless the attacker is an NPC, in which case it disregards the zone and picks a random one
@@ -256,6 +228,7 @@
 
 	return dam_zone
 
+<<<<<<< HEAD
 /**
  * Attempt to disarm the target mob.
  * Will shove the target mob back, and drop them if they're in front of something dense
@@ -381,6 +354,8 @@
 			return TRUE
 	return FALSE
 
+=======
+>>>>>>> 68677dc7214 (Disarm refactor, plus shoving people with shields (#80123))
 /mob/living/carbon/blob_act(obj/structure/blob/B)
 	if (stat == DEAD)
 		return
@@ -719,7 +694,7 @@
 		if (!IS_ORGANIC_LIMB(limb))
 			. += (limb.brute_dam * limb.body_damage_coeff) + (limb.burn_dam * limb.body_damage_coeff)
 
-/mob/living/carbon/grabbedby(mob/living/carbon/user, supress_message = FALSE)
+/mob/living/carbon/grabbedby(mob/living/user, supress_message = FALSE)
 	if(user != src)
 		return ..()
 
@@ -853,5 +828,11 @@
 			continue
 		organs -= organ_type
 	GLOB.bioscrambler_valid_organs = organs
+
+/mob/living/carbon/get_shove_flags(mob/living/shover, obj/item/weapon)
+	. = ..()
+	. |= SHOVE_CAN_STAGGER
+	if(IsKnockdown() && !IsParalyzed())
+		. |= SHOVE_CAN_KICK_SIDE
 
 #undef SHAKE_ANIMATION_OFFSET
