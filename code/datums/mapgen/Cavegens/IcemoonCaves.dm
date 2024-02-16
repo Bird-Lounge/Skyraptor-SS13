@@ -1,14 +1,21 @@
 /datum/map_generator/cave_generator/icemoon
 	weighted_open_turf_types = list(/turf/open/misc/asteroid/snow/icemoon = 19, /turf/open/misc/ice/icemoon = 1)
+<<<<<<< HEAD
 	weighted_closed_turf_types = list(/turf/closed/mineral/random/snow = 1)
+=======
+	weighted_closed_turf_types = list(
+		/turf/closed/mineral/snowmountain/icemoon = 100,
+		/turf/closed/mineral/gibtonite/ice/icemoon = 4,
+	)
+>>>>>>> 0705183abba (Removes infinite sources of plasma from icebox (#81091))
 
 
 	weighted_mob_spawn_list = list(
+		/mob/living/basic/mining/goldgrub = 10,
 		/mob/living/basic/mining/legion/snow = 50,
 		/mob/living/basic/mining/lobstrosity = 15,
-		/mob/living/basic/mining/goldgrub = 10,
+		/mob/living/basic/mining/wolf = 50,
 		/mob/living/simple_animal/hostile/asteroid/polarbear = 30,
-		/mob/living/simple_animal/hostile/asteroid/wolf = 50,
 		/obj/structure/spawner/ice_moon = 3,
 		/obj/structure/spawner/ice_moon/polarbear = 3,
 	)
@@ -35,6 +42,13 @@
 	birth_limit = 5
 	death_limit = 4
 	smoothing_iterations = 10
+	weighted_feature_spawn_list = list(
+		/obj/structure/geyser/hollowwater = 10,
+		/obj/structure/geyser/plasma_oxide = 10,
+		/obj/structure/geyser/protozine = 10,
+		/obj/structure/geyser/random = 2,
+		/obj/structure/geyser/wittel = 10,
+	)
 
 /// Surface snow generator variant for forested station trait, WITH FORESTSSSS
 /datum/map_generator/cave_generator/icemoon/surface/forested

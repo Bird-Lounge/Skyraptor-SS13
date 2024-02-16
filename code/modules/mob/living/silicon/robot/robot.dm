@@ -352,7 +352,7 @@
 		var/mutable_appearance/head_overlay = hat.build_worn_icon(default_layer = 20, default_icon_file = 'icons/mob/clothing/head/default.dmi')
 		head_overlay.pixel_z += hat_offset
 		add_overlay(head_overlay)
-	update_fire()
+	update_appearance(UPDATE_OVERLAYS)
 
 /mob/living/silicon/robot/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents)
 	if(same_z_layer)
@@ -998,6 +998,9 @@
 	if(.)
 		var/mob/living/silicon/ai/old_ai = .
 		old_ai.connected_robots -= src
+		// if the borg has a malf AI zeroth law and has been unsynced from the malf AI, then remove the law
+		if(isnull(connected_ai) && IS_MALF_AI(old_ai) && !isnull(laws?.zeroth))
+			clear_zeroth_law(FALSE, TRUE)
 	lamp_doom = FALSE
 	if(connected_ai)
 		connected_ai.connected_robots |= src
@@ -1014,25 +1017,19 @@
 /mob/living/silicon/robot/proc/untip_roleplay()
 	to_chat(src, span_notice("Your frustration has empowered you! You can now right yourself faster!"))
 
-/mob/living/silicon/robot/update_fire_overlay(stacks, on_fire, last_icon_state, suffix = "")
-	var/fire_icon = "generic_fire[suffix]"
+/mob/living/silicon/robot/get_fire_overlay(stacks, on_fire)
+	var/fire_icon = "generic_fire"
 
 	if(!GLOB.fire_appearances[fire_icon])
-		var/mutable_appearance/new_fire_overlay = mutable_appearance('icons/mob/effects/onfire.dmi', fire_icon, -FIRE_LAYER)
-		new_fire_overlay.appearance_flags = RESET_COLOR
+		var/mutable_appearance/new_fire_overlay = mutable_appearance(
+			'icons/mob/effects/onfire.dmi',
+			fire_icon,
+			-HIGHEST_LAYER,
+			appearance_flags = RESET_COLOR,
+		)
 		GLOB.fire_appearances[fire_icon] = new_fire_overlay
 
-	if(stacks && on_fire)
-		if(last_icon_state == fire_icon)
-			return last_icon_state
-		add_overlay(GLOB.fire_appearances[fire_icon])
-		return fire_icon
-
-	if(!last_icon_state)
-		return last_icon_state
-
-	cut_overlay(GLOB.fire_appearances[fire_icon])
-	return null
+	return GLOB.fire_appearances[fire_icon]
 
 /// Draw power from the robot
 /mob/living/silicon/robot/proc/draw_power(power_to_draw)

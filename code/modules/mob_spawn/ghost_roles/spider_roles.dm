@@ -113,7 +113,8 @@
 		notify_ghosts(
 			"[src] is ready to hatch!",
 			source = src,
-			action = NOTIFY_PLAY,
+			header = "Spider Infestation",
+			click_interact = TRUE,
 			ignore_key = POLL_IGNORE_SPIDER,
 			notify_flags = notify_flags_to_pass,
 		)
@@ -235,5 +236,5 @@
 		display_spiders[initial(spider.name)] = option
 	sort_list(display_spiders)
 
-	var/chosen_spider = show_radial_menu(user, egg, display_spiders, radius = 38)
+	var/chosen_spider = show_radial_menu(user, egg, display_spiders, radius = 38, require_near = TRUE)
 	return spider_list[chosen_spider]

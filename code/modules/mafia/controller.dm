@@ -104,7 +104,7 @@ GLOBAL_LIST_INIT(mafia_role_by_alignment, setup_mafia_role_by_alignment())
 	GLOB.mafia_game = src
 	map_deleter = new
 
-/datum/mafia_controller/Destroy(force, ...)
+/datum/mafia_controller/Destroy(force)
 	. = ..()
 	end_game()
 	player_role_lookup.Cut()
@@ -196,6 +196,7 @@ GLOBAL_LIST_INIT(mafia_role_by_alignment, setup_mafia_role_by_alignment())
 	for(var/datum/mafia_role/roles as anything in all_roles)
 		var/obj/item/modular_computer/modpc = roles.player_pda
 		if(!modpc)
+			update_static_data(roles.body)
 			continue
 		modpc.update_static_data_for_all_viewers()
 

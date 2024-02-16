@@ -26,7 +26,7 @@
 		var/mob/living/simple_animal/simple_parent = parent
 		simple_parent.stop_automated_movement = TRUE
 
-/datum/component/riding/creature/Destroy(force, silent)
+/datum/component/riding/creature/Destroy(force)
 	unequip_buckle_inhands(parent)
 	if(isanimal(parent))
 		var/mob/living/simple_animal/simple_parent = parent
@@ -437,7 +437,7 @@
 	var/mob/living/basic/mining/goliath/goliath = parent
 	goliath.add_movespeed_modifier(/datum/movespeed_modifier/goliath_mount)
 
-/datum/component/riding/creature/goliath/Destroy(force, silent)
+/datum/component/riding/creature/goliath/Destroy(force)
 	var/mob/living/basic/mining/goliath/goliath = parent
 	goliath.remove_movespeed_modifier(/datum/movespeed_modifier/goliath_mount)
 	return ..()
@@ -476,7 +476,7 @@
 	set_vehicle_dir_layer(WEST, ABOVE_MOB_LAYER)
 
 /datum/component/riding/creature/guardian/ride_check(mob/living/user, consequences = TRUE)
-	var/mob/living/simple_animal/hostile/guardian/charger = parent
+	var/mob/living/basic/guardian/charger = parent
 	if(!istype(charger))
 		return ..()
 	return charger.summoner == user
@@ -500,10 +500,6 @@
 /datum/component/riding/creature/leaper/handle_specials()
 	. = ..()
 	set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(17, 46), TEXT_SOUTH = list(17,51), TEXT_EAST = list(27, 46), TEXT_WEST = list(6, 46)))
-	set_rider_dir_plane(SOUTH, GAME_PLANE_UPPER)
-	set_rider_dir_plane(NORTH, GAME_PLANE)
-	set_rider_dir_plane(EAST, GAME_PLANE_UPPER)
-	set_rider_dir_plane(WEST, GAME_PLANE_UPPER)
 
 /datum/component/riding/creature/leaper/Initialize(mob/living/riding_mob, force = FALSE, ride_check_flags = NONE, potion_boost = FALSE)
 	. = ..()

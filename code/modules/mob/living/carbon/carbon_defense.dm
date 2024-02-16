@@ -90,48 +90,13 @@
 			return TRUE
 	return ..()
 
-
-/mob/living/carbon/attacked_by(obj/item/I, mob/living/user)
-	var/obj/item/bodypart/affecting
-	if(user == src)
-		affecting = get_bodypart(check_zone(user.zone_selected)) //we're self-mutilating! yay!
-	else
-		var/zone_hit_chance = 80
-		if(body_position == LYING_DOWN) // half as likely to hit a different zone if they're on the ground
-			zone_hit_chance += 10
-		affecting = get_bodypart(get_random_valid_zone(user.zone_selected, zone_hit_chance))
-	if(!affecting) //missing limb? we select the first bodypart (you can never have zero, because of chest)
-		affecting = bodyparts[1]
-	SEND_SIGNAL(I, COMSIG_ITEM_ATTACK_ZONE, src, user, affecting)
-	send_item_attack_message(I, user, affecting.plaintext_zone, affecting)
-	if(I.stamina_damage) /// SKYRAPTOR ADDITION: item stamina damage
-		stamina.adjust(-1 * (I.stamina_damage * (prob(I.stamina_critical_chance) ? I.stamina_critical_modifier : 1)))
-	if(I.force)
-		var/attack_direction = get_dir(user, src)
-		apply_damage(I.force, I.damtype, affecting, wound_bonus = I.wound_bonus, bare_wound_bonus = I.bare_wound_bonus, sharpness = I.get_sharpness(), attack_direction = attack_direction, attacking_item = I)
-		if(I.damtype == BRUTE && affecting.can_bleed())
-			if(prob(33))
-				I.add_mob_blood(src)
-				var/turf/location = get_turf(src)
-				add_splatter_floor(location)
-				if(get_dist(user, src) <= 1) //people with TK won't get smeared with blood
-					user.add_mob_blood(src)
-				if(affecting.body_zone == BODY_ZONE_HEAD)
-					if(wear_mask)
-						wear_mask.add_mob_blood(src)
-						update_worn_mask()
-					if(wear_neck)
-						wear_neck.add_mob_blood(src)
-						update_worn_neck()
-					if(head)
-						head.add_mob_blood(src)
-						update_worn_head()
-
-		return TRUE //successful attack
-
-/mob/living/carbon/send_item_attack_message(obj/item/I, mob/living/user, hit_area, obj/item/bodypart/hit_bodypart)
+/mob/living/carbon/send_item_attack_message(obj/item/I, mob/living/user, hit_area, def_zone)
 	if(!I.force && !length(I.attack_verb_simple) && !length(I.attack_verb_continuous))
 		return
+	var/obj/item/bodypart/hit_bodypart = get_bodypart(def_zone)
+	if(isnull(hit_bodypart)) // ??
+		return ..()
+
 	var/message_verb_continuous = length(I.attack_verb_continuous) ? "[pick(I.attack_verb_continuous)]" : "attacks"
 	var/message_verb_simple = length(I.attack_verb_simple) ? "[pick(I.attack_verb_simple)]" : "attack"
 
@@ -183,10 +148,9 @@
 /mob/living/carbon/attack_drone_secondary(mob/living/basic/drone/user)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-//ATTACK HAND IGNORING PARENT RETURN VALUE
 /mob/living/carbon/attack_hand(mob/living/carbon/human/user, list/modifiers)
-	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_HAND, user, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN)
-		. = TRUE
+	. = ..()
+
 	for(var/thing in diseases)
 		var/datum/disease/D = thing
 		if(D.spread_flags & DISEASE_SPREAD_CONTACT_SKIN)
@@ -197,13 +161,8 @@
 		if(D.spread_flags & DISEASE_SPREAD_CONTACT_SKIN)
 			ContactContractDisease(D)
 
-	for(var/datum/surgery/operations as anything in surgeries)
-		if(user.combat_mode)
-			break
-		if(body_position != LYING_DOWN && (operations.surgery_flags & SURGERY_REQUIRE_RESTING))
-			continue
-		if(operations.next_step(user, modifiers))
-			return TRUE
+	if(.)
+		return TRUE
 
 	for(var/datum/wound/wounds as anything in all_wounds)
 		if(wounds.try_handling(user))
@@ -237,29 +196,18 @@
 			ForceContractDisease(D)
 		return TRUE
 
+/**
+ * Really weird proc that attempts to dismebmer the passed zone if it is at max damage
+ * Unless the attacker is an NPC, in which case it disregards the zone and picks a random one
+ *
+ * Cannot dismember heads
+ *
+ * Returns a falsy value (null) on success, and a truthy value (the hit zone) on failure
+ */
+/mob/living/proc/dismembering_strike(mob/living/attacker, dam_zone)
+	return dam_zone
 
-/mob/living/carbon/attack_slime(mob/living/simple_animal/slime/M, list/modifiers)
-	if(..()) //successful slime attack
-		if(M.powerlevel > 0)
-			var/stunprob = M.powerlevel * 7 + 10  // 17 at level 1, 80 at level 10
-			if(prob(stunprob))
-				M.powerlevel -= 3
-				if(M.powerlevel < 0)
-					M.powerlevel = 0
-
-				visible_message(span_danger("The [M.name] shocks [src]!"), \
-				span_userdanger("The [M.name] shocks you!"))
-
-				do_sparks(5, TRUE, src)
-				var/power = M.powerlevel + rand(0,3)
-				Paralyze(power * 2 SECONDS)
-				set_stutter_if_lower(power * 2 SECONDS)
-				if (prob(stunprob) && M.powerlevel >= 8)
-					adjustFireLoss(M.powerlevel * rand(6,10))
-					updatehealth()
-		return 1
-
-/mob/living/carbon/proc/dismembering_strike(mob/living/attacker, dam_zone)
+/mob/living/carbon/dismembering_strike(mob/living/attacker, dam_zone)
 	if(!attacker.limb_destroyer)
 		return dam_zone
 	var/obj/item/bodypart/affecting
@@ -267,20 +215,20 @@
 		affecting = get_bodypart(get_random_valid_zone(dam_zone))
 	else
 		var/list/things_to_ruin = shuffle(bodyparts.Copy())
-		for(var/B in things_to_ruin)
-			var/obj/item/bodypart/bodypart = B
+		for(var/obj/item/bodypart/bodypart as anything in things_to_ruin)
 			if(bodypart.body_zone == BODY_ZONE_HEAD || bodypart.body_zone == BODY_ZONE_CHEST)
 				continue
 			if(!affecting || ((affecting.get_damage() / affecting.max_damage) < (bodypart.get_damage() / bodypart.max_damage)))
 				affecting = bodypart
+
 	if(affecting)
 		dam_zone = affecting.body_zone
-		if(affecting.get_damage() >= affecting.max_damage)
-			affecting.dismember()
+		if(affecting.get_damage() >= affecting.max_damage && affecting.dismember())
 			return null
-		return affecting.body_zone
+
 	return dam_zone
 
+<<<<<<< HEAD
 /**
  * Attempt to disarm the target mob.
  * Will shove the target mob back, and drop them if they're in front of something dense
@@ -374,16 +322,7 @@
 	/*if(!is_type_in_typecache(target_held_item, GLOB.shove_disarming_types)) //It's too expensive we'll get caught
 		target_held_item = null
 
-	if(!target.has_movespeed_modifier(/datum/movespeed_modifier/shove))
-		target.add_movespeed_modifier(/datum/movespeed_modifier/shove)
-		target.emote("sway")
-		if(target_held_item)
-			append_message = "loosening [target.p_their()] grip on [target_held_item]"
-			target.visible_message(span_danger("[target.name]'s grip on \the [target_held_item] loosens!"), //He's already out what are you doing
-				span_warning("Your grip on \the [target_held_item] loosens!"), null, COMBAT_MESSAGE_RANGE)
-		addtimer(CALLBACK(target, TYPE_PROC_REF(/mob/living/carbon, clear_shove_slowdown)), SHOVE_SLOWDOWN_LENGTH)
-
-	else if(target_held_item)
+	if(target_held_item && target.get_timed_status_effect_duration(/datum/status_effect/staggered))
 		target.dropItemToGround(target_held_item)
 		append_message = "causing [target.p_them()] to drop [target_held_item]"
 		target.visible_message(span_danger("[target.name] drops \the [target_held_item]!"),
@@ -405,6 +344,8 @@
 		append_message = "causing them to drop [length(dropped) ? english_list(dropped) : "nothing"]"
 	/// SKYRAPTOR REWRITE END
 
+	target.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH, 10 SECONDS)
+
 	log_combat(src, target, "shoved", append_message)
 
 /mob/living/carbon/proc/is_shove_knockdown_blocked() //If you want to add more things that block shove knockdown, extend this
@@ -413,12 +354,8 @@
 			return TRUE
 	return FALSE
 
-/mob/living/carbon/proc/clear_shove_slowdown()
-	remove_movespeed_modifier(/datum/movespeed_modifier/shove)
-	var/active_item = get_active_held_item()
-	if(is_type_in_typecache(active_item, GLOB.shove_disarming_types))
-		visible_message(span_warning("[name] regains their grip on \the [active_item]!"), span_warning("You regain your grip on \the [active_item]"), null, COMBAT_MESSAGE_RANGE)
-
+=======
+>>>>>>> 68677dc7214 (Disarm refactor, plus shoving people with shields (#80123))
 /mob/living/carbon/blob_act(obj/structure/blob/B)
 	if (stat == DEAD)
 		return
@@ -757,7 +694,7 @@
 		if (!IS_ORGANIC_LIMB(limb))
 			. += (limb.brute_dam * limb.body_damage_coeff) + (limb.burn_dam * limb.body_damage_coeff)
 
-/mob/living/carbon/grabbedby(mob/living/carbon/user, supress_message = FALSE)
+/mob/living/carbon/grabbedby(mob/living/user, supress_message = FALSE)
 	if(user != src)
 		return ..()
 
@@ -891,5 +828,11 @@
 			continue
 		organs -= organ_type
 	GLOB.bioscrambler_valid_organs = organs
+
+/mob/living/carbon/get_shove_flags(mob/living/shover, obj/item/weapon)
+	. = ..()
+	. |= SHOVE_CAN_STAGGER
+	if(IsKnockdown() && !IsParalyzed())
+		. |= SHOVE_CAN_KICK_SIDE
 
 #undef SHAKE_ANIMATION_OFFSET

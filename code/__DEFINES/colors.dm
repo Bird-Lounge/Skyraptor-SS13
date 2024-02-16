@@ -283,6 +283,8 @@
 #define LIGHT_COLOR_TUNGSTEN "#FFD6AA"
 /// Barely visible cyan-ish hue, as the doctor prescribed. rgb(240, 250, 250)
 #define LIGHT_COLOR_HALOGEN "#F0FAFA"
+/// Nearly red. rgb(226, 78, 118)
+#define LIGHT_COLOR_BUBBLEGUM "#e24e76"
 
 //The GAGS greyscale_colors for each department's computer/machine circuits
 #define CIRCUIT_COLOR_GENERIC "#1A7A13"
@@ -428,3 +430,5 @@ GLOBAL_LIST_INIT(cable_colors, list(
 	CABLE_COLOR_YELLOW = CABLE_HEX_COLOR_YELLOW,
 	CABLE_COLOR_BROWN = CABLE_HEX_COLOR_BROWN
 ))
+
+#define HUSK_COLOR_TONE rgb(96, 88, 80)

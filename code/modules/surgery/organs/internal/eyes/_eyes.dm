@@ -53,7 +53,7 @@
 	/// Native FOV that will be applied if a config is enabled
 	var/native_fov = FOV_90_DEGREES
 
-/obj/item/organ/internal/eyes/Insert(mob/living/carbon/eye_recipient, special = FALSE, drop_if_replaced = FALSE)
+/obj/item/organ/internal/eyes/Insert(mob/living/carbon/eye_recipient, special = FALSE, movement_flags = DELETE_IF_REPLACED)
 	// If we don't do this before everything else, heterochromia will be reset leading to eye_color_right no longer being accurate
 	if(ishuman(eye_recipient))
 		var/mob/living/carbon/human/human_recipient = eye_recipient
@@ -95,7 +95,7 @@
 	if(call_update)
 		affected_human.update_body()
 
-/obj/item/organ/internal/eyes/Remove(mob/living/carbon/eye_owner, special = FALSE)
+/obj/item/organ/internal/eyes/Remove(mob/living/carbon/eye_owner, special, movement_flags)
 	. = ..()
 	if(ishuman(eye_owner))
 		var/mob/living/carbon/human/human_owner = eye_owner
@@ -105,7 +105,8 @@
 			human_owner.eye_color_right = old_eye_color_right
 		if(native_fov)
 			eye_owner.remove_fov_trait(type)
-		human_owner.update_body()
+		if(!special)
+			human_owner.update_body()
 
 	// Cure blindness from eye damage
 	eye_owner.cure_blind(EYE_DAMAGE)
@@ -277,14 +278,18 @@
 /datum/action/cooldown/golem_ore_sight
 	name = "Ore Resonance"
 	desc = "Causes nearby ores to vibrate, revealing their location."
-	button_icon = 'icons/obj/device.dmi'
+	button_icon = 'icons/obj/devices/scanner.dmi'
 	button_icon_state = "manual_mining"
 	check_flags = AB_CHECK_CONSCIOUS
 	cooldown_time = 10 SECONDS
 
 /datum/action/cooldown/golem_ore_sight/Activate(atom/target)
 	. = ..()
+<<<<<<< HEAD
 	mineral_scan_pulse(get_turf(target))
+=======
+	mineral_scan_pulse(get_turf(target), scanner = target)
+>>>>>>> 7a1b8d502ca (Fixes runtime when mineral scanning (#81049))
 
 ///Robotic
 
@@ -327,11 +332,11 @@
 	eye_color_right = "000"
 	sight_flags = SEE_MOBS | SEE_OBJS | SEE_TURFS
 
-/obj/item/organ/internal/eyes/robotic/xray/on_insert(mob/living/carbon/eye_owner)
+/obj/item/organ/internal/eyes/robotic/xray/on_mob_insert(mob/living/carbon/eye_owner)
 	. = ..()
 	ADD_TRAIT(eye_owner, TRAIT_XRAY_VISION, ORGAN_TRAIT)
 
-/obj/item/organ/internal/eyes/robotic/xray/on_remove(mob/living/carbon/eye_owner)
+/obj/item/organ/internal/eyes/robotic/xray/on_mob_remove(mob/living/carbon/eye_owner)
 	. = ..()
 	REMOVE_TRAIT(eye_owner, TRAIT_XRAY_VISION, ORGAN_TRAIT)
 
@@ -359,7 +364,7 @@
 /obj/item/organ/internal/eyes/robotic/flashlight/emp_act(severity)
 	return
 
-/obj/item/organ/internal/eyes/robotic/flashlight/on_insert(mob/living/carbon/victim)
+/obj/item/organ/internal/eyes/robotic/flashlight/on_mob_insert(mob/living/carbon/victim)
 	. = ..()
 	if(!eye)
 		eye = new /obj/item/flashlight/eyelight()
@@ -368,7 +373,7 @@
 	eye.update_brightness(victim)
 	victim.become_blind(FLASHLIGHT_EYES)
 
-/obj/item/organ/internal/eyes/robotic/flashlight/on_remove(mob/living/carbon/victim)
+/obj/item/organ/internal/eyes/robotic/flashlight/on_mob_remove(mob/living/carbon/victim)
 	. = ..()
 	eye.set_light_on(FALSE)
 	eye.update_brightness(victim)
@@ -401,13 +406,13 @@
 	/// base icon state for eye overlays
 	var/base_eye_state = "eyes_glow_gs"
 	/// Whether or not to match the eye color to the light or use a custom selection
-	var/eye_color_mode = MATCH_LIGHT_COLOR
+	var/eye_color_mode = USE_CUSTOM_COLOR
 	/// The selected color for the light beam itself
-	var/current_color_string = "#ffffff"
+	var/light_color_string = "#ffffff"
 	/// The custom selected eye color for the left eye. Defaults to the mob's natural eye color
-	var/current_left_color_string
+	var/left_eye_color_string
 	/// The custom selected eye color for the right eye. Defaults to the mob's natural eye color
-	var/current_right_color_string
+	var/right_eye_color_string
 
 /obj/item/organ/internal/eyes/robotic/glow/Initialize(mapload)
 	. = ..()
@@ -425,20 +430,21 @@
 	deactivate(close_ui = TRUE)
 
 /// Set the initial color of the eyes on insert to be the mob's previous eye color.
-/obj/item/organ/internal/eyes/robotic/glow/Insert(mob/living/carbon/eye_recipient, special = FALSE, drop_if_replaced = FALSE)
+/obj/item/organ/internal/eyes/robotic/glow/Insert(mob/living/carbon/eye_recipient, special = FALSE, movement_flags = DELETE_IF_REPLACED)
 	. = ..()
-	current_color_string = old_eye_color_left
-	current_left_color_string = old_eye_color_left
-	current_right_color_string = old_eye_color_right
+	left_eye_color_string = old_eye_color_left
+	right_eye_color_string = old_eye_color_right
+	update_mob_eye_color(eye_recipient)
 
-/obj/item/organ/internal/eyes/robotic/glow/on_insert(mob/living/carbon/eye_recipient)
+/obj/item/organ/internal/eyes/robotic/glow/on_mob_insert(mob/living/carbon/eye_recipient)
 	. = ..()
 	deactivate(close_ui = TRUE)
 	eye.forceMove(eye_recipient)
 
-/obj/item/organ/internal/eyes/robotic/glow/on_remove(mob/living/carbon/eye_owner)
+/obj/item/organ/internal/eyes/robotic/glow/on_mob_remove(mob/living/carbon/eye_owner)
 	deactivate(eye_owner, close_ui = TRUE)
-	eye.forceMove(src)
+	if(!QDELETED(eye))
+		eye.forceMove(src)
 	return ..()
 
 /obj/item/organ/internal/eyes/robotic/glow/ui_state(mob/user)
@@ -467,10 +473,10 @@
 	data["eyeColor"] = list(
 		mode = eye_color_mode,
 		hasOwner = owner ? TRUE : FALSE,
-		left = current_left_color_string,
-		right = current_right_color_string,
+		left = left_eye_color_string,
+		right = right_eye_color_string,
 	)
-	data["lightColor"] = current_color_string
+	data["lightColor"] = light_color_string
 	data["range"] = eye.light_range
 
 	return data
@@ -490,7 +496,7 @@
 				usr,
 				"Choose eye color color:",
 				"High Luminosity Eyes Menu",
-				current_color_string
+				light_color_string
 			) as color|null
 			if(new_color)
 				var/to_update = params["to_update"]
@@ -521,9 +527,10 @@
  * Turns on the attached flashlight object, updates the mob overlay to be added.
  */
 /obj/item/organ/internal/eyes/robotic/glow/proc/activate()
-	eye.light_on = TRUE
-	if(eye.light_range) // at range 0 we are just going to make the eyes glow emissively, no light overlay
+	if(eye.light_range)
 		eye.set_light_on(TRUE)
+	else
+		eye.light_on = TRUE // at range 0 we are just going to make the eyes glow emissively, no light overlay
 	update_mob_eye_color()
 
 /**
@@ -585,12 +592,12 @@
 		newcolor_string = newcolor
 	switch(to_update)
 		if(UPDATE_LIGHT)
-			current_color_string = newcolor_string
+			light_color_string = newcolor_string
 			eye.set_light_color(newcolor_string)
 		if(UPDATE_EYES_LEFT)
-			current_left_color_string = newcolor_string
+			left_eye_color_string = newcolor_string
 		if(UPDATE_EYES_RIGHT)
-			current_right_color_string = newcolor_string
+			right_eye_color_string = newcolor_string
 
 	update_mob_eye_color()
 
@@ -622,11 +629,11 @@
 /obj/item/organ/internal/eyes/robotic/glow/proc/update_mob_eye_color(mob/living/carbon/eye_owner = owner)
 	switch(eye_color_mode)
 		if(MATCH_LIGHT_COLOR)
-			eye_color_left = current_color_string
-			eye_color_right = current_color_string
+			eye_color_left = light_color_string
+			eye_color_right = light_color_string
 		if(USE_CUSTOM_COLOR)
-			eye_color_left = current_left_color_string
-			eye_color_right = current_right_color_string
+			eye_color_left = left_eye_color_string
+			eye_color_right = right_eye_color_string
 
 	if(QDELETED(eye_owner) || !ishuman(eye_owner)) //Other carbon mobs don't have eye color.
 		return
@@ -718,16 +725,9 @@
 	low_light_cutoff = list(5, 12, 20)
 	medium_light_cutoff = list(15, 20, 30)
 	high_light_cutoff = list(30, 35, 50)
-	var/obj/item/flashlight/eyelight/adapted/adapt_light
 
-/obj/item/organ/internal/eyes/night_vision/maintenance_adapted/on_insert(mob/living/carbon/eye_owner)
+/obj/item/organ/internal/eyes/night_vision/maintenance_adapted/on_mob_insert(mob/living/carbon/eye_owner)
 	. = ..()
-	//add lighting
-	if(!adapt_light)
-		adapt_light = new /obj/item/flashlight/eyelight/adapted()
-	adapt_light.set_light_on(TRUE)
-	adapt_light.forceMove(eye_owner)
-	adapt_light.update_brightness(eye_owner)
 	ADD_TRAIT(eye_owner, TRAIT_UNNATURAL_RED_GLOWY_EYES, ORGAN_TRAIT)
 
 /obj/item/organ/internal/eyes/night_vision/maintenance_adapted/on_life(seconds_per_tick, times_fired)
@@ -739,10 +739,6 @@
 		apply_organ_damage(-10) //heal quickly
 	. = ..()
 
-/obj/item/organ/internal/eyes/night_vision/maintenance_adapted/Remove(mob/living/carbon/unadapted, special = FALSE)
-	//remove lighting
-	adapt_light.set_light_on(FALSE)
-	adapt_light.update_brightness(unadapted)
-	adapt_light.forceMove(src)
+/obj/item/organ/internal/eyes/night_vision/maintenance_adapted/on_mob_remove(mob/living/carbon/unadapted, special = FALSE)
 	REMOVE_TRAIT(unadapted, TRAIT_UNNATURAL_RED_GLOWY_EYES, ORGAN_TRAIT)
 	return ..()

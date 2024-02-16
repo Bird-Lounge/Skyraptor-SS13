@@ -1,13 +1,19 @@
-/proc/possess(obj/O in world)
+/proc/possess(obj/target in world)
 	set name = "Possess Obj"
 	set category = "Object"
 
-	if((O.obj_flags & DANGEROUS_POSSESSION) && CONFIG_GET(flag/forbid_singulo_possession))
-		to_chat(usr, "[O] is too powerful for you to possess.", confidential = TRUE)
+	var/result = usr.AddComponent(/datum/component/object_possession, target)
+
+	if(isnull(result)) // trigger a safety movement just in case we yonk
+		usr.forceMove(get_turf(usr))
 		return
 
-	var/turf/T = get_turf(O)
+	var/turf/target_turf = get_turf(target)
+	var/message = "[key_name(usr)] has possessed [target] ([target.type]) at [AREACOORD(target_turf)]"
+	message_admins(message)
+	log_admin(message)
 
+<<<<<<< HEAD
 	if(T)
 		log_admin("[key_name(usr)] has possessed [O] ([O.type]) at [AREACOORD(T)]")
 		message_admins("[key_name(usr)] has possessed [O] ([O.type]) at [AREACOORD(T)]")
@@ -24,6 +30,7 @@
 	usr.reset_perspective(O)
 	usr.control_object = O
 	O.AddElement(/datum/element/weather_listener, /datum/weather/ash_storm, ZTRAIT_ASHSTORM, GLOB.ash_storm_sounds)
+<<<<<<< HEAD
 
 	/// SKYRAPTOR ADDITION: modular weather sounds
 	for(var/spath in subtypesof(/datum/mapping_weather_handler))
@@ -32,11 +39,17 @@
 	/// SKYRAPTOR ADDITION END
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Possess Object") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+=======
+=======
+>>>>>>> f39d539b327 (Refactors Object Possession into a Component (moar modular, less `/mob` vars) (#80160))
+	BLACKBOX_LOG_ADMIN_VERB("Possess Object")
+>>>>>>> 566c7ba9c23 (Removes some code soul (`IF YOU ARE COPY PASTING THIS...`), replaces it with a macro (#79935))
 
 /proc/release()
 	set name = "Release Obj"
 	set category = "Object"
 
+<<<<<<< HEAD
 	if(!usr.control_object) //lest we are banished to the nullspace realm.
 		return
 
@@ -59,12 +72,16 @@
 	usr.forceMove(get_turf(usr.control_object))
 	usr.reset_perspective()
 	usr.control_object = null
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Release Object") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+=======
+	qdel(usr.GetComponent(/datum/component/object_possession))
+>>>>>>> f39d539b327 (Refactors Object Possession into a Component (moar modular, less `/mob` vars) (#80160))
+	BLACKBOX_LOG_ADMIN_VERB("Release Object")
 
-/proc/givetestverbs(mob/M in GLOB.mob_list)
+/proc/give_possession_verbs(mob/dude in GLOB.mob_list)
 	set desc = "Give this guy possess/release verbs"
 	set category = "Debug"
 	set name = "Give Possessing Verbs"
-	add_verb(M, GLOBAL_PROC_REF(possess))
-	add_verb(M, GLOBAL_PROC_REF(release))
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Give Possessing Verbs") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+
+	add_verb(dude, GLOBAL_PROC_REF(possess))
+	add_verb(dude, GLOBAL_PROC_REF(release))
+	BLACKBOX_LOG_ADMIN_VERB("Give Possessing Verbs")
