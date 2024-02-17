@@ -1,4 +1,0 @@
-author: "NaakaKo"
-delete-after: True
-changes:
-  - bugfix: "cargo lockboxes update iconstates correctly now"
