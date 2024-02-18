@@ -370,3 +370,32 @@
       themselves.
   - bugfix: Ghost role polls should spam you less when multiple of the same roll occur
       in succession.
+2024-02-18:
+  GoldenAlpharex:
+  - bugfix: The Spawners menu now accurately displays the amount of uses left in each
+      spawner option, taking into account individual spawners that either allow more
+      than one use, or an infinite amount of uses.
+  Melbert:
+  - rscadd: Wizards have a new mobility option available, the Telegram Scepter. The
+      ability to travel anywhere you can see at the point of a wand... but at a price?
+  NaakaKo:
+  - bugfix: Restorative Nanites now heal Slimepeople just as well as they do other
+      people.
+  - code_imp: Removed unused global lists and sprite accessories related to tail spines
+  - qol: adds examines & screentips for ore box
+  - code_imp: cleans up some procs for ore box
+  - spellcheck: corrected description & ui notice of ore box to specify it can hold
+      boulders too
+  - rscadd: Your mouth now fits combat or survival knives(it's totally safe)
+  - qol: you may altclick action buttons to bind them to a key
+  - bugfix: Crafting Bulgogi no longer makes Bibimbap. It instead makes Bulgogi.
+  - balance: assemblybombs are bulky
+  - code_imp: removed redundant check for plasmamen in survival box code
+  - qol: The bitrunning quantum console UI now lists domains in tabs by difficulty.
+  - bugfix: Indestructible items like the pai card don't teleport to the ore silo
+      when you insert them into silo linked machine & also displays a message saying
+      it was rejected.
+  mogeoko:
+  - bugfix: Thermomachines now reconnect to pipes on multitool's act.
+  - bugfix: Multi-deck connectors won't connect pipes not located in front/top/bottom
+      of it.
