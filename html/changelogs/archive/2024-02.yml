@@ -399,3 +399,51 @@
   - bugfix: Thermomachines now reconnect to pipes on multitool's act.
   - bugfix: Multi-deck connectors won't connect pipes not located in front/top/bottom
       of it.
+2024-02-19:
+  LT3:
+  - rscadd: The tram has been equipped with enhanced safety glass to reduce the severity
+      of crew injuries
+  Melbert:
+  - rscdel: You can only vote for 1 map at a time again
+  - bugfix: Fixes AI double-click tracking
+  - admin: You can now set someone's TC to 0
+  - admin: Removing Traitor from automatically removes the uplink from them
+  - admin: Removing Uplink from someone no longer wipes ALL of their memories
+  - rscadd: Valentines Day now polls all players for candidates when it triggers rather
+      than forcing all players to be a Valentine. Consent is important.
+  - rscadd: Valentine silicons now gain special laws pertaining to their date.
+  - qol: Valentines Cards are now paper, so you can write on them, stamp them, or
+      burn them.
+  - qol: Valentine's roundend report no longer takes up a massive amount of space
+      and also no longer sound so, so weird.
+  - bugfix: Lifeline can no longer track mobs with suit sensors off
+  NaakaKo:
+  - bugfix: The crystallizer screentip for rotating it has been updated with the correct
+      button
+  - bugfix: you may not put disposal outlets on cargo shuttle
+  - qol: makes the tgui_input_number user friendly for negative and decimal inputs
+  - code_imp: the  onBlur={(_, value) => onBlur(value)} event should now be used on
+      all uses of RestrictedInput to ensure that the number is fully sanitized whenever
+      the user leaves the field or submits it through a button
+  - qol: hides the delete button on the main tab allows to reorder all other chat
+      tabs
+  - bugfix: forcefully pushing disposal outlets and chutes deconstructs them instead
+      of making them behave like budget eigenstatium lockers
+  - rscadd: deathmatch minigame
+  - bugfix: mecha drill won't use power & do other checks if the target cannot be
+      drilled.
+  - bugfix: mecha drill will stop drilling if the mech moves even without changing
+      direction. Also will use power & check other conditions every drill cycle.
+  - bugfix: Maps loaded in after roundstart will no longer have broken smoothing
+  - rscadd: Players holding cardboard cutouts will now assume their appearance, just
+      like for potted plants.
+  - bugfix: Grill checks if the item got deleted to avoid runtimes. Also cook time
+      is set based on the individual items type & not a constant of 20 seconds
+  - bugfix: BBQ ribs can be grilled on a grill but now takes anywhere between 30 to
+      40 seconds to get proper smoked ribs and not lightly smoked ribs or turn into
+      a mouldy mess on a girddle. Delicious.
+  - qol: Circuit multitools can now mark (visible) items worn/held by a mob.
+  - bugfix: The door above tool storage on birdshot now has maintenance access on
+      it and officials can now enter the CC dock room.
+  Rhials:
+  - bugfix: Removes the double-newscaster from the arrivals sec post.
