@@ -447,3 +447,23 @@
       it and officials can now enter the CC dock room.
   Rhials:
   - bugfix: Removes the double-newscaster from the arrivals sec post.
+2024-02-22:
+  LT3:
+  - qol: Air alarms now display the source of triggered fire alarms/firedoors
+  LemonInTheDark, Kryson:
+  - image: Modified railing sprites to be a bit more three-d
+  NaakaKo:
+  - code_imp: deathmatch lobbies take 8 seconds to start as to give lighting a breather
+  - rscadd: Curators now get a 22.5% cut on credits spent on painting patronages (divided
+      by the number of curators). The service department also gets another, 12.5%
+      cut.
+  - qol: Added a zoom in and out buttons to the painting UI.
+  - bugfix: The DNA scanner's joker button no longer instantly activates itself when
+      the cooldown between uses is done.
+  - bugfix: Regenerative cores (and other monster organs) now work when using it in-hand
+      while resting.
+  - bugfix: multiple reactions occuring in the same holder like mixing drinks will
+      yield correct reagent result volumes
+  - code_imp: ' Removes `update_total()` from instant reactions improving performance
+      slightly'
+  - code_imp: merges `remove_all_direct()` with `remove_all()` to reduce code size
