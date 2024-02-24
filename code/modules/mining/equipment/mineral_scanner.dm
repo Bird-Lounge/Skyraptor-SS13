@@ -44,6 +44,9 @@
 	var/current_cooldown = 0
 	var/range = 7
 
+/obj/item/t_scanner/adv_mining_scanner/cyborg
+	shut_off_on_unequip = FALSE
+
 /obj/item/t_scanner/adv_mining_scanner/cyborg/Initialize(mapload)
 	. = ..()
 	toggle_on()
