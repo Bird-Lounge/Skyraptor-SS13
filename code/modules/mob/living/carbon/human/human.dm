@@ -466,9 +466,10 @@
 			balloon_alert(src, "remove [target.p_their()] mask first!")
 			return FALSE
 
-		if(HAS_TRAIT_FROM(src, TRAIT_NOBREATH, DISEASE_TRAIT))
+		/// SKYRAPTOR REMOVAL: this is such a dumb fucking balanace-for-balance's-sake moment
+		/*if(HAS_TRAIT_FROM(src, TRAIT_NOBREATH, DISEASE_TRAIT))
 			to_chat(src, span_warning("you can't breathe!"))
-			return FALSE
+			return FALSE*/
 
 		var/obj/item/organ/internal/lungs/human_lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
 		if(isnull(human_lungs))
