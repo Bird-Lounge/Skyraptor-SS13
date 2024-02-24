@@ -1,0 +1,4 @@
+author: "Boopideedoo"
+delete-after: True
+changes:
+  - bugfix: "Piping rework to fix an error\n:cl:"
