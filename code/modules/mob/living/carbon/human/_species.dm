@@ -764,9 +764,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 					accessory = GLOB.body_markings_list[source.dna.features["body_markings"]]
 				if("legs")
 					accessory = GLOB.legs_list[source.dna.features["legs"]]
-<<<<<<< HEAD
-				if("caps")
-					accessory = GLOB.caps_list[source.dna.features["caps"]]
 			/// SKYRAPTOR EDIT BEGIN: modular_chargen
 			//Custom mutant bodyparts go brrr
 			for(var/spath in subtypesof(/datum/mutant_newmutantpart))
@@ -776,8 +773,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 					accessory = accessory_tmp
 					//source_id = "modularized: [bodypart]"
 			//SKYRAPTOR EDIT END: modular_chargen
-=======
->>>>>>> ca61d0f8681 (Turns mush cap into an extorgan (#80952))
 
 			if(!accessory || accessory.icon_state == "none")
 				continue
@@ -997,13 +992,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		if(ITEM_SLOT_FEET)
 			if(H.num_legs < 2)
 				return FALSE
-<<<<<<< HEAD
-			if((H.bodytype & BODYTYPE_DIGITIGRADE) && !(I.item_flags & IGNORE_DIGITIGRADE))
-				if(!(I.supports_variations_flags & (CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON)) && !(BODYTYPE_DIGITIGRADE in I.supported_bodytypes)) /// SKYRAPTOR EDIT
-=======
 			if((H.bodyshape & BODYSHAPE_DIGITIGRADE) && !(I.item_flags & IGNORE_DIGITIGRADE))
-				if(!(I.supports_variations_flags & (CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON)))
->>>>>>> f9b7588bc4a (bodytypes to do with body shape and sprite handling have their own var (#81590))
+				if(!(I.supports_variations_flags & (CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON)) && !(BODYTYPE_DIGITIGRADE in I.supported_bodytypes)) /// SKYRAPTOR EDIT
 					if(!disable_warning)
 						to_chat(H, span_warning("The footwear around here isn't compatible with your feet!"))
 					return FALSE
