@@ -105,22 +105,14 @@ There are several things that need to be remembered:
 		/// SKYRAPTOR REMOVAL: STANDARD SPECIESHANDLING IS GOING OUT THE WINDOW IN FAVOUR OF REWORKS
 		//BEGIN SPECIES HANDLING
 <<<<<<< HEAD
-		/*if((bodytype & BODYTYPE_MONKEY) && (uniform.supports_variations_flags & CLOTHING_MONKEY_VARIATION))
-=======
-		if((bodyshape & BODYSHAPE_MONKEY) && (uniform.supports_variations_flags & CLOTHING_MONKEY_VARIATION))
->>>>>>> f9b7588bc4a (bodytypes to do with body shape and sprite handling have their own var (#81590))
+		/*if((bodyshape & BODYSHAPE_MONKEY) && (uniform.supports_variations_flags & CLOTHING_MONKEY_VARIATION))
 			icon_file = MONKEY_UNIFORM_FILE
 		else if((bodyshape & BODYSHAPE_DIGITIGRADE) && (uniform.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
 			icon_file = DIGITIGRADE_UNIFORM_FILE
 		//Female sprites have lower priority than digitigrade sprites
-<<<<<<< HEAD
-		else if(dna.species.sexes && (bodytype & BODYTYPE_HUMANOID) && physique == FEMALE && !(uniform.female_sprite_flags & NO_FEMALE_UNIFORM)) //Agggggggghhhhh
+		else if(dna.species.sexes && (bodyshape & BODYSHAPE_HUMANOID) && physique == FEMALE && !(uniform.female_sprite_flags & NO_FEMALE_UNIFORM)) //Agggggggghhhhh
 			woman = TRUE*/
 		/// SKYRAPTOR REMOVAL END HSFFHGJG
-=======
-		else if(dna.species.sexes && (bodyshape & BODYSHAPE_HUMANOID) && physique == FEMALE && !(uniform.female_sprite_flags & NO_FEMALE_UNIFORM)) //Agggggggghhhhh
-			woman = TRUE
->>>>>>> f9b7588bc4a (bodytypes to do with body shape and sprite handling have their own var (#81590))
 
 		if(!icon_exists(icon_file, RESOLVE_ICON_STATE(uniform)))
 			icon_file = DEFAULT_UNIFORM_FILE
@@ -133,12 +125,8 @@ There are several things that need to be remembered:
 			isinhands = FALSE,
 			female_uniform = woman ? uniform.female_sprite_flags : null,
 			override_state = target_overlay,
-<<<<<<< HEAD
-			override_file = handled_by_bodytype ? icon_file : null,
-			bodytype = my_bodytype, //SKYRAPTOR ADDITION
-=======
 			override_file = handled_by_bodyshape ? icon_file : null,
->>>>>>> f9b7588bc4a (bodytypes to do with body shape and sprite handling have their own var (#81590))
+			bodytype = my_bodytype, //SKYRAPTOR ADDITION
 		)
 
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
