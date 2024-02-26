@@ -28,8 +28,26 @@
 	unmodify()
 	return ..()
 
+<<<<<<< HEAD
+=======
+/datum/component/tactical/RegisterWithParent()
+	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(modify))
+	var/obj/item/item = parent
+	if(ismob(item.loc))
+		var/mob/holder = item.loc
+		modify(item, holder, holder.get_slot_by_item(item))
+
+/datum/component/tactical/UnregisterFromParent()
+	UnregisterSignal(parent, list(
+		COMSIG_ITEM_EQUIPPED,
+	))
+	unmodify()
+
+>>>>>>> 69217be201c (Fixes cardboard cutout CI harrassment (#81627))
 /datum/component/tactical/proc/modify(obj/item/source, mob/user, slot)
 	SIGNAL_HANDLER
+	if(current_slot == slot)
+		return
 
 	if(allowed_slot && !(slot & allowed_slot))
 		if(current_slot)
@@ -38,18 +56,35 @@
 
 	RegisterSignal(parent, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(tactical_update))
 	RegisterSignal(parent, COMSIG_ITEM_DROPPED, PROC_REF(unmodify))
+<<<<<<< HEAD
 	RegisterSignal(parent, COMSIG_ATOM_UPDATED_ICON, PROC_REF(tactical_update))
+=======
+	RegisterSignal(parent, COMSIG_ATOM_UPDATED_ICON, PROC_REF(on_icon_update))
+>>>>>>> 69217be201c (Fixes cardboard cutout CI harrassment (#81627))
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(on_moved))
 
 	current_slot = slot
 
+	on_icon_update(source)
+
+/datum/component/tactical/proc/on_icon_update(obj/item/source)
+	SIGNAL_HANDLER
+	var/mob/user = source.loc
+	if(!istype(user))
+		return
+
+	user.remove_alt_appearance("sneaking_mission[REF(src)]")
 	var/obj/item/master = parent
 	var/image/image = image(master, loc = user)
 	image.copy_overlays(master)
 	image.override = TRUE
 	image.layer = ABOVE_MOB_LAYER
 	image.plane = FLOAT_PLANE
+<<<<<<< HEAD
 	source.add_alt_appearance(/datum/atom_hud/alternate_appearance/basic/everyone, "sneaking_mission[REF(src)]", image)
+=======
+	user.add_alt_appearance(/datum/atom_hud/alternate_appearance/basic/everyone, "sneaking_mission[REF(src)]", image)
+>>>>>>> 69217be201c (Fixes cardboard cutout CI harrassment (#81627))
 
 /datum/component/tactical/proc/unmodify(obj/item/source, mob/user)
 	SIGNAL_HANDLER
@@ -60,6 +95,16 @@
 	if(!istype(user))
 		return
 
+<<<<<<< HEAD
+=======
+	UnregisterSignal(source, list(
+		COMSIG_MOVABLE_Z_CHANGED,
+		COMSIG_ITEM_DROPPED,
+		COMSIG_MOVABLE_MOVED,
+		COMSIG_ATOM_UPDATED_ICON,
+	))
+	current_slot = null
+>>>>>>> 69217be201c (Fixes cardboard cutout CI harrassment (#81627))
 	user.remove_alt_appearance("sneaking_mission[REF(src)]")
 	current_slot = null
 	UnregisterSignal(parent, list(COMSIG_MOVABLE_Z_CHANGED, COMSIG_ITEM_DROPPED, COMSIG_ATOM_UPDATED_ICON, COMSIG_MOVABLE_MOVED))
