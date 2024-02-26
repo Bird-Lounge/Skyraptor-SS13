@@ -529,3 +529,16 @@
       of service on the crew monitor.
   - bugfix: fixes spurious CI failure in museum
   - code_imp: adds a blacklist feature to spawners
+2024-02-26:
+  MrDas:
+  - spellcheck: The tier of servo in mech construction is no longer explicitly stated.
+  NaakaKo:
+  - refactor: Bodytypes to do with character sprite shape now have their own bodyshape
+      var, all sprite handling is done with bodyshape and not bodytype anymore
+  - balance: buffs corporate modsuit(centcom only)
+  - bugfix: meatwheat is now firmly made out of meat, instead of sometimes being wheat
+      and sometimes being meat and sometimes being both.
+  - bugfix: Three stationary water tanks on Birdshot which supplied a sink in the
+      bar, a sink in the medical storage and a sink in the perma-brig's kitchen are
+      now properly rotated and connected with the plumbing.
+  - bugfix: The unisex showers on Birdshot have been given a water tank for its plumbing.
