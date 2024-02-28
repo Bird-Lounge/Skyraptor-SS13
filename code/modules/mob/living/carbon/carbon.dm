@@ -94,6 +94,15 @@
 				span_userdanger("You violently crash into [victim][extra_speed ? " extra hard" : ""], but [victim] managed to block the worst of it!"))
 			log_combat(src, victim, "crashed into and was blocked by")
 			return
+<<<<<<< HEAD
+=======
+		else if(HAS_TRAIT(victim, TRAIT_BRAWLING_KNOCKDOWN_BLOCKED))
+			victim.take_bodypart_damage(10 + 5 * extra_speed, check_armor = TRUE, wound_bonus = extra_speed * 5)
+			victim.apply_damage(10 + 10 * extra_speed, STAMINA)
+			victim.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH * 2, 10 SECONDS)
+			visible_message(span_danger("[src] crashes into [victim][extra_speed ? " really hard" : ""], but [victim] was able to stay on their feet!"),\
+				span_userdanger("You violently crash into [victim][extra_speed ? " extra hard" : ""], but [victim] managed to stay on their feet!"))
+>>>>>>> daea113c437 ([NO GBP] Reverses the logic for body collision to determine knockdown (#81712))
 		else
 			victim.Paralyze(2 SECONDS)
 			victim.take_bodypart_damage(10 + 5 * extra_speed, check_armor = TRUE, wound_bonus = extra_speed * 5)
