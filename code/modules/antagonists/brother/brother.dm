@@ -209,7 +209,11 @@
 
 /datum/objective/convert_brother
 	name = "convert brother"
+<<<<<<< HEAD
 	explanation_text = "Convert someone else using your flash."
+=======
+	explanation_text = "Convert a brainwashable person using your flash on them directly. Any handheld flash will work if you lose or break your starting flash."
+>>>>>>> 9c76ed72deb ([NO GBP] adds extra explainer text on updated BB convert objective (#81734))
 	admin_grantable = FALSE
 	martyr_compatible = TRUE
 
