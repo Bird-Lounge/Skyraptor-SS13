@@ -5,15 +5,12 @@
 	register_context()
 
 	GLOB.carbon_list += src
-<<<<<<< HEAD
 	var/static/list/loc_connections = list(
 		COMSIG_CARBON_DISARM_PRESHOVE = PROC_REF(disarm_precollide),
 		COMSIG_CARBON_DISARM_COLLIDE = PROC_REF(disarm_collision),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 	AddComponent(/datum/component/carbon_sprint) /// SKYRAPTOR ADDITION: sprinting
-=======
->>>>>>> 68677dc7214 (Disarm refactor, plus shoving people with shields (#80123))
 	ADD_TRAIT(src, TRAIT_CAN_HOLD_ITEMS, INNATE_TRAIT) // Carbons are assumed to be innately capable of having arms, we check their arms count instead
 
 /mob/living/carbon/Destroy()
@@ -94,12 +91,18 @@
 				span_userdanger("You violently crash into [victim][extra_speed ? " extra hard" : ""], but [victim] managed to block the worst of it!"))
 			log_combat(src, victim, "crashed into and was blocked by")
 			return
+		else if(HAS_TRAIT(victim, TRAIT_BRAWLING_KNOCKDOWN_BLOCKED))
+			victim.take_bodypart_damage(10 + 5 * extra_speed, check_armor = TRUE, wound_bonus = extra_speed * 5)
+			victim.apply_damage(10 + 10 * extra_speed, STAMINA)
+			victim.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH * 2, 10 SECONDS)
+			visible_message(span_danger("[src] crashes into [victim][extra_speed ? " really hard" : ""], but [victim] was able to stay on their feet!"),\
+				span_userdanger("You violently crash into [victim][extra_speed ? " extra hard" : ""], but [victim] managed to stay on their feet!"))
 		else
 			victim.Paralyze(2 SECONDS)
 			victim.take_bodypart_damage(10 + 5 * extra_speed, check_armor = TRUE, wound_bonus = extra_speed * 5)
 			visible_message(span_danger("[src] crashes into [victim][extra_speed ? " really hard" : ""], knocking them both over!"),\
 				span_userdanger("You violently crash into [victim][extra_speed ? " extra hard" : ""]!"))
-			log_combat(src, victim, "crashed into")
+		log_combat(src, victim, "crashed into")
 
 	if(oof_noise)
 		playsound(src,'sound/weapons/punch1.ogg',50,TRUE)
@@ -1094,12 +1097,9 @@
 
 	return DEFIB_POSSIBLE
 
-<<<<<<< HEAD
-=======
 /mob/living/carbon/proc/can_defib_client()
 	return (client || get_ghost(FALSE, TRUE)) && (can_defib() & DEFIB_REVIVABLE_STATES)
 
->>>>>>> 467ee6b11cc (Fix false positive morgue alarms (#80344))
 /mob/living/carbon/harvest(mob/living/user)
 	if(QDELETED(src))
 		return
