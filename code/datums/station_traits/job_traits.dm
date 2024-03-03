@@ -47,6 +47,7 @@
 	for (var/mob/dead/new_player/signee as anything in lobby_candidates)
 		if (isnull(signee) || !signee.client || !signee.mind || signee.ready != PLAYER_READY_TO_PLAY)
 			LAZYREMOVE(lobby_candidates, signee)
+<<<<<<< HEAD
 	if (!LAZYLEN(lobby_candidates))
 		on_failed_assignment()
 		return // Nobody signed up :(
@@ -60,6 +61,21 @@
 	our_job = SSjob.GetJob(our_job::title)
 	our_job.total_positions++
 
+=======
+
+	var/datum/job/our_job = SSjob.GetJobType(job_to_add)
+	while(length(lobby_candidates) && position_amount > 0)
+		var/mob/dead/new_player/picked_player = pick_n_take(lobby_candidates)
+		picked_player.mind.set_assigned_role(our_job)
+		position_amount--
+
+	our_job.total_positions = max(0, position_amount)
+	lobby_candidates = null
+
+/datum/station_trait/job/can_display_lobby_button(client/player)
+	var/datum/job/our_job = SSjob.GetJobType(job_to_add)
+	return our_job.player_old_enough(player) && ..()
+>>>>>>> 6a8d28b898b (Fixes station trait jobs and bank accounts ignoring the concept of jobs being singletons (#81756))
 
 /// Adds a gorilla to the cargo department, replacing the sloth and the mech
 /datum/station_trait/job/cargorilla
