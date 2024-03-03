@@ -341,6 +341,7 @@
 	var/turf/T = get_turf(src)
 	if(T.overfloor_placed)//cant be a floor in the way!
 		return FALSE
+<<<<<<< HEAD
 	var/obj/structure/cable/C = T.get_cable_node()
 	if(C)
 		if(electrocute_mob(user, C, src, 1, TRUE))
@@ -351,6 +352,21 @@
 		else
 			return FALSE
 	return FALSE
+=======
+
+	var/obj/structure/cable/cable_node = T.get_cable_node()
+	if(isnull(cable_node))
+		return FALSE
+	if(!electrocute_mob(user, cable_node, src, 1, TRUE))
+		return FALSE
+	if(prob(50)) // Shocking hurts the grille (to weaken monkey powersinks)
+		take_damage(1, BURN, FIRE, sound_effect = FALSE)
+	var/datum/effect_system/spark_spread/sparks = new /datum/effect_system/spark_spread
+	sparks.set_up(3, 1, src)
+	sparks.start()
+
+	return TRUE
+>>>>>>> 2eca334bb2a (Grilles dont break by just walking into them under any circumstances (#81594))
 
 /obj/structure/grille/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
 	return exposed_temperature > T0C + 1500 && !broken
