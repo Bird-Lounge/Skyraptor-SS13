@@ -421,6 +421,28 @@
 		/datum/computer_file/program/bounty_board,
 	)
 
+<<<<<<< HEAD
+=======
+/obj/item/modular_computer/pda/bridge_assistant
+	name = "bridge assistant PDA"
+	greyscale_colors = "#374f7e#a92323"
+	starting_programs = list(
+		/datum/computer_file/program/crew_manifest,
+		/datum/computer_file/program/status,
+	)
+
+/obj/item/modular_computer/pda/veteran_advisor
+	name = "security advisor PDA"
+	greyscale_colors = "#EA3232#FFD700"
+	inserted_item = /obj/item/pen/fountain
+	starting_programs = list(
+		/datum/computer_file/program/records/security,
+		/datum/computer_file/program/crew_manifest,
+		/datum/computer_file/program/coupon, //veteran discount
+		/datum/computer_file/program/skill_tracker,
+	)
+
+>>>>>>> 35242b4985d (NEW TRAIT ROLE: Veteran Advisor (#81667))
 /**
  * Non-roles
  */

@@ -47,6 +47,7 @@
 	for (var/mob/dead/new_player/signee as anything in lobby_candidates)
 		if (isnull(signee) || !signee.client || !signee.mind || signee.ready != PLAYER_READY_TO_PLAY)
 			LAZYREMOVE(lobby_candidates, signee)
+<<<<<<< HEAD
 	if (!LAZYLEN(lobby_candidates))
 		on_failed_assignment()
 		return // Nobody signed up :(
@@ -60,6 +61,21 @@
 	our_job = SSjob.GetJob(our_job::title)
 	our_job.total_positions++
 
+=======
+
+	var/datum/job/our_job = SSjob.GetJobType(job_to_add)
+	while(length(lobby_candidates) && position_amount > 0)
+		var/mob/dead/new_player/picked_player = pick_n_take(lobby_candidates)
+		picked_player.mind.set_assigned_role(our_job)
+		position_amount--
+
+	our_job.total_positions = max(0, position_amount)
+	lobby_candidates = null
+
+/datum/station_trait/job/can_display_lobby_button(client/player)
+	var/datum/job/our_job = SSjob.GetJobType(job_to_add)
+	return our_job.player_old_enough(player) && ..()
+>>>>>>> 6a8d28b898b (Fixes station trait jobs and bank accounts ignoring the concept of jobs being singletons (#81756))
 
 /// Adds a gorilla to the cargo department, replacing the sloth and the mech
 /datum/station_trait/job/cargorilla
@@ -149,6 +165,19 @@
 	new /obj/machinery/coffeemaker/impressa(picked_turf)
 	new /obj/item/reagent_containers/cup/coffeepot(picked_turf)
 	new /obj/item/storage/box/coffeepack(picked_turf)
+
+/datum/station_trait/job/veteran_advisor
+	name = "Veteran Advisor"
+	button_desc = "Sign up to become a DISABLED but hard boiled Veteran Advisor of Nanotrasen Security Force. Advise HoS and Captain, train Officers, all while fighting your PTSD."
+	weight = 2
+	report_message = "Veteran Security Advisor has been assigned to your station to help with Security matters."
+	show_in_report = TRUE
+	can_roll_antag = CAN_ROLL_PROTECTED
+	job_to_add = /datum/job/veteran_advisor
+
+/datum/station_trait/job/veteran_advisor/on_lobby_button_update_overlays(atom/movable/screen/lobby/button/sign_up/lobby_button, list/overlays)
+	. = ..()
+	overlays += "veteran_advisor"
 
 #undef CAN_ROLL_ALWAYS
 #undef CAN_ROLL_PROTECTED
