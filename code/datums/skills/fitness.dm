@@ -1,7 +1,7 @@
 /// SKYRAPTOR TOTAL REMOVAL: Fitness Skill
 /*/datum/skill/fitness
 	name = "Fitness"
-	title = "Fitness"
+	title = "Powerlifter"
 	desc = "Twinkle twinkle little star, hit the gym and lift the bar."
 	/// The skill value modifier effects the max duration that is possible for /datum/status_effect/exercised
 	modifiers = list(SKILL_VALUE_MODIFIER = list(2 MINUTES, 3 MINUTES, 4 MINUTES, 5 MINUTES, 6 MINUTES, 7 MINUTES, 10 MINUTES))
