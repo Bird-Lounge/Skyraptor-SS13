@@ -210,7 +210,8 @@
 
 /obj/item/organ/internal/stomach/alien/proc/content_died(atom/movable/source)
 	SIGNAL_HANDLER
-	qdel(source)
+	//qdel(source) /// SKYRAPTOR REMOVAL
+	source.forceMove(loc) /// SKYRAPTOR ADDITION: vomit up dead guys because dusting ppl with vore should be left to the vore codebases
 
 /obj/item/organ/internal/stomach/alien/proc/content_deleted(atom/movable/source)
 	SIGNAL_HANDLER
