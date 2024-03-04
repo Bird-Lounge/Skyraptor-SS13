@@ -54,3 +54,107 @@
       when there is, in fact, an active wanted issue currently posted.
   - bugfix: You may no longer make deathmatch arenas dark with a lightswitch.
   - bugfix: Blood overlays on items no longer leak onto other objects
+2024-03-04:
+  A.C.M.O.:
+  - bugfix: Fixed the AI hologram's ability to copy the appearance of crew members.
+  LT3:
+  - code_imp: Tram throwing now breaks grilles consistently
+  - code_imp: Tram malfunction lethality/throw chance are now a multiplier instead
+      of flat value
+  - code_imp: Tram throw chance can be adjusted
+  - code_imp: Unlucky trait is now used in tram throw calculation
+  Melbert:
+  - bugfix: Rat hearts apply their damage modifier malus correctly
+  - bugfix: Fixes grabbing yourself when you tackle someone.
+  - rscadd: Spies may now roam the halls of Space Station 13. Watch your belongings
+      closely.
+  NaakaKo:
+  - bugfix: Lobby manifest shows the head/captain symbols next to heads and captains
+      with custom titles, as long as they're registered with a head/captain trim.
+  - rscadd: Pipebombs
+  - rscdel: Improvised Firebombs
+  - qol: Constructs now reuse the victim's mind instead of just moving their client
+  - bugfix: Fixes the slot machine's jackpot. It should now give all of the available
+      prize money + 10,000 credits as payout for a jackpot.
+  - refactor: Converts the slot machine's UI over to TGUI
+  - rscadd: The slot machine now has a whole new type of jackpot! This one's a banger!
+  - bugfix: Fixed (cross)bows' strings not loosening once fired.
+  - rscadd: Added a new law to the Artist lawset in order to encourage Artist AIs
+      to build an audience.
+  - balance: '"Freshness Jars full of Natural Bait" is now a goodie and costs 200
+      credits instead of 2000'
+  - image: adds a visual effect for hive head bees despawning
+  - qol: HUD implants will now notify you when toggled on or off
+  - bugfix: Being in a Swat Suit appropriately protects you from collisions with a
+      body, rather than the body thrown at you having these protections protecting
+      YOU, the victim of the collision.
+  - rscadd: a list of items called vendor_nocrush that vendors dont deal integrity
+      damage to upon hitting them.
+  - bugfix: Makes vending machines no longer crush chairs and conveyors.
+  - qol: The chapel has been slightly overhauled on Birdshot, with the chaplain now
+      having a place to preach sermons.
+  - bugfix: Sparring chaplains are now able to operate on Birdshot!
+  - bugfix: Grilles dont break by just walking into them under any circumstances
+  - rscadd: new virtual pet app on the pda
+  - rscadd: Fishes love kronkaine.
+  - qol: Examining a fishing spot twice with sufficiently high fishing skill (or the
+      skillchip) will get you a list of fishes that can be caught.
+  - bugfix: The M-90GL now correctly states that it accepts .223 toploader magazines.
+  - rscadd: Adds 2 new shields to the game! Ballistic Shield - researched by Science,
+      and Improvised Shield - made out of iron and sticky tape
+  - image: Riot, Strobe, Telescopic, Energy shields got new less flat sprites!
+  - rscadd: 'New Changeling Ability: Hive Head'
+  - bugfix: Fixed bees having an improper sprite offset
+  - admin: Logs holosign swatting.
+  - bugfix: Pete can no longer eat vines while dead.
+  - bugfix: the multi-dimensional bomb payload now works as intended and doesn't break
+      once you select a theme.
+  - spellcheck: changed the fitness skill title to powerlifter
+  - code_imp: TRAIT_DEAF now works on non-carbon mobs
+  - bugfix: Fixed Bluespace RPEDs failing to apply circuits from a distance if you
+      had to select between multiple.
+  - bugfix: RCD converts miscellaneous turfs like basalt, sand, beach etc to plating
+      first & not put a wall directly on top of them
+  - bugfix: makes custom pizzas dairy and vegetable free, unless you choose to add
+      them.
+  - bugfix: Buying the advanced plastic surgery disk from the uplink now gives you
+      advanced plastic surgery instead of brainwashing.
+  - balance: the shadow eyes of nightmares and shadowpeople more broadly are now sensitive
+      to light, requiring additional protection.
+  - qol: Intelligent monkeys now punch people instead of biting them.
+  - rscadd: 'NEW TRAIT JOB: Veteran Security Advisor! Advise HoS and Captain on Security
+      matters, mentor Security Officers. Note that they are paraplegic and are suffering
+      PTSD due to their past experience.'
+  - rscadd: Added a multi-dimensional bomb payload to the black market. It's very
+      expensive.
+  - qol: Allows dragging from boxes into All-In-One Grinders
+  - qol: adds examines & screentips for building & deconstructing both machine & computer
+      frames.
+  - qol: Adding a circuitboard from a rped to n computer frame will automatically
+      screw it in place like before.
+  - code_imp: merged procs for computer & machine frames. autodocs them where possible.
+  - code_imp: moved code for machine frame into its own file.
+  - bugfix: fixes an issue where being gibbed while under the HARS mutation can sometimes
+      lead to the brain being deleted when it's not supposed to be
+  - rscadd: Adds a new changeling ability, "Darkness Adaptation". Making you more
+      translucent, especially in darkness and allowing you to see slightly better
+      in the dark
+  - balance: The changeling power "Chameleon Skin" has been buffed, Reduces the cost
+      to 1 and sped up the time it takes to turn invisible
+  - bugfix: Meat and other bloody things will not spread blood forever.
+  - image: New sprites for plant grafts!
+  - bugfix: You can build material airlocks again
+  - image: Bubblegum Hallucination Surround Charge, Wendigo Shockwave Scream, and
+      Ice Demon Floor Freeze all have more appropriate action icons.
+  - qol: Adds a tooltip to Ice Demon Afterimages ability.
+  - image: Cyborg view items now use the same sprites as their corresponding goggles
+      instead of old versions of those sprites.
+  - refactor: Butt sprites are based on the chest bodypart for humans, instead of
+      the species
+  - image: Moths have their own special butt sprites
+  - qol: added an HUD button to go up and down floors
+  - bugfix: Cryostylane reaction now has a moderate & not extreme cooling effect.
+      Helps you achieve more pure amounts of  Cryostylane
+  Rhials:
+  - bugfix: Fixes some tiles outside the Icebox AI satellite not getting hit by storms.
+  - code_imp: Splits up the nuclear operative antagonist datum folder.
