@@ -174,11 +174,160 @@
 	if(boulders_contained.len >= boulders_held_max)
 		return FALSE
 	if(istype(mover, /obj/item/boulder))
+<<<<<<< HEAD
 		var/obj/item/boulder/boulder = mover
 		return boulder.can_get_processed()
 	return ..()
 
 /obj/machinery/bouldertech/examine(mob/user)
+=======
+		return can_process_boulder(mover)
+	if(isgolem(mover))
+		var/mob/living/carbon/human/rockman = mover
+		return rockman.body_position == LYING_DOWN
+	return ..()
+
+/**
+ * Can we process the boulder, checks only the boulders state & machines capacity
+ * Arguments
+ *
+ * * obj/item/boulder/new_boulder - the boulder we are checking
+ */
+/obj/machinery/bouldertech/proc/can_process_boulder(obj/item/boulder/new_boulder)
+	PRIVATE_PROC(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
+	//machine not operational
+	if(!anchored || panel_open || !is_operational)
+		return FALSE
+
+	//not a valid boulder
+	if(!istype(new_boulder) || QDELETED(new_boulder))
+		return FALSE
+
+	//someone just processed this
+	if(new_boulder.processed_by)
+		return FALSE
+
+	//no space to hold boulders
+	var/boulder_count = 0
+	for(var/obj/item/boulder/potential_boulder in contents)
+		boulder_count += 1
+	if(boulder_count >= boulders_held_max)
+		return FALSE
+
+	//did we cooldown enough to accept a boulder
+	return COOLDOWN_FINISHED(src, accept_cooldown)
+
+/**
+ * Accepts a boulder into the machine. Used when a boulder is first placed into the machine.
+ * Arguments
+ *
+ * * obj/item/boulder/new_boulder - the boulder to accept
+ */
+/obj/machinery/bouldertech/proc/accept_boulder(obj/item/boulder/new_boulder)
+	if(!can_process_boulder(new_boulder))
+		return FALSE
+
+	new_boulder.forceMove(src)
+
+	COOLDOWN_START(src, accept_cooldown, 1.5 SECONDS)
+
+	return TRUE
+
+/**
+ * Accepts a golem to be processed, mainly for memes
+ */
+/obj/machinery/bouldertech/proc/accept_golem(mob/living/carbon/human/rockman)
+	if(!is_operational || !anchored)
+		return FALSE
+	if(!COOLDOWN_FINISHED(src, accept_cooldown))
+		return FALSE
+	if(rockman.body_position != LYING_DOWN)
+		return FALSE
+	if(!maim_golem(rockman))
+		return FALSE
+	playsound(src, usage_sound, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+	COOLDOWN_START(src, accept_cooldown, 3 SECONDS)
+	return TRUE
+
+/// What effects actually happens to a golem when it is "processed"
+/obj/machinery/bouldertech/proc/maim_golem(mob/living/carbon/human/rockman)
+	Shake(duration = 1 SECONDS)
+	rockman.visible_message(span_warning("[rockman] is processed by [src]!"), span_userdanger("You get processed into bits by [src]!"))
+	rockman.investigate_log("was gibbed by [src] for being a golem", INVESTIGATE_DEATHS)
+	rockman.gib(DROP_ALL_REMAINS)
+	return TRUE
+
+/obj/machinery/bouldertech/proc/on_entered(datum/source, atom/movable/atom_movable)
+	SIGNAL_HANDLER
+
+	if(istype(atom_movable, /obj/item/boulder))
+		INVOKE_ASYNC(src, PROC_REF(accept_boulder), atom_movable)
+		return
+
+	if(isgolem(atom_movable))
+		INVOKE_ASYNC(src, PROC_REF(accept_golem), atom_movable)
+		return
+
+/**
+ * Looks for a boost to the machine's efficiency, and applies it if found.
+ * Applied more on the chemistry integration but can be used for other things if desired.
+ */
+/obj/machinery/bouldertech/proc/check_for_boosts()
+	PROTECTED_PROC(TRUE)
+
+	refining_efficiency = initial(refining_efficiency) //Reset refining efficiency to 100%.
+
+/**
+ * Checks if this machine can process this material
+ * Arguments
+ *
+ * * datum/material/mat - the material to process
+ */
+/obj/machinery/bouldertech/proc/can_process_material(datum/material/mat)
+	PROTECTED_PROC(TRUE)
+
+	return FALSE
+
+/obj/machinery/bouldertech/attackby(obj/item/attacking_item, mob/user, params)
+	if(panel_open)
+		return ..()
+
+	if(istype(attacking_item, /obj/item/boulder))
+		. = TRUE
+		var/obj/item/boulder/my_boulder = attacking_item
+		if(!accept_boulder(my_boulder))
+			balloon_alert_to_viewers("cannot accept!")
+			return
+		balloon_alert_to_viewers("accepted")
+		return
+
+	if(istype(attacking_item, /obj/item/card/id))
+		. = TRUE
+		if(points_held <= 0)
+			balloon_alert_to_viewers("no points to claim!")
+			if(!COOLDOWN_FINISHED(src, sound_cooldown))
+				return
+			COOLDOWN_START(src, sound_cooldown, 1.5 SECONDS)
+			playsound(src, 'sound/machines/buzz-sigh.ogg', 30, FALSE)
+			return
+
+		var/obj/item/card/id/id_card = attacking_item
+		var/amount = tgui_input_number(user, "How many mining points do you wish to claim? ID Balance: [id_card.registered_account.mining_points], stored mining points: [points_held]", "Transfer Points", max_value = points_held, min_value = 0, round_value = 1)
+		if(!amount)
+			return
+		if(amount > points_held)
+			amount = points_held
+		id_card.registered_account.mining_points += amount
+		points_held = round(points_held - amount)
+		to_chat(user, span_notice("You claim [amount] mining points from \the [src] to [id_card]."))
+		return
+
+	return ..()
+
+/obj/machinery/bouldertech/attack_hand_secondary(mob/user, list/modifiers)
+>>>>>>> 8d599455d7b (Boulder refineries can process golems (#81849))
 	. = ..()
 	if(holds_mining_points)
 		. += span_notice("The machine reads that it has [span_bold("[points_held] mining points")] stored. Swipe an ID to claim them.")
