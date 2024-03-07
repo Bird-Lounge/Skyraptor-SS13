@@ -2687,4 +2687,24 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 		end_look_down()
 	else
 		look_down()
+<<<<<<< HEAD
 >>>>>>> c45bbf07cae (Adds Look up and Look down verbs (#80103))
+=======
+
+/**
+ * Totals the physical cash on the mob and returns the total.
+ */
+/mob/living/verb/tally_physical_credits()
+	//Here is all the possible non-ID payment methods.
+	var/list/counted_money = list()
+	var/physical_cash_total = 0
+	for(var/obj/item/credit as anything in typecache_filter_list(get_all_contents(), GLOB.allowed_money)) //Coins, cash, and credits.
+		physical_cash_total += credit.get_item_credit_value()
+		counted_money += credit
+
+	if(is_type_in_typecache(pulling, GLOB.allowed_money)) //Coins(Pulled).
+		var/obj/item/counted_credit = pulling
+		physical_cash_total += counted_credit.get_item_credit_value()
+		counted_money += counted_credit
+	return round(physical_cash_total)
+>>>>>>> d7cf8309c53 (Arcargo: Vendor Cargo and Vending Machine Update (#81582))
