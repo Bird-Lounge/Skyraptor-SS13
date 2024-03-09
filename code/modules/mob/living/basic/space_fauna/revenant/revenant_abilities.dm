@@ -204,8 +204,17 @@
 		if(!(bot.bot_cover_flags & BOT_COVER_EMAGGED))
 			new /obj/effect/temp_visual/revenant(bot.loc)
 			bot.bot_cover_flags &= ~BOT_COVER_LOCKED
-			bot.bot_cover_flags |= BOT_COVER_OPEN
+			bot.bot_cover_flags |= BOT_COVER_MAINTS_OPEN
 			bot.emag_act(caster)
+<<<<<<< HEAD
+=======
+	for(var/mob/living/basic/bot/bot in victim)
+		if(!(bot.bot_access_flags & BOT_COVER_EMAGGED))
+			new /obj/effect/temp_visual/revenant(bot.loc)
+			bot.bot_access_flags &= ~BOT_COVER_LOCKED
+			bot.bot_access_flags |= BOT_COVER_MAINTS_OPEN
+			bot.emag_act(caster)
+>>>>>>> 9ac81e1a648 (New station trait job: Human AI (#81681))
 	for(var/mob/living/carbon/human/human in victim)
 		if(human == caster)
 			continue
