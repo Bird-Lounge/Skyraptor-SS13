@@ -103,7 +103,17 @@
 	S.put_in_hands(A)
 	new /obj/item/autosurgeon(landing_turf)
 
+<<<<<<< HEAD
 //security team gets called in after 10 minutes of prep to find the refugees
+=======
+/datum/round_event/ghost_role/fugitives/proc/check_spawn_hunters(backstory, remaining_time)
+	//if the emergency shuttle has been called, spawn hunters now to give them a chance
+	if(remaining_time == 0 || !EMERGENCY_IDLE_OR_RECALLED)
+		spawn_hunters(backstory)
+		return
+	addtimer(CALLBACK(src, PROC_REF(check_spawn_hunters), backstory, remaining_time - 1 MINUTES), 1 MINUTES)
+
+>>>>>>> c9e285917d3 (Fugitive hunter spawn delay works again (#81919))
 /datum/round_event/ghost_role/fugitives/proc/spawn_hunters(backstory)
 	var/list/candidates = SSpolling.poll_ghost_candidates("Do you wish to be considered for a group of [backstory]?", check_jobban = ROLE_FUGITIVE_HUNTER, pic_source = /obj/machinery/sleeper, role_name_text = backstory)
 	shuffle_inplace(candidates)
