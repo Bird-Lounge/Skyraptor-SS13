@@ -194,11 +194,20 @@
 #define VERY_LATE_ARRIVAL_TOAST_PROB 20
 
 /mob/living/carbon/human/on_job_equipping(datum/job/equipping)
+<<<<<<< HEAD
 	var/datum/bank_account/bank_account = new(real_name, equipping, 1) /// SKYRAPTOR EDIT: no more species payday modifier
 	bank_account.payday(STARTING_PAYCHECKS, TRUE)
 	account_id = bank_account.account_id
 	bank_account.replaceable = FALSE
 	add_mob_memory(/datum/memory/key/account, remembered_id = account_id)
+=======
+	if(equipping.paycheck_department)
+		var/datum/bank_account/bank_account = new(real_name, equipping, dna.species.payday_modifier)
+		bank_account.payday(STARTING_PAYCHECKS, TRUE)
+		account_id = bank_account.account_id
+		bank_account.replaceable = FALSE
+		add_mob_memory(/datum/memory/key/account, remembered_id = account_id)
+>>>>>>> 9ac81e1a648 (New station trait job: Human AI (#81681))
 
 	dress_up_as_job(equipping)
 
