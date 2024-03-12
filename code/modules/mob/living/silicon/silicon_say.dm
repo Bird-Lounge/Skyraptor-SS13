@@ -20,6 +20,11 @@
 		spans
 	)
 
+	var/namepart = name
+	// If carbon, use voice to account for voice changers
+	if(iscarbon(src))
+		namepart = GetVoice()
+
 	for(var/mob/M in GLOB.player_list)
 		if(M.binarycheck())
 			if(isAI(M))
@@ -27,7 +32,7 @@
 					M,
 					span_binarysay("\
 						Robotic Talk, \
-						<a href='?src=[REF(M)];track=[html_encode(name)]'>[span_name("[name] ([designation])")]</a> \
+						<a href='?src=[REF(M)];track=[html_encode(namepart)]'>[span_name("[namepart] ([designation])")]</a> \
 						<span class='message'>[quoted_message]</span>\
 					"),
 					avoid_highlighting = src == M
@@ -37,7 +42,7 @@
 					M,
 					span_binarysay("\
 						Robotic Talk, \
-						[span_name("[name]")] <span class='message'>[quoted_message]</span>\
+						[span_name("[namepart]")] <span class='message'>[quoted_message]</span>\
 					"),
 					avoid_highlighting = src == M
 				)
@@ -59,7 +64,7 @@
 				span_binarysay("\
 					[follow_link] \
 					Robotic Talk, \
-					[span_name("[name]")] <span class='message'>[quoted_message]</span>\
+					[span_name("[namepart]")] <span class='message'>[quoted_message]</span>\
 				"),
 				avoid_highlighting = src == M
 			)
