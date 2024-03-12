@@ -8,6 +8,7 @@
 
 /mob/living/carbon/Move(NewLoc, direct)
 	. = ..()
+<<<<<<< HEAD
 	if(. && !(movement_type & FLOATING)) //floating is easy
 		if(HAS_TRAIT(src, TRAIT_NOHUNGER))
 			set_nutrition(NUTRITION_LEVEL_FED - 1) //just less than feeling vigorous
@@ -18,6 +19,16 @@
 			if(move_intent == MOVE_INTENT_SPRINT) /// SKYRAPTOR ADDITION: sprinting should cost hunger too!
 				adjust_nutrition(-(HUNGER_FACTOR/10))
 
+=======
+	if(!. || (movement_type & FLOATING)) //floating is easy
+		return
+	if(nutrition <= 0 || stat == DEAD)
+		return
+	var/hunger_loss = HUNGER_FACTOR / 10
+	if(move_intent == MOVE_INTENT_RUN)
+		hunger_loss *= 2
+	adjust_nutrition(-1 * hunger_loss)
+>>>>>>> b8b420cfcbd (Food Bar Updates, moves it out of the alert "stack" and to the left of mood, makes it more snappy (#81834))
 
 /mob/living/carbon/set_usable_legs(new_value)
 	. = ..()

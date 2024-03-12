@@ -170,9 +170,14 @@
 			//flashed.set_confusion_if_lower(confusion_duration * CONFUSION_STACK_MAX_MULTIPLIER) SKYRAPTOR REMOVAL
 			visible_message(span_danger("[user] blinds [flashed] with the flash!"), span_userdanger("[user] blinds you with the flash!"))
 			//easy way to make sure that you can only long stun someone who is facing in your direction
+<<<<<<< HEAD
 			//flashed.adjustStaminaLoss(rand(80, 120) * (1 - (deviation * 0.5))) SKYRAPTOR REMOVAL
 			//flashed.Paralyze(rand(25, 50) * (1 - (deviation * 0.5))) SKYRAPTOR REMOVAL
 			flashed.Disorient((7 SECONDS * (1-(deviation*0.5))), 70, paralyze = 2 SECONDS)
+=======
+			flashed.adjustStaminaLoss(rand(80, 120) * (1 - (deviation * 0.5)))
+			flashed.Knockdown(rand(25, 50) * (1 - (deviation * 0.5)))
+>>>>>>> c071a617816 (Changes flash Paralyze to Knockdown (#81676))
 			SEND_SIGNAL(user, COMSIG_MOB_SUCCESSFUL_FLASHED_CARBON, flashed, src, deviation)
 
 		else if(user)
