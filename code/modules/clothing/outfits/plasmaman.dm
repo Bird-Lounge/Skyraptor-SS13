@@ -288,3 +288,20 @@
 	uniform = /obj/item/clothing/under/plasmaman/bitrunner
 	gloves = /obj/item/clothing/gloves/color/plasmaman/black
 	head = /obj/item/clothing/head/helmet/space/plasmaman/bitrunner
+<<<<<<< HEAD
+=======
+
+/datum/outfit/plasmaman/bridge_assistant
+	name = "Bridge Assistant Plasmaman"
+
+	uniform = /obj/item/clothing/under/plasmaman //call me when this is gags and not 10 million new assets
+	gloves = /obj/item/clothing/gloves/color/plasmaman/black
+	head = /obj/item/clothing/head/helmet/space/plasmaman
+
+/datum/outfit/plasmaman/human_ai
+	name = "Human AI Plasmaman"
+
+	uniform = /obj/item/clothing/under/plasmaman //same
+	gloves = /obj/item/clothing/gloves/color/plasmaman/black
+	head = /obj/item/clothing/head/helmet/space/plasmaman
+>>>>>>> 9ac81e1a648 (New station trait job: Human AI (#81681))
