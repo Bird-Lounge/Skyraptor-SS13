@@ -88,3 +88,13 @@
 	if(. == PROCESS_KILL)
 		set_light_on(FALSE)
 
+<<<<<<< HEAD
+=======
+/obj/machinery/bouldertech/refinery/smelter/on_set_is_operational(old_value)
+	set_light_on(TRUE)
+
+/obj/machinery/bouldertech/refinery/smelter/maim_golem(mob/living/carbon/human/rockman)
+	rockman.visible_message(span_warning("[rockman] is processed by [src]!"), span_userdanger("You get melted into rock by [src]!"))
+	rockman.investigate_log("was melted by [src] for being a golem", INVESTIGATE_DEATHS)
+	rockman.dust()
+>>>>>>> 62d74bc4d58 (Minor cleanup for machine frames & boulder machines (#81706))

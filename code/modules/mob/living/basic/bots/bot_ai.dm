@@ -207,12 +207,20 @@
 	behavior_flags = AI_BEHAVIOR_CAN_PLAN_DURING_EXECUTION
 	action_cooldown = 30 SECONDS
 
+<<<<<<< HEAD
 /datum/ai_behavior/find_and_set/valid_beepsky/search_tactic(datum/ai_controller/controller, locate_path, search_range)
 	for(var/mob/living/simple_animal/bot/secbot/robot in oview(search_range, controller.pawn))
 		if(!(robot.bot_mode_flags & BOT_MODE_ON))
 			continue
 		return robot
 
+=======
+/datum/ai_behavior/find_and_set/valid_authority/search_tactic(datum/ai_controller/controller, locate_path, search_range)
+	for(var/mob/living/nearby_mob in oview(search_range, controller.pawn))
+		if(!HAS_TRAIT(nearby_mob, TRAIT_COMMISSIONED))
+			continue
+		return nearby_mob
+>>>>>>> 9ac81e1a648 (New station trait job: Human AI (#81681))
 	return null
 
 /datum/ai_behavior/salute_beepsky

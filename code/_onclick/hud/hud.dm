@@ -95,6 +95,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/atom/movable/screen/stamina
 	var/atom/movable/screen/healthdoll
 	var/atom/movable/screen/spacesuit
+<<<<<<< HEAD
 	
 	/// SKYRAPTOR ADDITIONS
 	var/atom/movable/screen/stamina_capmod
@@ -103,6 +104,9 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/atom/movable/screen/stamina/alert_up/stamina_alerts
 	var/atom/movable/screen/stamina/hunger/stamina_hunger
 	
+=======
+	var/atom/movable/screen/hunger
+>>>>>>> b8b420cfcbd (Food Bar Updates, moves it out of the alert "stack" and to the left of mood, makes it more snappy (#81834))
 	// subtypes can override this to force a specific UI style
 	var/ui_style
 
@@ -247,6 +251,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	stamina = null
 	healthdoll = null
 	spacesuit = null
+	hunger = null
 	blobpwrdisplay = null
 	alien_plasma_display = null
 	alien_queen_finder = null

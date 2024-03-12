@@ -128,16 +128,11 @@
 		if(human.overeatduration < (200 SECONDS))
 			to_chat(human, span_notice("You feel fit again!"))
 			REMOVE_TRAIT(human, TRAIT_FAT, OBESITY)
-			human.remove_movespeed_modifier(/datum/movespeed_modifier/obesity)
-			human.update_worn_undersuit()
-			human.update_worn_oversuit()
+
 	else
 		if(human.overeatduration >= (200 SECONDS))
 			to_chat(human, span_danger("You suddenly feel blubbery!"))
 			ADD_TRAIT(human, TRAIT_FAT, OBESITY)
-			human.add_movespeed_modifier(/datum/movespeed_modifier/obesity)
-			human.update_worn_undersuit()
-			human.update_worn_oversuit()
 
 	// nutrition decrease and satiety
 	if (human.nutrition > 0 && human.stat != DEAD)
@@ -200,6 +195,7 @@
 	if(CONFIG_GET(flag/disable_human_mood))
 		handle_hunger_slowdown(human)
 
+<<<<<<< HEAD
 	// If we did anything more then just set and throw alerts here I would add bracketing
 	// But well, it is all we do, so there's not much point bothering with it you get me?
 	switch(nutrition)
@@ -228,6 +224,8 @@
 			human.stamina.majorbufflist["Overweight"] = ""
 			human.stamina.majorbufflist["Starving"] = "Extremely malnourished, -75 capacity and -3 regen"
 
+=======
+>>>>>>> b8b420cfcbd (Food Bar Updates, moves it out of the alert "stack" and to the left of mood, makes it more snappy (#81834))
 ///for when mood is disabled and hunger should handle slowdowns
 /obj/item/organ/internal/stomach/proc/handle_hunger_slowdown(mob/living/carbon/human/human)
 	var/hungry = (500 - human.nutrition) / 5 //So overeat would be 100 and default level would be 80
@@ -289,13 +287,16 @@
 			disgusted.throw_alert(ALERT_DISGUST, /atom/movable/screen/alert/disgusted)
 			disgusted.add_mood_event("disgust", /datum/mood_event/disgusted)
 
+/obj/item/organ/internal/stomach/Insert(mob/living/carbon/receiver, special, movement_flags)
+	. = ..()
+	receiver.hud_used?.hunger?.update_appearance()
+
 /obj/item/organ/internal/stomach/Remove(mob/living/carbon/stomach_owner, special, movement_flags)
 	if(ishuman(stomach_owner))
 		var/mob/living/carbon/human/human_owner = owner
 		human_owner.clear_alert(ALERT_DISGUST)
 		human_owner.clear_mood_event("disgust")
-		human_owner.clear_alert(ALERT_NUTRITION)
-
+	stomach_owner.hud_used?.hunger?.update_appearance()
 	return ..()
 
 /obj/item/organ/internal/stomach/bone
