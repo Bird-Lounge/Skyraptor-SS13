@@ -544,7 +544,7 @@ const SnowflakeRadio = (props) => {
       </LabeledList.Item>
       <LabeledList.Item label="Frequency">
         <NumberInput
-          animate
+          animated
           unit="kHz"
           step={0.2}
           stepPixelSize={10}
@@ -737,7 +737,7 @@ const SnowflakeAirTank = (props) => {
             minValue={tank_pump_pressure_min}
             maxValue={tank_pump_pressure_max}
             step={10}
-            format={(value) => Math.round(value)}
+            format={(value) => `${Math.round(value)}`}
             onChange={(e, value) =>
               act('equip_act', {
                 ref: ref,
