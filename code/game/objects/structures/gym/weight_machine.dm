@@ -105,8 +105,20 @@
 			user.balloon_alert(user, pick(finished_silicon_message))
 		else
 			user.balloon_alert(user, pick(finished_message))
+<<<<<<< HEAD
 		user.add_mood_event("exercise", /datum/mood_event/exercise)
 		user.apply_status_effect(/datum/status_effect/exercised)
+=======
+
+		user.adjust_nutrition(-5) // feel the burn
+
+		if(iscarbon(user))
+			var/gravity_modifier = user.has_gravity() > STANDARD_GRAVITY ? 2 : 1
+			// remember the real xp gain is from sleeping after working out
+			user.mind.adjust_experience(/datum/skill/fitness, WORKOUT_XP * gravity_modifier)
+			user.apply_status_effect(/datum/status_effect/exercised, EXERCISE_STATUS_DURATION)
+
+>>>>>>> 7c6b53e30f1 (Training in heavy gravity gives you more experience points (#81990))
 	end_workout()
 
 /obj/structure/weightmachine/proc/end_workout()
@@ -124,7 +136,25 @@
 	var/mob/living/user = buckled_mobs[1]
 	animate(user, pixel_y = pixel_shift_y, time = 4)
 	playsound(user, 'sound/machines/creak.ogg', 60, TRUE)
+<<<<<<< HEAD
 	animate(pixel_y = user.base_pixel_y, time = 4)
+=======
+	animate(pixel_y = user.base_pixel_y, time = WORKOUT_LENGTH * 0.5)
+
+	if(!iscarbon(user) || isnull(user.mind))
+		return TRUE
+
+	var/affected_gravity = user.has_gravity()
+	if (!affected_gravity)
+		return TRUE // No weight? I could do this all day
+	var/gravity_modifier = affected_gravity > STANDARD_GRAVITY ? 0.75 : 1
+	// the amount of workouts you can do before you hit stamcrit
+	var/workout_reps = total_workout_reps[user.mind.get_skill_level(/datum/skill/fitness)] * gravity_modifier
+	// total stamina drain of 1 workout calculated based on the workout length
+	var/stamina_exhaustion = FLOOR(user.maxHealth / workout_reps / WORKOUT_LENGTH, 0.1)
+	user.adjustStaminaLoss(stamina_exhaustion * seconds_per_tick)
+
+>>>>>>> 7c6b53e30f1 (Training in heavy gravity gives you more experience points (#81990))
 	return TRUE
 
 /**
