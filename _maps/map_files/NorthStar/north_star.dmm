@@ -53690,6 +53690,17 @@
 /mob/living/basic/cow,
 /turf/open/floor/grass,
 /area/station/service/hydroponics)
+<<<<<<< HEAD
+=======
+"nKc" = (
+/obj/structure/cable,
+/obj/machinery/conveyor/inverted{
+	dir = 10;
+	id = "mining"
+	},
+/turf/open/floor/iron/checker,
+/area/station/cargo/miningdock)
+>>>>>>> d914588cd48 (Fixes conveyor ID in northstar boulder processing room. (#82026))
 "nKn" = (
 /obj/structure/sign/directions/dorms/directional/east,
 /obj/structure/sign/directions/evac/directional/east{
@@ -74003,6 +74014,18 @@
 /obj/machinery/light/red/dim/directional/north,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/floor3/port)
+<<<<<<< HEAD
+=======
+"tbt" = (
+/obj/structure/cable,
+/obj/machinery/bouldertech/refinery/smelter,
+/obj/machinery/conveyor/inverted{
+	dir = 10;
+	id = "mining"
+	},
+/turf/open/floor/iron/checker,
+/area/station/cargo/miningdock)
+>>>>>>> d914588cd48 (Fixes conveyor ID in northstar boulder processing room. (#82026))
 "tbu" = (
 /obj/effect/spawner/random/trash/hobo_squat,
 /obj/effect/decal/cleanable/dirt,
@@ -74701,7 +74724,8 @@
 "tkZ" = (
 /obj/structure/cable,
 /obj/machinery/conveyor/inverted{
-	dir = 6
+	dir = 6;
+	id = "mining"
 	},
 /turf/open/floor/iron/checker,
 /area/station/cargo/miningdock)
