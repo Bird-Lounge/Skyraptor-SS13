@@ -163,6 +163,22 @@
 /mob/living/basic/mining/goliath/ranged_secondary_attack(atom/atom_target, modifiers)
 	tentacle_line?.Trigger(target = atom_target)
 
+<<<<<<< HEAD
+=======
+/// Version of the goliath that already starts saddled and doesn't require a lasso to be ridden.
+/mob/living/basic/mining/goliath/deathmatch
+	saddled = TRUE
+	buckle_lying = 0
+
+/mob/living/basic/mining/goliath/deathmatch/Initialize(mapload)
+	. = ..()
+	make_rideable()
+
+/mob/living/basic/mining/goliath/deathmatch/make_rideable()
+	add_overlay("goliath_saddled")
+	AddElement(/datum/element/ridable, /datum/component/riding/creature/goliath/deathmatch)
+
+>>>>>>> 9cc18fe1fe2 ([NO GBP] The deathmatch modifiers modal menu can actually be opened now. (#82041))
 /// Legacy Goliath mob with different sprites, largely the same behaviour
 /mob/living/basic/mining/goliath/ancient
 	name = "ancient goliath"
