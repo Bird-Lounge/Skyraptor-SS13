@@ -19,6 +19,13 @@
 	var/list/loadouts
 	/// Current map player spawn locations, cleared after spawning
 	var/list/player_spawns = list()
+<<<<<<< HEAD
+=======
+	/// A list of paths of modifiers enabled for the match.
+	var/list/modifiers = list()
+	/// Is the modifiers modal menu open (for the host)
+	var/mod_menu_open = FALSE
+>>>>>>> 9cc18fe1fe2 ([NO GBP] The deathmatch modifiers modal menu can actually be opened now. (#82041))
 
 /datum/deathmatch_lobby/New(mob/player)
 	. = ..()
@@ -100,6 +107,14 @@
 	addtimer(CALLBACK(src, PROC_REF(game_took_too_long)), initial(map.automatic_gameend_time))
 	log_game("Deathmatch game [host] started.")
 	announce(span_reallybig("GO!"))
+<<<<<<< HEAD
+=======
+	if(length(modifiers))
+		var/list/modifier_names = list()
+		for(var/datum/deathmatch_modifier/modifier as anything in modifiers)
+			modifier_names += uppertext(initial(modifier.name))
+		announce(span_boldnicegreen("THIS MATCH MODIFIERS: [english_list(modifier_names, and_text = " ,")]."))
+>>>>>>> 9cc18fe1fe2 ([NO GBP] The deathmatch modifiers modal menu can actually be opened now. (#82041))
 	return TRUE
 
 /datum/deathmatch_lobby/proc/spawn_observer_as_player(ckey, loc)
@@ -326,7 +341,31 @@
 	.["map"]["time"] = map.automatic_gameend_time
 	.["map"]["min_players"] = map.min_players
 	.["map"]["max_players"] = map.max_players
+<<<<<<< HEAD
 	if(!isnull(players[user.ckey]) && !isnull(players[user.ckey]["loadout"]))
+=======
+
+	.["mod_menu_open"] = FALSE
+	if((is_host || is_admin) && mod_menu_open)
+		.["mod_menu_open"] = TRUE
+		for(var/modpath in GLOB.deathmatch_game.modifiers)
+			var/datum/deathmatch_modifier/mod = GLOB.deathmatch_game.modifiers[modpath]
+			.["modifiers"] += list(list(
+				"name" = mod.name,
+				"desc" = mod.description,
+				"modpath" = "[modpath]",
+				"selected" = (modpath in modifiers),
+				"selectable" = is_host && mod.selectable(src),
+			))
+	.["active_mods"] = "No modifiers selected"
+	if(length(modifiers))
+		var/list/mod_names = list()
+		for(var/datum/deathmatch_modifier/modpath as anything in modifiers)
+			mod_names += initial(modpath.name)
+		.["active_mods"] = "Selected modifiers: [english_list(mod_names)]"
+
+	if(is_player && !isnull(players[user.ckey]["loadout"]))
+>>>>>>> 9cc18fe1fe2 ([NO GBP] The deathmatch modifiers modal menu can actually be opened now. (#82041))
 		var/datum/outfit/deathmatch_loadout/loadout = players[user.ckey]["loadout"]
 		.["loadoutdesc"] = initial(loadout.desc)
 	else
@@ -435,6 +474,34 @@
 				if ("global_chat")
 					global_chat = !global_chat
 					return TRUE
+<<<<<<< HEAD
+=======
+		if("open_mod_menu")
+			mod_menu_open = TRUE
+			return TRUE
+		if("exit_mod_menu")
+			mod_menu_open = FALSE
+			return TRUE
+		if("toggle_modifier")
+			var/datum/deathmatch_modifier/modpath = text2path(params["modpath"])
+			if(!ispath(modpath))
+				return TRUE
+			var/global_mod = params["global_mod"]
+			if(global_mod)
+				if(usr.ckey != host && !check_rights(R_ADMIN))
+					return TRUE
+			else if(!(usr.ckey in players))
+				return TRUE
+			var/datum/deathmatch_modifier/chosen_modifier = GLOB.deathmatch_game.modifiers[modpath]
+			if(modpath in modifiers)
+				chosen_modifier.unselect(src)
+				modifiers -= modpath
+				return TRUE
+			else if(chosen_modifier.selectable(src))
+				chosen_modifier.on_select(src)
+				modifiers += modpath
+				return TRUE
+>>>>>>> 9cc18fe1fe2 ([NO GBP] The deathmatch modifiers modal menu can actually be opened now. (#82041))
 		if ("admin") // Admin functions
 			if (!check_rights(R_ADMIN))
 				message_admins("[usr.key] has attempted to use admin functions in a deathmatch lobby!")
@@ -445,4 +512,11 @@
 					log_admin("[key_name(usr)] force started deathmatch lobby [host].")
 					start_game()
 
+<<<<<<< HEAD
 
+=======
+/datum/deathmatch_lobby/ui_close(mob/user)
+	. = ..()
+	if(user.ckey == host)
+		mod_menu_open = FALSE
+>>>>>>> 9cc18fe1fe2 ([NO GBP] The deathmatch modifiers modal menu can actually be opened now. (#82041))

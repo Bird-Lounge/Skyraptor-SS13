@@ -211,3 +211,42 @@ export const DeathmatchLobby = (props) => {
     </Window>
   );
 };
+<<<<<<< HEAD
+=======
+
+const ModSelector = (props) => {
+  const { act, data } = useBackend<Data>();
+  const { admin, host, mod_menu_open, modifiers = [] } = data;
+  if (!mod_menu_open || !(host || admin)) {
+    return null;
+  }
+  return (
+    <Modal>
+      <Button
+        fluid
+        content="Go Back"
+        color="bad"
+        onClick={() => act('exit_mod_menu')}
+      />
+      {modifiers.map((mod, index) => {
+        return (
+          <Button.Checkbox
+            key={index}
+            mb={2}
+            checked={mod.selected}
+            content={mod.name}
+            tooltip={mod.desc}
+            color={mod.selected ? 'green' : 'blue'}
+            disabled={!mod.selected && !mod.selectable}
+            onClick={() =>
+              act('toggle_modifier', {
+                modpath: mod.modpath,
+              })
+            }
+          />
+        );
+      })}
+    </Modal>
+  );
+};
+>>>>>>> 9cc18fe1fe2 ([NO GBP] The deathmatch modifiers modal menu can actually be opened now. (#82041))

@@ -221,3 +221,15 @@
 	visible_message(span_warning("A bomb appears in [src], what the fuck?"))
 	obj_flags |= EMAGGED
 	return TRUE
+<<<<<<< HEAD
+=======
+
+///Version with slightly better components. Used by deathmatches.
+/obj/vehicle/ridden/wheelchair/motorized/improved
+
+/obj/vehicle/ridden/wheelchair/motorized/improved/add_component_parts()
+	component_parts += GLOB.stock_part_datums[/datum/stock_part/capacitor]
+	component_parts += GLOB.stock_part_datums[/datum/stock_part/servo/tier2]
+	component_parts += GLOB.stock_part_datums[/datum/stock_part/servo]
+	power_cell = new /obj/item/stock_parts/cell/upgraded/plus(src)
+>>>>>>> 9cc18fe1fe2 ([NO GBP] The deathmatch modifiers modal menu can actually be opened now. (#82041))
