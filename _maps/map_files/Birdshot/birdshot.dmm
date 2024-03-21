@@ -5529,6 +5529,7 @@
 "ciT" = (
 /obj/structure/table/glass,
 /obj/item/radio/intercom/directional/east,
+/obj/machinery/recharger,
 /turf/open/floor/iron/white,
 /area/station/science/auxlab/firing_range)
 "cjm" = (
@@ -50904,7 +50905,7 @@
 /turf/open/misc/sandy_dirt,
 /area/station/maintenance/starboard/aft)
 "rLN" = (
-/obj/structure/safe,
+/obj/structure/safe/vault,
 /obj/item/lazarus_injector,
 /obj/effect/turf_decal/bot_white,
 /obj/effect/turf_decal/siding/thinplating_new{

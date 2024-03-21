@@ -518,6 +518,7 @@
 			selector.update_appearance()
 	update_move_intent_slowdown()
 
+<<<<<<< HEAD
 /// SKYRAPTOR ADDITION
 /mob/living/proc/set_move_intent(new_state)
 	move_intent = new_state
@@ -525,6 +526,9 @@
 		for(var/atom/movable/screen/mov_intent/selector in hud_used.static_inventory)
 			selector.update_appearance()
 /// SKYRAPTOR END
+=======
+	SEND_SIGNAL(user, COMSIG_MOVE_INTENT_TOGGLED)
+>>>>>>> bff8de4fe18 (Skateboard tweaks and buffs. (#81928))
 
 ///Moves a mob upwards in z level
 /mob/verb/up()
