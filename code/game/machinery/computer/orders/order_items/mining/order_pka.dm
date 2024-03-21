@@ -39,4 +39,12 @@
 
 /datum/orderable_item/accelerator/minebot_passthrough
 	item_path = /obj/item/borg/upgrade/modkit/minebot_passthrough
+<<<<<<< HEAD
 	cost_per_order = 1000
+=======
+	cost_per_order = 800
+
+/datum/orderable_item/accelerator/friendly_fire
+	item_path = /obj/item/borg/upgrade/modkit/human_passthrough
+	cost_per_order = 750
+>>>>>>> 405d369694e (Crushers and PKAs: Coop Upgrades (#81940))
