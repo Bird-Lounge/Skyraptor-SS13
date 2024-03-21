@@ -98,6 +98,20 @@
 	style = STYLE_SYNDICATE
 	specialised = TRUE
 
+<<<<<<< HEAD
+=======
+/obj/structure/closet/supplypod/deadmatch_missile
+	name = "cruise missile"
+	desc = "A big ass missile, likely launched from some far-off deep space missile silo."
+	style = STYLE_RED_MISSILE
+	explosionSize = list(0,1,2,2)
+	effectShrapnel = TRUE
+	specialised = TRUE
+	delays = list(POD_TRANSIT = 2.6 SECONDS, POD_FALLING = 0.4 SECONDS)
+	effectMissile = TRUE
+	shrapnel_type = /obj/projectile/bullet/shrapnel/short_range
+
+>>>>>>> 89a3734d990 (Deathmatch Modifiers Tweaks and Additions (#82113))
 /datum/armor/closet_supplypod
 	melee = 30
 	bullet = 50
