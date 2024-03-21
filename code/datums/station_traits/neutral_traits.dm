@@ -3,12 +3,8 @@
 	name = "Bananium Shipment"
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 5
-<<<<<<< HEAD
-	report_message = "Rumors has it that the clown planet has been sending support packages to clowns in this system"
-=======
 	cost = STATION_TRAIT_COST_LOW
 	report_message = "Rumors has it that the clown planet has been sending support packages to clowns in this system."
->>>>>>> a59cebea564 (Increased odds of station traits a little. Introduced a "budget", so smaller traits only take half as much space. (#80211))
 	trait_to_give = STATION_TRAIT_BANANIUM_SHIPMENTS
 
 /datum/station_trait/unnatural_atmosphere
@@ -398,7 +394,7 @@
 		ai_datum.spawn_positions = 3
 		ai_datum.total_positions = 3
 
-
+/* SKYRAPTOR REMOVAL: WHAT THE FUCK IS SKUB AND WHY DOES IT GET TO BE SO IMPORTANT.  FREAKS
 #define PRO_SKUB "pro-skub"
 #define ANTI_SKUB "anti-skub"
 #define SKUB_IDFC "i don't frikkin' care"
@@ -529,4 +525,4 @@
 #undef ANTI_SKUB
 #undef SKUB_IDFC
 #undef RANDOM_SKUB
-
+*/ /// SKYRAPTOR REMOVAL END
