@@ -122,7 +122,7 @@
 
 // register signals withthe parent item
 /datum/component/two_handed/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equip))
+	RegisterSignal(parent, COMSIG_ITEM_POST_EQUIPPED, PROC_REF(on_equip))
 	RegisterSignal(parent, COMSIG_ITEM_DROPPED, PROC_REF(on_drop))
 	RegisterSignal(parent, COMSIG_ITEM_ATTACK_SELF, PROC_REF(on_attack_self))
 	RegisterSignal(parent, COMSIG_ITEM_ATTACK, PROC_REF(on_attack))
@@ -135,7 +135,7 @@
 // Remove all siginals registered to the parent item
 /datum/component/two_handed/UnregisterFromParent()
 	UnregisterSignal(parent, list(
-		COMSIG_ITEM_EQUIPPED,
+		COMSIG_ITEM_POST_EQUIPPED,
 		COMSIG_ITEM_DROPPED,
 		COMSIG_ITEM_ATTACK_SELF,
 		COMSIG_ITEM_ATTACK,
@@ -191,11 +191,24 @@
 /datum/component/two_handed/proc/wield(mob/living/carbon/user)
 	if(wielded)
 		return
+<<<<<<< HEAD
+=======
+
+	var/atom/atom_parent = parent
+	if(HAS_TRAIT(user, TRAIT_NO_TWOHANDING))
+		if(require_twohands)
+			atom_parent.balloon_alert(user, "too weak to wield!")
+			user.dropItemToGround(parent, force = TRUE)
+		else
+			atom_parent.balloon_alert(user, "too weak to wield with both hands!")
+		return COMPONENT_EQUIPPED_FAILED
+>>>>>>> b664bfc9d1b (Enforces checks on dual wielding items (#82130))
 	if(user.get_inactive_held_item())
 		if(require_twohands)
 			to_chat(user, span_notice("[parent] is too cumbersome to carry in one hand!"))
 			user.dropItemToGround(parent, force=TRUE)
 		else
+<<<<<<< HEAD
 			to_chat(user, span_warning("You need your other hand to be empty!"))
 		return
 	if(user.usable_hands < 2)
@@ -203,10 +216,20 @@
 			user.dropItemToGround(parent, force=TRUE)
 		to_chat(user, span_warning("You don't have enough intact hands."))
 		return
+=======
+			atom_parent.balloon_alert(user, "holding something in other hand!")
+		return COMPONENT_EQUIPPED_FAILED
+	if(user.usable_hands < 2)
+		if(require_twohands)
+			user.dropItemToGround(parent, force = TRUE)
+		atom_parent.balloon_alert(user, "not enough hands!")
+		return COMPONENT_EQUIPPED_FAILED
+>>>>>>> b664bfc9d1b (Enforces checks on dual wielding items (#82130))
 
 	// wield update status
 	if(SEND_SIGNAL(parent, COMSIG_TWOHANDED_WIELD, user) & COMPONENT_TWOHANDED_BLOCK_WIELD)
-		return // blocked wield from item
+		user.dropItemToGround(parent, force = TRUE)
+		return COMPONENT_EQUIPPED_FAILED // blocked wield from item
 	wielded = TRUE
 	ADD_TRAIT(parent, TRAIT_WIELDED, REF(src))
 	RegisterSignal(user, COMSIG_MOB_SWAPPING_HANDS, PROC_REF(on_swapping_hands))
