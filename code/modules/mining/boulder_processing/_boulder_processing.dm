@@ -313,8 +313,11 @@
 	if(!can_process_golem(rockman))
 		return
 
+	if(!use_energy(active_power_usage * 1.5, force = FALSE))
+		say("Not enough energy!")
+		return
+
 	maim_golem(rockman)
-	use_power(active_power_usage * 1.5)
 	playsound(src, usage_sound, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 
 	COOLDOWN_START(src, accept_cooldown, 3 SECONDS)
@@ -443,7 +446,13 @@
 		return FALSE
 =======
 		return
+<<<<<<< HEAD
 >>>>>>> 62d74bc4d58 (Minor cleanup for machine frames & boulder machines (#81706))
+=======
+	if(!use_energy(active_power_usage, force = FALSE))
+		say("Not enough energy!")
+		return
+>>>>>>> c1f11f26cef (Converts arbitrary energy units to the joule. Fixes conservation of energy issues relating to charging cells. (#81579))
 
 	//here we loop through the boulder's ores
 	var/list/processable_ores = list()
@@ -470,6 +479,7 @@
 	silo_materials.insert_item(disposable_boulder, refining_efficiency)
 	qdel(disposable_boulder)
 
+<<<<<<< HEAD
 	refining_efficiency = initial(refining_efficiency) //Reset refining efficiency to 100% now that we've processed any relevant ores.
 	if(!length(chosen_boulder.custom_materials))
 		playsound(loc, 'sound/weapons/drill.ogg', 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
@@ -478,6 +488,18 @@
 		chosen_boulder.break_apart()
 		update_boulder_count()
 		return TRUE //We've processed all the materials in the boulder, so we can just destroy it in break_apart.
+=======
+		//here we loop through the boulder's ores
+		var/list/rejected_mats = list()
+		for(var/datum/material/possible_mat as anything in chosen_boulder.custom_materials)
+			var/quantity = chosen_boulder.custom_materials[possible_mat] * refining_efficiency
+			if(!can_process_material(possible_mat))
+				rejected_mats[possible_mat] = quantity
+				continue
+			points_held = round(points_held + (quantity * possible_mat.points_per_unit * MINING_POINT_MACHINE_MULTIPLIER)) // put point total here into machine
+			if(!silo_materials.mat_container.insert_amount_mat(quantity, possible_mat))
+				rejected_mats[possible_mat] = quantity
+>>>>>>> c1f11f26cef (Converts arbitrary energy units to the joule. Fixes conservation of energy issues relating to charging cells. (#81579))
 
 <<<<<<< HEAD
 	chosen_boulder.restart_processing_cooldown() //So that we don't pick it back up!
