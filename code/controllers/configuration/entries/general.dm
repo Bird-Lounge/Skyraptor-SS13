@@ -575,6 +575,9 @@
 /datum/config_entry/string/channel_announce_end_game
 	default = null
 
+/datum/config_entry/string/role_ping_new_game
+	default = null
+
 /datum/config_entry/string/chat_new_game_notifications
 	default = null
 

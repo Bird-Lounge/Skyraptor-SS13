@@ -575,7 +575,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		adminGreet(1)
 		holder.owner = null
 		GLOB.admins -= src
-		if (!GLOB.admins.len && SSticker.IsRoundInProgress()) //Only report this stuff if we are currently playing.
+		/*if (!GLOB.admins.len && SSticker.IsRoundInProgress()) //Only report this stuff if we are currently playing.
 			var/cheesy_message = pick(
 				"I have no admins online!",\
 				"I'm all alone :(",\
@@ -591,7 +591,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 				"Forever alone :("\
 			)
 
-			send2adminchat("Server", "[cheesy_message] (No admins online)")
+			send2adminchat("Server", "[cheesy_message] (No admins online)")*/
 	QDEL_LIST_ASSOC_VAL(char_render_holders)
 
 	SSambience.remove_ambience_client(src)
